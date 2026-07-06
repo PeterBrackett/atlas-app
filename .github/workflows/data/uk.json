@@ -1,0 +1,19 @@
+{
+  "country_code": "GB",
+  "country_name": "United Kingdom",
+  "reporting_period": "2026-06 (S&P export date)",
+  "source_note": "Segment AUM below is taken from FINAL_Country_Matrix.xlsx as reviewed during schema design. Units are labelled '$bn' in the source workbook but line up with GBP magnitudes for known UK institutions (e.g. Bank of England) — currency confirmation is still an open item (see Atlas_Schema_Proposal_v1.md). DB Pension (Govt) is a top-down override (~£393.94bn, aligned to official LGPS statistics) rather than the raw S&P bottom-up sum (~£634.45bn) — see Section 2c of the schema doc for why.",
+  "segments": [
+    { "segment": "Life insurance", "aum_bn": 2756.978, "equity_allocation_bn": 28.304, "basis": "Industry aggregate" },
+    { "segment": "DB Pension (Corp)", "aum_bn": 1863.858869, "equity_allocation_bn": 205.196711, "basis": "Bottom-up (S&P aggregate)" },
+    { "segment": "Tax exempt E&F", "aum_bn": 175.455117, "equity_allocation_bn": 49.365351, "basis": "Bottom-up (S&P aggregate)" },
+    { "segment": "DB Pension (Govt)", "aum_bn": 393.94, "equity_allocation_bn": 142.552732, "basis": "Top-down override (LGPS official)" },
+    { "segment": "Non-life insurance", "aum_bn": 32.576, "equity_allocation_bn": 1.905, "basis": "Industry aggregate" },
+    { "segment": "Endowments E&F", "aum_bn": 63.671836, "equity_allocation_bn": 20.592617, "basis": "Bottom-up (S&P aggregate)" },
+    { "segment": "DC Pension (Corp)", "aum_bn": 120.268371, "equity_allocation_bn": 67.722263, "basis": "Bottom-up (S&P aggregate)" },
+    { "segment": "DB Pension (Union)", "aum_bn": 36.136536, "equity_allocation_bn": 1.545909, "basis": "Bottom-up (S&P aggregate)" },
+    { "segment": "DB Pension (Endowments)", "aum_bn": 12.877945, "equity_allocation_bn": 3.208765, "basis": "Bottom-up (S&P aggregate)" },
+    { "segment": "DB Pension (Tax exempt)", "aum_bn": 24.748343, "equity_allocation_bn": 2.587753, "basis": "Bottom-up (S&P aggregate)" },
+    { "segment": "DC Pension (Govt)", "aum_bn": 9.554385, "equity_allocation_bn": 0, "basis": "Bottom-up (S&P aggregate)" }
+  ]
+}

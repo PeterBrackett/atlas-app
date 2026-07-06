@@ -1,0 +1,18 @@
+{
+  "generated_note": "Bottom-up sums from the S&P Money Manager Database exports reviewed during schema design. Figures are in each country's local currency, thousands, and have not yet been reconciled against top-down overrides (see Atlas_Schema_Proposal_v1.md, Section 2c). Treat as provisional coverage figures, not final published stats.",
+  "countries": [
+    { "code": "GB", "name": "United Kingdom", "total_ps_assets_thousands": 3453598787, "institutions_tracked": 2437, "status": "built", "href": "uk.html" },
+    { "code": "US", "name": "United States", "total_ps_assets_thousands": 24815778423, "institutions_tracked": 281767, "status": "coming_soon" },
+    { "code": "DE", "name": "Germany", "total_ps_assets_thousands": 1397639324, "institutions_tracked": 551, "status": "coming_soon" },
+    { "code": "NL", "name": "Netherlands", "total_ps_assets_thousands": 1854160787, "institutions_tracked": 385, "status": "coming_soon" },
+    { "code": "NO", "name": "Norway", "total_ps_assets_thousands": 1520395540, "institutions_tracked": 209, "status": "coming_soon" },
+    { "code": "CH", "name": "Switzerland", "total_ps_assets_thousands": 983698836, "institutions_tracked": 485, "status": "coming_soon" },
+    { "code": "DK", "name": "Denmark", "total_ps_assets_thousands": 734975477, "institutions_tracked": 68, "status": "coming_soon" },
+    { "code": "SE", "name": "Sweden", "total_ps_assets_thousands": 573226740, "institutions_tracked": 136, "status": "coming_soon" },
+    { "code": "ZA", "name": "South Africa", "total_ps_assets_thousands": 311636409, "institutions_tracked": 177, "status": "coming_soon" },
+    { "code": "IE", "name": "Ireland", "total_ps_assets_thousands": 298640237, "institutions_tracked": 77, "status": "coming_soon" },
+    { "code": "FI", "name": "Finland", "total_ps_assets_thousands": 456840071, "institutions_tracked": 70, "status": "coming_soon" },
+    { "code": "IS", "name": "Iceland", "total_ps_assets_thousands": 51589851, "institutions_tracked": 23, "status": "coming_soon" },
+    { "code": "CA", "name": "Canada", "total_ps_assets_thousands": 2426824552, "institutions_tracked": 830, "status": "coming_soon" }
+  ]
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas — United Kingdom</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div>
+    <h1>Atlas</h1>
+    <div class="tagline">United Kingdom — segment breakdown</div>
+  </div>
+</header>
+<nav class="breadcrumb"><a href="index.html">&larr; Global overview</a></nav>
+
+<main>
+  <div class="summary-bar" id="summary-bar"></div>
+
+  <h2>AUM by segment</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Segment</th>
+        <th class="numeric">AUM (bn)</th>
+        <th class="numeric">Equity allocation (bn)</th>
+        <th>Basis</th>
+      </tr>
+    </thead>
+    <tbody id="segment-rows"></tbody>
+  </table>
+
+  <p class="note" id="uk-note"></p>
+</main>
+
+<script>
+async function load() {
+  const res = await fetch('data/uk.json');
+  const data = await res.json();
+
+  const segments = data.segments.slice().sort((a, b) => b.aum_bn - a.aum_bn);
+  const totalAum = segments.reduce((s, x) => s + x.aum_bn, 0);
+  const topSegment = segments[0];
+
+  document.getElementById('summary-bar').innerHTML = `
+    <div class="stat-card"><div class="value">${totalAum.toLocaleString(undefined, {maximumFractionDigits: 1})}bn</div><div class="label">Total AUM tracked</div></div>
+    <div class="stat-card"><div class="value">${segments.length}</div><div class="label">Segments populated</div></div>
+    <div class="stat-card"><div class="value">${topSegment.segment}</div><div class="label">Largest segment</div></div>
+  `;
+
+  const basisClass = (basis) => {
+    if (basis.startsWith('Top-down')) return 'override';
+    if (basis.startsWith('Industry')) return 'aggregate';
+    return 'bottom-up';
+  };
+
+  const rows = segments.map(s => `
+    <tr>
+      <td>${s.segment}</td>
+      <td class="numeric">${s.aum_bn.toLocaleString(undefined, {maximumFractionDigits: 2})}</td>
+      <td class="numeric">${s.equity_allocation_bn.toLocaleString(undefined, {maximumFractionDigits: 2})}</td>
+      <td><span class="badge ${basisClass(s.basis)}">${s.basis}</span></td>
+    </tr>
+  `).join('');
+
+  document.getElementById('segment-rows').innerHTML = rows;
+  document.getElementById('uk-note').textContent = data.source_note;
+}
+load();
+</script>
+</body>
+</html>
