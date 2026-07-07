@@ -62,9 +62,9 @@ async function checkAuth() {
 
   const el = document.getElementById('auth-status');
   if (CURRENT_USER) {
-    el.innerHTML = `Signed in as ${CURRENT_USER} &nbsp;|&nbsp; <a href="/.auth/logout" style="color:#b9c6d3;">Log out</a>`;
+    el.innerHTML = `Signed in as ${CURRENT_USER} &nbsp;|&nbsp; <a href="/.auth/logout?post_logout_redirect_uri=${encodeURIComponent(window.location.href)}" style="color:#b9c6d3;">Log out</a>`;
   } else {
-    el.innerHTML = `<a href="/.auth/login/aad?post_login_redirect_uri=.referrer" style="color:#b9c6d3;">Log in to edit sources</a>`;
+    el.innerHTML = `<a href="/.auth/login/aad?post_login_redirect_uri=${encodeURIComponent(window.location.href)}" style="color:#b9c6d3;">Log in to edit sources</a>`;
   }
 }
 
