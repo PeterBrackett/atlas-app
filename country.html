@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas — Country</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div>
+    <h1>Atlas</h1>
+    <div class="tagline" id="page-tagline">Country breakdown</div>
+  </div>
+</header>
+<nav class="breadcrumb"><a href="index.html">&larr; Global overview</a></nav>
+
+<main>
+  <div class="summary-bar" id="summary-bar"></div>
+
+  <h2>AUM by segment</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Segment</th>
+        <th class="numeric">AUM (bn)</th>
+        <th class="numeric">Equity allocation (bn)</th>
+        <th>Basis</th>
+      </tr>
+    </thead>
+    <tbody id="segment-rows"></tbody>
+  </table>
+
+  <p class="note" id="data-note"></p>
+
+  <h2 style="margin-top:32px;">Research notes</h2>
+  <div class="research-notes" id="research-notes">
+    <p class="note">Loading notes…</p>
+  </div>
+</main>
+
+<script>
+function getCountryCode() {
+  const params = new URLSearchParams(window.location.search);
+  return (params.get('c') || '').toLowerCase();
+}
+
+async function loadData(code) {
+  try {
+    const res = await fetch(`/api/data/${code}`);
+    if (!res.ok) throw new Error('API not ready');
+    return await res.json();
+  } catch (e) {
+    // Falls back to a bundled sample file if one exists for this code
+    // (currently only 'uk') until the SharePoint-backed API is confirmed live.
+    const res = await fetch(`data/${code}.json`);
+    if (!res.ok) throw new Error(`No data available for '${code}'`);
+    return await res.json();
+  }
+}
+
+async function loadNotes(code) {
+  try {
+    const res = await fetch(`/api/notes/${code}`);
+    if (!res.ok) return '';
+    return await res.text();
+  } catch (e) {
+    return '';
+  }
+}
+
+async function load() {
+  const code = getCountryCode();
+
+  if (!code) {
+    document.querySelector('main').innerHTML = '<p class="note">No country specified. Go back to the <a href="index.html">global overview</a> and pick one from the list.</p>';
+    return;
+  }
+
+  let data;
+  try {
+    data = await loadData(code);
+  } catch (e) {
+    document.querySelector('main').innerHTML = `<p class="note">Couldn't load data for '${code}'. It may not be built out yet — check back from the <a href="index.html">global overview</a>.</p>`;
+    return;
+  }
+
+  document.title = `Atlas — ${data.country_name}`;
+  document.getElementById('page-tagline').textContent = `${data.country_name} — segment breakdown`;
+
+  const segments = (data.segments || []).slice().sort((a, b) => b.aum_bn - a.aum_bn);
+  const totalAum = segments.reduce((s, x) => s + x.aum_bn, 0);
+  const topSegment = segments[0];
+
+  document.getElementById('summary-bar').innerHTML = `
+    <div class="stat-card"><div class="value">${totalAum.toLocaleString(undefined, {maximumFractionDigits: 1})}bn</div><div class="label">Total AUM tracked</div></div>
+    <div class="stat-card"><div class="value">${segments.length}</div><div class="label">Segments populated</div></div>
+    <div class="stat-card"><div class="value">${topSegment ? topSegment.segment : '—'}</div><div class="label">Largest segment</div></div>
+  `;
+
+  const basisClass = (basis) => {
+    if (!basis) return 'bottom-up';
+    if (basis.startsWith('Top-down')) return 'override';
+    if (basis.startsWith('Industry')) return 'aggregate';
+    return 'bottom-up';
+  };
+
+  const rows = segments.map(s => `
+    <tr>
+      <td>${s.segment}</td>
+      <td class="numeric">${s.aum_bn.toLocaleString(undefined, {maximumFractionDigits: 2})}</td>
+      <td class="numeric">${(s.equity_allocation_bn || 0).toLocaleString(undefined, {maximumFractionDigits: 2})}</td>
+      <td><span class="badge ${basisClass(s.basis)}">${s.basis || ''}</span></td>
+    </tr>
+  `).join('');
+
+  document.getElementById('segment-rows').innerHTML = rows;
+  document.getElementById('data-note').textContent = data.source_note || '';
+
+  const notesText = await loadNotes(code);
+  const notesEl = document.getElementById('research-notes');
+  if (!notesText || !notesText.trim()) {
+    notesEl.innerHTML = `<p class="note">No research notes written yet for ${data.country_name}. Add a file called <code>${code}-notes.md</code> to the AtlasData folder in SharePoint to populate this section.</p>`;
+  } else {
+    notesEl.innerHTML = marked.parse(notesText);
+  }
+}
+
+load();
+</script>
+</body>
+</html>
