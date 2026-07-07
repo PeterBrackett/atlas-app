@@ -13,6 +13,7 @@
     <h1>Atlas</h1>
     <div class="tagline" id="page-tagline">Country breakdown</div>
   </div>
+  <div id="auth-status" style="font-size:0.82rem; color:#b9c6d3;"></div>
 </header>
 <nav class="breadcrumb"><a href="index.html">&larr; Global overview</a> &nbsp;|&nbsp; <a href="sources.html">Sources &amp; methodology</a></nav>
 
@@ -41,9 +42,30 @@
 </main>
 
 <script>
+let CURRENT_USER = null; // set by checkAuth(), null if not signed in
+let COUNTRY_CODE = '';
+
 function getCountryCode() {
   const params = new URLSearchParams(window.location.search);
   return (params.get('c') || '').toLowerCase();
+}
+
+async function checkAuth() {
+  try {
+    const res = await fetch('/.auth/me');
+    const payload = await res.json();
+    const principal = payload && payload.clientPrincipal;
+    CURRENT_USER = principal ? (principal.userDetails || 'signed in') : null;
+  } catch (e) {
+    CURRENT_USER = null;
+  }
+
+  const el = document.getElementById('auth-status');
+  if (CURRENT_USER) {
+    el.innerHTML = `Signed in as ${CURRENT_USER} &nbsp;|&nbsp; <a href="/.auth/logout" style="color:#b9c6d3;">Log out</a>`;
+  } else {
+    el.innerHTML = `<a href="/.auth/login/aad?post_login_redirect_uri=.referrer" style="color:#b9c6d3;">Log in to edit sources</a>`;
+  }
 }
 
 async function loadData(code) {
@@ -70,8 +92,40 @@ async function loadNotes(code) {
   }
 }
 
+async function applySource(segmentName, sourceIndex, buttonEl) {
+  buttonEl.disabled = true;
+  const originalText = buttonEl.textContent;
+  buttonEl.textContent = 'Saving…';
+
+  try {
+    const res = await fetch('/api/segments/set-active-source', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ country: COUNTRY_CODE, segment: segmentName, sourceIndex })
+    });
+    const result = await res.json();
+
+    if (!res.ok) {
+      alert(`Couldn't switch source: ${result.error || 'unknown error'}`);
+      buttonEl.disabled = false;
+      buttonEl.textContent = originalText;
+      return;
+    }
+
+    // Simplest reliable way to reflect the change everywhere on the page.
+    window.location.reload();
+  } catch (e) {
+    alert('Could not reach the server to save this change.');
+    buttonEl.disabled = false;
+    buttonEl.textContent = originalText;
+  }
+}
+
 async function load() {
+  await checkAuth();
+
   const code = getCountryCode();
+  COUNTRY_CODE = code;
 
   if (!code) {
     document.querySelector('main').innerHTML = '<p class="note">No country specified. Go back to the <a href="index.html">global overview</a> and pick one from the list.</p>';
@@ -106,33 +160,59 @@ async function load() {
     return 'bottom-up';
   };
 
-  const alternatesRow = (s) => {
+  const alternatesRow = (s, segIndex) => {
     if (!s.alternate_sources || !s.alternate_sources.length) return '';
-    const items = s.alternate_sources.map(alt => {
-      const activeTag = alt.active ? ' (currently shown)' : '';
+
+    if (!CURRENT_USER) {
+      // Read-only view for anyone not signed in.
+      const items = s.alternate_sources.map(alt => {
+        const activeTag = alt.active ? ' (currently shown)' : '';
+        const aum = (typeof alt.aum_bn === 'number') ? alt.aum_bn.toLocaleString(undefined, {maximumFractionDigits: 2}) + 'bn' : '—';
+        const note = alt.note ? ` — ${alt.note}` : '';
+        return `<li><strong>${alt.basis}${activeTag}:</strong> ${aum}${alt.source ? ` (${alt.source})` : ''}${note}</li>`;
+      }).join('');
+      return `
+        <tr>
+          <td colspan="4" style="padding-top:0;">
+            <details>
+              <summary style="cursor:pointer; color:var(--muted); font-size:0.82rem;">Other sources for this segment</summary>
+              <ul style="margin:8px 0 4px; padding-left:1.2em; font-size:0.85rem; color:var(--muted);">${items}</ul>
+            </details>
+          </td>
+        </tr>`;
+    }
+
+    // Editable view once signed in — the server still checks whether this
+    // specific signed-in user is actually allowed to save a change.
+    const selectId = `source-select-${segIndex}`;
+    const options = s.alternate_sources.map((alt, i) => {
       const aum = (typeof alt.aum_bn === 'number') ? alt.aum_bn.toLocaleString(undefined, {maximumFractionDigits: 2}) + 'bn' : '—';
-      const note = alt.note ? ` — ${alt.note}` : '';
-      return `<li><strong>${alt.basis}${activeTag}:</strong> ${aum}${alt.source ? ` (${alt.source})` : ''}${note}</li>`;
+      return `<option value="${i}" ${alt.active ? 'selected' : ''}>${alt.basis} — ${aum}${alt.source ? ` (${alt.source})` : ''}</option>`;
     }).join('');
+
     return `
       <tr>
         <td colspan="4" style="padding-top:0;">
-          <details>
-            <summary style="cursor:pointer; color:var(--muted); font-size:0.82rem;">Other sources for this segment</summary>
-            <ul style="margin:8px 0 4px; padding-left:1.2em; font-size:0.85rem; color:var(--muted);">${items}</ul>
-          </details>
+          <div style="display:flex; align-items:center; gap:8px; font-size:0.85rem; color:var(--muted); flex-wrap:wrap;">
+            <label for="${selectId}">Active source:</label>
+            <select id="${selectId}" style="font-size:0.85rem; padding:2px 4px;">${options}</select>
+            <button type="button" onclick="applySource(${JSON.stringify(s.segment)}, parseInt(document.getElementById('${selectId}').value, 10), this)"
+              style="font-size:0.8rem; padding:3px 10px; border-radius:5px; border:1px solid var(--border); background:var(--card); cursor:pointer;">
+              Apply
+            </button>
+          </div>
         </td>
       </tr>`;
   };
 
-  const rows = segments.map(s => `
+  const rows = segments.map((s, i) => `
     <tr>
       <td>${s.segment}</td>
       <td class="numeric">${s.aum_bn.toLocaleString(undefined, {maximumFractionDigits: 2})}</td>
       <td class="numeric">${(s.equity_allocation_bn || 0).toLocaleString(undefined, {maximumFractionDigits: 2})}</td>
       <td><span class="badge ${basisClass(s.basis)}">${s.basis || ''}</span></td>
     </tr>
-    ${alternatesRow(s)}
+    ${alternatesRow(s, i)}
   `).join('');
 
   document.getElementById('segment-rows').innerHTML = rows;
