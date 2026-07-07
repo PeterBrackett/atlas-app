@@ -154,3 +154,36 @@ h2 {
   font-size: 1.1rem;
   margin-top: 0;
 }
+
+.research-notes {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 24px;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.research-notes h1, .research-notes h2, .research-notes h3 {
+  color: var(--navy);
+  margin-top: 1.2em;
+}
+
+.research-notes h1:first-child, .research-notes h2:first-child, .research-notes h3:first-child {
+  margin-top: 0;
+}
+
+.research-notes ul, .research-notes ol {
+  padding-left: 1.4em;
+}
+
+.research-notes a {
+  color: var(--accent);
+}
+
+.research-notes code {
+  background: var(--bg);
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 0.88em;
+}
