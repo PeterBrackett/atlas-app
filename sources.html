@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas — Sources &amp; Methodology</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div>
+    <h1>Atlas</h1>
+    <div class="tagline">Sources &amp; methodology</div>
+  </div>
+</header>
+<nav class="breadcrumb"><a href="index.html">&larr; Global overview</a></nav>
+
+<main>
+  <div class="research-notes" id="sources-content">
+    <p class="note">Loading…</p>
+  </div>
+</main>
+
+<script>
+async function load() {
+  const el = document.getElementById('sources-content');
+  try {
+    const res = await fetch('/api/sources');
+    const text = await res.text();
+    if (!res.ok || !text.trim()) {
+      el.innerHTML = '<p class="note">No sources/methodology content has been added yet. Add a file called <code>sources.md</code> to the AtlasData folder in SharePoint to populate this page.</p>';
+      return;
+    }
+    el.innerHTML = marked.parse(text);
+  } catch (e) {
+    el.innerHTML = '<p class="note">Could not load sources content right now.</p>';
+  }
+}
+load();
+</script>
+</body>
+</html>
