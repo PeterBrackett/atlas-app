@@ -106,6 +106,25 @@ async function load() {
     return 'bottom-up';
   };
 
+  const alternatesRow = (s) => {
+    if (!s.alternate_sources || !s.alternate_sources.length) return '';
+    const items = s.alternate_sources.map(alt => {
+      const activeTag = alt.active ? ' (currently shown)' : '';
+      const aum = (typeof alt.aum_bn === 'number') ? alt.aum_bn.toLocaleString(undefined, {maximumFractionDigits: 2}) + 'bn' : '—';
+      const note = alt.note ? ` — ${alt.note}` : '';
+      return `<li><strong>${alt.basis}${activeTag}:</strong> ${aum}${alt.source ? ` (${alt.source})` : ''}${note}</li>`;
+    }).join('');
+    return `
+      <tr>
+        <td colspan="4" style="padding-top:0;">
+          <details>
+            <summary style="cursor:pointer; color:var(--muted); font-size:0.82rem;">Other sources for this segment</summary>
+            <ul style="margin:8px 0 4px; padding-left:1.2em; font-size:0.85rem; color:var(--muted);">${items}</ul>
+          </details>
+        </td>
+      </tr>`;
+  };
+
   const rows = segments.map(s => `
     <tr>
       <td>${s.segment}</td>
@@ -113,6 +132,7 @@ async function load() {
       <td class="numeric">${(s.equity_allocation_bn || 0).toLocaleString(undefined, {maximumFractionDigits: 2})}</td>
       <td><span class="badge ${basisClass(s.basis)}">${s.basis || ''}</span></td>
     </tr>
+    ${alternatesRow(s)}
   `).join('');
 
   document.getElementById('segment-rows').innerHTML = rows;
