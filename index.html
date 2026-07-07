@@ -13,6 +13,7 @@
     <div class="tagline">Institutional asset owner database — global overview</div>
   </div>
 </header>
+<nav class="breadcrumb"><a href="sources.html">Sources &amp; methodology &rarr;</a></nav>
 
 <main>
   <div class="summary-bar" id="summary-bar"></div>
@@ -35,8 +36,16 @@
 
 <script>
 async function load() {
-  const res = await fetch('data/global.json');
-  const data = await res.json();
+  let data;
+  try {
+    const res = await fetch('/api/data/global');
+    if (!res.ok) throw new Error('API not ready');
+    data = await res.json();
+  } catch (e) {
+    // Falls back to the bundled sample file until the SharePoint-backed API is live.
+    const res = await fetch('data/global.json');
+    data = await res.json();
+  }
 
   const countries = data.countries.slice().sort((a, b) => b.total_ps_assets_thousands - a.total_ps_assets_thousands);
 
