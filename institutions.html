@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas — Institutions</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .filter-bar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 16px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .filter-bar input[type="search"] {
+    flex: 1 1 220px;
+    padding: 7px 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.9rem;
+  }
+  .filter-bar select {
+    padding: 7px 8px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    background: #fff;
+  }
+  .filter-bar .count-note { font-size: 0.8rem; color: var(--muted); margin-left: auto; }
+  th.sortable { cursor: pointer; user-select: none; }
+  th.sortable:hover { background: var(--navy); }
+  th.sortable .arrow { opacity: 0.6; font-size: 0.7em; margin-left: 3px; }
+  tr.inst-row { cursor: pointer; }
+  tr.inst-row:hover { background: #f0f3f6; }
+  tr.detail-row td {
+    background: #fbfcfd;
+    padding: 0;
+  }
+  .detail-wrap { padding: 16px 20px 20px; }
+  .detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .detail-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 12px;
+  }
+  .detail-card h4 {
+    margin: 0 0 6px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--muted);
+  }
+  .detail-card ul { margin: 0; padding-left: 1.1em; font-size: 0.85rem; }
+  .detail-card .empty { color: var(--muted); font-size: 0.85rem; font-style: italic; }
+  .plan-block {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    background: #fff;
+  }
+  .plan-block .plan-title { font-weight: 600; font-size: 0.88rem; margin-bottom: 4px; }
+  .plan-block table { border: none; border-radius: 0; box-shadow: none; margin-top: 6px; }
+  .plan-block th, .plan-block td { padding: 5px 8px; font-size: 0.8rem; }
+  .plan-block th { background: #eef1f4; color: var(--text); text-transform: none; letter-spacing: normal; }
+  .pager { display: flex; align-items: center; gap: 10px; margin-top: 14px; font-size: 0.85rem; }
+  .pager button {
+    padding: 5px 12px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+  }
+  .pager button:disabled { opacity: 0.4; cursor: default; }
+  .flag-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+  .flag-dot.yes { background: var(--accent); }
+  .flag-dot.no { background: var(--border); }
+  .mode-pill {
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: #eef1f4;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div>
+    <h1>Atlas</h1>
+    <div class="tagline" id="page-tagline">Institutions</div>
+  </div>
+</header>
+<nav class="breadcrumb"><a href="index.html">&larr; Global overview</a> &nbsp;|&nbsp; <a id="country-link" href="country.html">Country breakdown</a> &nbsp;|&nbsp; <a href="sources.html">Sources &amp; methodology</a></nav>
+
+<main>
+  <div class="summary-bar" id="summary-bar"></div>
+
+  <div class="filter-bar">
+    <input type="search" id="search-box" placeholder="Search institution name…">
+    <select id="type-filter"><option value="">All entity types</option></select>
+    <select id="gap-filter">
+      <option value="">Any relationship data</option>
+      <option value="manager">Has a named manager</option>
+      <option value="custodian">Has a custodian</option>
+      <option value="actuary">Has an actuary</option>
+      <option value="consultant">Has an investment consultant</option>
+      <option value="none">No relationship data at all</option>
+    </select>
+    <span class="count-note" id="count-note"></span>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th class="sortable" data-sort="entity_name">Firm name <span class="arrow"></span></th>
+        <th class="sortable" data-sort="entity_type">Type <span class="arrow"></span></th>
+        <th class="sortable numeric" data-sort="total_aum">Total AUM (£000s) <span class="arrow"></span></th>
+        <th class="sortable numeric" data-sort="plan_count">Plans <span class="arrow"></span></th>
+        <th>Managers</th>
+        <th>Custodian</th>
+        <th>Actuary</th>
+        <th>Consultant</th>
+      </tr>
+    </thead>
+    <tbody id="inst-rows"></tbody>
+  </table>
+
+  <div class="pager" id="pager"></div>
+
+  <p class="note" id="data-note"></p>
+</main>
+
+<script>
+// --- Data-loading strategy ---------------------------------------------
+// Two modes, mirroring country.html's loadData() fallback pattern:
+//   'api'    — /api/institutions/{code} does the search/filter/sort/paginate
+//              server-side and only ever sends back one page of full records.
+//              This is what makes the page safe to use on a large country
+//              (e.g. a US-scale pull) without the browser ever holding the
+//              whole dataset in memory.
+//   'static' — no API deployed (e.g. running the site off a local http.server
+//              with no Functions backend attached, which is how this was
+//              being developed/tested). Falls back to fetching the whole
+//              bundled data/{code}_institutions_latest.json file once and
+//              doing the same filter/sort/paginate client-side in memory —
+//              fine for a UK-sized (~1,600 record) file, not something to
+//              rely on for a large country.
+let MODE = null;          // 'api' | 'static'
+let COUNTRY_CODE = '';
+let STATIC_ALL = [];      // only populated in 'static' mode
+let SORT_KEY = 'total_aum';
+let SORT_DIR = -1;        // -1 desc, 1 asc
+let PAGE = 0;
+const PAGE_SIZE = 50;
+let OPEN_ID = null;       // entity_id currently expanded, if any
+let CURRENT_PAGE_ITEMS = [];
+let CURRENT_TOTAL_MATCHING = 0;
+let CURRENT_TOTAL_INSTITUTIONS = 0;
+let CURRENT_TOTAL_AUM = null; // only known in static mode without a second query; API mode shows matching-page context instead
+let searchDebounceTimer = null;
+
+function getCountryCode() {
+  const params = new URLSearchParams(window.location.search);
+  return (params.get('c') || 'uk').toLowerCase();
+}
+
+function fmtNum(n, decimals) {
+  if (typeof n !== 'number') return '—';
+  return n.toLocaleString(undefined, { maximumFractionDigits: decimals === undefined ? 0 : decimals });
+}
+
+function currentFilters() {
+  return {
+    search: document.getElementById('search-box').value.trim(),
+    entityType: document.getElementById('type-filter').value,
+    has: document.getElementById('gap-filter').value
+  };
+}
+
+// --- API mode -------------------------------------------------------------
+async function fetchApiPage() {
+  const f = currentFilters();
+  const params = new URLSearchParams({
+    page: String(PAGE),
+    pageSize: String(PAGE_SIZE),
+    sortKey: SORT_KEY,
+    sortDir: SORT_DIR === 1 ? 'asc' : 'desc'
+  });
+  if (f.search) params.set('search', f.search);
+  if (f.entityType) params.set('entityType', f.entityType);
+  if (f.has) params.set('has', f.has);
+
+  const res = await fetch(`/api/institutions/${COUNTRY_CODE}?${params.toString()}`);
+  if (!res.ok) throw new Error(`API returned ${res.status}`);
+  return await res.json();
+}
+
+// --- Static (fallback) mode ------------------------------------------------
+function computeStaticPage() {
+  const f = currentFilters();
+  const q = f.search.toLowerCase();
+
+  let filtered = STATIC_ALL.filter(r => {
+    if (q && !r.entity_name.toLowerCase().includes(q)) return false;
+    if (f.entityType && r.entity_type !== f.entityType) return false;
+    if (f.has === 'none' && (r._hasManager || r._hasCustodian || r._hasActuary || r._hasConsultant)) return false;
+    if (f.has === 'manager' && !r._hasManager) return false;
+    if (f.has === 'custodian' && !r._hasCustodian) return false;
+    if (f.has === 'actuary' && !r._hasActuary) return false;
+    if (f.has === 'consultant' && !r._hasConsultant) return false;
+    return true;
+  });
+
+  filtered.sort((a, b) => {
+    let av = a[SORT_KEY], bv = b[SORT_KEY];
+    if (typeof av === 'string') av = av.toLowerCase();
+    if (typeof bv === 'string') bv = bv.toLowerCase();
+    if (av === null || av === undefined) av = SORT_DIR === 1 ? Infinity : -Infinity;
+    if (bv === null || bv === undefined) bv = SORT_DIR === 1 ? Infinity : -Infinity;
+    if (av < bv) return -1 * SORT_DIR;
+    if (av > bv) return 1 * SORT_DIR;
+    return 0;
+  });
+
+  const totalMatching = filtered.length;
+  const start = PAGE * PAGE_SIZE;
+  return {
+    institutions: filtered.slice(start, start + PAGE_SIZE),
+    total_matching: totalMatching,
+    total_institutions: STATIC_ALL.length,
+    total_pages: Math.max(1, Math.ceil(totalMatching / PAGE_SIZE))
+  };
+}
+
+// --- Shared rendering -------------------------------------------------
+async function refresh() {
+  OPEN_ID = null;
+  let result;
+  if (MODE === 'api') {
+    try {
+      result = await fetchApiPage();
+    } catch (e) {
+      document.getElementById('inst-rows').innerHTML = `<tr><td colspan="8" class="note">Couldn't reach the institutions API (${e.message}). Try reloading — if this keeps happening, the static fallback file may need checking.</td></tr>`;
+      return;
+    }
+  } else {
+    result = computeStaticPage();
+  }
+
+  CURRENT_PAGE_ITEMS = result.institutions;
+  CURRENT_TOTAL_MATCHING = result.total_matching;
+  CURRENT_TOTAL_INSTITUTIONS = result.total_institutions;
+
+  updateSortArrows();
+  renderRows();
+  renderPager();
+  document.getElementById('count-note').textContent = `${CURRENT_TOTAL_MATCHING.toLocaleString()} of ${CURRENT_TOTAL_INSTITUTIONS.toLocaleString()} institutions`;
+}
+
+function onFiltersChanged() {
+  PAGE = 0;
+  refresh();
+}
+
+function updateSortArrows() {
+  document.querySelectorAll('th.sortable').forEach(th => {
+    const arrow = th.querySelector('.arrow');
+    arrow.textContent = th.dataset.sort === SORT_KEY ? (SORT_DIR === 1 ? '▲' : '▼') : '';
+  });
+}
+
+function dotHtml(flag) {
+  return `<span class="flag-dot ${flag ? 'yes' : 'no'}"></span>`;
+}
+
+function hasFlag(r, kind) {
+  const gov = r.governance || {};
+  switch (kind) {
+    case 'manager': return !!(gov.asset_managers_used && gov.asset_managers_used.length);
+    case 'custodian': return !!(gov.custodian && gov.custodian.length);
+    case 'actuary': return !!(gov.actuary && gov.actuary.length);
+    case 'consultant': return !!(gov.investment_consultant && gov.investment_consultant.length);
+  }
+}
+
+function renderDetail(r) {
+  const gov = r.governance || {};
+  const listOrEmpty = (arr, renderFn) => arr && arr.length
+    ? `<ul>${arr.map(renderFn).join('')}</ul>`
+    : `<div class="empty">None on file</div>`;
+
+  const managersHtml = listOrEmpty(gov.asset_managers_used, m =>
+    `<li>${m.manager_name}${m.asset_class ? ` — ${m.asset_class}${m.asset_style ? ` (${m.asset_style})` : ''}` : ''}${typeof m.value === 'number' ? `: £${fmtNum(m.value)}k` : ''}</li>`
+  );
+  const custodianHtml = listOrEmpty(gov.custodian, p => `<li>${p.name}</li>`);
+  const actuaryHtml = listOrEmpty(gov.actuary, p => `<li>${p.name}</li>`);
+  const consultantHtml = listOrEmpty(gov.investment_consultant, p => `<li>${p.name}</li>`);
+  const fiduciaryHtml = listOrEmpty(gov.fiduciary_manager, p => `<li>${p.name}</li>`);
+  const otherHtml = listOrEmpty(gov.other_providers, p => `<li>${p.name} <span style="color:var(--muted);">(${p.provider_type || 'Other'})</span></li>`);
+
+  const plansHtml = (r.plans || []).map(p => {
+    const allocRows = (p.allocation || []).map(a => `
+      <tr>
+        <td>${a.asset_type || '—'}</td>
+        <td>${a.asset_style || '—'}</td>
+        <td>${a.investment_region || '—'}</td>
+        <td class="numeric">${typeof a.value === 'number' ? '£' + fmtNum(a.value) + 'k' : '—'}</td>
+        <td class="numeric">${typeof a.pct_of_plan === 'number' ? a.pct_of_plan + '%' : '—'}</td>
+      </tr>`).join('');
+    return `
+      <div class="plan-block">
+        <div class="plan-title">${p.plan_type || 'Unlabelled plan'} — £${fmtNum(p.plan_assets)}k</div>
+        ${allocRows ? `
+          <table>
+            <thead><tr><th>Asset type</th><th>Style</th><th>Region</th><th class="numeric">Value</th><th class="numeric">% of plan</th></tr></thead>
+            <tbody>${allocRows}</tbody>
+          </table>` : `<div class="empty">No allocation breakdown on file for this plan.</div>`}
+      </div>`;
+  }).join('') || '<div class="empty">No plans on file.</div>';
+
+  const noteHtml = r.provenance && r.provenance.notes
+    ? `<p class="note" style="margin-top:10px; border-top:none; padding-top:0;">⚠ ${r.provenance.notes}</p>`
+    : '';
+
+  return `
+    <div class="detail-wrap">
+      <div class="detail-grid">
+        <div class="detail-card"><h4>Asset managers used</h4>${managersHtml}</div>
+        <div class="detail-card"><h4>Custodian</h4>${custodianHtml}</div>
+        <div class="detail-card"><h4>Actuary</h4>${actuaryHtml}</div>
+        <div class="detail-card"><h4>Investment consultant</h4>${consultantHtml}</div>
+        <div class="detail-card"><h4>Fiduciary manager / OCIO</h4>${fiduciaryHtml}</div>
+        <div class="detail-card"><h4>Other providers</h4>${otherHtml}</div>
+      </div>
+      <h4 style="margin:0 0 8px; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.03em; color:var(--muted);">Plans &amp; asset allocation</h4>
+      ${plansHtml}
+      ${noteHtml}
+    </div>`;
+}
+
+function toggleRow(entityId) {
+  OPEN_ID = OPEN_ID === entityId ? null : entityId;
+  renderRows();
+}
+
+function renderRows() {
+  document.getElementById('inst-rows').innerHTML = CURRENT_PAGE_ITEMS.map(r => {
+    const totalAum = r.financials ? r.financials.total_aum : null;
+    const planCount = (r.plans || []).length;
+    const detailRow = OPEN_ID === r.entity_id
+      ? `<tr class="detail-row"><td colspan="8">${renderDetail(r)}</td></tr>`
+      : '';
+    return `
+      <tr class="inst-row" onclick="toggleRow('${r.entity_id}')">
+        <td>${r.entity_name}</td>
+        <td>${r.entity_type || '—'}${r.sub_type ? `<br><span style="color:var(--muted); font-size:0.78rem;">${r.sub_type}</span>` : ''}</td>
+        <td class="numeric">${typeof totalAum === 'number' ? '£' + fmtNum(totalAum) : '—'}</td>
+        <td class="numeric">${planCount}</td>
+        <td>${dotHtml(hasFlag(r, 'manager'))}</td>
+        <td>${dotHtml(hasFlag(r, 'custodian'))}</td>
+        <td>${dotHtml(hasFlag(r, 'actuary'))}</td>
+        <td>${dotHtml(hasFlag(r, 'consultant'))}</td>
+      </tr>
+      ${detailRow}`;
+  }).join('');
+}
+
+function renderPager() {
+  const totalPages = Math.max(1, Math.ceil(CURRENT_TOTAL_MATCHING / PAGE_SIZE));
+  const start = CURRENT_TOTAL_MATCHING ? PAGE * PAGE_SIZE + 1 : 0;
+  const end = Math.min(CURRENT_TOTAL_MATCHING, (PAGE + 1) * PAGE_SIZE);
+  document.getElementById('pager').innerHTML = `
+    <button id="prev-btn" ${PAGE === 0 ? 'disabled' : ''}>&larr; Prev</button>
+    <span>Showing ${start}–${end} of ${CURRENT_TOTAL_MATCHING}</span>
+    <button id="next-btn" ${PAGE >= totalPages - 1 ? 'disabled' : ''}>Next &rarr;</button>
+  `;
+  document.getElementById('prev-btn').onclick = () => { PAGE = Math.max(0, PAGE - 1); refresh(); };
+  document.getElementById('next-btn').onclick = () => { PAGE = Math.min(totalPages - 1, PAGE + 1); refresh(); };
+}
+
+function populateTypeFilter(types) {
+  const sel = document.getElementById('type-filter');
+  sel.innerHTML = '<option value="">All entity types</option>' + types.map(t => `<option value="${t}">${t}</option>`).join('');
+}
+
+function wireControls() {
+  document.getElementById('search-box').addEventListener('input', () => {
+    clearTimeout(searchDebounceTimer);
+    searchDebounceTimer = setTimeout(onFiltersChanged, 250);
+  });
+  document.getElementById('type-filter').addEventListener('change', onFiltersChanged);
+  document.getElementById('gap-filter').addEventListener('change', onFiltersChanged);
+  document.querySelectorAll('th.sortable').forEach(th => {
+    th.addEventListener('click', () => {
+      const key = th.dataset.sort;
+      if (SORT_KEY === key) { SORT_DIR *= -1; } else { SORT_KEY = key; SORT_DIR = key === 'entity_name' ? 1 : -1; }
+      onFiltersChanged();
+    });
+  });
+}
+
+async function load() {
+  const code = getCountryCode();
+  COUNTRY_CODE = code;
+  document.getElementById('country-link').href = `country.html?c=${code}`;
+
+  // Try the API first. A plain, unfiltered page-0 request doubles as both
+  // "does this endpoint/dataset exist" and the first page of real data.
+  try {
+    const res = await fetch(`/api/institutions/${code}?page=0&pageSize=${PAGE_SIZE}&sortKey=total_aum&sortDir=desc`);
+    if (!res.ok) throw new Error(`status ${res.status}`);
+    const data = await res.json();
+    MODE = 'api';
+
+    document.title = `Atlas — ${data.country_name} institutions`;
+    document.getElementById('page-tagline').innerHTML = `${data.country_name} — individual institutions <span class="mode-pill">live API</span>`;
+    populateTypeFilter(data.entity_types || []);
+
+    CURRENT_PAGE_ITEMS = data.institutions;
+    CURRENT_TOTAL_MATCHING = data.total_matching;
+    CURRENT_TOTAL_INSTITUTIONS = data.total_institutions;
+
+    // Deliberately no "X% have a named manager"-style stat card here, unlike
+    // the static-mode summary bar below: computing that in API mode would
+    // mean either scanning the whole dataset server-side on every load (an
+    // extra cost the paginated design exists to avoid) or a dedicated stats
+    // endpoint — worth adding later if that figure matters enough to justify
+    // the extra call, not assumed here.
+    document.getElementById('summary-bar').innerHTML = `
+      <div class="stat-card"><div class="value">${data.total_institutions.toLocaleString()}</div><div class="label">Institutions</div></div>
+      <div class="stat-card"><div class="value">${data.total_pages.toLocaleString()}</div><div class="label">Pages at ${PAGE_SIZE}/page</div></div>
+      <div class="stat-card"><div class="value">Live</div><div class="label">Served via /api/institutions — no full-file download</div></div>
+    `;
+    document.getElementById('data-note').textContent =
+      `Extracted ${data.extraction_date} from S&P Money Manager Database exports (${(data.source_files || []).join(', ')}). ` +
+      `Search, filters, and sorting all run server-side — each page request only transfers ${PAGE_SIZE} full records, regardless of country size. ` +
+      `Click any row to expand its plans, asset allocation, and manager/provider relationships. See Atlas_Schema_Proposal_v1.md for known caveats.`;
+
+    wireControls();
+    updateSortArrows();
+    renderRows();
+    renderPager();
+    document.getElementById('count-note').textContent = `${CURRENT_TOTAL_MATCHING.toLocaleString()} of ${CURRENT_TOTAL_INSTITUTIONS.toLocaleString()} institutions`;
+    return;
+  } catch (e) {
+    // Fall through to static mode below — this is the expected path when no
+    // Functions backend is attached (e.g. local `python3 -m http.server`).
+  }
+
+  // --- Static fallback: whole file, client-side filter/sort/paginate ---
+  let data;
+  try {
+    const res = await fetch(`data/${code}_institutions_latest.json`);
+    if (!res.ok) throw new Error('not found');
+    data = await res.json();
+  } catch (e) {
+    document.querySelector('main').innerHTML = `<p class="note">No institution-level dataset available for '${code}' yet (checked both the live API and the bundled static file). This view currently only has data for the UK pilot — go back to the <a href="index.html">global overview</a> or the <a href="country.html?c=${code}">segment breakdown</a> for ${code.toUpperCase()}.</p>`;
+    return;
+  }
+
+  MODE = 'static';
+  document.title = `Atlas — ${data.country_name} institutions`;
+  document.getElementById('page-tagline').innerHTML = `${data.country_name} — individual institutions <span class="mode-pill">static file — no API deployed</span>`;
+
+  STATIC_ALL = (data.institutions || []).map(r => ({
+    ...r,
+    total_aum: r.financials ? r.financials.total_aum : null,
+    plan_count: (r.plans || []).length,
+    _hasManager: hasFlag(r, 'manager'),
+    _hasCustodian: hasFlag(r, 'custodian'),
+    _hasActuary: hasFlag(r, 'actuary'),
+    _hasConsultant: hasFlag(r, 'consultant'),
+  }));
+
+  populateTypeFilter([...new Set(STATIC_ALL.map(r => r.entity_type).filter(Boolean))].sort());
+
+  const totalAum = STATIC_ALL.reduce((s, r) => s + (r.total_aum || 0), 0);
+  const withManager = STATIC_ALL.filter(r => r._hasManager).length;
+  const withAnyProvider = STATIC_ALL.filter(r => r._hasCustodian || r._hasActuary || r._hasConsultant).length;
+
+  document.getElementById('summary-bar').innerHTML = `
+    <div class="stat-card"><div class="value">${STATIC_ALL.length.toLocaleString()}</div><div class="label">Institutions</div></div>
+    <div class="stat-card"><div class="value">£${(totalAum / 1e6).toLocaleString(undefined, {maximumFractionDigits: 1})}bn</div><div class="label">Total AUM tracked</div></div>
+    <div class="stat-card"><div class="value">${withManager.toLocaleString()} (${Math.round(100 * withManager / STATIC_ALL.length)}%)</div><div class="label">Have a named manager</div></div>
+    <div class="stat-card"><div class="value">${withAnyProvider.toLocaleString()} (${Math.round(100 * withAnyProvider / STATIC_ALL.length)}%)</div><div class="label">Have a named provider</div></div>
+  `;
+  document.getElementById('data-note').textContent =
+    `Extracted ${data.extraction_date} from S&P Money Manager Database exports (${(data.source_files || []).join(', ')}). ` +
+    `No /api/institutions endpoint reachable, so this whole file (${STATIC_ALL.length.toLocaleString()} records) was downloaded to the browser and is being filtered/sorted locally — fine at this size, not a pattern to rely on for a much larger country. ` +
+    `Click any row to expand its plans, asset allocation, and manager/provider relationships. See Atlas_Schema_Proposal_v1.md for known caveats.`;
+
+  wireControls();
+  refresh();
+}
+
+load();
+</script>
+</body>
+</html>
