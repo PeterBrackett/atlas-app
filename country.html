@@ -20,6 +20,7 @@
 
 <main>
   <div class="summary-bar" id="summary-bar"></div>
+  <div id="institutions-link-wrap" style="margin: -12px 0 28px;"></div>
 
   <h2>Opportunity scorecard</h2>
   <p class="note" style="margin-top:-8px; margin-bottom:16px; border-top:none; padding-top:0;" id="scorecard-hint"></p>
@@ -47,8 +48,6 @@
   </table>
 
   <p class="note" id="data-note"></p>
-
-  <p id="institutions-link-wrap" style="margin-top:-8px;"></p>
 
   <h2 style="margin-top:32px;">Research notes</h2>
   <div class="research-notes" id="research-notes">
@@ -470,7 +469,7 @@ async function load() {
     const staticRes = apiRes.ok ? null : await fetch(`data/${code}_institutions_latest.json`, { method: 'GET' });
     if (apiRes.ok || (staticRes && staticRes.ok)) {
       document.getElementById('institutions-link-wrap').innerHTML =
-        `<a href="institutions.html?c=${code}" class="country-link">Browse individual institutions &rarr;</a>`;
+        `<a href="institutions.html?c=${code}" class="btn-primary">Browse individual institutions &rarr;</a>`;
     }
   } catch (e) { /* no institutions file for this country yet — leave link out */ }
 
