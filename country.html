@@ -23,9 +23,15 @@
 
   <h2>Opportunity scorecard</h2>
   <p class="note" style="margin-top:-8px; margin-bottom:16px; border-top:none; padding-top:0;" id="scorecard-hint"></p>
+  <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:12px; font-size:0.85rem;">
+    <label for="alloc-type-select"><strong>Allocation row shows:</strong></label>
+    <select id="alloc-type-select" onchange="onAllocationSelectorChange()"></select>
+    <select id="alloc-style-select" onchange="onAllocationSelectorChange()"></select>
+  </div>
   <div class="matrix-wrap">
     <table class="matrix-table" id="scorecard-table"></table>
   </div>
+  <p class="note" style="margin-top:8px; border-top:none; padding-top:0; font-size:0.78rem;">Small style breakdowns get folded into "Other/Unspecified" per asset class — a style picked here may show as not broken out separately for a segment where it fell below that threshold. See Sources &amp; Methodology.</p>
 
   <h2 style="margin-top:32px;">AUM by segment</h2>
   <table>
@@ -33,7 +39,7 @@
       <tr>
         <th>Segment</th>
         <th class="numeric">AUM (bn)</th>
-        <th class="numeric">Equity allocation (bn)</th>
+        <th class="numeric">Equities (bn)</th>
         <th>Basis</th>
       </tr>
     </thead>
@@ -41,6 +47,8 @@
   </table>
 
   <p class="note" id="data-note"></p>
+
+  <p id="institutions-link-wrap" style="margin-top:-8px;"></p>
 
   <h2 style="margin-top:32px;">Research notes</h2>
   <div class="research-notes" id="research-notes">
@@ -52,6 +60,68 @@
 let CURRENT_USER = null; // set by checkAuth(), null if not signed in
 let COUNTRY_CODE = '';
 let LOADED_SEGMENTS = []; // kept in memory so scorecard edits can update the matrix without a full reload
+let CURRENT_ALLOC_TYPE = 'Equities';
+let CURRENT_ALLOC_STYLE = ''; // '' means "all styles" (the whole asset-type total)
+
+// Looks up a segment's allocation for a given asset type, optionally narrowed
+// to one finer style within it. Returns null if that segment has no data for
+// the selection (e.g. Life/Non-life insurance outside Equities, or a style
+// that got folded into "Other/Unspecified" for that particular segment).
+function getAllocationValue(segment, assetType, assetStyle) {
+  const entry = (segment.allocation || []).find(a => a.asset_type === assetType);
+  if (!entry) return null;
+  if (!assetStyle) return { value_bn: entry.value_bn, pct: entry.pct_of_segment };
+  const style = (entry.styles || []).find(s => s.asset_style === assetStyle);
+  if (!style) return null;
+  const pct = segment.aum_bn ? (style.value_bn / segment.aum_bn * 100) : 0;
+  return { value_bn: style.value_bn, pct: Math.round(pct * 10) / 10 };
+}
+
+// Builds the "Allocation row shows" dropdowns from whatever asset types/styles
+// actually appear in the loaded country's data, so the controls never offer a
+// choice with nothing behind it.
+function populateAllocationSelectors(segs) {
+  const typeSelect = document.getElementById('alloc-type-select');
+  const typesSeen = new Set();
+  segs.forEach(s => (s.allocation || []).forEach(a => typesSeen.add(a.asset_type)));
+  const preferredOrder = ['Equities', 'Fixed Income', 'Cash & Short-Term', 'Real Estate', 'Alternatives', 'Other/Unclassified'];
+  const types = preferredOrder.filter(t => typesSeen.has(t)).concat([...typesSeen].filter(t => !preferredOrder.includes(t)));
+
+  if (!typeSelect.dataset.populated) {
+    typeSelect.innerHTML = types.map(t => `<option value="${t}" ${t === CURRENT_ALLOC_TYPE ? 'selected' : ''}>${t}</option>`).join('');
+    typeSelect.dataset.populated = '1';
+  }
+  populateStyleSelector(segs);
+}
+
+function populateStyleSelector(segs) {
+  const styleSelect = document.getElementById('alloc-style-select');
+  const stylesSeen = new Set();
+  segs.forEach(s => {
+    const entry = (s.allocation || []).find(a => a.asset_type === CURRENT_ALLOC_TYPE);
+    (entry ? entry.styles || [] : []).forEach(st => {
+      if (st.asset_style !== 'Other/Unspecified') stylesSeen.add(st.asset_style);
+    });
+  });
+  const styles = [...stylesSeen].sort();
+  styleSelect.innerHTML = `<option value="">All styles (${CURRENT_ALLOC_TYPE} total)</option>` +
+    styles.map(s => `<option value="${s}" ${s === CURRENT_ALLOC_STYLE ? 'selected' : ''}>${s}</option>`).join('');
+  if (!styles.includes(CURRENT_ALLOC_STYLE)) CURRENT_ALLOC_STYLE = '';
+}
+
+function onAllocationSelectorChange() {
+  const typeSelect = document.getElementById('alloc-type-select');
+  const styleSelect = document.getElementById('alloc-style-select');
+  const typeChanged = typeSelect.value !== CURRENT_ALLOC_TYPE;
+  CURRENT_ALLOC_TYPE = typeSelect.value;
+  if (typeChanged) {
+    CURRENT_ALLOC_STYLE = '';
+    populateStyleSelector(LOADED_SEGMENTS);
+  } else {
+    CURRENT_ALLOC_STYLE = styleSelect.value;
+  }
+  renderScorecardMatrix();
+}
 
 function getCountryCode() {
   const params = new URLSearchParams(window.location.search);
@@ -150,6 +220,8 @@ function renderScorecardMatrix() {
     `${fullyScored} of ${segs.length} segments fully scored (all 12 dimensions).` +
     (CURRENT_USER ? ' Blank cells below are highlighted — click to score them.' : '');
 
+  populateAllocationSelectors(segs);
+
   const headerCells = segs.map(s => `<th>${s.segment}</th>`).join('');
 
   const numberCell = (value, decimals) => `<td class="numeric">${
@@ -157,7 +229,14 @@ function renderScorecardMatrix() {
   }</td>`;
 
   const aumRow = `<tr><td class="matrix-rowlabel">AUM ($bn)</td>${segs.map(s => numberCell(s.aum_bn, 2)).join('')}</tr>`;
-  const equityRow = `<tr><td class="matrix-rowlabel">Equity allocation ($bn)</td>${segs.map(s => numberCell(s.equity_allocation_bn, 2)).join('')}</tr>`;
+
+  const allocLabel = CURRENT_ALLOC_STYLE ? `${CURRENT_ALLOC_TYPE} — ${CURRENT_ALLOC_STYLE} ($bn)` : `${CURRENT_ALLOC_TYPE} ($bn)`;
+  const allocRow = `<tr><td class="matrix-rowlabel" title="Selected via the dropdowns above the matrix">${allocLabel}</td>${
+    segs.map(s => {
+      const result = getAllocationValue(s, CURRENT_ALLOC_TYPE, CURRENT_ALLOC_STYLE);
+      return numberCell(result ? result.value_bn : null, 2);
+    }).join('')
+  }</tr>`;
 
   const dimensionRows = SCORECARD_DIMENSIONS.map(dim => {
     const cells = segs.map((s, segIndex) => {
@@ -203,7 +282,7 @@ function renderScorecardMatrix() {
     <thead><tr><th class="matrix-rowlabel">Segment</th>${headerCells}</tr></thead>
     <tbody>
       ${aumRow}
-      ${equityRow}
+      ${allocRow}
       ${dimensionRows}
       ${scoredRow}
       ${overallRow}
@@ -362,18 +441,32 @@ async function load() {
       </tr>`;
   };
 
-  const rows = segments.map((s, i) => `
+  const rows = segments.map((s, i) => {
+    const equity = getAllocationValue(s, 'Equities', '');
+    return `
     <tr>
       <td>${s.segment}</td>
       <td class="numeric">${s.aum_bn.toLocaleString(undefined, {maximumFractionDigits: 2})}</td>
-      <td class="numeric">${(s.equity_allocation_bn || 0).toLocaleString(undefined, {maximumFractionDigits: 2})}</td>
+      <td class="numeric">${(equity ? equity.value_bn : 0).toLocaleString(undefined, {maximumFractionDigits: 2})}</td>
       <td><span class="badge ${basisClass(s.basis)}">${s.basis || ''}</span></td>
     </tr>
     ${alternatesRow(s, i)}
-  `).join('');
+  `;
+  }).join('');
 
   document.getElementById('segment-rows').innerHTML = rows;
   document.getElementById('data-note').textContent = data.source_note || '';
+
+  // Individual-institution browser only exists for countries that have a raw
+  // records subtable extracted (currently just the UK pilot) — check before
+  // linking rather than offering a link that 404s.
+  try {
+    const instRes = await fetch(`data/${code}_institutions_latest.json`, { method: 'HEAD' });
+    if (instRes.ok) {
+      document.getElementById('institutions-link-wrap').innerHTML =
+        `<a href="institutions.html?c=${code}" class="country-link">Browse individual institutions &rarr;</a>`;
+    }
+  } catch (e) { /* no institutions file for this country yet — leave link out */ }
 
   const notesText = await loadNotes(code);
   const notesEl = document.getElementById('research-notes');
