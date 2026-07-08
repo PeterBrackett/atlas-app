@@ -459,10 +459,16 @@ async function load() {
 
   // Individual-institution browser only exists for countries that have a raw
   // records subtable extracted (currently just the UK pilot) — check before
-  // linking rather than offering a link that 404s.
+  // linking rather than offering a link that 404s. Tries the live API first
+  // (the intended path — works even if the bundled static fallback file was
+  // deliberately left out of the site deploy, e.g. to avoid committing a
+  // multi-MB JSON file to git) and only falls back to checking the static
+  // file directly if the API isn't reachable. Both checks use GET, not HEAD —
+  // Azure's routing to the Function only supports GET on this route.
   try {
-    const instRes = await fetch(`data/${code}_institutions_latest.json`, { method: 'HEAD' });
-    if (instRes.ok) {
+    const apiRes = await fetch(`/api/institutions/${code}?page=0&pageSize=1`, { method: 'GET' });
+    const staticRes = apiRes.ok ? null : await fetch(`data/${code}_institutions_latest.json`, { method: 'GET' });
+    if (apiRes.ok || (staticRes && staticRes.ok)) {
       document.getElementById('institutions-link-wrap').innerHTML =
         `<a href="institutions.html?c=${code}" class="country-link">Browse individual institutions &rarr;</a>`;
     }
