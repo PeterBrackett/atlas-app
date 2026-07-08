@@ -6,6 +6,7 @@
 <title>Atlas — Country</title>
 <link rel="stylesheet" href="style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+<script src="scorecard-dimensions.js"></script>
 </head>
 <body>
 <header class="site-header">
@@ -13,19 +14,32 @@
     <h1>Atlas</h1>
     <div class="tagline" id="page-tagline">Country breakdown</div>
   </div>
+  <div id="auth-status" style="font-size:0.82rem; color:#b9c6d3;"></div>
 </header>
-<nav class="breadcrumb"><a href="index.html">&larr; Global overview</a></nav>
+<nav class="breadcrumb"><a href="index.html">&larr; Global overview</a> &nbsp;|&nbsp; <a href="sources.html">Sources &amp; methodology</a></nav>
 
 <main>
   <div class="summary-bar" id="summary-bar"></div>
 
-  <h2>AUM by segment</h2>
+  <h2>Opportunity scorecard</h2>
+  <p class="note" style="margin-top:-8px; margin-bottom:16px; border-top:none; padding-top:0;" id="scorecard-hint"></p>
+  <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:12px; font-size:0.85rem;">
+    <label for="alloc-type-select"><strong>Allocation row shows:</strong></label>
+    <select id="alloc-type-select" onchange="onAllocationSelectorChange()"></select>
+    <select id="alloc-style-select" onchange="onAllocationSelectorChange()"></select>
+  </div>
+  <div class="matrix-wrap">
+    <table class="matrix-table" id="scorecard-table"></table>
+  </div>
+  <p class="note" style="margin-top:8px; border-top:none; padding-top:0; font-size:0.78rem;">Small style breakdowns get folded into "Other/Unspecified" per asset class — a style picked here may show as not broken out separately for a segment where it fell below that threshold. See Sources &amp; Methodology.</p>
+
+  <h2 style="margin-top:32px;">AUM by segment</h2>
   <table>
     <thead>
       <tr>
         <th>Segment</th>
         <th class="numeric">AUM (bn)</th>
-        <th class="numeric">Equity allocation (bn)</th>
+        <th class="numeric">Equities (bn)</th>
         <th>Basis</th>
       </tr>
     </thead>
@@ -34,6 +48,8 @@
 
   <p class="note" id="data-note"></p>
 
+  <p id="institutions-link-wrap" style="margin-top:-8px;"></p>
+
   <h2 style="margin-top:32px;">Research notes</h2>
   <div class="research-notes" id="research-notes">
     <p class="note">Loading notes…</p>
@@ -41,9 +57,93 @@
 </main>
 
 <script>
+let CURRENT_USER = null; // set by checkAuth(), null if not signed in
+let COUNTRY_CODE = '';
+let LOADED_SEGMENTS = []; // kept in memory so scorecard edits can update the matrix without a full reload
+let CURRENT_ALLOC_TYPE = 'Equities';
+let CURRENT_ALLOC_STYLE = ''; // '' means "all styles" (the whole asset-type total)
+
+// Looks up a segment's allocation for a given asset type, optionally narrowed
+// to one finer style within it. Returns null if that segment has no data for
+// the selection (e.g. Life/Non-life insurance outside Equities, or a style
+// that got folded into "Other/Unspecified" for that particular segment).
+function getAllocationValue(segment, assetType, assetStyle) {
+  const entry = (segment.allocation || []).find(a => a.asset_type === assetType);
+  if (!entry) return null;
+  if (!assetStyle) return { value_bn: entry.value_bn, pct: entry.pct_of_segment };
+  const style = (entry.styles || []).find(s => s.asset_style === assetStyle);
+  if (!style) return null;
+  const pct = segment.aum_bn ? (style.value_bn / segment.aum_bn * 100) : 0;
+  return { value_bn: style.value_bn, pct: Math.round(pct * 10) / 10 };
+}
+
+// Builds the "Allocation row shows" dropdowns from whatever asset types/styles
+// actually appear in the loaded country's data, so the controls never offer a
+// choice with nothing behind it.
+function populateAllocationSelectors(segs) {
+  const typeSelect = document.getElementById('alloc-type-select');
+  const typesSeen = new Set();
+  segs.forEach(s => (s.allocation || []).forEach(a => typesSeen.add(a.asset_type)));
+  const preferredOrder = ['Equities', 'Fixed Income', 'Cash & Short-Term', 'Real Estate', 'Alternatives', 'Other/Unclassified'];
+  const types = preferredOrder.filter(t => typesSeen.has(t)).concat([...typesSeen].filter(t => !preferredOrder.includes(t)));
+
+  if (!typeSelect.dataset.populated) {
+    typeSelect.innerHTML = types.map(t => `<option value="${t}" ${t === CURRENT_ALLOC_TYPE ? 'selected' : ''}>${t}</option>`).join('');
+    typeSelect.dataset.populated = '1';
+  }
+  populateStyleSelector(segs);
+}
+
+function populateStyleSelector(segs) {
+  const styleSelect = document.getElementById('alloc-style-select');
+  const stylesSeen = new Set();
+  segs.forEach(s => {
+    const entry = (s.allocation || []).find(a => a.asset_type === CURRENT_ALLOC_TYPE);
+    (entry ? entry.styles || [] : []).forEach(st => {
+      if (st.asset_style !== 'Other/Unspecified') stylesSeen.add(st.asset_style);
+    });
+  });
+  const styles = [...stylesSeen].sort();
+  styleSelect.innerHTML = `<option value="">All styles (${CURRENT_ALLOC_TYPE} total)</option>` +
+    styles.map(s => `<option value="${s}" ${s === CURRENT_ALLOC_STYLE ? 'selected' : ''}>${s}</option>`).join('');
+  if (!styles.includes(CURRENT_ALLOC_STYLE)) CURRENT_ALLOC_STYLE = '';
+}
+
+function onAllocationSelectorChange() {
+  const typeSelect = document.getElementById('alloc-type-select');
+  const styleSelect = document.getElementById('alloc-style-select');
+  const typeChanged = typeSelect.value !== CURRENT_ALLOC_TYPE;
+  CURRENT_ALLOC_TYPE = typeSelect.value;
+  if (typeChanged) {
+    CURRENT_ALLOC_STYLE = '';
+    populateStyleSelector(LOADED_SEGMENTS);
+  } else {
+    CURRENT_ALLOC_STYLE = styleSelect.value;
+  }
+  renderScorecardMatrix();
+}
+
 function getCountryCode() {
   const params = new URLSearchParams(window.location.search);
   return (params.get('c') || '').toLowerCase();
+}
+
+async function checkAuth() {
+  try {
+    const res = await fetch('/.auth/me');
+    const payload = await res.json();
+    const principal = payload && payload.clientPrincipal;
+    CURRENT_USER = principal ? (principal.userDetails || 'signed in') : null;
+  } catch (e) {
+    CURRENT_USER = null;
+  }
+
+  const el = document.getElementById('auth-status');
+  if (CURRENT_USER) {
+    el.innerHTML = `Signed in as ${CURRENT_USER} &nbsp;|&nbsp; <a href="/.auth/logout?post_logout_redirect_uri=${encodeURIComponent(window.location.href)}" style="color:#b9c6d3;">Log out</a>`;
+  } else {
+    el.innerHTML = `<a href="/.auth/login/aad?post_login_redirect_uri=${encodeURIComponent(window.location.href)}" style="color:#b9c6d3;">Log in to edit sources</a>`;
+  }
 }
 
 async function loadData(code) {
@@ -70,8 +170,194 @@ async function loadNotes(code) {
   }
 }
 
+async function applySource(segmentName, sourceIndex, buttonEl) {
+  buttonEl.disabled = true;
+  const originalText = buttonEl.textContent;
+  buttonEl.textContent = 'Saving…';
+
+  try {
+    const res = await fetch('/api/segments/set-active-source', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ country: COUNTRY_CODE, segment: segmentName, sourceIndex })
+    });
+    const result = await res.json();
+
+    if (!res.ok) {
+      alert(`Couldn't switch source: ${result.error || 'unknown error'}`);
+      buttonEl.disabled = false;
+      buttonEl.textContent = originalText;
+      return;
+    }
+
+    // Simplest reliable way to reflect the change everywhere on the page.
+    window.location.reload();
+  } catch (e) {
+    alert('Could not reach the server to save this change.');
+    buttonEl.disabled = false;
+    buttonEl.textContent = originalText;
+  }
+}
+
+// Renders the segments-as-columns opportunity scorecard matrix, matching
+// the shape of FINAL_Country_Matrix.xlsx: AUM / equity allocation up top,
+// the 12 scoring dimensions in the middle, Overall at the bottom. When
+// signed in, dimension cells become editable selects — anything still
+// blank is highlighted so gaps in the underlying data stay visible until
+// filled in, rather than silently defaulting to a value.
+function renderScorecardMatrix() {
+  const segs = LOADED_SEGMENTS.slice().sort((a, b) => segmentSortIndex(a.segment) - segmentSortIndex(b.segment));
+  const table = document.getElementById('scorecard-table');
+
+  if (!segs.length) {
+    table.innerHTML = '';
+    document.getElementById('scorecard-hint').textContent = 'No segments to score yet.';
+    return;
+  }
+
+  const fullyScored = segs.filter(s => computeOverallScore(s.scorecard) !== null).length;
+  document.getElementById('scorecard-hint').textContent =
+    `${fullyScored} of ${segs.length} segments fully scored (all 12 dimensions).` +
+    (CURRENT_USER ? ' Blank cells below are highlighted — click to score them.' : '');
+
+  populateAllocationSelectors(segs);
+
+  const headerCells = segs.map(s => `<th>${s.segment}</th>`).join('');
+
+  const numberCell = (value, decimals) => `<td class="numeric">${
+    typeof value === 'number' ? value.toLocaleString(undefined, { maximumFractionDigits: decimals }) : '—'
+  }</td>`;
+
+  const aumRow = `<tr><td class="matrix-rowlabel">AUM ($bn)</td>${segs.map(s => numberCell(s.aum_bn, 2)).join('')}</tr>`;
+
+  const allocLabel = CURRENT_ALLOC_STYLE ? `${CURRENT_ALLOC_TYPE} — ${CURRENT_ALLOC_STYLE} ($bn)` : `${CURRENT_ALLOC_TYPE} ($bn)`;
+  const allocRow = `<tr><td class="matrix-rowlabel" title="Selected via the dropdowns above the matrix">${allocLabel}</td>${
+    segs.map(s => {
+      const result = getAllocationValue(s, CURRENT_ALLOC_TYPE, CURRENT_ALLOC_STYLE);
+      return numberCell(result ? result.value_bn : null, 2);
+    }).join('')
+  }</tr>`;
+
+  const dimensionRows = SCORECARD_DIMENSIONS.map(dim => {
+    const cells = segs.map((s, segIndex) => {
+      const sc = s.scorecard || {};
+      const value = sc[dim.key];
+      const missing = typeof value !== 'number';
+      const cellId = `sc-cell-${dim.key}-${segIndex}`;
+
+      if (CURRENT_USER) {
+        const options = ['', '1', '2', '3'].map(v => {
+          const label = v === '' ? '–' : v;
+          const selected = (v === '' && missing) || (v !== '' && Number(v) === value) ? 'selected' : '';
+          return `<option value="${v}" ${selected}>${label}</option>`;
+        }).join('');
+        return `<td id="${cellId}" class="${missing ? 'cell-missing' : ''}">` +
+          `<select class="matrix-select" data-segment-index="${segIndex}" data-dim="${dim.key}" ` +
+          `onchange="saveScorecardValue(this)">${options}</select></td>`;
+      }
+
+      return `<td id="${cellId}">${missing ? '—' : value}</td>`;
+    }).join('');
+    return `<tr title="${dim.question}"><td class="matrix-rowlabel" title="${dim.question}">${dim.label}${dim.weight > 1 ? ` (×${dim.weight})` : ''}</td>${cells}</tr>`;
+  }).join('');
+
+  const scoredRow = `<tr class="scored-row">` +
+    `<td class="matrix-rowlabel">Scored</td>` +
+    segs.map((s, segIndex) => {
+      const count = scoredDimensionCount(s.scorecard);
+      const cls = count === SCORECARD_DIMENSIONS.length ? 'complete' : 'incomplete';
+      return `<td id="sc-scored-${segIndex}"><span class="scored-badge ${cls}">${count}/${SCORECARD_DIMENSIONS.length}</span></td>`;
+    }).join('') +
+    `</tr>`;
+
+  const overallRow = `<tr class="overall-row">` +
+    `<td class="matrix-rowlabel">Overall</td>` +
+    segs.map((s, segIndex) => {
+      const overall = computeOverallScore(s.scorecard);
+      return `<td id="sc-overall-${segIndex}"><strong>${overall === null ? '—' : overall}</strong></td>`;
+    }).join('') +
+    `</tr>`;
+
+  table.innerHTML = `
+    <thead><tr><th class="matrix-rowlabel">Segment</th>${headerCells}</tr></thead>
+    <tbody>
+      ${aumRow}
+      ${allocRow}
+      ${dimensionRows}
+      ${scoredRow}
+      ${overallRow}
+    </tbody>
+  `;
+}
+
+// Persists a single dimension's score for one segment, then updates just
+// that column's "Scored" and "Overall" cells in place — deliberately not a
+// full page reload, since filling in a whole segment means changing many
+// cells in one sitting.
+async function saveScorecardValue(selectEl) {
+  const segIndex = parseInt(selectEl.dataset.segmentIndex, 10);
+  const dim = selectEl.dataset.dim;
+  const raw = selectEl.value;
+  const value = raw === '' ? null : parseInt(raw, 10);
+  const segment = LOADED_SEGMENTS.slice().sort((a, b) => segmentSortIndex(a.segment) - segmentSortIndex(b.segment))[segIndex];
+
+  selectEl.disabled = true;
+  const cellEl = document.getElementById(`sc-cell-${dim}-${segIndex}`);
+  const previousValue = segment.scorecard ? segment.scorecard[dim] : undefined;
+
+  try {
+    const res = await fetch('/api/segments/set-scorecard', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ country: COUNTRY_CODE, segment: segment.segment, dimension: dim, value })
+    });
+    const result = await res.json();
+
+    if (!res.ok) {
+      alert(`Couldn't save this score: ${result.error || 'unknown error'}`);
+      selectEl.value = (typeof previousValue === 'number') ? String(previousValue) : '';
+      selectEl.disabled = false;
+      return;
+    }
+
+    if (!segment.scorecard) segment.scorecard = {};
+    if (value === null) {
+      delete segment.scorecard[dim];
+    } else {
+      segment.scorecard[dim] = value;
+    }
+
+    if (cellEl) cellEl.className = (value === null) ? 'cell-missing' : '';
+
+    const count = scoredDimensionCount(segment.scorecard);
+    const scoredCellEl = document.getElementById(`sc-scored-${segIndex}`);
+    if (scoredCellEl) {
+      const cls = count === SCORECARD_DIMENSIONS.length ? 'complete' : 'incomplete';
+      scoredCellEl.innerHTML = `<span class="scored-badge ${cls}">${count}/${SCORECARD_DIMENSIONS.length}</span>`;
+    }
+
+    const overallCellEl = document.getElementById(`sc-overall-${segIndex}`);
+    if (overallCellEl) {
+      const overall = computeOverallScore(segment.scorecard);
+      overallCellEl.innerHTML = `<strong>${overall === null ? '—' : overall}</strong>`;
+    }
+
+    const fullyScored = LOADED_SEGMENTS.filter(s => computeOverallScore(s.scorecard) !== null).length;
+    document.getElementById('scorecard-hint').textContent =
+      `${fullyScored} of ${LOADED_SEGMENTS.length} segments fully scored (all 12 dimensions). Blank cells below are highlighted — click to score them.`;
+  } catch (e) {
+    alert('Could not reach the server to save this change.');
+    selectEl.value = (typeof previousValue === 'number') ? String(previousValue) : '';
+  } finally {
+    selectEl.disabled = false;
+  }
+}
+
 async function load() {
+  await checkAuth();
+
   const code = getCountryCode();
+  COUNTRY_CODE = code;
 
   if (!code) {
     document.querySelector('main').innerHTML = '<p class="note">No country specified. Go back to the <a href="index.html">global overview</a> and pick one from the list.</p>';
@@ -89,7 +375,9 @@ async function load() {
   document.title = `Atlas — ${data.country_name}`;
   document.getElementById('page-tagline').textContent = `${data.country_name} — segment breakdown`;
 
-  const segments = (data.segments || []).slice().sort((a, b) => b.aum_bn - a.aum_bn);
+  LOADED_SEGMENTS = data.segments || [];
+
+  const segments = LOADED_SEGMENTS.slice().sort((a, b) => b.aum_bn - a.aum_bn);
   const totalAum = segments.reduce((s, x) => s + x.aum_bn, 0);
   const topSegment = segments[0];
 
@@ -99,6 +387,8 @@ async function load() {
     <div class="stat-card"><div class="value">${topSegment ? topSegment.segment : '—'}</div><div class="label">Largest segment</div></div>
   `;
 
+  renderScorecardMatrix();
+
   const basisClass = (basis) => {
     if (!basis) return 'bottom-up';
     if (basis.startsWith('Top-down')) return 'override';
@@ -106,17 +396,77 @@ async function load() {
     return 'bottom-up';
   };
 
-  const rows = segments.map(s => `
+  const alternatesRow = (s, segIndex) => {
+    if (!s.alternate_sources || !s.alternate_sources.length) return '';
+
+    if (!CURRENT_USER) {
+      // Read-only view for anyone not signed in.
+      const items = s.alternate_sources.map(alt => {
+        const activeTag = alt.active ? ' (currently shown)' : '';
+        const aum = (typeof alt.aum_bn === 'number') ? alt.aum_bn.toLocaleString(undefined, {maximumFractionDigits: 2}) + 'bn' : '—';
+        const note = alt.note ? ` — ${alt.note}` : '';
+        return `<li><strong>${alt.basis}${activeTag}:</strong> ${aum}${alt.source ? ` (${alt.source})` : ''}${note}</li>`;
+      }).join('');
+      return `
+        <tr>
+          <td colspan="4" style="padding-top:0;">
+            <details>
+              <summary style="cursor:pointer; color:var(--muted); font-size:0.82rem;">Other sources for this segment</summary>
+              <ul style="margin:8px 0 4px; padding-left:1.2em; font-size:0.85rem; color:var(--muted);">${items}</ul>
+            </details>
+          </td>
+        </tr>`;
+    }
+
+    // Editable view once signed in — the server still checks whether this
+    // specific signed-in user is actually allowed to save a change.
+    const selectId = `source-select-${segIndex}`;
+    const options = s.alternate_sources.map((alt, i) => {
+      const aum = (typeof alt.aum_bn === 'number') ? alt.aum_bn.toLocaleString(undefined, {maximumFractionDigits: 2}) + 'bn' : '—';
+      return `<option value="${i}" ${alt.active ? 'selected' : ''}>${alt.basis} — ${aum}${alt.source ? ` (${alt.source})` : ''}</option>`;
+    }).join('');
+
+    return `
+      <tr>
+        <td colspan="4" style="padding-top:0;">
+          <div style="display:flex; align-items:center; gap:8px; font-size:0.85rem; color:var(--muted); flex-wrap:wrap;">
+            <label for="${selectId}">Active source:</label>
+            <select id="${selectId}" style="font-size:0.85rem; padding:2px 4px;">${options}</select>
+            <button type="button" onclick="applySource(${JSON.stringify(s.segment)}, parseInt(document.getElementById('${selectId}').value, 10), this)"
+              style="font-size:0.8rem; padding:3px 10px; border-radius:5px; border:1px solid var(--border); background:var(--card); cursor:pointer;">
+              Apply
+            </button>
+          </div>
+        </td>
+      </tr>`;
+  };
+
+  const rows = segments.map((s, i) => {
+    const equity = getAllocationValue(s, 'Equities', '');
+    return `
     <tr>
       <td>${s.segment}</td>
       <td class="numeric">${s.aum_bn.toLocaleString(undefined, {maximumFractionDigits: 2})}</td>
-      <td class="numeric">${(s.equity_allocation_bn || 0).toLocaleString(undefined, {maximumFractionDigits: 2})}</td>
+      <td class="numeric">${(equity ? equity.value_bn : 0).toLocaleString(undefined, {maximumFractionDigits: 2})}</td>
       <td><span class="badge ${basisClass(s.basis)}">${s.basis || ''}</span></td>
     </tr>
-  `).join('');
+    ${alternatesRow(s, i)}
+  `;
+  }).join('');
 
   document.getElementById('segment-rows').innerHTML = rows;
   document.getElementById('data-note').textContent = data.source_note || '';
+
+  // Individual-institution browser only exists for countries that have a raw
+  // records subtable extracted (currently just the UK pilot) — check before
+  // linking rather than offering a link that 404s.
+  try {
+    const instRes = await fetch(`data/${code}_institutions_latest.json`, { method: 'HEAD' });
+    if (instRes.ok) {
+      document.getElementById('institutions-link-wrap').innerHTML =
+        `<a href="institutions.html?c=${code}" class="country-link">Browse individual institutions &rarr;</a>`;
+    }
+  } catch (e) { /* no institutions file for this country yet — leave link out */ }
 
   const notesText = await loadNotes(code);
   const notesEl = document.getElementById('research-notes');
