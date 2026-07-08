@@ -6,6 +6,7 @@
 <title>Atlas — Country</title>
 <link rel="stylesheet" href="style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+<script src="scorecard-dimensions.js"></script>
 </head>
 <body>
 <header class="site-header">
@@ -20,7 +21,13 @@
 <main>
   <div class="summary-bar" id="summary-bar"></div>
 
-  <h2>AUM by segment</h2>
+  <h2>Opportunity scorecard</h2>
+  <p class="note" style="margin-top:-8px; margin-bottom:16px; border-top:none; padding-top:0;" id="scorecard-hint"></p>
+  <div class="matrix-wrap">
+    <table class="matrix-table" id="scorecard-table"></table>
+  </div>
+
+  <h2 style="margin-top:32px;">AUM by segment</h2>
   <table>
     <thead>
       <tr>
@@ -44,6 +51,7 @@
 <script>
 let CURRENT_USER = null; // set by checkAuth(), null if not signed in
 let COUNTRY_CODE = '';
+let LOADED_SEGMENTS = []; // kept in memory so scorecard edits can update the matrix without a full reload
 
 function getCountryCode() {
   const params = new URLSearchParams(window.location.search);
@@ -121,6 +129,151 @@ async function applySource(segmentName, sourceIndex, buttonEl) {
   }
 }
 
+// Renders the segments-as-columns opportunity scorecard matrix, matching
+// the shape of FINAL_Country_Matrix.xlsx: AUM / equity allocation up top,
+// the 12 scoring dimensions in the middle, Overall at the bottom. When
+// signed in, dimension cells become editable selects — anything still
+// blank is highlighted so gaps in the underlying data stay visible until
+// filled in, rather than silently defaulting to a value.
+function renderScorecardMatrix() {
+  const segs = LOADED_SEGMENTS.slice().sort((a, b) => segmentSortIndex(a.segment) - segmentSortIndex(b.segment));
+  const table = document.getElementById('scorecard-table');
+
+  if (!segs.length) {
+    table.innerHTML = '';
+    document.getElementById('scorecard-hint').textContent = 'No segments to score yet.';
+    return;
+  }
+
+  const fullyScored = segs.filter(s => computeOverallScore(s.scorecard) !== null).length;
+  document.getElementById('scorecard-hint').textContent =
+    `${fullyScored} of ${segs.length} segments fully scored (all 12 dimensions).` +
+    (CURRENT_USER ? ' Blank cells below are highlighted — click to score them.' : '');
+
+  const headerCells = segs.map(s => `<th>${s.segment}</th>`).join('');
+
+  const numberCell = (value, decimals) => `<td class="numeric">${
+    typeof value === 'number' ? value.toLocaleString(undefined, { maximumFractionDigits: decimals }) : '—'
+  }</td>`;
+
+  const aumRow = `<tr><td class="matrix-rowlabel">AUM ($bn)</td>${segs.map(s => numberCell(s.aum_bn, 2)).join('')}</tr>`;
+  const equityRow = `<tr><td class="matrix-rowlabel">Equity allocation ($bn)</td>${segs.map(s => numberCell(s.equity_allocation_bn, 2)).join('')}</tr>`;
+
+  const dimensionRows = SCORECARD_DIMENSIONS.map(dim => {
+    const cells = segs.map((s, segIndex) => {
+      const sc = s.scorecard || {};
+      const value = sc[dim.key];
+      const missing = typeof value !== 'number';
+      const cellId = `sc-cell-${dim.key}-${segIndex}`;
+
+      if (CURRENT_USER) {
+        const options = ['', '1', '2', '3'].map(v => {
+          const label = v === '' ? '–' : v;
+          const selected = (v === '' && missing) || (v !== '' && Number(v) === value) ? 'selected' : '';
+          return `<option value="${v}" ${selected}>${label}</option>`;
+        }).join('');
+        return `<td id="${cellId}" class="${missing ? 'cell-missing' : ''}">` +
+          `<select class="matrix-select" data-segment-index="${segIndex}" data-dim="${dim.key}" ` +
+          `onchange="saveScorecardValue(this)">${options}</select></td>`;
+      }
+
+      return `<td id="${cellId}">${missing ? '—' : value}</td>`;
+    }).join('');
+    return `<tr title="${dim.question}"><td class="matrix-rowlabel" title="${dim.question}">${dim.label}${dim.weight > 1 ? ` (×${dim.weight})` : ''}</td>${cells}</tr>`;
+  }).join('');
+
+  const scoredRow = `<tr class="scored-row">` +
+    `<td class="matrix-rowlabel">Scored</td>` +
+    segs.map((s, segIndex) => {
+      const count = scoredDimensionCount(s.scorecard);
+      const cls = count === SCORECARD_DIMENSIONS.length ? 'complete' : 'incomplete';
+      return `<td id="sc-scored-${segIndex}"><span class="scored-badge ${cls}">${count}/${SCORECARD_DIMENSIONS.length}</span></td>`;
+    }).join('') +
+    `</tr>`;
+
+  const overallRow = `<tr class="overall-row">` +
+    `<td class="matrix-rowlabel">Overall</td>` +
+    segs.map((s, segIndex) => {
+      const overall = computeOverallScore(s.scorecard);
+      return `<td id="sc-overall-${segIndex}"><strong>${overall === null ? '—' : overall}</strong></td>`;
+    }).join('') +
+    `</tr>`;
+
+  table.innerHTML = `
+    <thead><tr><th class="matrix-rowlabel">Segment</th>${headerCells}</tr></thead>
+    <tbody>
+      ${aumRow}
+      ${equityRow}
+      ${dimensionRows}
+      ${scoredRow}
+      ${overallRow}
+    </tbody>
+  `;
+}
+
+// Persists a single dimension's score for one segment, then updates just
+// that column's "Scored" and "Overall" cells in place — deliberately not a
+// full page reload, since filling in a whole segment means changing many
+// cells in one sitting.
+async function saveScorecardValue(selectEl) {
+  const segIndex = parseInt(selectEl.dataset.segmentIndex, 10);
+  const dim = selectEl.dataset.dim;
+  const raw = selectEl.value;
+  const value = raw === '' ? null : parseInt(raw, 10);
+  const segment = LOADED_SEGMENTS.slice().sort((a, b) => segmentSortIndex(a.segment) - segmentSortIndex(b.segment))[segIndex];
+
+  selectEl.disabled = true;
+  const cellEl = document.getElementById(`sc-cell-${dim}-${segIndex}`);
+  const previousValue = segment.scorecard ? segment.scorecard[dim] : undefined;
+
+  try {
+    const res = await fetch('/api/segments/set-scorecard', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ country: COUNTRY_CODE, segment: segment.segment, dimension: dim, value })
+    });
+    const result = await res.json();
+
+    if (!res.ok) {
+      alert(`Couldn't save this score: ${result.error || 'unknown error'}`);
+      selectEl.value = (typeof previousValue === 'number') ? String(previousValue) : '';
+      selectEl.disabled = false;
+      return;
+    }
+
+    if (!segment.scorecard) segment.scorecard = {};
+    if (value === null) {
+      delete segment.scorecard[dim];
+    } else {
+      segment.scorecard[dim] = value;
+    }
+
+    if (cellEl) cellEl.className = (value === null) ? 'cell-missing' : '';
+
+    const count = scoredDimensionCount(segment.scorecard);
+    const scoredCellEl = document.getElementById(`sc-scored-${segIndex}`);
+    if (scoredCellEl) {
+      const cls = count === SCORECARD_DIMENSIONS.length ? 'complete' : 'incomplete';
+      scoredCellEl.innerHTML = `<span class="scored-badge ${cls}">${count}/${SCORECARD_DIMENSIONS.length}</span>`;
+    }
+
+    const overallCellEl = document.getElementById(`sc-overall-${segIndex}`);
+    if (overallCellEl) {
+      const overall = computeOverallScore(segment.scorecard);
+      overallCellEl.innerHTML = `<strong>${overall === null ? '—' : overall}</strong>`;
+    }
+
+    const fullyScored = LOADED_SEGMENTS.filter(s => computeOverallScore(s.scorecard) !== null).length;
+    document.getElementById('scorecard-hint').textContent =
+      `${fullyScored} of ${LOADED_SEGMENTS.length} segments fully scored (all 12 dimensions). Blank cells below are highlighted — click to score them.`;
+  } catch (e) {
+    alert('Could not reach the server to save this change.');
+    selectEl.value = (typeof previousValue === 'number') ? String(previousValue) : '';
+  } finally {
+    selectEl.disabled = false;
+  }
+}
+
 async function load() {
   await checkAuth();
 
@@ -143,7 +296,9 @@ async function load() {
   document.title = `Atlas — ${data.country_name}`;
   document.getElementById('page-tagline').textContent = `${data.country_name} — segment breakdown`;
 
-  const segments = (data.segments || []).slice().sort((a, b) => b.aum_bn - a.aum_bn);
+  LOADED_SEGMENTS = data.segments || [];
+
+  const segments = LOADED_SEGMENTS.slice().sort((a, b) => b.aum_bn - a.aum_bn);
   const totalAum = segments.reduce((s, x) => s + x.aum_bn, 0);
   const topSegment = segments[0];
 
@@ -152,6 +307,8 @@ async function load() {
     <div class="stat-card"><div class="value">${segments.length}</div><div class="label">Segments populated</div></div>
     <div class="stat-card"><div class="value">${topSegment ? topSegment.segment : '—'}</div><div class="label">Largest segment</div></div>
   `;
+
+  renderScorecardMatrix();
 
   const basisClass = (basis) => {
     if (!basis) return 'bottom-up';

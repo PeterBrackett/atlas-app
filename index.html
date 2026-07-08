@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Atlas — Global Overview</title>
 <link rel="stylesheet" href="style.css">
+<script src="scorecard-dimensions.js"></script>
 </head>
 <body>
 <header class="site-header">
@@ -18,7 +19,13 @@
 <main>
   <div class="summary-bar" id="summary-bar"></div>
 
-  <h2>Countries</h2>
+  <h2>Opportunity scorecard — Overall by segment</h2>
+  <p class="note" style="margin-top:-8px; margin-bottom:16px; border-top:none; padding-top:0;" id="overview-hint"></p>
+  <div class="matrix-wrap">
+    <table class="matrix-table" id="overview-matrix"></table>
+  </div>
+
+  <h2 style="margin-top:32px;">Countries</h2>
   <table>
     <thead>
       <tr>
@@ -35,6 +42,76 @@
 </main>
 
 <script>
+async function fetchCountryData(code) {
+  try {
+    const res = await fetch(`/api/data/${code}`);
+    if (!res.ok) throw new Error('API not ready');
+    return await res.json();
+  } catch (e) {
+    try {
+      const res = await fetch(`data/${code}.json`);
+      if (!res.ok) return null;
+      return await res.json();
+    } catch (e2) {
+      return null;
+    }
+  }
+}
+
+// The cross-country comparison view — every built country's segments laid
+// out against the same Overall score, the same shape as the "Overall"
+// sheet in FINAL_Country_Matrix.xlsx. This is the app's headline view:
+// per-country detail (AUM, allocation, individual dimension scores) lives
+// one click away on each country's own page.
+async function renderOverviewMatrix(builtCountries) {
+  const table = document.getElementById('overview-matrix');
+
+  if (!builtCountries.length) {
+    table.innerHTML = '';
+    document.getElementById('overview-hint').textContent = 'No countries built out yet.';
+    return;
+  }
+
+  const countryData = await Promise.all(builtCountries.map(async c => ({
+    meta: c,
+    data: await fetchCountryData(c.code.toLowerCase())
+  })));
+
+  const usable = countryData.filter(c => c.data);
+  if (!usable.length) {
+    table.innerHTML = '';
+    document.getElementById('overview-hint').textContent = 'Country data could not be loaded.';
+    return;
+  }
+
+  // Only show segment columns that actually appear in at least one built
+  // country, in canonical order, so the table doesn't carry 19 columns of
+  // near-total blanks while only a handful of countries are built out.
+  const segmentsPresent = new Set();
+  usable.forEach(c => (c.data.segments || []).forEach(s => segmentsPresent.add(s.segment)));
+  const columns = CANONICAL_SEGMENT_ORDER.filter(s => segmentsPresent.has(s));
+
+  const headerCells = columns.map(seg => `<th>${seg}</th>`).join('');
+
+  const rows = usable.map(c => {
+    const href = c.meta.href || `country.html?c=${c.meta.code.toLowerCase()}`;
+    const cells = columns.map(segName => {
+      const seg = (c.data.segments || []).find(s => s.segment === segName);
+      const overall = seg ? computeOverallScore(seg.scorecard) : null;
+      return `<td>${overall === null ? '—' : overall}</td>`;
+    }).join('');
+    return `<tr><td class="matrix-rowlabel"><a class="country-link" href="${href}">${c.meta.name}</a></td>${cells}</tr>`;
+  }).join('');
+
+  table.innerHTML = `
+    <thead><tr><th class="matrix-rowlabel">Country</th>${headerCells}</tr></thead>
+    <tbody>${rows}</tbody>
+  `;
+
+  document.getElementById('overview-hint').textContent =
+    `${usable.length} of ${builtCountries.length} built countries loaded. Blank cells mean that segment isn't fully scored yet — see the country page to complete it.`;
+}
+
 async function load() {
   let data;
   try {
@@ -57,6 +134,8 @@ async function load() {
     <div class="stat-card"><div class="value">${built}</div><div class="label">Country pages built</div></div>
     <div class="stat-card"><div class="value">${totalInstitutions.toLocaleString()}</div><div class="label">Institutions tracked</div></div>
   `;
+
+  renderOverviewMatrix(countries.filter(c => c.status === 'built'));
 
   const rows = countries.map(c => {
     const name = c.status === 'built'
