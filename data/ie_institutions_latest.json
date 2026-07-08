@@ -1,0 +1,5114 @@
+{
+  "country_code": "IE",
+  "country_name": "Ireland",
+  "extraction_date": "2026-07-08",
+  "record_count": 43,
+  "source_files": [
+    "results (6).xls",
+    "results (7).xls",
+    "results (8).xls",
+    "results (5).xls"
+  ],
+  "schema_version": "Atlas_Schema_Proposal_v1.md, Section 1",
+  "institutions": [
+    {
+      "entity_id": "IE-0001",
+      "entity_name": "Accenture plc",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 1340365.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Multinational Consolidated Plan",
+          "plan_assets": 1340365.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 54186.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 262338.0,
+              "pct_of_plan": 20.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 129691.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Mutual Fund",
+              "value": 308518.0,
+              "pct_of_plan": 23.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Mutual Fund",
+              "value": 291250.0,
+              "pct_of_plan": 22.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 5823.0,
+              "pct_of_plan": null
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Corporate Bonds",
+              "investment_region": "Global Ex-U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 15250.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Global Ex-U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 273309.0,
+              "pct_of_plan": 20.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0002",
+      "entity_name": "Allied Irish Banks (AIB)",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 5831586.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Closed or Frozen Defined Benefit Plan",
+          "plan_assets": 5831586.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Derivatives",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2333.0,
+              "pct_of_plan": null
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 581992.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 783765.0,
+              "pct_of_plan": 13.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "GIC",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 716119.0,
+              "pct_of_plan": 12.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1152321.0,
+              "pct_of_plan": 20.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 311407.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Investment Funds",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2283649.0,
+              "pct_of_plan": 39.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0003",
+      "entity_name": "An Post",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 3680609.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 3680609.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 65515.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 149065.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Property, Private Equity & Infrastructure",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 698212.0,
+              "pct_of_plan": 19.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Europe",
+              "vehicle_type": "Unspecified",
+              "value": 2606607.0,
+              "pct_of_plan": 71.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 161211.0,
+              "pct_of_plan": 4.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [
+          {
+            "manager_name": "Pacific Investment Management Company (PIMCO) (Europe), London, United Kingdom",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "An Post Pension Fund"
+          },
+          {
+            "manager_name": "SSGA Funds Management, Inc., Boston, MA",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "An Post Pension Fund"
+          }
+        ],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0004",
+      "entity_name": "Bank of Ireland Group",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 6972740.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Multinational Consolidated Plan",
+          "plan_assets": 6972740.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedge Funds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 301222.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Infrastructure",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 138758.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Liability-Driven",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3696249.0,
+              "pct_of_plan": 53.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 567581.0,
+              "pct_of_plan": 8.0
+            },
+            {
+              "asset_type": "Asset Allocation",
+              "asset_style": "Multi-Asset",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 306801.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 488092.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 363977.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Corporate Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 62755.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 37653.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 791406.0,
+              "pct_of_plan": 11.0
+            },
+            {
+              "asset_type": "Reinsurrance",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 218247.0,
+              "pct_of_plan": 3.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [
+          {
+            "name": "Willis Towers Watson, London, United Kingdom",
+            "year_hired": null
+          }
+        ],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0005",
+      "entity_name": "Bord Na Móna plc",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 299067.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 299067.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 21862.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 161197.0,
+              "pct_of_plan": 54.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 116008.0,
+              "pct_of_plan": 39.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0006",
+      "entity_name": "C&C Group plc",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 172608.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Closed or Frozen Defined Benefit Plan",
+          "plan_assets": 172608.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 8613.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 518.0,
+              "pct_of_plan": null
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 32796.0,
+              "pct_of_plan": 19.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 117235.0,
+              "pct_of_plan": 68.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 13446.0,
+              "pct_of_plan": 8.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0007",
+      "entity_name": "CIF Pension Administration Services Ltd (CPAS)",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": "Industry-wide",
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 3286401.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 2595566.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 33483.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 14276.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 104861.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedge Funds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 260595.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Infrastructure",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 98112.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Futures",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 70340.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 467721.0,
+              "pct_of_plan": 18.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 1057953.0,
+              "pct_of_plan": 41.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 392190.0,
+              "pct_of_plan": 15.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 96036.0,
+              "pct_of_plan": 4.0
+            }
+          ]
+        },
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 690835.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Savings & Temporary Cash",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 10915.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2487.0,
+              "pct_of_plan": null
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 27357.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 84973.0,
+              "pct_of_plan": 12.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 74334.0,
+              "pct_of_plan": 11.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 204833.0,
+              "pct_of_plan": 30.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 251119.0,
+              "pct_of_plan": 36.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 34818.0,
+              "pct_of_plan": 5.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [
+          {
+            "name": "Acuvest Limited, Dublin, Ireland",
+            "year_hired": null
+          },
+          {
+            "name": "Mercer, New York, NY",
+            "year_hired": null
+          }
+        ],
+        "fiduciary_manager": [],
+        "custodian": [
+          {
+            "name": "Brown Brothers Harriman & Co., Luxembourg, Luxembourg",
+            "year_hired": null
+          },
+          {
+            "name": "Citibank N.A., Schiphol, Netherlands",
+            "year_hired": null
+          }
+        ],
+        "actuary": [
+          {
+            "name": "Willis Towers Watson (Ireland) Ltd, Dublin, Ireland",
+            "year_hired": null
+          }
+        ],
+        "asset_managers_used": [
+          {
+            "manager_name": "Aberdeen Standard Investments Inc., Philadelphia, PA",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Construction Workers' Pension Scheme (CWPS)"
+          },
+          {
+            "manager_name": "Allspring Global Investments (Uk) Limited, London, United Kingdom",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Construction Workers' Pension Scheme (CWPS)"
+          },
+          {
+            "manager_name": "Amundi Asset Management, London, United Kingdom",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Construction Workers' Pension Scheme (CWPS)"
+          },
+          {
+            "manager_name": "BNY Mellon Investment Management, New York, NY",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Construction Workers' Pension Scheme (CWPS)"
+          },
+          {
+            "manager_name": "Capital Group, Inc., Phoenix, AZ",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Construction Workers' Pension Scheme (CWPS)"
+          },
+          {
+            "manager_name": "ECM Equity Capital Management GmbH, Frankfurt, Germany",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Construction Workers' Pension Scheme (CWPS)"
+          },
+          {
+            "manager_name": "Fidelity Investments, Boston, MA",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Construction Workers' Pension Scheme (CWPS)"
+          },
+          {
+            "manager_name": "Irish Life Investment Managers, Dublin, Ireland",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Construction Workers' Pension Scheme (CWPS)"
+          },
+          {
+            "manager_name": "Janus Henderson Investors, London, United Kingdom",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Construction Workers' Pension Scheme (CWPS)"
+          },
+          {
+            "manager_name": "Legal & General Investment Management America, Chicago, IL",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Construction Workers' Pension Scheme (CWPS)"
+          },
+          {
+            "manager_name": "LGT Capital Partners (Ireland) Limited, Dublin, Ireland",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Construction Workers' Pension Scheme (CWPS)"
+          },
+          {
+            "manager_name": "Principal Global Investors (Europe) Limited, London, United Kingdom",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Construction Workers' Pension Scheme (CWPS)"
+          },
+          {
+            "manager_name": "Ruffer LLP, London, United Kingdom",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Construction Workers' Pension Scheme (CWPS)"
+          },
+          {
+            "manager_name": "Schroders plc, London, United Kingdom",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Construction Workers' Pension Scheme (CWPS)"
+          },
+          {
+            "manager_name": "State Street Investment Management France, Paris La Défense Cedex, France",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Construction Workers' Pension Scheme (CWPS)"
+          },
+          {
+            "manager_name": "StepStone Group LP, San Diego, CA",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Construction Workers' Pension Scheme (CWPS)"
+          },
+          {
+            "manager_name": "Abbey Capital Ltd., Dublin, Ireland",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Construction Executive Retirement Savings (CERS)"
+          },
+          {
+            "manager_name": "abrdn plc, Edinburgh, United Kingdom",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Construction Executive Retirement Savings (CERS)"
+          },
+          {
+            "manager_name": "AMP Capital Investors, Sydney, NSW, Australia",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Construction Executive Retirement Savings (CERS)"
+          },
+          {
+            "manager_name": "BlueBay Asset Management USA LLC, Stamford, CT",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Construction Executive Retirement Savings (CERS)"
+          },
+          {
+            "manager_name": "First Sentier Investors, Sydney, NSW, Australia",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Construction Executive Retirement Savings (CERS)"
+          },
+          {
+            "manager_name": "IPUT plc, Dublin, Ireland",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Construction Executive Retirement Savings (CERS)"
+          },
+          {
+            "manager_name": "J.P. Morgan Asset Management (UK) Limited, London, United Kingdom",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Construction Executive Retirement Savings (CERS)"
+          },
+          {
+            "manager_name": "KBI Global Investors (North America) Ltd., Dublin, Ireland",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Construction Executive Retirement Savings (CERS)"
+          },
+          {
+            "manager_name": "Manulife Asset Management (North America) Limited, Toronto, ON, Canada",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Construction Executive Retirement Savings (CERS)"
+          },
+          {
+            "manager_name": "PineBridge Investments LLC, New York, NY",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Construction Executive Retirement Savings (CERS)"
+          },
+          {
+            "manager_name": "Quadrant Real Estate Advisors LLC, Alpharetta, GA",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Construction Executive Retirement Savings (CERS)"
+          },
+          {
+            "manager_name": "SL Capital Partners LLP, Edinburgh, United Kingdom",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Construction Executive Retirement Savings (CERS)"
+          },
+          {
+            "manager_name": "State Street Investment Management, Boston, MA",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Construction Executive Retirement Savings (CERS)"
+          }
+        ],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0008",
+      "entity_name": "CRH plc",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 1513078.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Multinational Consolidated Plan",
+          "plan_assets": 1275797.0,
+          "as_of_date": "2026-07-08",
+          "allocation": []
+        },
+        {
+          "plan_type": "Defined Benefit Multinational Consolidated Plan",
+          "plan_assets": 237281.0,
+          "as_of_date": "2026-07-08",
+          "allocation": []
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0009",
+      "entity_name": "Coillte Teoranta Ltd.",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 356079.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 356079.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 51062.0,
+              "pct_of_plan": 14.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 238893.0,
+              "pct_of_plan": 67.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 30338.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 35786.0,
+              "pct_of_plan": 10.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0010",
+      "entity_name": "Community Foundation for Ireland",
+      "former_names": [],
+      "entity_type": "Charity/Foundation",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 98082.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 98082.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 22824.0,
+              "pct_of_plan": 23.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 15183.0,
+              "pct_of_plan": 15.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 60075.0,
+              "pct_of_plan": 61.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [
+          {
+            "manager_name": "Brewin Dolphin Limited, London, United Kingdom",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Investment Pool Funds"
+          },
+          {
+            "manager_name": "Sarasin & Partners LLP, London, United Kingdom",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Investment Pool Funds"
+          }
+        ],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0011",
+      "entity_name": "Concern Worldwide",
+      "former_names": [],
+      "entity_type": "Charity/Foundation",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 84626.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 11284.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1644.0,
+              "pct_of_plan": 15.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 9640.0,
+              "pct_of_plan": 85.0
+            }
+          ]
+        },
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 73342.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 72909.0,
+              "pct_of_plan": 99.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 433.0,
+              "pct_of_plan": 1.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0012",
+      "entity_name": "Coras Iompair Eireann",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": "Public Sector",
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 2735295.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 2735295.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 343280.0,
+              "pct_of_plan": 13.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 754121.0,
+              "pct_of_plan": 28.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1526842.0,
+              "pct_of_plan": 56.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 111053.0,
+              "pct_of_plan": 4.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0013",
+      "entity_name": "Courts Service of Ireland",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": "Public Sector",
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 2734866.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 2734866.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 21058.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2713808.0,
+              "pct_of_plan": 99.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [
+          {
+            "manager_name": "State Street Investment Management, Boston, MA",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Consolidated Court Funds"
+          }
+        ],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0014",
+      "entity_name": "DCC plc",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 45584.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 45584.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2197.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 31581.0,
+              "pct_of_plan": 69.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4531.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 23.0,
+              "pct_of_plan": null
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Developed",
+              "vehicle_type": "Unspecified",
+              "value": 7221.0,
+              "pct_of_plan": 16.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Emerging Markets",
+              "vehicle_type": "Unspecified",
+              "value": 32.0,
+              "pct_of_plan": null
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0015",
+      "entity_name": "Dublin City University",
+      "former_names": [],
+      "entity_type": "Endowment",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 677090.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 591082.0,
+          "as_of_date": "2026-07-08",
+          "allocation": []
+        },
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 86008.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 86008.0,
+              "pct_of_plan": 100.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [
+          {
+            "name": "Allied Irish Banks Plc, Dublin, Ireland",
+            "year_hired": null
+          }
+        ],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0016",
+      "entity_name": "Dublin Institute of Technology Foundation",
+      "former_names": [],
+      "entity_type": "Charity/Foundation",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 36072.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 36072.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 36072.0,
+              "pct_of_plan": 100.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0017",
+      "entity_name": "Dublin Port Company",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 237602.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Closed or Frozen Defined Benefit Plan",
+          "plan_assets": 237602.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 23333.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 214269.0,
+              "pct_of_plan": 90.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0018",
+      "entity_name": "EirGrid plc",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 173717.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 146430.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 20002.0,
+              "pct_of_plan": 14.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 879.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 46477.0,
+              "pct_of_plan": 32.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Annuity",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3851.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 59919.0,
+              "pct_of_plan": 41.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 15302.0,
+              "pct_of_plan": 10.0
+            }
+          ]
+        },
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 27287.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 10948.0,
+              "pct_of_plan": 40.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 15873.0,
+              "pct_of_plan": 58.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 467.0,
+              "pct_of_plan": 2.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0019",
+      "entity_name": "Eircom Ltd.",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 3995144.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 3995144.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 274866.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 214140.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3260038.0,
+              "pct_of_plan": 82.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 192166.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 53934.0,
+              "pct_of_plan": 1.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0020",
+      "entity_name": "Electricity Supply Board",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 1029798.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 1029798.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Asset Allocation",
+              "asset_style": "Growth",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 69408.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Asset Allocation",
+              "asset_style": "Multi-Asset",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 690068.0,
+              "pct_of_plan": 67.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 246740.0,
+              "pct_of_plan": 24.0
+            },
+            {
+              "asset_type": "Other Investment",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 23582.0,
+              "pct_of_plan": 2.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0021",
+      "entity_name": "Ervia",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 578455.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 578455.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Infrastructure",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 37715.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2140.0,
+              "pct_of_plan": null
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 259148.0,
+              "pct_of_plan": 45.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 59176.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2950.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 86537.0,
+              "pct_of_plan": 15.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Developed",
+              "vehicle_type": "Unspecified",
+              "value": 117369.0,
+              "pct_of_plan": 20.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Emerging Markets",
+              "vehicle_type": "Unspecified",
+              "value": 13420.0,
+              "pct_of_plan": 2.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0022",
+      "entity_name": "FBD Holdings plc",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 69533.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 69533.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Infrastructure",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 8622.0,
+              "pct_of_plan": 12.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 862.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2135.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 55223.0,
+              "pct_of_plan": 79.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unit Trust",
+              "value": 2691.0,
+              "pct_of_plan": 4.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0023",
+      "entity_name": "Glanbia plc",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 110805.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Multinational Consolidated Plan",
+          "plan_assets": 110805.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2438.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 14128.0,
+              "pct_of_plan": 13.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Corporate Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4521.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 31347.0,
+              "pct_of_plan": 28.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Annuity",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 49663.0,
+              "pct_of_plan": 45.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2205.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Investment Funds",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4742.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1762.0,
+              "pct_of_plan": 2.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0024",
+      "entity_name": "Goal",
+      "former_names": [],
+      "entity_type": "Charity/Foundation",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 14043.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 14043.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 11879.0,
+              "pct_of_plan": 85.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2164.0,
+              "pct_of_plan": 15.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0025",
+      "entity_name": "Greencore Group plc",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 146307.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 146307.0,
+          "as_of_date": "2026-07-08",
+          "allocation": []
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0026",
+      "entity_name": "Housing Association for Integrated Living Ltd.",
+      "former_names": [],
+      "entity_type": "Charity/Foundation",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 4281.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 4281.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4257.0,
+              "pct_of_plan": 99.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 24.0,
+              "pct_of_plan": 1.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0027",
+      "entity_name": "Independent News & Media plc",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 87474.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 87474.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Absolute Return",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2292.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Commodities",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 455.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Derivatives",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 227.0,
+              "pct_of_plan": null
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Liability-Driven",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 18431.0,
+              "pct_of_plan": 21.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Venture Capital",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 114.0,
+              "pct_of_plan": null
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 16952.0,
+              "pct_of_plan": 19.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 455.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 1714.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 23014.0,
+              "pct_of_plan": 26.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 15457.0,
+              "pct_of_plan": 18.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "High Yield Bonds",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 7558.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 805.0,
+              "pct_of_plan": 1.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0028",
+      "entity_name": "Irish Aviation Authority",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 2544.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 2544.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1687.0,
+              "pct_of_plan": 66.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 857.0,
+              "pct_of_plan": 34.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0029",
+      "entity_name": "Irish Cancer Society",
+      "former_names": [],
+      "entity_type": "Charity/Foundation",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 10702.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 10702.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5218.0,
+              "pct_of_plan": 49.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5484.0,
+              "pct_of_plan": 51.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0030",
+      "entity_name": "Irish Continental Group plc",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 110694.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 110694.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 36308.0,
+              "pct_of_plan": 33.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 7726.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 65774.0,
+              "pct_of_plan": 59.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 886.0,
+              "pct_of_plan": 1.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0031",
+      "entity_name": "Irish Distillers Pernod Ricard",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 197575.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 197575.0,
+          "as_of_date": "2026-07-08",
+          "allocation": []
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0032",
+      "entity_name": "Irish Life",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 1129014.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 1129014.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5419.0,
+              "pct_of_plan": null
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 221851.0,
+              "pct_of_plan": 20.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 856470.0,
+              "pct_of_plan": 76.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 45273.0,
+              "pct_of_plan": 4.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0033",
+      "entity_name": "Kerry Group plc",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 1121620.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Multinational Consolidated Plan",
+          "plan_assets": 1121620.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Liability-Driven",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 567652.0,
+              "pct_of_plan": 51.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 17946.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Asset-Backed",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 195050.0,
+              "pct_of_plan": 17.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Credit",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 180693.0,
+              "pct_of_plan": 16.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 160279.0,
+              "pct_of_plan": 14.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0034",
+      "entity_name": "Kingspan Group plc",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 158592.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Closed or Frozen Defined Benefit Plan",
+          "plan_assets": 158592.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Liability-Driven",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 17334.0,
+              "pct_of_plan": 11.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2315.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 18206.0,
+              "pct_of_plan": 11.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Corporate Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 777.0,
+              "pct_of_plan": null
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 106939.0,
+              "pct_of_plan": 67.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Gilts",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 8834.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4187.0,
+              "pct_of_plan": 3.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0035",
+      "entity_name": "Medtronic plc",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 1823000.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Multinational Consolidated Plan",
+          "plan_assets": 1823000.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 48000.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Mutual Fund",
+              "value": 1775000.0,
+              "pct_of_plan": 97.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0036",
+      "entity_name": "National Treasury Management Agency",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 18916281.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Sovereign Wealth Fund",
+          "plan_assets": 17276239.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 6397391.0,
+              "pct_of_plan": 37.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 10878848.0,
+              "pct_of_plan": 63.0
+            }
+          ]
+        },
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 347402.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 42661.0,
+              "pct_of_plan": 12.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Infrastructure",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 13757.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 25048.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 157026.0,
+              "pct_of_plan": 45.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 108911.0,
+              "pct_of_plan": 31.0
+            }
+          ]
+        },
+        {
+          "plan_type": "Sovereign Wealth Fund",
+          "plan_assets": 1036616.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 427189.0,
+              "pct_of_plan": 41.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 604762.0,
+              "pct_of_plan": 58.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4665.0,
+              "pct_of_plan": null
+            }
+          ]
+        },
+        {
+          "plan_type": "Sovereign Wealth Fund",
+          "plan_assets": 238765.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 238765.0,
+              "pct_of_plan": 100.0
+            }
+          ]
+        },
+        {
+          "plan_type": "Sovereign Wealth Fund",
+          "plan_assets": 17259.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 13995.0,
+              "pct_of_plan": 81.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3264.0,
+              "pct_of_plan": 19.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [
+          {
+            "name": "BNY Mellon Investment Management EMEA Limited, London, United Kingdom",
+            "year_hired": null
+          },
+          {
+            "name": "Bny Mellon, London, United Kingdom",
+            "year_hired": null
+          }
+        ],
+        "actuary": [],
+        "asset_managers_used": [
+          {
+            "manager_name": "Acadian Asset Management (Australia) Ltd., Sydney, NSW, Australia",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "ACT Venture Capital Limited, Dublin, Ireland",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Activate Capital Partners LP, San Francisco, CA",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "AHL Partners LLP, London, United Kingdom",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "AIB, Dublin, Ireland",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "ARCH Venture Corporation, Chicago, IL",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Ardstone Capital, London, United Kingdom",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Atlantic Bridge Capital LLP, London, United Kingdom",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Avenue Europe International Management, LP, New York, NY",
+            "asset_class": "Real Estate",
+            "asset_style": "Unspecified",
+            "investment_region": "Unspecified",
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Beechbrook Capital, London, United Kingdom",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Blackstone Alternative Asset Management, London, United Kingdom",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Bridgewater Associates, LP, Westport, CT",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Cardinal Capital Group Ltd., Dublin 4, Ireland",
+            "asset_class": "Real Estate",
+            "asset_style": "Unspecified",
+            "investment_region": "Unspecified",
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Causeway Capital Management LLC, Los Angeles, CA",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Claret Asset Management Corporation, Montreal, QC, Canada",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Delta Partners, Dublin, Ireland",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Emerald Mutual Fund Advisers Trust, Lancaster, PA",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Energy Impact Partners LP, New York, NY",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Energy Income Partners, LLC, Westport, CT",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Finisterre Capital LLP, London, United Kingdom",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Fortress Partners Capital Management, Ltd., Hartland, WI",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Fountain Healthcare Partners, Dublin, Ireland",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Generation Investment Management US LLP, San Francisco, CA",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Goldman Sachs Asset Management International Ltd., London, United Kingdom",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Gore Street Capital Limited, London, United Kingdom",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Harrison Street Advisors, LLC, Chicago, IL",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Highland Capital Partners, Cambridge, MA",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Insight Venture Management, LLC, New York, NY",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Irish Forestry Unit Trust (IForUT), Dublin, Ireland",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Irish Life Investment Managers, Dublin, Ireland",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Just Climate, London, GL, United Kingdom",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Kreos Capital, Herzliya Pituach, Israel",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Leeds Equity Partners, LLC, New York, NY",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Lightstone Ventures, Boston, MA",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "MacKay Shields LLC, New York, NY",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Morgan Stanley Real Estate Advisor, Inc., New York, NY",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Muzinich & Co. Ltd, London, United Kingdom",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "NTR plc, Dublin, Ireland",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Oaktree Capital Management, LP, Los Angeles, CA",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "P Capital Partners AB, Stockholm, SE, Sweden",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "PineBridge Investments Europe Limited, London, United Kingdom",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Polaris Partners, Boston, MA",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Reverence Capital Partners, L.P., New York, NY",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Ruffer LLP, London, United Kingdom",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Scottish Equity Partners LLP, London, United Kingdom",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Seroba Life Sciences, Dublin, Ireland",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Silverpeak Real Estate Partners LP, New York, NY",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Sofinnova Ventures, Inc., Menlo Park, CA",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Solas Capital Management, LLC, Darien, CT",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Temporis Capital Ltd, London, United Kingdom",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "The Carlyle Group, Washington, DC",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "UBS Asset Management, Zurich, Switzerland",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "Waterland Private Equity Investments, Bussum, Netherlands",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          },
+          {
+            "manager_name": "WestSummit Capital Management, L.P., Hong Kong, Hong Kong S.A.R.",
+            "asset_class": null,
+            "asset_style": null,
+            "investment_region": null,
+            "value": null,
+            "year_hired": null,
+            "plan_name": "Ireland Strategic Investment Fund (ISIF)"
+          }
+        ],
+        "other_providers": [
+          {
+            "name": "Mercer, Dublin 2, Ireland",
+            "year_hired": null,
+            "provider_type": "Third Party Administrator"
+          }
+        ],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0037",
+      "entity_name": "National University of Ireland Maynooth",
+      "former_names": [],
+      "entity_type": "Charity/Foundation",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 48736.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 48736.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Limited Partnerships",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 283.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 46148.0,
+              "pct_of_plan": 95.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2305.0,
+              "pct_of_plan": 5.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0038",
+      "entity_name": "Origin Enterprises plc",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 71584.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Closed or Frozen Defined Benefit Plan",
+          "plan_assets": 13201.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 10090.0,
+              "pct_of_plan": 76.0
+            },
+            {
+              "asset_type": "Other Investment",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 32.0,
+              "pct_of_plan": null
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 3080.0,
+              "pct_of_plan": 23.0
+            }
+          ]
+        },
+        {
+          "plan_type": "Closed or Frozen Defined Benefit Plan",
+          "plan_assets": 58383.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3001.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 8728.0,
+              "pct_of_plan": 15.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 46654.0,
+              "pct_of_plan": 80.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0039",
+      "entity_name": "Ornua",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 89912.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 89912.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 13981.0,
+              "pct_of_plan": 16.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 57490.0,
+              "pct_of_plan": 64.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4595.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 13846.0,
+              "pct_of_plan": 15.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0040",
+      "entity_name": "Smurfit Kappa Group plc",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 1915903.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 1915903.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Liability-Driven",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 73954.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 30846.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 471312.0,
+              "pct_of_plan": 25.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Corporate Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 375325.0,
+              "pct_of_plan": 20.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 36402.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 684169.0,
+              "pct_of_plan": 36.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 98286.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 145609.0,
+              "pct_of_plan": 8.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0041",
+      "entity_name": "Standard Life (Ireland)",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 295430.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Closed or Frozen Defined Benefit Plan",
+          "plan_assets": 295430.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2511.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 157139.0,
+              "pct_of_plan": 53.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2511.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Absolute Return",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 11315.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 91761.0,
+              "pct_of_plan": 31.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 8804.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 8863.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 12526.0,
+              "pct_of_plan": 4.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0042",
+      "entity_name": "Total Produce plc",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 103794.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 103794.0,
+          "as_of_date": "2026-07-08",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 8646.0,
+              "pct_of_plan": 8.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 22554.0,
+              "pct_of_plan": 22.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Growth",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 8698.0,
+              "pct_of_plan": 8.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 48980.0,
+              "pct_of_plan": 47.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 14915.0,
+              "pct_of_plan": 14.0
+            }
+          ]
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    },
+    {
+      "entity_id": "IE-0043",
+      "entity_name": "Trane Technologies",
+      "former_names": [],
+      "entity_type": "Pension – DB",
+      "sub_type": null,
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": null,
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 194600.0,
+        "aum_currency": "EUR",
+        "aum_as_of_date": "2026-07-08",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Multinational Consolidated Plan",
+          "plan_assets": 194600.0,
+          "as_of_date": "2026-07-08",
+          "allocation": []
+        }
+      ],
+      "governance": {
+        "investment_consultant": [],
+        "fiduciary_manager": [],
+        "custodian": [],
+        "actuary": [],
+        "asset_managers_used": [],
+        "other_providers": [],
+        "key_contact": null
+      },
+      "provenance": {
+        "record_created_date": "2026-07-08",
+        "record_last_updated_date": "2026-07-08",
+        "data_sources": [
+          "S&P Money Manager Database export (Company, Asset Allocation, Manager, Provider reports)"
+        ],
+        "data_quality_flag": "Confirmed",
+        "notes": null,
+        "source_links": [
+          "results (6).xls",
+          "results (7).xls",
+          "results (8).xls",
+          "results (5).xls"
+        ]
+      }
+    }
+  ]
+}
