@@ -9,8 +9,8 @@
       "statusCode": 404
     },
     {
-      "route": "/.auth/invitations*",
-      "allowedRoles": ["authenticated"]
+      "route": "/.auth/*",
+      "allowedRoles": ["anonymous"]
     },
     {
       "route": "/*",
