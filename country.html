@@ -443,47 +443,71 @@ async function load() {
     return 'bottom-up';
   };
 
-  const alternatesRow = (s, segIndex) => {
-    if (!s.alternate_sources || !s.alternate_sources.length) return '';
+  // Renders every candidate figure for a segment as its own visible row —
+  // not hidden behind a click — so the full underlying data set (e.g. the
+  // real MMD bottom-up sum) stays in view alongside whichever figure is
+  // currently prevailing, with an as-of date on each so staleness is
+  // visible at a glance rather than discovered by accident. Single-source
+  // segments render nothing extra here — there's nothing to compare yet.
+  const sourcesRows = (s, segIndex) => {
+    const sources = s.sources || [];
+    if (sources.length < 2) return '';
 
-    if (!CURRENT_USER) {
-      // Read-only view for anyone not signed in.
-      const items = s.alternate_sources.map(alt => {
-        const activeTag = alt.active ? ' (currently shown)' : '';
-        const aum = (typeof alt.aum_bn === 'number') ? alt.aum_bn.toLocaleString(undefined, {maximumFractionDigits: 2}) + 'bn' : '—';
-        const note = alt.note ? ` — ${alt.note}` : '';
-        return `<li><strong>${alt.basis}${activeTag}:</strong> ${aum}${alt.source ? ` (${alt.source})` : ''}${note}</li>`;
-      }).join('');
+    const fmtAum = (v) => (typeof v === 'number') ? v.toLocaleString(undefined, {maximumFractionDigits: 2}) + 'bn' : '—';
+
+    const sourceRowsHtml = sources.map((src, i) => {
+      const badge = src.active
+        ? `<span class="badge" style="background:#1f6f43; color:#fff;">Active</span>`
+        : `<span class="badge" style="background:var(--border); color:var(--muted);">Alternate</span>`;
+      const note = src.note ? `<div style="font-size:0.78rem; color:var(--muted); margin-top:2px;">${src.note}</div>` : '';
       return `
-        <tr>
-          <td colspan="4" style="padding-top:0;">
-            <details>
-              <summary style="cursor:pointer; color:var(--muted); font-size:0.82rem;">Other sources for this segment</summary>
-              <ul style="margin:8px 0 4px; padding-left:1.2em; font-size:0.85rem; color:var(--muted);">${items}</ul>
-            </details>
-          </td>
-        </tr>`;
-    }
-
-    // Editable view once signed in — the server still checks whether this
-    // specific signed-in user is actually allowed to save a change.
-    const selectId = `source-select-${segIndex}`;
-    const options = s.alternate_sources.map((alt, i) => {
-      const aum = (typeof alt.aum_bn === 'number') ? alt.aum_bn.toLocaleString(undefined, {maximumFractionDigits: 2}) + 'bn' : '—';
-      return `<option value="${i}" ${alt.active ? 'selected' : ''}>${alt.basis} — ${aum}${alt.source ? ` (${alt.source})` : ''}</option>`;
+        <div style="padding:8px 0; border-top:1px solid var(--border);">
+          <div style="display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; font-size:0.85rem;">
+            ${badge}
+            <strong>${src.basis}</strong>
+            <span>${fmtAum(src.aum_bn)}</span>
+            <span style="color:var(--muted);">as of ${src.as_of || 'unknown'}</span>
+            ${src.source ? `<span style="color:var(--muted);">— ${src.source}</span>` : ''}
+          </div>
+          ${note}
+        </div>`;
     }).join('');
+
+    const history = s.source_history || [];
+    const lastChange = history.length ? history[history.length - 1] : null;
+    const historyHtml = history.length ? `
+      <details style="margin-top:6px;">
+        <summary style="cursor:pointer; color:var(--muted); font-size:0.78rem;">
+          Audit trail (${history.length}) — last: ${lastChange.date} (${lastChange.event}) by ${lastChange.by}
+        </summary>
+        <ul style="margin:8px 0 4px; padding-left:1.2em; font-size:0.78rem; color:var(--muted);">
+          ${history.map(h => `<li><strong>${h.date} — ${h.event}</strong> (${h.by}): ${h.detail}</li>`).join('')}
+        </ul>
+      </details>` : '';
+
+    const editControls = CURRENT_USER ? (() => {
+      const selectId = `source-select-${segIndex}`;
+      const options = sources.map((src, i) =>
+        `<option value="${i}" ${src.active ? 'selected' : ''}>${src.basis} — ${fmtAum(src.aum_bn)}</option>`
+      ).join('');
+      return `
+        <div style="display:flex; align-items:center; gap:8px; font-size:0.85rem; margin-top:8px; flex-wrap:wrap;">
+          <label for="${selectId}">Set active source:</label>
+          <select id="${selectId}" style="font-size:0.85rem; padding:2px 4px;">${options}</select>
+          <button type="button" onclick="applySource(${JSON.stringify(s.segment)}, parseInt(document.getElementById('${selectId}').value, 10), this)"
+            style="font-size:0.8rem; padding:3px 10px; border-radius:5px; border:1px solid var(--border); background:var(--card); cursor:pointer;">
+            Apply
+          </button>
+        </div>`;
+    })() : '';
 
     return `
       <tr>
-        <td colspan="4" style="padding-top:0;">
-          <div style="display:flex; align-items:center; gap:8px; font-size:0.85rem; color:var(--muted); flex-wrap:wrap;">
-            <label for="${selectId}">Active source:</label>
-            <select id="${selectId}" style="font-size:0.85rem; padding:2px 4px;">${options}</select>
-            <button type="button" onclick="applySource(${JSON.stringify(s.segment)}, parseInt(document.getElementById('${selectId}').value, 10), this)"
-              style="font-size:0.8rem; padding:3px 10px; border-radius:5px; border:1px solid var(--border); background:var(--card); cursor:pointer;">
-              Apply
-            </button>
-          </div>
+        <td colspan="4" style="padding-top:0; padding-bottom:12px;">
+          <div style="font-size:0.78rem; color:var(--muted); margin-bottom:2px;">All sources for this segment:</div>
+          ${sourceRowsHtml}
+          ${historyHtml}
+          ${editControls}
         </td>
       </tr>`;
   };
@@ -497,7 +521,7 @@ async function load() {
       <td class="numeric">${(equity ? equity.value_bn : 0).toLocaleString(undefined, {maximumFractionDigits: 2})}</td>
       <td><span class="badge ${basisClass(s.basis)}">${s.basis || ''}</span></td>
     </tr>
-    ${alternatesRow(s, i)}
+    ${sourcesRows(s, i)}
   `;
   }).join('');
 
