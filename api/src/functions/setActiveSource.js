@@ -96,20 +96,27 @@ app.http('setActiveSource', {
       const data = await getResp.json();
 
       const seg = (data.segments || []).find(s => s.segment === segment);
-      if (!seg || !Array.isArray(seg.alternate_sources) || !seg.alternate_sources[sourceIndex]) {
+      if (!seg || !Array.isArray(seg.sources) || !seg.sources[sourceIndex]) {
         return { status: 404, jsonBody: { error: 'Segment or source index not found' } };
       }
 
-      seg.alternate_sources.forEach((alt, i) => { alt.active = (i === sourceIndex); });
-      const chosen = seg.alternate_sources[sourceIndex];
-      seg.aum_bn = chosen.aum_bn;
-      seg.basis = chosen.basis;
-      // Only overwrite the equity allocation figure if the chosen source
-      // actually carries one — some alternates (e.g. a bottom-up sum with no
-      // matching allocation split) deliberately don't, and leaving the old
-      // figure in place with a stale basis would be worse than flagging it.
-      if (typeof chosen.equity_allocation_bn === 'number') {
-        seg.equity_allocation_bn = chosen.equity_allocation_bn;
+      const previous = seg.sources.find(src => src.active);
+      const chosen = seg.sources[sourceIndex];
+
+      // No-op if the requested source is already active — don't log a
+      // switch event that didn't actually change anything.
+      if (previous !== chosen) {
+        seg.sources.forEach((src, i) => { src.active = (i === sourceIndex); });
+        seg.aum_bn = chosen.aum_bn;
+        seg.basis = chosen.basis;
+
+        if (!Array.isArray(seg.source_history)) seg.source_history = [];
+        seg.source_history.push({
+          date: new Date().toISOString().slice(0, 10),
+          event: 'switch',
+          by: userEmail,
+          detail: `Active source switched from "${previous ? previous.basis : 'unknown'}" to "${chosen.basis}" (${typeof chosen.aum_bn === 'number' ? chosen.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) + 'bn' : 'n/a'}).`
+        });
       }
 
       const putResp = await fetch(`${graphBase}:/content`, {
