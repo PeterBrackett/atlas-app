@@ -21,6 +21,7 @@
 <main>
   <div class="summary-bar" id="summary-bar"></div>
   <div id="institutions-link-wrap" style="margin: -12px 0 28px;"></div>
+  <div id="export-wrap" style="display:flex; gap:10px; margin: -12px 0 28px; flex-wrap:wrap;"></div>
 
   <h2>Opportunity scorecard</h2>
   <p class="note" style="margin-top:-8px; margin-bottom:16px; border-top:none; padding-top:0;" id="scorecard-hint"></p>
@@ -58,6 +59,7 @@
 <script>
 let CURRENT_USER = null; // set by checkAuth(), null if not signed in
 let COUNTRY_CODE = '';
+let CURRENT_COUNTRY_NAME = '';
 let LOADED_SEGMENTS = []; // kept in memory so scorecard edits can update the matrix without a full reload
 let CURRENT_ALLOC_TYPE = 'Equities';
 let CURRENT_ALLOC_STYLE = ''; // '' means "all styles" (the whole asset-type total)
@@ -166,6 +168,46 @@ async function loadNotes(code) {
     return await res.text();
   } catch (e) {
     return '';
+  }
+}
+
+// Exports the currently-loaded data (not a re-fetch), so what downloads
+// always matches what's on screen, including any scores you've just entered
+// in this session but haven't reloaded the page since.
+async function downloadExport(format) {
+  const btn = document.getElementById(`export-btn-${format}`);
+  const originalText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Preparing…';
+
+  try {
+    const res = await fetch(`/api/export/${format}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ country_name: CURRENT_COUNTRY_NAME, segments: LOADED_SEGMENTS })
+    });
+
+    if (!res.ok) {
+      const detail = await res.json().catch(() => ({}));
+      alert(`Couldn't generate the file: ${detail.error || res.status}`);
+      return;
+    }
+
+    const blob = await res.blob();
+    const url = URL.createObjectURL(blob);
+    const ext = format === 'docx' ? 'docx' : 'pptx';
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Atlas_${CURRENT_COUNTRY_NAME.replace(/[^a-z0-9]+/gi, '_')}.${ext}`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  } catch (e) {
+    alert('Could not reach the server to generate this file.');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalText;
   }
 }
 
@@ -373,8 +415,14 @@ async function load() {
 
   document.title = `Atlas — ${data.country_name}`;
   document.getElementById('page-tagline').textContent = `${data.country_name} — segment breakdown`;
+  CURRENT_COUNTRY_NAME = data.country_name || code.toUpperCase();
 
   LOADED_SEGMENTS = data.segments || [];
+
+  document.getElementById('export-wrap').innerHTML = `
+    <button type="button" id="export-btn-docx" class="btn-primary" onclick="downloadExport('docx')" style="cursor:pointer;">Download as Word</button>
+    <button type="button" id="export-btn-pptx" class="btn-primary" onclick="downloadExport('pptx')" style="cursor:pointer;">Download as PowerPoint</button>
+  `;
 
   const segments = LOADED_SEGMENTS.slice().sort((a, b) => b.aum_bn - a.aum_bn);
   const totalAum = segments.reduce((s, x) => s + x.aum_bn, 0);
