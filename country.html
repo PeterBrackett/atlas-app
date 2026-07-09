@@ -490,11 +490,18 @@ async function load() {
       const options = sources.map((src, i) =>
         `<option value="${i}" ${src.active ? 'selected' : ''}>${src.basis} — ${fmtAum(src.aum_bn)}</option>`
       ).join('');
+      // Segment name and select id travel via data-* attributes rather than
+      // being spliced as a literal JSON string into the onclick attribute --
+      // that pattern breaks as soon as the attribute's own double quotes
+      // (from JSON.stringify) collide with the onclick="..." delimiter,
+      // which silently mangles the handler so clicking Apply does nothing.
+      const segAttr = String(s.segment).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
       return `
         <div style="display:flex; align-items:center; gap:8px; font-size:0.85rem; margin-top:8px; flex-wrap:wrap;">
           <label for="${selectId}">Set active source:</label>
           <select id="${selectId}" style="font-size:0.85rem; padding:2px 4px;">${options}</select>
-          <button type="button" onclick="applySource(${JSON.stringify(s.segment)}, parseInt(document.getElementById('${selectId}').value, 10), this)"
+          <button type="button" data-segment="${segAttr}" data-select-id="${selectId}"
+            onclick="applySource(this.dataset.segment, parseInt(document.getElementById(this.dataset.selectId).value, 10), this)"
             style="font-size:0.8rem; padding:3px 10px; border-radius:5px; border:1px solid var(--border); background:var(--card); cursor:pointer;">
             Apply
           </button>
