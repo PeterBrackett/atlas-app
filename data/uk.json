@@ -2,45 +2,1229 @@
   "country_code": "GB",
   "country_name": "United Kingdom",
   "reporting_period": "2026-06 (S&P export date)",
-  "source_note": "Currency confirmation is still an open item — see Sources & Methodology. DB Pension (Govt) is a top-down override (~£393.94bn, aligned to official LGPS statistics) rather than the raw S&P bottom-up sum (~£634.45bn) — see Sources & Methodology for why.",
+  "source_note": "Currency confirmation is still an open item \u2014 see Sources & Methodology. DB Pension (Govt) is a top-down override (~\u00a3393.94bn, aligned to official LGPS statistics) rather than the raw S&P bottom-up sum (~\u00a3634.45bn) \u2014 see Sources & Methodology for why.",
   "scorecard_note": "Opportunity scorecard scores carried over from the original FINAL_Country_Matrix.xlsx UK analysis (scored 2026-06-01). Regulatory complexity uses TMF Group rankings as a reference where available; all other dimensions are analyst judgment. See Sources & Methodology for the scoring convention and the Overall formula.",
   "segments": [
-    { "segment": "Life insurance", "aum_bn": 2756.978, "equity_allocation_bn": 28.304, "basis": "Industry aggregate",
-      "scorecard": { "market_opportunity": 2, "outsourced_management": 3, "pricing_impact": 2, "alignment_of_investment_thinking": 2, "distribution_resources_required": 1, "regulatory_complexity": 1, "client_servicing": 3, "local_presence_required": 1, "languages_required": 1, "investor_decision_making": 1, "comingled_vehicles": 1, "consultant_reliant": 2, "scored_date": "2026-06-01" }
-    },
-    { "segment": "DB Pension (Corp)", "aum_bn": 1863.858869, "equity_allocation_bn": 205.196711, "basis": "Bottom-up (S&P aggregate)",
-      "scorecard": { "market_opportunity": 1, "outsourced_management": 1, "pricing_impact": 1, "alignment_of_investment_thinking": 3, "distribution_resources_required": 1, "regulatory_complexity": 1, "client_servicing": 2, "local_presence_required": 1, "languages_required": 1, "investor_decision_making": 2, "comingled_vehicles": 1, "consultant_reliant": 3, "scored_date": "2026-06-01" }
-    },
-    { "segment": "Tax exempt E&F", "aum_bn": 175.455117, "equity_allocation_bn": 49.365351, "basis": "Bottom-up (S&P aggregate)",
-      "scorecard": { "market_opportunity": 1, "outsourced_management": 1, "pricing_impact": 1, "alignment_of_investment_thinking": 1, "distribution_resources_required": 1, "regulatory_complexity": 1, "client_servicing": 2, "local_presence_required": 1, "languages_required": 1, "investor_decision_making": 2, "comingled_vehicles": 1, "consultant_reliant": 3, "scored_date": "2026-06-01" }
-    },
-    { "segment": "DB Pension (Govt)", "aum_bn": 393.94, "equity_allocation_bn": 142.552732, "basis": "Top-down override (LGPS official)",
-      "alternate_sources": [
-        { "basis": "Bottom-up (S&P aggregate)", "aum_bn": 634.45, "source": "S&P Money Manager Database, Government category, Total DB Assets", "note": "Equity allocation not separately available on this basis." },
-        { "basis": "Top-down override (LGPS official)", "aum_bn": 393.94, "source": "Official LGPS statistics (DLUHC/ONS)", "active": true }
+    {
+      "segment": "Life insurance",
+      "aum_bn": 2756.978,
+      "basis": "Industry aggregate",
+      "scorecard": {
+        "market_opportunity": 2,
+        "outsourced_management": 3,
+        "pricing_impact": 2,
+        "alignment_of_investment_thinking": 2,
+        "distribution_resources_required": 1,
+        "regulatory_complexity": 1,
+        "client_servicing": 3,
+        "local_presence_required": 1,
+        "languages_required": 1,
+        "investor_decision_making": 1,
+        "comingled_vehicles": 1,
+        "consultant_reliant": 2,
+        "scored_date": "2026-06-01"
+      },
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 28.304,
+          "pct_of_segment": 1.0,
+          "styles": []
+        }
       ],
-      "scorecard": { "market_opportunity": 1, "outsourced_management": 1, "pricing_impact": 1, "alignment_of_investment_thinking": 1, "distribution_resources_required": 1, "regulatory_complexity": 1, "client_servicing": 2, "local_presence_required": 1, "languages_required": 1, "investor_decision_making": 2, "comingled_vehicles": 1, "consultant_reliant": 3, "scored_date": "2026-06-01" }
+      "allocation_incomplete": true
     },
-    { "segment": "Non-life insurance", "aum_bn": 32.576, "equity_allocation_bn": 1.905, "basis": "Industry aggregate",
-      "scorecard": { "market_opportunity": 3, "outsourced_management": 3, "pricing_impact": 2, "alignment_of_investment_thinking": 2, "distribution_resources_required": 1, "regulatory_complexity": 1, "client_servicing": 3, "local_presence_required": 1, "languages_required": 1, "investor_decision_making": 1, "comingled_vehicles": 1, "consultant_reliant": 2, "scored_date": "2026-06-01" }
+    {
+      "segment": "DB Pension (Corp)",
+      "aum_bn": 1863.858869,
+      "basis": "Bottom-up (S&P aggregate)",
+      "scorecard": {
+        "market_opportunity": 1,
+        "outsourced_management": 1,
+        "pricing_impact": 1,
+        "alignment_of_investment_thinking": 3,
+        "distribution_resources_required": 1,
+        "regulatory_complexity": 1,
+        "client_servicing": 2,
+        "local_presence_required": 1,
+        "languages_required": 1,
+        "investor_decision_making": 2,
+        "comingled_vehicles": 1,
+        "consultant_reliant": 3,
+        "scored_date": "2026-06-01"
+      },
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 205.196711,
+          "pct_of_segment": 11.0,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 205.196711
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 1023.199847,
+          "pct_of_segment": 54.9,
+          "styles": [
+            {
+              "asset_style": "Bonds",
+              "value_bn": 396.514944
+            },
+            {
+              "asset_style": "Government Bonds",
+              "value_bn": 109.443483
+            },
+            {
+              "asset_style": "Corporate Bonds",
+              "value_bn": 107.328568
+            },
+            {
+              "asset_style": "General Insurance",
+              "value_bn": 106.364609
+            },
+            {
+              "asset_style": "Indexed",
+              "value_bn": 88.519952
+            },
+            {
+              "asset_style": "Debt",
+              "value_bn": 80.674688
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 134.353605
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 263.274727,
+          "pct_of_segment": 14.1,
+          "styles": [
+            {
+              "asset_style": "Liability-Driven",
+              "value_bn": 92.700647
+            },
+            {
+              "asset_style": "Private Equity",
+              "value_bn": 59.009759
+            },
+            {
+              "asset_style": "Derivatives",
+              "value_bn": 35.121453
+            },
+            {
+              "asset_style": "Hedge Funds",
+              "value_bn": 22.150264
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 54.292604
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 220.583348,
+          "pct_of_segment": 11.8,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 220.583348
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 76.528864,
+          "pct_of_segment": 4.1,
+          "styles": [
+            {
+              "asset_style": "CDs",
+              "value_bn": 7.826996
+            },
+            {
+              "asset_style": "Repurchase Agreements",
+              "value_bn": 6.281313
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 62.420555
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 75.075372,
+          "pct_of_segment": 4.0,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 75.075372
+            }
+          ]
+        }
+      ]
     },
-    { "segment": "Endowments E&F", "aum_bn": 63.671836, "equity_allocation_bn": 20.592617, "basis": "Bottom-up (S&P aggregate)",
-      "scorecard": { "market_opportunity": 2, "outsourced_management": 1, "pricing_impact": 1, "alignment_of_investment_thinking": 1, "distribution_resources_required": 1, "regulatory_complexity": 1, "client_servicing": 2, "local_presence_required": 1, "languages_required": 1, "investor_decision_making": 2, "comingled_vehicles": 1, "consultant_reliant": 3, "scored_date": "2026-06-01" }
+    {
+      "segment": "Tax exempt E&F",
+      "aum_bn": 175.455117,
+      "basis": "Bottom-up (S&P aggregate)",
+      "scorecard": {
+        "market_opportunity": 1,
+        "outsourced_management": 1,
+        "pricing_impact": 1,
+        "alignment_of_investment_thinking": 1,
+        "distribution_resources_required": 1,
+        "regulatory_complexity": 1,
+        "client_servicing": 2,
+        "local_presence_required": 1,
+        "languages_required": 1,
+        "investor_decision_making": 2,
+        "comingled_vehicles": 1,
+        "consultant_reliant": 3,
+        "scored_date": "2026-06-01"
+      },
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 49.365351,
+          "pct_of_segment": 28.1,
+          "styles": [
+            {
+              "asset_style": "Unlisted",
+              "value_bn": 19.877675
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 29.487676
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 52.731851,
+          "pct_of_segment": 30.1,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 52.731851
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 23.536324,
+          "pct_of_segment": 13.4,
+          "styles": [
+            {
+              "asset_style": "Direct",
+              "value_bn": 4.806712
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 18.729612
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 22.972786,
+          "pct_of_segment": 13.1,
+          "styles": [
+            {
+              "asset_style": "CDs",
+              "value_bn": 5.290087
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 17.682699
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 13.572397,
+          "pct_of_segment": 7.7,
+          "styles": [
+            {
+              "asset_style": "Private Equity",
+              "value_bn": 4.337869
+            },
+            {
+              "asset_style": "Infrastructure",
+              "value_bn": 1.462329
+            },
+            {
+              "asset_style": "Private Debt",
+              "value_bn": 1.304642
+            },
+            {
+              "asset_style": "Hedge Funds",
+              "value_bn": 1.029547
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 5.438011
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 13.276409,
+          "pct_of_segment": 7.6,
+          "styles": [
+            {
+              "asset_style": "Bonds",
+              "value_bn": 1.501674
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 11.774735
+            }
+          ]
+        }
+      ]
     },
-    { "segment": "DC Pension (Corp)", "aum_bn": 120.268371, "equity_allocation_bn": 67.722263, "basis": "Bottom-up (S&P aggregate)",
-      "scorecard": { "market_opportunity": 1, "outsourced_management": 1, "pricing_impact": 1, "alignment_of_investment_thinking": 1, "distribution_resources_required": 1, "regulatory_complexity": 1, "client_servicing": 2, "local_presence_required": 1, "languages_required": 1, "investor_decision_making": 2, "comingled_vehicles": 2, "consultant_reliant": 3, "scored_date": "2026-06-01" }
+    {
+      "segment": "DB Pension (Govt)",
+      "aum_bn": 393.94,
+      "basis": "Top-down override (LGPS official)",
+      "alternate_sources": [
+        {
+          "basis": "Bottom-up (S&P aggregate)",
+          "aum_bn": 634.45,
+          "source": "S&P Money Manager Database, Government category, Total DB Assets",
+          "note": "Equity allocation not separately available on this basis."
+        },
+        {
+          "basis": "Top-down override (LGPS official)",
+          "aum_bn": 393.94,
+          "source": "Official LGPS statistics (DLUHC/ONS)",
+          "active": true
+        }
+      ],
+      "scorecard": {
+        "market_opportunity": 1,
+        "outsourced_management": 1,
+        "pricing_impact": 1,
+        "alignment_of_investment_thinking": 1,
+        "distribution_resources_required": 1,
+        "regulatory_complexity": 1,
+        "client_servicing": 2,
+        "local_presence_required": 1,
+        "languages_required": 1,
+        "investor_decision_making": 2,
+        "comingled_vehicles": 1,
+        "consultant_reliant": 3,
+        "scored_date": "2026-06-01"
+      },
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 142.552732,
+          "pct_of_segment": 36.2,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 142.552732
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 83.192113,
+          "pct_of_segment": 21.1,
+          "styles": [
+            {
+              "asset_style": "Multi-Asset",
+              "value_bn": 5.476559
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 77.715554
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 70.595007,
+          "pct_of_segment": 17.9,
+          "styles": [
+            {
+              "asset_style": "Bonds",
+              "value_bn": 19.214022
+            },
+            {
+              "asset_style": "General Insurance",
+              "value_bn": 8.110112
+            },
+            {
+              "asset_style": "Credit",
+              "value_bn": 6.081757
+            },
+            {
+              "asset_style": "Gilts",
+              "value_bn": 3.624627
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 33.56449
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 57.994883,
+          "pct_of_segment": 14.7,
+          "styles": [
+            {
+              "asset_style": "Infrastructure",
+              "value_bn": 19.651195
+            },
+            {
+              "asset_style": "Private Equity",
+              "value_bn": 16.545794
+            },
+            {
+              "asset_style": "Private Debt",
+              "value_bn": 4.493435
+            },
+            {
+              "asset_style": "Absolute Return",
+              "value_bn": 3.653832
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 13.650626
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 30.717484,
+          "pct_of_segment": 7.8,
+          "styles": [
+            {
+              "asset_style": "Direct",
+              "value_bn": 1.552974
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 29.16451
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 8.887782,
+          "pct_of_segment": 2.3,
+          "styles": [
+            {
+              "asset_style": "CDs",
+              "value_bn": 4.530961
+            },
+            {
+              "asset_style": "Currency",
+              "value_bn": 0.523728
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 3.833093
+            }
+          ]
+        }
+      ]
     },
-    { "segment": "DB Pension (Union)", "aum_bn": 36.136536, "equity_allocation_bn": 1.545909, "basis": "Bottom-up (S&P aggregate)",
-      "scorecard": { "market_opportunity": 3, "outsourced_management": 1, "pricing_impact": 1, "alignment_of_investment_thinking": 1, "distribution_resources_required": 1, "regulatory_complexity": 1, "client_servicing": 2, "local_presence_required": 1, "languages_required": 1, "investor_decision_making": 2, "comingled_vehicles": 1, "consultant_reliant": 3, "scored_date": "2026-06-01" }
+    {
+      "segment": "Non-life insurance",
+      "aum_bn": 32.576,
+      "basis": "Industry aggregate",
+      "scorecard": {
+        "market_opportunity": 3,
+        "outsourced_management": 3,
+        "pricing_impact": 2,
+        "alignment_of_investment_thinking": 2,
+        "distribution_resources_required": 1,
+        "regulatory_complexity": 1,
+        "client_servicing": 3,
+        "local_presence_required": 1,
+        "languages_required": 1,
+        "investor_decision_making": 1,
+        "comingled_vehicles": 1,
+        "consultant_reliant": 2,
+        "scored_date": "2026-06-01"
+      },
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 1.905,
+          "pct_of_segment": 5.8,
+          "styles": []
+        }
+      ],
+      "allocation_incomplete": true
     },
-    { "segment": "DB Pension (Endowments)", "aum_bn": 12.877945, "equity_allocation_bn": 3.208765, "basis": "Bottom-up (S&P aggregate)",
-      "scorecard": { "market_opportunity": 3, "outsourced_management": 1, "pricing_impact": 1, "alignment_of_investment_thinking": 1, "distribution_resources_required": 1, "regulatory_complexity": 1, "client_servicing": 2, "local_presence_required": 1, "languages_required": 1, "investor_decision_making": 2, "comingled_vehicles": 1, "consultant_reliant": 3, "scored_date": "2026-06-01" }
+    {
+      "segment": "Endowments E&F",
+      "aum_bn": 63.671836,
+      "basis": "Bottom-up (S&P aggregate)",
+      "scorecard": {
+        "market_opportunity": 2,
+        "outsourced_management": 1,
+        "pricing_impact": 1,
+        "alignment_of_investment_thinking": 1,
+        "distribution_resources_required": 1,
+        "regulatory_complexity": 1,
+        "client_servicing": 2,
+        "local_presence_required": 1,
+        "languages_required": 1,
+        "investor_decision_making": 2,
+        "comingled_vehicles": 1,
+        "consultant_reliant": 3,
+        "scored_date": "2026-06-01"
+      },
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 20.592617,
+          "pct_of_segment": 32.3,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 20.592617
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 14.624151,
+          "pct_of_segment": 23.0,
+          "styles": [
+            {
+              "asset_style": "CDs",
+              "value_bn": 2.850685
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 11.773466
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 11.200395,
+          "pct_of_segment": 17.6,
+          "styles": [
+            {
+              "asset_style": "Multi-Asset",
+              "value_bn": 3.188587
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 8.011808
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 9.427218,
+          "pct_of_segment": 14.8,
+          "styles": [
+            {
+              "asset_style": "Private Equity",
+              "value_bn": 4.008498
+            },
+            {
+              "asset_style": "Absolute Return",
+              "value_bn": 2.352019
+            },
+            {
+              "asset_style": "Real Assets",
+              "value_bn": 0.995516
+            },
+            {
+              "asset_style": "Precious Metals",
+              "value_bn": 0.695392
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 1.375792
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 6.007146,
+          "pct_of_segment": 9.4,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 6.007146
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 1.820309,
+          "pct_of_segment": 2.9,
+          "styles": [
+            {
+              "asset_style": "Credit",
+              "value_bn": 0.441006
+            },
+            {
+              "asset_style": "Short-Term Bonds",
+              "value_bn": 0.321946
+            },
+            {
+              "asset_style": "Bonds",
+              "value_bn": 0.307565
+            },
+            {
+              "asset_style": "Government Bonds",
+              "value_bn": 0.106851
+            },
+            {
+              "asset_style": "Multi-Sector Bonds",
+              "value_bn": 0.104883
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.538058
+            }
+          ]
+        }
+      ]
     },
-    { "segment": "DB Pension (Tax exempt)", "aum_bn": 24.748343, "equity_allocation_bn": 2.587753, "basis": "Bottom-up (S&P aggregate)",
-      "scorecard": { "market_opportunity": 3, "outsourced_management": 1, "pricing_impact": 1, "alignment_of_investment_thinking": 1, "distribution_resources_required": 1, "regulatory_complexity": 1, "client_servicing": 2, "local_presence_required": 1, "languages_required": 1, "investor_decision_making": 2, "comingled_vehicles": 1, "consultant_reliant": 3, "scored_date": "2026-06-01" }
+    {
+      "segment": "DC Pension (Corp)",
+      "aum_bn": 120.268371,
+      "basis": "Bottom-up (S&P aggregate)",
+      "scorecard": {
+        "market_opportunity": 1,
+        "outsourced_management": 1,
+        "pricing_impact": 1,
+        "alignment_of_investment_thinking": 1,
+        "distribution_resources_required": 1,
+        "regulatory_complexity": 1,
+        "client_servicing": 2,
+        "local_presence_required": 1,
+        "languages_required": 1,
+        "investor_decision_making": 2,
+        "comingled_vehicles": 2,
+        "consultant_reliant": 3,
+        "scored_date": "2026-06-01"
+      },
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 67.722263,
+          "pct_of_segment": 56.3,
+          "styles": [
+            {
+              "asset_style": "Growth",
+              "value_bn": 3.892528
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 63.829735
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 27.898987,
+          "pct_of_segment": 23.2,
+          "styles": [
+            {
+              "asset_style": "Multi-Asset",
+              "value_bn": 3.385875
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 24.513112
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 18.991421,
+          "pct_of_segment": 15.8,
+          "styles": [
+            {
+              "asset_style": "Bonds",
+              "value_bn": 17.815901
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 1.17552
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 2.826119,
+          "pct_of_segment": 2.3,
+          "styles": [
+            {
+              "asset_style": "CDs",
+              "value_bn": 0.63396
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 2.192159
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 2.133192,
+          "pct_of_segment": 1.8,
+          "styles": [
+            {
+              "asset_style": "Infrastructure",
+              "value_bn": 0.756971
+            },
+            {
+              "asset_style": "Private Equity",
+              "value_bn": 0.66504
+            },
+            {
+              "asset_style": "Derivatives",
+              "value_bn": 0.350737
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.360444
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 0.696389,
+          "pct_of_segment": 0.6,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.696389
+            }
+          ]
+        }
+      ]
     },
-    { "segment": "DC Pension (Govt)", "aum_bn": 9.554385, "equity_allocation_bn": 0, "basis": "Bottom-up (S&P aggregate)",
-      "scorecard": { "market_opportunity": 3, "outsourced_management": 2, "pricing_impact": 1, "alignment_of_investment_thinking": 1, "distribution_resources_required": 1, "regulatory_complexity": 1, "client_servicing": 2, "local_presence_required": 1, "languages_required": 1, "investor_decision_making": 2, "comingled_vehicles": 2, "consultant_reliant": 3, "scored_date": "2026-06-01" }
+    {
+      "segment": "DB Pension (Union)",
+      "aum_bn": 36.136536,
+      "basis": "Bottom-up (S&P aggregate)",
+      "scorecard": {
+        "market_opportunity": 3,
+        "outsourced_management": 1,
+        "pricing_impact": 1,
+        "alignment_of_investment_thinking": 1,
+        "distribution_resources_required": 1,
+        "regulatory_complexity": 1,
+        "client_servicing": 2,
+        "local_presence_required": 1,
+        "languages_required": 1,
+        "investor_decision_making": 2,
+        "comingled_vehicles": 1,
+        "consultant_reliant": 3,
+        "scored_date": "2026-06-01"
+      },
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 1.545909,
+          "pct_of_segment": 4.3,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 1.545909
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 19.541688,
+          "pct_of_segment": 54.1,
+          "styles": [
+            {
+              "asset_style": "Bonds",
+              "value_bn": 14.222252
+            },
+            {
+              "asset_style": "General Insurance",
+              "value_bn": 2.635924
+            },
+            {
+              "asset_style": "Debt",
+              "value_bn": 2.447532
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.23598
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 7.366652,
+          "pct_of_segment": 20.4,
+          "styles": [
+            {
+              "asset_style": "Private Equity",
+              "value_bn": 4.496356
+            },
+            {
+              "asset_style": "Liability-Driven",
+              "value_bn": 0.890557
+            },
+            {
+              "asset_style": "Infrastructure",
+              "value_bn": 0.749003
+            },
+            {
+              "asset_style": "Hedge Funds",
+              "value_bn": 0.601855
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.628881
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 2.745952,
+          "pct_of_segment": 7.6,
+          "styles": [
+            {
+              "asset_style": "Multi-Asset",
+              "value_bn": 0.177369
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 2.568583
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 2.726083,
+          "pct_of_segment": 7.5,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 2.726083
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 2.210253,
+          "pct_of_segment": 6.1,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 2.210253
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Endowments)",
+      "aum_bn": 12.877945,
+      "basis": "Bottom-up (S&P aggregate)",
+      "scorecard": {
+        "market_opportunity": 3,
+        "outsourced_management": 1,
+        "pricing_impact": 1,
+        "alignment_of_investment_thinking": 1,
+        "distribution_resources_required": 1,
+        "regulatory_complexity": 1,
+        "client_servicing": 2,
+        "local_presence_required": 1,
+        "languages_required": 1,
+        "investor_decision_making": 2,
+        "comingled_vehicles": 1,
+        "consultant_reliant": 3,
+        "scored_date": "2026-06-01"
+      },
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 3.208765,
+          "pct_of_segment": 24.9,
+          "styles": [
+            {
+              "asset_style": "Indexed",
+              "value_bn": 0.192755
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 3.01601
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 4.950006,
+          "pct_of_segment": 38.4,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 4.950006
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 1.970365,
+          "pct_of_segment": 15.3,
+          "styles": [
+            {
+              "asset_style": "CDs",
+              "value_bn": 0.374104
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 1.596261
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 1.191125,
+          "pct_of_segment": 9.2,
+          "styles": [
+            {
+              "asset_style": "Bonds",
+              "value_bn": 0.535712
+            },
+            {
+              "asset_style": "Corporate Bonds",
+              "value_bn": 0.154897
+            },
+            {
+              "asset_style": "Gilts",
+              "value_bn": 0.128893
+            },
+            {
+              "asset_style": "Credit",
+              "value_bn": 0.09423
+            },
+            {
+              "asset_style": "Government Bonds",
+              "value_bn": 0.093156
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.184237
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 1.068607,
+          "pct_of_segment": 8.3,
+          "styles": [
+            {
+              "asset_style": "Commercial",
+              "value_bn": 0.086083
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.982524
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 0.489076,
+          "pct_of_segment": 3.8,
+          "styles": [
+            {
+              "asset_style": "Liability-Driven",
+              "value_bn": 0.220131
+            },
+            {
+              "asset_style": "Private Equity",
+              "value_bn": 0.120911
+            },
+            {
+              "asset_style": "Infrastructure",
+              "value_bn": 0.027426
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.120609
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Tax exempt)",
+      "aum_bn": 24.748343,
+      "basis": "Bottom-up (S&P aggregate)",
+      "scorecard": {
+        "market_opportunity": 3,
+        "outsourced_management": 1,
+        "pricing_impact": 1,
+        "alignment_of_investment_thinking": 1,
+        "distribution_resources_required": 1,
+        "regulatory_complexity": 1,
+        "client_servicing": 2,
+        "local_presence_required": 1,
+        "languages_required": 1,
+        "investor_decision_making": 2,
+        "comingled_vehicles": 1,
+        "consultant_reliant": 3,
+        "scored_date": "2026-06-01"
+      },
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 2.587753,
+          "pct_of_segment": 10.5,
+          "styles": [
+            {
+              "asset_style": "Core-Diversified",
+              "value_bn": 0.422145
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 2.165608
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 6.101226,
+          "pct_of_segment": 24.7,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 6.101226
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 5.968131,
+          "pct_of_segment": 24.1,
+          "styles": [
+            {
+              "asset_style": "Bonds",
+              "value_bn": 2.440903
+            },
+            {
+              "asset_style": "Debt",
+              "value_bn": 0.682426
+            },
+            {
+              "asset_style": "Credit",
+              "value_bn": 0.447293
+            },
+            {
+              "asset_style": "General Insurance",
+              "value_bn": 0.431641
+            },
+            {
+              "asset_style": "Gilts",
+              "value_bn": 0.402232
+            },
+            {
+              "asset_style": "Corporate Bonds",
+              "value_bn": 0.330953
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 1.232683
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 4.806306,
+          "pct_of_segment": 19.4,
+          "styles": [
+            {
+              "asset_style": "CDs",
+              "value_bn": 1.904465
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 2.901841
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 2.744927,
+          "pct_of_segment": 11.1,
+          "styles": [
+            {
+              "asset_style": "Liability-Driven",
+              "value_bn": 0.996653
+            },
+            {
+              "asset_style": "Venture Capital",
+              "value_bn": 0.25202
+            },
+            {
+              "asset_style": "Swaps",
+              "value_bn": 0.205081
+            },
+            {
+              "asset_style": "Hedge Funds",
+              "value_bn": 0.18352
+            },
+            {
+              "asset_style": "Private Equity",
+              "value_bn": 0.165038
+            },
+            {
+              "asset_style": "Leveraged Buyouts",
+              "value_bn": 0.144716
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.797899
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 2.54,
+          "pct_of_segment": 10.3,
+          "styles": [
+            {
+              "asset_style": "REITs",
+              "value_bn": 0.18885
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 2.35115
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DC Pension (Govt)",
+      "aum_bn": 9.554385,
+      "basis": "Bottom-up (S&P aggregate)",
+      "scorecard": {
+        "market_opportunity": 3,
+        "outsourced_management": 2,
+        "pricing_impact": 1,
+        "alignment_of_investment_thinking": 1,
+        "distribution_resources_required": 1,
+        "regulatory_complexity": 1,
+        "client_servicing": 2,
+        "local_presence_required": 1,
+        "languages_required": 1,
+        "investor_decision_making": 2,
+        "comingled_vehicles": 2,
+        "consultant_reliant": 3,
+        "scored_date": "2026-06-01"
+      },
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 0,
+          "pct_of_segment": 0.0,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.0
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 4.708399,
+          "pct_of_segment": 49.3,
+          "styles": [
+            {
+              "asset_style": "Private Equity",
+              "value_bn": 0.963675
+            },
+            {
+              "asset_style": "Infrastructure",
+              "value_bn": 0.879668
+            },
+            {
+              "asset_style": "Private Debt",
+              "value_bn": 0.272199
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 2.592857
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 1.743422,
+          "pct_of_segment": 18.2,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 1.743422
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 1.654774,
+          "pct_of_segment": 17.3,
+          "styles": [
+            {
+              "asset_style": "Direct",
+              "value_bn": 1.4805
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.174274
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 1.385141,
+          "pct_of_segment": 14.5,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 1.385141
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 0.062649,
+          "pct_of_segment": 0.7,
+          "styles": [
+            {
+              "asset_style": "General Insurance",
+              "value_bn": 0.061129
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.00152
+            }
+          ]
+        }
+      ]
     }
-  ]
+  ],
+  "allocation_note": "Equities figures are the originally validated per-segment totals. All other asset classes (Fixed Income, Cash & Short-Term, Real Estate, Alternatives, Other/Unclassified) and the finer style breakdown within each are estimated: derived from the real S&P Money Manager Database allocation export's relative shape for that segment's DB/DC/E&F institutions, then scaled to fill the remainder of the segment's already-validated AUM. DB vs DC vs Endowment/Foundation split uses each allocation row's own Type of Plan where available, falling back to the sponsoring institution's own DB/DC asset ratio for ambiguous plan types (mainly 'Investment Pool Funds'). Bank of England and British Business Bank (Reserve Banks category) are excluded throughout \u2014 their S&P records reflect central bank balance sheet assets, not staff pension schemes, and would otherwise distort every segment they touched by well over \u00a31 trillion. Life insurance and Non-life insurance have no S&P allocation data at all (S&P's plan-sponsor exports don't cover insurers) so only the known equity figure is shown for those two segments. See Sources & Methodology for the full writeup."
 }
