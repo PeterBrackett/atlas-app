@@ -211,6 +211,68 @@ async function downloadExport(format) {
   }
 }
 
+function toggleAddSourceForm(segIndex) {
+  const el = document.getElementById(`add-source-form-${segIndex}`);
+  if (!el) return;
+  el.style.display = (el.style.display === 'none' || !el.style.display) ? 'block' : 'none';
+}
+
+// Reads the "+ Add source" form's inputs and posts a brand-new candidate
+// figure for this segment. Full page reload on success, same as
+// applySource/saveScorecardValue's approach elsewhere on this page — the
+// simplest way to guarantee the new source and its audit-trail entry show
+// up correctly rather than trying to patch the in-memory segment by hand.
+async function submitAddSource(buttonEl) {
+  const segIndex = buttonEl.dataset.segIndex;
+  const segmentName = buttonEl.dataset.segment;
+  const basis = document.getElementById(`add-basis-${segIndex}`).value.trim();
+  const aumRaw = document.getElementById(`add-aum-${segIndex}`).value;
+  const asOf = document.getElementById(`add-asof-${segIndex}`).value.trim();
+  const source = document.getElementById(`add-source-${segIndex}`).value.trim();
+  const note = document.getElementById(`add-note-${segIndex}`).value.trim();
+  const makeActive = document.getElementById(`add-active-${segIndex}`).checked;
+
+  if (!basis || aumRaw === '' || Number.isNaN(parseFloat(aumRaw))) {
+    alert('Basis and a numeric AUM figure are required.');
+    return;
+  }
+
+  buttonEl.disabled = true;
+  const originalText = buttonEl.textContent;
+  buttonEl.textContent = 'Saving…';
+
+  try {
+    const res = await fetch('/api/segments/add-source', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        country: COUNTRY_CODE,
+        segment: segmentName,
+        basis,
+        aum_bn: parseFloat(aumRaw),
+        as_of: asOf,
+        source,
+        note,
+        setActive: makeActive
+      })
+    });
+    const result = await res.json();
+
+    if (!res.ok) {
+      alert(`Couldn't add source: ${result.error || 'unknown error'}`);
+      buttonEl.disabled = false;
+      buttonEl.textContent = originalText;
+      return;
+    }
+
+    window.location.reload();
+  } catch (e) {
+    alert('Could not reach the server to save this change.');
+    buttonEl.disabled = false;
+    buttonEl.textContent = originalText;
+  }
+}
+
 async function applySource(segmentName, sourceIndex, buttonEl) {
   buttonEl.disabled = true;
   const originalText = buttonEl.textContent;
@@ -447,15 +509,21 @@ async function load() {
   // not hidden behind a click — so the full underlying data set (e.g. the
   // real MMD bottom-up sum) stays in view alongside whichever figure is
   // currently prevailing, with an as-of date on each so staleness is
-  // visible at a glance rather than discovered by accident. Single-source
-  // segments render nothing extra here — there's nothing to compare yet.
+  // visible at a glance rather than discovered by accident. Anonymous
+  // visitors only see this block when there's actually more than one
+  // source to compare; signed-in users always see it (even for a
+  // single-source segment) because that's also where the "Add source"
+  // control lives — most segments only have one source today, and finding
+  // an official figure to compare against is the whole point of this.
   const sourcesRows = (s, segIndex) => {
     const sources = s.sources || [];
-    if (sources.length < 2) return '';
+    const hasMultiple = sources.length > 1;
+    if (!hasMultiple && !CURRENT_USER) return '';
 
     const fmtAum = (v) => (typeof v === 'number') ? v.toLocaleString(undefined, {maximumFractionDigits: 2}) + 'bn' : '—';
+    const segAttr = String(s.segment).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 
-    const sourceRowsHtml = sources.map((src, i) => {
+    const sourceRowsHtml = !hasMultiple ? '' : sources.map((src, i) => {
       const badge = src.active
         ? `<span class="badge" style="background:#1f6f43; color:#fff;">Active</span>`
         : `<span class="badge" style="background:var(--border); color:var(--muted);">Alternate</span>`;
@@ -485,7 +553,7 @@ async function load() {
         </ul>
       </details>` : '';
 
-    const editControls = CURRENT_USER ? (() => {
+    const editControls = (CURRENT_USER && hasMultiple) ? (() => {
       const selectId = `source-select-${segIndex}`;
       const options = sources.map((src, i) =>
         `<option value="${i}" ${src.active ? 'selected' : ''}>${src.basis} — ${fmtAum(src.aum_bn)}</option>`
@@ -495,7 +563,6 @@ async function load() {
       // that pattern breaks as soon as the attribute's own double quotes
       // (from JSON.stringify) collide with the onclick="..." delimiter,
       // which silently mangles the handler so clicking Apply does nothing.
-      const segAttr = String(s.segment).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
       return `
         <div style="display:flex; align-items:center; gap:8px; font-size:0.85rem; margin-top:8px; flex-wrap:wrap;">
           <label for="${selectId}">Set active source:</label>
@@ -508,13 +575,54 @@ async function load() {
         </div>`;
     })() : '';
 
+    // Lets a signed-in user record a brand-new candidate figure (e.g. an
+    // official statistic found after the fact) without hand-editing JSON.
+    // Deliberately doesn't switch it live by default — "Make this the
+    // active source" is an explicit opt-in checkbox, so recording a figure
+    // for comparison and promoting it to prevailing are two separate,
+    // considered actions.
+    const addFormHtml = CURRENT_USER ? (() => {
+      const formId = `add-source-form-${segIndex}`;
+      return `
+        <div style="margin-top:8px;">
+          <button type="button" onclick="toggleAddSourceForm(${segIndex})"
+            style="font-size:0.78rem; padding:2px 8px; border-radius:5px; border:1px solid var(--border); background:var(--card); cursor:pointer; color:var(--muted);">
+            + Add source
+          </button>
+          <div id="${formId}" style="display:none; margin-top:8px; padding:10px; border:1px solid var(--border); border-radius:6px; background:var(--card);">
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px,1fr)); gap:8px; font-size:0.82rem;">
+              <label>Basis<br><input type="text" id="add-basis-${segIndex}" placeholder="e.g. Top-down override (ONS)" style="width:100%; box-sizing:border-box;"></label>
+              <label>AUM ($bn)<br><input type="number" step="any" id="add-aum-${segIndex}" style="width:100%; box-sizing:border-box;"></label>
+              <label>As of<br><input type="text" id="add-asof-${segIndex}" placeholder="e.g. 2026-06 or a date" style="width:100%; box-sizing:border-box;"></label>
+              <label>Source citation<br><input type="text" id="add-source-${segIndex}" style="width:100%; box-sizing:border-box;"></label>
+            </div>
+            <label style="display:block; margin-top:8px; font-size:0.82rem;">Note (optional)<br>
+              <input type="text" id="add-note-${segIndex}" style="width:100%; box-sizing:border-box;">
+            </label>
+            <label style="display:flex; align-items:center; gap:6px; margin-top:8px; font-size:0.82rem;">
+              <input type="checkbox" id="add-active-${segIndex}"> Make this the active source immediately
+            </label>
+            <div style="margin-top:8px; display:flex; gap:8px;">
+              <button type="button" data-segment="${segAttr}" data-seg-index="${segIndex}" onclick="submitAddSource(this)"
+                style="font-size:0.8rem; padding:3px 10px; border-radius:5px; border:1px solid var(--border); background:var(--card); cursor:pointer;">
+                Save
+              </button>
+              <button type="button" onclick="toggleAddSourceForm(${segIndex})"
+                style="font-size:0.8rem; padding:3px 10px; border-radius:5px; border:1px solid var(--border); background:transparent; cursor:pointer; color:var(--muted);">
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>`;
+    })() : '';
+
     return `
       <tr>
         <td colspan="4" style="padding-top:0; padding-bottom:12px;">
-          <div style="font-size:0.78rem; color:var(--muted); margin-bottom:2px;">All sources for this segment:</div>
-          ${sourceRowsHtml}
+          ${hasMultiple ? `<div style="font-size:0.78rem; color:var(--muted); margin-bottom:2px;">All sources for this segment:</div>${sourceRowsHtml}` : ''}
           ${historyHtml}
           ${editControls}
+          ${addFormHtml}
         </td>
       </tr>`;
   };
