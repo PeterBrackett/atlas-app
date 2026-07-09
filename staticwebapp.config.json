@@ -1,16 +1,16 @@
 {
   "routes": [
     {
-      "route": "/*",
-      "allowedRoles": ["atlas-reader"]
-    },
-    {
       "route": "/.auth/login/github",
       "statusCode": 404
     },
     {
       "route": "/.auth/login/twitter",
       "statusCode": 404
+    },
+    {
+      "route": "/*",
+      "allowedRoles": ["atlas-reader"]
     }
   ],
   "responseOverrides": {
