@@ -1,0 +1,475 @@
+{
+  "country_code": "NO",
+  "country_name": "Norway",
+  "reporting_period": "2026-07 (S&P export date)",
+  "source_note": "Currency confirmation is still an open item, as with other countries — figures are inferred to be NOK from context (Norwegian institutions, magnitudes consistent with NOK) rather than stated explicitly by the source data. No Reserve Banks record appeared in this export (Norges Bank itself isn't a separate line; it manages the Government Pension Fund Global operationally but GPFG is the legal entity reported here). Unlike Ireland and Sweden, no reclassification judgement call was needed for the SWF segment: S&P's own export already carries a dedicated 'Sovereign Wealth Funds' category, covering three institutions — Norway Government Pension Fund Global (NOK 1,956.6bn, the well-known 'Oil Fund'), Folketrygdfondet (NOK 39.6bn, manages the smaller domestic Government Pension Fund Norway), and Norfund (NOK 4.3bn, Norway's development finance institution) — mapped directly and mechanically to the SWF segment. Together they're NOK 2,000.5bn, about 93% of everything tracked for Norway, which is a real and accurate reflection of how dominant GPFG is in the Norwegian institutional landscape, not a data artefact. 74 institutions tracked, NOK 2,142.40bn tracked; no independent check yet on how exhaustive that is against Norway's actual institutional universe beyond the SWF entities and the tracked pension/tax-exempt sector.",
+  "scorecard_note": "Not yet scored — none of the 12 opportunity-scorecard dimensions have been filled in for any Norway segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
+  "allocation_note": "Built bottom-up directly from the real plan-level allocation lines in no_institutions_latest.json, same real-bottom-up approach as the other recently-built countries (no scaling or equity-anchoring). Raw asset_type values mapped onto the standard six buckets; 'Loans' folded into Fixed Income, everything else non-standard folded into Other/Unclassified. Same 5%-of-asset-type materiality threshold for style breakdowns. The SWF segment's allocation is a clean, fully-covered (100%) breakdown built directly from GPFG's own reported lines — 69.2% Equities, 27.2% Fixed Income, 1.8% Real Estate — which lines up closely with GPFG's publicly known target allocation, a good sign of data quality for this segment specifically. Coverage elsewhere: DB Pension (Govt) 97.7%, DB Pension (Corp) 90.2%, Tax exempt E&F 75.2%. Two very small segments — DB Pension (Tax exempt) at NOK 42.5m and DC Pension (Tax exempt) at NOK 8.1m, together under 0.003% of the country total — have 0% allocation coverage; their plan-level rows in the export simply have no reported dollar breakdown, immaterial at this scale.",
+  "segments": [
+    {
+      "segment": "DB Pension (Corp)",
+      "aum_bn": 18.507328,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 6.033506,
+          "pct_of_segment": 32.6,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 6.033506
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 4.899241,
+          "pct_of_segment": 26.5,
+          "styles": [
+            {
+              "asset_style": "Bonds",
+              "value_bn": 2.136287
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 1.567686
+            },
+            {
+              "asset_style": "Debt",
+              "value_bn": 0.628888
+            },
+            {
+              "asset_style": "Government Bonds",
+              "value_bn": 0.320392
+            },
+            {
+              "asset_style": "Corporate Bonds",
+              "value_bn": 0.245988
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 4.201922,
+          "pct_of_segment": 22.7,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 4.201922
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 1.066732,
+          "pct_of_segment": 5.8,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 1.066732
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 0.36854,
+          "pct_of_segment": 2.0,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.31183
+            },
+            {
+              "asset_style": "Money Market",
+              "value_bn": 0.05671
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 0.126199,
+          "pct_of_segment": 0.7,
+          "styles": [
+            {
+              "asset_style": "Hedge Funds",
+              "value_bn": 0.106576
+            },
+            {
+              "asset_style": "Private Equity",
+              "value_bn": 0.017366
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.002257
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 18.507328,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (Norway)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-09",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        }
+      ],
+      "allocation_incomplete": true
+    },
+    {
+      "segment": "DB Pension (Govt)",
+      "aum_bn": 121.778372,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 51.035124,
+          "pct_of_segment": 41.9,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 47.127791
+            },
+            {
+              "asset_style": "Bonds",
+              "value_bn": 3.907333
+            }
+          ]
+        },
+        {
+          "asset_type": "Equities",
+          "value_bn": 50.181455,
+          "pct_of_segment": 41.2,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 50.181455
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 9.651677,
+          "pct_of_segment": 7.9,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 9.651677
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 3.713005,
+          "pct_of_segment": 3.0,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 1.936732
+            },
+            {
+              "asset_style": "Money Market",
+              "value_bn": 1.776273
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 3.581459,
+          "pct_of_segment": 2.9,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 3.581459
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 0.814335,
+          "pct_of_segment": 0.7,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.482867
+            },
+            {
+              "asset_style": "Hedge Funds",
+              "value_bn": 0.235856
+            },
+            {
+              "asset_style": "Derivatives",
+              "value_bn": 0.095612
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 121.778372,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (Norway)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-09",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        }
+      ],
+      "allocation_incomplete": true
+    },
+    {
+      "segment": "DB Pension (Tax exempt)",
+      "aum_bn": 0.042477,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 0.042477,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (Norway)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-09",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        }
+      ],
+      "allocation_incomplete": true
+    },
+    {
+      "segment": "DC Pension (Tax exempt)",
+      "aum_bn": 0.008139,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 0.008139,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (Norway)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-09",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        }
+      ],
+      "allocation_incomplete": true
+    },
+    {
+      "segment": "Tax exempt E&F",
+      "aum_bn": 1.552368,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 0.428138,
+          "pct_of_segment": 27.6,
+          "styles": [
+            {
+              "asset_style": "CDs",
+              "value_bn": 0.297073
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.131065
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 0.348547,
+          "pct_of_segment": 22.5,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.348547
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 0.238584,
+          "pct_of_segment": 15.4,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.201135
+            },
+            {
+              "asset_style": "Bonds",
+              "value_bn": 0.037449
+            }
+          ]
+        },
+        {
+          "asset_type": "Equities",
+          "value_bn": 0.152883,
+          "pct_of_segment": 9.8,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.152883
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 1.552368,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (Norway)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-09",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        }
+      ],
+      "allocation_incomplete": true
+    },
+    {
+      "segment": "SWF",
+      "aum_bn": 2000.514855,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 1383.811957,
+          "pct_of_segment": 69.2,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 1383.811957
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 544.663774,
+          "pct_of_segment": 27.2,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 544.663774
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 36.392712,
+          "pct_of_segment": 1.8,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 36.392712
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 25.439908,
+          "pct_of_segment": 1.3,
+          "styles": [
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 25.439908
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 8.706187,
+          "pct_of_segment": 0.4,
+          "styles": [
+            {
+              "asset_style": "Energy",
+              "value_bn": 8.413369
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.292818
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 1.500318,
+          "pct_of_segment": 0.1,
+          "styles": [
+            {
+              "asset_style": "CDs",
+              "value_bn": 0.606036
+            },
+            {
+              "asset_style": "Special Situations",
+              "value_bn": 0.455055
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.439227
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 2000.514855,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (Norway)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-09",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        }
+      ]
+    }
+  ]
+}
