@@ -72,10 +72,21 @@ async function renderOverviewMatrix(builtCountries) {
     return;
   }
 
-  const countryData = await Promise.all(builtCountries.map(async c => ({
-    meta: c,
-    data: await fetchCountryData(c.code.toLowerCase())
-  })));
+  // Derive the lookup slug from href's ?c= param, not from the ISO `code`
+  // field — they don't always match (e.g. code "GB" but slug "uk", matching
+  // every actual filename/URL elsewhere: uk.json, country.html?c=uk). Using
+  // code.toLowerCase() here silently 404'd every request for GB specifically
+  // ("gb" != "uk"), which is why this matrix always said "could not be
+  // loaded" even once uk.json existed and country.html?c=uk worked fine.
+  const slugFromHref = (href) => {
+    const match = /[?&]c=([^&]+)/.exec(href || '');
+    return match ? match[1] : null;
+  };
+
+  const countryData = await Promise.all(builtCountries.map(async c => {
+    const slug = slugFromHref(c.href) || c.code.toLowerCase();
+    return { meta: c, data: await fetchCountryData(slug) };
+  }));
 
   const usable = countryData.filter(c => c.data);
   if (!usable.length) {
