@@ -80,7 +80,25 @@
           ]
         }
       ],
-      "allocation_incomplete": true
+      "allocation_incomplete": true,
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 18.916,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (Ireland)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-08",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        }
+      ]
     },
     {
       "segment": "DB Pension (Corp)",
@@ -187,7 +205,25 @@
           ]
         }
       ],
-      "allocation_incomplete": true
+      "allocation_incomplete": true,
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 33.855,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (Ireland)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-08",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        }
+      ]
     },
     {
       "segment": "DB Pension (Govt)",
@@ -251,7 +287,25 @@
           ]
         }
       ],
-      "allocation_incomplete": true
+      "allocation_incomplete": true,
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 5.47,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (Ireland)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-08",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        }
+      ]
     },
     {
       "segment": "DB Pension (Union)",
@@ -334,7 +388,25 @@
           ]
         }
       ],
-      "allocation_incomplete": true
+      "allocation_incomplete": true,
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 3.286,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (Ireland)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-08",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        }
+      ]
     },
     {
       "segment": "Endowments E&F",
@@ -354,7 +426,25 @@
           ]
         }
       ],
-      "allocation_incomplete": true
+      "allocation_incomplete": true,
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 0.677,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (Ireland)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-08",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        }
+      ]
     },
     {
       "segment": "Foundations E&F",
@@ -422,7 +512,25 @@
           ]
         }
       ],
-      "allocation_incomplete": true
+      "allocation_incomplete": true,
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 0.297,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (Ireland)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-08",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        }
+      ]
     }
   ]
 }

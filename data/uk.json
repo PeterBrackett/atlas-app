@@ -2,7 +2,7 @@
   "country_code": "GB",
   "country_name": "United Kingdom",
   "reporting_period": "2026-06 (S&P export date)",
-  "source_note": "Currency confirmation is still an open item \u2014 see Sources & Methodology. DB Pension (Govt) is a top-down override (~\u00a3393.94bn, aligned to official LGPS statistics) rather than the raw S&P bottom-up sum (~\u00a3634.45bn) \u2014 see Sources & Methodology for why.",
+  "source_note": "Currency confirmation is still an open item — see Sources & Methodology. DB Pension (Govt) is a top-down override (~£393.94bn, aligned to official LGPS statistics) rather than the raw S&P bottom-up sum (~£634.45bn) — see Sources & Methodology for why.",
   "scorecard_note": "Opportunity scorecard scores carried over from the original FINAL_Country_Matrix.xlsx UK analysis (scored 2026-06-01). Regulatory complexity uses TMF Group rankings as a reference where available; all other dimensions are analyst judgment. See Sources & Methodology for the scoring convention and the Overall formula.",
   "segments": [
     {
@@ -32,7 +32,25 @@
           "styles": []
         }
       ],
-      "allocation_incomplete": true
+      "allocation_incomplete": true,
+      "sources": [
+        {
+          "basis": "Industry aggregate",
+          "aum_bn": 2756.978,
+          "as_of": "2026-06",
+          "source": "Industry aggregate (see Sources & Methodology)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-06-01",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build — Industry aggregate."
+        }
+      ]
     },
     {
       "segment": "DB Pension (Corp)",
@@ -168,6 +186,24 @@
             }
           ]
         }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P aggregate)",
+          "aum_bn": 1863.858869,
+          "as_of": "2026-06",
+          "source": "S&P Money Manager Database export (UK)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-06-01",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build — Bottom-up (S&P aggregate)."
+        }
       ]
     },
     {
@@ -288,26 +324,30 @@
             }
           ]
         }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P aggregate)",
+          "aum_bn": 175.455117,
+          "as_of": "2026-06",
+          "source": "S&P Money Manager Database export (UK)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-06-01",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build — Bottom-up (S&P aggregate)."
+        }
       ]
     },
     {
       "segment": "DB Pension (Govt)",
       "aum_bn": 393.94,
       "basis": "Top-down override (LGPS official)",
-      "alternate_sources": [
-        {
-          "basis": "Bottom-up (S&P aggregate)",
-          "aum_bn": 634.45,
-          "source": "S&P Money Manager Database, Government category, Total DB Assets",
-          "note": "Equity allocation not separately available on this basis."
-        },
-        {
-          "basis": "Top-down override (LGPS official)",
-          "aum_bn": 393.94,
-          "source": "Official LGPS statistics (DLUHC/ONS)",
-          "active": true
-        }
-      ],
       "scorecard": {
         "market_opportunity": 1,
         "outsourced_management": 1,
@@ -438,6 +478,38 @@
             }
           ]
         }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P/MMD aggregate)",
+          "aum_bn": 689.630558,
+          "as_of": "2026-07-09",
+          "source": "S&P Money Manager Database, Government category, Total DB Assets (live lookup)",
+          "note": "Refreshed 2026-07-09 after a discrepancy was flagged against a live MMD read. Supersedes the original build-time figure of £634.45bn (2026-06), which had gone stale by roughly £55bn over about a month. Equity allocation not separately available on this basis.",
+          "active": false
+        },
+        {
+          "basis": "Top-down override (LGPS official)",
+          "aum_bn": 393.94,
+          "as_of": "unknown — LGPS publication date not independently confirmed",
+          "source": "Official LGPS statistics (DLUHC/ONS)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-06-01",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial build: LGPS official top-down figure (£393.94bn) selected as active over the raw S&P bottom-up sum (£634.45bn), judged more reliable for this segment specifically."
+        },
+        {
+          "date": "2026-07-09",
+          "event": "refresh",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Bottom-up alternate figure refreshed from a live MMD lookup: £634.45bn (as of 2026-06) → £689.63bn (as of 2026-07-09). Active source (LGPS override) unchanged — this refresh only updates the comparison figure, it does not switch which number is shown on the site."
+        }
       ]
     },
     {
@@ -467,7 +539,25 @@
           "styles": []
         }
       ],
-      "allocation_incomplete": true
+      "allocation_incomplete": true,
+      "sources": [
+        {
+          "basis": "Industry aggregate",
+          "aum_bn": 32.576,
+          "as_of": "2026-06",
+          "source": "Industry aggregate (see Sources & Methodology)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-06-01",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build — Industry aggregate."
+        }
+      ]
     },
     {
       "segment": "Endowments E&F",
@@ -599,6 +689,24 @@
             }
           ]
         }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P aggregate)",
+          "aum_bn": 63.671836,
+          "as_of": "2026-06",
+          "source": "S&P Money Manager Database export (UK)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-06-01",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build — Bottom-up (S&P aggregate)."
+        }
       ]
     },
     {
@@ -714,6 +822,24 @@
               "value_bn": 0.696389
             }
           ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P aggregate)",
+          "aum_bn": 120.268371,
+          "as_of": "2026-06",
+          "source": "S&P Money Manager Database export (UK)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-06-01",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build — Bottom-up (S&P aggregate)."
         }
       ]
     },
@@ -834,6 +960,24 @@
               "value_bn": 2.210253
             }
           ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P aggregate)",
+          "aum_bn": 36.136536,
+          "as_of": "2026-06",
+          "source": "S&P Money Manager Database export (UK)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-06-01",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build — Bottom-up (S&P aggregate)."
         }
       ]
     },
@@ -966,6 +1110,24 @@
               "value_bn": 0.120609
             }
           ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P aggregate)",
+          "aum_bn": 12.877945,
+          "as_of": "2026-06",
+          "source": "S&P Money Manager Database export (UK)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-06-01",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build — Bottom-up (S&P aggregate)."
         }
       ]
     },
@@ -1115,6 +1277,24 @@
             }
           ]
         }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P aggregate)",
+          "aum_bn": 24.748343,
+          "as_of": "2026-06",
+          "source": "S&P Money Manager Database export (UK)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-06-01",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build — Bottom-up (S&P aggregate)."
+        }
       ]
     },
     {
@@ -1223,8 +1403,26 @@
             }
           ]
         }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P aggregate)",
+          "aum_bn": 9.554385,
+          "as_of": "2026-06",
+          "source": "S&P Money Manager Database export (UK)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-06-01",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build — Bottom-up (S&P aggregate)."
+        }
       ]
     }
   ],
-  "allocation_note": "Equities figures are the originally validated per-segment totals. All other asset classes (Fixed Income, Cash & Short-Term, Real Estate, Alternatives, Other/Unclassified) and the finer style breakdown within each are estimated: derived from the real S&P Money Manager Database allocation export's relative shape for that segment's DB/DC/E&F institutions, then scaled to fill the remainder of the segment's already-validated AUM. DB vs DC vs Endowment/Foundation split uses each allocation row's own Type of Plan where available, falling back to the sponsoring institution's own DB/DC asset ratio for ambiguous plan types (mainly 'Investment Pool Funds'). Bank of England and British Business Bank (Reserve Banks category) are excluded throughout \u2014 their S&P records reflect central bank balance sheet assets, not staff pension schemes, and would otherwise distort every segment they touched by well over \u00a31 trillion. Life insurance and Non-life insurance have no S&P allocation data at all (S&P's plan-sponsor exports don't cover insurers) so only the known equity figure is shown for those two segments. See Sources & Methodology for the full writeup."
+  "allocation_note": "Equities figures are the originally validated per-segment totals. All other asset classes (Fixed Income, Cash & Short-Term, Real Estate, Alternatives, Other/Unclassified) and the finer style breakdown within each are estimated: derived from the real S&P Money Manager Database allocation export's relative shape for that segment's DB/DC/E&F institutions, then scaled to fill the remainder of the segment's already-validated AUM. DB vs DC vs Endowment/Foundation split uses each allocation row's own Type of Plan where available, falling back to the sponsoring institution's own DB/DC asset ratio for ambiguous plan types (mainly 'Investment Pool Funds'). Bank of England and British Business Bank (Reserve Banks category) are excluded throughout — their S&P records reflect central bank balance sheet assets, not staff pension schemes, and would otherwise distort every segment they touched by well over £1 trillion. Life insurance and Non-life insurance have no S&P allocation data at all (S&P's plan-sponsor exports don't cover insurers) so only the known equity figure is shown for those two segments. See Sources & Methodology for the full writeup."
 }
