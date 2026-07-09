@@ -1,0 +1,58 @@
+{
+  "country_code": "IE",
+  "country_name": "Ireland",
+  "reporting_period": "2026-07 (S&P export date)",
+  "source_note": "Segment AUM below is a bottom-up sum of the 43 raw institution records in ie_institutions_latest.json (results (5)-(8).xls), classified against Atlas's entity_type/sub_type fields rather than a raw S&P Category column (Ireland's export didn't carry that field the way the UK one did, so this mapping is less granular than UK's 19-segment split). Two things flagged for review rather than silently decided: (1) National Treasury Management Agency is recorded with entity_type 'Other', but one of its plans is explicitly typed 'Sovereign Wealth Fund' in the underlying export (matches reality — NTMA manages the Ireland Strategic Investment Fund) — classified here as SWF rather than left in an Other/unclassified bucket. (2) Eight commercial state bodies (An Post, Bord Na Mona, Coillte, Dublin Port Company, EirGrid, ESB, Ervia, Irish Aviation Authority — EUR 6.358bn combined) are currently sitting in DB Pension (Corp) because their sub_type wasn't marked 'Public Sector' the way Coras Iompair Eireann and Courts Service of Ireland were. Whether Ireland's semi-state sector should count as Govt or Corp for this matrix is a judgement call, not something to auto-decide — move them to DB Pension (Govt) if that's the right call. No DC pension entities appeared in this export at all (all 34 pension records are DB). Coverage note: 43 institutions, EUR 62.501bn tracked, no independent check yet on how exhaustive that is against Ireland's actual DB/E&F/SWF universe.",
+  "scorecard_note": "Not yet scored — none of the 12 opportunity-scorecard dimensions have been filled in for any Ireland segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
+  "allocation_note": "Not yet built. The UK allocation breakdown was derived from the S&P allocation export's plan-level detail scaled against a validated equity figure — Ireland's raw institution records do carry plan-level allocation lines (see ie_institutions_latest.json), so the same approach is possible, but the equity validation step and the scaling work haven't been done yet.",
+  "segments": [
+    {
+      "segment": "SWF",
+      "aum_bn": 18.916,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [],
+      "allocation_incomplete": true
+    },
+    {
+      "segment": "DB Pension (Corp)",
+      "aum_bn": 33.855,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [],
+      "allocation_incomplete": true
+    },
+    {
+      "segment": "DB Pension (Govt)",
+      "aum_bn": 5.470,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [],
+      "allocation_incomplete": true
+    },
+    {
+      "segment": "DB Pension (Union)",
+      "aum_bn": 3.286,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [],
+      "allocation_incomplete": true
+    },
+    {
+      "segment": "Endowments E&F",
+      "aum_bn": 0.677,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [],
+      "allocation_incomplete": true
+    },
+    {
+      "segment": "Foundations E&F",
+      "aum_bn": 0.297,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [],
+      "allocation_incomplete": true
+    }
+  ]
+}

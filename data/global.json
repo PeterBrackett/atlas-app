@@ -10,7 +10,7 @@
     { "code": "DK", "name": "Denmark", "total_ps_assets_thousands": 734975477, "institutions_tracked": 68, "status": "coming_soon" },
     { "code": "SE", "name": "Sweden", "total_ps_assets_thousands": 573226740, "institutions_tracked": 136, "status": "coming_soon" },
     { "code": "ZA", "name": "South Africa", "total_ps_assets_thousands": 311636409, "institutions_tracked": 177, "status": "coming_soon" },
-    { "code": "IE", "name": "Ireland", "total_ps_assets_thousands": 62501288, "institutions_tracked": 43, "status": "built", "href": "institutions.html?c=ie" },
+    { "code": "IE", "name": "Ireland", "total_ps_assets_thousands": 62501288, "institutions_tracked": 43, "status": "built", "href": "country.html?c=ie" },
     { "code": "FI", "name": "Finland", "total_ps_assets_thousands": 456840071, "institutions_tracked": 70, "status": "coming_soon" },
     { "code": "IS", "name": "Iceland", "total_ps_assets_thousands": 51589851, "institutions_tracked": 23, "status": "coming_soon" },
     { "code": "CA", "name": "Canada", "total_ps_assets_thousands": 2426824552, "institutions_tracked": 830, "status": "coming_soon" }
