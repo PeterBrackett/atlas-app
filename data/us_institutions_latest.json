@@ -1,0 +1,3359 @@
+{
+  "country_code": "US",
+  "country_name": "United States",
+  "extraction_date": "2026-07-09",
+  "record_count": 10,
+  "total_institutions_in_export": 233376,
+  "note": "Only the top 10 institutions by total AUM are retained here (not the full 233,376-institution export) -- see us.json source_note. Segment-level totals and allocation in us.json are built from the full export, not just these 10.",
+  "source_files": [
+    "US_company.xls",
+    "US_AA.xls",
+    "US_manager.xls",
+    "US_provider.xls"
+  ],
+  "schema_version": "Atlas_Schema_Proposal_v1.md, Section 1",
+  "institutions": [
+    {
+      "entity_id": "US-0001",
+      "entity_name": "Federal Retirement Thrift Investment Board",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DC",
+      "sub_type": "Government",
+      "country_code": "US",
+      "country_name": "United States",
+      "region_state": "DC",
+      "domicile_regulator": null,
+      "regulatory_id": "9374918",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 1089000000.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-09",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Generic Defined Contribution or Profit Sharing Plan",
+          "plan_assets": 1089000000.0,
+          "as_of_date": "2026-07-09",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Indexed",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 485149500.0,
+              "pct_of_plan": 45.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Mutual Fund",
+              "value": 544500.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 134491500.0,
+              "pct_of_plan": 12.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 333342900.0,
+              "pct_of_plan": 31.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 38659500.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Indexed",
+              "investment_region": "EAFE",
+              "vehicle_type": "Unspecified",
+              "value": 96812100.0,
+              "pct_of_plan": 9.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "US-0002",
+      "entity_name": "California Public Employees Retirement Systems (CalPERS)",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB & DC",
+      "sub_type": "Government",
+      "country_code": "US",
+      "country_name": "United States",
+      "region_state": "CA",
+      "domicile_regulator": null,
+      "regulatory_id": "9311471",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 594117262.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-09",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "457 Deferred Compensation Plan",
+          "plan_assets": 2678200.0,
+          "as_of_date": "2026-07-09",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1518800.0,
+              "pct_of_plan": 57.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Indexed",
+              "investment_region": "Global Ex-U.S.",
+              "vehicle_type": "Mutual Fund",
+              "value": 76864.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 117300.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Real Assets",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Common Collective Trust",
+              "value": 16700.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Indexed",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Mutual Fund",
+              "value": 858600.0,
+              "pct_of_plan": 32.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Indexed",
+              "investment_region": "U.S.",
+              "vehicle_type": "Common Collective Trust",
+              "value": 51200.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Short-Term Government Bonds",
+              "investment_region": "U.S.",
+              "vehicle_type": "Common Collective Trust",
+              "value": 38800.0,
+              "pct_of_plan": 1.0
+            }
+          ]
+        },
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 59600.0,
+          "as_of_date": "2026-07-09",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Opportunistic",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 222480.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Real Assets",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 70303680.0,
+              "pct_of_plan": 13.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Venture Capital",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 55620.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity Fund of Funds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 55620.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "High Yield Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 21500.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Low Liquidity Enhanced Return",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 12403260.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Others Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 333720.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "High Yield Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Exchange-Traded Fund",
+              "value": 6396300.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "China",
+              "vehicle_type": "Unspecified",
+              "value": 900.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Real Assets",
+              "investment_region": "Europe",
+              "vehicle_type": "Unspecified",
+              "value": 1001160.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Europe",
+              "vehicle_type": "Unspecified",
+              "value": 222480.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "North America",
+              "vehicle_type": "Unspecified",
+              "value": 389340.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Pacific Rim",
+              "vehicle_type": "Unspecified",
+              "value": 55620.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Infrastructure",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1946700.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 86099760.0,
+              "pct_of_plan": 15.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 17575920.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Credit",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 834300.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Asset Allocation",
+              "asset_style": "Income",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 141775380.0,
+              "pct_of_plan": 25.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 11791440.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 203402340.0,
+              "pct_of_plan": 37.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 111240.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "India",
+              "vehicle_type": "Unspecified",
+              "value": 7100.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Asia",
+              "vehicle_type": "Unspecified",
+              "value": 55620.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Asia/Pacific Rim",
+              "vehicle_type": "Unspecified",
+              "value": 222480.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Debt",
+              "investment_region": "Europe",
+              "vehicle_type": "Unspecified",
+              "value": 778680.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Infrastructure",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 55620.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 111240.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Commodities",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2800.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Inflation-Protected Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 31700.0,
+              "pct_of_plan": 35.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 6206.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "REITs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 9100.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 40800.0,
+              "pct_of_plan": 45.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "REITs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 628800.0,
+              "pct_of_plan": 20.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 906600.0,
+              "pct_of_plan": 29.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 1351984.0,
+              "pct_of_plan": 43.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Commodities",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 92000.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 100.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Inflation-Protected Bonds",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 156456.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 59600.0,
+              "pct_of_plan": 100.0
+            }
+          ]
+        },
+        {
+          "plan_type": "VEBA Health & Welfare Plan",
+          "plan_assets": 874357.0,
+          "as_of_date": "2026-07-09",
+          "allocation": [
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 3099000.0,
+              "pct_of_plan": 69.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 1256100.0,
+              "pct_of_plan": 28.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1500.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "REITs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 125100.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Inflation-Protected Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1176745.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "REITs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4706980.0,
+              "pct_of_plan": 20.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Commodities",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 706047.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5413027.0,
+              "pct_of_plan": 23.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 11532101.0,
+              "pct_of_plan": 49.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Commodities",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 65241.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 891632.0,
+              "pct_of_plan": 41.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Inflation-Protected Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 108736.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "REITs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 369701.0,
+              "pct_of_plan": 17.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 739402.0,
+              "pct_of_plan": 34.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Commodities",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 24369.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Inflation-Protected Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 73106.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 186828.0,
+              "pct_of_plan": 23.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 414270.0,
+              "pct_of_plan": 51.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "REITs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 113721.0,
+              "pct_of_plan": 14.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 874357.0,
+              "pct_of_plan": 100.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "US-0003",
+      "entity_name": "The International Monetary Fund",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Tax Exempt Organization",
+      "country_code": "US",
+      "country_name": "United States",
+      "region_state": "DC",
+      "domicile_regulator": null,
+      "regulatory_id": "9330880",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 524064000.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-09",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 12818000.0,
+          "as_of_date": "2026-07-09",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Emerging Markets",
+              "vehicle_type": "Unspecified",
+              "value": 1566000.0,
+              "pct_of_plan": 12.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 4232000.0,
+              "pct_of_plan": 33.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Absolute Return",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2959000.0,
+              "pct_of_plan": 23.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Real Assets",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 940000.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 260000.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "High Yield Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1539000.0,
+              "pct_of_plan": 12.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 1322000.0,
+              "pct_of_plan": 10.0
+            }
+          ]
+        },
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 511246000.0,
+          "as_of_date": "2026-07-09",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Currency",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 452949000.0,
+              "pct_of_plan": 89.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 32952000.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Developed",
+              "vehicle_type": "Unspecified",
+              "value": 4758000.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Derivatives",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 94000.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 511246.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 19921000.0,
+              "pct_of_plan": 4.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "US-0004",
+      "entity_name": "California State Teachers Retirement System (CalSTRS)",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB & DC",
+      "sub_type": "Government",
+      "country_code": "US",
+      "country_name": "United States",
+      "region_state": "CA",
+      "domicile_regulator": null,
+      "regulatory_id": "9328771",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 418377218.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-09",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 415426263.0,
+          "as_of_date": "2026-07-09",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 148774287.0,
+              "pct_of_plan": 36.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 12708.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 74760718.0,
+              "pct_of_plan": 18.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 152295557.0,
+              "pct_of_plan": 37.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Derivatives",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 607450.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Securities Lending Collateral",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 38703628.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 271915.0,
+              "pct_of_plan": 0.0
+            }
+          ]
+        },
+        {
+          "plan_type": "Generic Defined Contribution or Profit Sharing Plan",
+          "plan_assets": 2950955.0,
+          "as_of_date": "2026-07-09",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1813299.0,
+              "pct_of_plan": 61.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1137656.0,
+              "pct_of_plan": 39.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "US-0005",
+      "entity_name": "New York City Retirement Systems",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Government",
+      "country_code": "US",
+      "country_name": "United States",
+      "region_state": "NY",
+      "domicile_regulator": null,
+      "regulatory_id": "9312371",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 308262145.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-09",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 10637000.0,
+          "as_of_date": "2026-07-09",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5203987.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedge Funds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1000.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 9061621.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "High Yield Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5328119.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 22782960.0,
+              "pct_of_plan": 24.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "EAFE",
+              "vehicle_type": "Unspecified",
+              "value": 10341134.0,
+              "pct_of_plan": 11.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Infrastructure",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3256073.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 582465.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Mortgage",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5394959.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Credit",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 8803809.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Private",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 6617180.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Exchange-Traded Fund",
+              "value": 849825.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 10388877.0,
+              "pct_of_plan": 11.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Emerging Markets",
+              "vehicle_type": "Unspecified",
+              "value": 6006069.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 868923.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 793563.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 294300.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Private",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 6831800.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "ETI",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 660400.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Corporate Bonds",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 12422100.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "EAFE",
+              "vehicle_type": "Unspecified",
+              "value": 13808700.0,
+              "pct_of_plan": 11.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Emerging Markets",
+              "vehicle_type": "Unspecified",
+              "value": 7480200.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 1145100.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Infrastructure",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3944200.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Opportunistic",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5467200.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 9363500.0,
+              "pct_of_plan": 8.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "High Yield Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 6809700.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Mortgage-Backed",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5808800.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 32365600.0,
+              "pct_of_plan": 27.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 13058900.0,
+              "pct_of_plan": 11.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Opportunistic",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3195918.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 390030.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 180462.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Corporate Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3393844.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Mortgage-Backed",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2963064.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Private",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3679090.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Exchange-Traded Fund",
+              "value": 401673.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Emerging Markets",
+              "vehicle_type": "Unspecified",
+              "value": 2444965.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedge Funds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3714018.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Infrastructure",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1734761.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5681632.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "High Yield Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5675811.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Bank",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1400.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 15548811.0,
+              "pct_of_plan": 27.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 5454600.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "EAFE",
+              "vehicle_type": "Unspecified",
+              "value": 3754767.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2036300.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "High Yield Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1805400.0,
+              "pct_of_plan": 8.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Private",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1402700.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 6644200.0,
+              "pct_of_plan": 28.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 2317700.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "EAFE",
+              "vehicle_type": "Unspecified",
+              "value": 1992000.0,
+              "pct_of_plan": 8.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Emerging Markets",
+              "vehicle_type": "Unspecified",
+              "value": 1711300.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 405100.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedge Funds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 904500.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Infrastructure",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 616000.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Opportunistic",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1121700.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 124300.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 88400.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Corporate Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1485000.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Mortgage-Backed",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 922900.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Exchange-Traded Fund",
+              "value": 111600.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Infrastructure",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 535400.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 42100.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 238300.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Corporate Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 500200.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "High Yield Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 593200.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Mortgage-Backed",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 468400.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Private",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 847400.0,
+              "pct_of_plan": 8.0
+            },
+            {
+              "asset_type": "ETI",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 38300.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 3118200.0,
+              "pct_of_plan": 29.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 885800.0,
+              "pct_of_plan": 8.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Emerging Markets",
+              "vehicle_type": "Unspecified",
+              "value": 412700.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 131899.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global Ex-U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 147400.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Opportunistic",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 630300.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1241600.0,
+              "pct_of_plan": 12.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "EAFE",
+              "vehicle_type": "Unspecified",
+              "value": 805500.0,
+              "pct_of_plan": 8.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "US-0006",
+      "entity_name": "Office of the New York State Comptroller",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Government",
+      "country_code": "US",
+      "country_name": "United States",
+      "region_state": "NY",
+      "domicile_regulator": null,
+      "regulatory_id": "9312363",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 291400000.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-09",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 291400000.0,
+          "as_of_date": "2026-07-09",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 42544400.0,
+              "pct_of_plan": 15.0
+            },
+            {
+              "asset_type": "Asset Allocation",
+              "asset_style": "Multi-Asset",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3496800.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3875620.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 10024160.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Absolute Return",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 8800280.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Real Assets",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 10024160.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 59766140.0,
+              "pct_of_plan": 21.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Credit",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 13113000.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 27187620.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 78095200.0,
+              "pct_of_plan": 27.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global Ex-U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 34472620.0,
+              "pct_of_plan": 12.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "US-0007",
+      "entity_name": "Florida State Board of Administration",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB & DC",
+      "sub_type": "Government",
+      "country_code": "US",
+      "country_name": "United States",
+      "region_state": "FL",
+      "domicile_regulator": null,
+      "regulatory_id": "9311651",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 284841992.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-09",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 220932430.0,
+          "as_of_date": "2026-07-09",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Swaps",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 6172.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Repurchase Agreements",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1546527.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Direct",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 14625727.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Forwards",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 6618.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Common Collective Trust",
+              "value": 2297697.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 65594838.0,
+              "pct_of_plan": 30.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 14537354.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 4705861.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedge Funds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5501218.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Real Assets",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 9279162.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Securities Lending Collateral",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1215128.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Futures",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 66280.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 23330465.0,
+              "pct_of_plan": 11.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4794234.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Options",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 31.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Money Market",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 154653.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Commercial Paper",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4153530.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Agency Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 10118705.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1922112.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Credit",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1325595.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 66280.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "GIC",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 17343196.0,
+              "pct_of_plan": 8.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 34863137.0,
+              "pct_of_plan": 16.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "International",
+              "vehicle_type": "Common Collective Trust",
+              "value": 3490732.0,
+              "pct_of_plan": 2.0
+            }
+          ]
+        },
+        {
+          "plan_type": "Other Tax-exempt Fund",
+          "plan_assets": 24079.0,
+          "as_of_date": "2026-07-09",
+          "allocation": [
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 204705.0,
+              "pct_of_plan": 100.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2.0,
+              "pct_of_plan": 100.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1392.0,
+              "pct_of_plan": 100.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4175526.0,
+              "pct_of_plan": 18.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Commercial Paper",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 12152443.0,
+              "pct_of_plan": 53.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Municipal Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 62356.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Corporate Bonds",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 704389.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3542731.0,
+              "pct_of_plan": 15.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Repurchase Agreements",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2457279.0,
+              "pct_of_plan": 11.0
+            }
+          ]
+        },
+        {
+          "plan_type": "Generic Defined Contribution or Profit Sharing Plan",
+          "plan_assets": 21940285.0,
+          "as_of_date": "2026-07-09",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Money Market",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 63627.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Common Collective Trust",
+              "value": 2641610.0,
+              "pct_of_plan": 12.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 125060.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "U.S.",
+              "vehicle_type": "Mutual Fund",
+              "value": 147000.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 109701.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 19746.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "International",
+              "vehicle_type": "Common Collective Trust",
+              "value": 3455595.0,
+              "pct_of_plan": 16.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "International",
+              "vehicle_type": "Mutual Fund",
+              "value": 245731.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Agency Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 149194.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Stable Value",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1452447.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Self Directed Brokerage Account",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1893447.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Real Assets",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Common Collective Trust",
+              "value": 1928551.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 1132119.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "GIC",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 122866.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "U.S.",
+              "vehicle_type": "Common Collective Trust",
+              "value": 8453592.0,
+              "pct_of_plan": 39.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "US-0008",
+      "entity_name": "Washington State Investment Board",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB & DC",
+      "sub_type": "Government",
+      "country_code": "US",
+      "country_name": "United States",
+      "region_state": "WA",
+      "domicile_regulator": null,
+      "regulatory_id": "9312757",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 250540891.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-09",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 2906824.0,
+          "as_of_date": "2026-07-09",
+          "allocation": [
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 35442984.0,
+              "pct_of_plan": 19.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global Ex-U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 2267901.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 54710773.0,
+              "pct_of_plan": 29.0
+            },
+            {
+              "asset_type": "Asset Allocation",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 13457463.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2624018.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 29426486.0,
+              "pct_of_plan": 16.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 49500223.0,
+              "pct_of_plan": 26.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 157.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 223853.0,
+              "pct_of_plan": 72.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 88256.0,
+              "pct_of_plan": 28.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2906824.0,
+              "pct_of_plan": 100.0
+            }
+          ]
+        },
+        {
+          "plan_type": "Other Tax-exempt Fund",
+          "plan_assets": 22420885.0,
+          "as_of_date": "2026-07-09",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4457272.0,
+              "pct_of_plan": 20.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 17553311.0,
+              "pct_of_plan": 78.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 410302.0,
+              "pct_of_plan": 2.0
+            }
+          ]
+        },
+        {
+          "plan_type": "529 College Savings Plan",
+          "plan_assets": 67481.0,
+          "as_of_date": "2026-07-09",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 812686.0,
+              "pct_of_plan": 41.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 22643.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1137131.0,
+              "pct_of_plan": 58.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 76.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 22006.0,
+              "pct_of_plan": 33.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 45399.0,
+              "pct_of_plan": 67.0
+            }
+          ]
+        },
+        {
+          "plan_type": "457 Deferred Compensation Plan",
+          "plan_assets": 8587086.0,
+          "as_of_date": "2026-07-09",
+          "allocation": [
+            {
+              "asset_type": "Asset Allocation",
+              "asset_style": "Target Date",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4746941.0,
+              "pct_of_plan": 55.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Large Cap",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 1359336.0,
+              "pct_of_plan": 16.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Emerging Markets",
+              "vehicle_type": "Unspecified",
+              "value": 92741.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 317722.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Asset Allocation",
+              "asset_style": "Balanced",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 192351.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 202655.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "WSIB Savings Pool",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1362771.0,
+              "pct_of_plan": 16.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Small Cap Value",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 312570.0,
+              "pct_of_plan": 4.0
+            }
+          ]
+        },
+        {
+          "plan_type": "Endowment Fund",
+          "plan_assets": 146634.0,
+          "as_of_date": "2026-07-09",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 653563.0,
+              "pct_of_plan": 44.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 819626.0,
+              "pct_of_plan": 56.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 928.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5861.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Asset Allocation",
+              "asset_style": "Balanced",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 130607.0,
+              "pct_of_plan": 89.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 7.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 10166.0,
+              "pct_of_plan": 7.0
+            }
+          ]
+        },
+        {
+          "plan_type": "Hybrid DB/DC Plan",
+          "plan_assets": 6194339.0,
+          "as_of_date": "2026-07-09",
+          "allocation": [
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Short-Term Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 366743.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "WSIB TAP Fund",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 9700738.0,
+              "pct_of_plan": 62.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Large Cap",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 1527762.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Small Cap Value",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 214387.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 243464.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Asset Allocation",
+              "asset_style": "Balanced",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 79999.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Asset Allocation",
+              "asset_style": "Target Date",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3032198.0,
+              "pct_of_plan": 19.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 99320.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 287397.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Emerging Markets",
+              "vehicle_type": "Unspecified",
+              "value": 76929.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Asset Allocation",
+              "asset_style": "Target Date",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3201.0,
+              "pct_of_plan": 36.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Special Situations",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 367.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 226.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Large Cap",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 1984.0,
+              "pct_of_plan": 23.0
+            },
+            {
+              "asset_type": "Asset Allocation",
+              "asset_style": "Balanced",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 392.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "WSIB Savings Pool",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1473.0,
+              "pct_of_plan": 17.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Small Cap Value",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 405.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Emerging Markets",
+              "vehicle_type": "Unspecified",
+              "value": 138.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 601.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Asset Allocation",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 13083.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Small Cap Value",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 22963.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Emerging Markets",
+              "vehicle_type": "Unspecified",
+              "value": 7484.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 23396.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Asset Allocation",
+              "asset_style": "Target Date",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 665850.0,
+              "pct_of_plan": 20.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Short-Term Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 79996.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "WSIB Bond Market",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 29516.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "WSIB TAP Fund",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2390404.0,
+              "pct_of_plan": 71.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Large Cap",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 157175.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "ESG",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 43692.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Asset Allocation",
+              "asset_style": "Target Date",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1648933.0,
+              "pct_of_plan": 27.0
+            },
+            {
+              "asset_type": "WSIB TAP Fund",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3480594.0,
+              "pct_of_plan": 56.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Large Cap",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 533847.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Small Cap Value",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 96528.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 99580.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Short-Term Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 176583.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "WSIB Bond Market",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 77312.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Emerging Markets",
+              "vehicle_type": "Unspecified",
+              "value": 36369.0,
+              "pct_of_plan": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "US-0009",
+      "entity_name": "Teacher Retirement System of Texas",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Government",
+      "country_code": "US",
+      "country_name": "United States",
+      "region_state": "TX",
+      "domicile_regulator": null,
+      "regulatory_id": "9312684",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 229300000.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-09",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 229300000.0,
+          "as_of_date": "2026-07-09",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Absolute Return",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4242050.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedge Funds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 17816610.0,
+              "pct_of_plan": 8.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Risk Parity",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5273900.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Savings & Temporary Cash",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 596180.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Inflation-Protected Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3095550.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Mortgage-Backed",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 22930.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 22540190.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Corporate Bonds",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 1.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 32744040.0,
+              "pct_of_plan": 14.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Natural Resources",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 10135060.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Securities Lending Collateral",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 8621680.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Futures",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 137580.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 37238320.0,
+              "pct_of_plan": 16.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Swaps",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 183440.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 45860.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 9217860.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 25750390.0,
+              "pct_of_plan": 11.0
+            },
+            {
+              "asset_type": "Warrants",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 45860.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 19559290.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Agency Bonds",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 1881.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 29602630.0,
+              "pct_of_plan": 13.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Corporate Bonds",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 1.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 2430580.0,
+              "pct_of_plan": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "US-0010",
+      "entity_name": "University of California Board of Regents",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB & DC",
+      "sub_type": "Endowment",
+      "country_code": "US",
+      "country_name": "United States",
+      "region_state": "CA",
+      "domicile_regulator": null,
+      "regulatory_id": "9350692",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 198000000.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-09",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 110500000.0,
+          "as_of_date": "2026-07-09",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Absolute Return",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 500000.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Real Assets",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2900000.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 7200000.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 13200000.0,
+              "pct_of_plan": 12.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Credit",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2500000.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2700000.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 69800000.0,
+              "pct_of_plan": 63.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 11700000.0,
+              "pct_of_plan": 11.0
+            }
+          ]
+        },
+        {
+          "plan_type": "403(b) Plan",
+          "plan_assets": 43900000.0,
+          "as_of_date": "2026-07-09",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Small-Mid (SMID)",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 658500.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 307300.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Large Cap",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 9965300.0,
+              "pct_of_plan": 23.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Inflation-Protected Bonds",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 578000.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Indexed",
+              "investment_region": "Emerging Markets",
+              "vehicle_type": "Unspecified",
+              "value": 263400.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 1317000.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Asset Allocation",
+              "asset_style": "Income",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3212000.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Asset Allocation",
+              "asset_style": "Target Date",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 15994000.0,
+              "pct_of_plan": 36.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1170000.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 6378670.0,
+              "pct_of_plan": 15.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Large Cap Growth",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 3775400.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Short-Term Government Bonds",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 56000.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Indexed",
+              "investment_region": "Global Ex-U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 219500.0,
+              "pct_of_plan": 1.0
+            }
+          ]
+        },
+        {
+          "plan_type": "Other Tax-exempt Fund",
+          "plan_assets": 2700000.0,
+          "as_of_date": "2026-07-09",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 196000.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4802000.0,
+              "pct_of_plan": 49.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3626000.0,
+              "pct_of_plan": 37.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1176000.0,
+              "pct_of_plan": 12.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Commercial Paper",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1500000.0,
+              "pct_of_plan": 56.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1200000.0,
+              "pct_of_plan": 44.0
+            }
+          ]
+        },
+        {
+          "plan_type": "Endowment Fund",
+          "plan_assets": 7000000.0,
+          "as_of_date": "2026-07-09",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Absolute Return",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 337400.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Real Assets",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 554300.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 6000900.0,
+              "pct_of_plan": 25.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Credit",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 867600.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 241000.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 12242800.0,
+              "pct_of_plan": 51.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 819400.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3036600.0,
+              "pct_of_plan": 13.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 6370000.0,
+              "pct_of_plan": 91.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 630000.0,
+              "pct_of_plan": 9.0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

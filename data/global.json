@@ -2,7 +2,7 @@
   "generated_note": "Bottom-up sums from the S&P Money Manager Database exports reviewed during schema design. Figures are in each country's local currency, thousands, and have not yet been reconciled against top-down overrides (see Atlas_Schema_Proposal_v1.md, Section 2c). Treat as provisional coverage figures, not final published stats.",
   "countries": [
     { "code": "GB", "name": "United Kingdom", "total_ps_assets_thousands": 2531575923, "institutions_tracked": 1603, "status": "built", "href": "country.html?c=uk" },
-    { "code": "US", "name": "United States", "total_ps_assets_thousands": 24815778423, "institutions_tracked": 281767, "status": "coming_soon" },
+    { "code": "US", "name": "United States", "total_ps_assets_thousands": 25887930211, "institutions_tracked": 233376, "status": "built", "href": "country.html?c=us" },
     { "code": "DE", "name": "Germany", "total_ps_assets_thousands": 1397639324, "institutions_tracked": 551, "status": "coming_soon" },
     { "code": "NL", "name": "Netherlands", "total_ps_assets_thousands": 1841331410, "institutions_tracked": 212, "status": "built", "href": "country.html?c=nl" },
     { "code": "NO", "name": "Norway", "total_ps_assets_thousands": 2142403539, "institutions_tracked": 74, "status": "built", "href": "country.html?c=no" },
