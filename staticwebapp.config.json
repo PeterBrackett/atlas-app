@@ -1,0 +1,33 @@
+{
+  "routes": [
+    {
+      "route": "/*",
+      "allowedRoles": ["atlas-reader"]
+    },
+    {
+      "route": "/.auth/login/github",
+      "statusCode": 404
+    },
+    {
+      "route": "/.auth/login/twitter",
+      "statusCode": 404
+    }
+  ],
+  "responseOverrides": {
+    "401": {
+      "redirect": "/.auth/login/aad?post_login_redirect_uri=.referrer",
+      "statusCode": 302
+    }
+  },
+  "auth": {
+    "identityProviders": {
+      "azureActiveDirectory": {
+        "registration": {
+          "openIdIssuer": "https://login.microsoftonline.com/a1e657a5-c321-4275-907b-2c187100e35b/v2.0",
+          "clientIdSettingName": "ATLAS_CLIENT_ID",
+          "clientSecretSettingName": "ATLAS_AAD_CLIENT_SECRET"
+        }
+      }
+    }
+  }
+}
