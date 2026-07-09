@@ -2,9 +2,13 @@
   "name": "atlas-api",
   "version": "1.0.0",
   "main": "src/functions/*.js",
-  "scripts": { "start": "func start" },
+  "scripts": {
+    "start": "func start"
+  },
   "dependencies": {
     "@azure/functions": "^4.5.0",
-    "@azure/msal-node": "^2.13.1"
+    "@azure/msal-node": "^2.13.1",
+    "docx": "^9.0.2",
+    "pptxgenjs": "^3.12.0"
   }
 }
