@@ -25,13 +25,26 @@
     <table class="matrix-table" id="overview-matrix"></table>
   </div>
 
+  <h2 style="margin-top:32px;">By region</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Region</th>
+        <th class="numeric">Countries built</th>
+        <th class="numeric">Institutions tracked</th>
+        <th class="numeric">Total AUM tracked (USD, thousands)</th>
+      </tr>
+    </thead>
+    <tbody id="region-rows"></tbody>
+  </table>
+
   <h2 style="margin-top:32px;">Countries</h2>
   <table>
     <thead>
       <tr>
         <th>Country</th>
         <th class="numeric">Institutions tracked</th>
-        <th class="numeric">Total AUM tracked (local ccy, thousands)</th>
+        <th class="numeric">Total AUM tracked (USD, thousands)</th>
         <th>Status</th>
       </tr>
     </thead>
@@ -123,6 +136,72 @@ async function renderOverviewMatrix(builtCountries) {
     `${usable.length} of ${builtCountries.length} built countries loaded. Blank cells mean that segment isn't fully scored yet — see the country page to complete it.`;
 }
 
+// Countries without a region/sub_region set (shouldn't normally happen once
+// every entry is tagged) fall into this bucket rather than being silently
+// dropped or crashing the sort, so a missing tag is visible, not hidden.
+const UNASSIGNED_REGION = 'Unassigned';
+
+function renderRegionSummary(countries) {
+  const byRegion = {};
+  countries.forEach(c => {
+    const region = c.region || UNASSIGNED_REGION;
+    if (!byRegion[region]) byRegion[region] = { countriesBuilt: 0, institutions: 0, aum: 0 };
+    if (c.status === 'built') {
+      byRegion[region].countriesBuilt += 1;
+      byRegion[region].institutions += c.institutions_tracked;
+      byRegion[region].aum += c.total_ps_assets_thousands;
+    }
+  });
+
+  const regionNames = Object.keys(byRegion).sort((a, b) => regionSortIndex(a) - regionSortIndex(b));
+
+  const rows = regionNames.map(region => {
+    const r = byRegion[region];
+    return `<tr>
+      <td>${region}</td>
+      <td class="numeric">${r.countriesBuilt.toLocaleString()}</td>
+      <td class="numeric">${r.institutions.toLocaleString()}</td>
+      <td class="numeric">${r.aum.toLocaleString()}</td>
+    </tr>`;
+  }).join('');
+
+  document.getElementById('region-rows').innerHTML = rows;
+}
+
+function renderCountryRows(countries) {
+  const grouped = {};
+  countries.forEach(c => {
+    const region = c.region || UNASSIGNED_REGION;
+    if (!grouped[region]) grouped[region] = [];
+    grouped[region].push(c);
+  });
+
+  const regionNames = Object.keys(grouped).sort((a, b) => regionSortIndex(a) - regionSortIndex(b));
+
+  const rows = regionNames.map(region => {
+    const regionCountries = grouped[region].slice().sort((a, b) => b.total_ps_assets_thousands - a.total_ps_assets_thousands);
+    const headerRow = `<tr class="region-header"><td colspan="4">${region}</td></tr>`;
+    const countryRows = regionCountries.map(c => {
+      const subRegion = c.sub_region ? ` <span class="status-pill">${c.sub_region}</span>` : '';
+      const name = c.status === 'built'
+        ? `<a class="country-link" href="${c.href}">${c.name}</a>${subRegion}`
+        : `${c.name}${subRegion}`;
+      const status = c.status === 'built'
+        ? `<span class="badge bottom-up">Built</span>`
+        : `<span class="status-pill">Coming soon</span>`;
+      return `<tr>
+        <td>${name}</td>
+        <td class="numeric">${c.institutions_tracked.toLocaleString()}</td>
+        <td class="numeric">${c.total_ps_assets_thousands.toLocaleString()}</td>
+        <td>${status}</td>
+      </tr>`;
+    }).join('');
+    return headerRow + countryRows;
+  }).join('');
+
+  document.getElementById('country-rows').innerHTML = rows;
+}
+
 async function load() {
   let data;
   try {
@@ -147,23 +226,9 @@ async function load() {
   `;
 
   renderOverviewMatrix(countries.filter(c => c.status === 'built'));
+  renderRegionSummary(countries);
+  renderCountryRows(countries);
 
-  const rows = countries.map(c => {
-    const name = c.status === 'built'
-      ? `<a class="country-link" href="${c.href}">${c.name}</a>`
-      : c.name;
-    const status = c.status === 'built'
-      ? `<span class="badge bottom-up">Built</span>`
-      : `<span class="status-pill">Coming soon</span>`;
-    return `<tr>
-      <td>${name}</td>
-      <td class="numeric">${c.institutions_tracked.toLocaleString()}</td>
-      <td class="numeric">${c.total_ps_assets_thousands.toLocaleString()}</td>
-      <td>${status}</td>
-    </tr>`;
-  }).join('');
-
-  document.getElementById('country-rows').innerHTML = rows;
   document.getElementById('global-note').textContent = data.generated_note;
 }
 load();

@@ -124,6 +124,17 @@ td.numeric, th.numeric { text-align: right; font-variant-numeric: tabular-nums; 
 .badge.override { background: #fdeee0; color: #9a5a1a; }
 .badge.aggregate { background: #e7ecf5; color: #33507a; }
 
+tr.region-header td {
+  background: var(--bg);
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding-top: 12px;
+  padding-bottom: 6px;
+}
+
 .country-link {
   color: var(--navy);
   font-weight: 600;

@@ -48,6 +48,18 @@ const CANONICAL_SEGMENT_ORDER = [
   'Life insurance', 'Non-life insurance', 'SWF'
 ];
 
+// Five peer top-level regions, following asset-management-industry convention
+// (Middle East and Africa split out from Europe) rather than the UN geoscheme
+// (which folds Middle East into Asia). Added 2026-07-10 alongside the
+// region/sub_region fields on each global.json country entry. Display order
+// matches how the regions were first specified, not alphabetical or by AUM.
+const REGION_ORDER = ['Europe', 'Middle East', 'Africa', 'Asia Pacific', 'Americas'];
+
+function regionSortIndex(regionName) {
+  const i = REGION_ORDER.indexOf(regionName);
+  return i === -1 ? REGION_ORDER.length : i;
+}
+
 function segmentSortIndex(segmentName) {
   const i = CANONICAL_SEGMENT_ORDER.indexOf(segmentName);
   return i === -1 ? CANONICAL_SEGMENT_ORDER.length : i;
