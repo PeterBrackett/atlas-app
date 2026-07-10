@@ -15,6 +15,11 @@
     { "code": "FI", "name": "Finland", "region": "Europe", "sub_region": "Nordics", "total_ps_assets_thousands": 312803893, "institutions_tracked": 47, "status": "built", "href": "country.html?c=fi" },
     { "code": "IS", "name": "Iceland", "region": "Europe", "sub_region": "Nordics", "total_ps_assets_thousands": 59692840, "institutions_tracked": 19, "status": "built", "href": "country.html?c=is" },
     { "code": "CA", "name": "Canada", "region": "Americas", "sub_region": "North America", "total_ps_assets_thousands": 2661635431, "institutions_tracked": 781, "status": "built", "href": "country.html?c=ca" },
-    { "code": "FR", "name": "France", "region": "Europe", "sub_region": "Western Europe", "total_ps_assets_thousands": 573992382, "institutions_tracked": 124, "status": "built", "href": "country.html?c=fr" }
+    { "code": "FR", "name": "France", "region": "Europe", "sub_region": "Western Europe", "total_ps_assets_thousands": 573992382, "institutions_tracked": 124, "status": "built", "href": "country.html?c=fr" },
+    { "code": "IT", "name": "Italy", "region": "Europe", "sub_region": "Southern Europe", "total_ps_assets_thousands": 283799113, "institutions_tracked": 90, "status": "built", "href": "country.html?c=it" },
+    { "code": "ES", "name": "Spain", "region": "Europe", "sub_region": "Southern Europe", "total_ps_assets_thousands": 33602202, "institutions_tracked": 21, "status": "built", "href": "country.html?c=es" },
+    { "code": "AU", "name": "Australia", "region": "Asia Pacific", "sub_region": "Oceania", "total_ps_assets_thousands": 2048311098, "institutions_tracked": 224, "status": "built", "href": "country.html?c=au" },
+    { "code": "AT", "name": "Austria", "region": "Europe", "sub_region": "Western Europe", "total_ps_assets_thousands": 55241573, "institutions_tracked": 33, "status": "built", "href": "country.html?c=at" },
+    { "code": "JP", "name": "Japan", "region": "Asia Pacific", "sub_region": "East Asia", "total_ps_assets_thousands": 3422079190, "institutions_tracked": 793, "status": "built", "href": "country.html?c=jp" }
   ]
 }

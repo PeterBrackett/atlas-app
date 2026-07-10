@@ -1,0 +1,3007 @@
+{
+  "country_code": "AT",
+  "country_name": "Austria",
+  "extraction_date": "2026-07-10",
+  "record_count": 33,
+  "source_files": [
+    "Austria_company.xls",
+    "Austria_AA.xls",
+    "Austria_manager.xls",
+    "Austria_provider.xls"
+  ],
+  "schema_version": "Atlas_Schema_Proposal_v1.md, Section 1",
+  "institutions": [
+    {
+      "entity_id": "AT-0001",
+      "entity_name": "Allianz Pensionskasse AG",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9695687",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 1275797.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 1275797.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 408255.0,
+              "pct_of_plan": 32.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 421013.0,
+              "pct_of_plan": 33.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 267917.0,
+              "pct_of_plan": 21.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 23857.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 14417.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 51032.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Mutual Fund",
+              "value": 89306.0,
+              "pct_of_plan": 7.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "AT-0002",
+      "entity_name": "Allianz Vorsorgekasse AG",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9357269",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 2901806.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 2901806.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2658925.0,
+              "pct_of_plan": 92.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Credit",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 43817.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 199064.0,
+              "pct_of_plan": 7.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "AT-0003",
+      "entity_name": "Andritz AG",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9696492",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 441564.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 319943.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 8498.0,
+              "pct_of_plan": 19.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 7503.0,
+              "pct_of_plan": 17.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1437.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 28032.0,
+              "pct_of_plan": 62.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 68212.0,
+              "pct_of_plan": 21.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 76594.0,
+              "pct_of_plan": 24.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 84305.0,
+              "pct_of_plan": 26.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 90832.0,
+              "pct_of_plan": 28.0
+            }
+          ]
+        },
+        {
+          "plan_type": "Defined Benefit Multinational Consolidated Plan",
+          "plan_assets": 76151.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3092.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 38738.0,
+              "pct_of_plan": 51.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 34321.0,
+              "pct_of_plan": 45.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "AT-0004",
+      "entity_name": "APK Gruppe",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9695685",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 4190903.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 2233939.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 447.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 41775.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Credit",
+              "investment_region": "Europe",
+              "vehicle_type": "Unspecified",
+              "value": 14967.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Europe",
+              "vehicle_type": "Unit Trust",
+              "value": 1956931.0,
+              "pct_of_plan": 88.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Europe",
+              "vehicle_type": "Unit Trust",
+              "value": 56072.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Currency",
+              "investment_region": "International",
+              "vehicle_type": "Unit Trust",
+              "value": 163748.0,
+              "pct_of_plan": 7.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "AT-0005",
+      "entity_name": "Bonus Pensionskassen AG",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9695686",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 1734481.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Hybrid DB/DC Plan",
+          "plan_assets": 1734481.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Savings & Temporary Cash",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 94182.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 691191.0,
+              "pct_of_plan": 40.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 737675.0,
+              "pct_of_plan": 43.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Credit",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 74756.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 136677.0,
+              "pct_of_plan": 8.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "AT-0006",
+      "entity_name": "Borealis AG",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9696496",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 251611.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "AT-0007",
+      "entity_name": "Bundespensionskasse AG",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9695691",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 1440074.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Hybrid DB/DC Plan",
+          "plan_assets": 1440074.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 87268.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 650769.0,
+              "pct_of_plan": 45.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 344754.0,
+              "pct_of_plan": 24.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Participant",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 26785.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 327617.0,
+              "pct_of_plan": 23.0
+            },
+            {
+              "asset_type": "Other Assets",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2880.0,
+              "pct_of_plan": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "AT-0008",
+      "entity_name": "Celovec Foundation for Slovene-Austrian Affairs",
+      "former_names": [],
+      "entity_type": "E&F",
+      "sub_type": "Tax Exempt Organization",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9366304",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 120207.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 120207.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 58901.0,
+              "pct_of_plan": 49.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 20435.0,
+              "pct_of_plan": 17.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 7212.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Asset Allocation",
+              "asset_style": "Balanced",
+              "investment_region": "Global",
+              "vehicle_type": "Mutual Fund",
+              "value": 33658.0,
+              "pct_of_plan": 28.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "AT-0009",
+      "entity_name": "Donau-Universit\u00e4t Krems",
+      "former_names": [],
+      "entity_type": "Endowment",
+      "sub_type": "Endowment",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9308094",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 38897.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 38897.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 19884.0,
+              "pct_of_plan": 51.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 78.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 14719.0,
+              "pct_of_plan": 38.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 2151.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "GIC",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 2065.0,
+              "pct_of_plan": 5.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "AT-0010",
+      "entity_name": "Versicherungsanstalt f\u00fcr Eisenbahnen und Bergbau",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Government",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9357259",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 119462.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 119462.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 47140.0,
+              "pct_of_plan": 39.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 131.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 60854.0,
+              "pct_of_plan": 51.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 11337.0,
+              "pct_of_plan": 9.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "AT-0011",
+      "entity_name": "Erste Group Bank AG",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9696482",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 301291.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 301291.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 24284.0,
+              "pct_of_plan": 8.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 59595.0,
+              "pct_of_plan": 20.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 98221.0,
+              "pct_of_plan": 33.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 118076.0,
+              "pct_of_plan": 39.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1115.0,
+              "pct_of_plan": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "AT-0012",
+      "entity_name": "Fair-Finance Vorsorgekasse AG",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9357298",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 206868.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Hybrid DB/DC Plan",
+          "plan_assets": 206868.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 57923.0,
+              "pct_of_plan": 28.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1034.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "other",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 41374.0,
+              "pct_of_plan": 20.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 106537.0,
+              "pct_of_plan": 52.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "AT-0013",
+      "entity_name": "Generali Versicherung AG",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9357273",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 406689.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 9866.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedge Funds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4962.0,
+              "pct_of_plan": 17.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 187.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 6157.0,
+              "pct_of_plan": 21.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 17477.0,
+              "pct_of_plan": 61.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedge Funds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 8800.0,
+              "pct_of_plan": 16.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1565.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 12624.0,
+              "pct_of_plan": 22.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 33495.0,
+              "pct_of_plan": 59.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1990.0,
+              "pct_of_plan": 31.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4171.0,
+              "pct_of_plan": 66.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 174.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedged",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 87.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 120.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2197.0,
+              "pct_of_plan": 39.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3168.0,
+              "pct_of_plan": 57.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedged",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 350.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4798.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 25473.0,
+              "pct_of_plan": 38.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 36767.0,
+              "pct_of_plan": 55.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedge Funds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 209.0,
+              "pct_of_plan": 12.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 429.0,
+              "pct_of_plan": 25.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 280.0,
+              "pct_of_plan": 17.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 772.0,
+              "pct_of_plan": 46.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedge Funds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 338.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 249.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 986.0,
+              "pct_of_plan": 28.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2013.0,
+              "pct_of_plan": 56.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedge Funds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 282.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 158.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1208.0,
+              "pct_of_plan": 27.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2877.0,
+              "pct_of_plan": 64.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedge Funds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 845.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 706.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3444.0,
+              "pct_of_plan": 29.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 6913.0,
+              "pct_of_plan": 58.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedge Funds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 8125.0,
+              "pct_of_plan": 13.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4263.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 16537.0,
+              "pct_of_plan": 26.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 34898.0,
+              "pct_of_plan": 55.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedge Funds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 12018.0,
+              "pct_of_plan": 13.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5600.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 23504.0,
+              "pct_of_plan": 26.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 50689.0,
+              "pct_of_plan": 55.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedge Funds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2329.0,
+              "pct_of_plan": 29.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 433.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 711.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4506.0,
+              "pct_of_plan": 56.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedge Funds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 262.0,
+              "pct_of_plan": 15.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 67.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 262.0,
+              "pct_of_plan": 15.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1109.0,
+              "pct_of_plan": 65.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedged",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 957.0,
+              "pct_of_plan": 13.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 53.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1973.0,
+              "pct_of_plan": 27.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4422.0,
+              "pct_of_plan": 60.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedge Funds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2477.0,
+              "pct_of_plan": 13.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 705.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5817.0,
+              "pct_of_plan": 30.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 10370.0,
+              "pct_of_plan": 54.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedge Funds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 903.0,
+              "pct_of_plan": 8.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 615.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2529.0,
+              "pct_of_plan": 22.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 7585.0,
+              "pct_of_plan": 65.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 322.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 794.0,
+              "pct_of_plan": 24.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2129.0,
+              "pct_of_plan": 66.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedged",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 339.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 141.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1373.0,
+              "pct_of_plan": 38.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1734.0,
+              "pct_of_plan": 48.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedged",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5017.0,
+              "pct_of_plan": 51.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 335.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2393.0,
+              "pct_of_plan": 24.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2121.0,
+              "pct_of_plan": 22.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "AT-0014",
+      "entity_name": "Humans Helping Other Humans",
+      "former_names": [],
+      "entity_type": "E&F",
+      "sub_type": "Tax Exempt Organization",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9357289",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 679062.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 679062.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Commodities",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 20372.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Infrastructure",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 156184.0,
+              "pct_of_plan": 23.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Venture Capital",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 264834.0,
+              "pct_of_plan": 39.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 54325.0,
+              "pct_of_plan": 8.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Art & Collectibles",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 95069.0,
+              "pct_of_plan": 14.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "ESG",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 27162.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 61116.0,
+              "pct_of_plan": 9.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "AT-0015",
+      "entity_name": "Montanuniversit\u00e4t Leoben",
+      "former_names": [],
+      "entity_type": "Endowment",
+      "sub_type": "Endowment",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9308142",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 48442.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 48442.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 33570.0,
+              "pct_of_plan": 69.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 4452.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 10420.0,
+              "pct_of_plan": 22.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "AT-0016",
+      "entity_name": "Nieder\u00f6sterreichische Vorsorgekasse",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9357300",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 972563.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 972563.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1264.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Europe",
+              "vehicle_type": "Unspecified",
+              "value": 4085.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Europe",
+              "vehicle_type": "UCIT",
+              "value": 967214.0,
+              "pct_of_plan": 99.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "AT-0017",
+      "entity_name": "Oesterreichische Nationalbank",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Reserve Banks",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9367624",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 159026518.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 159026518.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Precious Metals",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 18558395.0,
+              "pct_of_plan": 12.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1208602.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 413469.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3482681.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Coins of euro area",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 111319.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Securities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 134138868.0,
+              "pct_of_plan": 84.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Currency",
+              "investment_region": "European Union",
+              "vehicle_type": "Unspecified",
+              "value": 1113186.0,
+              "pct_of_plan": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "AT-0018",
+      "entity_name": "OMV Aktiengesllschaft",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9696480",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 659971.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 659971.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Money Market",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 32999.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 112195.0,
+              "pct_of_plan": 17.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "GIC",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 237590.0,
+              "pct_of_plan": 36.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 217790.0,
+              "pct_of_plan": 33.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 59397.0,
+              "pct_of_plan": 9.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "AT-0019",
+      "entity_name": "OPEC Fund for International Development (OFID)",
+      "former_names": [],
+      "entity_type": "Sovereign Wealth Fund",
+      "sub_type": "Sovereign Wealth Funds",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9418583",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 4593800.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Sovereign Wealth Fund",
+          "plan_assets": 4463400.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1876860.0,
+              "pct_of_plan": 42.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 89100.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Agency Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1264500.0,
+              "pct_of_plan": 28.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Corporate Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 128400.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 1104300.0,
+              "pct_of_plan": 25.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "AT-0020",
+      "entity_name": "OSRAM Licht AG",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9374404",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 687562.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "AT-0021",
+      "entity_name": "Pensionsversicherungsanstalt",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Government",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9357260",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 294092.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 294092.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 88.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 9352.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2029.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 282622.0,
+              "pct_of_plan": 96.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "AT-0022",
+      "entity_name": "RHI Magnesita N.V.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9696497",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 162234.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Multinational Consolidated Plan",
+          "plan_assets": 162234.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 7739.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 50763.0,
+              "pct_of_plan": 31.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 46350.0,
+              "pct_of_plan": 29.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 46350.0,
+              "pct_of_plan": 29.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 11032.0,
+              "pct_of_plan": 7.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "AT-0023",
+      "entity_name": "Sozialversicherungsanstalt der gewerblichen Wirtschaft",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Government",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9357261",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 725040.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 725040.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 573797.0,
+              "pct_of_plan": 79.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 10151.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 141093.0,
+              "pct_of_plan": 19.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "AT-0024",
+      "entity_name": "Technische Universit\u00e4t Graz",
+      "former_names": [],
+      "entity_type": "Endowment",
+      "sub_type": "Endowment",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9308131",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 153951.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 153951.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 115463.0,
+              "pct_of_plan": 75.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3310.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 32884.0,
+              "pct_of_plan": 21.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2294.0,
+              "pct_of_plan": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "AT-0025",
+      "entity_name": "Universitat Wien",
+      "former_names": [],
+      "entity_type": "Endowment",
+      "sub_type": "Endowment",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9308181",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 187732.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 187732.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 72258.0,
+              "pct_of_plan": 38.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 96907.0,
+              "pct_of_plan": 52.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Mutual Fund",
+              "value": 18567.0,
+              "pct_of_plan": 10.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "AT-0026",
+      "entity_name": "Paris-Loudron-Universit\u00e4t Salzburg",
+      "former_names": [],
+      "entity_type": "Endowment",
+      "sub_type": "Endowment",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9308110",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 38929.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 38929.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 36496.0,
+              "pct_of_plan": 94.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2270.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 164.0,
+              "pct_of_plan": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "AT-0027",
+      "entity_name": "Valida Vorsorge Management",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9695688",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 14024395.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Hybrid DB/DC Plan",
+          "plan_assets": 8419724.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 6165.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Europe",
+              "vehicle_type": "Unspecified",
+              "value": 1063206.0,
+              "pct_of_plan": 19.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Europe",
+              "vehicle_type": "Unspecified",
+              "value": 918045.0,
+              "pct_of_plan": 16.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Europe",
+              "vehicle_type": "Unspecified",
+              "value": 408020.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Europe",
+              "vehicle_type": "UCIT",
+              "value": 3206432.0,
+              "pct_of_plan": 57.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 2802.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 715677.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 842.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3127085.0,
+              "pct_of_plan": 37.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2615166.0,
+              "pct_of_plan": 31.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 376362.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 399937.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Other Financial Assets",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 222281.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 959007.0,
+              "pct_of_plan": 11.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Mutual Fund",
+              "value": 3368.0,
+              "pct_of_plan": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "AT-0028",
+      "entity_name": "VBV Group",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DC",
+      "sub_type": "Corporation",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9695689",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 17329996.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Hybrid DB/DC Plan",
+          "plan_assets": 9457906.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 47290.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 893772.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4736519.0,
+              "pct_of_plan": 50.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3235550.0,
+              "pct_of_plan": 34.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 122007.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 422768.0,
+              "pct_of_plan": 4.0
+            }
+          ]
+        },
+        {
+          "plan_type": "Generic Defined Contribution or Profit Sharing Plan",
+          "plan_assets": 7872090.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5510.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 158229.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Europe",
+              "vehicle_type": "Unspecified",
+              "value": 5925322.0,
+              "pct_of_plan": 75.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 27552.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 97614.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "European Union",
+              "vehicle_type": "Unspecified",
+              "value": 419582.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Unspecified",
+              "investment_region": "European Union",
+              "vehicle_type": "Unspecified",
+              "value": 878525.0,
+              "pct_of_plan": 11.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "European Union",
+              "vehicle_type": "Unspecified",
+              "value": 359755.0,
+              "pct_of_plan": 5.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "AT-0029",
+      "entity_name": "VERBUND AG",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9696486",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 186514.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 186514.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Money Market",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5595.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 81320.0,
+              "pct_of_plan": 44.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 55022.0,
+              "pct_of_plan": 30.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 44577.0,
+              "pct_of_plan": 24.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "AT-0030",
+      "entity_name": "Vienna Insurance Group AG Wiener Versicherung Gruppe",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9696479",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 405968.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 405968.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5562.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 7186.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 387537.0,
+              "pct_of_plan": 95.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5684.0,
+              "pct_of_plan": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "AT-0031",
+      "entity_name": "Voestalpine AG",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9696481",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 303940.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Multinational Consolidated Plan",
+          "plan_assets": 303940.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 9422.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 86015.0,
+              "pct_of_plan": 28.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 31610.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 124615.0,
+              "pct_of_plan": 41.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 15805.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Other Assets",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 36473.0,
+              "pct_of_plan": 12.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "AT-0032",
+      "entity_name": "Wienerberger AG",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9696491",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 163337.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "AT-0033",
+      "entity_name": "Zumtobel AG",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "AT",
+      "country_name": "Austria",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9696494",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 194395.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Multinational Consolidated Plan",
+          "plan_assets": 194395.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 71576.0,
+              "pct_of_plan": 37.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 9000.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 26690.0,
+              "pct_of_plan": 14.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 10361.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Liquid funds",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5754.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 71012.0,
+              "pct_of_plan": 37.0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
