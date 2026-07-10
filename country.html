@@ -64,29 +64,14 @@ let LOADED_SEGMENTS = []; // kept in memory so scorecard edits can update the ma
 let CURRENT_ALLOC_TYPE = 'Equities';
 let CURRENT_ALLOC_STYLE = ''; // '' means "all styles" (the whole asset-type total)
 
-// Looks up a segment's allocation for a given asset type, optionally narrowed
-// to one finer style within it. Returns null if that segment has no data for
-// the selection (e.g. Life/Non-life insurance outside Equities, or a style
-// that got folded into "Other/Unspecified" for that particular segment).
-function getAllocationValue(segment, assetType, assetStyle) {
-  const entry = (segment.allocation || []).find(a => a.asset_type === assetType);
-  if (!entry) return null;
-  if (!assetStyle) return { value_bn: entry.value_bn, pct: entry.pct_of_segment };
-  const style = (entry.styles || []).find(s => s.asset_style === assetStyle);
-  if (!style) return null;
-  const pct = segment.aum_bn ? (style.value_bn / segment.aum_bn * 100) : 0;
-  return { value_bn: style.value_bn, pct: Math.round(pct * 10) / 10 };
-}
-
 // Builds the "Allocation row shows" dropdowns from whatever asset types/styles
 // actually appear in the loaded country's data, so the controls never offer a
-// choice with nothing behind it.
+// choice with nothing behind it. getAllocationValue/assetTypesPresent/
+// assetStylesPresent live in scorecard-dimensions.js, shared with the
+// cross-country allocation view on index.html.
 function populateAllocationSelectors(segs) {
   const typeSelect = document.getElementById('alloc-type-select');
-  const typesSeen = new Set();
-  segs.forEach(s => (s.allocation || []).forEach(a => typesSeen.add(a.asset_type)));
-  const preferredOrder = ['Equities', 'Fixed Income', 'Cash & Short-Term', 'Real Estate', 'Alternatives', 'Other/Unclassified'];
-  const types = preferredOrder.filter(t => typesSeen.has(t)).concat([...typesSeen].filter(t => !preferredOrder.includes(t)));
+  const types = assetTypesPresent(segs);
 
   if (!typeSelect.dataset.populated) {
     typeSelect.innerHTML = types.map(t => `<option value="${t}" ${t === CURRENT_ALLOC_TYPE ? 'selected' : ''}>${t}</option>`).join('');
@@ -97,14 +82,7 @@ function populateAllocationSelectors(segs) {
 
 function populateStyleSelector(segs) {
   const styleSelect = document.getElementById('alloc-style-select');
-  const stylesSeen = new Set();
-  segs.forEach(s => {
-    const entry = (s.allocation || []).find(a => a.asset_type === CURRENT_ALLOC_TYPE);
-    (entry ? entry.styles || [] : []).forEach(st => {
-      if (st.asset_style !== 'Other/Unspecified') stylesSeen.add(st.asset_style);
-    });
-  });
-  const styles = [...stylesSeen].sort();
+  const styles = assetStylesPresent(segs, CURRENT_ALLOC_TYPE);
   styleSelect.innerHTML = `<option value="">All styles (${CURRENT_ALLOC_TYPE} total)</option>` +
     styles.map(s => `<option value="${s}" ${s === CURRENT_ALLOC_STYLE ? 'selected' : ''}>${s}</option>`).join('');
   if (!styles.includes(CURRENT_ALLOC_STYLE)) CURRENT_ALLOC_STYLE = '';
@@ -341,6 +319,10 @@ function renderScorecardMatrix() {
     }).join('')
   }</tr>`;
 
+  // Traffic-light class for a dimension score: red=1, amber=2, green=3, or
+  // the existing "blank, go fill this in" highlight when unscored.
+  const scoreCellClass = (value, missing) => missing ? 'cell-missing' : `score-${value}`;
+
   const dimensionRows = SCORECARD_DIMENSIONS.map(dim => {
     const cells = segs.map((s, segIndex) => {
       const sc = s.scorecard || {};
@@ -354,14 +336,21 @@ function renderScorecardMatrix() {
           const selected = (v === '' && missing) || (v !== '' && Number(v) === value) ? 'selected' : '';
           return `<option value="${v}" ${selected}>${label}</option>`;
         }).join('');
-        return `<td id="${cellId}" class="${missing ? 'cell-missing' : ''}">` +
+        return `<td id="${cellId}" class="${scoreCellClass(value, missing)}">` +
           `<select class="matrix-select" data-segment-index="${segIndex}" data-dim="${dim.key}" ` +
           `onchange="saveScorecardValue(this)">${options}</select></td>`;
       }
 
-      return `<td id="${cellId}">${missing ? '—' : value}</td>`;
+      return `<td id="${cellId}" class="${scoreCellClass(value, missing)}">${missing ? '—' : value}</td>`;
     }).join('');
-    return `<tr title="${dim.question}"><td class="matrix-rowlabel" title="${dim.question}">${dim.label}${dim.weight > 1 ? ` (×${dim.weight})` : ''}</td>${cells}</tr>`;
+    return `<tr title="${dim.question}"><td class="matrix-rowlabel" title="${dim.question}">` +
+      (CURRENT_USER ? `<div style="display:flex; align-items:center; justify-content:space-between; gap:6px;">` +
+        `<span>${dim.label}${dim.weight > 1 ? ` (×${dim.weight})` : ''}</span>` +
+        `<select class="matrix-select" style="width:auto; min-width:52px;" data-dim="${dim.key}" ` +
+        `onchange="saveScorecardBulk(this)" title="Set this score for every segment in one go"><option value="">Set all…</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select>` +
+        `</div>`
+        : `${dim.label}${dim.weight > 1 ? ` (×${dim.weight})` : ''}`) +
+      `</td>${cells}</tr>`;
   }).join('');
 
   const scoredRow = `<tr class="scored-row">` +
@@ -430,7 +419,7 @@ async function saveScorecardValue(selectEl) {
       segment.scorecard[dim] = value;
     }
 
-    if (cellEl) cellEl.className = (value === null) ? 'cell-missing' : '';
+    if (cellEl) cellEl.className = (value === null) ? 'cell-missing' : `score-${value}`;
 
     const count = scoredDimensionCount(segment.scorecard);
     const scoredCellEl = document.getElementById(`sc-scored-${segIndex}`);
@@ -451,6 +440,54 @@ async function saveScorecardValue(selectEl) {
   } catch (e) {
     alert('Could not reach the server to save this change.');
     selectEl.value = (typeof previousValue === 'number') ? String(previousValue) : '';
+  } finally {
+    selectEl.disabled = false;
+  }
+}
+
+// Applies one dimension's score to every segment in the country in a single
+// action -- for dimensions that genuinely don't vary by segment (Languages
+// required, Local presence required, etc.), rather than clicking through
+// each of up to 19 segment columns individually. Updates every in-memory
+// segment and re-renders the whole matrix, same "don't reload the page"
+// approach as saveScorecardValue.
+async function saveScorecardBulk(selectEl) {
+  const dim = selectEl.dataset.dim;
+  const raw = selectEl.value;
+  if (raw === '') return; // "Set all…" placeholder re-selected — no-op
+  const value = parseInt(raw, 10);
+  const dimLabel = (SCORECARD_DIMENSIONS.find(d => d.key === dim) || {}).label || dim;
+
+  if (!confirm(`Set "${dimLabel}" to ${value} for every segment in ${CURRENT_COUNTRY_NAME}? This overwrites any existing value for this dimension on every segment.`)) {
+    selectEl.value = '';
+    return;
+  }
+
+  selectEl.disabled = true;
+
+  try {
+    const res = await fetch('/api/segments/set-scorecard-bulk', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ country: COUNTRY_CODE, dimension: dim, value })
+    });
+    const result = await res.json();
+
+    if (!res.ok) {
+      alert(`Couldn't set this score for every segment: ${result.error || 'unknown error'}`);
+      selectEl.disabled = false;
+      selectEl.value = '';
+      return;
+    }
+
+    LOADED_SEGMENTS.forEach(seg => {
+      if (!seg.scorecard) seg.scorecard = {};
+      seg.scorecard[dim] = value;
+    });
+
+    renderScorecardMatrix();
+  } catch (e) {
+    alert('Could not reach the server to save this change.');
   } finally {
     selectEl.disabled = false;
   }
