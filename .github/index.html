@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas — Global Overview</title>
+<link rel="stylesheet" href="style.css">
+<script src="scorecard-dimensions.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div>
+    <h1>Atlas</h1>
+    <div class="tagline">Institutional asset owner database — global overview</div>
+  </div>
+</header>
+<nav class="breadcrumb"><a href="sources.html">Sources &amp; methodology &rarr;</a></nav>
+
+<main>
+  <div class="summary-bar" id="summary-bar"></div>
+
+  <h2>Opportunity scorecard — Overall by segment</h2>
+  <p class="note" style="margin-top:-8px; margin-bottom:16px; border-top:none; padding-top:0;" id="overview-hint"></p>
+  <div class="matrix-wrap">
+    <table class="matrix-table" id="overview-matrix"></table>
+  </div>
+
+  <h2 style="margin-top:32px;">Countries</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Country</th>
+        <th class="numeric">Institutions tracked</th>
+        <th class="numeric">Total AUM tracked (USD, thousands)</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="country-rows"></tbody>
+  </table>
+
+  <p class="note" id="global-note"></p>
+</main>
+
+<script>
+async function fetchCountryData(code) {
+  try {
+    const res = await fetch(`/api/data/${code}`);
+    if (!res.ok) throw new Error('API not ready');
+    return await res.json();
+  } catch (e) {
+    try {
+      const res = await fetch(`data/${code}.json`);
+      if (!res.ok) return null;
+      return await res.json();
+    } catch (e2) {
+      return null;
+    }
+  }
+}
+
+// The cross-country comparison view — every built country's segments laid
+// out against the same Overall score, the same shape as the "Overall"
+// sheet in FINAL_Country_Matrix.xlsx. This is the app's headline view:
+// per-country detail (AUM, allocation, individual dimension scores) lives
+// one click away on each country's own page.
+async function renderOverviewMatrix(builtCountries) {
+  const table = document.getElementById('overview-matrix');
+
+  if (!builtCountries.length) {
+    table.innerHTML = '';
+    document.getElementById('overview-hint').textContent = 'No countries built out yet.';
+    return;
+  }
+
+  // Derive the lookup slug from href's ?c= param, not from the ISO `code`
+  // field — they don't always match (e.g. code "GB" but slug "uk", matching
+  // every actual filename/URL elsewhere: uk.json, country.html?c=uk). Using
+  // code.toLowerCase() here silently 404'd every request for GB specifically
+  // ("gb" != "uk"), which is why this matrix always said "could not be
+  // loaded" even once uk.json existed and country.html?c=uk worked fine.
+  const slugFromHref = (href) => {
+    const match = /[?&]c=([^&]+)/.exec(href || '');
+    return match ? match[1] : null;
+  };
+
+  const countryData = await Promise.all(builtCountries.map(async c => {
+    const slug = slugFromHref(c.href) || c.code.toLowerCase();
+    return { meta: c, data: await fetchCountryData(slug) };
+  }));
+
+  const usable = countryData.filter(c => c.data);
+  if (!usable.length) {
+    table.innerHTML = '';
+    document.getElementById('overview-hint').textContent = 'Country data could not be loaded.';
+    return;
+  }
+
+  // Only show segment columns that actually appear in at least one built
+  // country, in canonical order, so the table doesn't carry 19 columns of
+  // near-total blanks while only a handful of countries are built out.
+  const segmentsPresent = new Set();
+  usable.forEach(c => (c.data.segments || []).forEach(s => segmentsPresent.add(s.segment)));
+  const columns = CANONICAL_SEGMENT_ORDER.filter(s => segmentsPresent.has(s));
+
+  const headerCells = columns.map(seg => `<th>${seg}</th>`).join('');
+
+  const rows = usable.map(c => {
+    const href = c.meta.href || `country.html?c=${c.meta.code.toLowerCase()}`;
+    const cells = columns.map(segName => {
+      const seg = (c.data.segments || []).find(s => s.segment === segName);
+      const overall = seg ? computeOverallScore(seg.scorecard) : null;
+      return `<td>${overall === null ? '—' : overall}</td>`;
+    }).join('');
+    return `<tr><td class="matrix-rowlabel"><a class="country-link" href="${href}">${c.meta.name}</a></td>${cells}</tr>`;
+  }).join('');
+
+  table.innerHTML = `
+    <thead><tr><th class="matrix-rowlabel">Country</th>${headerCells}</tr></thead>
+    <tbody>${rows}</tbody>
+  `;
+
+  document.getElementById('overview-hint').textContent =
+    `${usable.length} of ${builtCountries.length} built countries loaded. Blank cells mean that segment isn't fully scored yet — see the country page to complete it.`;
+}
+
+async function load() {
+  let data;
+  try {
+    const res = await fetch('/api/data/global');
+    if (!res.ok) throw new Error('API not ready');
+    data = await res.json();
+  } catch (e) {
+    // Falls back to the bundled sample file until the SharePoint-backed API is live.
+    const res = await fetch('data/global.json');
+    data = await res.json();
+  }
+
+  const countries = data.countries.slice().sort((a, b) => b.total_ps_assets_thousands - a.total_ps_assets_thousands);
+
+  const totalInstitutions = countries.reduce((s, c) => s + c.institutions_tracked, 0);
+  const built = countries.filter(c => c.status === 'built').length;
+
+  document.getElementById('summary-bar').innerHTML = `
+    <div class="stat-card"><div class="value">${countries.length}</div><div class="label">Countries in scope</div></div>
+    <div class="stat-card"><div class="value">${built}</div><div class="label">Country pages built</div></div>
+    <div class="stat-card"><div class="value">${totalInstitutions.toLocaleString()}</div><div class="label">Institutions tracked</div></div>
+  `;
+
+  renderOverviewMatrix(countries.filter(c => c.status === 'built'));
+
+  const rows = countries.map(c => {
+    const name = c.status === 'built'
+      ? `<a class="country-link" href="${c.href}">${c.name}</a>`
+      : c.name;
+    const status = c.status === 'built'
+      ? `<span class="badge bottom-up">Built</span>`
+      : `<span class="status-pill">Coming soon</span>`;
+    return `<tr>
+      <td>${name}</td>
+      <td class="numeric">${c.institutions_tracked.toLocaleString()}</td>
+      <td class="numeric">${c.total_ps_assets_thousands.toLocaleString()}</td>
+      <td>${status}</td>
+    </tr>`;
+  }).join('');
+
+  document.getElementById('country-rows').innerHTML = rows;
+  document.getElementById('global-note').textContent = data.generated_note;
+}
+load();
+</script>
+</body>
+</html>
