@@ -6,6 +6,7 @@
 <title>Atlas — Global Overview</title>
 <link rel="stylesheet" href="style.css">
 <script src="scorecard-dimensions.js"></script>
+<script src="tmf-rankings.js"></script>
 </head>
 <body>
 <header class="site-header">
@@ -35,6 +36,16 @@
     <button type="button" id="mo-apply-btn" class="btn-primary" onclick="applyMarketOpportunityThresholds()" style="cursor:pointer; align-self:flex-end;">Apply across all countries</button>
     <span class="note" style="border-top:none; padding-top:0; margin:0; flex-basis:100%; font-size:0.78rem;">Scores every segment in every loaded country at once, based on the asset class picked here (independent of the "Show:" selector below): below threshold = 1, at or above threshold = 2, at or above optimal = 3. A segment with no allocation data for this selection is treated as $0 (scores 1, unless threshold is 0 or less). Overwrites any existing Market opportunity score. This panel is always here whenever you're signed in — it no longer depends on which view is selected below.</span>
   </div>
+
+  <div class="summary-bar" id="reg-basis-bar" style="margin-bottom:16px;"></div>
+  <div id="reg-threshold-controls" style="display:none; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px; padding:10px; border:1px solid var(--border); border-radius:6px; background:var(--card); font-size:0.85rem;">
+    <strong>Auto-score "Regulatory complexity" from TMF Group rankings (<span id="tmf-gbci-year"></span>):</strong>
+    <label>Threshold (rank)<br><input type="number" step="1" id="reg-threshold-input" placeholder="e.g. 27" style="width:110px;"></label>
+    <label>Optimal (rank)<br><input type="number" step="1" id="reg-optimal-input" placeholder="e.g. 56" style="width:110px;"></label>
+    <button type="button" id="reg-apply-btn" class="btn-primary" onclick="applyRegulatoryComplexityThresholds()" style="cursor:pointer; align-self:flex-end;">Apply across all countries</button>
+    <span class="note" style="border-top:none; padding-top:0; margin:0; flex-basis:100%; font-size:0.78rem;">TMF's rank 1 is the most complex jurisdiction to do business in, rank 79 the least — this is inverted from the allocation scorer above since low complexity is the attractive case: rank at or below threshold = 1, above threshold = 2, at or above optimal = 3. Countries TMF doesn't cover (Iceland, as of the 2025 edition) are skipped and left as-is — reported after applying. Same segment-independent country-level value applied to every segment, and overwrites any existing Regulatory complexity score.</span>
+  </div>
+
   <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:12px; font-size:0.85rem;">
     <label for="overview-view-select"><strong>Show:</strong></label>
     <select id="overview-view-select" onchange="onOverviewViewChange()">
@@ -146,9 +157,13 @@ function onOverviewViewChange() {
 
 // Signed-in-only (it's a write action) -- otherwise always shown once
 // country data has loaded, independent of which matrix view is selected.
+// Covers both the allocation-based (Market opportunity) and TMF-rank-based
+// (Regulatory complexity) auto-scoring panels, since both share the same
+// visibility rule.
 function updateThresholdControlsVisibility() {
   const show = !!CURRENT_USER && OVERVIEW_USABLE.length > 0;
   document.getElementById('overview-threshold-controls').style.display = show ? 'flex' : 'none';
+  document.getElementById('reg-threshold-controls').style.display = show ? 'flex' : 'none';
 }
 
 function populateMoAssetSelectors() {
@@ -304,22 +319,144 @@ async function applyMarketOpportunityThresholds() {
     // the scores themselves are already saved above; only the "what was
     // this based on" reminder would be stale, not the underlying data.
     try {
-      const basisRes = await fetch('/api/global/set-market-opportunity-basis', {
+      const basisRes = await fetch('/api/global/set-scorecard-basis', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          asset_type: MO_ASSET_TYPE,
-          asset_style: MO_ASSET_STYLE || null,
-          threshold_bn: threshold,
-          optimal_bn: optimal,
-          countries_updated: successCount,
-          segments_updated: assignments.length
+          basis_key: 'market_opportunity_basis',
+          basis: {
+            asset_type: MO_ASSET_TYPE,
+            asset_style: MO_ASSET_STYLE || null,
+            threshold_bn: threshold,
+            optimal_bn: optimal,
+            countries_updated: successCount,
+            segments_updated: assignments.length
+          }
         })
       });
       const basisResult = await basisRes.json();
-      if (basisRes.ok && basisResult.market_opportunity_basis) {
-        GLOBAL_DATA.market_opportunity_basis = basisResult.market_opportunity_basis;
+      if (basisRes.ok && basisResult.basis) {
+        GLOBAL_DATA.market_opportunity_basis = basisResult.basis;
         renderMarketOpportunityBasis(GLOBAL_DATA.market_opportunity_basis);
+      }
+    } catch (e) { /* scores are saved; the basis reminder just won't update this time */ }
+  } catch (e) {
+    alert('Could not reach the server to save this change.');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+}
+
+// Same idea as applyMarketOpportunityThresholds(), but for "Regulatory
+// complexity" driven by TMF's GBCI rank (tmf-rankings.js) instead of an
+// allocation figure -- and country-level rather than per-segment, since
+// regulatory burden doesn't vary by DB Corp vs DC Govt within one country.
+// Every segment in a matched country gets the same value. Countries with no
+// TMF entry (Iceland, as of 2025) are skipped and reported, not guessed at.
+async function applyRegulatoryComplexityThresholds() {
+  const threshold = parseFloat(document.getElementById('reg-threshold-input').value);
+  const optimal = parseFloat(document.getElementById('reg-optimal-input').value);
+
+  if (Number.isNaN(threshold) || Number.isNaN(optimal)) {
+    alert('Enter numeric threshold and optimal rank values.');
+    return;
+  }
+  if (optimal < threshold) {
+    alert('Optimal rank should be greater than or equal to threshold rank.');
+    return;
+  }
+
+  const assignments = [];
+  const skipped = [];
+  OVERVIEW_USABLE.forEach(c => {
+    const rank = tmfRankForCode(c.meta.code);
+    if (rank === null) {
+      skipped.push(c.meta.name);
+      return;
+    }
+    const score = rank >= optimal ? 3 : (rank >= threshold ? 2 : 1);
+    (c.data.segments || []).forEach(seg => {
+      assignments.push({ country: c.slug, segment: seg.segment, value: score });
+    });
+  });
+
+  if (!assignments.length) {
+    alert('No countries with a TMF ranking are loaded to score.');
+    return;
+  }
+
+  const countriesScored = OVERVIEW_USABLE.length - skipped.length;
+  const confirmMsg = `Set "Regulatory complexity" for ${countriesScored} countries (${assignments.length} segments) from TMF ${TMF_GBCI_YEAR} rank:\n` +
+    `rank <= ${threshold} → 1 (most complex)\nrank ${threshold}-${optimal} → 2\nrank >= ${optimal} → 3 (least complex)\n\n` +
+    (skipped.length ? `Skipped (no TMF data): ${skipped.join(', ')}\n\n` : '') +
+    `This overwrites any existing Regulatory complexity score on every segment in every matched country. Continue?`;
+  if (!confirm(confirmMsg)) return;
+
+  const btn = document.getElementById('reg-apply-btn');
+  btn.disabled = true;
+  const originalText = btn.textContent;
+  btn.textContent = 'Applying…';
+
+  try {
+    const res = await fetch('/api/segments/set-scorecard-global', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ dimension: 'regulatory_complexity', assignments })
+    });
+    const result = await res.json();
+
+    if (!res.ok && !result.success) {
+      alert(`Couldn't apply scores: ${result.error || 'unknown error'}`);
+      return;
+    }
+
+    const byCountrySeg = {};
+    assignments.forEach(a => { byCountrySeg[`${a.country}::${a.segment}`] = a.value; });
+
+    let successCount = 0;
+    const failedCountries = [];
+    OVERVIEW_USABLE.forEach(c => {
+      const r = result.results && result.results[c.slug];
+      if (r && r.success) {
+        successCount += 1;
+        (c.data.segments || []).forEach(seg => {
+          const key = `${c.slug}::${seg.segment}`;
+          if (Object.prototype.hasOwnProperty.call(byCountrySeg, key)) {
+            if (!seg.scorecard) seg.scorecard = {};
+            seg.scorecard.regulatory_complexity = byCountrySeg[key];
+          }
+        });
+      } else if (r) {
+        failedCountries.push(`${c.meta.name} (${r.error})`);
+      }
+    });
+
+    renderOverviewMatrixBody();
+    alert(`Applied to ${successCount} of ${countriesScored} countries with TMF data.` +
+      (skipped.length ? `\n\nSkipped (no TMF data): ${skipped.join(', ')}` : '') +
+      (failedCountries.length ? `\n\nFailed: ${failedCountries.join(', ')}` : ''));
+
+    try {
+      const basisRes = await fetch('/api/global/set-scorecard-basis', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          basis_key: 'regulatory_complexity_basis',
+          basis: {
+            source: `TMF Group GBCI ${TMF_GBCI_YEAR}`,
+            threshold_rank: threshold,
+            optimal_rank: optimal,
+            countries_updated: successCount,
+            segments_updated: assignments.length,
+            countries_skipped: skipped
+          }
+        })
+      });
+      const basisResult = await basisRes.json();
+      if (basisRes.ok && basisResult.basis) {
+        GLOBAL_DATA.regulatory_complexity_basis = basisResult.basis;
+        renderRegulatoryComplexityBasis(GLOBAL_DATA.regulatory_complexity_basis);
       }
     } catch (e) { /* scores are saved; the basis reminder just won't update this time */ }
   } catch (e) {
@@ -335,13 +472,14 @@ async function applyMarketOpportunityThresholds() {
 // auto-score run, without a full page reload.
 let GLOBAL_DATA = null;
 
-// Three always-visible boxes summarising what the current "Market
-// opportunity" scores are actually based on, if they were set via the
-// threshold auto-scorer -- shown regardless of sign-in state or which view
-// is selected, specifically so the basis doesn't get lost once you sign out
-// of the area where you set it. Persisted on global.json itself (not just
-// browser state) via setMarketOpportunityBasis.js, so it survives reloads
-// and is visible to anyone looking at the page, not just the editor.
+// Always-visible boxes summarising what the current "Market opportunity" /
+// "Regulatory complexity" scores are actually based on, if they were set via
+// their respective threshold auto-scorers -- shown regardless of sign-in
+// state or which view is selected, specifically so the basis doesn't get
+// lost once you sign out of the area where you set it. Persisted on
+// global.json itself (not just browser state) via setScorecardBasis.js, so
+// it survives reloads and is visible to anyone looking at the page, not
+// just the editor.
 function renderMarketOpportunityBasis(basis) {
   const el = document.getElementById('mo-basis-bar');
   if (!basis) {
@@ -356,6 +494,24 @@ function renderMarketOpportunityBasis(basis) {
     <div class="stat-card"><div class="value">${classLabel}</div><div class="label">Asset class basis</div></div>
     <div class="stat-card"><div class="value">$${basis.threshold_bn.toLocaleString()}bn</div><div class="label">Threshold (score 2 at/above)</div></div>
     <div class="stat-card"><div class="value">$${basis.optimal_bn.toLocaleString()}bn</div><div class="label">Optimal (score 3 at/above)</div></div>
+    <div class="stat-card" style="flex-basis:100%; text-align:left;"><div class="label">${appliedInfo} Individual segments may have been edited by hand since — this only reflects the basis of the last bulk auto-score run.</div></div>
+  `;
+}
+
+function renderRegulatoryComplexityBasis(basis) {
+  const el = document.getElementById('reg-basis-bar');
+  if (!basis) {
+    el.innerHTML = `<div class="stat-card"><div class="value">—</div><div class="label">Regulatory complexity has not been auto-scored from TMF rankings yet — scores are whatever's been entered manually per segment.</div></div>`;
+    return;
+  }
+  const appliedInfo = `Applied ${basis.applied_date || 'unknown date'}${basis.applied_by ? ` by ${basis.applied_by}` : ''}` +
+    (basis.countries_updated ? `, ${basis.countries_updated} countries` : '') +
+    (basis.segments_updated ? `, ${basis.segments_updated} segments` : '') + '.' +
+    (basis.countries_skipped && basis.countries_skipped.length ? ` No TMF data for: ${basis.countries_skipped.join(', ')}.` : '');
+  el.innerHTML = `
+    <div class="stat-card"><div class="value">${basis.source || 'TMF Group GBCI'}</div><div class="label">Ranking source</div></div>
+    <div class="stat-card"><div class="value">Rank ${basis.threshold_rank}</div><div class="label">Threshold (score 2 at/above)</div></div>
+    <div class="stat-card"><div class="value">Rank ${basis.optimal_rank}</div><div class="label">Optimal (score 3 at/above)</div></div>
     <div class="stat-card" style="flex-basis:100%; text-align:left;"><div class="label">${appliedInfo} Individual segments may have been edited by hand since — this only reflects the basis of the last bulk auto-score run.</div></div>
   `;
 }
@@ -539,6 +695,8 @@ async function load() {
 
   GLOBAL_DATA = data;
   renderMarketOpportunityBasis(data.market_opportunity_basis);
+  renderRegulatoryComplexityBasis(data.regulatory_complexity_basis);
+  document.getElementById('tmf-gbci-year').textContent = TMF_GBCI_YEAR;
 
   const countries = data.countries.slice().sort((a, b) => b.total_ps_assets_thousands - a.total_ps_assets_thousands);
 
