@@ -22,6 +22,19 @@
 
   <h2>Opportunity scorecard — Overall by segment</h2>
   <div class="summary-bar" id="mo-basis-bar" style="margin-bottom:16px;"></div>
+  <div id="overview-threshold-controls" style="display:none; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px; padding:10px; border:1px solid var(--border); border-radius:6px; background:var(--card); font-size:0.85rem;">
+    <strong>Auto-score "Market opportunity" from an allocation:</strong>
+    <label>Asset class<br>
+      <select id="mo-asset-type-select" onchange="onMoAssetSelectorChange()"></select>
+    </label>
+    <label>Style<br>
+      <select id="mo-asset-style-select" onchange="onMoAssetSelectorChange()"></select>
+    </label>
+    <label>Threshold ($bn)<br><input type="number" step="any" id="mo-threshold-input" placeholder="e.g. 5" style="width:110px;"></label>
+    <label>Optimal ($bn)<br><input type="number" step="any" id="mo-optimal-input" placeholder="e.g. 20" style="width:110px;"></label>
+    <button type="button" id="mo-apply-btn" class="btn-primary" onclick="applyMarketOpportunityThresholds()" style="cursor:pointer; align-self:flex-end;">Apply across all countries</button>
+    <span class="note" style="border-top:none; padding-top:0; margin:0; flex-basis:100%; font-size:0.78rem;">Scores every segment in every loaded country at once, based on the asset class picked here (independent of the "Show:" selector below): below threshold = 1, at or above threshold = 2, at or above optimal = 3. A segment with no allocation data for this selection is treated as $0 (scores 1, unless threshold is 0 or less). Overwrites any existing Market opportunity score. This panel is always here whenever you're signed in — it no longer depends on which view is selected below.</span>
+  </div>
   <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:12px; font-size:0.85rem;">
     <label for="overview-view-select"><strong>Show:</strong></label>
     <select id="overview-view-select" onchange="onOverviewViewChange()">
@@ -32,13 +45,6 @@
       <select id="overview-alloc-type-select" onchange="onOverviewAllocSelectorChange()"></select>
       <select id="overview-alloc-style-select" onchange="onOverviewAllocSelectorChange()"></select>
     </span>
-  </div>
-  <div id="overview-threshold-controls" style="display:none; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px; padding:10px; border:1px solid var(--border); border-radius:6px; background:var(--card); font-size:0.85rem;">
-    <strong>Auto-score "Market opportunity" from this allocation:</strong>
-    <label>Threshold ($bn)<br><input type="number" step="any" id="mo-threshold-input" placeholder="e.g. 5" style="width:110px;"></label>
-    <label>Optimal ($bn)<br><input type="number" step="any" id="mo-optimal-input" placeholder="e.g. 20" style="width:110px;"></label>
-    <button type="button" id="mo-apply-btn" class="btn-primary" onclick="applyMarketOpportunityThresholds()" style="cursor:pointer; align-self:flex-end;">Apply across all countries</button>
-    <span class="note" style="border-top:none; padding-top:0; margin:0; flex-basis:100%; font-size:0.78rem;">Scores every segment in every loaded country at once, based on the allocation currently shown: below threshold = 1, at or above threshold = 2, at or above optimal = 3. A segment with no allocation data for this selection is treated as $0 (scores 1, unless threshold is 0 or less). Overwrites any existing Market opportunity score.</span>
   </div>
   <p class="note" style="margin-top:-4px; margin-bottom:16px; border-top:none; padding-top:0;" id="overview-hint"></p>
   <div class="matrix-wrap">
@@ -120,22 +126,59 @@ let OVERVIEW_VIEW = 'overall';  // 'overall' | 'allocation'
 let OVERVIEW_ALLOC_TYPE = 'Equities';
 let OVERVIEW_ALLOC_STYLE = '';
 
+// Asset class used by the "auto-score Market opportunity" panel. Kept
+// deliberately separate from OVERVIEW_ALLOC_TYPE/STYLE (which just controls
+// what the matrix displays when "Show: Asset allocation" is picked) — the
+// two used to share one selection, which meant the scoring panel only
+// existed while that specific view was active. Since the "Show:" dropdown
+// resets to "Overall" on every page load, that made the panel look like it
+// had vanished on every reload. Now they're independent: this panel is
+// visible any time you're signed in, regardless of which view is showing.
+let MO_ASSET_TYPE = 'Equities';
+let MO_ASSET_STYLE = '';
+
 function onOverviewViewChange() {
   OVERVIEW_VIEW = document.getElementById('overview-view-select').value;
   document.getElementById('overview-alloc-controls').style.display =
     OVERVIEW_VIEW === 'allocation' ? 'inline-flex' : 'none';
-  updateThresholdControlsVisibility();
   renderOverviewMatrixBody();
 }
 
-// The threshold-scoring controls only make sense in the allocation view
-// (they classify segments by the allocation figure currently shown) and
-// only for a signed-in editor (it's a write action) -- so both conditions
-// have to be true, checked from two different places (view switch and
-// checkAuth resolving), hence its own function rather than inlining it.
+// Signed-in-only (it's a write action) -- otherwise always shown once
+// country data has loaded, independent of which matrix view is selected.
 function updateThresholdControlsVisibility() {
-  const show = OVERVIEW_VIEW === 'allocation' && !!CURRENT_USER;
+  const show = !!CURRENT_USER && OVERVIEW_USABLE.length > 0;
   document.getElementById('overview-threshold-controls').style.display = show ? 'flex' : 'none';
+}
+
+function populateMoAssetSelectors() {
+  const allSegs = OVERVIEW_USABLE.flatMap(c => c.data.segments || []);
+  const typeSelect = document.getElementById('mo-asset-type-select');
+  const types = assetTypesPresent(allSegs);
+  typeSelect.innerHTML = types.map(t => `<option value="${t}" ${t === MO_ASSET_TYPE ? 'selected' : ''}>${t}</option>`).join('');
+  populateMoStyleSelector();
+}
+
+function populateMoStyleSelector() {
+  const allSegs = OVERVIEW_USABLE.flatMap(c => c.data.segments || []);
+  const styleSelect = document.getElementById('mo-asset-style-select');
+  const styles = assetStylesPresent(allSegs, MO_ASSET_TYPE);
+  styleSelect.innerHTML = `<option value="">All styles (${MO_ASSET_TYPE} total)</option>` +
+    styles.map(s => `<option value="${s}" ${s === MO_ASSET_STYLE ? 'selected' : ''}>${s}</option>`).join('');
+  if (!styles.includes(MO_ASSET_STYLE)) MO_ASSET_STYLE = '';
+}
+
+function onMoAssetSelectorChange() {
+  const typeSelect = document.getElementById('mo-asset-type-select');
+  const styleSelect = document.getElementById('mo-asset-style-select');
+  const typeChanged = typeSelect.value !== MO_ASSET_TYPE;
+  MO_ASSET_TYPE = typeSelect.value;
+  if (typeChanged) {
+    MO_ASSET_STYLE = '';
+    populateMoStyleSelector();
+  } else {
+    MO_ASSET_STYLE = styleSelect.value;
+  }
 }
 
 function onOverviewAllocSelectorChange() {
@@ -189,11 +232,11 @@ async function applyMarketOpportunityThresholds() {
     return;
   }
 
-  const label = OVERVIEW_ALLOC_STYLE ? `${OVERVIEW_ALLOC_TYPE} — ${OVERVIEW_ALLOC_STYLE}` : OVERVIEW_ALLOC_TYPE;
+  const label = MO_ASSET_STYLE ? `${MO_ASSET_TYPE} — ${MO_ASSET_STYLE}` : MO_ASSET_TYPE;
   const assignments = [];
   OVERVIEW_USABLE.forEach(c => {
     (c.data.segments || []).forEach(seg => {
-      const result = getAllocationValue(seg, OVERVIEW_ALLOC_TYPE, OVERVIEW_ALLOC_STYLE);
+      const result = getAllocationValue(seg, MO_ASSET_TYPE, MO_ASSET_STYLE);
       const value_bn = result ? result.value_bn : 0;
       const score = value_bn >= optimal ? 3 : (value_bn >= threshold ? 2 : 1);
       assignments.push({ country: c.slug, segment: seg.segment, value: score });
@@ -265,8 +308,8 @@ async function applyMarketOpportunityThresholds() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          asset_type: OVERVIEW_ALLOC_TYPE,
-          asset_style: OVERVIEW_ALLOC_STYLE || null,
+          asset_type: MO_ASSET_TYPE,
+          asset_style: MO_ASSET_STYLE || null,
           threshold_bn: threshold,
           optimal_bn: optimal,
           countries_updated: successCount,
@@ -357,6 +400,8 @@ async function loadOverviewData(builtCountries) {
   }
 
   populateOverviewAllocSelectors();
+  populateMoAssetSelectors();
+  updateThresholdControlsVisibility();
   renderOverviewMatrixBody(failed);
 }
 
