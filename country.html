@@ -130,7 +130,8 @@ function onAllocationSelectorChange() {
 // loads independently and the whole section just stays hidden for any
 // country that doesn't have one yet — no error, no broken link.
 let MANAGER_DATA = null;
-const MANAGER_UNDISCLOSED = 'Not disclosed / self-managed';
+const MANAGER_SELF_MANAGED = 'Self-managed';
+const MANAGER_UNDISCLOSED = 'Not disclosed';
 const MANAGER_MULTI_ASSET = 'Multi-asset (pooled mandate, not broken down by type)';
 
 async function loadManagerData(code) {
@@ -180,26 +181,27 @@ function renderManagerShareTable() {
   if (!assetType) {
     rows = seg.managers.map(m => ({
       name: m.manager_name,
+      selfManaged: m.is_self_managed,
       undisclosed: m.is_undisclosed,
       value_bn: m.total_managed_bn,
       pct: m.market_share_pct,
     }));
     noteEl.textContent = `Share of segment total plan assets ($${fmtBn(seg.total_plan_assets_bn)}bn across plans that appear in the S&P Manager export). ` +
-      `Disclosed manager coverage: ${seg.disclosed_coverage_pct}% — the rest is "${MANAGER_UNDISCLOSED}".`;
+      `Identified (named manager or explicit "${MANAGER_SELF_MANAGED}" tag): ${seg.identified_coverage_pct}% — the rest is "${MANAGER_UNDISCLOSED}", a genuine unknown, not an estimate of self-management.`;
   } else {
     const perManager = [];
     let classTotal = 0;
     seg.managers.forEach(m => {
       const entry = (m.by_asset_type || []).find(t => t.asset_type === assetType);
       if (entry) {
-        perManager.push({ name: m.manager_name, undisclosed: m.is_undisclosed, value_bn: entry.value_bn });
+        perManager.push({ name: m.manager_name, selfManaged: m.is_self_managed, undisclosed: m.is_undisclosed, value_bn: entry.value_bn });
         classTotal += entry.value_bn;
       }
     });
     rows = perManager.map(m => ({ ...m, pct: classTotal ? Math.round(m.value_bn / classTotal * 1000) / 10 : 0 }));
     rows.sort((a, b) => b.value_bn - a.value_bn);
     noteEl.textContent = `Share of identified ${assetType} mandates only ($${fmtBn(classTotal)}bn across managers with a disclosed ${assetType} breakdown in this segment). ` +
-      `Excludes "${MANAGER_UNDISCLOSED}" and pooled multi-asset mandates that aren't broken down by asset class — those amounts exist but can't be attributed to ${assetType} specifically from the raw data.`;
+      `Excludes "${MANAGER_UNDISCLOSED}", "${MANAGER_SELF_MANAGED}" amounts with no type given, and pooled multi-asset mandates that aren't broken down by asset class — those amounts exist but can't be attributed to ${assetType} specifically from the raw data.`;
   }
 
   if (!rows.length) {
@@ -208,9 +210,14 @@ function renderManagerShareTable() {
   }
 
   rows.sort((a, b) => b.value_bn - a.value_bn);
+  const rowBadge = (r) => {
+    if (r.selfManaged) return ' <span class="badge" style="background:#e4f0ee; color:var(--accent);">self-managed</span>';
+    if (r.undisclosed) return ' <span class="badge" style="background:var(--border); color:var(--muted);">not disclosed</span>';
+    return '';
+  };
   tbody.innerHTML = rows.map(r => `
-    <tr${r.undisclosed ? ' style="color:var(--muted); font-style:italic;"' : ''}>
-      <td>${r.name}${r.undisclosed ? ' <span class="badge" style="background:var(--border); color:var(--muted);">label</span>' : ''}</td>
+    <tr${(r.selfManaged || r.undisclosed) ? ' style="color:var(--muted); font-style:italic;"' : ''}>
+      <td>${r.name}${rowBadge(r)}</td>
       <td class="numeric">${fmtBn(r.value_bn)}</td>
       <td class="numeric">${r.pct}%</td>
     </tr>`).join('');
