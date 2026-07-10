@@ -50,6 +50,28 @@
 
   <p class="note" id="data-note"></p>
 
+  <div id="manager-share-section" style="display:none;">
+    <h2 style="margin-top:32px;">Manager market share</h2>
+    <p class="note" style="margin-top:-8px; margin-bottom:16px; border-top:none; padding-top:0;" id="manager-share-hint"></p>
+    <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:12px; font-size:0.85rem;">
+      <label for="manager-segment-select"><strong>Segment:</strong></label>
+      <select id="manager-segment-select" onchange="onManagerSegmentChange()"></select>
+      <label for="manager-assettype-select"><strong>Asset class:</strong></label>
+      <select id="manager-assettype-select" onchange="onManagerAssetChange()"></select>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Manager</th>
+          <th class="numeric">Managed (bn)</th>
+          <th class="numeric">Market share</th>
+        </tr>
+      </thead>
+      <tbody id="manager-share-rows"></tbody>
+    </table>
+    <p class="note" id="manager-share-note" style="font-size:0.78rem;"></p>
+  </div>
+
   <h2 style="margin-top:32px;">Research notes</h2>
   <div class="research-notes" id="research-notes">
     <p class="note">Loading notes…</p>
@@ -100,6 +122,119 @@ function onAllocationSelectorChange() {
     CURRENT_ALLOC_STYLE = styleSelect.value;
   }
   renderScorecardMatrix();
+}
+
+// ---- Manager market share (pilot, currently UK only) ----
+// Sourced from a separate {code}_managers.json, built from the S&P Manager
+// export rather than the Company/AA files the rest of this page uses, so it
+// loads independently and the whole section just stays hidden for any
+// country that doesn't have one yet — no error, no broken link.
+let MANAGER_DATA = null;
+const MANAGER_UNDISCLOSED = 'Not disclosed / self-managed';
+const MANAGER_MULTI_ASSET = 'Multi-asset (pooled mandate, not broken down by type)';
+
+async function loadManagerData(code) {
+  try {
+    const res = await fetch(`/api/managers/${code}`);
+    if (res.ok) return await res.json();
+  } catch (e) { /* fall through to static file */ }
+  try {
+    const res = await fetch(`data/${code}_managers.json`);
+    if (res.ok) return await res.json();
+  } catch (e) { /* no manager file for this country */ }
+  return null;
+}
+
+function populateManagerSegmentSelect() {
+  const select = document.getElementById('manager-segment-select');
+  const segs = MANAGER_DATA.segments.slice().sort((a, b) => segmentSortIndex(a.segment) - segmentSortIndex(b.segment));
+  select.innerHTML = segs.map(s => `<option value="${s.segment}">${s.segment}</option>`).join('');
+}
+
+function currentManagerSegment() {
+  const name = document.getElementById('manager-segment-select').value;
+  return MANAGER_DATA.segments.find(s => s.segment === name);
+}
+
+function populateManagerAssetSelect() {
+  const seg = currentManagerSegment();
+  const select = document.getElementById('manager-assettype-select');
+  const typesSeen = new Set();
+  (seg.managers || []).forEach(m => (m.by_asset_type || []).forEach(t => {
+    if (t.asset_type !== MANAGER_MULTI_ASSET && t.asset_type !== 'Not broken down') typesSeen.add(t.asset_type);
+  }));
+  const preferredOrder = ['Equities', 'Fixed Income', 'Cash & Short-Term', 'Real Estate', 'Alternatives', 'Other/Unclassified'];
+  const types = preferredOrder.filter(t => typesSeen.has(t)).concat([...typesSeen].filter(t => !preferredOrder.includes(t)));
+  select.innerHTML = `<option value="">All asset classes</option>` + types.map(t => `<option value="${t}">${t}</option>`).join('');
+}
+
+function renderManagerShareTable() {
+  const seg = currentManagerSegment();
+  const assetType = document.getElementById('manager-assettype-select').value;
+  const tbody = document.getElementById('manager-share-rows');
+  const noteEl = document.getElementById('manager-share-note');
+
+  const fmtBn = (v) => v.toLocaleString(undefined, { maximumFractionDigits: 3 });
+  let rows;
+
+  if (!assetType) {
+    rows = seg.managers.map(m => ({
+      name: m.manager_name,
+      undisclosed: m.is_undisclosed,
+      value_bn: m.total_managed_bn,
+      pct: m.market_share_pct,
+    }));
+    noteEl.textContent = `Share of segment total plan assets ($${fmtBn(seg.total_plan_assets_bn)}bn across plans that appear in the S&P Manager export). ` +
+      `Disclosed manager coverage: ${seg.disclosed_coverage_pct}% — the rest is "${MANAGER_UNDISCLOSED}".`;
+  } else {
+    const perManager = [];
+    let classTotal = 0;
+    seg.managers.forEach(m => {
+      const entry = (m.by_asset_type || []).find(t => t.asset_type === assetType);
+      if (entry) {
+        perManager.push({ name: m.manager_name, undisclosed: m.is_undisclosed, value_bn: entry.value_bn });
+        classTotal += entry.value_bn;
+      }
+    });
+    rows = perManager.map(m => ({ ...m, pct: classTotal ? Math.round(m.value_bn / classTotal * 1000) / 10 : 0 }));
+    rows.sort((a, b) => b.value_bn - a.value_bn);
+    noteEl.textContent = `Share of identified ${assetType} mandates only ($${fmtBn(classTotal)}bn across managers with a disclosed ${assetType} breakdown in this segment). ` +
+      `Excludes "${MANAGER_UNDISCLOSED}" and pooled multi-asset mandates that aren't broken down by asset class — those amounts exist but can't be attributed to ${assetType} specifically from the raw data.`;
+  }
+
+  if (!rows.length) {
+    tbody.innerHTML = `<tr><td colspan="3" class="note">No managers with a disclosed ${assetType} breakdown in this segment.</td></tr>`;
+    return;
+  }
+
+  rows.sort((a, b) => b.value_bn - a.value_bn);
+  tbody.innerHTML = rows.map(r => `
+    <tr${r.undisclosed ? ' style="color:var(--muted); font-style:italic;"' : ''}>
+      <td>${r.name}${r.undisclosed ? ' <span class="badge" style="background:var(--border); color:var(--muted);">label</span>' : ''}</td>
+      <td class="numeric">${fmtBn(r.value_bn)}</td>
+      <td class="numeric">${r.pct}%</td>
+    </tr>`).join('');
+}
+
+function onManagerSegmentChange() {
+  populateManagerAssetSelect();
+  renderManagerShareTable();
+}
+
+function onManagerAssetChange() {
+  renderManagerShareTable();
+}
+
+async function loadManagerShare(code) {
+  const data = await loadManagerData(code);
+  if (!data || !data.segments || !data.segments.length) return;
+  MANAGER_DATA = data;
+  document.getElementById('manager-share-section').style.display = 'block';
+  document.getElementById('manager-share-hint').textContent =
+    'Pilot feature — sourced separately from the S&P Manager export, not the Company/AA files used elsewhere on this page. See the note below the table for coverage caveats.';
+  populateManagerSegmentSelect();
+  populateManagerAssetSelect();
+  renderManagerShareTable();
 }
 
 function getCountryCode() {
@@ -696,6 +831,8 @@ async function load() {
         `<a href="institutions.html?c=${code}" class="btn-primary">Browse individual institutions &rarr;</a>`;
     }
   } catch (e) { /* no institutions file for this country yet — leave link out */ }
+
+  await loadManagerShare(code);
 
   const notesText = await loadNotes(code);
   const notesEl = document.getElementById('research-notes');
