@@ -5,20 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Atlas — Country</title>
 <link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
 <script src="scorecard-dimensions.js"></script>
 </head>
 <body>
 <header class="site-header">
-  <div>
-    <h1>Atlas</h1>
-    <div class="tagline" id="page-tagline">Country breakdown</div>
+  <div class="brand">
+    <img src="logo.png" alt="Atlas logo" class="brand-logo">
+    <div>
+      <h1>Atlas</h1>
+      <div class="tagline" id="page-tagline">Country breakdown</div>
+    </div>
   </div>
   <div id="auth-status" style="font-size:0.82rem; color:#b9c6d3;"></div>
 </header>
 <nav class="breadcrumb"><a href="index.html">&larr; Global overview</a> &nbsp;|&nbsp; <a href="sources.html">Sources &amp; methodology</a></nav>
 
 <main>
+  <h1 id="country-name-heading" class="country-name-heading"></h1>
   <div class="summary-bar" id="summary-bar"></div>
   <div id="institutions-link-wrap" style="margin: -12px 0 28px;"></div>
   <div id="export-wrap" style="display:flex; gap:10px; margin: -12px 0 28px; flex-wrap:wrap;"></div>
@@ -657,6 +665,10 @@ async function load() {
 
   document.title = `Atlas — ${data.country_name}`;
   document.getElementById('page-tagline').textContent = `${data.country_name} — segment breakdown`;
+  // Country name was previously only visible as small text tucked into the
+  // header's tagline, easy to miss when scanning the page -- now it's the
+  // first, largest thing in the page body instead.
+  document.getElementById('country-name-heading').textContent = data.country_name || code.toUpperCase();
   CURRENT_COUNTRY_NAME = data.country_name || code.toUpperCase();
 
   LOADED_SEGMENTS = data.segments || [];

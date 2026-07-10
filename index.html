@@ -5,14 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Atlas — Global Overview</title>
 <link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <script src="scorecard-dimensions.js"></script>
 <script src="tmf-rankings.js"></script>
+<script src="ef-epi.js"></script>
 </head>
 <body>
 <header class="site-header">
-  <div>
-    <h1>Atlas</h1>
-    <div class="tagline">Institutional asset owner database — global overview</div>
+  <div class="brand">
+    <img src="logo.png" alt="Atlas logo" class="brand-logo">
+    <div>
+      <h1>Atlas</h1>
+      <div class="tagline">Institutional asset owner database — global overview</div>
+    </div>
   </div>
   <div id="auth-status" style="font-size:0.82rem; color:#b9c6d3;"></div>
 </header>
@@ -44,6 +52,24 @@
     <label>Optimal (rank)<br><input type="number" step="1" id="reg-optimal-input" placeholder="e.g. 56" style="width:110px;"></label>
     <button type="button" id="reg-apply-btn" class="btn-primary" onclick="applyRegulatoryComplexityThresholds()" style="cursor:pointer; align-self:flex-end;">Apply across all countries</button>
     <span class="note" style="border-top:none; padding-top:0; margin:0; flex-basis:100%; font-size:0.78rem;">TMF's rank 1 is the most complex jurisdiction to do business in, rank 79 the least — this is inverted from the allocation scorer above since low complexity is the attractive case: rank at or below threshold = 1, above threshold = 2, at or above optimal = 3. Countries TMF doesn't cover (Iceland, as of the 2025 edition) are skipped and left as-is — reported after applying. Same segment-independent country-level value applied to every segment, and overwrites any existing Regulatory complexity score.</span>
+  </div>
+
+  <div class="summary-bar" id="dist-basis-bar" style="margin-bottom:16px;"></div>
+  <div id="dist-threshold-controls" style="display:none; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px; padding:10px; border:1px solid var(--border); border-radius:6px; background:var(--card); font-size:0.85rem;">
+    <strong>Auto-score "Distribution resources required" from institution concentration:</strong>
+    <label>Threshold (top-3 share %)<br><input type="number" step="any" id="dist-threshold-input" placeholder="e.g. 20" style="width:130px;"></label>
+    <label>Optimal (top-3 share %)<br><input type="number" step="any" id="dist-optimal-input" placeholder="e.g. 50" style="width:130px;"></label>
+    <button type="button" id="dist-apply-btn" class="btn-primary" onclick="applyDistributionResourcesThresholds()" style="cursor:pointer; align-self:flex-end;">Apply across all countries</button>
+    <span class="note" style="border-top:none; padding-top:0; margin:0; flex-basis:100%; font-size:0.78rem;">Uses each segment's top-3-institution share of AUM (from the same Company-file institution data segment totals are built from) as a proxy for how much distribution resource covering the market would take: below threshold = 1, at or above threshold = 2, at or above optimal = 3 — a handful of large institutions dominating a segment needs less coverage effort than AUM spread across thousands of small ones. Segments with no institution-level concentration data (e.g. Life/Non-life insurance, built from industry aggregates rather than individual institutions) are skipped, not guessed at. Overwrites any existing Distribution resources required score.</span>
+  </div>
+
+  <div class="summary-bar" id="lang-basis-bar" style="margin-bottom:16px;"></div>
+  <div id="lang-threshold-controls" style="display:none; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px; padding:10px; border:1px solid var(--border); border-radius:6px; background:var(--card); font-size:0.85rem;">
+    <strong>Auto-score "Languages required" from EF English Proficiency Index (<span id="ef-epi-year"></span>):</strong>
+    <label>Threshold (EF EPI score)<br><input type="number" step="any" id="lang-threshold-input" placeholder="e.g. 550" style="width:130px;"></label>
+    <label>Optimal (EF EPI score)<br><input type="number" step="any" id="lang-optimal-input" placeholder="e.g. 600" style="width:130px;"></label>
+    <button type="button" id="lang-apply-btn" class="btn-primary" onclick="applyLanguagesRequiredThresholds()" style="cursor:pointer; align-self:flex-end;">Apply across all countries</button>
+    <span class="note" style="border-top:none; padding-top:0; margin:0; flex-basis:100%; font-size:0.78rem;">EF EPI score runs 0-800, higher = more of the population speaks English well — direction matches the allocation scorer above (not inverted): below threshold = 1, at or above threshold = 2, at or above optimal = 3. The US, UK, Ireland, Canada, Australia and New Zealand aren't ranked by EF EPI at all (it only measures non-native proficiency), so they're automatically scored 3 — English is the native language there by definition. Singapore is also unranked by EF EPI but is scored 3 as a judgment call, since English is Singapore's dominant language of government, courts and business; override this per-segment if you'd rather treat it differently. Iceland has no EF EPI coverage and isn't an English-native/business market, so it's genuinely uncovered and skipped, same as Iceland's Regulatory complexity gap. Same country-level value applied to every segment, and overwrites any existing Languages required score.</span>
   </div>
 
   <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:12px; font-size:0.85rem;">
@@ -164,6 +190,8 @@ function updateThresholdControlsVisibility() {
   const show = !!CURRENT_USER && OVERVIEW_USABLE.length > 0;
   document.getElementById('overview-threshold-controls').style.display = show ? 'flex' : 'none';
   document.getElementById('reg-threshold-controls').style.display = show ? 'flex' : 'none';
+  document.getElementById('dist-threshold-controls').style.display = show ? 'flex' : 'none';
+  document.getElementById('lang-threshold-controls').style.display = show ? 'flex' : 'none';
 }
 
 function populateMoAssetSelectors() {
@@ -467,6 +495,252 @@ async function applyRegulatoryComplexityThresholds() {
   }
 }
 
+// Same threshold/optimal shape as the other two auto-scorers, driven by
+// each segment's own top3_share_pct (institution concentration, computed
+// from the same Company-file data segment AUM totals already come from --
+// see add_concentration.py). Segment-level, not country-level, since
+// concentration genuinely varies segment to segment within one country.
+// Segments with no concentration data at all (industry-aggregate-basis
+// segments like Life/Non-life insurance) are skipped rather than treated
+// as 0%, since a missing figure isn't the same as a genuinely fragmented one.
+async function applyDistributionResourcesThresholds() {
+  const threshold = parseFloat(document.getElementById('dist-threshold-input').value);
+  const optimal = parseFloat(document.getElementById('dist-optimal-input').value);
+
+  if (Number.isNaN(threshold) || Number.isNaN(optimal)) {
+    alert('Enter numeric threshold and optimal top-3 share percentages.');
+    return;
+  }
+  if (optimal < threshold) {
+    alert('Optimal should be greater than or equal to threshold.');
+    return;
+  }
+
+  const assignments = [];
+  let segmentsSkipped = 0;
+  OVERVIEW_USABLE.forEach(c => {
+    (c.data.segments || []).forEach(seg => {
+      const conc = seg.concentration;
+      if (!conc || typeof conc.top3_share_pct !== 'number') {
+        segmentsSkipped += 1;
+        return;
+      }
+      const share = conc.top3_share_pct;
+      const score = share >= optimal ? 3 : (share >= threshold ? 2 : 1);
+      assignments.push({ country: c.slug, segment: seg.segment, value: score });
+    });
+  });
+
+  if (!assignments.length) {
+    alert('No segments with concentration data are loaded to score.');
+    return;
+  }
+
+  const confirmMsg = `Set "Distribution resources required" for ${assignments.length} segments, based on top-3-institution AUM share:\n` +
+    `< ${threshold}% → 1\n${threshold}%-${optimal}% → 2\n>= ${optimal}% → 3\n\n` +
+    (segmentsSkipped ? `${segmentsSkipped} segments have no concentration data and will be skipped.\n\n` : '') +
+    `This overwrites any existing Distribution resources required score on every matched segment. Continue?`;
+  if (!confirm(confirmMsg)) return;
+
+  const btn = document.getElementById('dist-apply-btn');
+  btn.disabled = true;
+  const originalText = btn.textContent;
+  btn.textContent = 'Applying…';
+
+  try {
+    const res = await fetch('/api/segments/set-scorecard-global', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ dimension: 'distribution_resources_required', assignments })
+    });
+    const result = await res.json();
+
+    if (!res.ok && !result.success) {
+      alert(`Couldn't apply scores: ${result.error || 'unknown error'}`);
+      return;
+    }
+
+    const byCountrySeg = {};
+    assignments.forEach(a => { byCountrySeg[`${a.country}::${a.segment}`] = a.value; });
+
+    let successCount = 0;
+    const failedCountries = [];
+    OVERVIEW_USABLE.forEach(c => {
+      const r = result.results && result.results[c.slug];
+      if (r && r.success) {
+        successCount += 1;
+        (c.data.segments || []).forEach(seg => {
+          const key = `${c.slug}::${seg.segment}`;
+          if (Object.prototype.hasOwnProperty.call(byCountrySeg, key)) {
+            if (!seg.scorecard) seg.scorecard = {};
+            seg.scorecard.distribution_resources_required = byCountrySeg[key];
+          }
+        });
+      } else if (r) {
+        failedCountries.push(`${c.meta.name} (${r.error})`);
+      }
+    });
+
+    renderOverviewMatrixBody();
+    alert(`Applied to ${successCount} countries (${assignments.length} segments).` +
+      (segmentsSkipped ? ` ${segmentsSkipped} segments skipped (no concentration data).` : '') +
+      (failedCountries.length ? `\n\nFailed: ${failedCountries.join(', ')}` : ''));
+
+    try {
+      const basisRes = await fetch('/api/global/set-scorecard-basis', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          basis_key: 'distribution_resources_basis',
+          basis: {
+            metric: 'Top-3 institution AUM share (%)',
+            threshold_pct: threshold,
+            optimal_pct: optimal,
+            countries_updated: successCount,
+            segments_updated: assignments.length,
+            segments_skipped: segmentsSkipped
+          }
+        })
+      });
+      const basisResult = await basisRes.json();
+      if (basisRes.ok && basisResult.basis) {
+        GLOBAL_DATA.distribution_resources_basis = basisResult.basis;
+        renderDistributionResourcesBasis(GLOBAL_DATA.distribution_resources_basis);
+      }
+    } catch (e) { /* scores are saved; the basis reminder just won't update this time */ }
+  } catch (e) {
+    alert('Could not reach the server to save this change.');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+}
+
+// Country-level, like Regulatory complexity, driven by ef-epi.js. Three
+// buckets per country: EF-EPI-scored (threshold/optimal applies normally),
+// auto-3 (native-English or English-as-business-language markets EF EPI
+// doesn't rank at all), and uncovered (Iceland -- a genuine gap, skipped).
+async function applyLanguagesRequiredThresholds() {
+  const threshold = parseFloat(document.getElementById('lang-threshold-input').value);
+  const optimal = parseFloat(document.getElementById('lang-optimal-input').value);
+
+  if (Number.isNaN(threshold) || Number.isNaN(optimal)) {
+    alert('Enter numeric threshold and optimal EF EPI score values.');
+    return;
+  }
+  if (optimal < threshold) {
+    alert('Optimal should be greater than or equal to threshold.');
+    return;
+  }
+
+  const assignments = [];
+  const skipped = [];
+  const autoTop = [];
+  OVERVIEW_USABLE.forEach(c => {
+    const status = languageCoverageStatus(c.meta.code);
+    let score;
+    if (status === 'native' || status === 'business-english') {
+      score = 3;
+      autoTop.push(c.meta.name);
+    } else if (status === 'epi-scored') {
+      const epi = epiScoreForCode(c.meta.code);
+      score = epi >= optimal ? 3 : (epi >= threshold ? 2 : 1);
+    } else {
+      skipped.push(c.meta.name);
+      return;
+    }
+    (c.data.segments || []).forEach(seg => {
+      assignments.push({ country: c.slug, segment: seg.segment, value: score });
+    });
+  });
+
+  if (!assignments.length) {
+    alert('No countries with EF EPI data (or native-English status) are loaded to score.');
+    return;
+  }
+
+  const countriesScored = OVERVIEW_USABLE.length - skipped.length;
+  const confirmMsg = `Set "Languages required" for ${countriesScored} countries (${assignments.length} segments) from EF EPI ${EF_EPI_YEAR}:\n` +
+    `EF EPI < ${threshold} → 1\nEF EPI ${threshold}-${optimal} → 2\nEF EPI >= ${optimal} → 3\n` +
+    (autoTop.length ? `Automatic 3 (native English or English as business language): ${autoTop.join(', ')}\n` : '') +
+    '\n' + (skipped.length ? `Skipped (no EF EPI data, not English-native/business): ${skipped.join(', ')}\n\n` : '') +
+    `This overwrites any existing Languages required score on every segment in every matched country. Continue?`;
+  if (!confirm(confirmMsg)) return;
+
+  const btn = document.getElementById('lang-apply-btn');
+  btn.disabled = true;
+  const originalText = btn.textContent;
+  btn.textContent = 'Applying…';
+
+  try {
+    const res = await fetch('/api/segments/set-scorecard-global', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ dimension: 'languages_required', assignments })
+    });
+    const result = await res.json();
+
+    if (!res.ok && !result.success) {
+      alert(`Couldn't apply scores: ${result.error || 'unknown error'}`);
+      return;
+    }
+
+    const byCountrySeg = {};
+    assignments.forEach(a => { byCountrySeg[`${a.country}::${a.segment}`] = a.value; });
+
+    let successCount = 0;
+    const failedCountries = [];
+    OVERVIEW_USABLE.forEach(c => {
+      const r = result.results && result.results[c.slug];
+      if (r && r.success) {
+        successCount += 1;
+        (c.data.segments || []).forEach(seg => {
+          const key = `${c.slug}::${seg.segment}`;
+          if (Object.prototype.hasOwnProperty.call(byCountrySeg, key)) {
+            if (!seg.scorecard) seg.scorecard = {};
+            seg.scorecard.languages_required = byCountrySeg[key];
+          }
+        });
+      } else if (r) {
+        failedCountries.push(`${c.meta.name} (${r.error})`);
+      }
+    });
+
+    renderOverviewMatrixBody();
+    alert(`Applied to ${successCount} of ${countriesScored} countries.` +
+      (skipped.length ? `\n\nSkipped (no EF EPI data): ${skipped.join(', ')}` : '') +
+      (failedCountries.length ? `\n\nFailed: ${failedCountries.join(', ')}` : ''));
+
+    try {
+      const basisRes = await fetch('/api/global/set-scorecard-basis', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          basis_key: 'languages_required_basis',
+          basis: {
+            source: `EF English Proficiency Index ${EF_EPI_YEAR}`,
+            threshold_score: threshold,
+            optimal_score: optimal,
+            countries_updated: successCount,
+            segments_updated: assignments.length,
+            countries_skipped: skipped
+          }
+        })
+      });
+      const basisResult = await basisRes.json();
+      if (basisRes.ok && basisResult.basis) {
+        GLOBAL_DATA.languages_required_basis = basisResult.basis;
+        renderLanguagesRequiredBasis(GLOBAL_DATA.languages_required_basis);
+      }
+    } catch (e) { /* scores are saved; the basis reminder just won't update this time */ }
+  } catch (e) {
+    alert('Could not reach the server to save this change.');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+}
+
 // The whole global.json object as last loaded, kept around so the
 // market-opportunity-basis boxes can be updated in place after a successful
 // auto-score run, without a full page reload.
@@ -513,6 +787,42 @@ function renderRegulatoryComplexityBasis(basis) {
     <div class="stat-card"><div class="value">Rank ${basis.threshold_rank}</div><div class="label">Threshold (score 2 at/above)</div></div>
     <div class="stat-card"><div class="value">Rank ${basis.optimal_rank}</div><div class="label">Optimal (score 3 at/above)</div></div>
     <div class="stat-card" style="flex-basis:100%; text-align:left;"><div class="label">${appliedInfo} Individual segments may have been edited by hand since — this only reflects the basis of the last bulk auto-score run.</div></div>
+  `;
+}
+
+function renderDistributionResourcesBasis(basis) {
+  const el = document.getElementById('dist-basis-bar');
+  if (!basis) {
+    el.innerHTML = `<div class="stat-card"><div class="value">—</div><div class="label">Distribution resources required has not been auto-scored from institution concentration yet — scores are whatever's been entered manually per segment.</div></div>`;
+    return;
+  }
+  const appliedInfo = `Applied ${basis.applied_date || 'unknown date'}${basis.applied_by ? ` by ${basis.applied_by}` : ''}` +
+    (basis.countries_updated ? `, ${basis.countries_updated} countries` : '') +
+    (basis.segments_updated ? `, ${basis.segments_updated} segments` : '') + '.' +
+    (basis.segments_skipped ? ` ${basis.segments_skipped} segments had no concentration data and were skipped.` : '');
+  el.innerHTML = `
+    <div class="stat-card"><div class="value">${basis.metric || 'Top-3 institution share'}</div><div class="label">Concentration metric</div></div>
+    <div class="stat-card"><div class="value">${basis.threshold_pct}%</div><div class="label">Threshold (score 2 at/above)</div></div>
+    <div class="stat-card"><div class="value">${basis.optimal_pct}%</div><div class="label">Optimal (score 3 at/above)</div></div>
+    <div class="stat-card" style="flex-basis:100%; text-align:left;"><div class="label">${appliedInfo} Individual segments may have been edited by hand since — this only reflects the basis of the last bulk auto-score run.</div></div>
+  `;
+}
+
+function renderLanguagesRequiredBasis(basis) {
+  const el = document.getElementById('lang-basis-bar');
+  if (!basis) {
+    el.innerHTML = `<div class="stat-card"><div class="value">—</div><div class="label">Languages required has not been auto-scored from EF EPI yet — scores are whatever's been entered manually per segment.</div></div>`;
+    return;
+  }
+  const appliedInfo = `Applied ${basis.applied_date || 'unknown date'}${basis.applied_by ? ` by ${basis.applied_by}` : ''}` +
+    (basis.countries_updated ? `, ${basis.countries_updated} countries` : '') +
+    (basis.segments_updated ? `, ${basis.segments_updated} segments` : '') + '.' +
+    (basis.countries_skipped && basis.countries_skipped.length ? ` No EF EPI data for: ${basis.countries_skipped.join(', ')}.` : '');
+  el.innerHTML = `
+    <div class="stat-card"><div class="value">${basis.source || 'EF English Proficiency Index'}</div><div class="label">Proficiency source</div></div>
+    <div class="stat-card"><div class="value">${basis.threshold_score}</div><div class="label">Threshold (score 2 at/above)</div></div>
+    <div class="stat-card"><div class="value">${basis.optimal_score}</div><div class="label">Optimal (score 3 at/above)</div></div>
+    <div class="stat-card" style="flex-basis:100%; text-align:left;"><div class="label">${appliedInfo} Native-English and English-as-business-language markets are always auto-scored 3. Individual segments may have been edited by hand since — this only reflects the basis of the last bulk auto-score run.</div></div>
   `;
 }
 
@@ -696,7 +1006,10 @@ async function load() {
   GLOBAL_DATA = data;
   renderMarketOpportunityBasis(data.market_opportunity_basis);
   renderRegulatoryComplexityBasis(data.regulatory_complexity_basis);
+  renderDistributionResourcesBasis(data.distribution_resources_basis);
+  renderLanguagesRequiredBasis(data.languages_required_basis);
   document.getElementById('tmf-gbci-year').textContent = TMF_GBCI_YEAR;
+  document.getElementById('ef-epi-year').textContent = EF_EPI_YEAR;
 
   const countries = data.countries.slice().sort((a, b) => b.total_ps_assets_thousands - a.total_ps_assets_thousands);
 

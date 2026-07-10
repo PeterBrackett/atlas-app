@@ -23,7 +23,7 @@ header.site-header {
   color: #fff;
   padding: 20px 32px;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -36,6 +36,29 @@ header.site-header h1 {
 header.site-header .tagline {
   color: #b9c6d3;
   font-size: 0.85rem;
+}
+
+header.site-header .brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+header.site-header .brand-logo {
+  height: 38px;
+  width: 38px;
+  object-fit: contain;
+}
+
+/* Country name, moved out of the small header tagline and made the first,
+   largest thing in the page body -- previously easy to miss tucked in the
+   top-left corner. */
+.country-name-heading {
+  margin: 0 0 16px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.01em;
 }
 
 nav.breadcrumb {
