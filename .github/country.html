@@ -64,29 +64,14 @@ let LOADED_SEGMENTS = []; // kept in memory so scorecard edits can update the ma
 let CURRENT_ALLOC_TYPE = 'Equities';
 let CURRENT_ALLOC_STYLE = ''; // '' means "all styles" (the whole asset-type total)
 
-// Looks up a segment's allocation for a given asset type, optionally narrowed
-// to one finer style within it. Returns null if that segment has no data for
-// the selection (e.g. Life/Non-life insurance outside Equities, or a style
-// that got folded into "Other/Unspecified" for that particular segment).
-function getAllocationValue(segment, assetType, assetStyle) {
-  const entry = (segment.allocation || []).find(a => a.asset_type === assetType);
-  if (!entry) return null;
-  if (!assetStyle) return { value_bn: entry.value_bn, pct: entry.pct_of_segment };
-  const style = (entry.styles || []).find(s => s.asset_style === assetStyle);
-  if (!style) return null;
-  const pct = segment.aum_bn ? (style.value_bn / segment.aum_bn * 100) : 0;
-  return { value_bn: style.value_bn, pct: Math.round(pct * 10) / 10 };
-}
-
 // Builds the "Allocation row shows" dropdowns from whatever asset types/styles
 // actually appear in the loaded country's data, so the controls never offer a
-// choice with nothing behind it.
+// choice with nothing behind it. getAllocationValue/assetTypesPresent/
+// assetStylesPresent live in scorecard-dimensions.js, shared with the
+// cross-country allocation view on index.html.
 function populateAllocationSelectors(segs) {
   const typeSelect = document.getElementById('alloc-type-select');
-  const typesSeen = new Set();
-  segs.forEach(s => (s.allocation || []).forEach(a => typesSeen.add(a.asset_type)));
-  const preferredOrder = ['Equities', 'Fixed Income', 'Cash & Short-Term', 'Real Estate', 'Alternatives', 'Other/Unclassified'];
-  const types = preferredOrder.filter(t => typesSeen.has(t)).concat([...typesSeen].filter(t => !preferredOrder.includes(t)));
+  const types = assetTypesPresent(segs);
 
   if (!typeSelect.dataset.populated) {
     typeSelect.innerHTML = types.map(t => `<option value="${t}" ${t === CURRENT_ALLOC_TYPE ? 'selected' : ''}>${t}</option>`).join('');
@@ -97,14 +82,7 @@ function populateAllocationSelectors(segs) {
 
 function populateStyleSelector(segs) {
   const styleSelect = document.getElementById('alloc-style-select');
-  const stylesSeen = new Set();
-  segs.forEach(s => {
-    const entry = (s.allocation || []).find(a => a.asset_type === CURRENT_ALLOC_TYPE);
-    (entry ? entry.styles || [] : []).forEach(st => {
-      if (st.asset_style !== 'Other/Unspecified') stylesSeen.add(st.asset_style);
-    });
-  });
-  const styles = [...stylesSeen].sort();
+  const styles = assetStylesPresent(segs, CURRENT_ALLOC_TYPE);
   styleSelect.innerHTML = `<option value="">All styles (${CURRENT_ALLOC_TYPE} total)</option>` +
     styles.map(s => `<option value="${s}" ${s === CURRENT_ALLOC_STYLE ? 'selected' : ''}>${s}</option>`).join('');
   if (!styles.includes(CURRENT_ALLOC_STYLE)) CURRENT_ALLOC_STYLE = '';
@@ -211,6 +189,68 @@ async function downloadExport(format) {
   }
 }
 
+function toggleAddSourceForm(segIndex) {
+  const el = document.getElementById(`add-source-form-${segIndex}`);
+  if (!el) return;
+  el.style.display = (el.style.display === 'none' || !el.style.display) ? 'block' : 'none';
+}
+
+// Reads the "+ Add source" form's inputs and posts a brand-new candidate
+// figure for this segment. Full page reload on success, same as
+// applySource/saveScorecardValue's approach elsewhere on this page — the
+// simplest way to guarantee the new source and its audit-trail entry show
+// up correctly rather than trying to patch the in-memory segment by hand.
+async function submitAddSource(buttonEl) {
+  const segIndex = buttonEl.dataset.segIndex;
+  const segmentName = buttonEl.dataset.segment;
+  const basis = document.getElementById(`add-basis-${segIndex}`).value.trim();
+  const aumRaw = document.getElementById(`add-aum-${segIndex}`).value;
+  const asOf = document.getElementById(`add-asof-${segIndex}`).value.trim();
+  const source = document.getElementById(`add-source-${segIndex}`).value.trim();
+  const note = document.getElementById(`add-note-${segIndex}`).value.trim();
+  const makeActive = document.getElementById(`add-active-${segIndex}`).checked;
+
+  if (!basis || aumRaw === '' || Number.isNaN(parseFloat(aumRaw))) {
+    alert('Basis and a numeric AUM figure are required.');
+    return;
+  }
+
+  buttonEl.disabled = true;
+  const originalText = buttonEl.textContent;
+  buttonEl.textContent = 'Saving…';
+
+  try {
+    const res = await fetch('/api/segments/add-source', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        country: COUNTRY_CODE,
+        segment: segmentName,
+        basis,
+        aum_bn: parseFloat(aumRaw),
+        as_of: asOf,
+        source,
+        note,
+        setActive: makeActive
+      })
+    });
+    const result = await res.json();
+
+    if (!res.ok) {
+      alert(`Couldn't add source: ${result.error || 'unknown error'}`);
+      buttonEl.disabled = false;
+      buttonEl.textContent = originalText;
+      return;
+    }
+
+    window.location.reload();
+  } catch (e) {
+    alert('Could not reach the server to save this change.');
+    buttonEl.disabled = false;
+    buttonEl.textContent = originalText;
+  }
+}
+
 async function applySource(segmentName, sourceIndex, buttonEl) {
   buttonEl.disabled = true;
   const originalText = buttonEl.textContent;
@@ -279,6 +319,10 @@ function renderScorecardMatrix() {
     }).join('')
   }</tr>`;
 
+  // Traffic-light class for a dimension score: red=1, amber=2, green=3, or
+  // the existing "blank, go fill this in" highlight when unscored.
+  const scoreCellClass = (value, missing) => missing ? 'cell-missing' : `score-${value}`;
+
   const dimensionRows = SCORECARD_DIMENSIONS.map(dim => {
     const cells = segs.map((s, segIndex) => {
       const sc = s.scorecard || {};
@@ -292,14 +336,21 @@ function renderScorecardMatrix() {
           const selected = (v === '' && missing) || (v !== '' && Number(v) === value) ? 'selected' : '';
           return `<option value="${v}" ${selected}>${label}</option>`;
         }).join('');
-        return `<td id="${cellId}" class="${missing ? 'cell-missing' : ''}">` +
+        return `<td id="${cellId}" class="${scoreCellClass(value, missing)}">` +
           `<select class="matrix-select" data-segment-index="${segIndex}" data-dim="${dim.key}" ` +
           `onchange="saveScorecardValue(this)">${options}</select></td>`;
       }
 
-      return `<td id="${cellId}">${missing ? '—' : value}</td>`;
+      return `<td id="${cellId}" class="${scoreCellClass(value, missing)}">${missing ? '—' : value}</td>`;
     }).join('');
-    return `<tr title="${dim.question}"><td class="matrix-rowlabel" title="${dim.question}">${dim.label}${dim.weight > 1 ? ` (×${dim.weight})` : ''}</td>${cells}</tr>`;
+    return `<tr title="${dim.question}"><td class="matrix-rowlabel" title="${dim.question}">` +
+      (CURRENT_USER ? `<div style="display:flex; align-items:center; justify-content:space-between; gap:6px;">` +
+        `<span>${dim.label}${dim.weight > 1 ? ` (×${dim.weight})` : ''}</span>` +
+        `<select class="matrix-select" style="width:auto; min-width:52px;" data-dim="${dim.key}" ` +
+        `onchange="saveScorecardBulk(this)" title="Set this score for every segment in one go"><option value="">Set all…</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select>` +
+        `</div>`
+        : `${dim.label}${dim.weight > 1 ? ` (×${dim.weight})` : ''}`) +
+      `</td>${cells}</tr>`;
   }).join('');
 
   const scoredRow = `<tr class="scored-row">` +
@@ -368,7 +419,7 @@ async function saveScorecardValue(selectEl) {
       segment.scorecard[dim] = value;
     }
 
-    if (cellEl) cellEl.className = (value === null) ? 'cell-missing' : '';
+    if (cellEl) cellEl.className = (value === null) ? 'cell-missing' : `score-${value}`;
 
     const count = scoredDimensionCount(segment.scorecard);
     const scoredCellEl = document.getElementById(`sc-scored-${segIndex}`);
@@ -389,6 +440,54 @@ async function saveScorecardValue(selectEl) {
   } catch (e) {
     alert('Could not reach the server to save this change.');
     selectEl.value = (typeof previousValue === 'number') ? String(previousValue) : '';
+  } finally {
+    selectEl.disabled = false;
+  }
+}
+
+// Applies one dimension's score to every segment in the country in a single
+// action -- for dimensions that genuinely don't vary by segment (Languages
+// required, Local presence required, etc.), rather than clicking through
+// each of up to 19 segment columns individually. Updates every in-memory
+// segment and re-renders the whole matrix, same "don't reload the page"
+// approach as saveScorecardValue.
+async function saveScorecardBulk(selectEl) {
+  const dim = selectEl.dataset.dim;
+  const raw = selectEl.value;
+  if (raw === '') return; // "Set all…" placeholder re-selected — no-op
+  const value = parseInt(raw, 10);
+  const dimLabel = (SCORECARD_DIMENSIONS.find(d => d.key === dim) || {}).label || dim;
+
+  if (!confirm(`Set "${dimLabel}" to ${value} for every segment in ${CURRENT_COUNTRY_NAME}? This overwrites any existing value for this dimension on every segment.`)) {
+    selectEl.value = '';
+    return;
+  }
+
+  selectEl.disabled = true;
+
+  try {
+    const res = await fetch('/api/segments/set-scorecard-bulk', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ country: COUNTRY_CODE, dimension: dim, value })
+    });
+    const result = await res.json();
+
+    if (!res.ok) {
+      alert(`Couldn't set this score for every segment: ${result.error || 'unknown error'}`);
+      selectEl.disabled = false;
+      selectEl.value = '';
+      return;
+    }
+
+    LOADED_SEGMENTS.forEach(seg => {
+      if (!seg.scorecard) seg.scorecard = {};
+      seg.scorecard[dim] = value;
+    });
+
+    renderScorecardMatrix();
+  } catch (e) {
+    alert('Could not reach the server to save this change.');
   } finally {
     selectEl.disabled = false;
   }
@@ -443,47 +542,124 @@ async function load() {
     return 'bottom-up';
   };
 
-  const alternatesRow = (s, segIndex) => {
-    if (!s.alternate_sources || !s.alternate_sources.length) return '';
+  // Renders every candidate figure for a segment as its own visible row —
+  // not hidden behind a click — so the full underlying data set (e.g. the
+  // real MMD bottom-up sum) stays in view alongside whichever figure is
+  // currently prevailing, with an as-of date on each so staleness is
+  // visible at a glance rather than discovered by accident. Anonymous
+  // visitors only see this block when there's actually more than one
+  // source to compare; signed-in users always see it (even for a
+  // single-source segment) because that's also where the "Add source"
+  // control lives — most segments only have one source today, and finding
+  // an official figure to compare against is the whole point of this.
+  const sourcesRows = (s, segIndex) => {
+    const sources = s.sources || [];
+    const hasMultiple = sources.length > 1;
+    if (!hasMultiple && !CURRENT_USER) return '';
 
-    if (!CURRENT_USER) {
-      // Read-only view for anyone not signed in.
-      const items = s.alternate_sources.map(alt => {
-        const activeTag = alt.active ? ' (currently shown)' : '';
-        const aum = (typeof alt.aum_bn === 'number') ? alt.aum_bn.toLocaleString(undefined, {maximumFractionDigits: 2}) + 'bn' : '—';
-        const note = alt.note ? ` — ${alt.note}` : '';
-        return `<li><strong>${alt.basis}${activeTag}:</strong> ${aum}${alt.source ? ` (${alt.source})` : ''}${note}</li>`;
-      }).join('');
+    const fmtAum = (v) => (typeof v === 'number') ? v.toLocaleString(undefined, {maximumFractionDigits: 2}) + 'bn' : '—';
+    const segAttr = String(s.segment).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+
+    const sourceRowsHtml = !hasMultiple ? '' : sources.map((src, i) => {
+      const badge = src.active
+        ? `<span class="badge" style="background:#1f6f43; color:#fff;">Active</span>`
+        : `<span class="badge" style="background:var(--border); color:var(--muted);">Alternate</span>`;
+      const note = src.note ? `<div style="font-size:0.78rem; color:var(--muted); margin-top:2px;">${src.note}</div>` : '';
       return `
-        <tr>
-          <td colspan="4" style="padding-top:0;">
-            <details>
-              <summary style="cursor:pointer; color:var(--muted); font-size:0.82rem;">Other sources for this segment</summary>
-              <ul style="margin:8px 0 4px; padding-left:1.2em; font-size:0.85rem; color:var(--muted);">${items}</ul>
-            </details>
-          </td>
-        </tr>`;
-    }
-
-    // Editable view once signed in — the server still checks whether this
-    // specific signed-in user is actually allowed to save a change.
-    const selectId = `source-select-${segIndex}`;
-    const options = s.alternate_sources.map((alt, i) => {
-      const aum = (typeof alt.aum_bn === 'number') ? alt.aum_bn.toLocaleString(undefined, {maximumFractionDigits: 2}) + 'bn' : '—';
-      return `<option value="${i}" ${alt.active ? 'selected' : ''}>${alt.basis} — ${aum}${alt.source ? ` (${alt.source})` : ''}</option>`;
+        <div style="padding:8px 0; border-top:1px solid var(--border);">
+          <div style="display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; font-size:0.85rem;">
+            ${badge}
+            <strong>${src.basis}</strong>
+            <span>${fmtAum(src.aum_bn)}</span>
+            <span style="color:var(--muted);">as of ${src.as_of || 'unknown'}</span>
+            ${src.source ? `<span style="color:var(--muted);">— ${src.source}</span>` : ''}
+          </div>
+          ${note}
+        </div>`;
     }).join('');
+
+    const history = s.source_history || [];
+    const lastChange = history.length ? history[history.length - 1] : null;
+    const historyHtml = history.length ? `
+      <details style="margin-top:6px;">
+        <summary style="cursor:pointer; color:var(--muted); font-size:0.78rem;">
+          Audit trail (${history.length}) — last: ${lastChange.date} (${lastChange.event}) by ${lastChange.by}
+        </summary>
+        <ul style="margin:8px 0 4px; padding-left:1.2em; font-size:0.78rem; color:var(--muted);">
+          ${history.map(h => `<li><strong>${h.date} — ${h.event}</strong> (${h.by}): ${h.detail}</li>`).join('')}
+        </ul>
+      </details>` : '';
+
+    const editControls = (CURRENT_USER && hasMultiple) ? (() => {
+      const selectId = `source-select-${segIndex}`;
+      const options = sources.map((src, i) =>
+        `<option value="${i}" ${src.active ? 'selected' : ''}>${src.basis} — ${fmtAum(src.aum_bn)}</option>`
+      ).join('');
+      // Segment name and select id travel via data-* attributes rather than
+      // being spliced as a literal JSON string into the onclick attribute --
+      // that pattern breaks as soon as the attribute's own double quotes
+      // (from JSON.stringify) collide with the onclick="..." delimiter,
+      // which silently mangles the handler so clicking Apply does nothing.
+      return `
+        <div style="display:flex; align-items:center; gap:8px; font-size:0.85rem; margin-top:8px; flex-wrap:wrap;">
+          <label for="${selectId}">Set active source:</label>
+          <select id="${selectId}" style="font-size:0.85rem; padding:2px 4px;">${options}</select>
+          <button type="button" data-segment="${segAttr}" data-select-id="${selectId}"
+            onclick="applySource(this.dataset.segment, parseInt(document.getElementById(this.dataset.selectId).value, 10), this)"
+            style="font-size:0.8rem; padding:3px 10px; border-radius:5px; border:1px solid var(--border); background:var(--card); cursor:pointer;">
+            Apply
+          </button>
+        </div>`;
+    })() : '';
+
+    // Lets a signed-in user record a brand-new candidate figure (e.g. an
+    // official statistic found after the fact) without hand-editing JSON.
+    // Deliberately doesn't switch it live by default — "Make this the
+    // active source" is an explicit opt-in checkbox, so recording a figure
+    // for comparison and promoting it to prevailing are two separate,
+    // considered actions.
+    const addFormHtml = CURRENT_USER ? (() => {
+      const formId = `add-source-form-${segIndex}`;
+      return `
+        <div style="margin-top:8px;">
+          <button type="button" onclick="toggleAddSourceForm(${segIndex})"
+            style="font-size:0.78rem; padding:2px 8px; border-radius:5px; border:1px solid var(--border); background:var(--card); cursor:pointer; color:var(--muted);">
+            + Add source
+          </button>
+          <div id="${formId}" style="display:none; margin-top:8px; padding:10px; border:1px solid var(--border); border-radius:6px; background:var(--card);">
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px,1fr)); gap:8px; font-size:0.82rem;">
+              <label>Basis<br><input type="text" id="add-basis-${segIndex}" placeholder="e.g. Top-down override (ONS)" style="width:100%; box-sizing:border-box;"></label>
+              <label>AUM ($bn)<br><input type="number" step="any" id="add-aum-${segIndex}" style="width:100%; box-sizing:border-box;"></label>
+              <label>As of<br><input type="text" id="add-asof-${segIndex}" placeholder="e.g. 2026-06 or a date" style="width:100%; box-sizing:border-box;"></label>
+              <label>Source citation<br><input type="text" id="add-source-${segIndex}" style="width:100%; box-sizing:border-box;"></label>
+            </div>
+            <label style="display:block; margin-top:8px; font-size:0.82rem;">Note (optional)<br>
+              <input type="text" id="add-note-${segIndex}" style="width:100%; box-sizing:border-box;">
+            </label>
+            <label style="display:flex; align-items:center; gap:6px; margin-top:8px; font-size:0.82rem;">
+              <input type="checkbox" id="add-active-${segIndex}"> Make this the active source immediately
+            </label>
+            <div style="margin-top:8px; display:flex; gap:8px;">
+              <button type="button" data-segment="${segAttr}" data-seg-index="${segIndex}" onclick="submitAddSource(this)"
+                style="font-size:0.8rem; padding:3px 10px; border-radius:5px; border:1px solid var(--border); background:var(--card); cursor:pointer;">
+                Save
+              </button>
+              <button type="button" onclick="toggleAddSourceForm(${segIndex})"
+                style="font-size:0.8rem; padding:3px 10px; border-radius:5px; border:1px solid var(--border); background:transparent; cursor:pointer; color:var(--muted);">
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>`;
+    })() : '';
 
     return `
       <tr>
-        <td colspan="4" style="padding-top:0;">
-          <div style="display:flex; align-items:center; gap:8px; font-size:0.85rem; color:var(--muted); flex-wrap:wrap;">
-            <label for="${selectId}">Active source:</label>
-            <select id="${selectId}" style="font-size:0.85rem; padding:2px 4px;">${options}</select>
-            <button type="button" onclick="applySource(${JSON.stringify(s.segment)}, parseInt(document.getElementById('${selectId}').value, 10), this)"
-              style="font-size:0.8rem; padding:3px 10px; border-radius:5px; border:1px solid var(--border); background:var(--card); cursor:pointer;">
-              Apply
-            </button>
-          </div>
+        <td colspan="4" style="padding-top:0; padding-bottom:12px;">
+          ${hasMultiple ? `<div style="font-size:0.78rem; color:var(--muted); margin-bottom:2px;">All sources for this segment:</div>${sourceRowsHtml}` : ''}
+          ${historyHtml}
+          ${editControls}
+          ${addFormHtml}
         </td>
       </tr>`;
   };
@@ -497,7 +673,7 @@ async function load() {
       <td class="numeric">${(equity ? equity.value_bn : 0).toLocaleString(undefined, {maximumFractionDigits: 2})}</td>
       <td><span class="badge ${basisClass(s.basis)}">${s.basis || ''}</span></td>
     </tr>
-    ${alternatesRow(s, i)}
+    ${sourcesRows(s, i)}
   `;
   }).join('');
 

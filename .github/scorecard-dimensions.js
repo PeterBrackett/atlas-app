@@ -84,3 +84,45 @@ function scoredDimensionCount(scorecard) {
   if (!scorecard) return 0;
   return SCORECARD_DIMENSIONS.filter(d => typeof scorecard[d.key] === 'number').length;
 }
+
+// Looks up a segment's allocation for a given asset type, optionally narrowed
+// to one finer style within it. Returns null if that segment has no data for
+// the selection (e.g. Life/Non-life insurance outside Equities, or a style
+// that got folded into "Other/Unspecified" for that particular segment).
+// Shared by country.html (one country, segments as columns) and index.html
+// (every built country, so the same asset-type/style picker can drive every
+// country x segment cell in the cross-country matrix at once).
+function getAllocationValue(segment, assetType, assetStyle) {
+  const entry = (segment.allocation || []).find(a => a.asset_type === assetType);
+  if (!entry) return null;
+  if (!assetStyle) return { value_bn: entry.value_bn, pct: entry.pct_of_segment };
+  const style = (entry.styles || []).find(s => s.asset_style === assetStyle);
+  if (!style) return null;
+  const pct = segment.aum_bn ? (style.value_bn / segment.aum_bn * 100) : 0;
+  return { value_bn: style.value_bn, pct: Math.round(pct * 10) / 10 };
+}
+
+// Builds the ordered list of asset types actually present across a set of
+// segments, in the preferred display order, so a dropdown never offers a
+// choice with nothing behind it. Shared between the per-country and
+// cross-country allocation selectors.
+function assetTypesPresent(segs) {
+  const typesSeen = new Set();
+  segs.forEach(s => (s.allocation || []).forEach(a => typesSeen.add(a.asset_type)));
+  const preferredOrder = ['Equities', 'Fixed Income', 'Cash & Short-Term', 'Real Estate', 'Alternatives', 'Other/Unclassified'];
+  return preferredOrder.filter(t => typesSeen.has(t)).concat([...typesSeen].filter(t => !preferredOrder.includes(t)));
+}
+
+// Styles actually present for one asset type across a set of segments,
+// excluding "Other/Unspecified" (that's the fallback, not a real style
+// choice), sorted alphabetically.
+function assetStylesPresent(segs, assetType) {
+  const stylesSeen = new Set();
+  segs.forEach(s => {
+    const entry = (s.allocation || []).find(a => a.asset_type === assetType);
+    (entry ? entry.styles || [] : []).forEach(st => {
+      if (st.asset_style !== 'Other/Unspecified') stylesSeen.add(st.asset_style);
+    });
+  });
+  return [...stylesSeen].sort();
+}

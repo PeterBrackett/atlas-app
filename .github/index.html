@@ -20,7 +20,18 @@
   <div class="summary-bar" id="summary-bar"></div>
 
   <h2>Opportunity scorecard — Overall by segment</h2>
-  <p class="note" style="margin-top:-8px; margin-bottom:16px; border-top:none; padding-top:0;" id="overview-hint"></p>
+  <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:12px; font-size:0.85rem;">
+    <label for="overview-view-select"><strong>Show:</strong></label>
+    <select id="overview-view-select" onchange="onOverviewViewChange()">
+      <option value="overall">Opportunity score (Overall)</option>
+      <option value="allocation">Asset allocation ($bn)</option>
+    </select>
+    <span id="overview-alloc-controls" style="display:none; gap:10px; align-items:center;">
+      <select id="overview-alloc-type-select" onchange="onOverviewAllocSelectorChange()"></select>
+      <select id="overview-alloc-style-select" onchange="onOverviewAllocSelectorChange()"></select>
+    </span>
+  </div>
+  <p class="note" style="margin-top:-4px; margin-bottom:16px; border-top:none; padding-top:0;" id="overview-hint"></p>
   <div class="matrix-wrap">
     <table class="matrix-table" id="overview-matrix"></table>
   </div>
@@ -71,12 +82,59 @@ async function fetchCountryData(code) {
   }
 }
 
-// The cross-country comparison view — every built country's segments laid
-// out against the same Overall score, the same shape as the "Overall"
-// sheet in FINAL_Country_Matrix.xlsx. This is the app's headline view:
-// per-country detail (AUM, allocation, individual dimension scores) lives
-// one click away on each country's own page.
-async function renderOverviewMatrix(builtCountries) {
+// Cross-country matrix state, populated once by loadOverviewData() and
+// reused by every re-render (view-mode switch, allocation type/style
+// change) so switching views never re-fetches every country's data.
+let OVERVIEW_USABLE = [];       // [{ meta, data }] for countries that loaded
+let OVERVIEW_BUILT_COUNT = 0;
+let OVERVIEW_VIEW = 'overall';  // 'overall' | 'allocation'
+let OVERVIEW_ALLOC_TYPE = 'Equities';
+let OVERVIEW_ALLOC_STYLE = '';
+
+function onOverviewViewChange() {
+  OVERVIEW_VIEW = document.getElementById('overview-view-select').value;
+  document.getElementById('overview-alloc-controls').style.display =
+    OVERVIEW_VIEW === 'allocation' ? 'inline-flex' : 'none';
+  renderOverviewMatrixBody();
+}
+
+function onOverviewAllocSelectorChange() {
+  const typeSelect = document.getElementById('overview-alloc-type-select');
+  const styleSelect = document.getElementById('overview-alloc-style-select');
+  const typeChanged = typeSelect.value !== OVERVIEW_ALLOC_TYPE;
+  OVERVIEW_ALLOC_TYPE = typeSelect.value;
+  if (typeChanged) {
+    OVERVIEW_ALLOC_STYLE = '';
+    populateOverviewStyleSelector();
+  } else {
+    OVERVIEW_ALLOC_STYLE = styleSelect.value;
+  }
+  renderOverviewMatrixBody();
+}
+
+function populateOverviewAllocSelectors() {
+  const allSegs = OVERVIEW_USABLE.flatMap(c => c.data.segments || []);
+  const typeSelect = document.getElementById('overview-alloc-type-select');
+  const types = assetTypesPresent(allSegs);
+  typeSelect.innerHTML = types.map(t => `<option value="${t}" ${t === OVERVIEW_ALLOC_TYPE ? 'selected' : ''}>${t}</option>`).join('');
+  populateOverviewStyleSelector();
+}
+
+function populateOverviewStyleSelector() {
+  const allSegs = OVERVIEW_USABLE.flatMap(c => c.data.segments || []);
+  const styleSelect = document.getElementById('overview-alloc-style-select');
+  const styles = assetStylesPresent(allSegs, OVERVIEW_ALLOC_TYPE);
+  styleSelect.innerHTML = `<option value="">All styles (${OVERVIEW_ALLOC_TYPE} total)</option>` +
+    styles.map(s => `<option value="${s}" ${s === OVERVIEW_ALLOC_STYLE ? 'selected' : ''}>${s}</option>`).join('');
+  if (!styles.includes(OVERVIEW_ALLOC_STYLE)) OVERVIEW_ALLOC_STYLE = '';
+}
+
+// Fetches every built country's data once (the slow part) and hands off to
+// renderOverviewMatrixBody() for the actual table build. Split out so
+// switching view mode or allocation type/style afterwards is instant —
+// no re-fetching, just re-rendering from OVERVIEW_USABLE.
+async function loadOverviewData(builtCountries) {
+  OVERVIEW_BUILT_COUNT = builtCountries.length;
   const table = document.getElementById('overview-matrix');
 
   if (!builtCountries.length) {
@@ -101,12 +159,30 @@ async function renderOverviewMatrix(builtCountries) {
     return { meta: c, data: await fetchCountryData(slug) };
   }));
 
-  const usable = countryData.filter(c => c.data);
-  if (!usable.length) {
+  OVERVIEW_USABLE = countryData.filter(c => c.data);
+  const failed = countryData.filter(c => !c.data).map(c => c.meta.name);
+
+  if (!OVERVIEW_USABLE.length) {
     table.innerHTML = '';
     document.getElementById('overview-hint').textContent = 'Country data could not be loaded.';
     return;
   }
+
+  populateOverviewAllocSelectors();
+  renderOverviewMatrixBody(failed);
+}
+
+// The cross-country comparison view — every built country's segments laid
+// out either against the Overall opportunity score (the shape of the
+// "Overall" sheet in FINAL_Country_Matrix.xlsx) or, when "Asset allocation"
+// is picked, against a single allocation type/style so every country x
+// segment cell updates to that selection at once (e.g. picking "Equities"
+// shows every country's equity exposure by segment in one screen, rather
+// than clicking into 22 separate country pages and setting the dropdown on
+// each one — the point raised that prompted building this view).
+function renderOverviewMatrixBody(failed) {
+  const table = document.getElementById('overview-matrix');
+  const usable = OVERVIEW_USABLE;
 
   // Only show segment columns that actually appear in at least one built
   // country, in canonical order, so the table doesn't carry 19 columns of
@@ -121,7 +197,12 @@ async function renderOverviewMatrix(builtCountries) {
     const href = c.meta.href || `country.html?c=${c.meta.code.toLowerCase()}`;
     const cells = columns.map(segName => {
       const seg = (c.data.segments || []).find(s => s.segment === segName);
-      const overall = seg ? computeOverallScore(seg.scorecard) : null;
+      if (!seg) return `<td>—</td>`;
+      if (OVERVIEW_VIEW === 'allocation') {
+        const result = getAllocationValue(seg, OVERVIEW_ALLOC_TYPE, OVERVIEW_ALLOC_STYLE);
+        return `<td>${result ? result.value_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '—'}</td>`;
+      }
+      const overall = computeOverallScore(seg.scorecard);
       return `<td>${overall === null ? '—' : overall}</td>`;
     }).join('');
     return `<tr><td class="matrix-rowlabel"><a class="country-link" href="${href}">${c.meta.name}</a></td>${cells}</tr>`;
@@ -132,8 +213,14 @@ async function renderOverviewMatrix(builtCountries) {
     <tbody>${rows}</tbody>
   `;
 
+  const failedNote = (failed && failed.length)
+    ? ` Could not load: ${failed.join(', ')} — check that their data files have been uploaded to both GitHub and SharePoint.`
+    : '';
+  const viewNote = OVERVIEW_VIEW === 'allocation'
+    ? `Showing ${OVERVIEW_ALLOC_STYLE ? `${OVERVIEW_ALLOC_TYPE} — ${OVERVIEW_ALLOC_STYLE}` : OVERVIEW_ALLOC_TYPE} allocation ($bn) per segment. Blank cells mean that segment has no allocation data for this selection.`
+    : `Blank cells mean that segment isn't fully scored yet — see the country page to complete it.`;
   document.getElementById('overview-hint').textContent =
-    `${usable.length} of ${builtCountries.length} built countries loaded. Blank cells mean that segment isn't fully scored yet — see the country page to complete it.`;
+    `${usable.length} of ${OVERVIEW_BUILT_COUNT} built countries loaded. ${viewNote}${failedNote}`;
 }
 
 // Countries without a region/sub_region set (shouldn't normally happen once
@@ -225,7 +312,7 @@ async function load() {
     <div class="stat-card"><div class="value">${totalInstitutions.toLocaleString()}</div><div class="label">Institutions tracked</div></div>
   `;
 
-  renderOverviewMatrix(countries.filter(c => c.status === 'built'));
+  loadOverviewData(countries.filter(c => c.status === 'built'));
   renderRegionSummary(countries);
   renderCountryRows(countries);
 
