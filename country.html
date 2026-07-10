@@ -508,7 +508,7 @@ function renderScorecardMatrix() {
     `<td class="matrix-rowlabel">Overall</td>` +
     segs.map((s, segIndex) => {
       const overall = computeOverallScore(s.scorecard);
-      return `<td id="sc-overall-${segIndex}"><strong>${overall === null ? '—' : overall}</strong></td>`;
+      return `<td id="sc-overall-${segIndex}" class="${overallScoreClass(overall)}"><strong>${overall === null ? '—' : overall}</strong></td>`;
     }).join('') +
     `</tr>`;
 
@@ -573,6 +573,7 @@ async function saveScorecardValue(selectEl) {
     const overallCellEl = document.getElementById(`sc-overall-${segIndex}`);
     if (overallCellEl) {
       const overall = computeOverallScore(segment.scorecard);
+      overallCellEl.className = overallScoreClass(overall);
       overallCellEl.innerHTML = `<strong>${overall === null ? '—' : overall}</strong>`;
     }
 

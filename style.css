@@ -293,6 +293,14 @@ td.score-3 select.matrix-select {
   font-weight: 600;
 }
 
+/* Overall score (14-42 range), red/amber/green per Peter's 2026-07-10
+   thresholds: <=22 red, 23-30 amber, >=31 green. Same palette as the
+   per-dimension score-1/2/3 cells above, so the two traffic-light schemes
+   read as one visual language across the app rather than two different ones. */
+td.overall-red { background: #fbe1e1; color: #a3291f; }
+td.overall-amber { background: #fdeee0; color: #9a5a1a; }
+td.overall-green { background: #e3f2e3; color: #1f7a34; }
+
 select.matrix-select {
   font-size: 0.82rem;
   padding: 2px 3px;

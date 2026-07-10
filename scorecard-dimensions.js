@@ -85,6 +85,27 @@ function scoredDimensionCount(scorecard) {
   return SCORECARD_DIMENSIONS.filter(d => typeof scorecard[d.key] === 'number').length;
 }
 
+// Overall's true range, given the current 12 dimensions (market_opportunity
+// weighted x3, the other 11 weighted x1): min 14 (everything scored 1), max
+// 42 (everything scored 3) -- not 39, which would only be right with 10
+// non-market-opportunity dimensions rather than 11. Recomputed from
+// SCORECARD_DIMENSIONS rather than hard-coded, so it stays correct if a
+// dimension is ever added or removed.
+const OVERALL_MIN = SCORECARD_DIMENSIONS.reduce((s, d) => s + 1 * d.weight, 0);
+const OVERALL_MAX = SCORECARD_DIMENSIONS.reduce((s, d) => s + 3 * d.weight, 0);
+
+// Red/amber/green banding for the Overall score, agreed with Peter
+// (2026-07-10): red at or below 22, amber 23-30, green 31 and up -- a full
+// partition of the possible range with no gap at the boundary. Shared so the
+// cross-country overview matrix and each country page's own Overall row use
+// the exact same cutoffs.
+function overallScoreClass(value) {
+  if (value === null || typeof value !== 'number') return 'cell-missing';
+  if (value <= 22) return 'overall-red';
+  if (value <= 30) return 'overall-amber';
+  return 'overall-green';
+}
+
 // Looks up a segment's allocation for a given asset type, optionally narrowed
 // to one finer style within it. Returns null if that segment has no data for
 // the selection (e.g. Life/Non-life insurance outside Equities, or a style
