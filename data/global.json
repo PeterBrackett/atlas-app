@@ -1,18 +1,19 @@
 {
-  "generated_note": "Bottom-up sums from the S&P Money Manager Database exports reviewed during schema design. Figures are in each country's local currency, thousands, and have not yet been reconciled against top-down overrides (see Atlas_Schema_Proposal_v1.md, Section 2c). Treat as provisional coverage figures, not final published stats.",
+  "generated_note": "Bottom-up sums from the S&P Money Manager Database exports reviewed during schema design. Figures are in USD, thousands (confirmed by S&P directly on 2026-07-10 — exports default to USD platform-wide; previously assumed to be each country's local currency, corrected across all country data files) and have not yet been reconciled against top-down overrides (see Atlas_Schema_Proposal_v1.md, Section 2c). Treat as provisional coverage figures, not final published stats.",
   "countries": [
     { "code": "GB", "name": "United Kingdom", "total_ps_assets_thousands": 2531575923, "institutions_tracked": 1603, "status": "built", "href": "country.html?c=uk" },
     { "code": "US", "name": "United States", "total_ps_assets_thousands": 25887930211, "institutions_tracked": 233376, "status": "built", "href": "country.html?c=us" },
-    { "code": "DE", "name": "Germany", "total_ps_assets_thousands": 1397639324, "institutions_tracked": 551, "status": "coming_soon" },
+    { "code": "DE", "name": "Germany", "total_ps_assets_thousands": 1119390757, "institutions_tracked": 303, "status": "built", "href": "country.html?c=de" },
     { "code": "NL", "name": "Netherlands", "total_ps_assets_thousands": 1841331410, "institutions_tracked": 212, "status": "built", "href": "country.html?c=nl" },
     { "code": "NO", "name": "Norway", "total_ps_assets_thousands": 2142403539, "institutions_tracked": 74, "status": "built", "href": "country.html?c=no" },
     { "code": "CH", "name": "Switzerland", "total_ps_assets_thousands": 1197278050, "institutions_tracked": 291, "status": "built", "href": "country.html?c=ch" },
     { "code": "DK", "name": "Denmark", "total_ps_assets_thousands": 757963054, "institutions_tracked": 42, "status": "built", "href": "country.html?c=dk" },
     { "code": "SE", "name": "Sweden", "total_ps_assets_thousands": 526610792, "institutions_tracked": 77, "status": "built", "href": "country.html?c=se" },
-    { "code": "ZA", "name": "South Africa", "total_ps_assets_thousands": 311636409, "institutions_tracked": 177, "status": "coming_soon" },
+    { "code": "ZA", "name": "South Africa", "total_ps_assets_thousands": 246489102, "institutions_tracked": 82, "status": "built", "href": "country.html?c=za" },
     { "code": "IE", "name": "Ireland", "total_ps_assets_thousands": 62501288, "institutions_tracked": 43, "status": "built", "href": "country.html?c=ie" },
-    { "code": "FI", "name": "Finland", "total_ps_assets_thousands": 456840071, "institutions_tracked": 70, "status": "coming_soon" },
-    { "code": "IS", "name": "Iceland", "total_ps_assets_thousands": 51589851, "institutions_tracked": 23, "status": "coming_soon" },
-    { "code": "CA", "name": "Canada", "total_ps_assets_thousands": 2426824552, "institutions_tracked": 830, "status": "coming_soon" }
+    { "code": "FI", "name": "Finland", "total_ps_assets_thousands": 312803893, "institutions_tracked": 47, "status": "built", "href": "country.html?c=fi" },
+    { "code": "IS", "name": "Iceland", "total_ps_assets_thousands": 59692840, "institutions_tracked": 19, "status": "built", "href": "country.html?c=is" },
+    { "code": "CA", "name": "Canada", "total_ps_assets_thousands": 2661635431, "institutions_tracked": 781, "status": "built", "href": "country.html?c=ca" },
+    { "code": "FR", "name": "France", "total_ps_assets_thousands": 573992382, "institutions_tracked": 124, "status": "built", "href": "country.html?c=fr" }
   ]
 }

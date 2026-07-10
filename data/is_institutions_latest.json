@@ -1,0 +1,1829 @@
+{
+  "country_code": "IS",
+  "country_name": "Iceland",
+  "extraction_date": "2026-07-10",
+  "record_count": 19,
+  "source_files": [
+    "Iceland_company.xls",
+    "Iceland_AA.xls",
+    "Iceland_manager.xls",
+    "Iceland_provider.xls"
+  ],
+  "schema_version": "Atlas_Schema_Proposal_v1.md, Section 1",
+  "institutions": [
+    {
+      "entity_id": "IS-0001",
+      "entity_name": "Almenni lifeyrissjodur",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "IS",
+      "country_name": "Iceland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9684626",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 3059804.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Hybrid DB/DC Plan",
+          "plan_assets": 3059804.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 74648.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 57218.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 268957.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 290854.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 298025.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Mortgage-Backed",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 376356.0,
+              "pct_of_plan": 12.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Municipal Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 130654.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 292211.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Credit",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Mutual Fund",
+              "value": 12295.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "U.S.",
+              "vehicle_type": "Common Collective Trust",
+              "value": 36187.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Indexed",
+              "investment_region": "Developed",
+              "vehicle_type": "Unspecified",
+              "value": 171230.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "ESG",
+              "investment_region": "Developed",
+              "vehicle_type": "Unspecified",
+              "value": 442798.0,
+              "pct_of_plan": 14.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Iceland",
+              "vehicle_type": "Mutual Fund",
+              "value": 85675.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Asia",
+              "vehicle_type": "Unspecified",
+              "value": 7857.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Asia/Pacific Rim",
+              "vehicle_type": "Unspecified",
+              "value": 7519.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Europe",
+              "vehicle_type": "Unspecified",
+              "value": 8494.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Europe",
+              "vehicle_type": "Mutual Fund",
+              "value": 7959.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Infrastructure",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 22884.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 64256.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Growth",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 70084.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Indexed",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 121154.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Mutual Fund",
+              "value": 85675.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Mutual Fund",
+              "value": 126084.0,
+              "pct_of_plan": 4.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "IS-0002",
+      "entity_name": "Birta lifeyrissjodur",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "IS",
+      "country_name": "Iceland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9418254",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 5419372.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Hybrid DB/DC Plan",
+          "plan_assets": 5419372.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 46607.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 49316.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2405659.0,
+              "pct_of_plan": 44.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Mutual Fund",
+              "value": 1995413.0,
+              "pct_of_plan": 37.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Emerging Markets",
+              "vehicle_type": "Mutual Fund",
+              "value": 43205.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Indexed",
+              "investment_region": "Emerging Markets",
+              "vehicle_type": "Mutual Fund",
+              "value": 149726.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Indexed",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 394337.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Mutual Fund",
+              "value": 151212.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Growth",
+              "investment_region": "Global",
+              "vehicle_type": "Mutual Fund",
+              "value": 69684.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global Ex-U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 113787.0,
+              "pct_of_plan": 2.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "IS-0003",
+      "entity_name": "Br\u00fa l\u00edfeyrissj\u00f3\u00f0ur starfsmanna sveitarf\u00e9laga",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Government",
+      "country_code": "IS",
+      "country_name": "Iceland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9684638",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 4595688.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 4595688.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 45957.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 56987.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 832279.0,
+              "pct_of_plan": 18.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 509662.0,
+              "pct_of_plan": 11.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 579516.0,
+              "pct_of_plan": 13.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Credit",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 420965.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 807922.0,
+              "pct_of_plan": 18.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Growth",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Mutual Fund",
+              "value": 66637.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Large Cap",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 80425.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Indexed",
+              "investment_region": "U.S.",
+              "vehicle_type": "Exchange-Traded Fund",
+              "value": 267929.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Large Cap",
+              "investment_region": "U.S.",
+              "vehicle_type": "Exchange-Traded Fund",
+              "value": 369034.0,
+              "pct_of_plan": 8.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Growth",
+              "investment_region": "Europe",
+              "vehicle_type": "Mutual Fund",
+              "value": 67097.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "ESG",
+              "investment_region": "Europe",
+              "vehicle_type": "UCIT",
+              "value": 312966.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Technology",
+              "investment_region": "Global",
+              "vehicle_type": "Mutual Fund",
+              "value": 122245.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Large Cap Value",
+              "investment_region": "International",
+              "vehicle_type": "Mutual Fund",
+              "value": 56067.0,
+              "pct_of_plan": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "IS-0004",
+      "entity_name": "Central Bank of Iceland",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Reserve Banks",
+      "country_code": "IS",
+      "country_name": "Iceland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9368851",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 7285652.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 7285652.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Precious Metals",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 255726.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 636037.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 33514.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 96899.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 536953.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 5726522.0,
+              "pct_of_plan": 79.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "IS-0005",
+      "entity_name": "Eftirlaunasj\u00f3\u00f0ur F\u00cdA",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "IS",
+      "country_name": "Iceland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9684642",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 507021.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Hybrid DB/DC Plan",
+          "plan_assets": 507021.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2535.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 507.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Iceland",
+              "vehicle_type": "Unspecified",
+              "value": 102925.0,
+              "pct_of_plan": 20.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Iceland",
+              "vehicle_type": "Unspecified",
+              "value": 243370.0,
+              "pct_of_plan": 48.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 88222.0,
+              "pct_of_plan": 17.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 59321.0,
+              "pct_of_plan": 12.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "International",
+              "vehicle_type": "Mutual Fund",
+              "value": 10140.0,
+              "pct_of_plan": 2.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "IS-0006",
+      "entity_name": "Festa l\u00edfeyrissjoour",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "IS",
+      "country_name": "Iceland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9684622",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 2541882.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Hybrid DB/DC Plan",
+          "plan_assets": 2541882.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 49821.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1334234.0,
+              "pct_of_plan": 52.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1157827.0,
+              "pct_of_plan": 46.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "IS-0007",
+      "entity_name": "Frj\u00e1lsi l\u00edfeyrissj\u00f3\u00f0urinn",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "IS",
+      "country_name": "Iceland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9684631",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 4403764.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Hybrid DB/DC Plan",
+          "plan_assets": 4403764.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 63414.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2226543.0,
+              "pct_of_plan": 51.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2113807.0,
+              "pct_of_plan": 48.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "IS-0008",
+      "entity_name": "Gildi Lifeyrissjodur",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "IS",
+      "country_name": "Iceland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9684624",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 6394215.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Hybrid DB/DC Plan",
+          "plan_assets": 6394215.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Infrastructure",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 53072.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Credit",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 13428.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 163052.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Corporate Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 457826.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1173338.0,
+              "pct_of_plan": 18.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Mortgage",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 556297.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Municipal Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 124048.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 432888.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 889435.0,
+              "pct_of_plan": 14.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Limited Partnerships",
+              "investment_region": "Iceland",
+              "vehicle_type": "Unspecified",
+              "value": 1218737.0,
+              "pct_of_plan": 19.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Corporate Bonds",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 639.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 1238559.0,
+              "pct_of_plan": 19.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Corporate Bonds",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 7034.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Short-Term Bonds",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 7673.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 19822.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 38365.0,
+              "pct_of_plan": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "IS-0009",
+      "entity_name": "\u00cdslenski l\u00edfeyrissj\u00f3\u00f0urinn",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "IS",
+      "country_name": "Iceland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9684641",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 1597667.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Hybrid DB/DC Plan",
+          "plan_assets": 1597667.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 47930.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Company Shares",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 672937.0,
+              "pct_of_plan": 42.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 876800.0,
+              "pct_of_plan": 55.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "IS-0010",
+      "entity_name": "Lifeyrissjodur baenda",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "IS",
+      "country_name": "Iceland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9684625",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 314862.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Hybrid DB/DC Plan",
+          "plan_assets": 314862.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2330.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 18356.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unlisted",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 138287.0,
+              "pct_of_plan": 44.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Mortgage",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 13508.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 142381.0,
+              "pct_of_plan": 45.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "IS-0011",
+      "entity_name": "L\u00edfeyrissj\u00f3\u00f0ur bankamanna",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "IS",
+      "country_name": "Iceland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9684640",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 914070.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Hybrid DB/DC Plan",
+          "plan_assets": 611012.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 9061.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 21517.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 272479.0,
+              "pct_of_plan": 90.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 14542.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Corporate Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 149209.0,
+              "pct_of_plan": 24.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 45948.0,
+              "pct_of_plan": 8.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Mortgage",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 22058.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Municipal Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 38494.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 23585.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Iceland",
+              "vehicle_type": "Unspecified",
+              "value": 128924.0,
+              "pct_of_plan": 21.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 188253.0,
+              "pct_of_plan": 31.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "IS-0012",
+      "entity_name": "L\u00edfeyrissj\u00f3\u00f0ur starfsmanna Akureyrarb\u00e6jar",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "IS",
+      "country_name": "Iceland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9684643",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 94615.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Hybrid DB/DC Plan",
+          "plan_assets": 94615.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 29974.0,
+              "pct_of_plan": 32.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 64641.0,
+              "pct_of_plan": 68.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "IS-0013",
+      "entity_name": "L\u00edfeyrissj\u00f3\u00f0ur verkfr\u00e6\u00f0inga",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "IS",
+      "country_name": "Iceland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9684629",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 1525345.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Hybrid DB/DC Plan",
+          "plan_assets": 1525345.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 23185.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Company Shares",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 842143.0,
+              "pct_of_plan": 55.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 660017.0,
+              "pct_of_plan": 43.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "IS-0014",
+      "entity_name": "L\u00edfeyrissjodur verzlunarmanna",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Union",
+      "country_code": "IS",
+      "country_name": "Iceland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9684628",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 10678962.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Hybrid DB/DC Plan",
+          "plan_assets": 10678962.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 112129.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3842291.0,
+              "pct_of_plan": 36.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Mutual Fund",
+              "value": 6724542.0,
+              "pct_of_plan": 63.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "IS-0015",
+      "entity_name": "Lifeyrissjothur Rangaeinga",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "IS",
+      "country_name": "Iceland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9684644",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 171490.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Hybrid DB/DC Plan",
+          "plan_assets": 171490.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3293.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2521.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 78199.0,
+              "pct_of_plan": 46.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 87477.0,
+              "pct_of_plan": 51.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "IS-0016",
+      "entity_name": "L\u00edfeyrissj\u00f3\u00f0ur starfsmanna B\u00fana\u00f0arbanka \u00cdslands (LSBI)",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "IS",
+      "country_name": "Iceland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9684635",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 196721.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Hybrid DB/DC Plan",
+          "plan_assets": 196721.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 44970.0,
+              "pct_of_plan": 23.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 151751.0,
+              "pct_of_plan": 77.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "IS-0017",
+      "entity_name": "Sofnunarsjodur lifeyrisrettinda",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "IS",
+      "country_name": "Iceland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9684633",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 2262684.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Hybrid DB/DC Plan",
+          "plan_assets": 2262684.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Infrastructure",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 28736.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Limited Partnerships",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 74895.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Opportunistic",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4752.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Real Assets",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5657.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 72632.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 37108.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity Fund of Funds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2941.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Credit",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 6788.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 15160.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1007121.0,
+              "pct_of_plan": 45.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 7693.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 954174.0,
+              "pct_of_plan": 42.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Mutual Fund",
+              "value": 12671.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Asia",
+              "vehicle_type": "Unspecified",
+              "value": 453.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Emerging Markets",
+              "vehicle_type": "Mutual Fund",
+              "value": 26.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Infrastructure",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 12671.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 11766.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity Fund of Funds",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 7467.0,
+              "pct_of_plan": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "IS-0018",
+      "entity_name": "Stapi L\u00edfeyrissj\u00f3\u00f0ur",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "IS",
+      "country_name": "Iceland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9684637",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 2713969.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Hybrid DB/DC Plan",
+          "plan_assets": 2713969.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 325676.0,
+              "pct_of_plan": 12.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Short-Term Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 27140.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 597073.0,
+              "pct_of_plan": 22.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 135698.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Iceland",
+              "vehicle_type": "Unspecified",
+              "value": 488514.0,
+              "pct_of_plan": 18.0
+            },
+            {
+              "asset_type": "Asset Allocation",
+              "asset_style": "Special Situations",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 189978.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 814191.0,
+              "pct_of_plan": 30.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 135698.0,
+              "pct_of_plan": 5.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "IS-0019",
+      "entity_name": "L\u00edfeyrissj\u00f3\u00f0ur starfsmanna r\u00edkisins",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Government",
+      "country_code": "IS",
+      "country_name": "Iceland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9684632",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 12300857.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Hybrid DB/DC Plan",
+          "plan_assets": 12300857.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 282920.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 95947.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 7509673.0,
+              "pct_of_plan": 61.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4412317.0,
+              "pct_of_plan": 36.0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

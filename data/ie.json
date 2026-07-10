@@ -2,9 +2,9 @@
   "country_code": "IE",
   "country_name": "Ireland",
   "reporting_period": "2026-07 (S&P export date)",
-  "source_note": "Segment AUM below is a bottom-up sum of the 43 raw institution records in ie_institutions_latest.json (results (5)-(8).xls), classified against Atlas's entity_type/sub_type fields rather than a raw S&P Category column (Ireland's export didn't carry that field the way the UK one did, so this mapping is less granular than UK's 19-segment split). Two things flagged for review rather than silently decided: (1) National Treasury Management Agency is recorded with entity_type 'Other', but one of its plans is explicitly typed 'Sovereign Wealth Fund' in the underlying export (matches reality — NTMA manages the Ireland Strategic Investment Fund) — classified here as SWF rather than left in an Other/unclassified bucket. (2) Eight commercial state bodies (An Post, Bord Na Mona, Coillte, Dublin Port Company, EirGrid, ESB, Ervia, Irish Aviation Authority — EUR 6.358bn combined) are currently sitting in DB Pension (Corp) because their sub_type wasn't marked 'Public Sector' the way Coras Iompair Eireann and Courts Service of Ireland were. Whether Ireland's semi-state sector should count as Govt or Corp for this matrix is a judgement call, not something to auto-decide — move them to DB Pension (Govt) if that's the right call. No DC pension entities appeared in this export at all (all 34 pension records are DB). Coverage note: 43 institutions, EUR 62.501bn tracked, no independent check yet on how exhaustive that is against Ireland's actual DB/E&F/SWF universe.",
-  "scorecard_note": "Not yet scored — none of the 12 opportunity-scorecard dimensions have been filled in for any Ireland segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
-  "allocation_note": "Built bottom-up directly from the real plan-level allocation lines in ie_institutions_latest.json (no scaling or equity-anchoring, unlike the UK page — Ireland has no legacy workbook figure to reconcile against, so this is a literal sum of reported institution allocations). Raw asset_type values were mapped onto the standard six buckets (Equities, Fixed Income, Cash & Short-Term, Real Estate, Alternatives, Other/Unclassified); \"Loans\" folded into Fixed Income, everything else non-standard (Other Investments, Asset Allocation, Investment Funds, Property/PE/Infrastructure, Reinsurance, Unspecified) folded into Other/Unclassified — that bucket is unusually large for several segments (57% of SWF, 50% of DB Pension (Govt)) because NTMA and the two public-sector schemes report a lot of their allocation that way rather than by conventional asset class. Same 5%-of-asset-type materiality threshold as UK: a style only gets its own line if it clears 5% of that asset type's segment value, otherwise it's folded into that type's Other/Unspecified line. Coverage varies by segment — most are 94–100% of the segment's AUM, but Endowments E&F (Dublin City University) only has allocation data for about 13% of its AUM, so treat that one figure as partial, not representative.",
+  "source_note": "Currency confirmed (2026-07-10): S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). These figures are USD, not EUR as had been assumed. Segment AUM below is a bottom-up sum of the 43 raw institution records in ie_institutions_latest.json (results (5)-(8).xls), classified against Atlas's entity_type/sub_type fields rather than a raw S&P Category column (Ireland's export didn't carry that field the way the UK one did, so this mapping is less granular than UK's 19-segment split). Two things flagged for review rather than silently decided: (1) National Treasury Management Agency is recorded with entity_type 'Other', but one of its plans is explicitly typed 'Sovereign Wealth Fund' in the underlying export (matches reality \u2014 NTMA manages the Ireland Strategic Investment Fund) \u2014 classified here as SWF rather than left in an Other/unclassified bucket. (2) Eight commercial state bodies (An Post, Bord Na Mona, Coillte, Dublin Port Company, EirGrid, ESB, Ervia, Irish Aviation Authority \u2014 EUR 6.358bn combined) are currently sitting in DB Pension (Corp) because their sub_type wasn't marked 'Public Sector' the way Coras Iompair Eireann and Courts Service of Ireland were. Whether Ireland's semi-state sector should count as Govt or Corp for this matrix is a judgement call, not something to auto-decide \u2014 move them to DB Pension (Govt) if that's the right call. No DC pension entities appeared in this export at all (all 34 pension records are DB). Coverage note: 43 institutions, EUR 62.501bn tracked, no independent check yet on how exhaustive that is against Ireland's actual DB/E&F/SWF universe.",
+  "scorecard_note": "Not yet scored \u2014 none of the 12 opportunity-scorecard dimensions have been filled in for any Ireland segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
+  "allocation_note": "Built bottom-up directly from the real plan-level allocation lines in ie_institutions_latest.json (no scaling or equity-anchoring, unlike the UK page \u2014 Ireland has no legacy workbook figure to reconcile against, so this is a literal sum of reported institution allocations). Raw asset_type values were mapped onto the standard six buckets (Equities, Fixed Income, Cash & Short-Term, Real Estate, Alternatives, Other/Unclassified); \"Loans\" folded into Fixed Income, everything else non-standard (Other Investments, Asset Allocation, Investment Funds, Property/PE/Infrastructure, Reinsurance, Unspecified) folded into Other/Unclassified \u2014 that bucket is unusually large for several segments (57% of SWF, 50% of DB Pension (Govt)) because NTMA and the two public-sector schemes report a lot of their allocation that way rather than by conventional asset class. Same 5%-of-asset-type materiality threshold as UK: a style only gets its own line if it clears 5% of that asset type's segment value, otherwise it's folded into that type's Other/Unspecified line. Coverage varies by segment \u2014 most are 94\u2013100% of the segment's AUM, but Endowments E&F (Dublin City University) only has allocation data for about 13% of its AUM, so treat that one figure as partial, not representative.",
   "segments": [
     {
       "segment": "SWF",
@@ -96,7 +96,7 @@
           "date": "2026-07-08",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ]
     },
@@ -221,7 +221,7 @@
           "date": "2026-07-08",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ]
     },
@@ -303,7 +303,7 @@
           "date": "2026-07-08",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ]
     },
@@ -404,7 +404,7 @@
           "date": "2026-07-08",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ]
     },
@@ -442,7 +442,7 @@
           "date": "2026-07-08",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ]
     },
@@ -528,7 +528,7 @@
           "date": "2026-07-08",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ]
     }

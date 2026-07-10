@@ -2,9 +2,9 @@
   "country_code": "CH",
   "country_name": "Switzerland",
   "reporting_period": "2026-07 (S&P export date)",
-  "source_note": "Currency confirmation is still an open item, as with other countries — figures are inferred to be CHF from context (Swiss institutions, magnitudes consistent with CHF) rather than stated explicitly by the source data. No Reserve Banks / central-bank record appeared in this export (unlike UK/Denmark), so no exclusion was needed. DB Pension (Govt) is large (CHF 466.7bn, 39% of everything tracked) but unlike Sweden's AP-fonden situation, this is a genuinely diversified list of 46 separate government-category institutions — Swiss Confederation and cantonal/municipal pension funds (PUBLICA, BVK Zurich, Kantonale Pensionskasse Graubünden, dozens of Kanton/Stadt schemes) plus state-owned enterprises SBB and Swiss Post — not a small number of outsized funds, so no equivalent reclassification flag is needed here. S&P's two 'Private Foundation' institutions (Egon Bettwiesen Foundation, Z Zurich Foundation) were mapped to Foundations E&F, same convention as Sweden; the 52 'Tax Exempt Organization' institutions (a very broad set — everything from FIFA to Caritas to small Swiss charities) were mapped mechanically to Tax exempt E&F. 291 institutions tracked, CHF 1,197.28bn tracked; no independent check yet on how exhaustive that is against Switzerland's actual institutional universe (this is by far the largest of the smaller pilot countries so far).",
-  "scorecard_note": "Not yet scored — none of the 12 opportunity-scorecard dimensions have been filled in for any Switzerland segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
-  "allocation_note": "Built bottom-up directly from the real plan-level allocation lines in ch_institutions_latest.json, same real-bottom-up approach as Ireland, Denmark, and Sweden (no scaling or equity-anchoring). Raw asset_type values mapped onto the standard six buckets; 'Loans' folded into Fixed Income, everything else non-standard folded into Other/Unclassified. Same 5%-of-asset-type materiality threshold for style breakdowns. Plan-level lines with an explicit Defined Benefit or Defined Contribution plan type are assigned directly to that segment; ambiguous plan types are split across an institution's actual segments in proportion to its own DB/DC/E&F asset split, excluding any segment already covered by its own explicitly-typed plan. Coverage is 94-100% across every segment, the cleanest of the four countries built with this real-bottom-up method so far — no segment fell below 94%.",
+  "source_note": "Currency confirmed (2026-07-10): S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). These figures are USD, not CHF as previously assumed here. No Reserve Banks / central-bank record appeared in this export (unlike UK/Denmark), so no exclusion was needed. DB Pension (Govt) is large (CHF 466.7bn, 39% of everything tracked) but unlike Sweden's AP-fonden situation, this is a genuinely diversified list of 46 separate government-category institutions \u2014 Swiss Confederation and cantonal/municipal pension funds (PUBLICA, BVK Zurich, Kantonale Pensionskasse Graub\u00fcnden, dozens of Kanton/Stadt schemes) plus state-owned enterprises SBB and Swiss Post \u2014 not a small number of outsized funds, so no equivalent reclassification flag is needed here. S&P's two 'Private Foundation' institutions (Egon Bettwiesen Foundation, Z Zurich Foundation) were mapped to Foundations E&F, same convention as Sweden; the 52 'Tax Exempt Organization' institutions (a very broad set \u2014 everything from FIFA to Caritas to small Swiss charities) were mapped mechanically to Tax exempt E&F. 291 institutions tracked, CHF 1,197.28bn tracked; no independent check yet on how exhaustive that is against Switzerland's actual institutional universe (this is by far the largest of the smaller pilot countries so far).",
+  "scorecard_note": "Not yet scored \u2014 none of the 12 opportunity-scorecard dimensions have been filled in for any Switzerland segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
+  "allocation_note": "Built bottom-up directly from the real plan-level allocation lines in ch_institutions_latest.json, same real-bottom-up approach as Ireland, Denmark, and Sweden (no scaling or equity-anchoring). Raw asset_type values mapped onto the standard six buckets; 'Loans' folded into Fixed Income, everything else non-standard folded into Other/Unclassified. Same 5%-of-asset-type materiality threshold for style breakdowns. Plan-level lines with an explicit Defined Benefit or Defined Contribution plan type are assigned directly to that segment; ambiguous plan types are split across an institution's actual segments in proportion to its own DB/DC/E&F asset split, excluding any segment already covered by its own explicitly-typed plan. Coverage is 94-100% across every segment, the cleanest of the four countries built with this real-bottom-up method so far \u2014 no segment fell below 94%.",
   "segments": [
     {
       "segment": "DB Pension (Corp)",
@@ -126,7 +126,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true
@@ -259,7 +259,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true
@@ -400,7 +400,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ]
     },
@@ -508,7 +508,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ]
     },
@@ -605,7 +605,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ]
     },
@@ -686,7 +686,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ]
     },
@@ -814,7 +814,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ]
     },
@@ -926,7 +926,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true
@@ -1047,7 +1047,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ]
     },
@@ -1114,7 +1114,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ]
     }

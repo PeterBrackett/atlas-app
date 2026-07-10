@@ -1,0 +1,873 @@
+{
+  "country_code": "FR",
+  "country_name": "France",
+  "reporting_period": "2026-07 (S&P export date)",
+  "source_note": "Currency confirmed (2026-07-10): S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). These figures are USD. Category mapping and plan-type routing reused the established rule set from prior builds; no unresolved judgement calls for this country. Categories/institutions excluded from all pension segments (Reserve Banks and similar non-pension pools, or institutions with no DB/DC/E&F breakdown reported): Government ($0.84bn). 125 institutions tracked, $574.0bn tracked across all segments.",
+  "scorecard_note": "Not yet scored \u2014 none of the 12 opportunity-scorecard dimensions have been filled in for any France segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
+  "allocation_note": "Built the same real-bottom-up way as every other country: summed actual plan-level AA lines into the six standard buckets, with ambiguous plan types (Investment Pool Funds, Hybrid DB/DC Plan, Other Retirement Fund) ratio-split across each institution's actual segments using the two-pass double-count-avoidance logic, and explicitly-named pools (Sovereign Wealth Fund, Endowment Fund, Foundation Fund Or Investment Pool, Other Tax-exempt Fund) routed directly. Same 5%-of-asset-type materiality threshold for style breakdowns.",
+  "segments": [
+    {
+      "segment": "SWF",
+      "aum_bn": 330.916234,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 86.215649,
+          "pct_of_segment": 26.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 86.215649
+            }
+          ]
+        },
+        {
+          "asset_type": "Equities",
+          "value_bn": 15.592947,
+          "pct_of_segment": 4.7,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 15.592947
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 8.381449,
+          "pct_of_segment": 2.5,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 8.381449
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 330.916234,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (France)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-10",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+        }
+      ],
+      "allocation_incomplete": true
+    },
+    {
+      "segment": "DB Pension (Corp)",
+      "aum_bn": 94.81975,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 41.12468,
+          "pct_of_segment": 43.4,
+          "styles": [
+            {
+              "asset_style": "Bonds",
+              "value_bn": 18.855931
+            },
+            {
+              "asset_style": "Debt",
+              "value_bn": 10.685631
+            },
+            {
+              "asset_style": "General Insurance",
+              "value_bn": 2.707376
+            },
+            {
+              "asset_style": "Annuity",
+              "value_bn": 2.40157
+            },
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 2.37433
+            },
+            {
+              "asset_style": "Government Bonds",
+              "value_bn": 2.114425
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 1.985417
+            }
+          ]
+        },
+        {
+          "asset_type": "Equities",
+          "value_bn": 12.903773,
+          "pct_of_segment": 13.6,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 12.412679
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.491094
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 6.200352,
+          "pct_of_segment": 6.5,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 6.200352
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 3.435769,
+          "pct_of_segment": 3.6,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 3.169996
+            },
+            {
+              "asset_style": "Money Market",
+              "value_bn": 0.265773
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 2.916285,
+          "pct_of_segment": 3.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 2.916285
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 0.337143,
+          "pct_of_segment": 0.4,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.20959
+            },
+            {
+              "asset_style": "Liability-Driven",
+              "value_bn": 0.045646
+            },
+            {
+              "asset_style": "Derivatives",
+              "value_bn": 0.043094
+            },
+            {
+              "asset_style": "Limited Partnerships",
+              "value_bn": 0.032109
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.006704
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 94.81975,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (France)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-10",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+        }
+      ],
+      "allocation_incomplete": true
+    },
+    {
+      "segment": "DB Pension (Govt)",
+      "aum_bn": 91.879391,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 72.932361,
+          "pct_of_segment": 79.4,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 72.932361
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 71.190156,
+          "pct_of_segment": 77.5,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 54.141752
+            },
+            {
+              "asset_style": "Bonds",
+              "value_bn": 13.822142
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 3.226262
+            }
+          ]
+        },
+        {
+          "asset_type": "Equities",
+          "value_bn": 29.090206,
+          "pct_of_segment": 31.7,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 28.888747
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.201459
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 2.470893,
+          "pct_of_segment": 2.7,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 2.470893
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 1.452975,
+          "pct_of_segment": 1.6,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 1.414667
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.038308
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 0.160899,
+          "pct_of_segment": 0.2,
+          "styles": [
+            {
+              "asset_style": "Hedge Funds",
+              "value_bn": 0.100337
+            },
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.042977
+            },
+            {
+              "asset_style": "Private Equity",
+              "value_bn": 0.017585
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 91.879391,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (France)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-10",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+        }
+      ]
+    },
+    {
+      "segment": "DC Pension (Govt)",
+      "aum_bn": 34.272156,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 15.026906,
+          "pct_of_segment": 43.8,
+          "styles": [
+            {
+              "asset_style": "Corporate Bonds",
+              "value_bn": 6.594352
+            },
+            {
+              "asset_style": "Bonds",
+              "value_bn": 5.07559
+            },
+            {
+              "asset_style": "Indexed",
+              "value_bn": 3.356964
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 10.571957,
+          "pct_of_segment": 30.8,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 10.571957
+            }
+          ]
+        },
+        {
+          "asset_type": "Equities",
+          "value_bn": 5.121763,
+          "pct_of_segment": 14.9,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 5.118371
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.003392
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 2.599762,
+          "pct_of_segment": 7.6,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 2.599762
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 0.951769,
+          "pct_of_segment": 2.8,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.493113
+            },
+            {
+              "asset_style": "Money Market",
+              "value_bn": 0.404724
+            },
+            {
+              "asset_style": "CDs",
+              "value_bn": 0.053932
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 34.272156,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (France)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-10",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Union)",
+      "aum_bn": 15.382392,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 6.683271,
+          "pct_of_segment": 43.4,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 6.683271
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 5.128886,
+          "pct_of_segment": 33.3,
+          "styles": [
+            {
+              "asset_style": "Debt",
+              "value_bn": 4.45316
+            },
+            {
+              "asset_style": "Bonds",
+              "value_bn": 0.675726
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 1.938737,
+          "pct_of_segment": 12.6,
+          "styles": [
+            {
+              "asset_style": "Infrastructure",
+              "value_bn": 0.667706
+            },
+            {
+              "asset_style": "Private Equity",
+              "value_bn": 0.569065
+            },
+            {
+              "asset_style": "Private Debt",
+              "value_bn": 0.401457
+            },
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.300509
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 1.236687,
+          "pct_of_segment": 8.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 1.236687
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 0.357416,
+          "pct_of_segment": 2.3,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.357416
+            }
+          ]
+        },
+        {
+          "asset_type": "Equities",
+          "value_bn": 0.037395,
+          "pct_of_segment": 0.2,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.037395
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 15.382392,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (France)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-10",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+        }
+      ]
+    },
+    {
+      "segment": "Tax exempt E&F",
+      "aum_bn": 3.608785,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 2.61789,
+          "pct_of_segment": 72.5,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 2.591554
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.026336
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 0.466489,
+          "pct_of_segment": 12.9,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.466489
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 0.325388,
+          "pct_of_segment": 9.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.325388
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 0.074194,
+          "pct_of_segment": 2.1,
+          "styles": [
+            {
+              "asset_style": "Bonds",
+              "value_bn": 0.060903
+            },
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.013291
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 0.044443,
+          "pct_of_segment": 1.2,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.044443
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 3.608785,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (France)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-10",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+        }
+      ],
+      "allocation_incomplete": true
+    },
+    {
+      "segment": "DC Pension (Corp)",
+      "aum_bn": 1.356237,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 0.696769,
+          "pct_of_segment": 51.4,
+          "styles": [
+            {
+              "asset_style": "Indexed",
+              "value_bn": 0.279758
+            },
+            {
+              "asset_style": "Large Cap Growth",
+              "value_bn": 0.170767
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.141868
+            },
+            {
+              "asset_style": "Value",
+              "value_bn": 0.054142
+            },
+            {
+              "asset_style": "Mid Cap",
+              "value_bn": 0.050234
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 0.384069,
+          "pct_of_segment": 28.3,
+          "styles": [
+            {
+              "asset_style": "Target Date",
+              "value_bn": 0.310643
+            },
+            {
+              "asset_style": "Moderate",
+              "value_bn": 0.048401
+            },
+            {
+              "asset_style": "Income",
+              "value_bn": 0.025025
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 0.239395,
+          "pct_of_segment": 17.7,
+          "styles": [
+            {
+              "asset_style": "Stable Value",
+              "value_bn": 0.102125
+            },
+            {
+              "asset_style": "Intermediate-Term Bonds",
+              "value_bn": 0.071475
+            },
+            {
+              "asset_style": "Bonds",
+              "value_bn": 0.032433
+            },
+            {
+              "asset_style": "Core PLUS",
+              "value_bn": 0.02785
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.005512
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 0.020414,
+          "pct_of_segment": 1.5,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.020414
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 0.015808,
+          "pct_of_segment": 1.2,
+          "styles": [
+            {
+              "asset_style": "Money Market",
+              "value_bn": 0.015808
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 1.356237,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (France)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-10",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+        }
+      ]
+    },
+    {
+      "segment": "Foundations E&F",
+      "aum_bn": 0.927051,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 0.666179,
+          "pct_of_segment": 71.9,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.666179
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 0.260872,
+          "pct_of_segment": 28.1,
+          "styles": [
+            {
+              "asset_style": "Savings & Temporary Cash",
+              "value_bn": 0.211553
+            },
+            {
+              "asset_style": "Non-Interest Bearing",
+              "value_bn": 0.049319
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 0.927051,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (France)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-10",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+        }
+      ]
+    },
+    {
+      "segment": "Healthcare non-profit E&F",
+      "aum_bn": 0.422887,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 0.345067,
+          "pct_of_segment": 81.6,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.345067
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 0.07782,
+          "pct_of_segment": 18.4,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.07782
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 0.422887,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (France)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-10",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+        }
+      ]
+    },
+    {
+      "segment": "Endowments E&F",
+      "aum_bn": 0.407499,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 0.407499,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (France)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-10",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+        }
+      ],
+      "allocation_incomplete": true
+    }
+  ]
+}

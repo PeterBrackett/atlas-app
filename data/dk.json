@@ -2,9 +2,9 @@
   "country_code": "DK",
   "country_name": "Denmark",
   "reporting_period": "2026-07 (S&P export date)",
-  "source_note": "Currency confirmation is still an open item, as with other countries — figures are inferred to be DKK from context (Danish institutions, magnitudes consistent with DKK) rather than stated explicitly by the source data. Danmarks Nationalbank's central-bank balance sheet (S&P Category 'Reserve Banks', ~DKK 100.7bn) is excluded throughout, same convention as UK's Bank of England exclusion — its own separate staff pension record (S&P Category 'Corporation', DKK 0.649bn, Defined Benefit) is kept. S&P's 'Tax Exempt Organization' category is mapped mechanically onto the 'Tax exempt E&F' segment, matching the same category-to-segment rule used for the UK — note three of the four institutions in that category are literally named '...Foundation' (Danish National Research Foundation, LEGO Foundation, Lundbeck Foundation), so 'Foundations E&F' is a defensible alternative mapping if you'd rather classify by name than by S&P's own category label; flagging as a judgement call rather than deciding silently. DB Pension (Govt) is a single institution — Pensionskassen Magistre & Psykologer (AkademikerPension), an academic professional pension fund that S&P tags 'Government' — worth checking whether that's the right bucket for it versus DB Pension (Corp) or a professional-association-specific read. 42 institutions tracked (43 in the export, minus Danmarks Nationalbank's Reserve Banks record), DKK 757.96bn tracked; no independent check yet on how exhaustive that is against Denmark's actual institutional universe.",
-  "scorecard_note": "Not yet scored — none of the 12 opportunity-scorecard dimensions have been filled in for any Denmark segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
-  "allocation_note": "Built bottom-up directly from the real plan-level allocation lines in dk_institutions_latest.json (no scaling or equity-anchoring, same real-bottom-up approach as Ireland — Denmark has no legacy workbook figure to reconcile against). Raw asset_type values mapped onto the standard six buckets (Equities, Fixed Income, Cash & Short-Term, Real Estate, Alternatives, Other/Unclassified); 'Loans' folded into Fixed Income, everything else non-standard (Other Investments, Investments in Subsidiaries/Associates/Affiliated Companies, Mission Related Investments, International Monetary Fund, and several inconsistently-capitalised 'Other Invesment(s)' variants) folded into Other/Unclassified. Same 5%-of-asset-type materiality threshold as UK/Ireland for style breakdowns. Plan-level lines with an explicit Defined Benefit or Defined Contribution plan type are assigned directly to that segment; ambiguous plan types (mainly 'Investment Pool Funds', plus a handful of 'Hybrid DB/DC Plan' lines) are split across an institution's actual segments in proportion to its own DB/DC/E&F asset split — excluding any segment that already has its own explicitly-typed plan, to avoid double counting (this mattered for one small case: Lundbeck Foundation has both a large general Investment Pool and a separate small standalone Defined Benefit Plan). Coverage is 94–100% of segment AUM for every segment except DB Pension (Govt) at 94.4%; the small remainder in each case is plan-level lines with a missing dollar-amount field.",
+  "source_note": "Currency confirmed (2026-07-10): S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). These figures are USD, not DKK as previously assumed here. Danmarks Nationalbank's central-bank balance sheet (S&P Category 'Reserve Banks', ~DKK 100.7bn) is excluded throughout, same convention as UK's Bank of England exclusion \u2014 its own separate staff pension record (S&P Category 'Corporation', DKK 0.649bn, Defined Benefit) is kept. S&P's 'Tax Exempt Organization' category is mapped mechanically onto the 'Tax exempt E&F' segment, matching the same category-to-segment rule used for the UK \u2014 note three of the four institutions in that category are literally named '...Foundation' (Danish National Research Foundation, LEGO Foundation, Lundbeck Foundation), so 'Foundations E&F' is a defensible alternative mapping if you'd rather classify by name than by S&P's own category label; flagging as a judgement call rather than deciding silently. DB Pension (Govt) is a single institution \u2014 Pensionskassen Magistre & Psykologer (AkademikerPension), an academic professional pension fund that S&P tags 'Government' \u2014 worth checking whether that's the right bucket for it versus DB Pension (Corp) or a professional-association-specific read. 42 institutions tracked (43 in the export, minus Danmarks Nationalbank's Reserve Banks record), DKK 757.96bn tracked; no independent check yet on how exhaustive that is against Denmark's actual institutional universe.",
+  "scorecard_note": "Not yet scored \u2014 none of the 12 opportunity-scorecard dimensions have been filled in for any Denmark segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
+  "allocation_note": "Built bottom-up directly from the real plan-level allocation lines in dk_institutions_latest.json (no scaling or equity-anchoring, same real-bottom-up approach as Ireland \u2014 Denmark has no legacy workbook figure to reconcile against). Raw asset_type values mapped onto the standard six buckets (Equities, Fixed Income, Cash & Short-Term, Real Estate, Alternatives, Other/Unclassified); 'Loans' folded into Fixed Income, everything else non-standard (Other Investments, Investments in Subsidiaries/Associates/Affiliated Companies, Mission Related Investments, International Monetary Fund, and several inconsistently-capitalised 'Other Invesment(s)' variants) folded into Other/Unclassified. Same 5%-of-asset-type materiality threshold as UK/Ireland for style breakdowns. Plan-level lines with an explicit Defined Benefit or Defined Contribution plan type are assigned directly to that segment; ambiguous plan types (mainly 'Investment Pool Funds', plus a handful of 'Hybrid DB/DC Plan' lines) are split across an institution's actual segments in proportion to its own DB/DC/E&F asset split \u2014 excluding any segment that already has its own explicitly-typed plan, to avoid double counting (this mattered for one small case: Lundbeck Foundation has both a large general Investment Pool and a separate small standalone Defined Benefit Plan). Coverage is 94\u2013100% of segment AUM for every segment except DB Pension (Govt) at 94.4%; the small remainder in each case is plan-level lines with a missing dollar-amount field.",
   "segments": [
     {
       "segment": "DB Pension (Corp)",
@@ -110,7 +110,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ]
     },
@@ -214,7 +214,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ]
     },
@@ -273,7 +273,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true
@@ -367,7 +367,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ]
     },
@@ -441,7 +441,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ]
     },
@@ -519,7 +519,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ]
     },
@@ -631,7 +631,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ]
     }

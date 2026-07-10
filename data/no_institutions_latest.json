@@ -13,9 +13,9 @@
   "institutions": [
     {
       "entity_id": "NO-0001",
-      "entity_name": "Å Energi AS",
+      "entity_name": "\u00c5 Energi AS",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -28,7 +28,7 @@
       "website": null,
       "financials": {
         "total_aum": 463373.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -105,7 +105,7 @@
       "entity_id": "NO-0002",
       "entity_name": "Aibel AS",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -118,7 +118,7 @@
       "website": null,
       "financials": {
         "total_aum": 57208.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -195,7 +195,7 @@
       "entity_id": "NO-0003",
       "entity_name": "Aker ASA",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -208,7 +208,7 @@
       "website": null,
       "financials": {
         "total_aum": 5786.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -252,7 +252,7 @@
       "entity_id": "NO-0004",
       "entity_name": "Aker Solutions ASA",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -265,7 +265,7 @@
       "website": null,
       "financials": {
         "total_aum": 96165.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -326,7 +326,7 @@
       "entity_id": "NO-0005",
       "entity_name": "Arendal Kommunale Pensjonskasse",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Government",
       "country_code": "NO",
       "country_name": "Norway",
@@ -339,7 +339,7 @@
       "website": null,
       "financials": {
         "total_aum": 344494.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -416,7 +416,7 @@
       "entity_id": "NO-0006",
       "entity_name": "A/S Norske Shell",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -429,7 +429,7 @@
       "website": null,
       "financials": {
         "total_aum": 576840.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -544,7 +544,7 @@
       "entity_id": "NO-0007",
       "entity_name": "Asker Kommune",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Government",
       "country_code": "NO",
       "country_name": "Norway",
@@ -557,7 +557,7 @@
       "website": null,
       "financials": {
         "total_aum": 709967.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -601,7 +601,7 @@
       "entity_id": "NO-0008",
       "entity_name": "Avinor Group",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -614,7 +614,7 @@
       "website": null,
       "financials": {
         "total_aum": 896470.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -658,7 +658,7 @@
       "entity_id": "NO-0009",
       "entity_name": "Bergen Kommune",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Government",
       "country_code": "NO",
       "country_name": "Norway",
@@ -671,7 +671,7 @@
       "website": null,
       "financials": {
         "total_aum": 2996159.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -945,9 +945,9 @@
     },
     {
       "entity_id": "NO-0010",
-      "entity_name": "Bodø Kommune",
+      "entity_name": "Bod\u00f8 Kommune",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Government",
       "country_code": "NO",
       "country_name": "Norway",
@@ -960,7 +960,7 @@
       "website": null,
       "financials": {
         "total_aum": 412469.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -1004,7 +1004,7 @@
       "entity_id": "NO-0011",
       "entity_name": "Bonheur ASA",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -1017,7 +1017,7 @@
       "website": null,
       "financials": {
         "total_aum": 122445.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -1094,7 +1094,7 @@
       "entity_id": "NO-0012",
       "entity_name": "Buskerud Fylkeskommune",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Government",
       "country_code": "NO",
       "country_name": "Norway",
@@ -1107,7 +1107,7 @@
       "website": null,
       "financials": {
         "total_aum": 1032010.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -1160,7 +1160,7 @@
       "entity_id": "NO-0013",
       "entity_name": "ConocoPhillips Norway",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -1173,7 +1173,7 @@
       "website": null,
       "financials": {
         "total_aum": 482889.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -1359,7 +1359,7 @@
       "entity_id": "NO-0014",
       "entity_name": "DNB ASA",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -1372,7 +1372,7 @@
       "website": null,
       "financials": {
         "total_aum": 187263.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -1416,7 +1416,7 @@
       "entity_id": "NO-0015",
       "entity_name": "DNV GL Group",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -1429,7 +1429,7 @@
       "website": null,
       "financials": {
         "total_aum": 1007701.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -1506,7 +1506,7 @@
       "entity_id": "NO-0016",
       "entity_name": "Drammen Kommune",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Government",
       "country_code": "NO",
       "country_name": "Norway",
@@ -1519,7 +1519,7 @@
       "website": null,
       "financials": {
         "total_aum": 994482.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -1670,7 +1670,7 @@
       "entity_id": "NO-0017",
       "entity_name": "Equinor",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -1683,7 +1683,7 @@
       "website": null,
       "financials": {
         "total_aum": 5522000.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -1752,7 +1752,7 @@
       "entity_id": "NO-0018",
       "entity_name": "Flekkefjord Kommunale Pensjonskasse",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Government",
       "country_code": "NO",
       "country_name": "Norway",
@@ -1765,7 +1765,7 @@
       "website": null,
       "financials": {
         "total_aum": 118362.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -1863,7 +1863,7 @@
       "website": null,
       "financials": {
         "total_aum": 39569990.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -1967,7 +1967,7 @@
       "entity_id": "NO-0020",
       "entity_name": "Gjensidige",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -1980,7 +1980,7 @@
       "website": null,
       "financials": {
         "total_aum": 254813.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -2041,7 +2041,7 @@
       "entity_id": "NO-0021",
       "entity_name": "Hafslund E-CO AS",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -2054,7 +2054,7 @@
       "website": null,
       "financials": {
         "total_aum": 234079.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -2123,7 +2123,7 @@
       "entity_id": "NO-0022",
       "entity_name": "Halden Kommunale Pensjonskasse",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Government",
       "country_code": "NO",
       "country_name": "Norway",
@@ -2136,7 +2136,7 @@
       "website": null,
       "financials": {
         "total_aum": 331890.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -2325,7 +2325,7 @@
       "entity_id": "NO-0023",
       "entity_name": "Haugaland Kraft AS",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -2338,7 +2338,7 @@
       "website": null,
       "financials": {
         "total_aum": 158882.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -2380,9 +2380,9 @@
     },
     {
       "entity_id": "NO-0024",
-      "entity_name": "Hjålmork Kommune",
+      "entity_name": "Hj\u00e5lmork Kommune",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Government",
       "country_code": "NO",
       "country_name": "Norway",
@@ -2395,7 +2395,7 @@
       "website": null,
       "financials": {
         "total_aum": 155389.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -2547,7 +2547,7 @@
       "entity_id": "NO-0025",
       "entity_name": "Human-Etisk Forbund",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Tax Exempt Organization",
       "country_code": "NO",
       "country_name": "Norway",
@@ -2560,7 +2560,7 @@
       "website": null,
       "financials": {
         "total_aum": 15222.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -2640,7 +2640,7 @@
       "website": null,
       "financials": {
         "total_aum": 49229.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -2707,9 +2707,9 @@
     },
     {
       "entity_id": "NO-0027",
-      "entity_name": "Kirkens Nødhjelp",
+      "entity_name": "Kirkens N\u00f8dhjelp",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Tax Exempt Organization",
       "country_code": "NO",
       "country_name": "Norway",
@@ -2722,7 +2722,7 @@
       "website": null,
       "financials": {
         "total_aum": 49147.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -2797,7 +2797,7 @@
       "entity_id": "NO-0028",
       "entity_name": "Kommunal Landspensjonskasse gjensidig forsikringsselskap",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Government",
       "country_code": "NO",
       "country_name": "Norway",
@@ -2810,7 +2810,7 @@
       "website": null,
       "financials": {
         "total_aum": 86470816.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -3389,7 +3389,7 @@
       "entity_id": "NO-0029",
       "entity_name": "Kongsberg Gruppen ASA",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -3402,7 +3402,7 @@
       "website": null,
       "financials": {
         "total_aum": 1929.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -3446,7 +3446,7 @@
       "entity_id": "NO-0030",
       "entity_name": "KreftForeningen",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Tax Exempt Organization",
       "country_code": "NO",
       "country_name": "Norway",
@@ -3459,7 +3459,7 @@
       "website": null,
       "financials": {
         "total_aum": 150077.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -3598,7 +3598,7 @@
       "entity_id": "NO-0031",
       "entity_name": "Kristiansand Kommune",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Government",
       "country_code": "NO",
       "country_name": "Norway",
@@ -3611,7 +3611,7 @@
       "website": null,
       "financials": {
         "total_aum": 839821.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -3717,7 +3717,7 @@
       "entity_id": "NO-0032",
       "entity_name": "Lorenskog Kommune",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Government",
       "country_code": "NO",
       "country_name": "Norway",
@@ -3730,7 +3730,7 @@
       "website": null,
       "financials": {
         "total_aum": 286795.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -3799,7 +3799,7 @@
       "entity_id": "NO-0033",
       "entity_name": "Lyse Energi AS",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -3812,7 +3812,7 @@
       "website": null,
       "financials": {
         "total_aum": 184380.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -3897,7 +3897,7 @@
       "entity_id": "NO-0034",
       "entity_name": "Molde Kommune",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Government",
       "country_code": "NO",
       "country_name": "Norway",
@@ -3910,7 +3910,7 @@
       "website": null,
       "financials": {
         "total_aum": 247057.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -4090,7 +4090,7 @@
       "entity_id": "NO-0035",
       "entity_name": "Moss Kommunale Pensjonskasse",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Government",
       "country_code": "NO",
       "country_name": "Norway",
@@ -4103,7 +4103,7 @@
       "website": null,
       "financials": {
         "total_aum": 207849.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -4145,9 +4145,9 @@
     },
     {
       "entity_id": "NO-0036",
-      "entity_name": "Næringslivets Hovedorganisasjon (NHO)",
+      "entity_name": "N\u00e6ringslivets Hovedorganisasjon (NHO)",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -4160,7 +4160,7 @@
       "website": null,
       "financials": {
         "total_aum": 119556.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -4229,7 +4229,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Næringslivets Hovedorganisasjons Konsernpensjonskasse I"
+            "plan_name": "N\u00e6ringslivets Hovedorganisasjons Konsernpensjonskasse I"
           }
         ],
         "other_providers": [],
@@ -4255,7 +4255,7 @@
       "entity_id": "NO-0037",
       "entity_name": "Nordea Bank Norge ASA",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -4268,7 +4268,7 @@
       "website": null,
       "financials": {
         "total_aum": 630173.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -4382,7 +4382,7 @@
       "website": null,
       "financials": {
         "total_aum": 4347459.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -4604,7 +4604,7 @@
       "entity_id": "NO-0039",
       "entity_name": "Norges Bank",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -4617,7 +4617,7 @@
       "website": null,
       "financials": {
         "total_aum": 587964.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -4686,7 +4686,7 @@
       "entity_id": "NO-0040",
       "entity_name": "Norsk Folkehjelp",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Tax Exempt Organization",
       "country_code": "NO",
       "country_name": "Norway",
@@ -4699,7 +4699,7 @@
       "website": null,
       "financials": {
         "total_aum": 46642.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -4766,7 +4766,7 @@
       "entity_id": "NO-0041",
       "entity_name": "Norsk Hydro ASA",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -4779,7 +4779,7 @@
       "website": null,
       "financials": {
         "total_aum": 1601961.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -4885,7 +4885,7 @@
       "website": null,
       "financials": {
         "total_aum": 1956597406.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -4958,7 +4958,7 @@
             "plan_name": "Sovereign Wealth Fund"
           },
           {
-            "manager_name": "Alaska Asset Management, São Paulo, Brazil",
+            "manager_name": "Alaska Asset Management, S\u00e3o Paulo, Brazil",
             "asset_class": null,
             "asset_style": null,
             "investment_region": null,
@@ -5210,7 +5210,7 @@
             "plan_name": "Sovereign Wealth Fund"
           },
           {
-            "manager_name": "Istanbul Portföy Yönetimi A.Þ, Istanbul, Turkey",
+            "manager_name": "Istanbul Portf\u00f6y Y\u00f6netimi A.\u00de, Istanbul, Turkey",
             "asset_class": null,
             "asset_style": null,
             "investment_region": null,
@@ -5612,7 +5612,7 @@
       "website": null,
       "financials": {
         "total_aum": 260860.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -5673,7 +5673,7 @@
       "entity_id": "NO-0044",
       "entity_name": "Oslo Pensjonsforsikring",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Government",
       "country_code": "NO",
       "country_name": "Norway",
@@ -5686,7 +5686,7 @@
       "website": null,
       "financials": {
         "total_aum": 14680813.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -5800,7 +5800,7 @@
       "website": null,
       "financials": {
         "total_aum": 406736.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -5885,7 +5885,7 @@
       "entity_id": "NO-0046",
       "entity_name": "Oygarden Kommune",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Government",
       "country_code": "NO",
       "country_name": "Norway",
@@ -5898,7 +5898,7 @@
       "website": null,
       "financials": {
         "total_aum": 300977.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -5942,7 +5942,7 @@
       "entity_id": "NO-0047",
       "entity_name": "Petroleum Geo Services ASA",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -5955,7 +5955,7 @@
       "website": null,
       "financials": {
         "total_aum": 143600.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -6030,9 +6030,9 @@
     },
     {
       "entity_id": "NO-0048",
-      "entity_name": "Pensjonskassen for Helseforetakene i Hovedstadsområdet (PKH)",
+      "entity_name": "Pensjonskassen for Helseforetakene i Hovedstadsomr\u00e5det (PKH)",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Government",
       "country_code": "NO",
       "country_name": "Norway",
@@ -6045,7 +6045,7 @@
       "website": null,
       "financials": {
         "total_aum": 4874372.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -6114,7 +6114,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsområdet"
+            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsomr\u00e5det"
           },
           {
             "manager_name": "Allianz Global Investors US LLC, New York, NY",
@@ -6123,7 +6123,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsområdet"
+            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsomr\u00e5det"
           },
           {
             "manager_name": "Arcmont Asset Management, Chicago, IL",
@@ -6132,7 +6132,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsområdet"
+            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsomr\u00e5det"
           },
           {
             "manager_name": "Arctic Fund Management, Oslo, Norway",
@@ -6141,7 +6141,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsområdet"
+            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsomr\u00e5det"
           },
           {
             "manager_name": "Ardevora Asset Management LLP, London, United Kingdom",
@@ -6150,7 +6150,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsområdet"
+            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsomr\u00e5det"
           },
           {
             "manager_name": "BlueBay Asset Management USA LLC, Stamford, CT",
@@ -6159,7 +6159,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsområdet"
+            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsomr\u00e5det"
           },
           {
             "manager_name": "C Worldwide Asset Management, Copenhagen, Denmark",
@@ -6168,7 +6168,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsområdet"
+            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsomr\u00e5det"
           },
           {
             "manager_name": "Cheyne Capital Management (UK) LLP, London, United Kingdom",
@@ -6177,7 +6177,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsområdet"
+            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsomr\u00e5det"
           },
           {
             "manager_name": "Copenhagen Infrastructure Partners (CIP), Copenhagen, Denmark",
@@ -6186,7 +6186,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsområdet"
+            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsomr\u00e5det"
           },
           {
             "manager_name": "Cubera Private Equity AS, Oslo, Norway",
@@ -6195,7 +6195,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsområdet"
+            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsomr\u00e5det"
           },
           {
             "manager_name": "DNB Asset Management AS, Oslo, Norway",
@@ -6204,7 +6204,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsområdet"
+            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsomr\u00e5det"
           },
           {
             "manager_name": "Global Infrastructure Management, LLC, New York, NY",
@@ -6213,7 +6213,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsområdet"
+            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsomr\u00e5det"
           },
           {
             "manager_name": "Invesco Ltd., Atlanta, GA",
@@ -6222,7 +6222,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsområdet"
+            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsomr\u00e5det"
           },
           {
             "manager_name": "KLP Fondsforvaltning AS, Oslo, Norway",
@@ -6231,7 +6231,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsområdet"
+            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsomr\u00e5det"
           },
           {
             "manager_name": "Nordea Investment Management, Helsinki, Finland",
@@ -6240,7 +6240,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsområdet"
+            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsomr\u00e5det"
           },
           {
             "manager_name": "Northzone Partners, Stockholm, Sweden",
@@ -6249,7 +6249,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsområdet"
+            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsomr\u00e5det"
           },
           {
             "manager_name": "ODIN Fund Management, Oslo, Norway",
@@ -6258,7 +6258,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsområdet"
+            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsomr\u00e5det"
           },
           {
             "manager_name": "Pareto Securities AS, Oslo, Norway",
@@ -6267,7 +6267,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsområdet"
+            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsomr\u00e5det"
           },
           {
             "manager_name": "Revelop, Stockholm, Sweden",
@@ -6276,7 +6276,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsområdet"
+            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsomr\u00e5det"
           },
           {
             "manager_name": "Sector Asset Management, Oslo, Norway",
@@ -6285,7 +6285,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsområdet"
+            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsomr\u00e5det"
           },
           {
             "manager_name": "Storebrand Asset Management, Lysaker, Norway",
@@ -6294,7 +6294,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsområdet"
+            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsomr\u00e5det"
           },
           {
             "manager_name": "Union Investment Institutional GmbH, Frankfurt Am Main, Germany",
@@ -6303,7 +6303,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsområdet"
+            "plan_name": "Pensjonskassen for Helseforetakene i Hovedstadsomr\u00e5det"
           }
         ],
         "other_providers": [],
@@ -6329,7 +6329,7 @@
       "entity_id": "NO-0049",
       "entity_name": "Randaberg Kommune",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Government",
       "country_code": "NO",
       "country_name": "Norway",
@@ -6342,7 +6342,7 @@
       "website": null,
       "financials": {
         "total_aum": 109259.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -6386,7 +6386,7 @@
       "entity_id": "NO-0050",
       "entity_name": "Redd Barna",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Tax Exempt Organization",
       "country_code": "NO",
       "country_name": "Norway",
@@ -6399,7 +6399,7 @@
       "website": null,
       "financials": {
         "total_aum": 112557.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -6519,7 +6519,7 @@
       "website": null,
       "financials": {
         "total_aum": 88497.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -6593,7 +6593,7 @@
       "website": null,
       "financials": {
         "total_aum": 384217.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -6650,7 +6650,7 @@
       "website": null,
       "financials": {
         "total_aum": 22814.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -6703,7 +6703,7 @@
       "entity_id": "NO-0054",
       "entity_name": "Sandefjord Kommune",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Government",
       "country_code": "NO",
       "country_name": "Norway",
@@ -6716,7 +6716,7 @@
       "website": null,
       "financials": {
         "total_aum": 485626.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -6760,7 +6760,7 @@
       "entity_id": "NO-0055",
       "entity_name": "Sandnes Kommunale Pensjonskasse",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Government",
       "country_code": "NO",
       "country_name": "Norway",
@@ -6773,7 +6773,7 @@
       "website": null,
       "financials": {
         "total_aum": 568917.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -7118,7 +7118,7 @@
       "entity_id": "NO-0056",
       "entity_name": "Schibsted ASA",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -7131,7 +7131,7 @@
       "website": null,
       "financials": {
         "total_aum": 112864.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -7242,7 +7242,7 @@
       "entity_id": "NO-0057",
       "entity_name": "Skagerak Energi AS",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -7255,7 +7255,7 @@
       "website": null,
       "financials": {
         "total_aum": 118684.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -7324,7 +7324,7 @@
       "entity_id": "NO-0058",
       "entity_name": "Skien Kommune",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Government",
       "country_code": "NO",
       "country_name": "Norway",
@@ -7337,7 +7337,7 @@
       "website": null,
       "financials": {
         "total_aum": 513104.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -7492,7 +7492,7 @@
       "entity_id": "NO-0059",
       "entity_name": "SolstadFarstad",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -7505,7 +7505,7 @@
       "website": null,
       "financials": {
         "total_aum": 19587.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -7549,7 +7549,7 @@
       "entity_id": "NO-0060",
       "entity_name": "Sparebank 1 SR-Bank ASA",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -7562,7 +7562,7 @@
       "website": null,
       "financials": {
         "total_aum": 154484.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -7621,9 +7621,9 @@
     },
     {
       "entity_id": "NO-0061",
-      "entity_name": "Sparebanken Møre",
+      "entity_name": "Sparebanken M\u00f8re",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -7636,7 +7636,7 @@
       "website": null,
       "financials": {
         "total_aum": 65955.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -7705,7 +7705,7 @@
       "entity_id": "NO-0062",
       "entity_name": "Sporveien Oslo AS",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Government",
       "country_code": "NO",
       "country_name": "Norway",
@@ -7718,7 +7718,7 @@
       "website": null,
       "financials": {
         "total_aum": 575211.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -7770,9 +7770,9 @@
     },
     {
       "entity_id": "NO-0063",
-      "entity_name": "Stamfar-Møllens Pensjonskasse",
+      "entity_name": "Stamfar-M\u00f8llens Pensjonskasse",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -7785,7 +7785,7 @@
       "website": null,
       "financials": {
         "total_aum": 254101.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -7886,7 +7886,7 @@
       "entity_id": "NO-0064",
       "entity_name": "Statens Pensjonskasse",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Government",
       "country_code": "NO",
       "country_name": "Norway",
@@ -7899,7 +7899,7 @@
       "website": null,
       "financials": {
         "total_aum": 1590140.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -7992,7 +7992,7 @@
       "entity_id": "NO-0065",
       "entity_name": "Statnett SF",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -8005,7 +8005,7 @@
       "website": null,
       "financials": {
         "total_aum": 289432.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -8122,7 +8122,7 @@
       "entity_id": "NO-0066",
       "entity_name": "Stiftelsen Norsk Luftambulanse",
       "former_names": [],
-      "entity_type": "Pension – DC",
+      "entity_type": "Pension \u2013 DC",
       "sub_type": "Tax Exempt Organization",
       "country_code": "NO",
       "country_name": "Norway",
@@ -8135,7 +8135,7 @@
       "website": null,
       "financials": {
         "total_aum": 16986.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -8234,7 +8234,7 @@
       "entity_id": "NO-0067",
       "entity_name": "Storebrand Group",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -8247,7 +8247,7 @@
       "website": null,
       "financials": {
         "total_aum": 103482.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -8324,7 +8324,7 @@
       "entity_id": "NO-0068",
       "entity_name": "Telenor ASA",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -8337,7 +8337,7 @@
       "website": null,
       "financials": {
         "total_aum": 946259.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -8406,7 +8406,7 @@
       "entity_id": "NO-0069",
       "entity_name": "Tine SA",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -8419,7 +8419,7 @@
       "website": null,
       "financials": {
         "total_aum": 1690363.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -8494,9 +8494,9 @@
     },
     {
       "entity_id": "NO-0070",
-      "entity_name": "Tromsø Kommune",
+      "entity_name": "Troms\u00f8 Kommune",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Government",
       "country_code": "NO",
       "country_name": "Norway",
@@ -8509,7 +8509,7 @@
       "website": null,
       "financials": {
         "total_aum": 717020.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -8562,7 +8562,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Tromsø Kommunale Pensjonskasse"
+            "plan_name": "Troms\u00f8 Kommunale Pensjonskasse"
           },
           {
             "manager_name": "BlueBay Asset Management USA LLC, Stamford, CT",
@@ -8571,7 +8571,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Tromsø Kommunale Pensjonskasse"
+            "plan_name": "Troms\u00f8 Kommunale Pensjonskasse"
           },
           {
             "manager_name": "Danske Invest, Lyngby, Denmark",
@@ -8580,7 +8580,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Tromsø Kommunale Pensjonskasse"
+            "plan_name": "Troms\u00f8 Kommunale Pensjonskasse"
           },
           {
             "manager_name": "Holberg Fondene, Bergen, Norway",
@@ -8589,7 +8589,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Tromsø Kommunale Pensjonskasse"
+            "plan_name": "Troms\u00f8 Kommunale Pensjonskasse"
           },
           {
             "manager_name": "Pacific Investment Management Company (PIMCO) (Europe), London, United Kingdom",
@@ -8598,7 +8598,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Tromsø Kommunale Pensjonskasse"
+            "plan_name": "Troms\u00f8 Kommunale Pensjonskasse"
           },
           {
             "manager_name": "PGIM Global Partners, Newark, NJ",
@@ -8607,7 +8607,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Tromsø Kommunale Pensjonskasse"
+            "plan_name": "Troms\u00f8 Kommunale Pensjonskasse"
           },
           {
             "manager_name": "Storebrand Asset Management, Lysaker, Norway",
@@ -8616,7 +8616,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Tromsø Kommunale Pensjonskasse"
+            "plan_name": "Troms\u00f8 Kommunale Pensjonskasse"
           }
         ],
         "other_providers": [],
@@ -8642,7 +8642,7 @@
       "entity_id": "NO-0071",
       "entity_name": "Trondheim Kommunale Pensjonskasse",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Government",
       "country_code": "NO",
       "country_name": "Norway",
@@ -8655,7 +8655,7 @@
       "website": null,
       "financials": {
         "total_aum": 2215373.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -8944,7 +8944,7 @@
       "entity_id": "NO-0072",
       "entity_name": "Veidekke ASA",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -8957,7 +8957,7 @@
       "website": null,
       "financials": {
         "total_aum": 11267.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -9034,7 +9034,7 @@
       "entity_id": "NO-0073",
       "entity_name": "Vy Group",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -9047,7 +9047,7 @@
       "website": null,
       "financials": {
         "total_aum": 337373.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -9091,7 +9091,7 @@
       "entity_id": "NO-0074",
       "entity_name": "Yara International ASA",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "NO",
       "country_name": "Norway",
@@ -9104,7 +9104,7 @@
       "website": null,
       "financials": {
         "total_aum": 1068000.0,
-        "aum_currency": "NOK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,

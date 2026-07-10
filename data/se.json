@@ -2,9 +2,9 @@
   "country_code": "SE",
   "country_name": "Sweden",
   "reporting_period": "2026-07 (S&P export date)",
-  "source_note": "Currency confirmation is still an open item, as with other countries — figures are inferred to be SEK from context (Swedish institutions, magnitudes consistent with SEK) rather than stated explicitly by the source data. The Central Bank of Sweden (Riksbank, S&P Category 'Reserve Banks', ~SEK 111.0bn) is excluded throughout, same convention as UK's Bank of England / Denmark's Nationalbank exclusion. Worth your particular attention: five of Sweden's national AP-fonden buffer pension funds (AP2, AP3, AP4, AP6, AP7) are tagged 'Government' by S&P and sit in DB Pension (Govt) / DC Pension (Govt) here by that category's mechanical default — but combined they're roughly SEK 326bn, well over half of everything tracked for Sweden. These are state-owned national pension reserve/buffer funds rather than a conventional government-employee pension scheme, and are sometimes discussed alongside sovereign wealth funds given their scale and mandate — similar in spirit to the NTMA judgement call flagged for Ireland. Left in DB/DC Pension (Govt) by default since that's what S&P's own category says, but this is very much a call worth revisiting given how much of the total it represents; reclassifying some or all of them to SWF would substantially reshape Sweden's segment mix. S&P's 'Private Foundation' category (one institution, IngaBritt och Arne Lundbergs Forskningsstiftelse) was mapped to Foundations E&F rather than Tax exempt E&F, since S&P's own label distinguishes it from the four 'Tax Exempt Organization' institutions (two of which — Nobel Foundation and Stiftelse Sveriges Sjömanshus — are also literally named 'Foundation'/'Stiftelse' in Swedish; flagging the same name-vs-category ambiguity noted for Denmark). Vastra Gotalandsregionen (a regional government body reporting E&F-style assets rather than a DB/DC pension split) was folded into Tax exempt E&F as the closest existing bucket, since Government doesn't have its own E&F segment in the taxonomy. 77 institutions tracked (78 in the export, minus the Riksbank), SEK 526.61bn tracked; no independent check yet on how exhaustive that is against Sweden's actual institutional universe.",
-  "scorecard_note": "Not yet scored — none of the 12 opportunity-scorecard dimensions have been filled in for any Sweden segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
-  "allocation_note": "Built bottom-up directly from the real plan-level allocation lines in se_institutions_latest.json, same real-bottom-up approach as Ireland and Denmark (no scaling or equity-anchoring — Sweden has no legacy workbook figure to reconcile against). Raw asset_type values mapped onto the standard six buckets; 'Loans' folded into Fixed Income, everything else non-standard folded into Other/Unclassified. Same 5%-of-asset-type materiality threshold as other countries for style breakdowns. Plan-level lines with an explicit Defined Benefit or Defined Contribution plan type are assigned directly to that segment; ambiguous plan types are split across an institution's actual segments in proportion to its own DB/DC/E&F asset split, excluding any segment already covered by its own explicitly-typed plan (same fix applied for Denmark's Lundbeck case). Coverage is 96-100% for most segments; two exceptions worth flagging: Tax exempt E&F is only 51.5% covered (several of its five institutions have plan-level lines with no reported dollar breakdown), and DC Pension (Corp) — a single, very small institution (Perstorp Holding AB, SEK 28.6m) — has 0% allocation coverage because its only DC plan-level row in the export has no asset-type or dollar-amount data at all. Also worth a look: DC Pension (Govt)'s allocation is 87.8% 'Alternatives / Derivatives', driven almost entirely by Sjunde AP-fonden (AP7)'s default fund — that doesn't match AP7's publicly-known equity-heavy strategy, so treat that particular breakdown as a data-labelling quirk in the source export worth double-checking rather than a confirmed shift in positioning.",
+  "source_note": "Currency confirmed (2026-07-10): S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). These figures are USD, not SEK as previously assumed here. The Central Bank of Sweden (Riksbank, S&P Category 'Reserve Banks', ~SEK 111.0bn) is excluded throughout, same convention as UK's Bank of England / Denmark's Nationalbank exclusion. Worth your particular attention: five of Sweden's national AP-fonden buffer pension funds (AP2, AP3, AP4, AP6, AP7) are tagged 'Government' by S&P and sit in DB Pension (Govt) / DC Pension (Govt) here by that category's mechanical default \u2014 but combined they're roughly SEK 326bn, well over half of everything tracked for Sweden. These are state-owned national pension reserve/buffer funds rather than a conventional government-employee pension scheme, and are sometimes discussed alongside sovereign wealth funds given their scale and mandate \u2014 similar in spirit to the NTMA judgement call flagged for Ireland. Left in DB/DC Pension (Govt) by default since that's what S&P's own category says, but this is very much a call worth revisiting given how much of the total it represents; reclassifying some or all of them to SWF would substantially reshape Sweden's segment mix. S&P's 'Private Foundation' category (one institution, IngaBritt och Arne Lundbergs Forskningsstiftelse) was mapped to Foundations E&F rather than Tax exempt E&F, since S&P's own label distinguishes it from the four 'Tax Exempt Organization' institutions (two of which \u2014 Nobel Foundation and Stiftelse Sveriges Sj\u00f6manshus \u2014 are also literally named 'Foundation'/'Stiftelse' in Swedish; flagging the same name-vs-category ambiguity noted for Denmark). Vastra Gotalandsregionen (a regional government body reporting E&F-style assets rather than a DB/DC pension split) was folded into Tax exempt E&F as the closest existing bucket, since Government doesn't have its own E&F segment in the taxonomy. 77 institutions tracked (78 in the export, minus the Riksbank), SEK 526.61bn tracked; no independent check yet on how exhaustive that is against Sweden's actual institutional universe.",
+  "scorecard_note": "Not yet scored \u2014 none of the 12 opportunity-scorecard dimensions have been filled in for any Sweden segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
+  "allocation_note": "Built bottom-up directly from the real plan-level allocation lines in se_institutions_latest.json, same real-bottom-up approach as Ireland and Denmark (no scaling or equity-anchoring \u2014 Sweden has no legacy workbook figure to reconcile against). Raw asset_type values mapped onto the standard six buckets; 'Loans' folded into Fixed Income, everything else non-standard folded into Other/Unclassified. Same 5%-of-asset-type materiality threshold as other countries for style breakdowns. Plan-level lines with an explicit Defined Benefit or Defined Contribution plan type are assigned directly to that segment; ambiguous plan types are split across an institution's actual segments in proportion to its own DB/DC/E&F asset split, excluding any segment already covered by its own explicitly-typed plan (same fix applied for Denmark's Lundbeck case). Coverage is 96-100% for most segments; two exceptions worth flagging: Tax exempt E&F is only 51.5% covered (several of its five institutions have plan-level lines with no reported dollar breakdown), and DC Pension (Corp) \u2014 a single, very small institution (Perstorp Holding AB, SEK 28.6m) \u2014 has 0% allocation coverage because its only DC plan-level row in the export has no asset-type or dollar-amount data at all. Also worth a look: DC Pension (Govt)'s allocation is 87.8% 'Alternatives / Derivatives', driven almost entirely by Sjunde AP-fonden (AP7)'s default fund \u2014 that doesn't match AP7's publicly-known equity-heavy strategy, so treat that particular breakdown as a data-labelling quirk in the source export worth double-checking rather than a confirmed shift in positioning.",
   "segments": [
     {
       "segment": "DB Pension (Corp)",
@@ -118,7 +118,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true
@@ -144,7 +144,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true
@@ -246,7 +246,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ]
     },
@@ -316,7 +316,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ]
     },
@@ -375,7 +375,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ]
     },
@@ -423,7 +423,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ]
     },
@@ -539,7 +539,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true
@@ -621,7 +621,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ]
     }

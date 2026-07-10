@@ -1,0 +1,3133 @@
+{
+  "country_code": "FI",
+  "country_name": "Finland",
+  "extraction_date": "2026-07-10",
+  "record_count": 47,
+  "source_files": [
+    "Finland_company.xls",
+    "Finland_AA.xls",
+    "Finland_manager.xls",
+    "Finland_provider.xls"
+  ],
+  "schema_version": "Atlas_Schema_Proposal_v1.md, Section 1",
+  "institutions": [
+    {
+      "entity_id": "FI-0001",
+      "entity_name": "\u00c5lands landskapsregering",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Government",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9375434",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 688997.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 688997.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 270776.0,
+              "pct_of_plan": 39.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 224613.0,
+              "pct_of_plan": 33.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 193608.0,
+              "pct_of_plan": 28.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0002",
+      "entity_name": "Amer Sports Corp.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9696566",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 139569.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Multinational Consolidated Plan",
+          "plan_assets": 139569.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 29728.0,
+              "pct_of_plan": 21.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "United Kingdom",
+              "vehicle_type": "Unspecified",
+              "value": 6001.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 24145.0,
+              "pct_of_plan": 17.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Corporate Bonds",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 55828.0,
+              "pct_of_plan": 40.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 23866.0,
+              "pct_of_plan": 17.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0003",
+      "entity_name": "Apteekkien El\u00e4kekassa",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9682648",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 615120.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 615120.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3260.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 511657.0,
+              "pct_of_plan": 83.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 90853.0,
+              "pct_of_plan": 15.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 9350.0,
+              "pct_of_plan": 2.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0004",
+      "entity_name": "Elisa Oyj",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9696571",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 40291.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "FI-0005",
+      "entity_name": "Eltel Group Corp.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9409313",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 76040.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 76040.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 25093.0,
+              "pct_of_plan": 33.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 50947.0,
+              "pct_of_plan": 67.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0006",
+      "entity_name": "Evangelical Lutheran Church of Finland",
+      "former_names": [],
+      "entity_type": "E&F",
+      "sub_type": "Tax Exempt Organization",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9682640",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 2113453.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "FI-0007",
+      "entity_name": "Finnair Oyj",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9696572",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 410067.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 410067.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 50028.0,
+              "pct_of_plan": 12.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 244810.0,
+              "pct_of_plan": 60.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 99236.0,
+              "pct_of_plan": 24.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 15993.0,
+              "pct_of_plan": 4.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0008",
+      "entity_name": "Finnish Financial Stability Authority",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Government",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9385696",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 2272677.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 904175.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1368502.0,
+              "pct_of_plan": 100.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 904175.0,
+              "pct_of_plan": 100.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0009",
+      "entity_name": "Fortum Oyj",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9696575",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 312327.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "FI-0010",
+      "entity_name": "Huhtam\u00e4ki Oyj",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9696576",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 376117.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 376117.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 93051.0,
+              "pct_of_plan": 25.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 14669.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 81128.0,
+              "pct_of_plan": 22.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Europe",
+              "vehicle_type": "Unspecified",
+              "value": 4401.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Europe",
+              "vehicle_type": "Unspecified",
+              "value": 17076.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "North America",
+              "vehicle_type": "Unspecified",
+              "value": 54198.0,
+              "pct_of_plan": 14.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "North America",
+              "vehicle_type": "Unspecified",
+              "value": 111594.0,
+              "pct_of_plan": 30.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0011",
+      "entity_name": "Ilmarinen",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9682632",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 66556671.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "FI-0012",
+      "entity_name": "Kela- Social Insurance Institution",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Government",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9309176",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 4483260.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Hybrid DB/DC Plan",
+          "plan_assets": 4483260.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1894177.0,
+              "pct_of_plan": 42.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2589083.0,
+              "pct_of_plan": 58.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0013",
+      "entity_name": "Kemira Oyj",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9460345",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 286503.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Multinational Consolidated Plan",
+          "plan_assets": 286503.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 100219.0,
+              "pct_of_plan": 35.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 37962.0,
+              "pct_of_plan": 13.0
+            },
+            {
+              "asset_type": "Other Assets",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 148323.0,
+              "pct_of_plan": 52.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0014",
+      "entity_name": "Kesko Oyj",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9696568",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 383953.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "FI-0015",
+      "entity_name": "Keva",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Government",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9304677",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 74715815.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 74715815.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedge Funds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5155391.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 14270721.0,
+              "pct_of_plan": 19.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 28466726.0,
+              "pct_of_plan": 38.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 19724975.0,
+              "pct_of_plan": 26.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5005960.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2092043.0,
+              "pct_of_plan": 3.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0016",
+      "entity_name": "KONE Corporation",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9696577",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 819115.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "FI-0017",
+      "entity_name": "Konecranes Plc",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9696578",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 53526.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Multinational Consolidated Plan",
+          "plan_assets": 53526.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5519.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2318.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 33331.0,
+              "pct_of_plan": 62.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5187.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 7172.0,
+              "pct_of_plan": 13.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0018",
+      "entity_name": "Mela",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Union",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9375433",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 288272.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 288272.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 273512.0,
+              "pct_of_plan": 95.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 14644.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 115.0,
+              "pct_of_plan": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0019",
+      "entity_name": "Merimieselakekassa",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9682641",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 1518927.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 1518927.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Commodities",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 119995.0,
+              "pct_of_plan": 8.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedge Funds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 12151.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Money Market",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 42530.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 835410.0,
+              "pct_of_plan": 55.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 97211.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1519.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 285558.0,
+              "pct_of_plan": 19.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 124552.0,
+              "pct_of_plan": 8.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0020",
+      "entity_name": "Mets\u00e4 Board",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9696580",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 39863.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Multinational Consolidated Plan",
+          "plan_assets": 39863.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 399.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 37073.0,
+              "pct_of_plan": 93.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2392.0,
+              "pct_of_plan": 6.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0021",
+      "entity_name": "Mets\u00e4liitto Cooperative",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9397018",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 123607.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Multinational Consolidated Plan",
+          "plan_assets": 123607.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4747.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 118663.0,
+              "pct_of_plan": 96.0
+            },
+            {
+              "asset_type": "Other Investment",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 198.0,
+              "pct_of_plan": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0022",
+      "entity_name": "Metso Outotec Corporation",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9696581",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 92705.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Multinational Consolidated Plan",
+          "plan_assets": 92705.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1854.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2781.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 81580.0,
+              "pct_of_plan": 88.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 927.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 927.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4635.0,
+              "pct_of_plan": 5.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0023",
+      "entity_name": "Neste Corporation",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9696582",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 295773.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "FI-0024",
+      "entity_name": "Nokia Corporation",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9696583",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 2182982.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Multinational Consolidated Plan",
+          "plan_assets": 2182982.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 43660.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 567575.0,
+              "pct_of_plan": 26.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 130979.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 283788.0,
+              "pct_of_plan": 13.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1091491.0,
+              "pct_of_plan": 50.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 65489.0,
+              "pct_of_plan": 3.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0025",
+      "entity_name": "Nordea Bank Abp",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9681981",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 1562741.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 1562741.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 343803.0,
+              "pct_of_plan": 22.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1203311.0,
+              "pct_of_plan": 77.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 15627.0,
+              "pct_of_plan": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0026",
+      "entity_name": "Nordea Bank Finland plc",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9682649",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 652246.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Closed or Frozen Defined Benefit Plan",
+          "plan_assets": 652246.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 13045.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Corporate Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 136972.0,
+              "pct_of_plan": 21.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 6522.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 189151.0,
+              "pct_of_plan": 29.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 58702.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 136972.0,
+              "pct_of_plan": 21.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 26090.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Finland",
+              "vehicle_type": "Unspecified",
+              "value": 26090.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Emerging Markets",
+              "vehicle_type": "Unspecified",
+              "value": 26090.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Europe",
+              "vehicle_type": "Unspecified",
+              "value": 32612.0,
+              "pct_of_plan": 5.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0027",
+      "entity_name": "Nordic Environment Finance Corporation",
+      "former_names": [],
+      "entity_type": "E&F",
+      "sub_type": "Tax Exempt Organization",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9385815",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 134078.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 134078.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 32983.0,
+              "pct_of_plan": 25.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Credit",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 26976.0,
+              "pct_of_plan": 20.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 59772.0,
+              "pct_of_plan": 45.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 14346.0,
+              "pct_of_plan": 11.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0028",
+      "entity_name": "\u00d6msesidiga Arbetspensionsf\u00f6rs\u00e4kringsbolaget Elo",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9682636",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 37816797.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 37816797.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedge Funds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3985890.0,
+              "pct_of_plan": 11.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 6319187.0,
+              "pct_of_plan": 17.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Money Market",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1039962.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 13738842.0,
+              "pct_of_plan": 36.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unlisted",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 854660.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 7170065.0,
+              "pct_of_plan": 19.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 502963.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1599651.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Direct",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2605577.0,
+              "pct_of_plan": 7.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0029",
+      "entity_name": "OP Financial Group",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9397464",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 640106.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 640106.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 130198.0,
+              "pct_of_plan": 20.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4417.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 14402.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Mutual Fund",
+              "value": 491089.0,
+              "pct_of_plan": 77.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0030",
+      "entity_name": "Orion Oyj",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9696585",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 34102.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 34102.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Money Market",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2387.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 9208.0,
+              "pct_of_plan": 27.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 7502.0,
+              "pct_of_plan": 22.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 341.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Developed",
+              "vehicle_type": "Unspecified",
+              "value": 14664.0,
+              "pct_of_plan": 43.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0031",
+      "entity_name": "Outokumpu Oyj",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9696586",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 367509.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Multinational Consolidated Plan",
+          "plan_assets": 367509.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2205.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 291361.0,
+              "pct_of_plan": 79.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 73943.0,
+              "pct_of_plan": 20.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0032",
+      "entity_name": "Sampo Oyj",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9696594",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 257146.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 1104.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 51208.0,
+              "pct_of_plan": 20.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 107538.0,
+              "pct_of_plan": 42.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 25604.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 71692.0,
+              "pct_of_plan": 28.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0033",
+      "entity_name": "Sanoma Oyj",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9696595",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 189273.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 189273.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2839.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 100315.0,
+              "pct_of_plan": 53.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 64353.0,
+              "pct_of_plan": 34.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 21766.0,
+              "pct_of_plan": 12.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0034",
+      "entity_name": "Sigrid Juselius Stiftelse",
+      "former_names": [],
+      "entity_type": "E&F",
+      "sub_type": "Tax Exempt Organization",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9763874",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 1438031.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 1438031.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 320681.0,
+              "pct_of_plan": 22.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 946224.0,
+              "pct_of_plan": 66.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 48893.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 122233.0,
+              "pct_of_plan": 9.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0035",
+      "entity_name": "Suomen Itsen\u00e4isyyden Juhlarahasto Sitra",
+      "former_names": [],
+      "entity_type": "Sovereign Wealth Fund",
+      "sub_type": "Sovereign Wealth Funds",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9412925",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 878732.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Sovereign Wealth Fund",
+          "plan_assets": 878732.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Infrastructure",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 31986.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Limited Partnerships",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 11599.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Securities Lending Collateral",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 8963.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Venture Capital",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 6766.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 112302.0,
+              "pct_of_plan": 13.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 6590.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 209050.0,
+              "pct_of_plan": 24.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 166432.0,
+              "pct_of_plan": 19.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Finland",
+              "vehicle_type": "Unspecified",
+              "value": 20299.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Timberland",
+              "investment_region": "Finland",
+              "vehicle_type": "Unspecified",
+              "value": 9666.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Finland",
+              "vehicle_type": "Mutual Fund",
+              "value": 102900.0,
+              "pct_of_plan": 12.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Venture Capital",
+              "investment_region": "Asia",
+              "vehicle_type": "Unspecified",
+              "value": 4482.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Emerging Markets",
+              "vehicle_type": "Unspecified",
+              "value": 50527.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Emerging Markets",
+              "vehicle_type": "Mutual Fund",
+              "value": 20914.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Venture Capital",
+              "investment_region": "Europe",
+              "vehicle_type": "Unspecified",
+              "value": 7733.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Europe",
+              "vehicle_type": "Unspecified",
+              "value": 43234.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Europe",
+              "vehicle_type": "Unspecified",
+              "value": 11599.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "REITs",
+              "investment_region": "Europe",
+              "vehicle_type": "Unspecified",
+              "value": 11511.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Infrastructure",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 9051.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "REITs",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 16520.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "High Yield Bonds",
+              "investment_region": "Global",
+              "vehicle_type": "Mutual Fund",
+              "value": 16608.0,
+              "pct_of_plan": 2.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0036",
+      "entity_name": "Stiftelsen f\u00f6r \u00c5bo Akademi",
+      "former_names": [],
+      "entity_type": "E&F",
+      "sub_type": "Tax Exempt Organization",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9406661",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 24213.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 24213.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 298.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 19172.0,
+              "pct_of_plan": 79.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3591.0,
+              "pct_of_plan": 15.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1153.0,
+              "pct_of_plan": 5.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0037",
+      "entity_name": "Stora Enso Oyj",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9696596",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 645624.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "FI-0038",
+      "entity_name": "Suomen Kulttuurirahasto",
+      "former_names": [],
+      "entity_type": "E&F",
+      "sub_type": "Tax Exempt Organization",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9410508",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 220779.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 220779.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 16757.0,
+              "pct_of_plan": 8.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 175122.0,
+              "pct_of_plan": 79.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 905.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 27995.0,
+              "pct_of_plan": 13.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0039",
+      "entity_name": "Suomen Pankki",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Reserve Banks",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9368315",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 95315087.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 95315087.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Precious Metals",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5699842.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Eurozone coins",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 38126.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Currency",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 9464788.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Currency",
+              "investment_region": "European Union",
+              "vehicle_type": "Unspecified",
+              "value": 343134.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "European Union",
+              "vehicle_type": "Unspecified",
+              "value": 79769196.0,
+              "pct_of_plan": 84.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0040",
+      "entity_name": "University of Helsinki",
+      "former_names": [],
+      "entity_type": "Endowment",
+      "sub_type": "Endowment",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9760615",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 2214089.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 1698362.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 421143.0,
+              "pct_of_plan": 82.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 92728.0,
+              "pct_of_plan": 18.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1857.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 29721.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Assets - independent funds",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1136034.0,
+              "pct_of_plan": 67.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 532606.0,
+              "pct_of_plan": 31.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0041",
+      "entity_name": "UPM Group",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9696600",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 41680.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Multinational Consolidated Plan",
+          "plan_assets": 11756.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Money Market",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4585.0,
+              "pct_of_plan": 39.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 470.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1411.0,
+              "pct_of_plan": 12.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2704.0,
+              "pct_of_plan": 23.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1999.0,
+              "pct_of_plan": 17.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 588.0,
+              "pct_of_plan": 5.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0042",
+      "entity_name": "Valmet Corporation",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9395672",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 260457.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 260457.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 26046.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 208366.0,
+              "pct_of_plan": 80.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 26046.0,
+              "pct_of_plan": 10.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0043",
+      "entity_name": "Varma Mutual Pension Insurance Company",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9682631",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 75363426.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 75363426.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedge Funds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 11719013.0,
+              "pct_of_plan": 16.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 12600765.0,
+              "pct_of_plan": 17.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Money Market",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2185539.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 29549999.0,
+              "pct_of_plan": 39.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unlisted",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1190742.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 9797245.0,
+              "pct_of_plan": 13.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2283512.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2773374.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Direct",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3263236.0,
+              "pct_of_plan": 4.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0044",
+      "entity_name": "Valtion Elakerahasto",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Government",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9682634",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 28363315.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 28363315.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 14238384.0,
+              "pct_of_plan": 50.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 12423132.0,
+              "pct_of_plan": 44.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1701799.0,
+              "pct_of_plan": 6.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0045",
+      "entity_name": "Veritas Pensionforsakring",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9682638",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 4867785.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 4867785.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedge Funds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 527668.0,
+              "pct_of_plan": 11.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2041549.0,
+              "pct_of_plan": 42.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unlisted",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 75937.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 131430.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1197475.0,
+              "pct_of_plan": 25.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 67662.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "REITs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 133377.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Direct",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 555414.0,
+              "pct_of_plan": 11.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 137272.0,
+              "pct_of_plan": 3.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0046",
+      "entity_name": "Wartsila Oyj Abp",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9696606",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 151758.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Multinational Consolidated Plan",
+          "plan_assets": 151758.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 21246.0,
+              "pct_of_plan": 14.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 59186.0,
+              "pct_of_plan": 39.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 28834.0,
+              "pct_of_plan": 19.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 42492.0,
+              "pct_of_plan": 28.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "FI-0047",
+      "entity_name": "Yrj\u00f6 Jahnsson Foundation",
+      "former_names": [],
+      "entity_type": "E&F",
+      "sub_type": "Tax Exempt Organization",
+      "country_code": "FI",
+      "country_name": "Finland",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9406714",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 67053.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 67053.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 644.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 66409.0,
+              "pct_of_plan": 99.0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

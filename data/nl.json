@@ -2,9 +2,9 @@
   "country_code": "NL",
   "country_name": "Netherlands",
   "reporting_period": "2026-07 (S&P export date)",
-  "source_note": "Currency confirmation is still an open item, as with other countries — figures are inferred to be EUR from context (Dutch institutions, magnitudes consistent with EUR) rather than stated explicitly by the source data. De Nederlandsche Bank (Bank of the Netherlands, S&P Category 'Reserve Banks', ~EUR 265.9bn) is excluded throughout, same convention as the other central-bank exclusions (UK, Denmark). DB Pension (Govt) is dominated by just two institutions — Stichting Pensioenfonds ABP (EUR 588.2bn, civil service & education) and Pensioenfonds Zorg en Welzijn / PFZW (EUR 277.5bn, healthcare & welfare) — together EUR 865.7bn, nearly all of the segment and about 47% of everything tracked for the Netherlands. Unlike Sweden's AP-fonden, these genuinely are large sectoral government-employee pension funds (not sovereign investment vehicles), so no reclassification flag is needed, but it's worth knowing the segment is effectively two institutions rather than a broad base. DB Pension (Union) is similarly concentrated in a small number of large Dutch sectoral pension funds (PMT, bpfBOUW, PME, Pensioenfonds Vervoer, etc.) — a distinctive feature of the Dutch pension system, where collectively-bargained sector funds are tagged 'Union' by S&P rather than 'Corporation'. A new S&P category not seen in prior countries — 'Health Service Organization - nonprofit' (two Dutch academic medical centres) — was mapped to the taxonomy's dedicated Healthcare non-profit E&F segment. 212 institutions tracked (213 in the export, minus the Reserve Banks record), EUR 1,841.33bn tracked; no independent check yet on how exhaustive that is against the Netherlands' actual institutional universe.",
-  "scorecard_note": "Not yet scored — none of the 12 opportunity-scorecard dimensions have been filled in for any Netherlands segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
-  "allocation_note": "Built bottom-up directly from the real plan-level allocation lines in nl_institutions_latest.json, same real-bottom-up approach as Ireland, Denmark, Sweden, and Switzerland (no scaling or equity-anchoring). Raw asset_type values mapped onto the standard six buckets; 'Loans' folded into Fixed Income, everything else non-standard folded into Other/Unclassified. Same 5%-of-asset-type materiality threshold for style breakdowns. Plan-level lines with an explicit Defined Benefit or Defined Contribution plan type are assigned directly to that segment; ambiguous plan types are split across an institution's actual segments in proportion to its own DB/DC/E&F asset split, excluding any segment already covered by its own explicitly-typed plan. Coverage is lower here than in prior countries for three segments — DB Pension (Union) at 76.9%, Tax exempt E&F at 75.2%, and DC Pension (Corp) at 82.9% — reflecting more plan-level rows in the Dutch export with no reported dollar breakdown; the other five segments are 96-100% covered.",
+  "source_note": "Currency confirmed (2026-07-10): S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). These figures are USD, not EUR as previously assumed here. De Nederlandsche Bank (Bank of the Netherlands, S&P Category 'Reserve Banks', ~EUR 265.9bn) is excluded throughout, same convention as the other central-bank exclusions (UK, Denmark). DB Pension (Govt) is dominated by just two institutions \u2014 Stichting Pensioenfonds ABP (EUR 588.2bn, civil service & education) and Pensioenfonds Zorg en Welzijn / PFZW (EUR 277.5bn, healthcare & welfare) \u2014 together EUR 865.7bn, nearly all of the segment and about 47% of everything tracked for the Netherlands. Unlike Sweden's AP-fonden, these genuinely are large sectoral government-employee pension funds (not sovereign investment vehicles), so no reclassification flag is needed, but it's worth knowing the segment is effectively two institutions rather than a broad base. DB Pension (Union) is similarly concentrated in a small number of large Dutch sectoral pension funds (PMT, bpfBOUW, PME, Pensioenfonds Vervoer, etc.) \u2014 a distinctive feature of the Dutch pension system, where collectively-bargained sector funds are tagged 'Union' by S&P rather than 'Corporation'. A new S&P category not seen in prior countries \u2014 'Health Service Organization - nonprofit' (two Dutch academic medical centres) \u2014 was mapped to the taxonomy's dedicated Healthcare non-profit E&F segment. 212 institutions tracked (213 in the export, minus the Reserve Banks record), EUR 1,841.33bn tracked; no independent check yet on how exhaustive that is against the Netherlands' actual institutional universe.",
+  "scorecard_note": "Not yet scored \u2014 none of the 12 opportunity-scorecard dimensions have been filled in for any Netherlands segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
+  "allocation_note": "Built bottom-up directly from the real plan-level allocation lines in nl_institutions_latest.json, same real-bottom-up approach as Ireland, Denmark, Sweden, and Switzerland (no scaling or equity-anchoring). Raw asset_type values mapped onto the standard six buckets; 'Loans' folded into Fixed Income, everything else non-standard folded into Other/Unclassified. Same 5%-of-asset-type materiality threshold for style breakdowns. Plan-level lines with an explicit Defined Benefit or Defined Contribution plan type are assigned directly to that segment; ambiguous plan types are split across an institution's actual segments in proportion to its own DB/DC/E&F asset split, excluding any segment already covered by its own explicitly-typed plan. Coverage is lower here than in prior countries for three segments \u2014 DB Pension (Union) at 76.9%, Tax exempt E&F at 75.2%, and DC Pension (Corp) at 82.9% \u2014 reflecting more plan-level rows in the Dutch export with no reported dollar breakdown; the other five segments are 96-100% covered.",
   "segments": [
     {
       "segment": "DB Pension (Corp)",
@@ -130,7 +130,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true
@@ -255,7 +255,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true
@@ -377,7 +377,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ]
     },
@@ -501,7 +501,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true
@@ -626,7 +626,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ]
     },
@@ -696,7 +696,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ]
     },
@@ -812,7 +812,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true
@@ -872,7 +872,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ]
     }

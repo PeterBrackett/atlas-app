@@ -1,0 +1,295 @@
+{
+  "country_code": "IS",
+  "country_name": "Iceland",
+  "reporting_period": "2026-07 (S&P export date)",
+  "source_note": "Currency confirmed (2026-07-10): S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). These figures are USD. Category mapping and plan-type routing reused the established rule set from prior builds; no unresolved judgement calls for this country. Categories/institutions excluded from all pension segments (Reserve Banks and similar non-pension pools, or institutions with no DB/DC/E&F breakdown reported): Reserve Banks ($7.29bn). 20 institutions tracked, $59.7bn tracked across all segments.",
+  "scorecard_note": "Not yet scored \u2014 none of the 12 opportunity-scorecard dimensions have been filled in for any Iceland segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
+  "allocation_note": "Built the same real-bottom-up way as every other country: summed actual plan-level AA lines into the six standard buckets, with ambiguous plan types (Investment Pool Funds, Hybrid DB/DC Plan, Other Retirement Fund) ratio-split across each institution's actual segments using the two-pass double-count-avoidance logic, and explicitly-named pools (Sovereign Wealth Fund, Endowment Fund, Foundation Fund Or Investment Pool, Other Tax-exempt Fund) routed directly. Same 5%-of-asset-type materiality threshold for style breakdowns.",
+  "segments": [
+    {
+      "segment": "DB Pension (Corp)",
+      "aum_bn": 32.117481,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 15.318072,
+          "pct_of_segment": 47.7,
+          "styles": [
+            {
+              "asset_style": "Bonds",
+              "value_bn": 10.788074
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 2.687011
+            },
+            {
+              "asset_style": "Government Bonds",
+              "value_bn": 1.842987
+            }
+          ]
+        },
+        {
+          "asset_type": "Equities",
+          "value_bn": 11.896818,
+          "pct_of_segment": 37.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 9.588192
+            },
+            {
+              "asset_style": "Company Shares",
+              "value_bn": 1.51508
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.793546
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 2.228255,
+          "pct_of_segment": 6.9,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 2.038277
+            },
+            {
+              "asset_style": "Special Situations",
+              "value_bn": 0.189978
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 1.672505,
+          "pct_of_segment": 5.2,
+          "styles": [
+            {
+              "asset_style": "Limited Partnerships",
+              "value_bn": 1.293632
+            },
+            {
+              "asset_style": "Private Equity",
+              "value_bn": 0.183369
+            },
+            {
+              "asset_style": "Infrastructure",
+              "value_bn": 0.117363
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.078141
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 0.818942,
+          "pct_of_segment": 2.5,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.498148
+            },
+            {
+              "asset_style": "CDs",
+              "value_bn": 0.320794
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 0.181756,
+          "pct_of_segment": 0.6,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.181756
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 32.117481,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (Iceland)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-10",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Govt)",
+      "aum_bn": 16.896545,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 9.249141,
+          "pct_of_segment": 54.7,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 8.341952
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.907189
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 6.730382,
+          "pct_of_segment": 39.8,
+          "styles": [
+            {
+              "asset_style": "Bonds",
+              "value_bn": 4.991833
+            },
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.807922
+            },
+            {
+              "asset_style": "Government Bonds",
+              "value_bn": 0.509662
+            },
+            {
+              "asset_style": "Credit",
+              "value_bn": 0.420965
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 0.481168,
+          "pct_of_segment": 2.8,
+          "styles": [
+            {
+              "asset_style": "ESG",
+              "value_bn": 0.312966
+            },
+            {
+              "asset_style": "Technology",
+              "value_bn": 0.122245
+            },
+            {
+              "asset_style": "Private Equity",
+              "value_bn": 0.045957
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 0.435854,
+          "pct_of_segment": 2.6,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.339907
+            },
+            {
+              "asset_style": "CDs",
+              "value_bn": 0.095947
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 16.896545,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (Iceland)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-10",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Union)",
+      "aum_bn": 10.678962,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 6.724542,
+          "pct_of_segment": 63.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 6.724542
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 3.842291,
+          "pct_of_segment": 36.0,
+          "styles": [
+            {
+              "asset_style": "Bonds",
+              "value_bn": 3.842291
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 0.112129,
+          "pct_of_segment": 1.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.112129
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 10.678962,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (Iceland)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-10",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+        }
+      ]
+    }
+  ]
+}

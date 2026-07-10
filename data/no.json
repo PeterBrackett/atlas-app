@@ -2,9 +2,9 @@
   "country_code": "NO",
   "country_name": "Norway",
   "reporting_period": "2026-07 (S&P export date)",
-  "source_note": "Currency confirmation is still an open item, as with other countries — figures are inferred to be NOK from context (Norwegian institutions, magnitudes consistent with NOK) rather than stated explicitly by the source data. No Reserve Banks record appeared in this export (Norges Bank itself isn't a separate line; it manages the Government Pension Fund Global operationally but GPFG is the legal entity reported here). Unlike Ireland and Sweden, no reclassification judgement call was needed for the SWF segment: S&P's own export already carries a dedicated 'Sovereign Wealth Funds' category, covering three institutions — Norway Government Pension Fund Global (NOK 1,956.6bn, the well-known 'Oil Fund'), Folketrygdfondet (NOK 39.6bn, manages the smaller domestic Government Pension Fund Norway), and Norfund (NOK 4.3bn, Norway's development finance institution) — mapped directly and mechanically to the SWF segment. Together they're NOK 2,000.5bn, about 93% of everything tracked for Norway, which is a real and accurate reflection of how dominant GPFG is in the Norwegian institutional landscape, not a data artefact. 74 institutions tracked, NOK 2,142.40bn tracked; no independent check yet on how exhaustive that is against Norway's actual institutional universe beyond the SWF entities and the tracked pension/tax-exempt sector.",
-  "scorecard_note": "Not yet scored — none of the 12 opportunity-scorecard dimensions have been filled in for any Norway segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
-  "allocation_note": "Built bottom-up directly from the real plan-level allocation lines in no_institutions_latest.json, same real-bottom-up approach as the other recently-built countries (no scaling or equity-anchoring). Raw asset_type values mapped onto the standard six buckets; 'Loans' folded into Fixed Income, everything else non-standard folded into Other/Unclassified. Same 5%-of-asset-type materiality threshold for style breakdowns. The SWF segment's allocation is a clean, fully-covered (100%) breakdown built directly from GPFG's own reported lines — 69.2% Equities, 27.2% Fixed Income, 1.8% Real Estate — which lines up closely with GPFG's publicly known target allocation, a good sign of data quality for this segment specifically. Coverage elsewhere: DB Pension (Govt) 97.7%, DB Pension (Corp) 90.2%, Tax exempt E&F 75.2%. Two very small segments — DB Pension (Tax exempt) at NOK 42.5m and DC Pension (Tax exempt) at NOK 8.1m, together under 0.003% of the country total — have 0% allocation coverage; their plan-level rows in the export simply have no reported dollar breakdown, immaterial at this scale.",
+  "source_note": "Currency confirmed (2026-07-10): S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). These figures are USD, not NOK as previously assumed here. No Reserve Banks record appeared in this export (Norges Bank itself isn't a separate line; it manages the Government Pension Fund Global operationally but GPFG is the legal entity reported here). Unlike Ireland and Sweden, no reclassification judgement call was needed for the SWF segment: S&P's own export already carries a dedicated 'Sovereign Wealth Funds' category, covering three institutions \u2014 Norway Government Pension Fund Global (NOK 1,956.6bn, the well-known 'Oil Fund'), Folketrygdfondet (NOK 39.6bn, manages the smaller domestic Government Pension Fund Norway), and Norfund (NOK 4.3bn, Norway's development finance institution) \u2014 mapped directly and mechanically to the SWF segment. Together they're NOK 2,000.5bn, about 93% of everything tracked for Norway, which is a real and accurate reflection of how dominant GPFG is in the Norwegian institutional landscape, not a data artefact. 74 institutions tracked, NOK 2,142.40bn tracked; no independent check yet on how exhaustive that is against Norway's actual institutional universe beyond the SWF entities and the tracked pension/tax-exempt sector.",
+  "scorecard_note": "Not yet scored \u2014 none of the 12 opportunity-scorecard dimensions have been filled in for any Norway segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
+  "allocation_note": "Built bottom-up directly from the real plan-level allocation lines in no_institutions_latest.json, same real-bottom-up approach as the other recently-built countries (no scaling or equity-anchoring). Raw asset_type values mapped onto the standard six buckets; 'Loans' folded into Fixed Income, everything else non-standard folded into Other/Unclassified. Same 5%-of-asset-type materiality threshold for style breakdowns. The SWF segment's allocation is a clean, fully-covered (100%) breakdown built directly from GPFG's own reported lines \u2014 69.2% Equities, 27.2% Fixed Income, 1.8% Real Estate \u2014 which lines up closely with GPFG's publicly known target allocation, a good sign of data quality for this segment specifically. Coverage elsewhere: DB Pension (Govt) 97.7%, DB Pension (Corp) 90.2%, Tax exempt E&F 75.2%. Two very small segments \u2014 DB Pension (Tax exempt) at NOK 42.5m and DC Pension (Tax exempt) at NOK 8.1m, together under 0.003% of the country total \u2014 have 0% allocation coverage; their plan-level rows in the export simply have no reported dollar breakdown, immaterial at this scale.",
   "segments": [
     {
       "segment": "DB Pension (Corp)",
@@ -122,7 +122,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true
@@ -231,7 +231,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true
@@ -257,7 +257,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true
@@ -283,7 +283,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true
@@ -362,7 +362,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true
@@ -467,7 +467,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ]
     }

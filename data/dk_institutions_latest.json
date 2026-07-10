@@ -28,7 +28,7 @@
       "website": null,
       "financials": {
         "total_aum": 100332.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -110,7 +110,7 @@
       "website": null,
       "financials": {
         "total_aum": 180149.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -171,7 +171,7 @@
       "entity_id": "DK-0003",
       "entity_name": "A.P. Moller - Maersk AS",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -184,7 +184,7 @@
       "website": null,
       "financials": {
         "total_aum": 118262.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -228,7 +228,7 @@
       "entity_id": "DK-0004",
       "entity_name": "AP Pension Livsforsikringsaktieselskab",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -241,7 +241,7 @@
       "website": null,
       "financials": {
         "total_aum": 26013224.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -350,7 +350,7 @@
       "entity_id": "DK-0005",
       "entity_name": "Arbejdsmarkedets Tillaegspension (ATP)",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -363,7 +363,7 @@
       "website": null,
       "financials": {
         "total_aum": 119092048.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -541,7 +541,7 @@
       "entity_id": "DK-0006",
       "entity_name": "Carlsberg AS",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -554,7 +554,7 @@
       "website": null,
       "financials": {
         "total_aum": 2184220.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -639,7 +639,7 @@
       "entity_id": "DK-0007",
       "entity_name": "Danfoss A/S",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -652,7 +652,7 @@
       "website": null,
       "financials": {
         "total_aum": 52462.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -729,7 +729,7 @@
       "entity_id": "DK-0008",
       "entity_name": "Danica Pension",
       "former_names": [],
-      "entity_type": "Pension – DC",
+      "entity_type": "Pension \u2013 DC",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -742,7 +742,7 @@
       "website": null,
       "financials": {
         "total_aum": 83075884.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -884,7 +884,7 @@
       "website": null,
       "financials": {
         "total_aum": 706474.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -1013,7 +1013,7 @@
       "entity_id": "DK-0010",
       "entity_name": "Danmarks Nationalbank",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -1026,7 +1026,7 @@
       "website": null,
       "financials": {
         "total_aum": 648855.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -1083,7 +1083,7 @@
       "website": null,
       "financials": {
         "total_aum": 234246.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -1152,7 +1152,7 @@
       "entity_id": "DK-0012",
       "entity_name": "DFDS AS",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -1165,7 +1165,7 @@
       "website": null,
       "financials": {
         "total_aum": 84698.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -1226,7 +1226,7 @@
       "entity_id": "DK-0013",
       "entity_name": "DSV A/S",
       "former_names": [],
-      "entity_type": "Pension – Hybrid",
+      "entity_type": "Pension \u2013 Hybrid",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -1239,7 +1239,7 @@
       "website": null,
       "financials": {
         "total_aum": 1089569.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -1314,7 +1314,7 @@
       "entity_id": "DK-0014",
       "entity_name": "FLSmidth & Co. AS",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -1327,7 +1327,7 @@
       "website": null,
       "financials": {
         "total_aum": 60858.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -1371,7 +1371,7 @@
       "entity_id": "DK-0015",
       "entity_name": "H+H International AS",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -1384,7 +1384,7 @@
       "website": null,
       "financials": {
         "total_aum": 76702.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -1469,7 +1469,7 @@
       "entity_id": "DK-0016",
       "entity_name": "Industriens Pension",
       "former_names": [],
-      "entity_type": "Pension – DC",
+      "entity_type": "Pension \u2013 DC",
       "sub_type": "Union",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -1482,7 +1482,7 @@
       "website": null,
       "financials": {
         "total_aum": 38797857.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -1779,7 +1779,7 @@
       "entity_id": "DK-0017",
       "entity_name": "ISP Pension",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -1792,7 +1792,7 @@
       "website": null,
       "financials": {
         "total_aum": 2810716.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -1893,7 +1893,7 @@
       "entity_id": "DK-0018",
       "entity_name": "ISS Global AS",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -1906,7 +1906,7 @@
       "website": null,
       "financials": {
         "total_aum": 1536550.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -2007,7 +2007,7 @@
       "entity_id": "DK-0019",
       "entity_name": "P+, Pensionskassen for Akademikere",
       "former_names": [],
-      "entity_type": "Pension – DC",
+      "entity_type": "Pension \u2013 DC",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -2020,7 +2020,7 @@
       "website": null,
       "financials": {
         "total_aum": 21725521.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -2113,7 +2113,7 @@
             "investment_region": "Unspecified",
             "value": null,
             "year_hired": null,
-            "plan_name": "JØP Pension"
+            "plan_name": "J\u00d8P Pension"
           }
         ],
         "other_providers": [],
@@ -2137,7 +2137,7 @@
     },
     {
       "entity_id": "DK-0020",
-      "entity_name": "Københavns Universitet",
+      "entity_name": "K\u00f8benhavns Universitet",
       "former_names": [],
       "entity_type": "Endowment",
       "sub_type": "Endowment",
@@ -2152,7 +2152,7 @@
       "website": null,
       "financials": {
         "total_aum": 825166.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -2251,9 +2251,9 @@
     },
     {
       "entity_id": "DK-0021",
-      "entity_name": "Lægernes Pensionskasse",
+      "entity_name": "L\u00e6gernes Pensionskasse",
       "former_names": [],
-      "entity_type": "Pension – DC",
+      "entity_type": "Pension \u2013 DC",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -2266,7 +2266,7 @@
       "website": null,
       "financials": {
         "total_aum": 18808489.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -2341,9 +2341,9 @@
     },
     {
       "entity_id": "DK-0022",
-      "entity_name": "Lærernes Pension",
+      "entity_name": "L\u00e6rernes Pension",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -2356,7 +2356,7 @@
       "website": null,
       "financials": {
         "total_aum": 27430865.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -2490,7 +2490,7 @@
             "plan_name": "Pension Plan"
           },
           {
-            "manager_name": "Capital Four Management Fondsmæglerselskab A/S, Copenhagen, Denmark",
+            "manager_name": "Capital Four Management Fondsm\u00e6glerselskab A/S, Copenhagen, Denmark",
             "asset_class": null,
             "asset_style": null,
             "investment_region": null,
@@ -2904,7 +2904,7 @@
       "website": null,
       "financials": {
         "total_aum": 3442141.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -2971,9 +2971,9 @@
     },
     {
       "entity_id": "DK-0024",
-      "entity_name": "Lønmodtagernes Dyrtidsfond (LD)",
+      "entity_name": "L\u00f8nmodtagernes Dyrtidsfond (LD)",
       "former_names": [],
-      "entity_type": "Pension – DC",
+      "entity_type": "Pension \u2013 DC",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -2986,7 +2986,7 @@
       "website": null,
       "financials": {
         "total_aum": 6419662.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -3184,7 +3184,7 @@
             "plan_name": "Pension Plan"
           },
           {
-            "manager_name": "Petersen & Partners Investment Management, Vedbæk, EU",
+            "manager_name": "Petersen & Partners Investment Management, Vedb\u00e6k, EU",
             "asset_class": null,
             "asset_style": null,
             "investment_region": null,
@@ -3240,7 +3240,7 @@
       "entity_id": "DK-0025",
       "entity_name": "Lundbeck Foundation",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Tax Exempt Organization",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -3253,7 +3253,7 @@
       "website": null,
       "financials": {
         "total_aum": 5308554.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -3401,7 +3401,7 @@
       "entity_id": "DK-0026",
       "entity_name": "Pensionskassen Magistre & Psykologer (AkademikerPension)",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Government",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -3414,7 +3414,7 @@
       "website": null,
       "financials": {
         "total_aum": 24146213.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -3605,7 +3605,7 @@
             "plan_name": "Defined Benefit Plan"
           },
           {
-            "manager_name": "EQT Fund Management S.à r.l., Luxembourg, Luxembourg",
+            "manager_name": "EQT Fund Management S.\u00e0 r.l., Luxembourg, Luxembourg",
             "asset_class": null,
             "asset_style": null,
             "investment_region": null,
@@ -3997,7 +3997,7 @@
       "entity_id": "DK-0027",
       "entity_name": "Norli Pension Livsforsikring A/S",
       "former_names": [],
-      "entity_type": "Pension – DC",
+      "entity_type": "Pension \u2013 DC",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -4010,7 +4010,7 @@
       "website": null,
       "financials": {
         "total_aum": 311549.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -4111,7 +4111,7 @@
       "entity_id": "DK-0028",
       "entity_name": "Novo Nordisk AS",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -4124,7 +4124,7 @@
       "website": null,
       "financials": {
         "total_aum": 201319.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -4168,7 +4168,7 @@
       "entity_id": "DK-0029",
       "entity_name": "Nykredit Group",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -4181,7 +4181,7 @@
       "website": null,
       "financials": {
         "total_aum": 82773.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -4223,9 +4223,9 @@
     },
     {
       "entity_id": "DK-0030",
-      "entity_name": "Pædagogernes Pensionskasse (PBU)",
+      "entity_name": "P\u00e6dagogernes Pensionskasse (PBU)",
       "former_names": [],
-      "entity_type": "Pension – DC",
+      "entity_type": "Pension \u2013 DC",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -4238,7 +4238,7 @@
       "website": null,
       "financials": {
         "total_aum": 15581096.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -4331,7 +4331,7 @@
       "entity_id": "DK-0031",
       "entity_name": "PenSam",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -4344,7 +4344,7 @@
       "website": null,
       "financials": {
         "total_aum": 27276128.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -4429,7 +4429,7 @@
       "entity_id": "DK-0032",
       "entity_name": "PensionDanmark A/S",
       "former_names": [],
-      "entity_type": "Pension – DC",
+      "entity_type": "Pension \u2013 DC",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -4442,7 +4442,7 @@
       "website": null,
       "financials": {
         "total_aum": 54173133.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -4537,7 +4537,7 @@
       "entity_id": "DK-0033",
       "entity_name": "Pensionskassen Arkitekter (AP)",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -4550,7 +4550,7 @@
       "website": null,
       "financials": {
         "total_aum": 1180042.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -4649,7 +4649,7 @@
       "entity_id": "DK-0034",
       "entity_name": "Pensionskassen for Farmakonomer",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -4662,7 +4662,7 @@
       "website": null,
       "financials": {
         "total_aum": 2116862.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -4759,9 +4759,9 @@
     },
     {
       "entity_id": "DK-0035",
-      "entity_name": "Pensionskassen Jordbrugsakademikere & Dyrlæger (PJD)",
+      "entity_name": "Pensionskassen Jordbrugsakademikere & Dyrl\u00e6ger (PJD)",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -4774,7 +4774,7 @@
       "website": null,
       "financials": {
         "total_aum": 2845965.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -4889,7 +4889,7 @@
       "entity_id": "DK-0036",
       "entity_name": "PFA Pension",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -4902,7 +4902,7 @@
       "website": null,
       "financials": {
         "total_aum": 123936246.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -4987,7 +4987,7 @@
       "entity_id": "DK-0037",
       "entity_name": "Pensionskassernes Administration A/S (PKA)",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -5000,7 +5000,7 @@
       "website": null,
       "financials": {
         "total_aum": 67558519.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -5347,7 +5347,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensionskassen for Sygeplejersker og Lægesekretær"
+            "plan_name": "Pensionskassen for Sygeplejersker og L\u00e6gesekret\u00e6r"
           },
           {
             "manager_name": "Institutional Investment Partners Denmark P/S, Copenhagen, Denmark",
@@ -5356,7 +5356,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensionskassen for Sygeplejersker og Lægesekretær"
+            "plan_name": "Pensionskassen for Sygeplejersker og L\u00e6gesekret\u00e6r"
           },
           {
             "manager_name": "Janus Henderson Investors, London, United Kingdom",
@@ -5365,7 +5365,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensionskassen for Sygeplejersker og Lægesekretær"
+            "plan_name": "Pensionskassen for Sygeplejersker og L\u00e6gesekret\u00e6r"
           },
           {
             "manager_name": "M&G Investment Management Limited, London, United Kingdom",
@@ -5374,7 +5374,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensionskassen for Sygeplejersker og Lægesekretær"
+            "plan_name": "Pensionskassen for Sygeplejersker og L\u00e6gesekret\u00e6r"
           },
           {
             "manager_name": "Osmosis Investment Management LLP, London, United Kingdom",
@@ -5383,7 +5383,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensionskassen for Sygeplejersker og Lægesekretær"
+            "plan_name": "Pensionskassen for Sygeplejersker og L\u00e6gesekret\u00e6r"
           },
           {
             "manager_name": "Resolute Global Partners, Hamilton, Bermuda",
@@ -5392,7 +5392,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensionskassen for Sygeplejersker og Lægesekretær"
+            "plan_name": "Pensionskassen for Sygeplejersker og L\u00e6gesekret\u00e6r"
           },
           {
             "manager_name": "BlackRock Investment Management (UK) Limited, London, United Kingdom",
@@ -5401,7 +5401,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensionskassen for Socialrådgivere, Socialpaedagoger og Kontorpersonale"
+            "plan_name": "Pensionskassen for Socialr\u00e5dgivere, Socialpaedagoger og Kontorpersonale"
           },
           {
             "manager_name": "Institutional Investment Partners Denmark P/S, Copenhagen, Denmark",
@@ -5410,7 +5410,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensionskassen for Socialrådgivere, Socialpaedagoger og Kontorpersonale"
+            "plan_name": "Pensionskassen for Socialr\u00e5dgivere, Socialpaedagoger og Kontorpersonale"
           },
           {
             "manager_name": "Janus Henderson Investors, London, United Kingdom",
@@ -5419,7 +5419,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensionskassen for Socialrådgivere, Socialpaedagoger og Kontorpersonale"
+            "plan_name": "Pensionskassen for Socialr\u00e5dgivere, Socialpaedagoger og Kontorpersonale"
           },
           {
             "manager_name": "M&G Investment Management Limited, London, United Kingdom",
@@ -5428,7 +5428,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensionskassen for Socialrådgivere, Socialpaedagoger og Kontorpersonale"
+            "plan_name": "Pensionskassen for Socialr\u00e5dgivere, Socialpaedagoger og Kontorpersonale"
           },
           {
             "manager_name": "Osmosis Investment Management LLP, London, United Kingdom",
@@ -5437,7 +5437,7 @@
             "investment_region": null,
             "value": null,
             "year_hired": null,
-            "plan_name": "Pensionskassen for Socialrådgivere, Socialpaedagoger og Kontorpersonale"
+            "plan_name": "Pensionskassen for Socialr\u00e5dgivere, Socialpaedagoger og Kontorpersonale"
           }
         ],
         "other_providers": [],
@@ -5476,7 +5476,7 @@
       "website": null,
       "financials": {
         "total_aum": 4344734.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -5593,7 +5593,7 @@
       "entity_id": "DK-0039",
       "entity_name": "Realkredit Danmark A/S",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -5606,7 +5606,7 @@
       "website": null,
       "financials": {
         "total_aum": 73888.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -5650,7 +5650,7 @@
       "entity_id": "DK-0040",
       "entity_name": "Sampension",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -5663,7 +5663,7 @@
       "website": null,
       "financials": {
         "total_aum": 21058601.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -5780,7 +5780,7 @@
       "entity_id": "DK-0041",
       "entity_name": "TDC Group",
       "former_names": [],
-      "entity_type": "Pension – DB",
+      "entity_type": "Pension \u2013 DB",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -5793,7 +5793,7 @@
       "website": null,
       "financials": {
         "total_aum": 5133088.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
@@ -5958,7 +5958,7 @@
       "entity_id": "DK-0042",
       "entity_name": "Velliv, Pension & Livsforsikring A/S",
       "former_names": [],
-      "entity_type": "Pension – DC",
+      "entity_type": "Pension \u2013 DC",
       "sub_type": "Corporation",
       "country_code": "DK",
       "country_name": "Denmark",
@@ -5971,7 +5971,7 @@
       "website": null,
       "financials": {
         "total_aum": 47119394.0,
-        "aum_currency": "DKK",
+        "aum_currency": "USD",
         "aum_as_of_date": "2026-07-09",
         "aum_source": "S&P export",
         "member_count": null,
