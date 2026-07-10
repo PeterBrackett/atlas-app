@@ -2,28 +2,30 @@
   "country_code": "GB",
   "country_name": "United Kingdom",
   "reporting_period": "2026-07 (S&P export date)",
-  "source_note": "PILOT build. Sourced from the S&P Money Manager Database Manager export (results (3).xls), which records, per plan, which external manager runs how much of that plan's assets, in what asset type/style. Segment routing reuses the same category/plan-type rules as every other Atlas data product. A meaningful share of plans disclose no manager breakdown at all, or only a partial one -- the undisclosed remainder (Plan Assets minus the sum of named-manager mandates for that plan, floored at zero) is grouped under 'Not disclosed / self-managed' rather than silently dropped, since that's a real and often large share of every segment. This bucket has no asset-type breakdown, since the raw data doesn't say how an undisclosed/self-managed pool is invested. 7 of 2193 plans ($1,093.01bn) could not be routed to any segment and are excluded entirely -- same categories excluded everywhere else in Atlas (Reserve Banks and similar non-pension pools). Manager names are grouped by the firm name portion of the raw 'Name, City, Country' field, so the same manager's different regional offices roll up together. Never cross-checked against the Manager file for any other country yet -- this is a single-country pilot.",
+  "source_note": "PILOT build. Sourced from the S&P Money Manager Database Manager export (results (3).xls), which records, per plan, which external manager runs how much of that plan's assets, in what asset type/style. Segment routing reuses the same category/plan-type rules as every other Atlas data product. 'Self-managed' and 'Not disclosed' are kept as two separate categories, not merged: 'Self-managed' is only used where S&P explicitly tags the mandate as run in-house (e.g. 'In House Asset Management') -- covering both rows with a specific dollar figure and, for a plan whose only manager tag anywhere is that self-managed tag, the plan's full remaining gap too (S&P is telling us the whole plan is run in-house, just not always the exact split). 'Not disclosed' is reserved for genuine unknowns -- plans with no manager information at all, or plans naming at least one real external manager where a leftover gap remains that can't be attributed to anyone specifically. Neither bucket has an asset-type breakdown, since the raw data doesn't say how those amounts are invested. 'identified_coverage_pct' on each segment counts both named external managers and self-managed amounts as identified -- only 'Not disclosed' counts against coverage. 7 of 2193 plans ($1,093.01bn) could not be routed to any segment and are excluded entirely -- same categories excluded everywhere else in Atlas (Reserve Banks and similar non-pension pools). Manager names are grouped by the firm name portion of the raw 'Name, City, Country' field, so the same manager's different regional offices roll up together. Never cross-checked against the Manager file for any other country yet -- this is a single-country pilot.",
   "segments": [
     {
       "segment": "DB Pension (Corp)",
       "total_plan_assets_bn": 1373.11285,
-      "total_disclosed_managed_bn": 33.807428,
-      "disclosed_coverage_pct": 2.5,
+      "total_identified_managed_bn": 36.123962,
+      "identified_coverage_pct": 2.6,
       "managers": [
         {
-          "manager_name": "Not disclosed / self-managed",
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
           "is_undisclosed": true,
-          "total_managed_bn": 1339.305422,
-          "market_share_pct": 97.5,
+          "total_managed_bn": 1336.988888,
+          "market_share_pct": 97.4,
           "by_asset_type": [
             {
               "asset_type": "Not broken down",
-              "value_bn": 1339.305422
+              "value_bn": 1336.988888
             }
           ]
         },
         {
           "manager_name": "Legal & General Investment Management Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 12.605013,
           "market_share_pct": 0.9,
@@ -76,6 +78,7 @@
         },
         {
           "manager_name": "BlackRock Investment Management (UK) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 3.600397,
           "market_share_pct": 0.3,
@@ -113,7 +116,31 @@
           ]
         },
         {
+          "manager_name": "Self-managed",
+          "is_self_managed": true,
+          "is_undisclosed": false,
+          "total_managed_bn": 2.339018,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 2.316534
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.022484,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.022484
+                }
+              ]
+            }
+          ]
+        },
+        {
           "manager_name": "M&G Investment Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 2.307417,
           "market_share_pct": 0.2,
@@ -146,6 +173,7 @@
         },
         {
           "manager_name": "Aviva Investors London Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.497066,
           "market_share_pct": 0.1,
@@ -178,6 +206,7 @@
         },
         {
           "manager_name": "Insight Investment Management (Global) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.439325,
           "market_share_pct": 0.1,
@@ -216,6 +245,7 @@
         },
         {
           "manager_name": "Pacific Investment Management Company (PIMCO) (Europe)",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.285475,
           "market_share_pct": 0.1,
@@ -234,6 +264,7 @@
         },
         {
           "manager_name": "ICG-Longbow",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.943405,
           "market_share_pct": 0.1,
@@ -252,6 +283,7 @@
         },
         {
           "manager_name": "Prudential plc",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.905402,
           "market_share_pct": 0.1,
@@ -270,6 +302,7 @@
         },
         {
           "manager_name": "abrdn",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.714615,
           "market_share_pct": 0.1,
@@ -288,6 +321,7 @@
         },
         {
           "manager_name": "Macquarie Group Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.582227,
           "market_share_pct": 0.0,
@@ -306,6 +340,7 @@
         },
         {
           "manager_name": "AXA Investment Managers UK Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.567375,
           "market_share_pct": 0.0,
@@ -324,6 +359,7 @@
         },
         {
           "manager_name": "Greencoat Capital",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.550648,
           "market_share_pct": 0.0,
@@ -342,6 +378,7 @@
         },
         {
           "manager_name": "Hg Capital Advisors",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.54078,
           "market_share_pct": 0.0,
@@ -360,6 +397,7 @@
         },
         {
           "manager_name": "Cambridge Associates",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.436177,
           "market_share_pct": 0.0,
@@ -378,6 +416,7 @@
         },
         {
           "manager_name": "Morgan Stanley Investment Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.431837,
           "market_share_pct": 0.0,
@@ -396,6 +435,7 @@
         },
         {
           "manager_name": "Amundi (UK) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.420944,
           "market_share_pct": 0.0,
@@ -414,6 +454,7 @@
         },
         {
           "manager_name": "Barings Asset Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.420572,
           "market_share_pct": 0.0,
@@ -432,6 +473,7 @@
         },
         {
           "manager_name": "Goldman Sachs Asset Management International Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.2921,
           "market_share_pct": 0.0,
@@ -450,6 +492,7 @@
         },
         {
           "manager_name": "Sanders Capital",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.268416,
           "market_share_pct": 0.0,
@@ -468,6 +511,7 @@
         },
         {
           "manager_name": "LibreMax Capital",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.236838,
           "market_share_pct": 0.0,
@@ -486,6 +530,7 @@
         },
         {
           "manager_name": "Navis Capital Partners Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.234864,
           "market_share_pct": 0.0,
@@ -504,6 +549,7 @@
         },
         {
           "manager_name": "Partners Group (USA)",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.204678,
           "market_share_pct": 0.0,
@@ -522,6 +568,7 @@
         },
         {
           "manager_name": "Infracapital Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.201312,
           "market_share_pct": 0.0,
@@ -540,6 +587,7 @@
         },
         {
           "manager_name": "Blackstone Alternative Asset Management LP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.195065,
           "market_share_pct": 0.0,
@@ -558,6 +606,7 @@
         },
         {
           "manager_name": "Silchester International Investors LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.185869,
           "market_share_pct": 0.0,
@@ -576,6 +625,7 @@
         },
         {
           "manager_name": "Baillie Gifford & Co.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.181576,
           "market_share_pct": 0.0,
@@ -594,6 +644,7 @@
         },
         {
           "manager_name": "Orchard Global Asset Management (S) Pte. Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.155918,
           "market_share_pct": 0.0,
@@ -612,6 +663,7 @@
         },
         {
           "manager_name": "Boston Partners Global Investors",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.12997,
           "market_share_pct": 0.0,
@@ -630,6 +682,7 @@
         },
         {
           "manager_name": "Mercer Private Markets AG",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.122892,
           "market_share_pct": 0.0,
@@ -648,6 +701,7 @@
         },
         {
           "manager_name": "State Street Investment Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.117485,
           "market_share_pct": 0.0,
@@ -676,6 +730,7 @@
         },
         {
           "manager_name": "Dalmore Capital Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.116445,
           "market_share_pct": 0.0,
@@ -694,6 +749,7 @@
         },
         {
           "manager_name": "BlackRock",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.106254,
           "market_share_pct": 0.0,
@@ -722,6 +778,7 @@
         },
         {
           "manager_name": "Columbia Threadneedle Investments",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.099562,
           "market_share_pct": 0.0,
@@ -740,6 +797,7 @@
         },
         {
           "manager_name": "InfraRed Capital Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.098683,
           "market_share_pct": 0.0,
@@ -758,6 +816,7 @@
         },
         {
           "manager_name": "Kohlberg Kravis Roberts & Co. LP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.098683,
           "market_share_pct": 0.0,
@@ -776,6 +835,7 @@
         },
         {
           "manager_name": "Cabot Square Capital LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.094735,
           "market_share_pct": 0.0,
@@ -794,6 +854,7 @@
         },
         {
           "manager_name": "Warburg Pincus International",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.092762,
           "market_share_pct": 0.0,
@@ -812,6 +873,7 @@
         },
         {
           "manager_name": "CVC Capital Partners Advisory Company Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.086918,
           "market_share_pct": 0.0,
@@ -830,6 +892,7 @@
         },
         {
           "manager_name": "Highbridge Capital Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.086918,
           "market_share_pct": 0.0,
@@ -848,6 +911,7 @@
         },
         {
           "manager_name": "IPUT plc",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.084445,
           "market_share_pct": 0.0,
@@ -866,6 +930,7 @@
         },
         {
           "manager_name": "Insight Investment International Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.074525,
           "market_share_pct": 0.0,
@@ -884,6 +949,7 @@
         },
         {
           "manager_name": "SEI Investments (Europe) Ltd",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.073881,
           "market_share_pct": 0.0,
@@ -902,6 +968,7 @@
         },
         {
           "manager_name": "CBRE Investment Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.070496,
           "market_share_pct": 0.0,
@@ -920,6 +987,7 @@
         },
         {
           "manager_name": "Columbia Threadneedle International Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.070496,
           "market_share_pct": 0.0,
@@ -938,6 +1006,7 @@
         },
         {
           "manager_name": "Russell Investment Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.069473,
           "market_share_pct": 0.0,
@@ -956,6 +1025,7 @@
         },
         {
           "manager_name": "Mobius Life Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.058767,
           "market_share_pct": 0.0,
@@ -974,6 +1044,7 @@
         },
         {
           "manager_name": "Pantheon Ventures (UK) LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.055262,
           "market_share_pct": 0.0,
@@ -992,6 +1063,7 @@
         },
         {
           "manager_name": "Irish Life Investment Managers",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.053379,
           "market_share_pct": 0.0,
@@ -1010,6 +1082,7 @@
         },
         {
           "manager_name": "Oak Hill Advisors (Europe)",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.049088,
           "market_share_pct": 0.0,
@@ -1028,6 +1101,7 @@
         },
         {
           "manager_name": "Wellington Management International Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.048672,
           "market_share_pct": 0.0,
@@ -1046,6 +1120,7 @@
         },
         {
           "manager_name": "AXA Equitable Funds Management Group",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.040248,
           "market_share_pct": 0.0,
@@ -1064,6 +1139,7 @@
         },
         {
           "manager_name": "CVC Credit Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.040248,
           "market_share_pct": 0.0,
@@ -1082,6 +1158,7 @@
         },
         {
           "manager_name": "Copenhagen Infrastructure Partners (CIP)",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.038452,
           "market_share_pct": 0.0,
@@ -1100,6 +1177,7 @@
         },
         {
           "manager_name": "Sun Capital Advisors",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.037499,
           "market_share_pct": 0.0,
@@ -1118,6 +1196,7 @@
         },
         {
           "manager_name": "Chorus Capital Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.033696,
           "market_share_pct": 0.0,
@@ -1136,6 +1215,7 @@
         },
         {
           "manager_name": "Mirova",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.032487,
           "market_share_pct": 0.0,
@@ -1154,6 +1234,7 @@
         },
         {
           "manager_name": "Solaris Investment Management Ltd",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.023818,
           "market_share_pct": 0.0,
@@ -1171,25 +1252,8 @@
           ]
         },
         {
-          "manager_name": "In House Asset Management",
-          "is_undisclosed": false,
-          "total_managed_bn": 0.022484,
-          "market_share_pct": 0.0,
-          "by_asset_type": [
-            {
-              "asset_type": "Cash & Short-Term",
-              "value_bn": 0.022484,
-              "styles": [
-                {
-                  "asset_style": "Unspecified",
-                  "value_bn": 0.022484
-                }
-              ]
-            }
-          ]
-        },
-        {
           "manager_name": "Schroders plc",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.019435,
           "market_share_pct": 0.0,
@@ -1208,6 +1272,7 @@
         },
         {
           "manager_name": "DRC Capital LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.016848,
           "market_share_pct": 0.0,
@@ -1226,6 +1291,7 @@
         },
         {
           "manager_name": "abrdn plc",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.013679,
           "market_share_pct": 0.0,
@@ -1244,6 +1310,7 @@
         },
         {
           "manager_name": "Ruffer LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.013667,
           "market_share_pct": 0.0,
@@ -1262,6 +1329,7 @@
         },
         {
           "manager_name": "BNY Mellon Investment Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.012376,
           "market_share_pct": 0.0,
@@ -1280,6 +1348,7 @@
         },
         {
           "manager_name": "Man Investments Australia Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.011369,
           "market_share_pct": 0.0,
@@ -1298,6 +1367,7 @@
         },
         {
           "manager_name": "BNY Mellon Investment Management EMEA Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.010874,
           "market_share_pct": 0.0,
@@ -1316,6 +1386,7 @@
         },
         {
           "manager_name": "Hony Capital Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.009868,
           "market_share_pct": 0.0,
@@ -1334,6 +1405,7 @@
         },
         {
           "manager_name": "PAAMCO Prisma",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.009868,
           "market_share_pct": 0.0,
@@ -1352,6 +1424,7 @@
         },
         {
           "manager_name": "Marshall Wace LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.008364,
           "market_share_pct": 0.0,
@@ -1370,6 +1443,7 @@
         },
         {
           "manager_name": "J.P. Morgan Asset Management (UK) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.008298,
           "market_share_pct": 0.0,
@@ -1388,6 +1462,7 @@
         },
         {
           "manager_name": "Schroder Property Investment Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.007751,
           "market_share_pct": 0.0,
@@ -1406,6 +1481,7 @@
         },
         {
           "manager_name": "Intermediate Capital Managers Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.00733,
           "market_share_pct": 0.0,
@@ -1424,6 +1500,7 @@
         },
         {
           "manager_name": "Aviva Investors Americas",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.005026,
           "market_share_pct": 0.0,
@@ -1442,6 +1519,7 @@
         },
         {
           "manager_name": "Fidelity Investments",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.004879,
           "market_share_pct": 0.0,
@@ -1460,6 +1538,7 @@
         },
         {
           "manager_name": "The Vanguard Group Inc.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.004795,
           "market_share_pct": 0.0,
@@ -1478,6 +1557,7 @@
         },
         {
           "manager_name": "CBRE Investment Management (UK Funds) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.003947,
           "market_share_pct": 0.0,
@@ -1496,6 +1576,7 @@
         },
         {
           "manager_name": "Nephila Capital Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.002808,
           "market_share_pct": 0.0,
@@ -1514,6 +1595,7 @@
         },
         {
           "manager_name": "Aegon UK plc",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.001986,
           "market_share_pct": 0.0,
@@ -1532,6 +1614,7 @@
         },
         {
           "manager_name": "ReAssure Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.000166,
           "market_share_pct": 0.0,
@@ -1550,6 +1633,7 @@
         },
         {
           "manager_name": "Phoenix Investment Adviser LLC",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 6e-05,
           "market_share_pct": 0.0,
@@ -1571,11 +1655,12 @@
     {
       "segment": "DB Pension (Govt)",
       "total_plan_assets_bn": 696.881905,
-      "total_disclosed_managed_bn": 359.971828,
-      "disclosed_coverage_pct": 51.7,
+      "total_identified_managed_bn": 359.971828,
+      "identified_coverage_pct": 51.7,
       "managers": [
         {
-          "manager_name": "Not disclosed / self-managed",
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
           "is_undisclosed": true,
           "total_managed_bn": 336.910081,
           "market_share_pct": 48.3,
@@ -1588,6 +1673,7 @@
         },
         {
           "manager_name": "Legal & General Investment Management Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 51.018745,
           "market_share_pct": 7.3,
@@ -1644,6 +1730,7 @@
         },
         {
           "manager_name": "Border to Coast Pensions Partnership Ltd",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 30.954638,
           "market_share_pct": 4.4,
@@ -1672,6 +1759,7 @@
         },
         {
           "manager_name": "UBS Asset Management (UK) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 28.216753,
           "market_share_pct": 4.0,
@@ -1720,6 +1808,7 @@
         },
         {
           "manager_name": "Local Pensions Partnership Investments Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 25.666098,
           "market_share_pct": 3.7,
@@ -1738,6 +1827,7 @@
         },
         {
           "manager_name": "Brunel Pension Partnership Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 20.515153,
           "market_share_pct": 2.9,
@@ -1755,7 +1845,8 @@
           ]
         },
         {
-          "manager_name": "In House Asset Management",
+          "manager_name": "Self-managed",
+          "is_self_managed": true,
           "is_undisclosed": false,
           "total_managed_bn": 17.251342,
           "market_share_pct": 2.5,
@@ -1784,6 +1875,7 @@
         },
         {
           "manager_name": "Baillie Gifford & Co.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 11.567676,
           "market_share_pct": 1.7,
@@ -1816,6 +1908,7 @@
         },
         {
           "manager_name": "BlackRock Investment Management (UK) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 10.163048,
           "market_share_pct": 1.5,
@@ -1876,6 +1969,7 @@
         },
         {
           "manager_name": "London LGPS CIV Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 9.730673,
           "market_share_pct": 1.4,
@@ -1922,6 +2016,7 @@
         },
         {
           "manager_name": "Baillie Gifford Overseas Ltd",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 9.240855,
           "market_share_pct": 1.3,
@@ -1950,6 +2045,7 @@
         },
         {
           "manager_name": "Schroders plc",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 5.649509,
           "market_share_pct": 0.8,
@@ -1982,6 +2078,7 @@
         },
         {
           "manager_name": "LGPS Central",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 5.067974,
           "market_share_pct": 0.7,
@@ -2000,6 +2097,7 @@
         },
         {
           "manager_name": "abrdn",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 4.982528,
           "market_share_pct": 0.7,
@@ -2038,6 +2136,7 @@
         },
         {
           "manager_name": "Partners Group AG",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 4.095111,
           "market_share_pct": 0.6,
@@ -2090,6 +2189,7 @@
         },
         {
           "manager_name": "LGIM International Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 4.066805,
           "market_share_pct": 0.6,
@@ -2122,6 +2222,7 @@
         },
         {
           "manager_name": "J.P. Morgan Asset Management (UK) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 3.919401,
           "market_share_pct": 0.6,
@@ -2164,6 +2265,7 @@
         },
         {
           "manager_name": "Russell Investments",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 3.870674,
           "market_share_pct": 0.6,
@@ -2182,6 +2284,7 @@
         },
         {
           "manager_name": "DTZ Investment Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 3.816681,
           "market_share_pct": 0.5,
@@ -2200,6 +2303,7 @@
         },
         {
           "manager_name": "CBRE Investment Management Indirect Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 3.71068,
           "market_share_pct": 0.5,
@@ -2232,6 +2336,7 @@
         },
         {
           "manager_name": "M&G Investment Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 3.583679,
           "market_share_pct": 0.5,
@@ -2264,6 +2369,7 @@
         },
         {
           "manager_name": "Pantheon Ventures (UK) LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 3.346964,
           "market_share_pct": 0.5,
@@ -2300,6 +2406,7 @@
         },
         {
           "manager_name": "BlackRock",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 2.945047,
           "market_share_pct": 0.4,
@@ -2328,6 +2435,7 @@
         },
         {
           "manager_name": "Ninety One UK Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 2.729609,
           "market_share_pct": 0.4,
@@ -2356,6 +2464,7 @@
         },
         {
           "manager_name": "FIL Investment Advisors (UK) Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 2.505055,
           "market_share_pct": 0.4,
@@ -2384,6 +2493,7 @@
         },
         {
           "manager_name": "HarbourVest Partners (UK) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 2.400828,
           "market_share_pct": 0.3,
@@ -2416,6 +2526,7 @@
         },
         {
           "manager_name": "CBRE Investment Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 2.353287,
           "market_share_pct": 0.3,
@@ -2458,6 +2569,7 @@
         },
         {
           "manager_name": "Barings Asset Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 2.297315,
           "market_share_pct": 0.3,
@@ -2486,6 +2598,7 @@
         },
         {
           "manager_name": "Fidelity Investments",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 2.20643,
           "market_share_pct": 0.3,
@@ -2504,6 +2617,7 @@
         },
         {
           "manager_name": "Ruffer LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 2.187587,
           "market_share_pct": 0.3,
@@ -2536,6 +2650,7 @@
         },
         {
           "manager_name": "Royal London Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 2.163175,
           "market_share_pct": 0.3,
@@ -2554,6 +2669,7 @@
         },
         {
           "manager_name": "Schroder Investment Management (Europe) SA",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 2.084396,
           "market_share_pct": 0.3,
@@ -2572,6 +2688,7 @@
         },
         {
           "manager_name": "Stone Harbor Investment Partners (UK) LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 2.056445,
           "market_share_pct": 0.3,
@@ -2590,6 +2707,7 @@
         },
         {
           "manager_name": "BlueBay Asset Management USA LLC",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.947753,
           "market_share_pct": 0.3,
@@ -2608,6 +2726,7 @@
         },
         {
           "manager_name": "IFM Investors (UK) Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.911483,
           "market_share_pct": 0.3,
@@ -2636,6 +2755,7 @@
         },
         {
           "manager_name": "State Street Investment Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.900036,
           "market_share_pct": 0.3,
@@ -2654,6 +2774,7 @@
         },
         {
           "manager_name": "Pacific Investment Management Company (PIMCO) (Europe)",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.68718,
           "market_share_pct": 0.2,
@@ -2672,6 +2793,7 @@
         },
         {
           "manager_name": "Insight Investment Management (Global) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.665339,
           "market_share_pct": 0.2,
@@ -2700,6 +2822,7 @@
         },
         {
           "manager_name": "Lazard Asset Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.646044,
           "market_share_pct": 0.2,
@@ -2718,6 +2841,7 @@
         },
         {
           "manager_name": "Newton Investment Management (North America) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.407923,
           "market_share_pct": 0.2,
@@ -2746,6 +2870,7 @@
         },
         {
           "manager_name": "Dodge & Cox",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.401271,
           "market_share_pct": 0.2,
@@ -2764,6 +2889,7 @@
         },
         {
           "manager_name": "Longview Partners LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.398,
           "market_share_pct": 0.2,
@@ -2792,6 +2918,7 @@
         },
         {
           "manager_name": "Insight Equity Management Company LLC",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.39753,
           "market_share_pct": 0.2,
@@ -2810,6 +2937,7 @@
         },
         {
           "manager_name": "CQS",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.38206,
           "market_share_pct": 0.2,
@@ -2846,6 +2974,7 @@
         },
         {
           "manager_name": "Morgan Stanley Investment Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.344379,
           "market_share_pct": 0.2,
@@ -2878,6 +3007,7 @@
         },
         {
           "manager_name": "Partners Group (USA)",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.326866,
           "market_share_pct": 0.2,
@@ -2914,6 +3044,7 @@
         },
         {
           "manager_name": "Alcentra Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.261321,
           "market_share_pct": 0.2,
@@ -2942,6 +3073,7 @@
         },
         {
           "manager_name": "Grosvenor Capital Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.238025,
           "market_share_pct": 0.2,
@@ -2960,6 +3092,7 @@
         },
         {
           "manager_name": "Veritas Asset Management LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.212645,
           "market_share_pct": 0.2,
@@ -2978,6 +3111,7 @@
         },
         {
           "manager_name": "Colliers Capital Holdings Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.140801,
           "market_share_pct": 0.2,
@@ -3006,6 +3140,7 @@
         },
         {
           "manager_name": "Oldfield Partners LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.095292,
           "market_share_pct": 0.2,
@@ -3024,6 +3159,7 @@
         },
         {
           "manager_name": "JP Morgan Alternative Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.09229,
           "market_share_pct": 0.2,
@@ -3052,6 +3188,7 @@
         },
         {
           "manager_name": "Pacific Investment Management Company LLC  (PIMCO)",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.068748,
           "market_share_pct": 0.2,
@@ -3084,6 +3221,7 @@
         },
         {
           "manager_name": "The Sterling Group",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.06809,
           "market_share_pct": 0.2,
@@ -3102,6 +3240,7 @@
         },
         {
           "manager_name": "T. Rowe Price Associates",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.032691,
           "market_share_pct": 0.1,
@@ -3130,6 +3269,7 @@
         },
         {
           "manager_name": "Aviva Investors London Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.013991,
           "market_share_pct": 0.1,
@@ -3178,6 +3318,7 @@
         },
         {
           "manager_name": "Insight Investment International Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.013975,
           "market_share_pct": 0.1,
@@ -3206,6 +3347,7 @@
         },
         {
           "manager_name": "Adams Street Partners UK LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.985641,
           "market_share_pct": 0.1,
@@ -3234,6 +3376,7 @@
         },
         {
           "manager_name": "Harris Associates LP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.966298,
           "market_share_pct": 0.1,
@@ -3262,6 +3405,7 @@
         },
         {
           "manager_name": "Storebrand Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.932219,
           "market_share_pct": 0.1,
@@ -3280,6 +3424,7 @@
         },
         {
           "manager_name": "IFM Investors Pty Ltd",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.91177,
           "market_share_pct": 0.1,
@@ -3308,6 +3453,7 @@
         },
         {
           "manager_name": "LGT Capital Partners (Ireland) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.903793,
           "market_share_pct": 0.1,
@@ -3326,6 +3472,7 @@
         },
         {
           "manager_name": "Unigestion (UK) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.89889,
           "market_share_pct": 0.1,
@@ -3354,6 +3501,7 @@
         },
         {
           "manager_name": "Oak Hill Advisors (Europe)",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.895229,
           "market_share_pct": 0.1,
@@ -3372,6 +3520,7 @@
         },
         {
           "manager_name": "LaSalle Investment Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.853983,
           "market_share_pct": 0.1,
@@ -3400,6 +3549,7 @@
         },
         {
           "manager_name": "Osmosis Investment Management LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.845772,
           "market_share_pct": 0.1,
@@ -3418,6 +3568,7 @@
         },
         {
           "manager_name": "Invesco Asset Management LTD",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.836677,
           "market_share_pct": 0.1,
@@ -3456,6 +3607,7 @@
         },
         {
           "manager_name": "Schroders Capital Management (US) Inc.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.815277,
           "market_share_pct": 0.1,
@@ -3474,6 +3626,7 @@
         },
         {
           "manager_name": "Acadian Asset Management (UK) Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.814336,
           "market_share_pct": 0.1,
@@ -3492,6 +3645,7 @@
         },
         {
           "manager_name": "Blackstone Alternative Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.77091,
           "market_share_pct": 0.1,
@@ -3510,6 +3664,7 @@
         },
         {
           "manager_name": "HarbourVest Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.718315,
           "market_share_pct": 0.1,
@@ -3528,6 +3683,7 @@
         },
         {
           "manager_name": "Columbia Threadneedle International Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.698496,
           "market_share_pct": 0.1,
@@ -3556,6 +3712,7 @@
         },
         {
           "manager_name": "Goldman Sachs Asset Management International Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.697791,
           "market_share_pct": 0.1,
@@ -3584,6 +3741,7 @@
         },
         {
           "manager_name": "MFS International (UK) Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.658069,
           "market_share_pct": 0.1,
@@ -3602,6 +3760,7 @@
         },
         {
           "manager_name": "Permira Advisers LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.646548,
           "market_share_pct": 0.1,
@@ -3634,6 +3793,7 @@
         },
         {
           "manager_name": "Hamilton Lane (UK) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.635578,
           "market_share_pct": 0.1,
@@ -3652,6 +3812,7 @@
         },
         {
           "manager_name": "Ashmore Investment Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.625881,
           "market_share_pct": 0.1,
@@ -3670,6 +3831,7 @@
         },
         {
           "manager_name": "Sarasin & Partners LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.617843,
           "market_share_pct": 0.1,
@@ -3688,6 +3850,7 @@
         },
         {
           "manager_name": "Northern Trust Global Investments",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.61119,
           "market_share_pct": 0.1,
@@ -3706,6 +3869,7 @@
         },
         {
           "manager_name": "Robeco Institutional Asset Management BV",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.592113,
           "market_share_pct": 0.1,
@@ -3724,6 +3888,7 @@
         },
         {
           "manager_name": "Quinbrook Infrastructure Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.584413,
           "market_share_pct": 0.1,
@@ -3762,6 +3927,7 @@
         },
         {
           "manager_name": "Stafford Capital Partners Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.575243,
           "market_share_pct": 0.1,
@@ -3800,6 +3966,7 @@
         },
         {
           "manager_name": "JP Morgan Investment Management Inc.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.55076,
           "market_share_pct": 0.1,
@@ -3836,6 +4003,7 @@
         },
         {
           "manager_name": "Lombard Odier Asset Management (Europe) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.547646,
           "market_share_pct": 0.1,
@@ -3854,6 +4022,7 @@
         },
         {
           "manager_name": "Adams Street Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.536401,
           "market_share_pct": 0.1,
@@ -3882,6 +4051,7 @@
         },
         {
           "manager_name": "RBC Investor & Treasury Services",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.526773,
           "market_share_pct": 0.1,
@@ -3900,6 +4070,7 @@
         },
         {
           "manager_name": "Impax Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.487473,
           "market_share_pct": 0.1,
@@ -3928,6 +4099,7 @@
         },
         {
           "manager_name": "Partner Fund Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.486266,
           "market_share_pct": 0.1,
@@ -3946,6 +4118,7 @@
         },
         {
           "manager_name": "Wellington Management International Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.484588,
           "market_share_pct": 0.1,
@@ -3974,6 +4147,7 @@
         },
         {
           "manager_name": "Man Group plc",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.478962,
           "market_share_pct": 0.1,
@@ -4016,6 +4190,7 @@
         },
         {
           "manager_name": "Patrizia Immobilien AG",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.476969,
           "market_share_pct": 0.1,
@@ -4034,6 +4209,7 @@
         },
         {
           "manager_name": "CBRE Investment Management (UK Funds) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.438482,
           "market_share_pct": 0.1,
@@ -4052,6 +4228,7 @@
         },
         {
           "manager_name": "Janus Henderson Investors",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.434012,
           "market_share_pct": 0.1,
@@ -4070,6 +4247,7 @@
         },
         {
           "manager_name": "Genesis Investment Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.430293,
           "market_share_pct": 0.1,
@@ -4088,6 +4266,7 @@
         },
         {
           "manager_name": "ICG-Longbow",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.430293,
           "market_share_pct": 0.1,
@@ -4106,6 +4285,7 @@
         },
         {
           "manager_name": "JP Morgan Asset Management (Canada) Inc.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.418903,
           "market_share_pct": 0.1,
@@ -4124,6 +4304,7 @@
         },
         {
           "manager_name": "abrdn plc",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.413691,
           "market_share_pct": 0.1,
@@ -4152,6 +4333,7 @@
         },
         {
           "manager_name": "PineBridge Investments Europe Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.361983,
           "market_share_pct": 0.1,
@@ -4170,6 +4352,7 @@
         },
         {
           "manager_name": "TwentyFour Asset Management LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.360403,
           "market_share_pct": 0.1,
@@ -4188,6 +4371,7 @@
         },
         {
           "manager_name": "Kempen Capital Management (UK) Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.353773,
           "market_share_pct": 0.1,
@@ -4206,6 +4390,7 @@
         },
         {
           "manager_name": "Mirova",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.350653,
           "market_share_pct": 0.1,
@@ -4224,6 +4409,7 @@
         },
         {
           "manager_name": "Mobius Life Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.349736,
           "market_share_pct": 0.1,
@@ -4242,6 +4428,7 @@
         },
         {
           "manager_name": "RBC Global Asset Management (UK) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.335569,
           "market_share_pct": 0.0,
@@ -4264,6 +4451,7 @@
         },
         {
           "manager_name": "Pyrford International Ltd",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.335502,
           "market_share_pct": 0.0,
@@ -4282,6 +4470,7 @@
         },
         {
           "manager_name": "Nuveen Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.318177,
           "market_share_pct": 0.0,
@@ -4300,6 +4489,7 @@
         },
         {
           "manager_name": "Gresham House Plc",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.316436,
           "market_share_pct": 0.0,
@@ -4328,6 +4518,7 @@
         },
         {
           "manager_name": "WHEB Asset Management LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.30775,
           "market_share_pct": 0.0,
@@ -4346,6 +4537,7 @@
         },
         {
           "manager_name": "Hermes GPE LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.280419,
           "market_share_pct": 0.0,
@@ -4374,6 +4566,7 @@
         },
         {
           "manager_name": "William Blair & Company LLC",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.26338,
           "market_share_pct": 0.0,
@@ -4392,6 +4585,7 @@
         },
         {
           "manager_name": "Bidwells Property Consultants",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.250276,
           "market_share_pct": 0.0,
@@ -4410,6 +4604,7 @@
         },
         {
           "manager_name": "Antin Infrastructure Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.232618,
           "market_share_pct": 0.0,
@@ -4438,6 +4633,7 @@
         },
         {
           "manager_name": "KKR Credit Advisors (US) LLC",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.220513,
           "market_share_pct": 0.0,
@@ -4456,6 +4652,7 @@
         },
         {
           "manager_name": "Temporis Capital Ltd",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.220031,
           "market_share_pct": 0.0,
@@ -4484,6 +4681,7 @@
         },
         {
           "manager_name": "Allspring Funds Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.212673,
           "market_share_pct": 0.0,
@@ -4502,6 +4700,7 @@
         },
         {
           "manager_name": "C Worldwide Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.207342,
           "market_share_pct": 0.0,
@@ -4520,6 +4719,7 @@
         },
         {
           "manager_name": "Patria Investments",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.194988,
           "market_share_pct": 0.0,
@@ -4538,6 +4738,7 @@
         },
         {
           "manager_name": "Knight Frank Investment Management LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.189379,
           "market_share_pct": 0.0,
@@ -4556,6 +4757,7 @@
         },
         {
           "manager_name": "Churchill Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.1882,
           "market_share_pct": 0.0,
@@ -4584,6 +4786,7 @@
         },
         {
           "manager_name": "Allianz Global Investors GmbH",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.186959,
           "market_share_pct": 0.0,
@@ -4622,6 +4825,7 @@
         },
         {
           "manager_name": "Boston Partners Global Investors",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.181443,
           "market_share_pct": 0.0,
@@ -4640,6 +4844,7 @@
         },
         {
           "manager_name": "Allspring Global Investments (Uk) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.173694,
           "market_share_pct": 0.0,
@@ -4658,6 +4863,7 @@
         },
         {
           "manager_name": "CVC Capital Partners Advisory Company Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.171816,
           "market_share_pct": 0.0,
@@ -4686,6 +4892,7 @@
         },
         {
           "manager_name": "Aegon UK plc",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.1693,
           "market_share_pct": 0.0,
@@ -4704,6 +4911,7 @@
         },
         {
           "manager_name": "Artemis Investment Management LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.166365,
           "market_share_pct": 0.0,
@@ -4722,6 +4930,7 @@
         },
         {
           "manager_name": "TT International",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.163151,
           "market_share_pct": 0.0,
@@ -4740,6 +4949,7 @@
         },
         {
           "manager_name": "Schroder Property Investment Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.161821,
           "market_share_pct": 0.0,
@@ -4758,6 +4968,7 @@
         },
         {
           "manager_name": "Goldman Sachs Asset Management LP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.158294,
           "market_share_pct": 0.0,
@@ -4776,6 +4987,7 @@
         },
         {
           "manager_name": "Cambridge Associates Ltd",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.150671,
           "market_share_pct": 0.0,
@@ -4794,6 +5006,7 @@
         },
         {
           "manager_name": "Federated Hermes Investment Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.148858,
           "market_share_pct": 0.0,
@@ -4812,6 +5025,7 @@
         },
         {
           "manager_name": "Hayfin Capital Management LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.140216,
           "market_share_pct": 0.0,
@@ -4840,6 +5054,7 @@
         },
         {
           "manager_name": "Brockton Capital LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.139563,
           "market_share_pct": 0.0,
@@ -4868,6 +5083,7 @@
         },
         {
           "manager_name": "Apollo Capital Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.135586,
           "market_share_pct": 0.0,
@@ -4886,6 +5102,7 @@
         },
         {
           "manager_name": "ICG Advisors",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.134961,
           "market_share_pct": 0.0,
@@ -4908,6 +5125,7 @@
         },
         {
           "manager_name": "Pemberton Capital Advisors LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.133762,
           "market_share_pct": 0.0,
@@ -4940,6 +5158,7 @@
         },
         {
           "manager_name": "Robeco France",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.133754,
           "market_share_pct": 0.0,
@@ -4958,6 +5177,7 @@
         },
         {
           "manager_name": "CVC Credit Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.130485,
           "market_share_pct": 0.0,
@@ -4976,6 +5196,7 @@
         },
         {
           "manager_name": "StepStone Group LP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.128358,
           "market_share_pct": 0.0,
@@ -4994,6 +5215,7 @@
         },
         {
           "manager_name": "Atlas Infrastructure",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.128229,
           "market_share_pct": 0.0,
@@ -5012,6 +5234,7 @@
         },
         {
           "manager_name": "Equitix Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.127156,
           "market_share_pct": 0.0,
@@ -5040,6 +5263,7 @@
         },
         {
           "manager_name": "T. Rowe Price International Ltd",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.125324,
           "market_share_pct": 0.0,
@@ -5058,6 +5282,7 @@
         },
         {
           "manager_name": "Amundi Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.124409,
           "market_share_pct": 0.0,
@@ -5076,6 +5301,7 @@
         },
         {
           "manager_name": "Darwin Property Investment Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.121696,
           "market_share_pct": 0.0,
@@ -5104,6 +5330,7 @@
         },
         {
           "manager_name": "Fiera Capital (UK) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.121683,
           "market_share_pct": 0.0,
@@ -5122,6 +5349,7 @@
         },
         {
           "manager_name": "YFM Equity Partners LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.121678,
           "market_share_pct": 0.0,
@@ -5140,6 +5368,7 @@
         },
         {
           "manager_name": "UBS Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.12097,
           "market_share_pct": 0.0,
@@ -5168,6 +5397,7 @@
         },
         {
           "manager_name": "Macquarie Group Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.117233,
           "market_share_pct": 0.0,
@@ -5196,6 +5426,7 @@
         },
         {
           "manager_name": "Comgest Asset Management International Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.115727,
           "market_share_pct": 0.0,
@@ -5214,6 +5445,7 @@
         },
         {
           "manager_name": "Global Infrastructure Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.115562,
           "market_share_pct": 0.0,
@@ -5232,6 +5464,7 @@
         },
         {
           "manager_name": "Pantheon Investments",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.115406,
           "market_share_pct": 0.0,
@@ -5250,6 +5483,7 @@
         },
         {
           "manager_name": "Churchill Management Group",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.108225,
           "market_share_pct": 0.0,
@@ -5268,6 +5502,7 @@
         },
         {
           "manager_name": "J.P. Morgan Securities LLC",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.108074,
           "market_share_pct": 0.0,
@@ -5286,6 +5521,7 @@
         },
         {
           "manager_name": "AEW Europe LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.102802,
           "market_share_pct": 0.0,
@@ -5304,6 +5540,7 @@
         },
         {
           "manager_name": "Western Asset Management Company Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.101647,
           "market_share_pct": 0.0,
@@ -5322,6 +5559,7 @@
         },
         {
           "manager_name": "Octopus Healthcare",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.098705,
           "market_share_pct": 0.0,
@@ -5340,6 +5578,7 @@
         },
         {
           "manager_name": "Oak Hill Advisors",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.097736,
           "market_share_pct": 0.0,
@@ -5358,6 +5597,7 @@
         },
         {
           "manager_name": "AIA Pension & Asset Management Sdn. Bhd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.097347,
           "market_share_pct": 0.0,
@@ -5376,6 +5616,7 @@
         },
         {
           "manager_name": "Brookfield Investment Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.094697,
           "market_share_pct": 0.0,
@@ -5394,6 +5635,7 @@
         },
         {
           "manager_name": "Highbridge Capital Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.094697,
           "market_share_pct": 0.0,
@@ -5412,6 +5654,7 @@
         },
         {
           "manager_name": "Knightsbridge Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.094697,
           "market_share_pct": 0.0,
@@ -5430,6 +5673,7 @@
         },
         {
           "manager_name": "UNITE Group plc",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.09389,
           "market_share_pct": 0.0,
@@ -5448,6 +5692,7 @@
         },
         {
           "manager_name": "Alpha Real Capital",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.092955,
           "market_share_pct": 0.0,
@@ -5466,6 +5711,7 @@
         },
         {
           "manager_name": "Macquarie Capital Investment Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.089749,
           "market_share_pct": 0.0,
@@ -5484,6 +5730,7 @@
         },
         {
           "manager_name": "DIF Capital Partners Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.089165,
           "market_share_pct": 0.0,
@@ -5502,6 +5749,7 @@
         },
         {
           "manager_name": "Foresight Group",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.088557,
           "market_share_pct": 0.0,
@@ -5520,6 +5768,7 @@
         },
         {
           "manager_name": "Prudential plc",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.087769,
           "market_share_pct": 0.0,
@@ -5538,6 +5787,7 @@
         },
         {
           "manager_name": "Innisfree Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.084072,
           "market_share_pct": 0.0,
@@ -5556,6 +5806,7 @@
         },
         {
           "manager_name": "Alcentra Group",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.080866,
           "market_share_pct": 0.0,
@@ -5584,6 +5835,7 @@
         },
         {
           "manager_name": "Insight Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.08003,
           "market_share_pct": 0.0,
@@ -5602,6 +5854,7 @@
         },
         {
           "manager_name": "Henley Investments",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.076432,
           "market_share_pct": 0.0,
@@ -5630,6 +5883,7 @@
         },
         {
           "manager_name": "Aberdeen Standard Investments",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.07606,
           "market_share_pct": 0.0,
@@ -5648,6 +5902,7 @@
         },
         {
           "manager_name": "GCM Investments UK LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.075,
           "market_share_pct": 0.0,
@@ -5676,6 +5931,7 @@
         },
         {
           "manager_name": "Kohlberg Kravis Roberts & Co. LP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.072704,
           "market_share_pct": 0.0,
@@ -5694,6 +5950,7 @@
         },
         {
           "manager_name": "Knightsbridge Advisors",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.071785,
           "market_share_pct": 0.0,
@@ -5712,6 +5969,7 @@
         },
         {
           "manager_name": "Lothbury Investment Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.071317,
           "market_share_pct": 0.0,
@@ -5730,6 +5988,7 @@
         },
         {
           "manager_name": "Access Capital Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.06968,
           "market_share_pct": 0.0,
@@ -5748,6 +6007,7 @@
         },
         {
           "manager_name": "Ares Management Ltd",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.068526,
           "market_share_pct": 0.0,
@@ -5766,6 +6026,7 @@
         },
         {
           "manager_name": "Apollo Management International LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.067109,
           "market_share_pct": 0.0,
@@ -5784,6 +6045,7 @@
         },
         {
           "manager_name": "BNY Mellon Investment Management EMEA Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.066892,
           "market_share_pct": 0.0,
@@ -5802,6 +6064,7 @@
         },
         {
           "manager_name": "Capital Dynamics",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.066458,
           "market_share_pct": 0.0,
@@ -5830,6 +6093,7 @@
         },
         {
           "manager_name": "BentallGreenOak (U.S.) Limited Partnership",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.06507,
           "market_share_pct": 0.0,
@@ -5848,6 +6112,7 @@
         },
         {
           "manager_name": "Adept Capital Partners Lt.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.064541,
           "market_share_pct": 0.0,
@@ -5866,6 +6131,7 @@
         },
         {
           "manager_name": "Hearthstone Investments PLC",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.062673,
           "market_share_pct": 0.0,
@@ -5884,6 +6150,7 @@
         },
         {
           "manager_name": "Northern Trust Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.061001,
           "market_share_pct": 0.0,
@@ -5902,6 +6169,7 @@
         },
         {
           "manager_name": "Crescent Capital Group LP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.06093,
           "market_share_pct": 0.0,
@@ -5920,6 +6188,7 @@
         },
         {
           "manager_name": "Fidante Capital",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.060697,
           "market_share_pct": 0.0,
@@ -5938,6 +6207,7 @@
         },
         {
           "manager_name": "HealthCare Royalty Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.060573,
           "market_share_pct": 0.0,
@@ -5956,6 +6226,7 @@
         },
         {
           "manager_name": "Glennmont Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.059996,
           "market_share_pct": 0.0,
@@ -5974,6 +6245,7 @@
         },
         {
           "manager_name": "iCON Infrastructure Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.058211,
           "market_share_pct": 0.0,
@@ -6002,6 +6274,7 @@
         },
         {
           "manager_name": "Barings (UK) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.056057,
           "market_share_pct": 0.0,
@@ -6020,6 +6293,7 @@
         },
         {
           "manager_name": "Securis Investment Partners LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.0558,
           "market_share_pct": 0.0,
@@ -6038,6 +6312,7 @@
         },
         {
           "manager_name": "Copenhagen Infrastructure Partners (CIP)",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.055564,
           "market_share_pct": 0.0,
@@ -6056,6 +6331,7 @@
         },
         {
           "manager_name": "Record Currency Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.054844,
           "market_share_pct": 0.0,
@@ -6074,6 +6350,7 @@
         },
         {
           "manager_name": "Federated Hermes Investment Counseling",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.054445,
           "market_share_pct": 0.0,
@@ -6092,6 +6369,7 @@
         },
         {
           "manager_name": "Hanover Investors Management LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.052964,
           "market_share_pct": 0.0,
@@ -6110,6 +6388,7 @@
         },
         {
           "manager_name": "Legal & General Investment Management America",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.052418,
           "market_share_pct": 0.0,
@@ -6128,6 +6407,7 @@
         },
         {
           "manager_name": "Darwin Private Equity LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.05175,
           "market_share_pct": 0.0,
@@ -6146,6 +6426,7 @@
         },
         {
           "manager_name": "The Churchill Companies",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.050316,
           "market_share_pct": 0.0,
@@ -6164,6 +6445,7 @@
         },
         {
           "manager_name": "WP Global Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.049947,
           "market_share_pct": 0.0,
@@ -6182,6 +6464,7 @@
         },
         {
           "manager_name": "Allianz Capital Partners GmbH",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.048875,
           "market_share_pct": 0.0,
@@ -6200,6 +6483,7 @@
         },
         {
           "manager_name": "BTG Pactual Asset Management US",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.048338,
           "market_share_pct": 0.0,
@@ -6218,6 +6502,7 @@
         },
         {
           "manager_name": "Davidson Kempner Capital Management LP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.047369,
           "market_share_pct": 0.0,
@@ -6236,6 +6521,7 @@
         },
         {
           "manager_name": "I Squared Capital Advisors (US) LLC",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.040452,
           "market_share_pct": 0.0,
@@ -6254,6 +6540,7 @@
         },
         {
           "manager_name": "EnTrust Global Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.039737,
           "market_share_pct": 0.0,
@@ -6272,6 +6559,7 @@
         },
         {
           "manager_name": "Franklin Templeton Investment Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.03824,
           "market_share_pct": 0.0,
@@ -6290,6 +6578,7 @@
         },
         {
           "manager_name": "SL Capital Partners LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.03518,
           "market_share_pct": 0.0,
@@ -6308,6 +6597,7 @@
         },
         {
           "manager_name": "GSAM Stable Value",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.034826,
           "market_share_pct": 0.0,
@@ -6336,6 +6626,7 @@
         },
         {
           "manager_name": "Deutsche Investment Management Americas",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.03449,
           "market_share_pct": 0.0,
@@ -6354,6 +6645,7 @@
         },
         {
           "manager_name": "ArcLight Capital Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.033066,
           "market_share_pct": 0.0,
@@ -6372,6 +6664,7 @@
         },
         {
           "manager_name": "Octopus Investments Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.033037,
           "market_share_pct": 0.0,
@@ -6390,6 +6683,7 @@
         },
         {
           "manager_name": "Brightwood Capital Advisors",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.031842,
           "market_share_pct": 0.0,
@@ -6408,6 +6702,7 @@
         },
         {
           "manager_name": "LaSalle Capital Group",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.029887,
           "market_share_pct": 0.0,
@@ -6426,6 +6721,7 @@
         },
         {
           "manager_name": "Alinda Capital LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.027581,
           "market_share_pct": 0.0,
@@ -6444,6 +6740,7 @@
         },
         {
           "manager_name": "Macquarie Infrastructure and Real Assets",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.027329,
           "market_share_pct": 0.0,
@@ -6462,6 +6759,7 @@
         },
         {
           "manager_name": "North Sea Capital A/S",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.02689,
           "market_share_pct": 0.0,
@@ -6480,6 +6778,7 @@
         },
         {
           "manager_name": "Sandbrook Capital Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.024673,
           "market_share_pct": 0.0,
@@ -6498,6 +6797,7 @@
         },
         {
           "manager_name": "Infracapital Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.023472,
           "market_share_pct": 0.0,
@@ -6516,6 +6816,7 @@
         },
         {
           "manager_name": "Thesis Asset Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.020905,
           "market_share_pct": 0.0,
@@ -6534,6 +6835,7 @@
         },
         {
           "manager_name": "Intermediate Capital Managers Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.019717,
           "market_share_pct": 0.0,
@@ -6552,6 +6854,7 @@
         },
         {
           "manager_name": "Invesco Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.019358,
           "market_share_pct": 0.0,
@@ -6570,6 +6873,7 @@
         },
         {
           "manager_name": "Ardstone Capital",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.01926,
           "market_share_pct": 0.0,
@@ -6588,6 +6892,7 @@
         },
         {
           "manager_name": "Russell Investment Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.015283,
           "market_share_pct": 0.0,
@@ -6606,6 +6911,7 @@
         },
         {
           "manager_name": "Allianz Global Investors Fund Management LLC",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.015036,
           "market_share_pct": 0.0,
@@ -6624,6 +6930,7 @@
         },
         {
           "manager_name": "DRC Capital LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.013207,
           "market_share_pct": 0.0,
@@ -6642,6 +6949,7 @@
         },
         {
           "manager_name": "TRG Capital Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.010645,
           "market_share_pct": 0.0,
@@ -6660,6 +6968,7 @@
         },
         {
           "manager_name": "Alcentra NY",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.009451,
           "market_share_pct": 0.0,
@@ -6678,6 +6987,7 @@
         },
         {
           "manager_name": "Trilantic Capital Management LLC",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.009018,
           "market_share_pct": 0.0,
@@ -6696,6 +7006,7 @@
         },
         {
           "manager_name": "Dorchester Capital Advisors",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.00655,
           "market_share_pct": 0.0,
@@ -6714,6 +7025,7 @@
         },
         {
           "manager_name": "Southeast Asset Advisors",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.00655,
           "market_share_pct": 0.0,
@@ -6732,6 +7044,7 @@
         },
         {
           "manager_name": "Pike Street Capital",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.006012,
           "market_share_pct": 0.0,
@@ -6750,6 +7063,7 @@
         },
         {
           "manager_name": "HSBC Global Asset Management (UK) Ltd",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.00568,
           "market_share_pct": 0.0,
@@ -6768,6 +7082,7 @@
         },
         {
           "manager_name": "CCLA Investment Management Ltd",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.005436,
           "market_share_pct": 0.0,
@@ -6786,6 +7101,7 @@
         },
         {
           "manager_name": "Aberdeen Asset Managers Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.005027,
           "market_share_pct": 0.0,
@@ -6804,6 +7120,7 @@
         },
         {
           "manager_name": "Sarona Asset Management Inc.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.004913,
           "market_share_pct": 0.0,
@@ -6822,6 +7139,7 @@
         },
         {
           "manager_name": "Frogmore Property Company Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.003981,
           "market_share_pct": 0.0,
@@ -6840,6 +7158,7 @@
         },
         {
           "manager_name": "Athyrium Capital Management LP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.003685,
           "market_share_pct": 0.0,
@@ -6858,6 +7177,7 @@
         },
         {
           "manager_name": "Arrowgrass Capital Partners LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.003365,
           "market_share_pct": 0.0,
@@ -6876,6 +7196,7 @@
         },
         {
           "manager_name": "York Capital Management Global Advisors",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.003355,
           "market_share_pct": 0.0,
@@ -6894,6 +7215,7 @@
         },
         {
           "manager_name": "Highstar Capital LP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.003006,
           "market_share_pct": 0.0,
@@ -6912,6 +7234,7 @@
         },
         {
           "manager_name": "Cheyne Capital Management (UK) LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.002866,
           "market_share_pct": 0.0,
@@ -6930,6 +7253,7 @@
         },
         {
           "manager_name": "Kuramo Capital Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.002456,
           "market_share_pct": 0.0,
@@ -6948,6 +7272,7 @@
         },
         {
           "manager_name": "LGT Capital Partners AG",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.001936,
           "market_share_pct": 0.0,
@@ -6966,6 +7291,7 @@
         },
         {
           "manager_name": "Grosvenor Investment Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.001638,
           "market_share_pct": 0.0,
@@ -6984,6 +7310,7 @@
         },
         {
           "manager_name": "Clerical Medical Financial Services Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.00153,
           "market_share_pct": 0.0,
@@ -7002,6 +7329,7 @@
         },
         {
           "manager_name": "African Infrastructure Investment Managers",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.001228,
           "market_share_pct": 0.0,
@@ -7020,6 +7348,7 @@
         },
         {
           "manager_name": "Aeolus Capital Management Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.001008,
           "market_share_pct": 0.0,
@@ -7038,6 +7367,7 @@
         },
         {
           "manager_name": "Catapult Venture Group",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.00094,
           "market_share_pct": 0.0,
@@ -7056,6 +7386,7 @@
         },
         {
           "manager_name": "Wilshire Associates Incorporated",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.000882,
           "market_share_pct": 0.0,
@@ -7074,6 +7405,7 @@
         },
         {
           "manager_name": "Scottish Equity Partners LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.000802,
           "market_share_pct": 0.0,
@@ -7092,6 +7424,7 @@
         },
         {
           "manager_name": "BMO Global Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.000409,
           "market_share_pct": 0.0,
@@ -7110,6 +7443,7 @@
         },
         {
           "manager_name": "Utmost Life and Pensions",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.000348,
           "market_share_pct": 0.0,
@@ -7128,6 +7462,7 @@
         },
         {
           "manager_name": "Equitable Life Assurance Society",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 9e-06,
           "market_share_pct": 0.0,
@@ -7149,11 +7484,12 @@
     {
       "segment": "DC Pension (Corp)",
       "total_plan_assets_bn": 181.828292,
-      "total_disclosed_managed_bn": 65.075993,
-      "disclosed_coverage_pct": 35.8,
+      "total_identified_managed_bn": 65.075993,
+      "identified_coverage_pct": 35.8,
       "managers": [
         {
-          "manager_name": "Not disclosed / self-managed",
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
           "is_undisclosed": true,
           "total_managed_bn": 116.752301,
           "market_share_pct": 64.2,
@@ -7166,6 +7502,7 @@
         },
         {
           "manager_name": "UBS Asset Management (UK) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 28.098423,
           "market_share_pct": 15.5,
@@ -7184,6 +7521,7 @@
         },
         {
           "manager_name": "Legal & General Investment Management Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 5.730488,
           "market_share_pct": 3.2,
@@ -7212,6 +7550,7 @@
         },
         {
           "manager_name": "Royal London Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 4.372501,
           "market_share_pct": 2.4,
@@ -7230,6 +7569,7 @@
         },
         {
           "manager_name": "BlackRock",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 4.013867,
           "market_share_pct": 2.2,
@@ -7258,6 +7598,7 @@
         },
         {
           "manager_name": "Allspring Funds Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 3.891127,
           "market_share_pct": 2.1,
@@ -7276,6 +7617,7 @@
         },
         {
           "manager_name": "Amundi (UK) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 3.417207,
           "market_share_pct": 1.9,
@@ -7294,6 +7636,7 @@
         },
         {
           "manager_name": "Northern Trust Global Investments",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 2.843516,
           "market_share_pct": 1.6,
@@ -7312,6 +7655,7 @@
         },
         {
           "manager_name": "JP Morgan Investment Management Inc.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 2.775773,
           "market_share_pct": 1.5,
@@ -7340,6 +7684,7 @@
         },
         {
           "manager_name": "Octopus Investments Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.615067,
           "market_share_pct": 0.9,
@@ -7358,6 +7703,7 @@
         },
         {
           "manager_name": "CBRE Caledon Capital Management Inc.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.109969,
           "market_share_pct": 0.6,
@@ -7376,6 +7722,7 @@
         },
         {
           "manager_name": "BNP Paribas Asset Management UK Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.010196,
           "market_share_pct": 0.6,
@@ -7394,6 +7741,7 @@
         },
         {
           "manager_name": "CoreCommodity Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.897952,
           "market_share_pct": 0.5,
@@ -7412,6 +7760,7 @@
         },
         {
           "manager_name": "State Street Investment Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.698407,
           "market_share_pct": 0.4,
@@ -7430,6 +7779,7 @@
         },
         {
           "manager_name": "Columbia Threadneedle International Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.527859,
           "market_share_pct": 0.3,
@@ -7448,6 +7798,7 @@
         },
         {
           "manager_name": "Schroder Investment Management North America Inc.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.51757,
           "market_share_pct": 0.3,
@@ -7466,6 +7817,7 @@
         },
         {
           "manager_name": "HarbourVest Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.424033,
           "market_share_pct": 0.2,
@@ -7484,6 +7836,7 @@
         },
         {
           "manager_name": "HSBC Global Asset Management (UK) Ltd",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.417797,
           "market_share_pct": 0.2,
@@ -7502,6 +7855,7 @@
         },
         {
           "manager_name": "Fidelity Investments",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.404715,
           "market_share_pct": 0.2,
@@ -7520,6 +7874,7 @@
         },
         {
           "manager_name": "Local Pensions Partnership Investments Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.380383,
           "market_share_pct": 0.2,
@@ -7538,6 +7893,7 @@
         },
         {
           "manager_name": "Mobius Life Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.25946,
           "market_share_pct": 0.1,
@@ -7556,6 +7912,7 @@
         },
         {
           "manager_name": "Prudential plc",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.248432,
           "market_share_pct": 0.1,
@@ -7584,6 +7941,7 @@
         },
         {
           "manager_name": "Phoenix Equity Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.236134,
           "market_share_pct": 0.1,
@@ -7602,6 +7960,7 @@
         },
         {
           "manager_name": "abrdn plc",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.175851,
           "market_share_pct": 0.1,
@@ -7620,6 +7979,7 @@
         },
         {
           "manager_name": "Aegon UK plc",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.172774,
           "market_share_pct": 0.1,
@@ -7638,6 +7998,7 @@
         },
         {
           "manager_name": "Canada Life Investments",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.143064,
           "market_share_pct": 0.1,
@@ -7656,6 +8017,7 @@
         },
         {
           "manager_name": "T. Rowe Price Associates",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.138387,
           "market_share_pct": 0.1,
@@ -7684,6 +8046,7 @@
         },
         {
           "manager_name": "BlackRock Investment Management (UK) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.103376,
           "market_share_pct": 0.1,
@@ -7702,6 +8065,7 @@
         },
         {
           "manager_name": "Northern Trust Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.085333,
           "market_share_pct": 0.0,
@@ -7720,6 +8084,7 @@
         },
         {
           "manager_name": "Aviva Investors London Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.043402,
           "market_share_pct": 0.0,
@@ -7738,6 +8103,7 @@
         },
         {
           "manager_name": "Harbor Capital Advisors",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.037869,
           "market_share_pct": 0.0,
@@ -7756,6 +8122,7 @@
         },
         {
           "manager_name": "Massachusetts Financial Services Company",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.037313,
           "market_share_pct": 0.0,
@@ -7784,6 +8151,7 @@
         },
         {
           "manager_name": "Clerical Medical Financial Services Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.027359,
           "market_share_pct": 0.0,
@@ -7802,6 +8170,7 @@
         },
         {
           "manager_name": "New York Life Investment Management LLC",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.026345,
           "market_share_pct": 0.0,
@@ -7820,6 +8189,7 @@
         },
         {
           "manager_name": "Dodge & Cox",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.026174,
           "market_share_pct": 0.0,
@@ -7838,6 +8208,7 @@
         },
         {
           "manager_name": "Massachusetts Mutual Life Insurance Company",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.020542,
           "market_share_pct": 0.0,
@@ -7856,6 +8227,7 @@
         },
         {
           "manager_name": "PGIM",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.019742,
           "market_share_pct": 0.0,
@@ -7874,6 +8246,7 @@
         },
         {
           "manager_name": "Macquarie Group Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.018677,
           "market_share_pct": 0.0,
@@ -7892,6 +8265,7 @@
         },
         {
           "manager_name": "Irish Life Investment Managers",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.018438,
           "market_share_pct": 0.0,
@@ -7910,6 +8284,7 @@
         },
         {
           "manager_name": "Great Gray Trust Company",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.015636,
           "market_share_pct": 0.0,
@@ -7928,6 +8303,7 @@
         },
         {
           "manager_name": "Virtus Investment Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.011609,
           "market_share_pct": 0.0,
@@ -7946,6 +8322,7 @@
         },
         {
           "manager_name": "Santander Asset Management UK Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.010883,
           "market_share_pct": 0.0,
@@ -7964,6 +8341,7 @@
         },
         {
           "manager_name": "The Vanguard Group Inc.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.009361,
           "market_share_pct": 0.0,
@@ -7986,6 +8364,7 @@
         },
         {
           "manager_name": "Jupiter Asset Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.007239,
           "market_share_pct": 0.0,
@@ -8004,6 +8383,7 @@
         },
         {
           "manager_name": "Aberdeen Standard Investments Inc.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.006922,
           "market_share_pct": 0.0,
@@ -8022,6 +8402,7 @@
         },
         {
           "manager_name": "Capital Research and Management Company",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.005108,
           "market_share_pct": 0.0,
@@ -8040,6 +8421,7 @@
         },
         {
           "manager_name": "Mainstay Investments",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.00377,
           "market_share_pct": 0.0,
@@ -8058,6 +8440,7 @@
         },
         {
           "manager_name": "Lord",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.00268,
           "market_share_pct": 0.0,
@@ -8076,6 +8459,7 @@
         },
         {
           "manager_name": "Utmost Life and Pensions",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.002542,
           "market_share_pct": 0.0,
@@ -8094,6 +8478,7 @@
         },
         {
           "manager_name": "MFS Institutional Advisors",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.001902,
           "market_share_pct": 0.0,
@@ -8112,6 +8497,7 @@
         },
         {
           "manager_name": "Principal Global Investors",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.001799,
           "market_share_pct": 0.0,
@@ -8130,6 +8516,7 @@
         },
         {
           "manager_name": "Neuberger Berman",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.001643,
           "market_share_pct": 0.0,
@@ -8148,6 +8535,7 @@
         },
         {
           "manager_name": "MFS International (UK) Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.001641,
           "market_share_pct": 0.0,
@@ -8166,6 +8554,7 @@
         },
         {
           "manager_name": "Zurich Alternative Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.001485,
           "market_share_pct": 0.0,
@@ -8184,6 +8573,7 @@
         },
         {
           "manager_name": "abrdn",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.001243,
           "market_share_pct": 0.0,
@@ -8212,6 +8602,7 @@
         },
         {
           "manager_name": "Aegon Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.000772,
           "market_share_pct": 0.0,
@@ -8230,6 +8621,7 @@
         },
         {
           "manager_name": "Equitable Life Assurance Society",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.000742,
           "market_share_pct": 0.0,
@@ -8248,6 +8640,7 @@
         },
         {
           "manager_name": "Victory Capital Management Inc.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.000666,
           "market_share_pct": 0.0,
@@ -8266,6 +8659,7 @@
         },
         {
           "manager_name": "Aviva Investors Americas",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.000618,
           "market_share_pct": 0.0,
@@ -8284,6 +8678,7 @@
         },
         {
           "manager_name": "Invesco Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.000511,
           "market_share_pct": 0.0,
@@ -8302,6 +8697,7 @@
         },
         {
           "manager_name": "Morgan Stanley Investment Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.000429,
           "market_share_pct": 0.0,
@@ -8320,6 +8716,7 @@
         },
         {
           "manager_name": "American Century Investment Management Inc.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.000407,
           "market_share_pct": 0.0,
@@ -8338,6 +8735,7 @@
         },
         {
           "manager_name": "BNY Mellon Investment Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.0004,
           "market_share_pct": 0.0,
@@ -8356,6 +8754,7 @@
         },
         {
           "manager_name": "Schroder Investment Management (Europe) SA",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.000377,
           "market_share_pct": 0.0,
@@ -8374,6 +8773,7 @@
         },
         {
           "manager_name": "Merrill Lynch International",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 8.6e-05,
           "market_share_pct": 0.0,
@@ -8395,11 +8795,12 @@
     {
       "segment": "Tax exempt E&F",
       "total_plan_assets_bn": 123.399881,
-      "total_disclosed_managed_bn": 5.556475,
-      "disclosed_coverage_pct": 4.5,
+      "total_identified_managed_bn": 5.556475,
+      "identified_coverage_pct": 4.5,
       "managers": [
         {
-          "manager_name": "Not disclosed / self-managed",
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
           "is_undisclosed": true,
           "total_managed_bn": 117.845491,
           "market_share_pct": 95.5,
@@ -8412,6 +8813,7 @@
         },
         {
           "manager_name": "Sarasin & Partners LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.400059,
           "market_share_pct": 0.3,
@@ -8450,6 +8852,7 @@
         },
         {
           "manager_name": "Cazenove Capital Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.362288,
           "market_share_pct": 0.3,
@@ -8488,6 +8891,7 @@
         },
         {
           "manager_name": "CCLA Investment Management Ltd",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.358291,
           "market_share_pct": 0.3,
@@ -8536,6 +8940,7 @@
         },
         {
           "manager_name": "J.P. Morgan Asset Management (UK) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.350006,
           "market_share_pct": 0.3,
@@ -8564,6 +8969,7 @@
         },
         {
           "manager_name": "Goldman Sachs Asset Management International Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.347593,
           "market_share_pct": 0.3,
@@ -8602,6 +9008,7 @@
         },
         {
           "manager_name": "UBS Asset Management (UK) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.256445,
           "market_share_pct": 0.2,
@@ -8630,6 +9037,7 @@
         },
         {
           "manager_name": "BlackRock",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.250357,
           "market_share_pct": 0.2,
@@ -8658,6 +9066,7 @@
         },
         {
           "manager_name": "Newton Investment Management (North America) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.248476,
           "market_share_pct": 0.2,
@@ -8676,6 +9085,7 @@
         },
         {
           "manager_name": "BlackRock Investment Management (UK) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.218936,
           "market_share_pct": 0.2,
@@ -8721,7 +9131,8 @@
           ]
         },
         {
-          "manager_name": "In House Asset Management",
+          "manager_name": "Self-managed",
+          "is_self_managed": true,
           "is_undisclosed": false,
           "total_managed_bn": 0.216436,
           "market_share_pct": 0.2,
@@ -8740,6 +9151,7 @@
         },
         {
           "manager_name": "Partners Capital Investment Group",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.201382,
           "market_share_pct": 0.2,
@@ -8758,6 +9170,7 @@
         },
         {
           "manager_name": "Ruffer LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.119356,
           "market_share_pct": 0.1,
@@ -8796,6 +9209,7 @@
         },
         {
           "manager_name": "Rathbone Investment Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.107139,
           "market_share_pct": 0.1,
@@ -8824,6 +9238,7 @@
         },
         {
           "manager_name": "Legal & General Investment Management Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.101627,
           "market_share_pct": 0.1,
@@ -8862,6 +9277,7 @@
         },
         {
           "manager_name": "Charles Stanley & Co. Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.101154,
           "market_share_pct": 0.1,
@@ -8880,6 +9296,7 @@
         },
         {
           "manager_name": "Bessemer Investment Management LLC",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.092906,
           "market_share_pct": 0.1,
@@ -8898,6 +9315,7 @@
         },
         {
           "manager_name": "Schroders plc",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.090861,
           "market_share_pct": 0.1,
@@ -8936,6 +9354,7 @@
         },
         {
           "manager_name": "Baillie Gifford & Co.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.089837,
           "market_share_pct": 0.1,
@@ -8954,6 +9373,7 @@
         },
         {
           "manager_name": "Baillie Gifford Overseas Ltd",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.089449,
           "market_share_pct": 0.1,
@@ -8972,6 +9392,7 @@
         },
         {
           "manager_name": "Stonehage Fleming",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.078272,
           "market_share_pct": 0.1,
@@ -8990,6 +9411,7 @@
         },
         {
           "manager_name": "abrdn",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.069456,
           "market_share_pct": 0.1,
@@ -9008,6 +9430,7 @@
         },
         {
           "manager_name": "Royal London Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.047971,
           "market_share_pct": 0.0,
@@ -9036,6 +9459,7 @@
         },
         {
           "manager_name": "Kiltearn Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.047144,
           "market_share_pct": 0.0,
@@ -9064,6 +9488,7 @@
         },
         {
           "manager_name": "M&G Investment Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.044477,
           "market_share_pct": 0.0,
@@ -9102,6 +9527,7 @@
         },
         {
           "manager_name": "J O Hambro Capital Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.043581,
           "market_share_pct": 0.0,
@@ -9120,6 +9546,7 @@
         },
         {
           "manager_name": "Oxford University Endowment Management Ltd",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.042604,
           "market_share_pct": 0.0,
@@ -9138,6 +9565,7 @@
         },
         {
           "manager_name": "Fundsmith",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.042242,
           "market_share_pct": 0.0,
@@ -9156,6 +9584,7 @@
         },
         {
           "manager_name": "Dimensional Fund Advisors Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.041926,
           "market_share_pct": 0.0,
@@ -9174,6 +9603,7 @@
         },
         {
           "manager_name": "Heronbridge Investment Management LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.041815,
           "market_share_pct": 0.0,
@@ -9192,6 +9622,7 @@
         },
         {
           "manager_name": "LGIM International Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.038707,
           "market_share_pct": 0.0,
@@ -9210,6 +9641,7 @@
         },
         {
           "manager_name": "JP Morgan Investment Management Inc.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.037914,
           "market_share_pct": 0.0,
@@ -9228,6 +9660,7 @@
         },
         {
           "manager_name": "KBI Global Investors (North America) Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.033167,
           "market_share_pct": 0.0,
@@ -9246,6 +9679,7 @@
         },
         {
           "manager_name": "Brewin Dolphin Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.032431,
           "market_share_pct": 0.0,
@@ -9264,6 +9698,7 @@
         },
         {
           "manager_name": "The Vanguard Group Inc.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.030505,
           "market_share_pct": 0.0,
@@ -9282,6 +9717,7 @@
         },
         {
           "manager_name": "Payden & Rygel Global",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.030243,
           "market_share_pct": 0.0,
@@ -9300,6 +9736,7 @@
         },
         {
           "manager_name": "Pantheon Ventures (UK) LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.029233,
           "market_share_pct": 0.0,
@@ -9318,6 +9755,7 @@
         },
         {
           "manager_name": "Savills Investment Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.028248,
           "market_share_pct": 0.0,
@@ -9346,6 +9784,7 @@
         },
         {
           "manager_name": "Smith & Williamson Investment Services Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.02804,
           "market_share_pct": 0.0,
@@ -9364,6 +9803,7 @@
         },
         {
           "manager_name": "Nationwide Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.027652,
           "market_share_pct": 0.0,
@@ -9382,6 +9822,7 @@
         },
         {
           "manager_name": "Artemis Investment Management LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.027451,
           "market_share_pct": 0.0,
@@ -9404,6 +9845,7 @@
         },
         {
           "manager_name": "BNY Mellon Investment Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.025536,
           "market_share_pct": 0.0,
@@ -9422,6 +9864,7 @@
         },
         {
           "manager_name": "Partners Group AG",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.025336,
           "market_share_pct": 0.0,
@@ -9450,6 +9893,7 @@
         },
         {
           "manager_name": "InfraRed Capital Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.024666,
           "market_share_pct": 0.0,
@@ -9468,6 +9912,7 @@
         },
         {
           "manager_name": "GuardCap Asset Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.024401,
           "market_share_pct": 0.0,
@@ -9486,6 +9931,7 @@
         },
         {
           "manager_name": "Troy Asset Management Ltd",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.024235,
           "market_share_pct": 0.0,
@@ -9504,6 +9950,7 @@
         },
         {
           "manager_name": "Brummer & Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.024046,
           "market_share_pct": 0.0,
@@ -9522,6 +9969,7 @@
         },
         {
           "manager_name": "Mercer Global Advisors Inc.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.023712,
           "market_share_pct": 0.0,
@@ -9540,6 +9988,7 @@
         },
         {
           "manager_name": "Partners Capital LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.023219,
           "market_share_pct": 0.0,
@@ -9558,6 +10007,7 @@
         },
         {
           "manager_name": "Ninety One UK Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.022802,
           "market_share_pct": 0.0,
@@ -9576,6 +10026,7 @@
         },
         {
           "manager_name": "Wellington Management International Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.021227,
           "market_share_pct": 0.0,
@@ -9594,6 +10045,7 @@
         },
         {
           "manager_name": "Apollo Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.020545,
           "market_share_pct": 0.0,
@@ -9612,6 +10064,7 @@
         },
         {
           "manager_name": "Northern Trust Global Investments",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.020408,
           "market_share_pct": 0.0,
@@ -9630,6 +10083,7 @@
         },
         {
           "manager_name": "Aviva Investors London Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.019386,
           "market_share_pct": 0.0,
@@ -9648,6 +10102,7 @@
         },
         {
           "manager_name": "GMO UK Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.019288,
           "market_share_pct": 0.0,
@@ -9666,6 +10121,7 @@
         },
         {
           "manager_name": "Fidelity Investments",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.019136,
           "market_share_pct": 0.0,
@@ -9684,6 +10140,7 @@
         },
         {
           "manager_name": "Royal Bank of Canada Investment Management (USA) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.018614,
           "market_share_pct": 0.0,
@@ -9702,6 +10159,7 @@
         },
         {
           "manager_name": "Lloyds Bank plc",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.018309,
           "market_share_pct": 0.0,
@@ -9720,6 +10178,7 @@
         },
         {
           "manager_name": "Pictet Asset Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.018293,
           "market_share_pct": 0.0,
@@ -9738,6 +10197,7 @@
         },
         {
           "manager_name": "Charities Property Fund",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.017865,
           "market_share_pct": 0.0,
@@ -9756,6 +10216,7 @@
         },
         {
           "manager_name": "Goldman Sachs Asset Management LP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.01748,
           "market_share_pct": 0.0,
@@ -9774,6 +10235,7 @@
         },
         {
           "manager_name": "HSBC Global Asset Management (UK) Ltd",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.016719,
           "market_share_pct": 0.0,
@@ -9802,6 +10264,7 @@
         },
         {
           "manager_name": "Vanguard Asset Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.016572,
           "market_share_pct": 0.0,
@@ -9830,6 +10293,7 @@
         },
         {
           "manager_name": "HGK Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.016001,
           "market_share_pct": 0.0,
@@ -9848,6 +10312,7 @@
         },
         {
           "manager_name": "BNY Mellon Investment Adviser",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.015242,
           "market_share_pct": 0.0,
@@ -9866,6 +10331,7 @@
         },
         {
           "manager_name": "Schroder Investment Management North America Inc.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.014578,
           "market_share_pct": 0.0,
@@ -9884,6 +10350,7 @@
         },
         {
           "manager_name": "Glouston Capital Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.014051,
           "market_share_pct": 0.0,
@@ -9902,6 +10369,7 @@
         },
         {
           "manager_name": "Vontobel Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.013798,
           "market_share_pct": 0.0,
@@ -9920,6 +10388,7 @@
         },
         {
           "manager_name": "HarbourVest Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.0136,
           "market_share_pct": 0.0,
@@ -9938,6 +10407,7 @@
         },
         {
           "manager_name": "Edentree Investment Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.013475,
           "market_share_pct": 0.0,
@@ -9956,6 +10426,7 @@
         },
         {
           "manager_name": "Lindsell Train Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.012903,
           "market_share_pct": 0.0,
@@ -9974,6 +10445,7 @@
         },
         {
           "manager_name": "LGT Capital Partners (UK) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.011543,
           "market_share_pct": 0.0,
@@ -9992,6 +10464,7 @@
         },
         {
           "manager_name": "Seven Investment Management LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.011005,
           "market_share_pct": 0.0,
@@ -10010,6 +10483,7 @@
         },
         {
           "manager_name": "Pantheon Ventures (US) LP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.010351,
           "market_share_pct": 0.0,
@@ -10028,6 +10502,7 @@
         },
         {
           "manager_name": "Quilter Cheviot",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.010054,
           "market_share_pct": 0.0,
@@ -10046,6 +10521,7 @@
         },
         {
           "manager_name": "Pacific Investment Management Company LLC  (PIMCO)",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.010054,
           "market_share_pct": 0.0,
@@ -10064,6 +10540,7 @@
         },
         {
           "manager_name": "Investec Wealth & Investment",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.009062,
           "market_share_pct": 0.0,
@@ -10082,6 +10559,7 @@
         },
         {
           "manager_name": "Ninety One",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.008986,
           "market_share_pct": 0.0,
@@ -10100,6 +10578,7 @@
         },
         {
           "manager_name": "Goldman",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.007393,
           "market_share_pct": 0.0,
@@ -10128,6 +10607,7 @@
         },
         {
           "manager_name": "Mayfair Capital Investment Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.007146,
           "market_share_pct": 0.0,
@@ -10146,6 +10626,7 @@
         },
         {
           "manager_name": "NatWest Markets Securities Japan Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.005803,
           "market_share_pct": 0.0,
@@ -10164,6 +10645,7 @@
         },
         {
           "manager_name": "Coutts & Co.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.005704,
           "market_share_pct": 0.0,
@@ -10182,6 +10664,7 @@
         },
         {
           "manager_name": "Barclays Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.005282,
           "market_share_pct": 0.0,
@@ -10200,6 +10683,7 @@
         },
         {
           "manager_name": "Boston Partners Global Investors",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.005159,
           "market_share_pct": 0.0,
@@ -10218,6 +10702,7 @@
         },
         {
           "manager_name": "Aurum Funds Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.004168,
           "market_share_pct": 0.0,
@@ -10236,6 +10721,7 @@
         },
         {
           "manager_name": "Aegon Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.003473,
           "market_share_pct": 0.0,
@@ -10254,6 +10740,7 @@
         },
         {
           "manager_name": "WisdomTree Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.003173,
           "market_share_pct": 0.0,
@@ -10272,6 +10759,7 @@
         },
         {
           "manager_name": "Unicorn Asset Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.00317,
           "market_share_pct": 0.0,
@@ -10290,6 +10778,7 @@
         },
         {
           "manager_name": "Greencoat Capital",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.002566,
           "market_share_pct": 0.0,
@@ -10308,6 +10797,7 @@
         },
         {
           "manager_name": "Brown Advisory Investment Solutions Group LLC",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.002057,
           "market_share_pct": 0.0,
@@ -10326,6 +10816,7 @@
         },
         {
           "manager_name": "Bluefield Partners LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.001892,
           "market_share_pct": 0.0,
@@ -10344,6 +10835,7 @@
         },
         {
           "manager_name": "Morgan Stanley Investment Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.0018,
           "market_share_pct": 0.0,
@@ -10362,6 +10854,7 @@
         },
         {
           "manager_name": "Brevan Howard Asset Management LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.001388,
           "market_share_pct": 0.0,
@@ -10380,6 +10873,7 @@
         },
         {
           "manager_name": "TwentyFour Asset Management LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.000992,
           "market_share_pct": 0.0,
@@ -10398,6 +10892,7 @@
         },
         {
           "manager_name": "BlueOrchard Finance SA",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.000893,
           "market_share_pct": 0.0,
@@ -10416,6 +10911,7 @@
         },
         {
           "manager_name": "Federated Hermes Investment Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.000793,
           "market_share_pct": 0.0,
@@ -10434,6 +10930,7 @@
         },
         {
           "manager_name": "Findlay Park Partners LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.000568,
           "market_share_pct": 0.0,
@@ -10452,6 +10949,7 @@
         },
         {
           "manager_name": "SEI Investments (Europe) Ltd",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.000505,
           "market_share_pct": 0.0,
@@ -10470,6 +10968,7 @@
         },
         {
           "manager_name": "Schroder Investment Management (Europe) SA",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.000375,
           "market_share_pct": 0.0,
@@ -10491,11 +10990,12 @@
     {
       "segment": "Endowments E&F",
       "total_plan_assets_bn": 60.880185,
-      "total_disclosed_managed_bn": 0.657347,
-      "disclosed_coverage_pct": 1.1,
+      "total_identified_managed_bn": 0.657347,
+      "identified_coverage_pct": 1.1,
       "managers": [
         {
-          "manager_name": "Not disclosed / self-managed",
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
           "is_undisclosed": true,
           "total_managed_bn": 60.222838,
           "market_share_pct": 98.9,
@@ -10508,6 +11008,7 @@
         },
         {
           "manager_name": "CBRE Investment Management Indirect Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.160567,
           "market_share_pct": 0.3,
@@ -10526,6 +11027,7 @@
         },
         {
           "manager_name": "Unified Trust Company",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.126892,
           "market_share_pct": 0.2,
@@ -10544,6 +11046,7 @@
         },
         {
           "manager_name": "Aegon UK plc",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.110765,
           "market_share_pct": 0.2,
@@ -10562,6 +11065,7 @@
         },
         {
           "manager_name": "Royal London Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.044196,
           "market_share_pct": 0.1,
@@ -10580,6 +11084,7 @@
         },
         {
           "manager_name": "Partners Capital LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.030872,
           "market_share_pct": 0.1,
@@ -10598,6 +11103,7 @@
         },
         {
           "manager_name": "Bidwells Property Consultants",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.02904,
           "market_share_pct": 0.0,
@@ -10616,6 +11122,7 @@
         },
         {
           "manager_name": "Veritas Asset Management LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.021255,
           "market_share_pct": 0.0,
@@ -10634,6 +11141,7 @@
         },
         {
           "manager_name": "Barclays Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.01879,
           "market_share_pct": 0.0,
@@ -10652,6 +11160,7 @@
         },
         {
           "manager_name": "Towers Watson Investment Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.016279,
           "market_share_pct": 0.0,
@@ -10670,6 +11179,7 @@
         },
         {
           "manager_name": "Cazenove Capital Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.015181,
           "market_share_pct": 0.0,
@@ -10688,6 +11198,7 @@
         },
         {
           "manager_name": "Mercer Investment Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.014925,
           "market_share_pct": 0.0,
@@ -10706,6 +11217,7 @@
         },
         {
           "manager_name": "Amundi Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.014822,
           "market_share_pct": 0.0,
@@ -10724,6 +11236,7 @@
         },
         {
           "manager_name": "Ruffer LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.013164,
           "market_share_pct": 0.0,
@@ -10742,6 +11255,7 @@
         },
         {
           "manager_name": "Lombard Odier Asset Management (Europe) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.010575,
           "market_share_pct": 0.0,
@@ -10760,6 +11274,7 @@
         },
         {
           "manager_name": "Commonfund",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.009847,
           "market_share_pct": 0.0,
@@ -10778,6 +11293,7 @@
         },
         {
           "manager_name": "UBS Asset Management (UK) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.009847,
           "market_share_pct": 0.0,
@@ -10796,6 +11312,7 @@
         },
         {
           "manager_name": "Marylebone Partners LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.006433,
           "market_share_pct": 0.0,
@@ -10814,6 +11331,7 @@
         },
         {
           "manager_name": "J.P. Morgan Asset Management (UK) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.002485,
           "market_share_pct": 0.0,
@@ -10832,6 +11350,7 @@
         },
         {
           "manager_name": "Crescent Capital Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.000936,
           "market_share_pct": 0.0,
@@ -10850,6 +11369,7 @@
         },
         {
           "manager_name": "Epidarex Capital Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.000467,
           "market_share_pct": 0.0,
@@ -10868,6 +11388,7 @@
         },
         {
           "manager_name": "Cambridge Associates",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1e-05,
           "market_share_pct": 0.0,
@@ -10889,11 +11410,12 @@
     {
       "segment": "DB Pension (Union)",
       "total_plan_assets_bn": 32.619487,
-      "total_disclosed_managed_bn": 8.467015,
-      "disclosed_coverage_pct": 26.0,
+      "total_identified_managed_bn": 8.467015,
+      "identified_coverage_pct": 26.0,
       "managers": [
         {
-          "manager_name": "Not disclosed / self-managed",
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
           "is_undisclosed": true,
           "total_managed_bn": 24.152472,
           "market_share_pct": 74.0,
@@ -10906,6 +11428,7 @@
         },
         {
           "manager_name": "BlackRock",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 3.471952,
           "market_share_pct": 10.6,
@@ -10924,6 +11447,7 @@
         },
         {
           "manager_name": "Wellington Partners Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.248105,
           "market_share_pct": 3.8,
@@ -10942,6 +11466,7 @@
         },
         {
           "manager_name": "Schroders plc",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.17142,
           "market_share_pct": 3.6,
@@ -10960,6 +11485,7 @@
         },
         {
           "manager_name": "Ninety One UK Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.094736,
           "market_share_pct": 3.4,
@@ -10978,6 +11504,7 @@
         },
         {
           "manager_name": "Delancey Real Estate Asset Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.937401,
           "market_share_pct": 2.9,
@@ -10996,6 +11523,7 @@
         },
         {
           "manager_name": "Brevan Howard Asset Management LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.174523,
           "market_share_pct": 0.5,
@@ -11014,6 +11542,7 @@
         },
         {
           "manager_name": "LaSalle Investment Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.087262,
           "market_share_pct": 0.3,
@@ -11032,6 +11561,7 @@
         },
         {
           "manager_name": "Greencoat Capital",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.085939,
           "market_share_pct": 0.3,
@@ -11050,6 +11580,7 @@
         },
         {
           "manager_name": "Dalmore Capital Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.084617,
           "market_share_pct": 0.3,
@@ -11068,6 +11599,7 @@
         },
         {
           "manager_name": "Aviva Investors London Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.07404,
           "market_share_pct": 0.2,
@@ -11086,6 +11618,7 @@
         },
         {
           "manager_name": "Northern Trust Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.035698,
           "market_share_pct": 0.1,
@@ -11104,6 +11637,7 @@
         },
         {
           "manager_name": "Tufton Oceanic Fund Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.001322,
           "market_share_pct": 0.0,
@@ -11125,11 +11659,12 @@
     {
       "segment": "DB Pension (Tax exempt)",
       "total_plan_assets_bn": 23.507404,
-      "total_disclosed_managed_bn": 0.664288,
-      "disclosed_coverage_pct": 2.8,
+      "total_identified_managed_bn": 0.664288,
+      "identified_coverage_pct": 2.8,
       "managers": [
         {
-          "manager_name": "Not disclosed / self-managed",
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
           "is_undisclosed": true,
           "total_managed_bn": 22.843116,
           "market_share_pct": 97.2,
@@ -11142,6 +11677,7 @@
         },
         {
           "manager_name": "Aviva Investors London Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.226418,
           "market_share_pct": 1.0,
@@ -11170,6 +11706,7 @@
         },
         {
           "manager_name": "Legal & General Investment Management Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.145288,
           "market_share_pct": 0.6,
@@ -11208,6 +11745,7 @@
         },
         {
           "manager_name": "Sarasin & Partners LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.066013,
           "market_share_pct": 0.3,
@@ -11236,6 +11774,7 @@
         },
         {
           "manager_name": "CCLA Investment Management Ltd",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.04792,
           "market_share_pct": 0.2,
@@ -11264,6 +11803,7 @@
         },
         {
           "manager_name": "Cazenove Capital Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.042355,
           "market_share_pct": 0.2,
@@ -11282,6 +11822,7 @@
         },
         {
           "manager_name": "LGIM International Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.01923,
           "market_share_pct": 0.1,
@@ -11300,6 +11841,7 @@
         },
         {
           "manager_name": "Goldman Sachs Asset Management International Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.015797,
           "market_share_pct": 0.1,
@@ -11317,7 +11859,8 @@
           ]
         },
         {
-          "manager_name": "In House Asset Management",
+          "manager_name": "Self-managed",
+          "is_self_managed": true,
           "is_undisclosed": false,
           "total_managed_bn": 0.011876,
           "market_share_pct": 0.1,
@@ -11336,6 +11879,7 @@
         },
         {
           "manager_name": "Vanguard Asset Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.011575,
           "market_share_pct": 0.0,
@@ -11354,6 +11898,7 @@
         },
         {
           "manager_name": "BNY Mellon Investment Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.009329,
           "market_share_pct": 0.0,
@@ -11376,6 +11921,7 @@
         },
         {
           "manager_name": "Partners Group AG",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.009016,
           "market_share_pct": 0.0,
@@ -11394,6 +11940,7 @@
         },
         {
           "manager_name": "UBS Asset Management (UK) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.008889,
           "market_share_pct": 0.0,
@@ -11412,6 +11959,7 @@
         },
         {
           "manager_name": "Schroders plc",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.008862,
           "market_share_pct": 0.0,
@@ -11430,6 +11978,7 @@
         },
         {
           "manager_name": "Aegon Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.00769,
           "market_share_pct": 0.0,
@@ -11448,6 +11997,7 @@
         },
         {
           "manager_name": "Newton Investment Management (North America) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.006624,
           "market_share_pct": 0.0,
@@ -11466,6 +12016,7 @@
         },
         {
           "manager_name": "Mercer Global Advisors Inc.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.003682,
           "market_share_pct": 0.0,
@@ -11484,6 +12035,7 @@
         },
         {
           "manager_name": "J.P. Morgan Asset Management (UK) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.002756,
           "market_share_pct": 0.0,
@@ -11502,6 +12054,7 @@
         },
         {
           "manager_name": "Royal London Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.002624,
           "market_share_pct": 0.0,
@@ -11520,6 +12073,7 @@
         },
         {
           "manager_name": "M&G Investment Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.002506,
           "market_share_pct": 0.0,
@@ -11538,6 +12092,7 @@
         },
         {
           "manager_name": "Baillie Gifford & Co.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.002443,
           "market_share_pct": 0.0,
@@ -11556,6 +12111,7 @@
         },
         {
           "manager_name": "The Vanguard Group Inc.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.002403,
           "market_share_pct": 0.0,
@@ -11574,6 +12130,7 @@
         },
         {
           "manager_name": "Ruffer LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.002396,
           "market_share_pct": 0.0,
@@ -11602,6 +12159,7 @@
         },
         {
           "manager_name": "Brewin Dolphin Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.00225,
           "market_share_pct": 0.0,
@@ -11620,6 +12178,7 @@
         },
         {
           "manager_name": "BlackRock Investment Management (UK) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.002043,
           "market_share_pct": 0.0,
@@ -11648,6 +12207,7 @@
         },
         {
           "manager_name": "Fundsmith",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.001651,
           "market_share_pct": 0.0,
@@ -11666,6 +12226,7 @@
         },
         {
           "manager_name": "Heronbridge Investment Management LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.001083,
           "market_share_pct": 0.0,
@@ -11684,6 +12245,7 @@
         },
         {
           "manager_name": "Pantheon Ventures (UK) LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.000632,
           "market_share_pct": 0.0,
@@ -11702,6 +12264,7 @@
         },
         {
           "manager_name": "HarbourVest Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.000532,
           "market_share_pct": 0.0,
@@ -11720,6 +12283,7 @@
         },
         {
           "manager_name": "Pantheon Ventures (US) LP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.000405,
           "market_share_pct": 0.0,
@@ -11741,11 +12305,12 @@
     {
       "segment": "DB Pension (Endowments)",
       "total_plan_assets_bn": 18.385963,
-      "total_disclosed_managed_bn": 2.762831,
-      "disclosed_coverage_pct": 15.0,
+      "total_identified_managed_bn": 2.762831,
+      "identified_coverage_pct": 15.0,
       "managers": [
         {
-          "manager_name": "Not disclosed / self-managed",
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
           "is_undisclosed": true,
           "total_managed_bn": 15.623132,
           "market_share_pct": 85.0,
@@ -11758,6 +12323,7 @@
         },
         {
           "manager_name": "State Street Investment Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.713992,
           "market_share_pct": 3.9,
@@ -11776,6 +12342,7 @@
         },
         {
           "manager_name": "Insight Investment Management (Global) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.465487,
           "market_share_pct": 2.5,
@@ -11794,6 +12361,7 @@
         },
         {
           "manager_name": "BlackRock Investment Management (UK) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.228442,
           "market_share_pct": 1.2,
@@ -11822,6 +12390,7 @@
         },
         {
           "manager_name": "Baillie Gifford Overseas Ltd",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.193103,
           "market_share_pct": 1.1,
@@ -11840,6 +12409,7 @@
         },
         {
           "manager_name": "Reams Asset Management Co.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.157162,
           "market_share_pct": 0.9,
@@ -11858,6 +12428,7 @@
         },
         {
           "manager_name": "Aegon Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.128136,
           "market_share_pct": 0.7,
@@ -11876,6 +12447,7 @@
         },
         {
           "manager_name": "M&G Investment Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.108913,
           "market_share_pct": 0.6,
@@ -11894,6 +12466,7 @@
         },
         {
           "manager_name": "Generation Investment Management US LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.108287,
           "market_share_pct": 0.6,
@@ -11912,6 +12485,7 @@
         },
         {
           "manager_name": "Veritas Asset Management LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.105035,
           "market_share_pct": 0.6,
@@ -11930,6 +12504,7 @@
         },
         {
           "manager_name": "Mercer Investment Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.102611,
           "market_share_pct": 0.6,
@@ -11948,6 +12523,7 @@
         },
         {
           "manager_name": "Robeco Institutional Asset Management BV",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.100254,
           "market_share_pct": 0.5,
@@ -11966,6 +12542,7 @@
         },
         {
           "manager_name": "CQS",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.08322,
           "market_share_pct": 0.5,
@@ -11984,6 +12561,7 @@
         },
         {
           "manager_name": "Pacific Investment Management Company LLC  (PIMCO)",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.066983,
           "market_share_pct": 0.4,
@@ -12002,6 +12580,7 @@
         },
         {
           "manager_name": "UBS Asset Management (UK) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.059789,
           "market_share_pct": 0.3,
@@ -12020,6 +12599,7 @@
         },
         {
           "manager_name": "JP Morgan Investment Management Inc.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.04363,
           "market_share_pct": 0.2,
@@ -12038,6 +12618,7 @@
         },
         {
           "manager_name": "Aviva Investors London Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.040398,
           "market_share_pct": 0.2,
@@ -12056,6 +12637,7 @@
         },
         {
           "manager_name": "Aegon UK plc",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.023862,
           "market_share_pct": 0.1,
@@ -12074,6 +12656,7 @@
         },
         {
           "manager_name": "DTZ Investment Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.023431,
           "market_share_pct": 0.1,
@@ -12092,6 +12675,7 @@
         },
         {
           "manager_name": "Royal London Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.009521,
           "market_share_pct": 0.1,
@@ -12110,6 +12694,7 @@
         },
         {
           "manager_name": "Crescent Capital Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.000322,
           "market_share_pct": 0.0,
@@ -12128,6 +12713,7 @@
         },
         {
           "manager_name": "Epidarex Capital Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.000252,
           "market_share_pct": 0.0,
@@ -12149,11 +12735,12 @@
     {
       "segment": "DC Pension (Govt)",
       "total_plan_assets_bn": 10.383565,
-      "total_disclosed_managed_bn": 10.070893,
-      "disclosed_coverage_pct": 97.0,
+      "total_identified_managed_bn": 10.084759,
+      "identified_coverage_pct": 97.1,
       "managers": [
         {
           "manager_name": "Border to Coast Pensions Partnership Ltd",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 4.407324,
           "market_share_pct": 42.4,
@@ -12172,6 +12759,7 @@
         },
         {
           "manager_name": "Prudential plc",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 2.668849,
           "market_share_pct": 25.7,
@@ -12190,6 +12778,7 @@
         },
         {
           "manager_name": "CBRE Investment Management Indirect Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.624418,
           "market_share_pct": 6.0,
@@ -12207,10 +12796,11 @@
           ]
         },
         {
-          "manager_name": "In House Asset Management",
+          "manager_name": "Self-managed",
+          "is_self_managed": true,
           "is_undisclosed": false,
-          "total_managed_bn": 0.573316,
-          "market_share_pct": 5.5,
+          "total_managed_bn": 0.587182,
+          "market_share_pct": 5.7,
           "by_asset_type": [
             {
               "asset_type": "Cash & Short-Term",
@@ -12221,23 +12811,29 @@
                   "value_bn": 0.573316
                 }
               ]
+            },
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.013866
             }
           ]
         },
         {
-          "manager_name": "Not disclosed / self-managed",
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
           "is_undisclosed": true,
-          "total_managed_bn": 0.319338,
-          "market_share_pct": 3.1,
+          "total_managed_bn": 0.305472,
+          "market_share_pct": 2.9,
           "by_asset_type": [
             {
               "asset_type": "Not broken down",
-              "value_bn": 0.319338
+              "value_bn": 0.305472
             }
           ]
         },
         {
           "manager_name": "Legal & General Investment Management Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.294525,
           "market_share_pct": 2.8,
@@ -12256,6 +12852,7 @@
         },
         {
           "manager_name": "abrdn plc",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.173771,
           "market_share_pct": 1.7,
@@ -12284,6 +12881,7 @@
         },
         {
           "manager_name": "LGT Capital Partners (UK) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.157504,
           "market_share_pct": 1.5,
@@ -12302,6 +12900,7 @@
         },
         {
           "manager_name": "Darwin Property Investment Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.116903,
           "market_share_pct": 1.1,
@@ -12320,6 +12919,7 @@
         },
         {
           "manager_name": "Capital Dynamics AG",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.108503,
           "market_share_pct": 1.0,
@@ -12338,6 +12938,7 @@
         },
         {
           "manager_name": "Gresham House Plc",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.108503,
           "market_share_pct": 1.0,
@@ -12356,6 +12957,7 @@
         },
         {
           "manager_name": "Unigestion (UK) Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.108503,
           "market_share_pct": 1.0,
@@ -12374,6 +12976,7 @@
         },
         {
           "manager_name": "Access Capital Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.105003,
           "market_share_pct": 1.0,
@@ -12392,6 +12995,7 @@
         },
         {
           "manager_name": "JP Morgan Alternative Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.105003,
           "market_share_pct": 1.0,
@@ -12410,6 +13014,7 @@
         },
         {
           "manager_name": "Insight North America LLC",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.063702,
           "market_share_pct": 0.6,
@@ -12428,6 +13033,7 @@
         },
         {
           "manager_name": "BlackRock",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.061602,
           "market_share_pct": 0.6,
@@ -12446,6 +13052,7 @@
         },
         {
           "manager_name": "Pantheon Ventures (US) LP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.058102,
           "market_share_pct": 0.6,
@@ -12464,6 +13071,7 @@
         },
         {
           "manager_name": "PGIM",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.045306,
           "market_share_pct": 0.4,
@@ -12482,6 +13090,7 @@
         },
         {
           "manager_name": "Hermes GPE LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.044101,
           "market_share_pct": 0.4,
@@ -12500,6 +13109,7 @@
         },
         {
           "manager_name": "Hearthstone Investments PLC",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.034301,
           "market_share_pct": 0.3,
@@ -12518,6 +13128,7 @@
         },
         {
           "manager_name": "Innisfree Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.028701,
           "market_share_pct": 0.3,
@@ -12536,6 +13147,7 @@
         },
         {
           "manager_name": "Utmost Life and Pensions",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.026368,
           "market_share_pct": 0.3,
@@ -12554,6 +13166,7 @@
         },
         {
           "manager_name": "Ancala Partners LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.024501,
           "market_share_pct": 0.2,
@@ -12572,6 +13185,7 @@
         },
         {
           "manager_name": "abrdn",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.023289,
           "market_share_pct": 0.2,
@@ -12590,6 +13204,7 @@
         },
         {
           "manager_name": "Clerical Medical Financial Services Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.021584,
           "market_share_pct": 0.2,
@@ -12608,6 +13223,7 @@
         },
         {
           "manager_name": "LaSalle Investment Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.020301,
           "market_share_pct": 0.2,
@@ -12626,6 +13242,7 @@
         },
         {
           "manager_name": "Foresight Group",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.0175,
           "market_share_pct": 0.2,
@@ -12644,6 +13261,7 @@
         },
         {
           "manager_name": "LGIM International Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.015411,
           "market_share_pct": 0.1,
@@ -12662,6 +13280,7 @@
         },
         {
           "manager_name": "Aberdeen Standard Investments Inc.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.006252,
           "market_share_pct": 0.1,
@@ -12680,6 +13299,7 @@
         },
         {
           "manager_name": "CCLA Investment Management Ltd",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.0049,
           "market_share_pct": 0.0,
@@ -12698,6 +13318,7 @@
         },
         {
           "manager_name": "Aegon UK plc",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.004545,
           "market_share_pct": 0.0,
@@ -12716,6 +13337,7 @@
         },
         {
           "manager_name": "Zurich Investment Management Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.003601,
           "market_share_pct": 0.0,
@@ -12734,6 +13356,7 @@
         },
         {
           "manager_name": "FW Capital Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.0035,
           "market_share_pct": 0.0,
@@ -12752,6 +13375,7 @@
         },
         {
           "manager_name": "Scottish Mutual International Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.003343,
           "market_share_pct": 0.0,
@@ -12770,6 +13394,7 @@
         },
         {
           "manager_name": "Equitable Life Assurance Society",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.002369,
           "market_share_pct": 0.0,
@@ -12788,6 +13413,7 @@
         },
         {
           "manager_name": "Scottish Equity Partners LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.001863,
           "market_share_pct": 0.0,
@@ -12806,6 +13432,7 @@
         },
         {
           "manager_name": "Aviva Investors London Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.001307,
           "market_share_pct": 0.0,
@@ -12824,6 +13451,7 @@
         },
         {
           "manager_name": "Phoenix Equity Partners",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.000833,
           "market_share_pct": 0.0,
@@ -12842,6 +13470,7 @@
         },
         {
           "manager_name": "AEGON Investment Management BV",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.000752,
           "market_share_pct": 0.0,
@@ -12860,6 +13489,7 @@
         },
         {
           "manager_name": "Bridges Fund Management Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.0007,
           "market_share_pct": 0.0,
@@ -12878,6 +13508,7 @@
         },
         {
           "manager_name": "Sun Life Financial of Canada UK Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 2.7e-05,
           "market_share_pct": 0.0,
@@ -12896,6 +13527,7 @@
         },
         {
           "manager_name": "SL Capital Partners LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 7e-06,
           "market_share_pct": 0.0,
@@ -12917,11 +13549,12 @@
     {
       "segment": "DC Pension (Union)",
       "total_plan_assets_bn": 6.286025,
-      "total_disclosed_managed_bn": 6.285227,
-      "disclosed_coverage_pct": 100.0,
+      "total_identified_managed_bn": 6.285227,
+      "identified_coverage_pct": 100.0,
       "managers": [
         {
           "manager_name": "LGIM International Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 3.205104,
           "market_share_pct": 51.0,
@@ -12940,6 +13573,7 @@
         },
         {
           "manager_name": "JP Morgan Alternative Asset Management",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 1.25715,
           "market_share_pct": 20.0,
@@ -12958,6 +13592,7 @@
         },
         {
           "manager_name": "Mirova",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.628575,
           "market_share_pct": 10.0,
@@ -12976,6 +13611,7 @@
         },
         {
           "manager_name": "MV Credit Partners LLP",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.628575,
           "market_share_pct": 10.0,
@@ -12994,6 +13630,7 @@
         },
         {
           "manager_name": "BlackRock",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.377145,
           "market_share_pct": 6.0,
@@ -13012,6 +13649,7 @@
         },
         {
           "manager_name": "AXA Investment Managers-Framlington Equities",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.188573,
           "market_share_pct": 3.0,
@@ -13029,7 +13667,8 @@
           ]
         },
         {
-          "manager_name": "Not disclosed / self-managed",
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
           "is_undisclosed": true,
           "total_managed_bn": 0.000798,
           "market_share_pct": 0.0,
@@ -13042,6 +13681,7 @@
         },
         {
           "manager_name": "Prudential plc",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 7.5e-05,
           "market_share_pct": 0.0,
@@ -13060,6 +13700,7 @@
         },
         {
           "manager_name": "Utmost Life and Pensions",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 3e-05,
           "market_share_pct": 0.0,
@@ -13081,11 +13722,12 @@
     {
       "segment": "Healthcare non-profit E&F",
       "total_plan_assets_bn": 2.442324,
-      "total_disclosed_managed_bn": 0.009174,
-      "disclosed_coverage_pct": 0.4,
+      "total_identified_managed_bn": 0.009174,
+      "identified_coverage_pct": 0.4,
       "managers": [
         {
-          "manager_name": "Not disclosed / self-managed",
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
           "is_undisclosed": true,
           "total_managed_bn": 2.433149,
           "market_share_pct": 99.6,
@@ -13098,6 +13740,7 @@
         },
         {
           "manager_name": "Cazenove Capital Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.009174,
           "market_share_pct": 0.4,
@@ -13119,11 +13762,12 @@
     {
       "segment": "DB Pension (Healthcare non-profit)",
       "total_plan_assets_bn": 0.68361,
-      "total_disclosed_managed_bn": 0.004071,
-      "disclosed_coverage_pct": 0.6,
+      "total_identified_managed_bn": 0.004071,
+      "identified_coverage_pct": 0.6,
       "managers": [
         {
-          "manager_name": "Not disclosed / self-managed",
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
           "is_undisclosed": true,
           "total_managed_bn": 0.67954,
           "market_share_pct": 99.4,
@@ -13136,6 +13780,7 @@
         },
         {
           "manager_name": "Cazenove Capital Management Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.004071,
           "market_share_pct": 0.6,
@@ -13157,11 +13802,12 @@
     {
       "segment": "Foundations E&F",
       "total_plan_assets_bn": 0.294376,
-      "total_disclosed_managed_bn": 0.0,
-      "disclosed_coverage_pct": 0.0,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
       "managers": [
         {
-          "manager_name": "Not disclosed / self-managed",
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
           "is_undisclosed": true,
           "total_managed_bn": 0.294376,
           "market_share_pct": 100.0,
@@ -13177,11 +13823,12 @@
     {
       "segment": "DC Pension (Tax exempt)",
       "total_plan_assets_bn": 0.120311,
-      "total_disclosed_managed_bn": 0.055465,
-      "disclosed_coverage_pct": 46.1,
+      "total_identified_managed_bn": 0.055465,
+      "identified_coverage_pct": 46.1,
       "managers": [
         {
-          "manager_name": "Not disclosed / self-managed",
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
           "is_undisclosed": true,
           "total_managed_bn": 0.064846,
           "market_share_pct": 53.9,
@@ -13194,6 +13841,7 @@
         },
         {
           "manager_name": "Legal & General Investment Management Ltd.",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.050789,
           "market_share_pct": 42.2,
@@ -13212,6 +13860,7 @@
         },
         {
           "manager_name": "ReAssure Limited",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.00299,
           "market_share_pct": 2.5,
@@ -13230,6 +13879,7 @@
         },
         {
           "manager_name": "Prudential plc",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.001686,
           "market_share_pct": 1.4,
@@ -13251,11 +13901,12 @@
     {
       "segment": "DC Pension (Endowments)",
       "total_plan_assets_bn": 0.002998,
-      "total_disclosed_managed_bn": 0.001644,
-      "disclosed_coverage_pct": 54.8,
+      "total_identified_managed_bn": 0.001644,
+      "identified_coverage_pct": 54.8,
       "managers": [
         {
           "manager_name": "Prudential plc",
+          "is_self_managed": false,
           "is_undisclosed": false,
           "total_managed_bn": 0.001644,
           "market_share_pct": 54.8,
@@ -13273,7 +13924,8 @@
           ]
         },
         {
-          "manager_name": "Not disclosed / self-managed",
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
           "is_undisclosed": true,
           "total_managed_bn": 0.001354,
           "market_share_pct": 45.2,
