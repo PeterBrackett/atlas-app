@@ -1,0 +1,962 @@
+
+<HTML  xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns:html="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/xml; charset=utf-8">
+<!--[if gte mso 9]><xml>
+ <x:ExcelWorkbook>
+  <x:ExcelWorksheets>
+   <x:ExcelWorksheet>
+    <x:Name>M_ExcelGenN</x:Name>
+    <x:WorksheetOptions>
+     <x:DefaultRowHeight>264</x:DefaultRowHeight>
+     <x:Selected/>
+     <x:DoNotDisplayGridlines/>
+     <x:FreezePanes/>
+     <x:FrozenNoSplit/>
+     <x:SplitHorizontal>1</x:SplitHorizontal>
+     <x:TopRowBottomPane>1</x:TopRowBottomPane>
+     <x:ActivePane>2</x:ActivePane>
+     <x:Panes>
+      <x:Pane>
+       <x:Number>3</x:Number>
+      </x:Pane>
+      <x:Pane>
+       <x:Number>2</x:Number>
+       <x:RangeSelection>$2:$2</x:RangeSelection>
+      </x:Pane>
+     </x:Panes>
+     <x:ProtectContents>False</x:ProtectContents>
+     <x:ProtectObjects>False</x:ProtectObjects>
+     <x:ProtectScenarios>False</x:ProtectScenarios>
+    </x:WorksheetOptions>
+   </x:ExcelWorksheet>
+  </x:ExcelWorksheets>
+  <x:ProtectStructure>False</x:ProtectStructure>
+  <x:ProtectWindows>False</x:ProtectWindows>
+ </x:ExcelWorkbook>
+</xml><![endif]-->
+</head>
+<body>
+<table borderColor="#808080" border="1">
+	<tr><th>Firm Name</th><th>Category</th><th>Address</th><th>City</th><th>State</th><th>Phone#</th><th>Total PS Assets</th><th>Type of Plan</th><th>Plan Assets</th><th>Investment Region</th><th>Pooled Investments</th><th>Asset Type</th><th>Asset Style</th><th>Dollar Amount of Asset Type in Plan (in 000's)</th><th>% of Asset type in Plan</th><th>Pid#</th></tr>
+<FreezePanes/>
+<tr><td>
+Botswana Power Corporation</td>
+<td>
+Corporation</td>
+<td>
+Motlakase House Macheng Way</td>
+<td>
+Gaborone</td>
+<td>
+</td>
+<td>
++267 360 7000</td>
+<td>
+46,980</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+46,980</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9371466</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+Unit 3, Second Floor, Peelo Place Plot 54366, Central Business District</td>
+<td>
+Gaborone</td>
+<td>
+</td>
+<td>
++267 391 1445</td>
+<td>
+8,785,981</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Alternatives</td>
+<td>
+Offshore</td>
+<td>
+4,673,263</td>
+<td>
+53</td>
+<td>
+9362085</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+Unit 3, Second Floor, Peelo Place Plot 54366, Central Business District</td>
+<td>
+Gaborone</td>
+<td>
+</td>
+<td>
++267 391 1445</td>
+<td>
+8,785,981</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Alternatives</td>
+<td>
+Private Equity</td>
+<td>
+400,641</td>
+<td>
+5</td>
+<td>
+9362085</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+Unit 3, Second Floor, Peelo Place Plot 54366, Central Business District</td>
+<td>
+Gaborone</td>
+<td>
+</td>
+<td>
++267 391 1445</td>
+<td>
+8,785,981</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+28,115</td>
+<td>
+</td>
+<td>
+9362085</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+Unit 3, Second Floor, Peelo Place Plot 54366, Central Business District</td>
+<td>
+Gaborone</td>
+<td>
+</td>
+<td>
++267 391 1445</td>
+<td>
+8,785,981</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+Money Market</td>
+<td>
+809,189</td>
+<td>
+9</td>
+<td>
+9362085</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+Unit 3, Second Floor, Peelo Place Plot 54366, Central Business District</td>
+<td>
+Gaborone</td>
+<td>
+</td>
+<td>
++267 391 1445</td>
+<td>
+8,785,981</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Real Estate</td>
+<td>
+ Unspecified</td>
+<td>
+101,917</td>
+<td>
+1</td>
+<td>
+9362085</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+Unit 3, Second Floor, Peelo Place Plot 54366, Central Business District</td>
+<td>
+Gaborone</td>
+<td>
+</td>
+<td>
++267 391 1445</td>
+<td>
+8,785,981</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Botswana</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+1,477,802</td>
+<td>
+17</td>
+<td>
+9362085</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+Unit 3, Second Floor, Peelo Place Plot 54366, Central Business District</td>
+<td>
+Gaborone</td>
+<td>
+</td>
+<td>
++267 391 1445</td>
+<td>
+8,785,981</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Botswana</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Bonds</td>
+<td>
+1,295,054</td>
+<td>
+15</td>
+<td>
+9362085</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+Plot 50361, Block D, Carlton House, Fairgrounds</td>
+<td>
+Gaborone</td>
+<td>
+</td>
+<td>
++267 361 4288</td>
+<td>
+827,648</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+China</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+21,271</td>
+<td>
+3</td>
+<td>
+9387020</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+Plot 50361, Block D, Carlton House, Fairgrounds</td>
+<td>
+Gaborone</td>
+<td>
+</td>
+<td>
++267 361 4288</td>
+<td>
+827,648</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Botswana</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+12,497</td>
+<td>
+2</td>
+<td>
+9387020</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+Plot 50361, Block D, Carlton House, Fairgrounds</td>
+<td>
+Gaborone</td>
+<td>
+</td>
+<td>
++267 361 4288</td>
+<td>
+827,648</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Botswana</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+142,355</td>
+<td>
+17</td>
+<td>
+9387020</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+Plot 50361, Block D, Carlton House, Fairgrounds</td>
+<td>
+Gaborone</td>
+<td>
+</td>
+<td>
++267 361 4288</td>
+<td>
+827,648</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Botswana</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+ Unspecified</td>
+<td>
+156,591</td>
+<td>
+19</td>
+<td>
+9387020</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+Plot 50361, Block D, Carlton House, Fairgrounds</td>
+<td>
+Gaborone</td>
+<td>
+</td>
+<td>
++267 361 4288</td>
+<td>
+827,648</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Botswana</td>
+<td>
+Unspecified</td>
+<td>
+Real Estate</td>
+<td>
+ Unspecified</td>
+<td>
+78,709</td>
+<td>
+10</td>
+<td>
+9387020</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+Plot 50361, Block D, Carlton House, Fairgrounds</td>
+<td>
+Gaborone</td>
+<td>
+</td>
+<td>
++267 361 4288</td>
+<td>
+827,648</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Emerging Markets</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+49,411</td>
+<td>
+6</td>
+<td>
+9387020</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+Plot 50361, Block D, Carlton House, Fairgrounds</td>
+<td>
+Gaborone</td>
+<td>
+</td>
+<td>
++267 361 4288</td>
+<td>
+827,648</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Emerging Markets</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+ Unspecified</td>
+<td>
+18,125</td>
+<td>
+2</td>
+<td>
+9387020</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+Plot 50361, Block D, Carlton House, Fairgrounds</td>
+<td>
+Gaborone</td>
+<td>
+</td>
+<td>
++267 361 4288</td>
+<td>
+827,648</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Global</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+16,470</td>
+<td>
+2</td>
+<td>
+9387020</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+Plot 50361, Block D, Carlton House, Fairgrounds</td>
+<td>
+Gaborone</td>
+<td>
+</td>
+<td>
++267 361 4288</td>
+<td>
+827,648</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Global</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+298,450</td>
+<td>
+36</td>
+<td>
+9387020</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+Plot 50361, Block D, Carlton House, Fairgrounds</td>
+<td>
+Gaborone</td>
+<td>
+</td>
+<td>
++267 361 4288</td>
+<td>
+827,648</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Global</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+ Unspecified</td>
+<td>
+9,766</td>
+<td>
+1</td>
+<td>
+9387020</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+Plot 50361, Block D, Carlton House, Fairgrounds</td>
+<td>
+Gaborone</td>
+<td>
+</td>
+<td>
++267 361 4288</td>
+<td>
+827,648</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Global</td>
+<td>
+Unspecified</td>
+<td>
+Real Estate</td>
+<td>
+ Unspecified</td>
+<td>
+13,987</td>
+<td>
+2</td>
+<td>
+9387020</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+Plot 50361, Block D, Carlton House, Fairgrounds</td>
+<td>
+Gaborone</td>
+<td>
+</td>
+<td>
++267 361 4288</td>
+<td>
+827,648</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Africa</td>
+<td>
+Unspecified</td>
+<td>
+Alternatives</td>
+<td>
+Private Equity</td>
+<td>
+5,794</td>
+<td>
+1</td>
+<td>
+9387020</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+Plot 50361, Block D, Carlton House, Fairgrounds</td>
+<td>
+Gaborone</td>
+<td>
+</td>
+<td>
++267 361 4288</td>
+<td>
+827,648</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Africa</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+4,221</td>
+<td>
+1</td>
+<td>
+9387020</td>
+</tr>
+<tr><td>
+Pula Fund</td>
+<td>
+Sovereign Wealth Funds</td>
+<td>
+17938, Khama Crescent</td>
+<td>
+Gaborone</td>
+<td>
+</td>
+<td>
++267 360 6000</td>
+<td>
+4,837,366</td>
+<td>
+Sovereign Wealth Fund</td>
+<td>
+4,837,366</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+212,844</td>
+<td>
+4</td>
+<td>
+9681934</td>
+</tr>
+<tr><td>
+Pula Fund</td>
+<td>
+Sovereign Wealth Funds</td>
+<td>
+17938, Khama Crescent</td>
+<td>
+Gaborone</td>
+<td>
+</td>
+<td>
++267 360 6000</td>
+<td>
+4,837,366</td>
+<td>
+Sovereign Wealth Fund</td>
+<td>
+4,837,366</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+Savings & Temporary Cash</td>
+<td>
+106,906</td>
+<td>
+2</td>
+<td>
+9681934</td>
+</tr>
+<tr><td>
+Pula Fund</td>
+<td>
+Sovereign Wealth Funds</td>
+<td>
+17938, Khama Crescent</td>
+<td>
+Gaborone</td>
+<td>
+</td>
+<td>
++267 360 6000</td>
+<td>
+4,837,366</td>
+<td>
+Sovereign Wealth Fund</td>
+<td>
+4,837,366</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+Repurchase Agreements</td>
+<td>
+433,428</td>
+<td>
+9</td>
+<td>
+9681934</td>
+</tr>
+<tr><td>
+Pula Fund</td>
+<td>
+Sovereign Wealth Funds</td>
+<td>
+17938, Khama Crescent</td>
+<td>
+Gaborone</td>
+<td>
+</td>
+<td>
++267 360 6000</td>
+<td>
+4,837,366</td>
+<td>
+Sovereign Wealth Fund</td>
+<td>
+4,837,366</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+2,368,858</td>
+<td>
+49</td>
+<td>
+9681934</td>
+</tr>
+<tr><td>
+Pula Fund</td>
+<td>
+Sovereign Wealth Funds</td>
+<td>
+17938, Khama Crescent</td>
+<td>
+Gaborone</td>
+<td>
+</td>
+<td>
++267 360 6000</td>
+<td>
+4,837,366</td>
+<td>
+Sovereign Wealth Fund</td>
+<td>
+4,837,366</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Bonds</td>
+<td>
+1,324,471</td>
+<td>
+27</td>
+<td>
+9681934</td>
+</tr>
+<tr><td>
+Pula Fund</td>
+<td>
+Sovereign Wealth Funds</td>
+<td>
+17938, Khama Crescent</td>
+<td>
+Gaborone</td>
+<td>
+</td>
+<td>
++267 360 6000</td>
+<td>
+4,837,366</td>
+<td>
+Sovereign Wealth Fund</td>
+<td>
+4,837,366</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Other Investments</td>
+<td>
+ Unspecified</td>
+<td>
+390,859</td>
+<td>
+8</td>
+<td>
+9681934</td>
+</tr>
+<tr><td>
+University of Botswana</td>
+<td>
+Endowment</td>
+<td>
+4775 Notwane Road</td>
+<td>
+Gaborone</td>
+<td>
+</td>
+<td>
++267 355 0000</td>
+<td>
+197,125</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+197,125</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9371765</td>
+</tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+
+</table>
+</body>
+</HTML>

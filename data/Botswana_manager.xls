@@ -1,0 +1,2471 @@
+
+<HTML  xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns:html="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/xml; charset=utf-8">
+<!--[if gte mso 9]><xml>
+ <x:ExcelWorkbook>
+  <x:ExcelWorksheets>
+   <x:ExcelWorksheet>
+    <x:Name>M_ExcelGenN</x:Name>
+    <x:WorksheetOptions>
+     <x:DefaultRowHeight>264</x:DefaultRowHeight>
+     <x:Selected/>
+     <x:DoNotDisplayGridlines/>
+     <x:FreezePanes/>
+     <x:FrozenNoSplit/>
+     <x:SplitHorizontal>1</x:SplitHorizontal>
+     <x:TopRowBottomPane>1</x:TopRowBottomPane>
+     <x:ActivePane>2</x:ActivePane>
+     <x:Panes>
+      <x:Pane>
+       <x:Number>3</x:Number>
+      </x:Pane>
+      <x:Pane>
+       <x:Number>2</x:Number>
+       <x:RangeSelection>$2:$2</x:RangeSelection>
+      </x:Pane>
+     </x:Panes>
+     <x:ProtectContents>False</x:ProtectContents>
+     <x:ProtectObjects>False</x:ProtectObjects>
+     <x:ProtectScenarios>False</x:ProtectScenarios>
+    </x:WorksheetOptions>
+   </x:ExcelWorksheet>
+  </x:ExcelWorksheets>
+  <x:ProtectStructure>False</x:ProtectStructure>
+  <x:ProtectWindows>False</x:ProtectWindows>
+ </x:ExcelWorkbook>
+</xml><![endif]-->
+</head>
+<body>
+<table borderColor="#808080" border="1">
+	<tr><th>Firm Name</th><th>Category</th><th>Total PS Assets</th><th>Plan Name</th><th>Type of Plan</th><th>Plan Assets</th><th>Management Co. Name</th><th>Dollar Amount Managed (in 000's)</th><th>Managed Investment Region</th><th>Managed Pooled Investments</th><th>Managed Asset Type</th><th>Managed Asset Style</th><th>Year hired</th><th>Total DB Assets</th><th>Total E/F Assets</th><th>Total DC Assets</th></tr>
+<FreezePanes/>
+<tr><td>
+Botswana Power Corporation</td>
+<td>
+Corporation</td>
+<td>
+46,980</td>
+<td>
+Botswana Power Corporation Staff Pension Fund</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+46,980</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+</td>
+<td>
+46,980</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Allan Gray Botswana, Gaborone, Botswana</td>
+<td>
+699,364</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Alternatives</td>
+<td>
+Offshore</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Allan Gray Botswana, Gaborone, Botswana</td>
+<td>
+699,364</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Allan Gray Botswana, Gaborone, Botswana</td>
+<td>
+699,364</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+Money Market</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Allan Gray Botswana, Gaborone, Botswana</td>
+<td>
+699,364</td>
+<td>
+Botswana</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Artisan Partners LP, Milwaukee, WI</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Botswana Insurance Fund Management Limited, Gaborone, Botswana</td>
+<td>
+1,143,935</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Alternatives</td>
+<td>
+Offshore</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Botswana Insurance Fund Management Limited, Gaborone, Botswana</td>
+<td>
+1,143,935</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Alternatives</td>
+<td>
+Private Equity</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Botswana Insurance Fund Management Limited, Gaborone, Botswana</td>
+<td>
+1,143,935</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Botswana Insurance Fund Management Limited, Gaborone, Botswana</td>
+<td>
+1,143,935</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+Money Market</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Botswana Insurance Fund Management Limited, Gaborone, Botswana</td>
+<td>
+1,143,935</td>
+<td>
+Botswana</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Botswana Insurance Fund Management Limited, Gaborone, Botswana</td>
+<td>
+1,143,935</td>
+<td>
+Botswana</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Bonds</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Epoch Investment Partners, Inc., New York, NY</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Falcon Money Management, London, United Kingdom</td>
+<td>
+74,681</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Alternatives</td>
+<td>
+Offshore</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Falcon Money Management, London, United Kingdom</td>
+<td>
+74,681</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Alternatives</td>
+<td>
+Private Equity</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Franklin Templeton Portfolio Advisors, Inc., San Mateo, CA</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Fundsmith, LLP, London, United Kingdom</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Harding Loevner LP, Bridgewater, NJ</td>
+<td>
+1,201,922</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Alternatives</td>
+<td>
+Offshore</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Harding Loevner LP, Bridgewater, NJ</td>
+<td>
+1,201,922</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Harding Loevner LP, Bridgewater, NJ</td>
+<td>
+1,201,922</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+Money Market</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Harith General Partners, Sandton, South Africa</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Hilton Capital Management, LLC, Garden City, NY</td>
+<td>
+2,636</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Alternatives</td>
+<td>
+Private Equity</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Hilton Capital Management, LLC, Garden City, NY</td>
+<td>
+2,636</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+Money Market</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+In House Asset Management</td>
+<td>
+2,298,413</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Alternatives</td>
+<td>
+Offshore</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+In House Asset Management</td>
+<td>
+2,298,413</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+Money Market</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+In House Asset Management</td>
+<td>
+2,298,413</td>
+<td>
+Botswana</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Bonds</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Legg Mason Asset Management Co., Ltd., Tokyo, Japan</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Milltrust International LLP, London, United Kingdom</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Morgan Stanley Smith Barney LLC, Purchase, NY</td>
+<td>
+</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Alternatives</td>
+<td>
+Private Equity</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Ninety One Botswana, Gaborone, Botswana</td>
+<td>
+1,593,777</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Alternatives</td>
+<td>
+Offshore</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Ninety One Botswana, Gaborone, Botswana</td>
+<td>
+1,593,777</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Ninety One Botswana, Gaborone, Botswana</td>
+<td>
+1,593,777</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+Money Market</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Ninety One Botswana, Gaborone, Botswana</td>
+<td>
+1,593,777</td>
+<td>
+Botswana</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Bonds</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Ninety One UK Limited, London, United Kingdom</td>
+<td>
+</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+Money Market</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Rubrics Asset Management, London, United Kingdom</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Sarasin & Partners LLP, London, United Kingdom</td>
+<td>
+144,090</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Alternatives</td>
+<td>
+Offshore</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Sarasin & Partners LLP, London, United Kingdom</td>
+<td>
+144,090</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Sarasin & Partners LLP, London, United Kingdom</td>
+<td>
+144,090</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+Money Market</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Schroders Investment Management (Japan) Ltd., Tokyo, Chiyoda-Ku, Japan</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Stenham Asset Management Inc., St. Peter Port, Guernsey</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Vantage Capital Management, Melrose Arch, South Africa</td>
+<td>
+9,665</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Alternatives</td>
+<td>
+Offshore</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Venture Partners Botswana, Gaborone, Botswana</td>
+<td>
+1,757</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Alternatives</td>
+<td>
+Offshore</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Venture Partners Botswana, Gaborone, Botswana</td>
+<td>
+1,757</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Alternatives</td>
+<td>
+Private Equity</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Vontobel Asset Management, Zurich, Switzerland</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Vunani Fund Managers (Pty) Ltd., Cape Town, South Africa</td>
+<td>
+155,512</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+Money Market</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Botswana Public Officers Pension Fund</td>
+<td>
+Government</td>
+<td>
+8,785,981</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+8,785,981</td>
+<td>
+Vunani Fund Managers (Pty) Ltd., Cape Town, South Africa</td>
+<td>
+155,512</td>
+<td>
+Botswana</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+</td>
+<td>
+8,785,981</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+827,648</td>
+<td>
+Pension Fund</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+African Alliance Asset Management, Gaborone, Botswana</td>
+<td>
+</td>
+<td>
+Botswana</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+827,648</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+827,648</td>
+<td>
+Pension Fund</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Allan Gray Botswana, Gaborone, Botswana</td>
+<td>
+65,798</td>
+<td>
+Botswana</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+827,648</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+827,648</td>
+<td>
+Pension Fund</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Allan Gray Botswana, Gaborone, Botswana</td>
+<td>
+65,798</td>
+<td>
+Botswana</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+ Unspecified</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+827,648</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+827,648</td>
+<td>
+Pension Fund</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+American Century Investment Management Inc., Kansas City, MO</td>
+<td>
+55,618</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+827,648</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+827,648</td>
+<td>
+Pension Fund</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Barclays Asset Management, London, United Kingdom</td>
+<td>
+745</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+827,648</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+827,648</td>
+<td>
+Pension Fund</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+BlueBay Asset Management USA LLC, Stamford, CT</td>
+<td>
+17,960</td>
+<td>
+China</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+827,648</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+827,648</td>
+<td>
+Pension Fund</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Botswana Insurance Fund Management Limited, Gaborone, Botswana</td>
+<td>
+87,400</td>
+<td>
+Botswana</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+ Unspecified</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+827,648</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+827,648</td>
+<td>
+Pension Fund</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Brown Brothers Harriman Mutual Fund Advisory Department, New York, NY</td>
+<td>
+55,618</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+827,648</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+827,648</td>
+<td>
+Pension Fund</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+CBRE Investment Management, LLC, New York, NY</td>
+<td>
+13,822</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+827,648</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+827,648</td>
+<td>
+Pension Fund</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Coronation Asset Management, Cape Town, South Africa</td>
+<td>
+2,152</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+827,648</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+827,648</td>
+<td>
+Pension Fund</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Healthcare Realty Trust Inc., Nashville, TN</td>
+<td>
+17,794</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+827,648</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+827,648</td>
+<td>
+Pension Fund</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Knight Frank Investment Management LLP, London, United Kingdom</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+827,648</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+827,648</td>
+<td>
+Pension Fund</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Marathon Asset Management LLP, London, United Kingdom</td>
+<td>
+47,424</td>
+<td>
+Global</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+827,648</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+827,648</td>
+<td>
+Pension Fund</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Morgan Stanley Investment Management, New York, NY</td>
+<td>
+34,347</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+827,648</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+827,648</td>
+<td>
+Pension Fund</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Ninety One, Johannesburg, South Africa</td>
+<td>
+91,207</td>
+<td>
+Botswana</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+827,648</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+827,648</td>
+<td>
+Pension Fund</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Ninety One, Johannesburg, South Africa</td>
+<td>
+91,207</td>
+<td>
+Botswana</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+ Unspecified</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+827,648</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+827,648</td>
+<td>
+Pension Fund</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Orbis Investment Management Limited, Hamilton, Bermuda</td>
+<td>
+47,010</td>
+<td>
+Global</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+827,648</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+827,648</td>
+<td>
+Pension Fund</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Pacific Investment Management Company LLC  (PIMCO), Newport Beach, CA</td>
+<td>
+9,683</td>
+<td>
+China</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+827,648</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+827,648</td>
+<td>
+Pension Fund</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Schroders Investment Management (Japan) Ltd., Tokyo, Chiyoda-Ku, Japan</td>
+<td>
+16,056</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+827,648</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+827,648</td>
+<td>
+Pension Fund</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Southeastern Asset Management, Inc., Memphis, TN</td>
+<td>
+18,788</td>
+<td>
+Global</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+827,648</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+827,648</td>
+<td>
+Pension Fund</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+State Street Investment Management, Boston, MA</td>
+<td>
+37,244</td>
+<td>
+Global</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+827,648</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+827,648</td>
+<td>
+Pension Fund</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Steyn Capital Management (Pty) Ltd., Bellville, South Africa</td>
+<td>
+1,986</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+827,648</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+827,648</td>
+<td>
+Pension Fund</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Vantage Capital Management, Melrose Arch, South Africa</td>
+<td>
+5,711</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+827,648</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+827,648</td>
+<td>
+Pension Fund</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Veritas Asset Management LLP, London, United Kingdom</td>
+<td>
+58,349</td>
+<td>
+Global</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+827,648</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+827,648</td>
+<td>
+Pension Fund</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Vunani Fund Managers (Pty) Ltd., Cape Town, South Africa</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+827,648</td>
+</tr>
+<tr><td>
+Debswana Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+827,648</td>
+<td>
+Pension Fund</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+827,648</td>
+<td>
+Walter Scott & Partners Limited, Edinburgh, United Kingdom</td>
+<td>
+45,521</td>
+<td>
+Global</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+827,648</td>
+</tr>
+<tr><td>
+Pula Fund</td>
+<td>
+Sovereign Wealth Funds</td>
+<td>
+4,837,366</td>
+<td>
+Sovereign Wealth Fund</td>
+<td>
+Sovereign Wealth Fund</td>
+<td>
+4,837,366</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+University of Botswana</td>
+<td>
+Endowment</td>
+<td>
+197,125</td>
+<td>
+University of Botswana Defined Contribution Staff Pension Fund</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+197,125</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+</td>
+<td>
+197,125</td>
+</tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+
+</table>
+</body>
+</HTML>

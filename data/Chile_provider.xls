@@ -1,0 +1,989 @@
+
+<HTML  xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns:html="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/xml; charset=utf-8">
+<!--[if gte mso 9]><xml>
+ <x:ExcelWorkbook>
+  <x:ExcelWorksheets>
+   <x:ExcelWorksheet>
+    <x:Name>M_ExcelGenN</x:Name>
+    <x:WorksheetOptions>
+     <x:DefaultRowHeight>264</x:DefaultRowHeight>
+     <x:Selected/>
+     <x:DoNotDisplayGridlines/>
+     <x:FreezePanes/>
+     <x:FrozenNoSplit/>
+     <x:SplitHorizontal>1</x:SplitHorizontal>
+     <x:TopRowBottomPane>1</x:TopRowBottomPane>
+     <x:ActivePane>2</x:ActivePane>
+     <x:Panes>
+      <x:Pane>
+       <x:Number>3</x:Number>
+      </x:Pane>
+      <x:Pane>
+       <x:Number>2</x:Number>
+       <x:RangeSelection>$2:$2</x:RangeSelection>
+      </x:Pane>
+     </x:Panes>
+     <x:ProtectContents>False</x:ProtectContents>
+     <x:ProtectObjects>False</x:ProtectObjects>
+     <x:ProtectScenarios>False</x:ProtectScenarios>
+    </x:WorksheetOptions>
+   </x:ExcelWorksheet>
+  </x:ExcelWorksheets>
+  <x:ProtectStructure>False</x:ProtectStructure>
+  <x:ProtectWindows>False</x:ProtectWindows>
+ </x:ExcelWorkbook>
+</xml><![endif]-->
+</head>
+<body>
+<table borderColor="#808080" border="1">
+	<tr><th>Firm Name</th><th>Category</th><th>Address</th><th>City</th><th>State</th><th>Phone#</th><th>Total PS Assets</th><th>Total DB Assets</th><th>Total DC Assets</th><th>Total E/F Assets</th><th>Provider Name</th><th>Year Provider was hired</th><th>Provider Type</th><th>Pid#</th></tr>
+<FreezePanes/>
+<tr><td>
+Administradora de Fondos de Cesantia Chile</td>
+<td>
+Government</td>
+<td>
+Huérfanos 670, Piso 14</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 2927 6800</td>
+<td>
+12,139,371</td>
+<td>
+</td>
+<td>
+12,139,371</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9366335</td>
+</tr>
+<tr><td>
+AFP Capital</td>
+<td>
+Corporation</td>
+<td>
+Avenida Apoquindo 4820 Las Condes</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 3293 4655</td>
+<td>
+45,399,500</td>
+<td>
+</td>
+<td>
+45,399,500</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682837</td>
+</tr>
+<tr><td>
+AFP Capital</td>
+<td>
+Corporation</td>
+<td>
+Avenida Apoquindo 4820 Las Condes</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 3293 4655</td>
+<td>
+45,399,500</td>
+<td>
+</td>
+<td>
+45,399,500</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682837</td>
+</tr>
+<tr><td>
+AFP Capital</td>
+<td>
+Corporation</td>
+<td>
+Avenida Apoquindo 4820 Las Condes</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 3293 4655</td>
+<td>
+45,399,500</td>
+<td>
+</td>
+<td>
+45,399,500</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682837</td>
+</tr>
+<tr><td>
+AFP Capital</td>
+<td>
+Corporation</td>
+<td>
+Avenida Apoquindo 4820 Las Condes</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 3293 4655</td>
+<td>
+45,399,500</td>
+<td>
+</td>
+<td>
+45,399,500</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682837</td>
+</tr>
+<tr><td>
+AFP Capital</td>
+<td>
+Corporation</td>
+<td>
+Avenida Apoquindo 4820 Las Condes</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 3293 4655</td>
+<td>
+45,399,500</td>
+<td>
+</td>
+<td>
+45,399,500</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682837</td>
+</tr>
+<tr><td>
+AFP Cuprum</td>
+<td>
+Corporation</td>
+<td>
+Calle Bandera 236, Piso 9</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 672 0009</td>
+<td>
+41,169,401</td>
+<td>
+</td>
+<td>
+41,169,401</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682064</td>
+</tr>
+<tr><td>
+AFP Cuprum</td>
+<td>
+Corporation</td>
+<td>
+Calle Bandera 236, Piso 9</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 672 0009</td>
+<td>
+41,169,401</td>
+<td>
+</td>
+<td>
+41,169,401</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682064</td>
+</tr>
+<tr><td>
+AFP Cuprum</td>
+<td>
+Corporation</td>
+<td>
+Calle Bandera 236, Piso 9</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 672 0009</td>
+<td>
+41,169,401</td>
+<td>
+</td>
+<td>
+41,169,401</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682064</td>
+</tr>
+<tr><td>
+AFP Cuprum</td>
+<td>
+Corporation</td>
+<td>
+Calle Bandera 236, Piso 9</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 672 0009</td>
+<td>
+41,169,401</td>
+<td>
+</td>
+<td>
+41,169,401</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682064</td>
+</tr>
+<tr><td>
+AFP Cuprum</td>
+<td>
+Corporation</td>
+<td>
+Calle Bandera 236, Piso 9</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 672 0009</td>
+<td>
+41,169,401</td>
+<td>
+</td>
+<td>
+41,169,401</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682064</td>
+</tr>
+<tr><td>
+AFP Habitat SA</td>
+<td>
+Corporation</td>
+<td>
+Providencia 1909, Piso 1</td>
+<td>
+Providencia</td>
+<td>
+</td>
+<td>
++56 2 2378 2000</td>
+<td>
+72,149,456</td>
+<td>
+</td>
+<td>
+72,149,456</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682834</td>
+</tr>
+<tr><td>
+AFP Habitat SA</td>
+<td>
+Corporation</td>
+<td>
+Providencia 1909, Piso 1</td>
+<td>
+Providencia</td>
+<td>
+</td>
+<td>
++56 2 2378 2000</td>
+<td>
+72,149,456</td>
+<td>
+</td>
+<td>
+72,149,456</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682834</td>
+</tr>
+<tr><td>
+AFP Habitat SA</td>
+<td>
+Corporation</td>
+<td>
+Providencia 1909, Piso 1</td>
+<td>
+Providencia</td>
+<td>
+</td>
+<td>
++56 2 2378 2000</td>
+<td>
+72,149,456</td>
+<td>
+</td>
+<td>
+72,149,456</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682834</td>
+</tr>
+<tr><td>
+AFP Habitat SA</td>
+<td>
+Corporation</td>
+<td>
+Providencia 1909, Piso 1</td>
+<td>
+Providencia</td>
+<td>
+</td>
+<td>
++56 2 2378 2000</td>
+<td>
+72,149,456</td>
+<td>
+</td>
+<td>
+72,149,456</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682834</td>
+</tr>
+<tr><td>
+AFP Habitat SA</td>
+<td>
+Corporation</td>
+<td>
+Providencia 1909, Piso 1</td>
+<td>
+Providencia</td>
+<td>
+</td>
+<td>
++56 2 2378 2000</td>
+<td>
+72,149,456</td>
+<td>
+</td>
+<td>
+72,149,456</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682834</td>
+</tr>
+<tr><td>
+AFP Modelo S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avenida Apoquindo 2930, Local 102 Las Condes</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 2828 7200</td>
+<td>
+22,785,478</td>
+<td>
+</td>
+<td>
+22,785,478</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682835</td>
+</tr>
+<tr><td>
+AFP Modelo S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avenida Apoquindo 2930, Local 102 Las Condes</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 2828 7200</td>
+<td>
+22,785,478</td>
+<td>
+</td>
+<td>
+22,785,478</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682835</td>
+</tr>
+<tr><td>
+AFP Modelo S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avenida Apoquindo 2930, Local 102 Las Condes</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 2828 7200</td>
+<td>
+22,785,478</td>
+<td>
+</td>
+<td>
+22,785,478</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682835</td>
+</tr>
+<tr><td>
+AFP Modelo S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avenida Apoquindo 2930, Local 102 Las Condes</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 2828 7200</td>
+<td>
+22,785,478</td>
+<td>
+</td>
+<td>
+22,785,478</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682835</td>
+</tr>
+<tr><td>
+AFP Modelo S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avenida Apoquindo 2930, Local 102 Las Condes</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 2828 7200</td>
+<td>
+22,785,478</td>
+<td>
+</td>
+<td>
+22,785,478</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682835</td>
+</tr>
+<tr><td>
+AFP PlanVital</td>
+<td>
+Corporation</td>
+<td>
+Tenderini 137</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 2264 5200</td>
+<td>
+11,831,206</td>
+<td>
+1,476,785</td>
+<td>
+10,354,421</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682818</td>
+</tr>
+<tr><td>
+AFP PlanVital</td>
+<td>
+Corporation</td>
+<td>
+Tenderini 137</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 2264 5200</td>
+<td>
+11,831,206</td>
+<td>
+1,476,785</td>
+<td>
+10,354,421</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682818</td>
+</tr>
+<tr><td>
+AFP PlanVital</td>
+<td>
+Corporation</td>
+<td>
+Tenderini 137</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 2264 5200</td>
+<td>
+11,831,206</td>
+<td>
+1,476,785</td>
+<td>
+10,354,421</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682818</td>
+</tr>
+<tr><td>
+AFP PlanVital</td>
+<td>
+Corporation</td>
+<td>
+Tenderini 137</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 2264 5200</td>
+<td>
+11,831,206</td>
+<td>
+1,476,785</td>
+<td>
+10,354,421</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682818</td>
+</tr>
+<tr><td>
+AFP PlanVital</td>
+<td>
+Corporation</td>
+<td>
+Tenderini 137</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 2264 5200</td>
+<td>
+11,831,206</td>
+<td>
+1,476,785</td>
+<td>
+10,354,421</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682818</td>
+</tr>
+<tr><td>
+AFP Provida</td>
+<td>
+Corporation</td>
+<td>
+Pedro De Valdivia 100</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 2720 6820</td>
+<td>
+42,805,955</td>
+<td>
+</td>
+<td>
+42,805,955</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682836</td>
+</tr>
+<tr><td>
+AFP Provida</td>
+<td>
+Corporation</td>
+<td>
+Pedro De Valdivia 100</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 2720 6820</td>
+<td>
+42,805,955</td>
+<td>
+</td>
+<td>
+42,805,955</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682836</td>
+</tr>
+<tr><td>
+AFP Provida</td>
+<td>
+Corporation</td>
+<td>
+Pedro De Valdivia 100</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 2720 6820</td>
+<td>
+42,805,955</td>
+<td>
+</td>
+<td>
+42,805,955</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682836</td>
+</tr>
+<tr><td>
+AFP Provida</td>
+<td>
+Corporation</td>
+<td>
+Pedro De Valdivia 100</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 2720 6820</td>
+<td>
+42,805,955</td>
+<td>
+</td>
+<td>
+42,805,955</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682836</td>
+</tr>
+<tr><td>
+AFP Provida</td>
+<td>
+Corporation</td>
+<td>
+Pedro De Valdivia 100</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 2720 6820</td>
+<td>
+42,805,955</td>
+<td>
+</td>
+<td>
+42,805,955</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682836</td>
+</tr>
+<tr><td>
+Anglo American Chile</td>
+<td>
+Corporation</td>
+<td>
+Isidora Goyenechea 2800, Torre Titanium , Piso 47 Las Condes</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 2230 6000</td>
+<td>
+33,000</td>
+<td>
+33,000</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Mercer Ltd, London, United Kingdom</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9411686</td>
+</tr>
+<tr><td>
+Enel Américas SA</td>
+<td>
+Corporation</td>
+<td>
+Santa Rosa 76, 17th Floor</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 2353 4400</td>
+<td>
+1,920,053</td>
+<td>
+1,920,053</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9696468</td>
+</tr>
+<tr><td>
+Ministerio de Hacienda</td>
+<td>
+Sovereign Wealth Funds</td>
+<td>
+Teatinos 120</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 2828 2000</td>
+<td>
+13,629,150</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9681923</td>
+</tr>
+<tr><td>
+Ministerio de Hacienda</td>
+<td>
+Sovereign Wealth Funds</td>
+<td>
+Teatinos 120</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 2828 2000</td>
+<td>
+13,629,150</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9681923</td>
+</tr>
+<tr><td>
+Universidad de Chile</td>
+<td>
+Endowment</td>
+<td>
+Avenida Libertador Bernardo O'Higgins 1058, Box 10-D</td>
+<td>
+Santiago</td>
+<td>
+</td>
+<td>
++56 2 2978 2000</td>
+<td>
+190,453</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+190,453</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9755701</td>
+</tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+
+</table>
+</body>
+</HTML>

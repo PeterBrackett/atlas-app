@@ -1,0 +1,281 @@
+
+<HTML  xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns:html="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/xml; charset=utf-8">
+<!--[if gte mso 9]><xml>
+ <x:ExcelWorkbook>
+  <x:ExcelWorksheets>
+   <x:ExcelWorksheet>
+    <x:Name>M_ExcelGenN</x:Name>
+    <x:WorksheetOptions>
+     <x:DefaultRowHeight>264</x:DefaultRowHeight>
+     <x:Selected/>
+     <x:DoNotDisplayGridlines/>
+     <x:FreezePanes/>
+     <x:FrozenNoSplit/>
+     <x:SplitHorizontal>1</x:SplitHorizontal>
+     <x:TopRowBottomPane>1</x:TopRowBottomPane>
+     <x:ActivePane>2</x:ActivePane>
+     <x:Panes>
+      <x:Pane>
+       <x:Number>3</x:Number>
+      </x:Pane>
+      <x:Pane>
+       <x:Number>2</x:Number>
+       <x:RangeSelection>$2:$2</x:RangeSelection>
+      </x:Pane>
+     </x:Panes>
+     <x:ProtectContents>False</x:ProtectContents>
+     <x:ProtectObjects>False</x:ProtectObjects>
+     <x:ProtectScenarios>False</x:ProtectScenarios>
+    </x:WorksheetOptions>
+   </x:ExcelWorksheet>
+  </x:ExcelWorksheets>
+  <x:ProtectStructure>False</x:ProtectStructure>
+  <x:ProtectWindows>False</x:ProtectWindows>
+ </x:ExcelWorkbook>
+</xml><![endif]-->
+</head>
+<body>
+<table borderColor="#808080" border="1">
+	<tr><th>Firm Name</th><th>Category</th><th>Address</th><th>City</th><th>State</th><th>Phone#</th><th>Total PS Assets</th><th>Type of Plan</th><th>Plan Assets</th><th>Investment Region</th><th>Pooled Investments</th><th>Asset Type</th><th>Asset Style</th><th>Dollar Amount of Asset Type in Plan (in 000's)</th><th>% of Asset type in Plan</th><th>Pid#</th></tr>
+<FreezePanes/>
+<tr><td>
+ANSES Administración Nacional de la Seguridad Social</td>
+<td>
+Government</td>
+<td>
+Avenida Córdoba 720</td>
+<td>
+Buenos Aires</td>
+<td>
+</td>
+<td>
++54 800 222 6737</td>
+<td>
+53,911,533</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+53,911,533</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+7,547,615</td>
+<td>
+14</td>
+<td>
+9309709</td>
+</tr>
+<tr><td>
+ANSES Administración Nacional de la Seguridad Social</td>
+<td>
+Government</td>
+<td>
+Avenida Córdoba 720</td>
+<td>
+Buenos Aires</td>
+<td>
+</td>
+<td>
++54 800 222 6737</td>
+<td>
+53,911,533</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+53,911,533</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+ Unspecified</td>
+<td>
+59,303</td>
+<td>
+</td>
+<td>
+9309709</td>
+</tr>
+<tr><td>
+ANSES Administración Nacional de la Seguridad Social</td>
+<td>
+Government</td>
+<td>
+Avenida Córdoba 720</td>
+<td>
+Buenos Aires</td>
+<td>
+</td>
+<td>
++54 800 222 6737</td>
+<td>
+53,911,533</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+53,911,533</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Government Bonds</td>
+<td>
+41,851,523</td>
+<td>
+78</td>
+<td>
+9309709</td>
+</tr>
+<tr><td>
+ANSES Administración Nacional de la Seguridad Social</td>
+<td>
+Government</td>
+<td>
+Avenida Córdoba 720</td>
+<td>
+Buenos Aires</td>
+<td>
+</td>
+<td>
++54 800 222 6737</td>
+<td>
+53,911,533</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+53,911,533</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Bonds</td>
+<td>
+129,388</td>
+<td>
+</td>
+<td>
+9309709</td>
+</tr>
+<tr><td>
+ANSES Administración Nacional de la Seguridad Social</td>
+<td>
+Government</td>
+<td>
+Avenida Córdoba 720</td>
+<td>
+Buenos Aires</td>
+<td>
+</td>
+<td>
++54 800 222 6737</td>
+<td>
+53,911,533</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+53,911,533</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Loans</td>
+<td>
+ Unspecified</td>
+<td>
+21,565</td>
+<td>
+</td>
+<td>
+9309709</td>
+</tr>
+<tr><td>
+ANSES Administración Nacional de la Seguridad Social</td>
+<td>
+Government</td>
+<td>
+Avenida Córdoba 720</td>
+<td>
+Buenos Aires</td>
+<td>
+</td>
+<td>
++54 800 222 6737</td>
+<td>
+53,911,533</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+53,911,533</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Other Investments</td>
+<td>
+ Unspecified</td>
+<td>
+4,167,362</td>
+<td>
+8</td>
+<td>
+9309709</td>
+</tr>
+<tr><td>
+ANSES Administración Nacional de la Seguridad Social</td>
+<td>
+Government</td>
+<td>
+Avenida Córdoba 720</td>
+<td>
+Buenos Aires</td>
+<td>
+</td>
+<td>
++54 800 222 6737</td>
+<td>
+53,911,533</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+53,911,533</td>
+<td>
+ Unspecified</td>
+<td>
+Mutual Fund</td>
+<td>
+Unspecified</td>
+<td>
+ Unspecified</td>
+<td>
+134,779</td>
+<td>
+</td>
+<td>
+9309709</td>
+</tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+
+</table>
+</body>
+</HTML>

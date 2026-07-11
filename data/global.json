@@ -28,6 +28,12 @@
     { "code": "SA", "name": "Saudi Arabia", "region": "Middle East", "sub_region": "Gulf", "total_ps_assets_thousands": 1475433725, "institutions_tracked": 7, "status": "built", "href": "country.html?c=sa" },
     { "code": "AE", "name": "United Arab Emirates", "region": "Middle East", "sub_region": "Gulf", "total_ps_assets_thousands": 1467585973, "institutions_tracked": 12, "status": "built", "href": "country.html?c=ae" },
     { "code": "QA", "name": "Qatar", "region": "Middle East", "sub_region": "Gulf", "total_ps_assets_thousands": 599660893, "institutions_tracked": 3, "status": "built", "href": "country.html?c=qa" },
-    { "code": "OM", "name": "Oman", "region": "Middle East", "sub_region": "Gulf", "total_ps_assets_thousands": 23000000, "institutions_tracked": 2, "status": "built", "href": "country.html?c=om" }
+    { "code": "OM", "name": "Oman", "region": "Middle East", "sub_region": "Gulf", "total_ps_assets_thousands": 23000000, "institutions_tracked": 2, "status": "built", "href": "country.html?c=om" },
+    { "code": "BE", "name": "Belgium", "region": "Europe", "sub_region": "Western Europe", "total_ps_assets_thousands": 42921057, "institutions_tracked": 41, "status": "built", "href": "country.html?c=be" },
+    { "code": "AR", "name": "Argentina", "region": "Americas", "sub_region": "Latin America", "total_ps_assets_thousands": 53911533, "institutions_tracked": 1, "status": "built", "href": "country.html?c=ar" },
+    { "code": "PE", "name": "Peru", "region": "Americas", "sub_region": "Latin America", "total_ps_assets_thousands": 24281090, "institutions_tracked": 6, "status": "built", "href": "country.html?c=pe" },
+    { "code": "CL", "name": "Chile", "region": "Americas", "sub_region": "Latin America", "total_ps_assets_thousands": 264053023, "institutions_tracked": 11, "status": "built", "href": "country.html?c=cl" },
+    { "code": "BW", "name": "Botswana", "region": "Africa", "sub_region": "Sub-Saharan Africa", "total_ps_assets_thousands": 14695100, "institutions_tracked": 5, "status": "built", "href": "country.html?c=bw" },
+    { "code": "BR", "name": "Brazil", "region": "Americas", "sub_region": "Latin America", "total_ps_assets_thousands": 215181294, "institutions_tracked": 170, "status": "built", "href": "country.html?c=br" }
   ]
 }

@@ -1,0 +1,76 @@
+
+<HTML  xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns:html="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/xml; charset=utf-8">
+<!--[if gte mso 9]><xml>
+ <x:ExcelWorkbook>
+  <x:ExcelWorksheets>
+   <x:ExcelWorksheet>
+    <x:Name>M_ExcelGenN</x:Name>
+    <x:WorksheetOptions>
+     <x:DefaultRowHeight>264</x:DefaultRowHeight>
+     <x:Selected/>
+     <x:DoNotDisplayGridlines/>
+     <x:FreezePanes/>
+     <x:FrozenNoSplit/>
+     <x:SplitHorizontal>1</x:SplitHorizontal>
+     <x:TopRowBottomPane>1</x:TopRowBottomPane>
+     <x:ActivePane>2</x:ActivePane>
+     <x:Panes>
+      <x:Pane>
+       <x:Number>3</x:Number>
+      </x:Pane>
+      <x:Pane>
+       <x:Number>2</x:Number>
+       <x:RangeSelection>$2:$2</x:RangeSelection>
+      </x:Pane>
+     </x:Panes>
+     <x:ProtectContents>False</x:ProtectContents>
+     <x:ProtectObjects>False</x:ProtectObjects>
+     <x:ProtectScenarios>False</x:ProtectScenarios>
+    </x:WorksheetOptions>
+   </x:ExcelWorksheet>
+  </x:ExcelWorksheets>
+  <x:ProtectStructure>False</x:ProtectStructure>
+  <x:ProtectWindows>False</x:ProtectWindows>
+ </x:ExcelWorkbook>
+</xml><![endif]-->
+</head>
+<body>
+<table borderColor="#808080" border="1">
+	<tr><th>Firm Name</th><th>Category</th><th>Address</th><th>City</th><th>State</th><th>Phone#</th><th>Total PS Assets</th><th>Total DB Assets</th><th>Total DC Assets</th><th>Total E/F Assets</th><th>Provider Name</th><th>Year Provider was hired</th><th>Provider Type</th><th>Pid#</th></tr>
+<FreezePanes/>
+<tr><td>
+ANSES Administración Nacional de la Seguridad Social</td>
+<td>
+Government</td>
+<td>
+Avenida Córdoba 720</td>
+<td>
+Buenos Aires</td>
+<td>
+</td>
+<td>
++54 800 222 6737</td>
+<td>
+53,911,533</td>
+<td>
+53,911,533</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9309709</td>
+</tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+
+</table>
+</body>
+</HTML>

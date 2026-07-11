@@ -1,0 +1,13382 @@
+
+<HTML  xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns:html="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/xml; charset=utf-8">
+<!--[if gte mso 9]><xml>
+ <x:ExcelWorkbook>
+  <x:ExcelWorksheets>
+   <x:ExcelWorksheet>
+    <x:Name>M_ExcelGenN</x:Name>
+    <x:WorksheetOptions>
+     <x:DefaultRowHeight>264</x:DefaultRowHeight>
+     <x:Selected/>
+     <x:DoNotDisplayGridlines/>
+     <x:FreezePanes/>
+     <x:FrozenNoSplit/>
+     <x:SplitHorizontal>1</x:SplitHorizontal>
+     <x:TopRowBottomPane>1</x:TopRowBottomPane>
+     <x:ActivePane>2</x:ActivePane>
+     <x:Panes>
+      <x:Pane>
+       <x:Number>3</x:Number>
+      </x:Pane>
+      <x:Pane>
+       <x:Number>2</x:Number>
+       <x:RangeSelection>$2:$2</x:RangeSelection>
+      </x:Pane>
+     </x:Panes>
+     <x:ProtectContents>False</x:ProtectContents>
+     <x:ProtectObjects>False</x:ProtectObjects>
+     <x:ProtectScenarios>False</x:ProtectScenarios>
+    </x:WorksheetOptions>
+   </x:ExcelWorksheet>
+  </x:ExcelWorksheets>
+  <x:ProtectStructure>False</x:ProtectStructure>
+  <x:ProtectWindows>False</x:ProtectWindows>
+ </x:ExcelWorkbook>
+</xml><![endif]-->
+</head>
+<body>
+<table borderColor="#808080" border="1">
+	<tr><th>Firm Name</th><th>Category</th><th>Address</th><th>City</th><th>State</th><th>Phone#</th><th>Total PS Assets</th><th>Total DB Assets</th><th>Total DC Assets</th><th>Total E/F Assets</th><th>Provider Name</th><th>Year Provider was hired</th><th>Provider Type</th><th>Pid#</th></tr>
+<FreezePanes/>
+<tr><td>
+Aceprev - Previdencia Privada</td>
+<td>
+Corporation</td>
+<td>
+1st Of May Square, 9</td>
+<td>
+Timóteo</td>
+<td>
+</td>
+<td>
++55 31 3849 7001</td>
+<td>
+372,130</td>
+<td>
+372,130</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Banco Itau SA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9685020</td>
+</tr>
+<tr><td>
+Aceprev - Previdencia Privada</td>
+<td>
+Corporation</td>
+<td>
+1st Of May Square, 9</td>
+<td>
+Timóteo</td>
+<td>
+</td>
+<td>
++55 31 3849 7001</td>
+<td>
+372,130</td>
+<td>
+372,130</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Banco Itau SA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9685020</td>
+</tr>
+<tr><td>
+Aceprev - Previdencia Privada</td>
+<td>
+Corporation</td>
+<td>
+1st Of May Square, 9</td>
+<td>
+Timóteo</td>
+<td>
+</td>
+<td>
++55 31 3849 7001</td>
+<td>
+372,130</td>
+<td>
+372,130</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9685020</td>
+</tr>
+<tr><td>
+AERUS - Instituto de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Assembly Street, 98 - 18th Floor</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 2555 1577</td>
+<td>
+147,228</td>
+<td>
+147,228</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695158</td>
+</tr>
+<tr><td>
+AERUS - Instituto de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Assembly Street, 98 - 18th Floor</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 2555 1577</td>
+<td>
+147,228</td>
+<td>
+147,228</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695158</td>
+</tr>
+<tr><td>
+AERUS - Instituto de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Assembly Street, 98 - 18th Floor</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 2555 1577</td>
+<td>
+147,228</td>
+<td>
+147,228</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695158</td>
+</tr>
+<tr><td>
+AERUS - Instituto de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Assembly Street, 98 - 18th Floor</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 2555 1577</td>
+<td>
+147,228</td>
+<td>
+147,228</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695158</td>
+</tr>
+<tr><td>
+AERUS - Instituto de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Assembly Street, 98 - 18th Floor</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 2555 1577</td>
+<td>
+147,228</td>
+<td>
+147,228</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695158</td>
+</tr>
+<tr><td>
+AERUS - Instituto de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Assembly Street, 98 - 18th Floor</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 2555 1577</td>
+<td>
+147,228</td>
+<td>
+147,228</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695158</td>
+</tr>
+<tr><td>
+AERUS - Instituto de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Assembly Street, 98 - 18th Floor</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 2555 1577</td>
+<td>
+147,228</td>
+<td>
+147,228</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695158</td>
+</tr>
+<tr><td>
+AERUS - Instituto de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Assembly Street, 98 - 18th Floor</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 2555 1577</td>
+<td>
+147,228</td>
+<td>
+147,228</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695158</td>
+</tr>
+<tr><td>
+AERUS - Instituto de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Assembly Street, 98 - 18th Floor</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 2555 1577</td>
+<td>
+147,228</td>
+<td>
+147,228</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695158</td>
+</tr>
+<tr><td>
+AERUS - Instituto de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Assembly Street, 98 - 18th Floor</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 2555 1577</td>
+<td>
+147,228</td>
+<td>
+147,228</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695158</td>
+</tr>
+<tr><td>
+Agros - Instituto UFV de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Sergipe, 1087, Salas 1004/1005, 10º Andar Savassi</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 31 3899 6552</td>
+<td>
+172,517</td>
+<td>
+161,064</td>
+<td>
+11,453</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695022</td>
+</tr>
+<tr><td>
+Agros - Instituto UFV de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Sergipe, 1087, Salas 1004/1005, 10º Andar Savassi</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 31 3899 6552</td>
+<td>
+172,517</td>
+<td>
+161,064</td>
+<td>
+11,453</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695022</td>
+</tr>
+<tr><td>
+Agros - Instituto UFV de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Sergipe, 1087, Salas 1004/1005, 10º Andar Savassi</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 31 3899 6552</td>
+<td>
+172,517</td>
+<td>
+161,064</td>
+<td>
+11,453</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695022</td>
+</tr>
+<tr><td>
+ALPAPREV - Alpargatas SA</td>
+<td>
+Corporation</td>
+<td>
+Avenida Nações Unidas, 14.261 Wing A-9th-11th Floor</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 11 3847 7322</td>
+<td>
+97,645</td>
+<td>
+97,645</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9366829</td>
+</tr>
+<tr><td>
+Ambiras Laboratórios Farmacêuticos DVTM</td>
+<td>
+Corporation</td>
+<td>
+57 Rua Martin Afonso Andar 35-38</td>
+<td>
+Curitiba</td>
+<td>
+</td>
+<td>
++55 41 7814 2368</td>
+<td>
+145,938</td>
+<td>
+145,938</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9366256</td>
+</tr>
+<tr><td>
+ANAPAR - Associacao Nacional dos Participantes de Fundos de Pensao</td>
+<td>
+Tax Exempt Organization</td>
+<td>
+North Commercial Sector (Scn), Block 01, Block E, Rooms 108 to 111, of the Central Park Building</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 3326 3086</td>
+<td>
+114,159</td>
+<td>
+114,159</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9373417</td>
+</tr>
+<tr><td>
+Avon Prev - Avon Products Inc.</td>
+<td>
+Corporation</td>
+<td>
+Avenida Interlagos, 4300</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 5546 7351</td>
+<td>
+46,443</td>
+<td>
+</td>
+<td>
+46,443</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695160</td>
+</tr>
+<tr><td>
+Banco Bradesco SA</td>
+<td>
+Corporation</td>
+<td>
+Cidade De Deus S/N, Vila Yara</td>
+<td>
+Osasco</td>
+<td>
+</td>
+<td>
++55 11 3684 4011</td>
+<td>
+470,902</td>
+<td>
+470,902</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9363980</td>
+</tr>
+<tr><td>
+Banco Central do Brasil</td>
+<td>
+Corporation</td>
+<td>
+South Banking Sector (Sbs) Block 3 Block B</td>
+<td>
+Brasilia</td>
+<td>
+</td>
+<td>
++55 61 3414 1414</td>
+<td>
+951,468</td>
+<td>
+951,468</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9357478</td>
+</tr>
+<tr><td>
+Banco Central do Brasil</td>
+<td>
+Corporation</td>
+<td>
+South Banking Sector (Sbs) Block 3 Block B</td>
+<td>
+Brasilia</td>
+<td>
+</td>
+<td>
++55 61 3414 1414</td>
+<td>
+951,468</td>
+<td>
+951,468</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9357478</td>
+</tr>
+<tr><td>
+Banco Citibank S.A.  - CITIPREVI</td>
+<td>
+Corporation</td>
+<td>
+Rua Jose Versolato, 101-Conjunto 31-Torre A-Centro</td>
+<td>
+São Bernardo Do Campo</td>
+<td>
+</td>
+<td>
++55 11 3003 5433</td>
+<td>
+903,815</td>
+<td>
+903,815</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695170</td>
+</tr>
+<tr><td>
+Banco Citibank S.A.  - CITIPREVI</td>
+<td>
+Corporation</td>
+<td>
+Rua Jose Versolato, 101-Conjunto 31-Torre A-Centro</td>
+<td>
+São Bernardo Do Campo</td>
+<td>
+</td>
+<td>
++55 11 3003 5433</td>
+<td>
+903,815</td>
+<td>
+903,815</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695170</td>
+</tr>
+<tr><td>
+Banco Citibank S.A.  - CITIPREVI</td>
+<td>
+Corporation</td>
+<td>
+Rua Jose Versolato, 101-Conjunto 31-Torre A-Centro</td>
+<td>
+São Bernardo Do Campo</td>
+<td>
+</td>
+<td>
++55 11 3003 5433</td>
+<td>
+903,815</td>
+<td>
+903,815</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695170</td>
+</tr>
+<tr><td>
+Banco Regional de Desenvolvimento do Extremo Sul (BRDE)</td>
+<td>
+Corporation</td>
+<td>
+Rua Uruguay Street 155, 702</td>
+<td>
+Porto Alegre</td>
+<td>
+</td>
+<td>
++55 51 3227 3109</td>
+<td>
+250,622</td>
+<td>
+250,622</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9691507</td>
+</tr>
+<tr><td>
+Banco Regional de Desenvolvimento do Extremo Sul (BRDE)</td>
+<td>
+Corporation</td>
+<td>
+Rua Uruguay Street 155, 702</td>
+<td>
+Porto Alegre</td>
+<td>
+</td>
+<td>
++55 51 3227 3109</td>
+<td>
+250,622</td>
+<td>
+250,622</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9691507</td>
+</tr>
+<tr><td>
+Bandeprev Previdencia Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Padre Carapuceiro, 733 7th Floor</td>
+<td>
+Recife</td>
+<td>
+</td>
+<td>
++55 80 0722 3008</td>
+<td>
+469,118</td>
+<td>
+</td>
+<td>
+458,282</td>
+<td>
+10,836</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695027</td>
+</tr>
+<tr><td>
+Bandeprev Previdencia Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Padre Carapuceiro, 733 7th Floor</td>
+<td>
+Recife</td>
+<td>
+</td>
+<td>
++55 80 0722 3008</td>
+<td>
+469,118</td>
+<td>
+</td>
+<td>
+458,282</td>
+<td>
+10,836</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695027</td>
+</tr>
+<tr><td>
+Bandeprev Previdencia Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Padre Carapuceiro, 733 7th Floor</td>
+<td>
+Recife</td>
+<td>
+</td>
+<td>
++55 80 0722 3008</td>
+<td>
+469,118</td>
+<td>
+</td>
+<td>
+458,282</td>
+<td>
+10,836</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695027</td>
+</tr>
+<tr><td>
+Bandeprev Previdencia Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Padre Carapuceiro, 733 7th Floor</td>
+<td>
+Recife</td>
+<td>
+</td>
+<td>
++55 80 0722 3008</td>
+<td>
+469,118</td>
+<td>
+</td>
+<td>
+458,282</td>
+<td>
+10,836</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695027</td>
+</tr>
+<tr><td>
+Banespa - Banco do Estado de São Paulo - BANESPREV</td>
+<td>
+Corporation</td>
+<td>
+293 Boa Vista Street, Ground Floor</td>
+<td>
+Downtown Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3004 1001</td>
+<td>
+5,276,539</td>
+<td>
+5,276,539</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695029</td>
+</tr>
+<tr><td>
+Banespa - Banco do Estado de São Paulo - BANESPREV</td>
+<td>
+Corporation</td>
+<td>
+293 Boa Vista Street, Ground Floor</td>
+<td>
+Downtown Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3004 1001</td>
+<td>
+5,276,539</td>
+<td>
+5,276,539</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695029</td>
+</tr>
+<tr><td>
+Banespa - Banco do Estado de São Paulo - BANESPREV</td>
+<td>
+Corporation</td>
+<td>
+293 Boa Vista Street, Ground Floor</td>
+<td>
+Downtown Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3004 1001</td>
+<td>
+5,276,539</td>
+<td>
+5,276,539</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695029</td>
+</tr>
+<tr><td>
+Banespa - Banco do Estado de São Paulo - BANESPREV</td>
+<td>
+Corporation</td>
+<td>
+293 Boa Vista Street, Ground Floor</td>
+<td>
+Downtown Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3004 1001</td>
+<td>
+5,276,539</td>
+<td>
+5,276,539</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695029</td>
+</tr>
+<tr><td>
+Banespa - Banco do Estado de São Paulo - BANESPREV</td>
+<td>
+Corporation</td>
+<td>
+293 Boa Vista Street, Ground Floor</td>
+<td>
+Downtown Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3004 1001</td>
+<td>
+5,276,539</td>
+<td>
+5,276,539</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695029</td>
+</tr>
+<tr><td>
+Banespa - Banco do Estado de São Paulo - BANESPREV</td>
+<td>
+Corporation</td>
+<td>
+293 Boa Vista Street, Ground Floor</td>
+<td>
+Downtown Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3004 1001</td>
+<td>
+5,276,539</td>
+<td>
+5,276,539</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695029</td>
+</tr>
+<tr><td>
+Banespa - Banco do Estado de São Paulo - BANESPREV</td>
+<td>
+Corporation</td>
+<td>
+293 Boa Vista Street, Ground Floor</td>
+<td>
+Downtown Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3004 1001</td>
+<td>
+5,276,539</td>
+<td>
+5,276,539</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695029</td>
+</tr>
+<tr><td>
+Banespa - Banco do Estado de São Paulo - BANESPREV</td>
+<td>
+Corporation</td>
+<td>
+293 Boa Vista Street, Ground Floor</td>
+<td>
+Downtown Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3004 1001</td>
+<td>
+5,276,539</td>
+<td>
+5,276,539</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695029</td>
+</tr>
+<tr><td>
+Banespa - Banco do Estado de São Paulo - BANESPREV</td>
+<td>
+Corporation</td>
+<td>
+293 Boa Vista Street, Ground Floor</td>
+<td>
+Downtown Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3004 1001</td>
+<td>
+5,276,539</td>
+<td>
+5,276,539</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695029</td>
+</tr>
+<tr><td>
+Banespa - Banco do Estado de São Paulo - BANESPREV</td>
+<td>
+Corporation</td>
+<td>
+293 Boa Vista Street, Ground Floor</td>
+<td>
+Downtown Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3004 1001</td>
+<td>
+5,276,539</td>
+<td>
+5,276,539</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695029</td>
+</tr>
+<tr><td>
+Banespa - Banco do Estado de São Paulo - BANESPREV</td>
+<td>
+Corporation</td>
+<td>
+293 Boa Vista Street, Ground Floor</td>
+<td>
+Downtown Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3004 1001</td>
+<td>
+5,276,539</td>
+<td>
+5,276,539</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695029</td>
+</tr>
+<tr><td>
+Banespa - Banco do Estado de São Paulo - BANESPREV</td>
+<td>
+Corporation</td>
+<td>
+293 Boa Vista Street, Ground Floor</td>
+<td>
+Downtown Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3004 1001</td>
+<td>
+5,276,539</td>
+<td>
+5,276,539</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695029</td>
+</tr>
+<tr><td>
+Banespa - Banco do Estado de São Paulo - BANESPREV</td>
+<td>
+Corporation</td>
+<td>
+293 Boa Vista Street, Ground Floor</td>
+<td>
+Downtown Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3004 1001</td>
+<td>
+5,276,539</td>
+<td>
+5,276,539</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695029</td>
+</tr>
+<tr><td>
+Banespa - Banco do Estado de São Paulo - BANESPREV</td>
+<td>
+Corporation</td>
+<td>
+293 Boa Vista Street, Ground Floor</td>
+<td>
+Downtown Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3004 1001</td>
+<td>
+5,276,539</td>
+<td>
+5,276,539</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695029</td>
+</tr>
+<tr><td>
+Fundacao Banrisul de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Siqueira Campos, 736-Centro Historico</td>
+<td>
+Porto Alegre</td>
+<td>
+</td>
+<td>
++55 51 3210 9783</td>
+<td>
+2,001,517</td>
+<td>
+2,001,517</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Banco Itau SA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695031</td>
+</tr>
+<tr><td>
+Fundacao Banrisul de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Siqueira Campos, 736-Centro Historico</td>
+<td>
+Porto Alegre</td>
+<td>
+</td>
+<td>
++55 51 3210 9783</td>
+<td>
+2,001,517</td>
+<td>
+2,001,517</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Willis Towers Watson, Rio De Janeiro, Brazil</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695031</td>
+</tr>
+<tr><td>
+Fundacao Banrisul de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Siqueira Campos, 736-Centro Historico</td>
+<td>
+Porto Alegre</td>
+<td>
+</td>
+<td>
++55 51 3210 9783</td>
+<td>
+2,001,517</td>
+<td>
+2,001,517</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Banco Itau SA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695031</td>
+</tr>
+<tr><td>
+Fundacao Banrisul de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Siqueira Campos, 736-Centro Historico</td>
+<td>
+Porto Alegre</td>
+<td>
+</td>
+<td>
++55 51 3210 9783</td>
+<td>
+2,001,517</td>
+<td>
+2,001,517</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Willis Towers Watson, Rio De Janeiro, Brazil</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695031</td>
+</tr>
+<tr><td>
+Fundacao Banrisul de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Siqueira Campos, 736-Centro Historico</td>
+<td>
+Porto Alegre</td>
+<td>
+</td>
+<td>
++55 51 3210 9783</td>
+<td>
+2,001,517</td>
+<td>
+2,001,517</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Banco Itau SA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695031</td>
+</tr>
+<tr><td>
+Fundacao Banrisul de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Siqueira Campos, 736-Centro Historico</td>
+<td>
+Porto Alegre</td>
+<td>
+</td>
+<td>
++55 51 3210 9783</td>
+<td>
+2,001,517</td>
+<td>
+2,001,517</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Willis Towers Watson, Rio De Janeiro, Brazil</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695031</td>
+</tr>
+<tr><td>
+Fundacao Banrisul de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Siqueira Campos, 736-Centro Historico</td>
+<td>
+Porto Alegre</td>
+<td>
+</td>
+<td>
++55 51 3210 9783</td>
+<td>
+2,001,517</td>
+<td>
+2,001,517</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Banco Itau SA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695031</td>
+</tr>
+<tr><td>
+Fundacao Banrisul de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Siqueira Campos, 736-Centro Historico</td>
+<td>
+Porto Alegre</td>
+<td>
+</td>
+<td>
++55 51 3210 9783</td>
+<td>
+2,001,517</td>
+<td>
+2,001,517</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Willis Towers Watson, Rio De Janeiro, Brazil</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695031</td>
+</tr>
+<tr><td>
+Fundacao Banrisul de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Siqueira Campos, 736-Centro Historico</td>
+<td>
+Porto Alegre</td>
+<td>
+</td>
+<td>
++55 51 3210 9783</td>
+<td>
+2,001,517</td>
+<td>
+2,001,517</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695031</td>
+</tr>
+<tr><td>
+Fundacao Banrisul de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Siqueira Campos, 736-Centro Historico</td>
+<td>
+Porto Alegre</td>
+<td>
+</td>
+<td>
++55 51 3210 9783</td>
+<td>
+2,001,517</td>
+<td>
+2,001,517</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695031</td>
+</tr>
+<tr><td>
+Fundacao Banrisul de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Siqueira Campos, 736-Centro Historico</td>
+<td>
+Porto Alegre</td>
+<td>
+</td>
+<td>
++55 51 3210 9783</td>
+<td>
+2,001,517</td>
+<td>
+2,001,517</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695031</td>
+</tr>
+<tr><td>
+Fundacao Banrisul de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Siqueira Campos, 736-Centro Historico</td>
+<td>
+Porto Alegre</td>
+<td>
+</td>
+<td>
++55 51 3210 9783</td>
+<td>
+2,001,517</td>
+<td>
+2,001,517</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695031</td>
+</tr>
+<tr><td>
+BASF S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avendia Angelo Demarchi, 123</td>
+<td>
+Sao Bernardo Do Campo</td>
+<td>
+</td>
+<td>
++55 11 2039 2511</td>
+<td>
+186,279</td>
+<td>
+186,279</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695162</td>
+</tr>
+<tr><td>
+BNDES Participações SA</td>
+<td>
+Corporation</td>
+<td>
+Avenida República Do Chile, 100-Centro</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 2052 7447</td>
+<td>
+2,585,187</td>
+<td>
+2,585,187</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9396883</td>
+</tr>
+<tr><td>
+Bradesco Multipensions - Fundo Multipatrocinado de Previdencia Privada</td>
+<td>
+Corporation</td>
+<td>
+Alphaville Avenue, 779 Empresarial 18 do Forte</td>
+<td>
+Barueri</td>
+<td>
+</td>
+<td>
++55 11 2178 6218</td>
+<td>
+555,719</td>
+<td>
+555,719</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695215</td>
+</tr>
+<tr><td>
+Brasiletros- Fundação Ampla de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Avenida Roberto Silveira, 488-13th Floor-Icaraí</td>
+<td>
+Niterói</td>
+<td>
+</td>
+<td>
++55 21 2707 5550</td>
+<td>
+227,613</td>
+<td>
+227,613</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Willis Towers Watson, Rio De Janeiro, Brazil</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695034</td>
+</tr>
+<tr><td>
+Brasiletros- Fundação Ampla de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Avenida Roberto Silveira, 488-13th Floor-Icaraí</td>
+<td>
+Niterói</td>
+<td>
+</td>
+<td>
++55 21 2707 5550</td>
+<td>
+227,613</td>
+<td>
+227,613</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Willis Towers Watson, Rio De Janeiro, Brazil</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695034</td>
+</tr>
+<tr><td>
+Braslight - Fundacao de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Av Mal. Floriano, 19 - 7º Andar</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 80 0024 4397</td>
+<td>
+1,236,421</td>
+<td>
+1,236,421</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695035</td>
+</tr>
+<tr><td>
+Braslight - Fundacao de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Av Mal. Floriano, 19 - 7º Andar</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 80 0024 4397</td>
+<td>
+1,236,421</td>
+<td>
+1,236,421</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695035</td>
+</tr>
+<tr><td>
+Braslight - Fundacao de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Av Mal. Floriano, 19 - 7º Andar</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 80 0024 4397</td>
+<td>
+1,236,421</td>
+<td>
+1,236,421</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695035</td>
+</tr>
+<tr><td>
+BRF Previdencia</td>
+<td>
+Corporation</td>
+<td>
+Avenida Paulista, Nº 2439, 10º Andar Condomínio Edifício Eloy Chaves, Bela Vista</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 80 0702 4422</td>
+<td>
+938,479</td>
+<td>
+938,479</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Banco Itau SA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695026</td>
+</tr>
+<tr><td>
+BRF Previdencia</td>
+<td>
+Corporation</td>
+<td>
+Avenida Paulista, Nº 2439, 10º Andar Condomínio Edifício Eloy Chaves, Bela Vista</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 80 0702 4422</td>
+<td>
+938,479</td>
+<td>
+938,479</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Banco Itau SA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695026</td>
+</tr>
+<tr><td>
+BRF Previdencia</td>
+<td>
+Corporation</td>
+<td>
+Avenida Paulista, Nº 2439, 10º Andar Condomínio Edifício Eloy Chaves, Bela Vista</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 80 0702 4422</td>
+<td>
+938,479</td>
+<td>
+938,479</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Banco Itau SA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695026</td>
+</tr>
+<tr><td>
+Bungeprev - Fundo Mútiplo de Previdência Privada</td>
+<td>
+Corporation</td>
+<td>
+Rua Diogo Moreira, 184 - 10th Floor</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 47 3703 2318</td>
+<td>
+156,135</td>
+<td>
+156,135</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695036</td>
+</tr>
+<tr><td>
+Cabec - Caixa de Previdencia Privada BEC</td>
+<td>
+Corporation</td>
+<td>
+Avenida Barao Studart, 2360, Shop B, Room 06-Joaquim Tavora</td>
+<td>
+Fortaleza</td>
+<td>
+</td>
+<td>
++55 85 3205 6450</td>
+<td>
+103,613</td>
+<td>
+103,613</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695037</td>
+</tr>
+<tr><td>
+Banco da Amazonia (CAPAF)</td>
+<td>
+Corporation</td>
+<td>
+Avenida Generalissimo Deodoro 1170</td>
+<td>
+Belem</td>
+<td>
+</td>
+<td>
++55 91 4008 7910</td>
+<td>
+96,361</td>
+<td>
+96,361</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9690999</td>
+</tr>
+<tr><td>
+Banco da Amazonia (CAPAF)</td>
+<td>
+Corporation</td>
+<td>
+Avenida Generalissimo Deodoro 1170</td>
+<td>
+Belem</td>
+<td>
+</td>
+<td>
++55 91 4008 7910</td>
+<td>
+96,361</td>
+<td>
+96,361</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9690999</td>
+</tr>
+<tr><td>
+Banco da Amazonia (CAPAF)</td>
+<td>
+Corporation</td>
+<td>
+Avenida Generalissimo Deodoro 1170</td>
+<td>
+Belem</td>
+<td>
+</td>
+<td>
++55 91 4008 7910</td>
+<td>
+96,361</td>
+<td>
+96,361</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9690999</td>
+</tr>
+<tr><td>
+Banco da Amazonia (CAPAF)</td>
+<td>
+Corporation</td>
+<td>
+Avenida Generalissimo Deodoro 1170</td>
+<td>
+Belem</td>
+<td>
+</td>
+<td>
++55 91 4008 7910</td>
+<td>
+96,361</td>
+<td>
+96,361</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9690999</td>
+</tr>
+<tr><td>
+Capef - Caixa de Previdência dos Funcionários do Banco do Nordeste do Brazil</td>
+<td>
+Corporation</td>
+<td>
+Avenida Santos Dummont, 771</td>
+<td>
+Fortaleza</td>
+<td>
+</td>
+<td>
++55 80 0970 5775</td>
+<td>
+1,343,037</td>
+<td>
+1,343,037</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695041</td>
+</tr>
+<tr><td>
+Capef - Caixa de Previdência dos Funcionários do Banco do Nordeste do Brazil</td>
+<td>
+Corporation</td>
+<td>
+Avenida Santos Dummont, 771</td>
+<td>
+Fortaleza</td>
+<td>
+</td>
+<td>
++55 80 0970 5775</td>
+<td>
+1,343,037</td>
+<td>
+1,343,037</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695041</td>
+</tr>
+<tr><td>
+Cargillprev</td>
+<td>
+Corporation</td>
+<td>
+Dr. Chucri Zaidan Avenue, 1.240 - 6th Floor, Diamond Tower</td>
+<td>
+Vila São Francisco</td>
+<td>
+</td>
+<td>
++55 11 5099 0065</td>
+<td>
+404,646</td>
+<td>
+404,646</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695168</td>
+</tr>
+<tr><td>
+Cargillprev</td>
+<td>
+Corporation</td>
+<td>
+Dr. Chucri Zaidan Avenue, 1.240 - 6th Floor, Diamond Tower</td>
+<td>
+Vila São Francisco</td>
+<td>
+</td>
+<td>
++55 11 5099 0065</td>
+<td>
+404,646</td>
+<td>
+404,646</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695168</td>
+</tr>
+<tr><td>
+Cargillprev</td>
+<td>
+Corporation</td>
+<td>
+Dr. Chucri Zaidan Avenue, 1.240 - 6th Floor, Diamond Tower</td>
+<td>
+Vila São Francisco</td>
+<td>
+</td>
+<td>
++55 11 5099 0065</td>
+<td>
+404,646</td>
+<td>
+404,646</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695168</td>
+</tr>
+<tr><td>
+Casan Prev</td>
+<td>
+Corporation</td>
+<td>
+Avenida Rio Branco, Nº 404, Sala 103 E 104 Bloco 1, Ed. Planel Towers - Centro</td>
+<td>
+Florianópolis</td>
+<td>
+</td>
+<td>
++55 48 3028 7297</td>
+<td>
+64,923</td>
+<td>
+64,923</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9367095</td>
+</tr>
+<tr><td>
+CBS Previdencia</td>
+<td>
+Corporation</td>
+<td>
+Avenue Drive Cardoso De Melo, No. 1,855-7th Floor Block 72-Vila Olímpia</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 80 0026 8181</td>
+<td>
+1,249,883</td>
+<td>
+1,249,883</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695045</td>
+</tr>
+<tr><td>
+CBS Previdencia</td>
+<td>
+Corporation</td>
+<td>
+Avenue Drive Cardoso De Melo, No. 1,855-7th Floor Block 72-Vila Olímpia</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 80 0026 8181</td>
+<td>
+1,249,883</td>
+<td>
+1,249,883</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695045</td>
+</tr>
+<tr><td>
+CBS Previdencia</td>
+<td>
+Corporation</td>
+<td>
+Avenue Drive Cardoso De Melo, No. 1,855-7th Floor Block 72-Vila Olímpia</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 80 0026 8181</td>
+<td>
+1,249,883</td>
+<td>
+1,249,883</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695045</td>
+</tr>
+<tr><td>
+CBS Previdencia</td>
+<td>
+Corporation</td>
+<td>
+Avenue Drive Cardoso De Melo, No. 1,855-7th Floor Block 72-Vila Olímpia</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 80 0026 8181</td>
+<td>
+1,249,883</td>
+<td>
+1,249,883</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695045</td>
+</tr>
+<tr><td>
+Celos</td>
+<td>
+Corporation</td>
+<td>
+Avenida Hercílio Luz, 639 - 6º E 7º Andar Centro</td>
+<td>
+Florianópolis</td>
+<td>
+</td>
+<td>
++55 48 3221 9600</td>
+<td>
+794,945</td>
+<td>
+794,945</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695046</td>
+</tr>
+<tr><td>
+Celos</td>
+<td>
+Corporation</td>
+<td>
+Avenida Hercílio Luz, 639 - 6º E 7º Andar Centro</td>
+<td>
+Florianópolis</td>
+<td>
+</td>
+<td>
++55 48 3221 9600</td>
+<td>
+794,945</td>
+<td>
+794,945</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695046</td>
+</tr>
+<tr><td>
+Celos</td>
+<td>
+Corporation</td>
+<td>
+Avenida Hercílio Luz, 639 - 6º E 7º Andar Centro</td>
+<td>
+Florianópolis</td>
+<td>
+</td>
+<td>
++55 48 3221 9600</td>
+<td>
+794,945</td>
+<td>
+794,945</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695046</td>
+</tr>
+<tr><td>
+Celpos - Fundacao Celpe de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua João Fernandes Vieira, 190</td>
+<td>
+Recife</td>
+<td>
+</td>
+<td>
++55 81 2128 4000</td>
+<td>
+206,940</td>
+<td>
+196,563</td>
+<td>
+10,377</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695047</td>
+</tr>
+<tr><td>
+Celpos - Fundacao Celpe de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua João Fernandes Vieira, 190</td>
+<td>
+Recife</td>
+<td>
+</td>
+<td>
++55 81 2128 4000</td>
+<td>
+206,940</td>
+<td>
+196,563</td>
+<td>
+10,377</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695047</td>
+</tr>
+<tr><td>
+Centrais Elétricas de Santa Catarina S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avendia Itamarati, 160 Itacorubi</td>
+<td>
+Florianópolis</td>
+<td>
+</td>
+<td>
++55 48 3231 6000</td>
+<td>
+464,539</td>
+<td>
+464,539</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9415928</td>
+</tr>
+<tr><td>
+Centrais Elétricas de Santa Catarina S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avendia Itamarati, 160 Itacorubi</td>
+<td>
+Florianópolis</td>
+<td>
+</td>
+<td>
++55 48 3231 6000</td>
+<td>
+464,539</td>
+<td>
+464,539</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9415928</td>
+</tr>
+<tr><td>
+Centrais Elétricas de Santa Catarina S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avendia Itamarati, 160 Itacorubi</td>
+<td>
+Florianópolis</td>
+<td>
+</td>
+<td>
++55 48 3231 6000</td>
+<td>
+464,539</td>
+<td>
+464,539</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9415928</td>
+</tr>
+<tr><td>
+Centrais Elétricas de Santa Catarina S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avendia Itamarati, 160 Itacorubi</td>
+<td>
+Florianópolis</td>
+<td>
+</td>
+<td>
++55 48 3231 6000</td>
+<td>
+464,539</td>
+<td>
+464,539</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9415928</td>
+</tr>
+<tr><td>
+Centrus - Fundacao Banco Central de Previdencia Privada</td>
+<td>
+Corporation</td>
+<td>
+Scn Quadra 2 Block A Ed. Corporate Financial Center 8th Floor Cep</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 2192 1599</td>
+<td>
+1,217,435</td>
+<td>
+1,165,653</td>
+<td>
+51,782</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695048</td>
+</tr>
+<tr><td>
+Centrus - Fundacao Banco Central de Previdencia Privada</td>
+<td>
+Corporation</td>
+<td>
+Scn Quadra 2 Block A Ed. Corporate Financial Center 8th Floor Cep</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 2192 1599</td>
+<td>
+1,217,435</td>
+<td>
+1,165,653</td>
+<td>
+51,782</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695048</td>
+</tr>
+<tr><td>
+Centrus - Fundacao Banco Central de Previdencia Privada</td>
+<td>
+Corporation</td>
+<td>
+Scn Quadra 2 Block A Ed. Corporate Financial Center 8th Floor Cep</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 2192 1599</td>
+<td>
+1,217,435</td>
+<td>
+1,165,653</td>
+<td>
+51,782</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695048</td>
+</tr>
+<tr><td>
+Ceres - Fundação de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Commercial Sector North Q 2 Block A Room 304-Asa Norte</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 2106 0200</td>
+<td>
+2,211,551</td>
+<td>
+2,211,551</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695049</td>
+</tr>
+<tr><td>
+Ceres - Fundação de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Commercial Sector North Q 2 Block A Room 304-Asa Norte</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 2106 0200</td>
+<td>
+2,211,551</td>
+<td>
+2,211,551</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695049</td>
+</tr>
+<tr><td>
+Ceres - Fundação de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Commercial Sector North Q 2 Block A Room 304-Asa Norte</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 2106 0200</td>
+<td>
+2,211,551</td>
+<td>
+2,211,551</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695049</td>
+</tr>
+<tr><td>
+Ceres - Fundação de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Commercial Sector North Q 2 Block A Room 304-Asa Norte</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 2106 0200</td>
+<td>
+2,211,551</td>
+<td>
+2,211,551</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695049</td>
+</tr>
+<tr><td>
+Ceres - Fundação de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Commercial Sector North Q 2 Block A Room 304-Asa Norte</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 2106 0200</td>
+<td>
+2,211,551</td>
+<td>
+2,211,551</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695049</td>
+</tr>
+<tr><td>
+Ceres - Fundação de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Commercial Sector North Q 2 Block A Room 304-Asa Norte</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 2106 0200</td>
+<td>
+2,211,551</td>
+<td>
+2,211,551</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695049</td>
+</tr>
+<tr><td>
+Ceres - Fundação de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Commercial Sector North Q 2 Block A Room 304-Asa Norte</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 2106 0200</td>
+<td>
+2,211,551</td>
+<td>
+2,211,551</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695049</td>
+</tr>
+<tr><td>
+Ceres - Fundação de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Commercial Sector North Q 2 Block A Room 304-Asa Norte</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 2106 0200</td>
+<td>
+2,211,551</td>
+<td>
+2,211,551</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695049</td>
+</tr>
+<tr><td>
+Ceres - Fundação de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Commercial Sector North Q 2 Block A Room 304-Asa Norte</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 2106 0200</td>
+<td>
+2,211,551</td>
+<td>
+2,211,551</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695049</td>
+</tr>
+<tr><td>
+Ceres - Fundação de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Commercial Sector North Q 2 Block A Room 304-Asa Norte</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 2106 0200</td>
+<td>
+2,211,551</td>
+<td>
+2,211,551</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695049</td>
+</tr>
+<tr><td>
+Ceres - Fundação de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Commercial Sector North Q 2 Block A Room 304-Asa Norte</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 2106 0200</td>
+<td>
+2,211,551</td>
+<td>
+2,211,551</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695049</td>
+</tr>
+<tr><td>
+Ceres - Fundação de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Commercial Sector North Q 2 Block A Room 304-Asa Norte</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 2106 0200</td>
+<td>
+2,211,551</td>
+<td>
+2,211,551</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695049</td>
+</tr>
+<tr><td>
+Ceres - Fundação de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Commercial Sector North Q 2 Block A Room 304-Asa Norte</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 2106 0200</td>
+<td>
+2,211,551</td>
+<td>
+2,211,551</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695049</td>
+</tr>
+<tr><td>
+Ceres - Fundação de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Commercial Sector North Q 2 Block A Room 304-Asa Norte</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 2106 0200</td>
+<td>
+2,211,551</td>
+<td>
+2,211,551</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695049</td>
+</tr>
+<tr><td>
+Ceres - Fundação de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Commercial Sector North Q 2 Block A Room 304-Asa Norte</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 2106 0200</td>
+<td>
+2,211,551</td>
+<td>
+2,211,551</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695049</td>
+</tr>
+<tr><td>
+Ceres - Fundação de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Commercial Sector North Q 2 Block A Room 304-Asa Norte</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 2106 0200</td>
+<td>
+2,211,551</td>
+<td>
+2,211,551</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695049</td>
+</tr>
+<tr><td>
+Ceres - Fundação de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Commercial Sector North Q 2 Block A Room 304-Asa Norte</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 2106 0200</td>
+<td>
+2,211,551</td>
+<td>
+2,211,551</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695049</td>
+</tr>
+<tr><td>
+Ceres - Fundação de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Commercial Sector North Q 2 Block A Room 304-Asa Norte</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 2106 0200</td>
+<td>
+2,211,551</td>
+<td>
+2,211,551</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695049</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Fundacao CESP - Vivest</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Faria Lima, 3732, Edifício B32, 16</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4004 8000</td>
+<td>
+8,216,608</td>
+<td>
+7,055,708</td>
+<td>
+1,160,900</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695088</td>
+</tr>
+<tr><td>
+Cia Energetica de Minas Gerais</td>
+<td>
+Corporation</td>
+<td>
+Avenida Barbacena, Number 1200, Ground Floor Santo Agostinho Neighborhood</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 31 3506 5024</td>
+<td>
+1,284,355</td>
+<td>
+1,284,355</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9696304</td>
+</tr>
+<tr><td>
+Cibrius - Instituto Conab de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Sig Block 01, Lots 985 To 1055, Room 203 – 2nd Floor, Parque Brasília Business Center</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 3340 3300</td>
+<td>
+382,953</td>
+<td>
+382,953</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695050</td>
+</tr>
+<tr><td>
+CIFRAO - Casa da Moeda do Brazil</td>
+<td>
+Corporation</td>
+<td>
+Rue René Bittencourt North 371</td>
+<td>
+Rio De Janiero</td>
+<td>
+</td>
+<td>
++55 21 2184 2233</td>
+<td>
+83,308</td>
+<td>
+35,599</td>
+<td>
+47,709</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695051</td>
+</tr>
+<tr><td>
+CIFRAO - Casa da Moeda do Brazil</td>
+<td>
+Corporation</td>
+<td>
+Rue René Bittencourt North 371</td>
+<td>
+Rio De Janiero</td>
+<td>
+</td>
+<td>
++55 21 2184 2233</td>
+<td>
+83,308</td>
+<td>
+35,599</td>
+<td>
+47,709</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695051</td>
+</tr>
+<tr><td>
+CIFRAO - Casa da Moeda do Brazil</td>
+<td>
+Corporation</td>
+<td>
+Rue René Bittencourt North 371</td>
+<td>
+Rio De Janiero</td>
+<td>
+</td>
+<td>
++55 21 2184 2233</td>
+<td>
+83,308</td>
+<td>
+35,599</td>
+<td>
+47,709</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695051</td>
+</tr>
+<tr><td>
+AMBEV - Companhia de Bebidas Das Americas</td>
+<td>
+Corporation</td>
+<td>
+Rua Dr. Renato Paes De Barros, Nº 1017-3º Andar</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 11 2122 1414</td>
+<td>
+371,557</td>
+<td>
+371,557</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9363419</td>
+</tr>
+<tr><td>
+Companhia Siderurgica Nacional</td>
+<td>
+Corporation</td>
+<td>
+20th Floor, 3400 Avenue Brigadeiro Faria Lima</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 11 3049 7100</td>
+<td>
+704,391</td>
+<td>
+704,391</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9363436</td>
+</tr>
+<tr><td>
+Fundação Compesa de Previdência e Assistência - CompesaPrev</td>
+<td>
+Corporation</td>
+<td>
+Rua Augusto Rodrigues, 60 Torreão</td>
+<td>
+Recife</td>
+<td>
+</td>
+<td>
++55 81 3366 2421</td>
+<td>
+257,300</td>
+<td>
+257,300</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695053</td>
+</tr>
+<tr><td>
+Fundação Copel</td>
+<td>
+Corporation</td>
+<td>
+616 Treze De Maio Street, Sao Francisco Neighborhood</td>
+<td>
+Curitiba</td>
+<td>
+</td>
+<td>
++55 41 3883 6177</td>
+<td>
+2,787,065</td>
+<td>
+2,778,020</td>
+<td>
+9,045</td>
+<td>
+</td>
+<td>
+Banco Itau SA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695089</td>
+</tr>
+<tr><td>
+Fundação Copel</td>
+<td>
+Corporation</td>
+<td>
+616 Treze De Maio Street, Sao Francisco Neighborhood</td>
+<td>
+Curitiba</td>
+<td>
+</td>
+<td>
++55 41 3883 6177</td>
+<td>
+2,787,065</td>
+<td>
+2,778,020</td>
+<td>
+9,045</td>
+<td>
+</td>
+<td>
+Banco Itau SA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695089</td>
+</tr>
+<tr><td>
+Fundação Copel</td>
+<td>
+Corporation</td>
+<td>
+616 Treze De Maio Street, Sao Francisco Neighborhood</td>
+<td>
+Curitiba</td>
+<td>
+</td>
+<td>
++55 41 3883 6177</td>
+<td>
+2,787,065</td>
+<td>
+2,778,020</td>
+<td>
+9,045</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695089</td>
+</tr>
+<tr><td>
+Fundação Copel</td>
+<td>
+Corporation</td>
+<td>
+616 Treze De Maio Street, Sao Francisco Neighborhood</td>
+<td>
+Curitiba</td>
+<td>
+</td>
+<td>
++55 41 3883 6177</td>
+<td>
+2,787,065</td>
+<td>
+2,778,020</td>
+<td>
+9,045</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695089</td>
+</tr>
+<tr><td>
+Cosan Ltd.</td>
+<td>
+Corporation</td>
+<td>
+Av. Brigadeiro Faria Lima, 4100/15 ° Andar Itaim Bibi</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 11 3897 9797</td>
+<td>
+98,830</td>
+<td>
+98,830</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9345960</td>
+</tr>
+<tr><td>
+CPFL Energia S.A.</td>
+<td>
+Corporation</td>
+<td>
+Rodovia Engenheiro Miguel Noel Nascentes Burnier, Km 2,5, Parte</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3841 8507</td>
+<td>
+1,651,633</td>
+<td>
+1,651,633</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9696310</td>
+</tr>
+<tr><td>
+CPFL Energia S.A.</td>
+<td>
+Corporation</td>
+<td>
+Rodovia Engenheiro Miguel Noel Nascentes Burnier, Km 2,5, Parte</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3841 8507</td>
+<td>
+1,651,633</td>
+<td>
+1,651,633</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9696310</td>
+</tr>
+<tr><td>
+CPFL Energia S.A.</td>
+<td>
+Corporation</td>
+<td>
+Rodovia Engenheiro Miguel Noel Nascentes Burnier, Km 2,5, Parte</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3841 8507</td>
+<td>
+1,651,633</td>
+<td>
+1,651,633</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9696310</td>
+</tr>
+<tr><td>
+CPFL Energia S.A.</td>
+<td>
+Corporation</td>
+<td>
+Rodovia Engenheiro Miguel Noel Nascentes Burnier, Km 2,5, Parte</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3841 8507</td>
+<td>
+1,651,633</td>
+<td>
+1,651,633</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9696310</td>
+</tr>
+<tr><td>
+CPFL Energia S.A.</td>
+<td>
+Corporation</td>
+<td>
+Rodovia Engenheiro Miguel Noel Nascentes Burnier, Km 2,5, Parte</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3841 8507</td>
+<td>
+1,651,633</td>
+<td>
+1,651,633</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9696310</td>
+</tr>
+<tr><td>
+Cummins Brasil Ltda - PREVCUMMINS</td>
+<td>
+Corporation</td>
+<td>
+Rua Jati 266</td>
+<td>
+Guarulhos</td>
+<td>
+</td>
+<td>
++55 11 2186 4918</td>
+<td>
+125,333</td>
+<td>
+125,333</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695232</td>
+</tr>
+<tr><td>
+Dana Indústrias Ltda</td>
+<td>
+Corporation</td>
+<td>
+Rua Ricardo Bruno Albarus 201</td>
+<td>
+Gravatai</td>
+<td>
+</td>
+<td>
++55 51 3489 3000</td>
+<td>
+62,291</td>
+<td>
+62,291</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Willis Towers Watson, Rio De Janeiro, Brazil</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695172</td>
+</tr>
+<tr><td>
+Data Prev - Empresa de Tecnologia e Informações da Previdência Social</td>
+<td>
+Government</td>
+<td>
+Prof. Álvaro Rodrigues, 460, Botafogo</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3616 7000</td>
+<td>
+387,397</td>
+<td>
+248,890</td>
+<td>
+138,507</td>
+<td>
+</td>
+<td>
+Bradesco Asset Management Dtvm Sa (Bram), São Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695121</td>
+</tr>
+<tr><td>
+Data Prev - Empresa de Tecnologia e Informações da Previdência Social</td>
+<td>
+Government</td>
+<td>
+Prof. Álvaro Rodrigues, 460, Botafogo</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3616 7000</td>
+<td>
+387,397</td>
+<td>
+248,890</td>
+<td>
+138,507</td>
+<td>
+</td>
+<td>
+Bradesco Asset Management Dtvm Sa (Bram), São Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695121</td>
+</tr>
+<tr><td>
+Data Prev - Empresa de Tecnologia e Informações da Previdência Social</td>
+<td>
+Government</td>
+<td>
+Prof. Álvaro Rodrigues, 460, Botafogo</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3616 7000</td>
+<td>
+387,397</td>
+<td>
+248,890</td>
+<td>
+138,507</td>
+<td>
+</td>
+<td>
+Bradesco Asset Management Dtvm Sa (Bram), São Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695121</td>
+</tr>
+<tr><td>
+Derminas- Sociedade Civil de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Avenida Do Contorno 6064, 1st & 2nd Floor</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 31 2105 8500</td>
+<td>
+103,965</td>
+<td>
+103,056</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Itau BBA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695057</td>
+</tr>
+<tr><td>
+Derminas- Sociedade Civil de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Avenida Do Contorno 6064, 1st & 2nd Floor</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 31 2105 8500</td>
+<td>
+103,965</td>
+<td>
+103,056</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695057</td>
+</tr>
+<tr><td>
+Desban - Fundacao BDMG de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+1587 Rua Bernardo Guimaraes, 8th Floor</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 31 3249 8500</td>
+<td>
+210,692</td>
+<td>
+210,692</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695058</td>
+</tr>
+<tr><td>
+Dupont do Brasil S.A. - DUPREV</td>
+<td>
+Corporation</td>
+<td>
+Alameda Itapecuru, 506</td>
+<td>
+Barueri</td>
+<td>
+</td>
+<td>
++55 11 4166 8295</td>
+<td>
+249,553</td>
+<td>
+146,200</td>
+<td>
+103,353</td>
+<td>
+</td>
+<td>
+Willis Towers Watson, Rio De Janeiro, Brazil</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9366817</td>
+</tr>
+<tr><td>
+Dupont do Brasil S.A. - DUPREV</td>
+<td>
+Corporation</td>
+<td>
+Alameda Itapecuru, 506</td>
+<td>
+Barueri</td>
+<td>
+</td>
+<td>
++55 11 4166 8295</td>
+<td>
+249,553</td>
+<td>
+146,200</td>
+<td>
+103,353</td>
+<td>
+</td>
+<td>
+Willis Towers Watson, Rio De Janeiro, Brazil</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9366817</td>
+</tr>
+<tr><td>
+Economus</td>
+<td>
+Corporation</td>
+<td>
+Rua Quirino De Andrade, 185 Centro</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 80 0014 7000</td>
+<td>
+30,824</td>
+<td>
+30,824</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695060</td>
+</tr>
+<tr><td>
+Economus</td>
+<td>
+Corporation</td>
+<td>
+Rua Quirino De Andrade, 185 Centro</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 80 0014 7000</td>
+<td>
+30,824</td>
+<td>
+30,824</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Banco Itau SA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695060</td>
+</tr>
+<tr><td>
+Economus</td>
+<td>
+Corporation</td>
+<td>
+Rua Quirino De Andrade, 185 Centro</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 80 0014 7000</td>
+<td>
+30,824</td>
+<td>
+30,824</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Banco Santander (Brasil) S.A., São Paulo, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695060</td>
+</tr>
+<tr><td>
+Economus</td>
+<td>
+Corporation</td>
+<td>
+Rua Quirino De Andrade, 185 Centro</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 80 0014 7000</td>
+<td>
+30,824</td>
+<td>
+30,824</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Bradesco Asset Management Dtvm Sa (Bram), São Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695060</td>
+</tr>
+<tr><td>
+Ecos - Fundação de Seguridade Social do Banco Econômico</td>
+<td>
+Corporation</td>
+<td>
+Rua Torquato Bahia, 03-Edif. Quirino J. Gomes, 2nd Floor – Commerce</td>
+<td>
+Salvador</td>
+<td>
+</td>
+<td>
++55 71 3082 2600</td>
+<td>
+177,546</td>
+<td>
+176,036</td>
+<td>
+1,510</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695061</td>
+</tr>
+<tr><td>
+Ecos - Fundação de Seguridade Social do Banco Econômico</td>
+<td>
+Corporation</td>
+<td>
+Rua Torquato Bahia, 03-Edif. Quirino J. Gomes, 2nd Floor – Commerce</td>
+<td>
+Salvador</td>
+<td>
+</td>
+<td>
++55 71 3082 2600</td>
+<td>
+177,546</td>
+<td>
+176,036</td>
+<td>
+1,510</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695061</td>
+</tr>
+<tr><td>
+Eletra - Fundacao Celg de Seguros e Previdencia</td>
+<td>
+Corporation</td>
+<td>
+Av. T-11, Nº 451, Qd. 116, Lts. 17/18, Ed. Fabbrica Office, 2nd floor, rooms 206 to 213,</td>
+<td>
+Goiânia</td>
+<td>
+</td>
+<td>
++55 62 3218 6624</td>
+<td>
+140,135</td>
+<td>
+140,135</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695062</td>
+</tr>
+<tr><td>
+Eletra - Fundacao Celg de Seguros e Previdencia</td>
+<td>
+Corporation</td>
+<td>
+Av. T-11, Nº 451, Qd. 116, Lts. 17/18, Ed. Fabbrica Office, 2nd floor, rooms 206 to 213,</td>
+<td>
+Goiânia</td>
+<td>
+</td>
+<td>
++55 62 3218 6624</td>
+<td>
+140,135</td>
+<td>
+140,135</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695062</td>
+</tr>
+<tr><td>
+Eletra - Fundacao Celg de Seguros e Previdencia</td>
+<td>
+Corporation</td>
+<td>
+Av. T-11, Nº 451, Qd. 116, Lts. 17/18, Ed. Fabbrica Office, 2nd floor, rooms 206 to 213,</td>
+<td>
+Goiânia</td>
+<td>
+</td>
+<td>
++55 62 3218 6624</td>
+<td>
+140,135</td>
+<td>
+140,135</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695062</td>
+</tr>
+<tr><td>
+Eletroceee-Fundação CEEE de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Dos Andradas, 702</td>
+<td>
+Porto Alegre</td>
+<td>
+</td>
+<td>
++55 51 3027 1221</td>
+<td>
+1,161,436</td>
+<td>
+1,161,436</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Banco Itau SA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695063</td>
+</tr>
+<tr><td>
+Eletroceee-Fundação CEEE de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Dos Andradas, 702</td>
+<td>
+Porto Alegre</td>
+<td>
+</td>
+<td>
++55 51 3027 1221</td>
+<td>
+1,161,436</td>
+<td>
+1,161,436</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Banco Itau SA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695063</td>
+</tr>
+<tr><td>
+Eletroceee-Fundação CEEE de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Dos Andradas, 702</td>
+<td>
+Porto Alegre</td>
+<td>
+</td>
+<td>
++55 51 3027 1221</td>
+<td>
+1,161,436</td>
+<td>
+1,161,436</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Banco Itau SA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695063</td>
+</tr>
+<tr><td>
+Eletroceee-Fundação CEEE de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Dos Andradas, 702</td>
+<td>
+Porto Alegre</td>
+<td>
+</td>
+<td>
++55 51 3027 1221</td>
+<td>
+1,161,436</td>
+<td>
+1,161,436</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Banco Itau SA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695063</td>
+</tr>
+<tr><td>
+Eletroceee-Fundação CEEE de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Dos Andradas, 702</td>
+<td>
+Porto Alegre</td>
+<td>
+</td>
+<td>
++55 51 3027 1221</td>
+<td>
+1,161,436</td>
+<td>
+1,161,436</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Banco Itau SA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695063</td>
+</tr>
+<tr><td>
+Eletros - Fundacao Eletrobras de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Uruguaiana, 174. 6th Floor.</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3900 9849</td>
+<td>
+881,566</td>
+<td>
+334,092</td>
+<td>
+547,474</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695064</td>
+</tr>
+<tr><td>
+Eletros - Fundacao Eletrobras de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Uruguaiana, 174. 6th Floor.</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3900 9849</td>
+<td>
+881,566</td>
+<td>
+334,092</td>
+<td>
+547,474</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695064</td>
+</tr>
+<tr><td>
+Eletros - Fundacao Eletrobras de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Uruguaiana, 174. 6th Floor.</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3900 9849</td>
+<td>
+881,566</td>
+<td>
+334,092</td>
+<td>
+547,474</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695064</td>
+</tr>
+<tr><td>
+Eletros - Fundacao Eletrobras de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Uruguaiana, 174. 6th Floor.</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3900 9849</td>
+<td>
+881,566</td>
+<td>
+334,092</td>
+<td>
+547,474</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695064</td>
+</tr>
+<tr><td>
+Eli Lilly do Brasil - LILLY PREV</td>
+<td>
+Corporation</td>
+<td>
+Avenida Morumbi 8264 Brooklin</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4873-7900</td>
+<td>
+66,722</td>
+<td>
+66,722</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695204</td>
+</tr>
+<tr><td>
+Elos- Fundacao Eletrosul de Previdencia e Assistencia Social</td>
+<td>
+Corporation</td>
+<td>
+Praça Pereira Oliveira, 64 Edificio Emedaux, Sobreloja Centro</td>
+<td>
+Florianópolis</td>
+<td>
+</td>
+<td>
++55 48 2107 7500</td>
+<td>
+723,089</td>
+<td>
+470,492</td>
+<td>
+252,597</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695065</td>
+</tr>
+<tr><td>
+Elos- Fundacao Eletrosul de Previdencia e Assistencia Social</td>
+<td>
+Corporation</td>
+<td>
+Praça Pereira Oliveira, 64 Edificio Emedaux, Sobreloja Centro</td>
+<td>
+Florianópolis</td>
+<td>
+</td>
+<td>
++55 48 2107 7500</td>
+<td>
+723,089</td>
+<td>
+470,492</td>
+<td>
+252,597</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695065</td>
+</tr>
+<tr><td>
+Elos- Fundacao Eletrosul de Previdencia e Assistencia Social</td>
+<td>
+Corporation</td>
+<td>
+Praça Pereira Oliveira, 64 Edificio Emedaux, Sobreloja Centro</td>
+<td>
+Florianópolis</td>
+<td>
+</td>
+<td>
++55 48 2107 7500</td>
+<td>
+723,089</td>
+<td>
+470,492</td>
+<td>
+252,597</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695065</td>
+</tr>
+<tr><td>
+Embraer S.A.</td>
+<td>
+Corporation</td>
+<td>
+Av. Nações Unidas, 8501 - Pinheiros, Eldorado Business Towers, 30th Floor</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 12 3927 6017</td>
+<td>
+791,535</td>
+<td>
+791,535</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9366761</td>
+</tr>
+<tr><td>
+EnerPrev- Previdencia Complementar do Grupo Energisa do Brazil</td>
+<td>
+Corporation</td>
+<td>
+Rua Werner Von Siemens, N° 111, Codlog 44191-0 Prédio 22, Bloco A, Sala 15, Lapa de Baixo</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 11 2185 5611</td>
+<td>
+460,874</td>
+<td>
+460,874</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695174</td>
+</tr>
+<tr><td>
+EnerPrev- Previdencia Complementar do Grupo Energisa do Brazil</td>
+<td>
+Corporation</td>
+<td>
+Rua Werner Von Siemens, N° 111, Codlog 44191-0 Prédio 22, Bloco A, Sala 15, Lapa de Baixo</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 11 2185 5611</td>
+<td>
+460,874</td>
+<td>
+460,874</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695174</td>
+</tr>
+<tr><td>
+EnerPrev- Previdencia Complementar do Grupo Energisa do Brazil</td>
+<td>
+Corporation</td>
+<td>
+Rua Werner Von Siemens, N° 111, Codlog 44191-0 Prédio 22, Bloco A, Sala 15, Lapa de Baixo</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 11 2185 5611</td>
+<td>
+460,874</td>
+<td>
+460,874</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695174</td>
+</tr>
+<tr><td>
+EnerPrev- Previdencia Complementar do Grupo Energisa do Brazil</td>
+<td>
+Corporation</td>
+<td>
+Rua Werner Von Siemens, N° 111, Codlog 44191-0 Prédio 22, Bloco A, Sala 15, Lapa de Baixo</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 11 2185 5611</td>
+<td>
+460,874</td>
+<td>
+460,874</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695174</td>
+</tr>
+<tr><td>
+Eqtprev - Equatorial Energia Fundacao de Previdencia</td>
+<td>
+Corporation</td>
+<td>
+Av. Coronel Colares Moreira, Quadra 1, Lote 2, Gleba B Sala 1102 - Edificio Planta Tower - Renascenca II</td>
+<td>
+Sao Luís</td>
+<td>
+</td>
+<td>
++55 98 3217 2218</td>
+<td>
+97,214</td>
+<td>
+37,052</td>
+<td>
+60,162</td>
+<td>
+</td>
+<td>
+Itau BBA, Sao Paulo, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695178</td>
+</tr>
+<tr><td>
+Eqtprev - Equatorial Energia Fundacao de Previdencia</td>
+<td>
+Corporation</td>
+<td>
+Av. Coronel Colares Moreira, Quadra 1, Lote 2, Gleba B Sala 1102 - Edificio Planta Tower - Renascenca II</td>
+<td>
+Sao Luís</td>
+<td>
+</td>
+<td>
++55 98 3217 2218</td>
+<td>
+97,214</td>
+<td>
+37,052</td>
+<td>
+60,162</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695178</td>
+</tr>
+<tr><td>
+Previ-Ericsson - Sociedade de Previdencia Privada</td>
+<td>
+Corporation</td>
+<td>
+Avenida Nicolas Boer, 399 - 11º Andar</td>
+<td>
+Água Branca</td>
+<td>
+</td>
+<td>
++55 11 4502 1398</td>
+<td>
+369,504</td>
+<td>
+369,504</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695126</td>
+</tr>
+<tr><td>
+Previ-Ericsson - Sociedade de Previdencia Privada</td>
+<td>
+Corporation</td>
+<td>
+Avenida Nicolas Boer, 399 - 11º Andar</td>
+<td>
+Água Branca</td>
+<td>
+</td>
+<td>
++55 11 4502 1398</td>
+<td>
+369,504</td>
+<td>
+369,504</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695126</td>
+</tr>
+<tr><td>
+Fabasa- Empresa Baiana de Águas e Saneamento S.A. (EMBASA)</td>
+<td>
+Corporation</td>
+<td>
+4ª Avenida, 420, Centro Administrativo Da Bahia</td>
+<td>
+Salvador</td>
+<td>
+</td>
+<td>
++55 71 3555 2100</td>
+<td>
+203,285</td>
+<td>
+12,308</td>
+<td>
+190,977</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695068</td>
+</tr>
+<tr><td>
+Fabasa- Empresa Baiana de Águas e Saneamento S.A. (EMBASA)</td>
+<td>
+Corporation</td>
+<td>
+4ª Avenida, 420, Centro Administrativo Da Bahia</td>
+<td>
+Salvador</td>
+<td>
+</td>
+<td>
++55 71 3555 2100</td>
+<td>
+203,285</td>
+<td>
+12,308</td>
+<td>
+190,977</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695068</td>
+</tr>
+<tr><td>
+CEAL - Companhia Energética de Alagoas (FACEAL)</td>
+<td>
+Corporation</td>
+<td>
+Avenida Fernandes Lima, 3565</td>
+<td>
+Maceio</td>
+<td>
+</td>
+<td>
++55 82 3218 1676</td>
+<td>
+112,282</td>
+<td>
+64,514</td>
+<td>
+47,768</td>
+<td>
+</td>
+<td>
+Banco Itau SA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695069</td>
+</tr>
+<tr><td>
+CEAL - Companhia Energética de Alagoas (FACEAL)</td>
+<td>
+Corporation</td>
+<td>
+Avenida Fernandes Lima, 3565</td>
+<td>
+Maceio</td>
+<td>
+</td>
+<td>
++55 82 3218 1676</td>
+<td>
+112,282</td>
+<td>
+64,514</td>
+<td>
+47,768</td>
+<td>
+</td>
+<td>
+Caixa Economica Federal, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695069</td>
+</tr>
+<tr><td>
+CEAL - Companhia Energética de Alagoas (FACEAL)</td>
+<td>
+Corporation</td>
+<td>
+Avenida Fernandes Lima, 3565</td>
+<td>
+Maceio</td>
+<td>
+</td>
+<td>
++55 82 3218 1676</td>
+<td>
+112,282</td>
+<td>
+64,514</td>
+<td>
+47,768</td>
+<td>
+</td>
+<td>
+Banco Itau SA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695069</td>
+</tr>
+<tr><td>
+CEAL - Companhia Energética de Alagoas (FACEAL)</td>
+<td>
+Corporation</td>
+<td>
+Avenida Fernandes Lima, 3565</td>
+<td>
+Maceio</td>
+<td>
+</td>
+<td>
++55 82 3218 1676</td>
+<td>
+112,282</td>
+<td>
+64,514</td>
+<td>
+47,768</td>
+<td>
+</td>
+<td>
+Caixa Economica Federal, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695069</td>
+</tr>
+<tr><td>
+Faceb - Fundacao de Previdencia dos Empregados da CEB</td>
+<td>
+Corporation</td>
+<td>
+Scs Quadra 4, Bloco A, Lots 141/153 Ed. Faceb, 6th Floor</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 3312 0201</td>
+<td>
+445,790</td>
+<td>
+256,401</td>
+<td>
+189,389</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695175</td>
+</tr>
+<tr><td>
+Faceb - Fundacao de Previdencia dos Empregados da CEB</td>
+<td>
+Corporation</td>
+<td>
+Scs Quadra 4, Bloco A, Lots 141/153 Ed. Faceb, 6th Floor</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 3312 0201</td>
+<td>
+445,790</td>
+<td>
+256,401</td>
+<td>
+189,389</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695175</td>
+</tr>
+<tr><td>
+Facepi - Companhia Energetica do Piaui - Cepisa</td>
+<td>
+Corporation</td>
+<td>
+910 Rua Santa Luzia</td>
+<td>
+Teresina</td>
+<td>
+</td>
+<td>
++55 86 3215 3500</td>
+<td>
+107,756</td>
+<td>
+95,779</td>
+<td>
+11,977</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695176</td>
+</tr>
+<tr><td>
+Facepi - Companhia Energetica do Piaui - Cepisa</td>
+<td>
+Corporation</td>
+<td>
+910 Rua Santa Luzia</td>
+<td>
+Teresina</td>
+<td>
+</td>
+<td>
++55 86 3215 3500</td>
+<td>
+107,756</td>
+<td>
+95,779</td>
+<td>
+11,977</td>
+<td>
+</td>
+<td>
+Banco Itau SA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695176</td>
+</tr>
+<tr><td>
+Fachesf - Fundacao Chesf de Assistencia e Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Padre Carapuceiro, 733</td>
+<td>
+Recife</td>
+<td>
+</td>
+<td>
++55 81 0629 7533</td>
+<td>
+1,622,202</td>
+<td>
+885,522</td>
+<td>
+736,680</td>
+<td>
+</td>
+<td>
+Banco Itau SA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695070</td>
+</tr>
+<tr><td>
+Fachesf - Fundacao Chesf de Assistencia e Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Padre Carapuceiro, 733</td>
+<td>
+Recife</td>
+<td>
+</td>
+<td>
++55 81 0629 7533</td>
+<td>
+1,622,202</td>
+<td>
+885,522</td>
+<td>
+736,680</td>
+<td>
+</td>
+<td>
+Banco Itau SA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695070</td>
+</tr>
+<tr><td>
+Fachesf - Fundacao Chesf de Assistencia e Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Padre Carapuceiro, 733</td>
+<td>
+Recife</td>
+<td>
+</td>
+<td>
++55 81 0629 7533</td>
+<td>
+1,622,202</td>
+<td>
+885,522</td>
+<td>
+736,680</td>
+<td>
+</td>
+<td>
+Banco Itau SA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695070</td>
+</tr>
+<tr><td>
+Faelce- Fundacao Coelce de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Avenida Barão De Studart, 2700, Dionísio Torres</td>
+<td>
+Fortaleza</td>
+<td>
+</td>
+<td>
++55 85 3452 6544</td>
+<td>
+310,853</td>
+<td>
+267,715</td>
+<td>
+43,138</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695074</td>
+</tr>
+<tr><td>
+Faelce- Fundacao Coelce de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Avenida Barão De Studart, 2700, Dionísio Torres</td>
+<td>
+Fortaleza</td>
+<td>
+</td>
+<td>
++55 85 3452 6544</td>
+<td>
+310,853</td>
+<td>
+267,715</td>
+<td>
+43,138</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695074</td>
+</tr>
+<tr><td>
+FAPERS - Fundação Assistencial en Previdenciária da Extensão Rural no Rio Grande do Sul</td>
+<td>
+Corporation</td>
+<td>
+Rua Marcílio Dias, 1073</td>
+<td>
+Porto Alegre</td>
+<td>
+</td>
+<td>
++55 51 3231 7444</td>
+<td>
+114,394</td>
+<td>
+114,394</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695076</td>
+</tr>
+<tr><td>
+Fapes - Fundacao de Assistencia e Previdencia Social do BNDES</td>
+<td>
+Corporation</td>
+<td>
+Avenida República Do Chile, Numero 230, 8th Floor</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3088 5200</td>
+<td>
+3,556,749</td>
+<td>
+3,556,749</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Itau BBA, Sao Paulo, São Paulo, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695077</td>
+</tr>
+<tr><td>
+Souza Cruz SA - FASC</td>
+<td>
+Corporation</td>
+<td>
+Avenida Condessa Elisabeth De Robiano, 4th Floor, Suite 1880</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 2942 5864</td>
+<td>
+385,098</td>
+<td>
+155,877</td>
+<td>
+229,221</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695177</td>
+</tr>
+<tr><td>
+Souza Cruz SA - FASC</td>
+<td>
+Corporation</td>
+<td>
+Avenida Condessa Elisabeth De Robiano, 4th Floor, Suite 1880</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 2942 5864</td>
+<td>
+385,098</td>
+<td>
+155,877</td>
+<td>
+229,221</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695177</td>
+</tr>
+<tr><td>
+FASERN- Companhia Energética do Rio Grande do Norte (COSERN)</td>
+<td>
+Corporation</td>
+<td>
+Rua Olinto Meira, 1074</td>
+<td>
+Natal</td>
+<td>
+</td>
+<td>
++55 84 3092 4350</td>
+<td>
+89,267</td>
+<td>
+32,190</td>
+<td>
+57,077</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695078</td>
+</tr>
+<tr><td>
+FASERN- Companhia Energética do Rio Grande do Norte (COSERN)</td>
+<td>
+Corporation</td>
+<td>
+Rua Olinto Meira, 1074</td>
+<td>
+Natal</td>
+<td>
+</td>
+<td>
++55 84 3092 4350</td>
+<td>
+89,267</td>
+<td>
+32,190</td>
+<td>
+57,077</td>
+<td>
+</td>
+<td>
+Banco Santander (Brasil) S.A., São Paulo, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695078</td>
+</tr>
+<tr><td>
+Fibra- Fundacao ITAIPU-BR de Previdencia e Assistencia Social</td>
+<td>
+Corporation</td>
+<td>
+Av.Gramado, 50 Foz Do Lguacu</td>
+<td>
+Pr</td>
+<td>
+</td>
+<td>
+45 3132 4010</td>
+<td>
+1,157,473</td>
+<td>
+1,157,473</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695081</td>
+</tr>
+<tr><td>
+FIPECq</td>
+<td>
+Corporation</td>
+<td>
+Setor Comercial Norte Quadra 05, Sala 1125</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 2107 7000</td>
+<td>
+483,940</td>
+<td>
+467,788</td>
+<td>
+16,152</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695083</td>
+</tr>
+<tr><td>
+FIPECq</td>
+<td>
+Corporation</td>
+<td>
+Setor Comercial Norte Quadra 05, Sala 1125</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 2107 7000</td>
+<td>
+483,940</td>
+<td>
+467,788</td>
+<td>
+16,152</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695083</td>
+</tr>
+<tr><td>
+FIPECq</td>
+<td>
+Corporation</td>
+<td>
+Setor Comercial Norte Quadra 05, Sala 1125</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 2107 7000</td>
+<td>
+483,940</td>
+<td>
+467,788</td>
+<td>
+16,152</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695083</td>
+</tr>
+<tr><td>
+Forluz - Fundacao Forluminas de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Contorno Avenue, 6500, 3rd Floor - Lourdes</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 800 - 090 9090</td>
+<td>
+4,369,778</td>
+<td>
+4,369,778</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695084</td>
+</tr>
+<tr><td>
+Forluz - Fundacao Forluminas de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Contorno Avenue, 6500, 3rd Floor - Lourdes</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 800 - 090 9090</td>
+<td>
+4,369,778</td>
+<td>
+4,369,778</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695084</td>
+</tr>
+<tr><td>
+Forluz - Fundacao Forluminas de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Contorno Avenue, 6500, 3rd Floor - Lourdes</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 800 - 090 9090</td>
+<td>
+4,369,778</td>
+<td>
+4,369,778</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695084</td>
+</tr>
+<tr><td>
+Forluz - Fundacao Forluminas de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Contorno Avenue, 6500, 3rd Floor - Lourdes</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 800 - 090 9090</td>
+<td>
+4,369,778</td>
+<td>
+4,369,778</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695084</td>
+</tr>
+<tr><td>
+FUNASA Fundação Nacional de Saúde (CAPESESP)</td>
+<td>
+Government</td>
+<td>
+Avenida Marechal Câmara, 160, 6th & 7th Floors, Centro</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3479 1200</td>
+<td>
+96,716</td>
+<td>
+96,716</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9685042</td>
+</tr>
+<tr><td>
+FUNASA Fundação Nacional de Saúde (CAPESESP)</td>
+<td>
+Government</td>
+<td>
+Avenida Marechal Câmara, 160, 6th & 7th Floors, Centro</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3479 1200</td>
+<td>
+96,716</td>
+<td>
+96,716</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9685042</td>
+</tr>
+<tr><td>
+FUNASA Fundação Nacional de Saúde (CAPESESP)</td>
+<td>
+Government</td>
+<td>
+Avenida Marechal Câmara, 160, 6th & 7th Floors, Centro</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3479 1200</td>
+<td>
+96,716</td>
+<td>
+96,716</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9685042</td>
+</tr>
+<tr><td>
+Funbep- Fundo de Pensao Multipatrocinado</td>
+<td>
+Corporation</td>
+<td>
+Rua Marechal Deodoro, 869 – 17º Andar</td>
+<td>
+Curitiba</td>
+<td>
+</td>
+<td>
++55 41 3544 8000</td>
+<td>
+1,258,216</td>
+<td>
+1,256,299</td>
+<td>
+1,917</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695086</td>
+</tr>
+<tr><td>
+Funbep- Fundo de Pensao Multipatrocinado</td>
+<td>
+Corporation</td>
+<td>
+Rua Marechal Deodoro, 869 – 17º Andar</td>
+<td>
+Curitiba</td>
+<td>
+</td>
+<td>
++55 41 3544 8000</td>
+<td>
+1,258,216</td>
+<td>
+1,256,299</td>
+<td>
+1,917</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695086</td>
+</tr>
+<tr><td>
+Funcef - Fundação dos Economiários Federais</td>
+<td>
+Corporation</td>
+<td>
+Scn - Quadro 2 - Bloco A Edificio Corporate Financial Center</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 3329 1943</td>
+<td>
+24,229,018</td>
+<td>
+15,596,362</td>
+<td>
+8,632,656</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695087</td>
+</tr>
+<tr><td>
+Funcef - Fundação dos Economiários Federais</td>
+<td>
+Corporation</td>
+<td>
+Scn - Quadro 2 - Bloco A Edificio Corporate Financial Center</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 3329 1943</td>
+<td>
+24,229,018</td>
+<td>
+15,596,362</td>
+<td>
+8,632,656</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695087</td>
+</tr>
+<tr><td>
+Funcef - Fundação dos Economiários Federais</td>
+<td>
+Corporation</td>
+<td>
+Scn - Quadro 2 - Bloco A Edificio Corporate Financial Center</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 3329 1943</td>
+<td>
+24,229,018</td>
+<td>
+15,596,362</td>
+<td>
+8,632,656</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695087</td>
+</tr>
+<tr><td>
+Funcorsan - Fundacao Companhia Riograndense de Saneamento</td>
+<td>
+Corporation</td>
+<td>
+Avenida Julio De Castilhos, 51, 5th Floor</td>
+<td>
+Porto Alegre</td>
+<td>
+</td>
+<td>
++55 51 3216 6000</td>
+<td>
+398,204</td>
+<td>
+398,204</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695090</td>
+</tr>
+<tr><td>
+Fundacao Baneses de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Avenida, Princesa Isabel, 574 Edificio Palas Center, Bloco A, 16 andar</td>
+<td>
+Vitoria</td>
+<td>
+</td>
+<td>
++55 27 3383 1900</td>
+<td>
+439,895</td>
+<td>
+439,895</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695028</td>
+</tr>
+<tr><td>
+CODEVASF-Companhia de Desevolvimento dos Vales do São Francisco e do Parnaíba</td>
+<td>
+Corporation</td>
+<td>
+Sgan 601, Conj. I. Ed. Dep. Manoel Novaes</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 2028 4611</td>
+<td>
+101,996</td>
+<td>
+101,996</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695144</td>
+</tr>
+<tr><td>
+Fundacao Sistel de Seguridade Social</td>
+<td>
+Government</td>
+<td>
+Seps/Eq. Edifício General Alencastro 702/902, Set B, Block A</td>
+<td>
+Brasilia</td>
+<td>
+</td>
+<td>
++55 61 2323 0000</td>
+<td>
+4,595,893</td>
+<td>
+3,294,851</td>
+<td>
+</td>
+<td>
+1,301,042</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9403207</td>
+</tr>
+<tr><td>
+Fundacao Sistel de Seguridade Social</td>
+<td>
+Government</td>
+<td>
+Seps/Eq. Edifício General Alencastro 702/902, Set B, Block A</td>
+<td>
+Brasilia</td>
+<td>
+</td>
+<td>
++55 61 2323 0000</td>
+<td>
+4,595,893</td>
+<td>
+3,294,851</td>
+<td>
+</td>
+<td>
+1,301,042</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9403207</td>
+</tr>
+<tr><td>
+Fundacao Sistel de Seguridade Social</td>
+<td>
+Government</td>
+<td>
+Seps/Eq. Edifício General Alencastro 702/902, Set B, Block A</td>
+<td>
+Brasilia</td>
+<td>
+</td>
+<td>
++55 61 2323 0000</td>
+<td>
+4,595,893</td>
+<td>
+3,294,851</td>
+<td>
+</td>
+<td>
+1,301,042</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9403207</td>
+</tr>
+<tr><td>
+Fundacao Sistel de Seguridade Social</td>
+<td>
+Government</td>
+<td>
+Seps/Eq. Edifício General Alencastro 702/902, Set B, Block A</td>
+<td>
+Brasilia</td>
+<td>
+</td>
+<td>
++55 61 2323 0000</td>
+<td>
+4,595,893</td>
+<td>
+3,294,851</td>
+<td>
+</td>
+<td>
+1,301,042</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9403207</td>
+</tr>
+<tr><td>
+Fundacao Sistel de Seguridade Social</td>
+<td>
+Government</td>
+<td>
+Seps/Eq. Edifício General Alencastro 702/902, Set B, Block A</td>
+<td>
+Brasilia</td>
+<td>
+</td>
+<td>
++55 61 2323 0000</td>
+<td>
+4,595,893</td>
+<td>
+3,294,851</td>
+<td>
+</td>
+<td>
+1,301,042</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9403207</td>
+</tr>
+<tr><td>
+Fundacao Sistel de Seguridade Social</td>
+<td>
+Government</td>
+<td>
+Seps/Eq. Edifício General Alencastro 702/902, Set B, Block A</td>
+<td>
+Brasilia</td>
+<td>
+</td>
+<td>
++55 61 2323 0000</td>
+<td>
+4,595,893</td>
+<td>
+3,294,851</td>
+<td>
+</td>
+<td>
+1,301,042</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9403207</td>
+</tr>
+<tr><td>
+Fundacao Sistel de Seguridade Social</td>
+<td>
+Government</td>
+<td>
+Seps/Eq. Edifício General Alencastro 702/902, Set B, Block A</td>
+<td>
+Brasilia</td>
+<td>
+</td>
+<td>
++55 61 2323 0000</td>
+<td>
+4,595,893</td>
+<td>
+3,294,851</td>
+<td>
+</td>
+<td>
+1,301,042</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9403207</td>
+</tr>
+<tr><td>
+Fundacao Sistel de Seguridade Social</td>
+<td>
+Government</td>
+<td>
+Seps/Eq. Edifício General Alencastro 702/902, Set B, Block A</td>
+<td>
+Brasilia</td>
+<td>
+</td>
+<td>
++55 61 2323 0000</td>
+<td>
+4,595,893</td>
+<td>
+3,294,851</td>
+<td>
+</td>
+<td>
+1,301,042</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9403207</td>
+</tr>
+<tr><td>
+Fundacao Sistel de Seguridade Social</td>
+<td>
+Government</td>
+<td>
+Seps/Eq. Edifício General Alencastro 702/902, Set B, Block A</td>
+<td>
+Brasilia</td>
+<td>
+</td>
+<td>
++55 61 2323 0000</td>
+<td>
+4,595,893</td>
+<td>
+3,294,851</td>
+<td>
+</td>
+<td>
+1,301,042</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9403207</td>
+</tr>
+<tr><td>
+Companhia de Saneamento Ambiental do Distrito Federal (CAESB)</td>
+<td>
+Government</td>
+<td>
+Scn Quadra 04, Bloco B, Sala 1104-A</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 3426 5300</td>
+<td>
+192,377</td>
+<td>
+59,274</td>
+<td>
+133,103</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695091</td>
+</tr>
+<tr><td>
+Companhia de Saneamento Ambiental do Distrito Federal (CAESB)</td>
+<td>
+Government</td>
+<td>
+Scn Quadra 04, Bloco B, Sala 1104-A</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 3426 5300</td>
+<td>
+192,377</td>
+<td>
+59,274</td>
+<td>
+133,103</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695091</td>
+</tr>
+<tr><td>
+Companhia de Saneamento Ambiental do Distrito Federal (CAESB)</td>
+<td>
+Government</td>
+<td>
+Scn Quadra 04, Bloco B, Sala 1104-A</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 3426 5300</td>
+<td>
+192,377</td>
+<td>
+59,274</td>
+<td>
+133,103</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695091</td>
+</tr>
+<tr><td>
+Companhia de Saneamento Ambiental do Distrito Federal (CAESB)</td>
+<td>
+Government</td>
+<td>
+Scn Quadra 04, Bloco B, Sala 1104-A</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 3426 5300</td>
+<td>
+192,377</td>
+<td>
+59,274</td>
+<td>
+133,103</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695091</td>
+</tr>
+<tr><td>
+Companhia de Saneamento Ambiental do Distrito Federal (CAESB)</td>
+<td>
+Government</td>
+<td>
+Scn Quadra 04, Bloco B, Sala 1104-A</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 3426 5300</td>
+<td>
+192,377</td>
+<td>
+59,274</td>
+<td>
+133,103</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695091</td>
+</tr>
+<tr><td>
+Funepp- Fundação Nestlé de Previdência Privada</td>
+<td>
+Corporation</td>
+<td>
+Rua Drive Rubens Gomes Bueno, North 691, Torre Sigma Building</td>
+<td>
+Varzea De Baixo</td>
+<td>
+</td>
+<td>
++55 11 5102 184</td>
+<td>
+791,372</td>
+<td>
+791,372</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Bradesco Asset Management Dtvm Sa (Bram), São Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695192</td>
+</tr>
+<tr><td>
+Funepp- Fundação Nestlé de Previdência Privada</td>
+<td>
+Corporation</td>
+<td>
+Rua Drive Rubens Gomes Bueno, North 691, Torre Sigma Building</td>
+<td>
+Varzea De Baixo</td>
+<td>
+</td>
+<td>
++55 11 5102 184</td>
+<td>
+791,372</td>
+<td>
+791,372</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Bradesco Asset Management Dtvm Sa (Bram), São Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695192</td>
+</tr>
+<tr><td>
+Funepp- Fundação Nestlé de Previdência Privada</td>
+<td>
+Corporation</td>
+<td>
+Rua Drive Rubens Gomes Bueno, North 691, Torre Sigma Building</td>
+<td>
+Varzea De Baixo</td>
+<td>
+</td>
+<td>
++55 11 5102 184</td>
+<td>
+791,372</td>
+<td>
+791,372</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Bradesco Asset Management Dtvm Sa (Bram), São Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695192</td>
+</tr>
+<tr><td>
+Funepp- Fundação Nestlé de Previdência Privada</td>
+<td>
+Corporation</td>
+<td>
+Rua Drive Rubens Gomes Bueno, North 691, Torre Sigma Building</td>
+<td>
+Varzea De Baixo</td>
+<td>
+</td>
+<td>
++55 11 5102 184</td>
+<td>
+791,372</td>
+<td>
+791,372</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Bradesco Asset Management Dtvm Sa (Bram), São Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695192</td>
+</tr>
+<tr><td>
+Funssest- Fundacao de Seguridade Social da Companhia Siderurgica de Tubarao</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Eduardo Gomes, 526 Bairro Polo Industrial Tubarão</td>
+<td>
+Serra</td>
+<td>
+</td>
+<td>
++55 27 3348 1210</td>
+<td>
+558,027</td>
+<td>
+370,499</td>
+<td>
+187,528</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695094</td>
+</tr>
+<tr><td>
+Funssest- Fundacao de Seguridade Social da Companhia Siderurgica de Tubarao</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Eduardo Gomes, 526 Bairro Polo Industrial Tubarão</td>
+<td>
+Serra</td>
+<td>
+</td>
+<td>
++55 27 3348 1210</td>
+<td>
+558,027</td>
+<td>
+370,499</td>
+<td>
+187,528</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695094</td>
+</tr>
+<tr><td>
+Funssest- Fundacao de Seguridade Social da Companhia Siderurgica de Tubarao</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Eduardo Gomes, 526 Bairro Polo Industrial Tubarão</td>
+<td>
+Serra</td>
+<td>
+</td>
+<td>
++55 27 3348 1210</td>
+<td>
+558,027</td>
+<td>
+370,499</td>
+<td>
+187,528</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695094</td>
+</tr>
+<tr><td>
+Fusesc - Fundacao Codesc de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Avenida Prefeito Osmar Cunha 251 Downtown</td>
+<td>
+Florianopolis</td>
+<td>
+</td>
+<td>
++55 48 3251 9333</td>
+<td>
+631,649</td>
+<td>
+631,649</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Itau Unibanco, Sao Paulo, São Paulo, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695096</td>
+</tr>
+<tr><td>
+Fusesc - Fundacao Codesc de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Avenida Prefeito Osmar Cunha 251 Downtown</td>
+<td>
+Florianopolis</td>
+<td>
+</td>
+<td>
++55 48 3251 9333</td>
+<td>
+631,649</td>
+<td>
+631,649</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Itau Unibanco Asset Management Ltda., Sao Paulo, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695096</td>
+</tr>
+<tr><td>
+Fusesc - Fundacao Codesc de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Avenida Prefeito Osmar Cunha 251 Downtown</td>
+<td>
+Florianopolis</td>
+<td>
+</td>
+<td>
++55 48 3251 9333</td>
+<td>
+631,649</td>
+<td>
+631,649</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Itau Unibanco, Sao Paulo, São Paulo, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695096</td>
+</tr>
+<tr><td>
+Gasius- CEG Gas Natural Fenosa</td>
+<td>
+Corporation</td>
+<td>
+Avenida Pedro Ii, 68, Predio, Sao Crisotovao</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 4002 3983</td>
+<td>
+141,197</td>
+<td>
+141,197</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695097</td>
+</tr>
+<tr><td>
+Gebsa Prev- General Electric do Brazil Ltda</td>
+<td>
+Corporation</td>
+<td>
+Av. Magalhães De Castro, 4.800 - 10° Andar</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 11 3612 7213</td>
+<td>
+427,763</td>
+<td>
+427,763</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695099</td>
+</tr>
+<tr><td>
+Gerdau Previdencia</td>
+<td>
+Corporation</td>
+<td>
+Rodovia Mg 443</td>
+<td>
+Ouro Branco</td>
+<td>
+</td>
+<td>
++55 800 032 3232</td>
+<td>
+1,048,162</td>
+<td>
+1,048,162</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695021</td>
+</tr>
+<tr><td>
+Gerdau Previdencia</td>
+<td>
+Corporation</td>
+<td>
+Rodovia Mg 443</td>
+<td>
+Ouro Branco</td>
+<td>
+</td>
+<td>
++55 800 032 3232</td>
+<td>
+1,048,162</td>
+<td>
+1,048,162</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695021</td>
+</tr>
+<tr><td>
+Gerdau Previdencia</td>
+<td>
+Corporation</td>
+<td>
+Rodovia Mg 443</td>
+<td>
+Ouro Branco</td>
+<td>
+</td>
+<td>
++55 800 032 3232</td>
+<td>
+1,048,162</td>
+<td>
+1,048,162</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695021</td>
+</tr>
+<tr><td>
+Goodyear Previdencia Privada</td>
+<td>
+Corporation</td>
+<td>
+Avendia Paulista 854, 9 Andar</td>
+<td>
+Bela Vista</td>
+<td>
+</td>
+<td>
++55 80 0722 3036</td>
+<td>
+97,555</td>
+<td>
+97,555</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Mercer, Louisville, KY</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695194</td>
+</tr>
+<tr><td>
+Goodyear Previdencia Privada</td>
+<td>
+Corporation</td>
+<td>
+Avendia Paulista 854, 9 Andar</td>
+<td>
+Bela Vista</td>
+<td>
+</td>
+<td>
++55 80 0722 3036</td>
+<td>
+97,555</td>
+<td>
+97,555</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Willis Towers Watson, Rio De Janeiro, Brazil</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695194</td>
+</tr>
+<tr><td>
+Iaja - Instituto Adventista de Jubilação e Assistência</td>
+<td>
+Corporation</td>
+<td>
+Sgas, Quadra 611, Conjunto D, Parte C, Asa Sul</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 3701 1818</td>
+<td>
+243,026</td>
+<td>
+243,026</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695102</td>
+</tr>
+<tr><td>
+Iaja - Instituto Adventista de Jubilação e Assistência</td>
+<td>
+Corporation</td>
+<td>
+Sgas, Quadra 611, Conjunto D, Parte C, Asa Sul</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 3701 1818</td>
+<td>
+243,026</td>
+<td>
+243,026</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Santander Asset Management, LLC, Guaynabo, PR</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695102</td>
+</tr>
+<tr><td>
+Iaja - Instituto Adventista de Jubilação e Assistência</td>
+<td>
+Corporation</td>
+<td>
+Sgas, Quadra 611, Conjunto D, Parte C, Asa Sul</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 3701 1818</td>
+<td>
+243,026</td>
+<td>
+243,026</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Santander Asset Management, LLC, Guaynabo, PR</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695102</td>
+</tr>
+<tr><td>
+FAPA- Instituto Paranaense de Assistencia Tecnica e Extensao Rural - Emater</td>
+<td>
+Corporation</td>
+<td>
+Rua Da Bandeira, 500</td>
+<td>
+Curitiba</td>
+<td>
+</td>
+<td>
++55 41 3250 2100</td>
+<td>
+102,008</td>
+<td>
+102,008</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695075</td>
+</tr>
+<tr><td>
+Fundação Previdenciária IBM</td>
+<td>
+Corporation</td>
+<td>
+Avenida Pasteur 138/146 10 Andar</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 80 0725 1894</td>
+<td>
+1,297,294</td>
+<td>
+118,944</td>
+<td>
+1,178,350</td>
+<td>
+</td>
+<td>
+Willis Towers Watson, Rio De Janeiro, Brazil</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695103</td>
+</tr>
+<tr><td>
+Fundação Previdenciária IBM</td>
+<td>
+Corporation</td>
+<td>
+Avenida Pasteur 138/146 10 Andar</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 80 0725 1894</td>
+<td>
+1,297,294</td>
+<td>
+118,944</td>
+<td>
+1,178,350</td>
+<td>
+</td>
+<td>
+Willis Towers Watson, Rio De Janeiro, Brazil</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695103</td>
+</tr>
+<tr><td>
+Icatu Hartford Seguros SA</td>
+<td>
+Corporation</td>
+<td>
+Av. Oscar Niemeyer, 2000 - 19th Floor - Porto</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3824 3900</td>
+<td>
+645,478</td>
+<td>
+645,478</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9366764</td>
+</tr>
+<tr><td>
+Indusprevi</td>
+<td>
+Corporation</td>
+<td>
+Avenida Assis Brasil, Assis Brasil, 8787, Fiergs Complexo Block 10, 1st floor</td>
+<td>
+Porto Alegre</td>
+<td>
+</td>
+<td>
++55 51 3347 8734</td>
+<td>
+103,410</td>
+<td>
+90,311</td>
+<td>
+13,099</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695104</td>
+</tr>
+<tr><td>
+Indusprevi</td>
+<td>
+Corporation</td>
+<td>
+Avenida Assis Brasil, Assis Brasil, 8787, Fiergs Complexo Block 10, 1st floor</td>
+<td>
+Porto Alegre</td>
+<td>
+</td>
+<td>
++55 51 3347 8734</td>
+<td>
+103,410</td>
+<td>
+90,311</td>
+<td>
+13,099</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695104</td>
+</tr>
+<tr><td>
+Indusprevi</td>
+<td>
+Corporation</td>
+<td>
+Avenida Assis Brasil, Assis Brasil, 8787, Fiergs Complexo Block 10, 1st floor</td>
+<td>
+Porto Alegre</td>
+<td>
+</td>
+<td>
++55 51 3347 8734</td>
+<td>
+103,410</td>
+<td>
+90,311</td>
+<td>
+13,099</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695104</td>
+</tr>
+<tr><td>
+Indusprevi</td>
+<td>
+Corporation</td>
+<td>
+Avenida Assis Brasil, Assis Brasil, 8787, Fiergs Complexo Block 10, 1st floor</td>
+<td>
+Porto Alegre</td>
+<td>
+</td>
+<td>
++55 51 3347 8734</td>
+<td>
+103,410</td>
+<td>
+90,311</td>
+<td>
+13,099</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695104</td>
+</tr>
+<tr><td>
+Indusprevi</td>
+<td>
+Corporation</td>
+<td>
+Avenida Assis Brasil, Assis Brasil, 8787, Fiergs Complexo Block 10, 1st floor</td>
+<td>
+Porto Alegre</td>
+<td>
+</td>
+<td>
++55 51 3347 8734</td>
+<td>
+103,410</td>
+<td>
+90,311</td>
+<td>
+13,099</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695104</td>
+</tr>
+<tr><td>
+Infraprev- Instituto Infraero de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Avenida República Do Chile, Nº 230, 18º Andar</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 80 0707 1273</td>
+<td>
+745,049</td>
+<td>
+745,049</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9691505</td>
+</tr>
+<tr><td>
+Infraprev- Instituto Infraero de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Avenida República Do Chile, Nº 230, 18º Andar</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 80 0707 1273</td>
+<td>
+745,049</td>
+<td>
+745,049</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9691505</td>
+</tr>
+<tr><td>
+Infraprev- Instituto Infraero de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Avenida República Do Chile, Nº 230, 18º Andar</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 80 0707 1273</td>
+<td>
+745,049</td>
+<td>
+745,049</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9691505</td>
+</tr>
+<tr><td>
+Inovar Previdencia</td>
+<td>
+Corporation</td>
+<td>
+Rua Correia Dias, 184-7th Floor, Suite 71, Paraíso</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4210 2420</td>
+<td>
+3,252,929</td>
+<td>
+</td>
+<td>
+3,252,929</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695157</td>
+</tr>
+<tr><td>
+Inovar Previdencia</td>
+<td>
+Corporation</td>
+<td>
+Rua Correia Dias, 184-7th Floor, Suite 71, Paraíso</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4210 2420</td>
+<td>
+3,252,929</td>
+<td>
+</td>
+<td>
+3,252,929</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695157</td>
+</tr>
+<tr><td>
+Itau Unibanco Holding S.A.</td>
+<td>
+Corporation</td>
+<td>
+Praca Alfredo Egydio De Souza Aranha, 100 Torre Olavo Setubal, Parque Jabaquara</td>
+<td>
+Sau Paulo</td>
+<td>
+</td>
+<td>
++55 11 2794 3547</td>
+<td>
+5,766,932</td>
+<td>
+3,504,859</td>
+<td>
+2,262,073</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695109</td>
+</tr>
+<tr><td>
+Itau Unibanco Holding S.A.</td>
+<td>
+Corporation</td>
+<td>
+Praca Alfredo Egydio De Souza Aranha, 100 Torre Olavo Setubal, Parque Jabaquara</td>
+<td>
+Sau Paulo</td>
+<td>
+</td>
+<td>
++55 11 2794 3547</td>
+<td>
+5,766,932</td>
+<td>
+3,504,859</td>
+<td>
+2,262,073</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695109</td>
+</tr>
+<tr><td>
+Itau Unibanco Holding S.A.</td>
+<td>
+Corporation</td>
+<td>
+Praca Alfredo Egydio De Souza Aranha, 100 Torre Olavo Setubal, Parque Jabaquara</td>
+<td>
+Sau Paulo</td>
+<td>
+</td>
+<td>
++55 11 2794 3547</td>
+<td>
+5,766,932</td>
+<td>
+3,504,859</td>
+<td>
+2,262,073</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695109</td>
+</tr>
+<tr><td>
+Itau Unibanco Holding S.A.</td>
+<td>
+Corporation</td>
+<td>
+Praca Alfredo Egydio De Souza Aranha, 100 Torre Olavo Setubal, Parque Jabaquara</td>
+<td>
+Sau Paulo</td>
+<td>
+</td>
+<td>
++55 11 2794 3547</td>
+<td>
+5,766,932</td>
+<td>
+3,504,859</td>
+<td>
+2,262,073</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695109</td>
+</tr>
+<tr><td>
+Itau Unibanco Holding S.A.</td>
+<td>
+Corporation</td>
+<td>
+Praca Alfredo Egydio De Souza Aranha, 100 Torre Olavo Setubal, Parque Jabaquara</td>
+<td>
+Sau Paulo</td>
+<td>
+</td>
+<td>
++55 11 2794 3547</td>
+<td>
+5,766,932</td>
+<td>
+3,504,859</td>
+<td>
+2,262,073</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695109</td>
+</tr>
+<tr><td>
+Itau Unibanco Holding S.A.</td>
+<td>
+Corporation</td>
+<td>
+Praca Alfredo Egydio De Souza Aranha, 100 Torre Olavo Setubal, Parque Jabaquara</td>
+<td>
+Sau Paulo</td>
+<td>
+</td>
+<td>
++55 11 2794 3547</td>
+<td>
+5,766,932</td>
+<td>
+3,504,859</td>
+<td>
+2,262,073</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695109</td>
+</tr>
+<tr><td>
+Itau Unibanco Holding S.A.</td>
+<td>
+Corporation</td>
+<td>
+Praca Alfredo Egydio De Souza Aranha, 100 Torre Olavo Setubal, Parque Jabaquara</td>
+<td>
+Sau Paulo</td>
+<td>
+</td>
+<td>
++55 11 2794 3547</td>
+<td>
+5,766,932</td>
+<td>
+3,504,859</td>
+<td>
+2,262,073</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695109</td>
+</tr>
+<tr><td>
+Itau Unibanco Holding S.A.</td>
+<td>
+Corporation</td>
+<td>
+Praca Alfredo Egydio De Souza Aranha, 100 Torre Olavo Setubal, Parque Jabaquara</td>
+<td>
+Sau Paulo</td>
+<td>
+</td>
+<td>
++55 11 2794 3547</td>
+<td>
+5,766,932</td>
+<td>
+3,504,859</td>
+<td>
+2,262,073</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695109</td>
+</tr>
+<tr><td>
+Itau Unibanco Holding S.A.</td>
+<td>
+Corporation</td>
+<td>
+Praca Alfredo Egydio De Souza Aranha, 100 Torre Olavo Setubal, Parque Jabaquara</td>
+<td>
+Sau Paulo</td>
+<td>
+</td>
+<td>
++55 11 2794 3547</td>
+<td>
+5,766,932</td>
+<td>
+3,504,859</td>
+<td>
+2,262,073</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695109</td>
+</tr>
+<tr><td>
+Itau Unibanco Holding S.A.</td>
+<td>
+Corporation</td>
+<td>
+Praca Alfredo Egydio De Souza Aranha, 100 Torre Olavo Setubal, Parque Jabaquara</td>
+<td>
+Sau Paulo</td>
+<td>
+</td>
+<td>
++55 11 2794 3547</td>
+<td>
+5,766,932</td>
+<td>
+3,504,859</td>
+<td>
+2,262,073</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695109</td>
+</tr>
+<tr><td>
+Itau Unibanco Holding S.A.</td>
+<td>
+Corporation</td>
+<td>
+Praca Alfredo Egydio De Souza Aranha, 100 Torre Olavo Setubal, Parque Jabaquara</td>
+<td>
+Sau Paulo</td>
+<td>
+</td>
+<td>
++55 11 2794 3547</td>
+<td>
+5,766,932</td>
+<td>
+3,504,859</td>
+<td>
+2,262,073</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695109</td>
+</tr>
+<tr><td>
+Johnson & Johnson Sociedade Previdenciaria</td>
+<td>
+Corporation</td>
+<td>
+2041 Avenida Presidente Juscelino Kubitschek B Tower, Jk Complex</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3030 8122</td>
+<td>
+498,973</td>
+<td>
+498,973</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695201</td>
+</tr>
+<tr><td>
+KPMG Prev - Sociedade de Previdencia Privada</td>
+<td>
+Corporation</td>
+<td>
+Rua Arquiteto Olavo Redig Campos, 105 6th - 12th floor, - Edifício EZ Towers</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3940 1500</td>
+<td>
+109,925</td>
+<td>
+109,925</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695202</td>
+</tr>
+<tr><td>
+LafargeHolcim Brasil SA</td>
+<td>
+Corporation</td>
+<td>
+784 Saravatá Street, Marshal Hermes</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3804 3100</td>
+<td>
+80,728</td>
+<td>
+80,728</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695208</td>
+</tr>
+<tr><td>
+Mais Vida Previdencia - Entidade de Previdencia Complementar</td>
+<td>
+Corporation</td>
+<td>
+Avenida Dr. José Bonifácio Coutinho Nogueira, No. 150, Ground Floor, Room 32, Condominium Galleria Plaza</td>
+<td>
+Jardim Madalena</td>
+<td>
+</td>
+<td>
++55 19 3707 1545</td>
+<td>
+148,290</td>
+<td>
+148,290</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695206</td>
+</tr>
+<tr><td>
+Mais Vida Previdencia - Entidade de Previdencia Complementar</td>
+<td>
+Corporation</td>
+<td>
+Avenida Dr. José Bonifácio Coutinho Nogueira, No. 150, Ground Floor, Room 32, Condominium Galleria Plaza</td>
+<td>
+Jardim Madalena</td>
+<td>
+</td>
+<td>
++55 19 3707 1545</td>
+<td>
+148,290</td>
+<td>
+148,290</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695206</td>
+</tr>
+<tr><td>
+Marcoprev- Marcopolo S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avenida Rio Branco, 4889- Ana Rech</td>
+<td>
+Caxias Do Sul</td>
+<td>
+</td>
+<td>
++55 54 2101 4000</td>
+<td>
+92,267</td>
+<td>
+92,267</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9696316</td>
+</tr>
+<tr><td>
+Marcoprev- Marcopolo S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avenida Rio Branco, 4889- Ana Rech</td>
+<td>
+Caxias Do Sul</td>
+<td>
+</td>
+<td>
++55 54 2101 4000</td>
+<td>
+92,267</td>
+<td>
+92,267</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9696316</td>
+</tr>
+<tr><td>
+MBPREV - Mercedes-Benz do Brasil Ltda.</td>
+<td>
+Corporation</td>
+<td>
+Avenida Alfred Jurzkowski, 562</td>
+<td>
+São Bernardo Do Campo</td>
+<td>
+</td>
+<td>
++55 11 4173 0607</td>
+<td>
+218,541</td>
+<td>
+218,541</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695209</td>
+</tr>
+<tr><td>
+Metrus - Instituto de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Alameda Santos, 1827 - 1st Floor Cerqueira César</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 80 0016 0598</td>
+<td>
+721,772</td>
+<td>
+721,772</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695112</td>
+</tr>
+<tr><td>
+Metrus - Instituto de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Alameda Santos, 1827 - 1st Floor Cerqueira César</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 80 0016 0598</td>
+<td>
+721,772</td>
+<td>
+721,772</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695112</td>
+</tr>
+<tr><td>
+Metrus - Instituto de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Alameda Santos, 1827 - 1st Floor Cerqueira César</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 80 0016 0598</td>
+<td>
+721,772</td>
+<td>
+721,772</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695112</td>
+</tr>
+<tr><td>
+MSD Prev - Merck Sharp & Dohme</td>
+<td>
+Corporation</td>
+<td>
+296 Avenue Drive Chucri Zaidan, 13th Floor, Room 105 Vila Cordeiro</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 11 5189 7514</td>
+<td>
+138,198</td>
+<td>
+138,198</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695214</td>
+</tr>
+<tr><td>
+Nucleos - Instituto de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Avenue Republica Do Chile, 230-15th Floor South Wing, Centro</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 2173 1492</td>
+<td>
+976,954</td>
+<td>
+976,954</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695113</td>
+</tr>
+<tr><td>
+Oi S.A.</td>
+<td>
+Corporation</td>
+<td>
+Rua Do Lavradio, 71, Second Floor, Center</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3131 2918</td>
+<td>
+5,492,808</td>
+<td>
+2,824,772</td>
+<td>
+2,668,036</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695179</td>
+</tr>
+<tr><td>
+Oi S.A.</td>
+<td>
+Corporation</td>
+<td>
+Rua Do Lavradio, 71, Second Floor, Center</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3131 2918</td>
+<td>
+5,492,808</td>
+<td>
+2,824,772</td>
+<td>
+2,668,036</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695179</td>
+</tr>
+<tr><td>
+Oi S.A.</td>
+<td>
+Corporation</td>
+<td>
+Rua Do Lavradio, 71, Second Floor, Center</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3131 2918</td>
+<td>
+5,492,808</td>
+<td>
+2,824,772</td>
+<td>
+2,668,036</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695179</td>
+</tr>
+<tr><td>
+Oi S.A.</td>
+<td>
+Corporation</td>
+<td>
+Rua Do Lavradio, 71, Second Floor, Center</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3131 2918</td>
+<td>
+5,492,808</td>
+<td>
+2,824,772</td>
+<td>
+2,668,036</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695179</td>
+</tr>
+<tr><td>
+Oi S.A.</td>
+<td>
+Corporation</td>
+<td>
+Rua Do Lavradio, 71, Second Floor, Center</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3131 2918</td>
+<td>
+5,492,808</td>
+<td>
+2,824,772</td>
+<td>
+2,668,036</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695179</td>
+</tr>
+<tr><td>
+Oi S.A.</td>
+<td>
+Corporation</td>
+<td>
+Rua Do Lavradio, 71, Second Floor, Center</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3131 2918</td>
+<td>
+5,492,808</td>
+<td>
+2,824,772</td>
+<td>
+2,668,036</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695179</td>
+</tr>
+<tr><td>
+Oi S.A.</td>
+<td>
+Corporation</td>
+<td>
+Rua Do Lavradio, 71, Second Floor, Center</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3131 2918</td>
+<td>
+5,492,808</td>
+<td>
+2,824,772</td>
+<td>
+2,668,036</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695179</td>
+</tr>
+<tr><td>
+Oi S.A.</td>
+<td>
+Corporation</td>
+<td>
+Rua Do Lavradio, 71, Second Floor, Center</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3131 2918</td>
+<td>
+5,492,808</td>
+<td>
+2,824,772</td>
+<td>
+2,668,036</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695179</td>
+</tr>
+<tr><td>
+Oi S.A.</td>
+<td>
+Corporation</td>
+<td>
+Rua Do Lavradio, 71, Second Floor, Center</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3131 2918</td>
+<td>
+5,492,808</td>
+<td>
+2,824,772</td>
+<td>
+2,668,036</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695179</td>
+</tr>
+<tr><td>
+PepsiCo Brasil</td>
+<td>
+Corporation</td>
+<td>
+Avenida Presidente Juscelino Kubitschek, 180, 15º Andar, Vila Nova Conceição</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 11 5188 7000</td>
+<td>
+83,224</td>
+<td>
+83,224</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9366850</td>
+</tr>
+<tr><td>
+Petróleo Brasileiro S.A. (Petrobras)</td>
+<td>
+Corporation</td>
+<td>
+Avenida Republica Do Chile, 65</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3224 4477</td>
+<td>
+224,486</td>
+<td>
+224,486</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9365840</td>
+</tr>
+<tr><td>
+Pfizer Prev - Sociedade de Previdencia Privada</td>
+<td>
+Corporation</td>
+<td>
+1860 Rua Alexandre Dumas, 3rd Floor</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 80 0727 7043</td>
+<td>
+150,857</td>
+<td>
+150,857</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695226</td>
+</tr>
+<tr><td>
+PG Prev - Procter & Gamble do Brasil S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avenida Dr. Chucri Zaidan, 296-Vila Cordeiro</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55-11-3748-0264</td>
+<td>
+95,878</td>
+<td>
+95,878</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695228</td>
+</tr>
+<tr><td>
+Portoprev- Porto Seguro SA</td>
+<td>
+Corporation</td>
+<td>
+Alameda Ribeiro Da Silva, 275 - Ground Floor, Campos Elíseos</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3366 3800</td>
+<td>
+1,552,131</td>
+<td>
+1,552,131</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695227</td>
+</tr>
+<tr><td>
+Portoprev- Porto Seguro SA</td>
+<td>
+Corporation</td>
+<td>
+Alameda Ribeiro Da Silva, 275 - Ground Floor, Campos Elíseos</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3366 3800</td>
+<td>
+1,552,131</td>
+<td>
+1,552,131</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695227</td>
+</tr>
+<tr><td>
+Portoprev- Porto Seguro SA</td>
+<td>
+Corporation</td>
+<td>
+Alameda Ribeiro Da Silva, 275 - Ground Floor, Campos Elíseos</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3366 3800</td>
+<td>
+1,552,131</td>
+<td>
+1,552,131</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695227</td>
+</tr>
+<tr><td>
+Portus Instituto de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua São Bento Nº 8 - 6 Floor</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 2122 8504</td>
+<td>
+93,271</td>
+<td>
+93,271</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695117</td>
+</tr>
+<tr><td>
+Postalis- Instituto de Seguridade Social dos Correios e Telegrafos</td>
+<td>
+Corporation</td>
+<td>
+Scn Business Center ,Block 05, Block A South Tower - Room 401, North Wing</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 3003 3669</td>
+<td>
+2,437,016</td>
+<td>
+2,437,016</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Brasil Plural, Sao Paulo, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695118</td>
+</tr>
+<tr><td>
+Postalis- Instituto de Seguridade Social dos Correios e Telegrafos</td>
+<td>
+Corporation</td>
+<td>
+Scn Business Center ,Block 05, Block A South Tower - Room 401, North Wing</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 3003 3669</td>
+<td>
+2,437,016</td>
+<td>
+2,437,016</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695118</td>
+</tr>
+<tr><td>
+PRECE - Previdencia Companhia Estadual de Aguas e Esgotos (CEDAE)</td>
+<td>
+Corporation</td>
+<td>
+Rua Pref. Olimpio De Melo, 1676-Benfica</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3282 8260</td>
+<td>
+330,444</td>
+<td>
+42,786</td>
+<td>
+287,658</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9366392</td>
+</tr>
+<tr><td>
+PRECE - Previdencia Companhia Estadual de Aguas e Esgotos (CEDAE)</td>
+<td>
+Corporation</td>
+<td>
+Rua Pref. Olimpio De Melo, 1676-Benfica</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3282 8260</td>
+<td>
+330,444</td>
+<td>
+42,786</td>
+<td>
+287,658</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9366392</td>
+</tr>
+<tr><td>
+PRECE - Previdencia Companhia Estadual de Aguas e Esgotos (CEDAE)</td>
+<td>
+Corporation</td>
+<td>
+Rua Pref. Olimpio De Melo, 1676-Benfica</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3282 8260</td>
+<td>
+330,444</td>
+<td>
+42,786</td>
+<td>
+287,658</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9366392</td>
+</tr>
+<tr><td>
+PRECE - Previdencia Companhia Estadual de Aguas e Esgotos (CEDAE)</td>
+<td>
+Corporation</td>
+<td>
+Rua Pref. Olimpio De Melo, 1676-Benfica</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3282 8260</td>
+<td>
+330,444</td>
+<td>
+42,786</td>
+<td>
+287,658</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9366392</td>
+</tr>
+<tr><td>
+PREVDOW - Dow Brasil e América Latina</td>
+<td>
+Corporation</td>
+<td>
+Avenida Avenue Das Nações Unidas, 14171, Diamond Tower</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 5188 9000</td>
+<td>
+529,936</td>
+<td>
+529,936</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695233</td>
+</tr>
+<tr><td>
+Preveme - Sociedade Previdenciaria 3M</td>
+<td>
+Corporation</td>
+<td>
+Via Anhanguera, Km 110, S/N</td>
+<td>
+Sumaré</td>
+<td>
+</td>
+<td>
++55 19 3838 7271</td>
+<td>
+203,223</td>
+<td>
+203,223</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695234</td>
+</tr>
+<tr><td>
+Preveme - Sociedade Previdenciaria 3M</td>
+<td>
+Corporation</td>
+<td>
+Via Anhanguera, Km 110, S/N</td>
+<td>
+Sumaré</td>
+<td>
+</td>
+<td>
++55 19 3838 7271</td>
+<td>
+203,223</td>
+<td>
+203,223</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695234</td>
+</tr>
+<tr><td>
+Prevhab-Previdencia Complementar</td>
+<td>
+Corporation</td>
+<td>
+Rua Da Gloria, 306 - 10th And 11th Floors</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
+(21) 2212-5700</td>
+<td>
+125,199</td>
+<td>
+125,199</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695122</td>
+</tr>
+<tr><td>
+Previ - Caixa de Previdencia dos Funcionarios do Banco do Brasil</td>
+<td>
+Corporation</td>
+<td>
+Centro Empresarial Mourisco (Torre Pao De Acucar) Praia de Botafogo, Unit 501, 3rd & 4th Floors</td>
+<td>
+Botafogo</td>
+<td>
+</td>
+<td>
++55 80 0729 0505</td>
+<td>
+57,528,901</td>
+<td>
+57,217,112</td>
+<td>
+311,789</td>
+<td>
+</td>
+<td>
+In House Asset Management</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695124</td>
+</tr>
+<tr><td>
+Previ - Caixa de Previdencia dos Funcionarios do Banco do Brasil</td>
+<td>
+Corporation</td>
+<td>
+Centro Empresarial Mourisco (Torre Pao De Acucar) Praia de Botafogo, Unit 501, 3rd & 4th Floors</td>
+<td>
+Botafogo</td>
+<td>
+</td>
+<td>
++55 80 0729 0505</td>
+<td>
+57,528,901</td>
+<td>
+57,217,112</td>
+<td>
+311,789</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695124</td>
+</tr>
+<tr><td>
+Previ - Caixa de Previdencia dos Funcionarios do Banco do Brasil</td>
+<td>
+Corporation</td>
+<td>
+Centro Empresarial Mourisco (Torre Pao De Acucar) Praia de Botafogo, Unit 501, 3rd & 4th Floors</td>
+<td>
+Botafogo</td>
+<td>
+</td>
+<td>
++55 80 0729 0505</td>
+<td>
+57,528,901</td>
+<td>
+57,217,112</td>
+<td>
+311,789</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695124</td>
+</tr>
+<tr><td>
+Previ - Caixa de Previdencia dos Funcionarios do Banco do Brasil</td>
+<td>
+Corporation</td>
+<td>
+Centro Empresarial Mourisco (Torre Pao De Acucar) Praia de Botafogo, Unit 501, 3rd & 4th Floors</td>
+<td>
+Botafogo</td>
+<td>
+</td>
+<td>
++55 80 0729 0505</td>
+<td>
+57,528,901</td>
+<td>
+57,217,112</td>
+<td>
+311,789</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695124</td>
+</tr>
+<tr><td>
+Previ Novartis - Novartis Biociências S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avenida Vicente Rao, 90</td>
+<td>
+Brooklin Paulista</td>
+<td>
+</td>
+<td>
++55 11 5532 7012</td>
+<td>
+179,692</td>
+<td>
+179,692</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Banco Itau SA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695123</td>
+</tr>
+<tr><td>
+Previ Novartis - Novartis Biociências S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avenida Vicente Rao, 90</td>
+<td>
+Brooklin Paulista</td>
+<td>
+</td>
+<td>
++55 11 5532 7012</td>
+<td>
+179,692</td>
+<td>
+179,692</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+WTW, Arlington, VA</td>
+<td>
+</td>
+<td>
+Consultant </td>
+<td>
+9695123</td>
+</tr>
+<tr><td>
+Previ Novartis - Novartis Biociências S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avenida Vicente Rao, 90</td>
+<td>
+Brooklin Paulista</td>
+<td>
+</td>
+<td>
++55 11 5532 7012</td>
+<td>
+179,692</td>
+<td>
+179,692</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Banco Itau SA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695123</td>
+</tr>
+<tr><td>
+Previ Novartis - Novartis Biociências S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avenida Vicente Rao, 90</td>
+<td>
+Brooklin Paulista</td>
+<td>
+</td>
+<td>
++55 11 5532 7012</td>
+<td>
+179,692</td>
+<td>
+179,692</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Willis Towers Watson, Rio De Janeiro, Brazil</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695123</td>
+</tr>
+<tr><td>
+Previ Novartis - Novartis Biociências S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avenida Vicente Rao, 90</td>
+<td>
+Brooklin Paulista</td>
+<td>
+</td>
+<td>
++55 11 5532 7012</td>
+<td>
+179,692</td>
+<td>
+179,692</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+WTW, Arlington, VA</td>
+<td>
+</td>
+<td>
+Consultant </td>
+<td>
+9695123</td>
+</tr>
+<tr><td>
+Previ Siemens - Sociedade de Previdencia Privada</td>
+<td>
+Corporation</td>
+<td>
+Avenida Mutinga, 3800 - Pirituba</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3908 3785</td>
+<td>
+513,657</td>
+<td>
+513,657</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695236</td>
+</tr>
+<tr><td>
+Previ Siemens - Sociedade de Previdencia Privada</td>
+<td>
+Corporation</td>
+<td>
+Avenida Mutinga, 3800 - Pirituba</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3908 3785</td>
+<td>
+513,657</td>
+<td>
+513,657</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695236</td>
+</tr>
+<tr><td>
+Previ Siemens - Sociedade de Previdencia Privada</td>
+<td>
+Corporation</td>
+<td>
+Avenida Mutinga, 3800 - Pirituba</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3908 3785</td>
+<td>
+513,657</td>
+<td>
+513,657</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695236</td>
+</tr>
+<tr><td>
+PreviBayer - Sociedades de Previdencia Privada e Previdencia Complementar</td>
+<td>
+Corporation</td>
+<td>
+Rua Domingos Jorge, 1000</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 80 0818  2020</td>
+<td>
+434,545</td>
+<td>
+186,675</td>
+<td>
+247,870</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695237</td>
+</tr>
+<tr><td>
+PreviBayer - Sociedades de Previdencia Privada e Previdencia Complementar</td>
+<td>
+Corporation</td>
+<td>
+Rua Domingos Jorge, 1000</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 80 0818  2020</td>
+<td>
+434,545</td>
+<td>
+186,675</td>
+<td>
+247,870</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695237</td>
+</tr>
+<tr><td>
+Bosch - PreviBosch</td>
+<td>
+Corporation</td>
+<td>
+Via Anhanguera, Km 98</td>
+<td>
+Campinas</td>
+<td>
+</td>
+<td>
++55 0800 704 5446</td>
+<td>
+206,846</td>
+<td>
+206,846</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695238</td>
+</tr>
+<tr><td>
+Previcel - Previdencia Privada da Celepar</td>
+<td>
+Corporation</td>
+<td>
+Rua Mateus Leme, 1561 Térreo</td>
+<td>
+Curitiba</td>
+<td>
+</td>
+<td>
++55 41 3200 5500</td>
+<td>
+76,919</td>
+<td>
+76,919</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695240</td>
+</tr>
+<tr><td>
+Previcoke - Coca-Cola Brasil</td>
+<td>
+Corporation</td>
+<td>
+</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 21 2559 1297</td>
+<td>
+149,782</td>
+<td>
+75,776</td>
+<td>
+74,006</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695241</td>
+</tr>
+<tr><td>
+Previcoke - Coca-Cola Brasil</td>
+<td>
+Corporation</td>
+<td>
+</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 21 2559 1297</td>
+<td>
+149,782</td>
+<td>
+75,776</td>
+<td>
+74,006</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695241</td>
+</tr>
+<tr><td>
+Previcoke - Coca-Cola Brasil</td>
+<td>
+Corporation</td>
+<td>
+</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 21 2559 1297</td>
+<td>
+149,782</td>
+<td>
+75,776</td>
+<td>
+74,006</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695241</td>
+</tr>
+<tr><td>
+Futura – Entidade de Previdência Complementar</td>
+<td>
+Corporation</td>
+<td>
+Av. Brigadeiro Faria Lima, 4100 / 15th Floor</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3897 9797</td>
+<td>
+125,197</td>
+<td>
+125,197</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Willis Towers Watson, Rio De Janeiro, Brazil</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695242</td>
+</tr>
+<tr><td>
+Previdência Usiminas</td>
+<td>
+Corporation</td>
+<td>
+1st Floor, Rua Professor Jose Vieira De Mendonca 3011 Engenho Nogueira</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 31 3499 8360</td>
+<td>
+1,963,830</td>
+<td>
+1,963,830</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695056</td>
+</tr>
+<tr><td>
+Previdência Usiminas</td>
+<td>
+Corporation</td>
+<td>
+1st Floor, Rua Professor Jose Vieira De Mendonca 3011 Engenho Nogueira</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 31 3499 8360</td>
+<td>
+1,963,830</td>
+<td>
+1,963,830</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695056</td>
+</tr>
+<tr><td>
+Previdência Usiminas</td>
+<td>
+Corporation</td>
+<td>
+1st Floor, Rua Professor Jose Vieira De Mendonca 3011 Engenho Nogueira</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 31 3499 8360</td>
+<td>
+1,963,830</td>
+<td>
+1,963,830</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695056</td>
+</tr>
+<tr><td>
+Previdência Usiminas</td>
+<td>
+Corporation</td>
+<td>
+1st Floor, Rua Professor Jose Vieira De Mendonca 3011 Engenho Nogueira</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 31 3499 8360</td>
+<td>
+1,963,830</td>
+<td>
+1,963,830</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695056</td>
+</tr>
+<tr><td>
+Previg - Sociedade de Previdência Complementar</td>
+<td>
+Corporation</td>
+<td>
+Rua Dom Jaime Câmara, 229 - 1º Andar- Ed. Frei Junipero</td>
+<td>
+Florianópolis</td>
+<td>
+</td>
+<td>
++55 48 3221 5500</td>
+<td>
+330,337</td>
+<td>
+77,300</td>
+<td>
+253,037</td>
+<td>
+</td>
+<td>
+Banco Itau SA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695127</td>
+</tr>
+<tr><td>
+Previg - Sociedade de Previdência Complementar</td>
+<td>
+Corporation</td>
+<td>
+Rua Dom Jaime Câmara, 229 - 1º Andar- Ed. Frei Junipero</td>
+<td>
+Florianópolis</td>
+<td>
+</td>
+<td>
++55 48 3221 5500</td>
+<td>
+330,337</td>
+<td>
+77,300</td>
+<td>
+253,037</td>
+<td>
+</td>
+<td>
+Bny Mellon, New York, NY</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695127</td>
+</tr>
+<tr><td>
+Previg - Sociedade de Previdência Complementar</td>
+<td>
+Corporation</td>
+<td>
+Rua Dom Jaime Câmara, 229 - 1º Andar- Ed. Frei Junipero</td>
+<td>
+Florianópolis</td>
+<td>
+</td>
+<td>
++55 48 3221 5500</td>
+<td>
+330,337</td>
+<td>
+77,300</td>
+<td>
+253,037</td>
+<td>
+</td>
+<td>
+BTG Pactual Chile Servicios Financieros S.A., Santiago, Chile</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695127</td>
+</tr>
+<tr><td>
+Previg - Sociedade de Previdência Complementar</td>
+<td>
+Corporation</td>
+<td>
+Rua Dom Jaime Câmara, 229 - 1º Andar- Ed. Frei Junipero</td>
+<td>
+Florianópolis</td>
+<td>
+</td>
+<td>
++55 48 3221 5500</td>
+<td>
+330,337</td>
+<td>
+77,300</td>
+<td>
+253,037</td>
+<td>
+</td>
+<td>
+Citibank, Na, New York, NY</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695127</td>
+</tr>
+<tr><td>
+Previg - Sociedade de Previdência Complementar</td>
+<td>
+Corporation</td>
+<td>
+Rua Dom Jaime Câmara, 229 - 1º Andar- Ed. Frei Junipero</td>
+<td>
+Florianópolis</td>
+<td>
+</td>
+<td>
++55 48 3221 5500</td>
+<td>
+330,337</td>
+<td>
+77,300</td>
+<td>
+253,037</td>
+<td>
+</td>
+<td>
+Citibank, Na, New York, NY</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695127</td>
+</tr>
+<tr><td>
+Previg - Sociedade de Previdência Complementar</td>
+<td>
+Corporation</td>
+<td>
+Rua Dom Jaime Câmara, 229 - 1º Andar- Ed. Frei Junipero</td>
+<td>
+Florianópolis</td>
+<td>
+</td>
+<td>
++55 48 3221 5500</td>
+<td>
+330,337</td>
+<td>
+77,300</td>
+<td>
+253,037</td>
+<td>
+</td>
+<td>
+Itau Unibanco, Sao Paulo, São Paulo, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695127</td>
+</tr>
+<tr><td>
+Michelin (Previm)</td>
+<td>
+Corporation</td>
+<td>
+Avenida Das Americas 700, Bloco 4, 3º Andar</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 800 726 9503</td>
+<td>
+131,235</td>
+<td>
+50,016</td>
+<td>
+81,219</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695244</td>
+</tr>
+<tr><td>
+Michelin (Previm)</td>
+<td>
+Corporation</td>
+<td>
+Avenida Das Americas 700, Bloco 4, 3º Andar</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 800 726 9503</td>
+<td>
+131,235</td>
+<td>
+50,016</td>
+<td>
+81,219</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695244</td>
+</tr>
+<tr><td>
+Previminas - Fundação de Seguridade Social de Minas Gerais</td>
+<td>
+Corporation</td>
+<td>
+Avenida Álvares Cabral. 200 - 8º Andar</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 31 2111 3700</td>
+<td>
+901,768</td>
+<td>
+326,693</td>
+<td>
+575,075</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695130</td>
+</tr>
+<tr><td>
+Previminas - Fundação de Seguridade Social de Minas Gerais</td>
+<td>
+Corporation</td>
+<td>
+Avenida Álvares Cabral. 200 - 8º Andar</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 31 2111 3700</td>
+<td>
+901,768</td>
+<td>
+326,693</td>
+<td>
+575,075</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695130</td>
+</tr>
+<tr><td>
+Previminas - Fundação de Seguridade Social de Minas Gerais</td>
+<td>
+Corporation</td>
+<td>
+Avenida Álvares Cabral. 200 - 8º Andar</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 31 2111 3700</td>
+<td>
+901,768</td>
+<td>
+326,693</td>
+<td>
+575,075</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695130</td>
+</tr>
+<tr><td>
+Previminas - Fundação de Seguridade Social de Minas Gerais</td>
+<td>
+Corporation</td>
+<td>
+Avenida Álvares Cabral. 200 - 8º Andar</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 31 2111 3700</td>
+<td>
+901,768</td>
+<td>
+326,693</td>
+<td>
+575,075</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695130</td>
+</tr>
+<tr><td>
+Previminas - Fundação de Seguridade Social de Minas Gerais</td>
+<td>
+Corporation</td>
+<td>
+Avenida Álvares Cabral. 200 - 8º Andar</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 31 2111 3700</td>
+<td>
+901,768</td>
+<td>
+326,693</td>
+<td>
+575,075</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695130</td>
+</tr>
+<tr><td>
+Previminas - Fundação de Seguridade Social de Minas Gerais</td>
+<td>
+Corporation</td>
+<td>
+Avenida Álvares Cabral. 200 - 8º Andar</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 31 2111 3700</td>
+<td>
+901,768</td>
+<td>
+326,693</td>
+<td>
+575,075</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695130</td>
+</tr>
+<tr><td>
+Previminas - Fundação de Seguridade Social de Minas Gerais</td>
+<td>
+Corporation</td>
+<td>
+Avenida Álvares Cabral. 200 - 8º Andar</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 31 2111 3700</td>
+<td>
+901,768</td>
+<td>
+326,693</td>
+<td>
+575,075</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695130</td>
+</tr>
+<tr><td>
+Previminas - Fundação de Seguridade Social de Minas Gerais</td>
+<td>
+Corporation</td>
+<td>
+Avenida Álvares Cabral. 200 - 8º Andar</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 31 2111 3700</td>
+<td>
+901,768</td>
+<td>
+326,693</td>
+<td>
+575,075</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695130</td>
+</tr>
+<tr><td>
+Previminas - Fundação de Seguridade Social de Minas Gerais</td>
+<td>
+Corporation</td>
+<td>
+Avenida Álvares Cabral. 200 - 8º Andar</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 31 2111 3700</td>
+<td>
+901,768</td>
+<td>
+326,693</td>
+<td>
+575,075</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695130</td>
+</tr>
+<tr><td>
+Previminas - Fundação de Seguridade Social de Minas Gerais</td>
+<td>
+Corporation</td>
+<td>
+Avenida Álvares Cabral. 200 - 8º Andar</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 31 2111 3700</td>
+<td>
+901,768</td>
+<td>
+326,693</td>
+<td>
+575,075</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695130</td>
+</tr>
+<tr><td>
+Previminas - Fundação de Seguridade Social de Minas Gerais</td>
+<td>
+Corporation</td>
+<td>
+Avenida Álvares Cabral. 200 - 8º Andar</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 31 2111 3700</td>
+<td>
+901,768</td>
+<td>
+326,693</td>
+<td>
+575,075</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695130</td>
+</tr>
+<tr><td>
+Previminas - Fundação de Seguridade Social de Minas Gerais</td>
+<td>
+Corporation</td>
+<td>
+Avenida Álvares Cabral. 200 - 8º Andar</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 31 2111 3700</td>
+<td>
+901,768</td>
+<td>
+326,693</td>
+<td>
+575,075</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695130</td>
+</tr>
+<tr><td>
+Previminas - Fundação de Seguridade Social de Minas Gerais</td>
+<td>
+Corporation</td>
+<td>
+Avenida Álvares Cabral. 200 - 8º Andar</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 31 2111 3700</td>
+<td>
+901,768</td>
+<td>
+326,693</td>
+<td>
+575,075</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695130</td>
+</tr>
+<tr><td>
+Previndus- Associacao de Previdencia Complementar</td>
+<td>
+Corporation</td>
+<td>
+Rua Santa Luzia, 735- 8º Andar</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 2217 1100</td>
+<td>
+98,027</td>
+<td>
+98,027</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Willis Towers Watson, Rio De Janeiro, Brazil</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695131</td>
+</tr>
+<tr><td>
+Previndus- Associacao de Previdencia Complementar</td>
+<td>
+Corporation</td>
+<td>
+Rua Santa Luzia, 735- 8º Andar</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 2217 1100</td>
+<td>
+98,027</td>
+<td>
+98,027</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Willis Towers Watson, Rio De Janeiro, Brazil</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695131</td>
+</tr>
+<tr><td>
+Previndus- Associacao de Previdencia Complementar</td>
+<td>
+Corporation</td>
+<td>
+Rua Santa Luzia, 735- 8º Andar</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 2217 1100</td>
+<td>
+98,027</td>
+<td>
+98,027</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Willis Towers Watson, Rio De Janeiro, Brazil</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695131</td>
+</tr>
+<tr><td>
+Previndus- Associacao de Previdencia Complementar</td>
+<td>
+Corporation</td>
+<td>
+Rua Santa Luzia, 735- 8º Andar</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 2217 1100</td>
+<td>
+98,027</td>
+<td>
+98,027</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Willis Towers Watson, Rio De Janeiro, Brazil</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695131</td>
+</tr>
+<tr><td>
+Previndus- Associacao de Previdencia Complementar</td>
+<td>
+Corporation</td>
+<td>
+Rua Santa Luzia, 735- 8º Andar</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 2217 1100</td>
+<td>
+98,027</td>
+<td>
+98,027</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Willis Towers Watson, Rio De Janeiro, Brazil</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695131</td>
+</tr>
+<tr><td>
+Previndus- Associacao de Previdencia Complementar</td>
+<td>
+Corporation</td>
+<td>
+Rua Santa Luzia, 735- 8º Andar</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 2217 1100</td>
+<td>
+98,027</td>
+<td>
+98,027</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Willis Towers Watson, Rio De Janeiro, Brazil</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695131</td>
+</tr>
+<tr><td>
+Previndus- Associacao de Previdencia Complementar</td>
+<td>
+Corporation</td>
+<td>
+Rua Santa Luzia, 735- 8º Andar</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 2217 1100</td>
+<td>
+98,027</td>
+<td>
+98,027</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Willis Towers Watson, Rio De Janeiro, Brazil</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695131</td>
+</tr>
+<tr><td>
+Previndus- Associacao de Previdencia Complementar</td>
+<td>
+Corporation</td>
+<td>
+Rua Santa Luzia, 735- 8º Andar</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 2217 1100</td>
+<td>
+98,027</td>
+<td>
+98,027</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Willis Towers Watson, Rio De Janeiro, Brazil</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695131</td>
+</tr>
+<tr><td>
+Previndus- Associacao de Previdencia Complementar</td>
+<td>
+Corporation</td>
+<td>
+Rua Santa Luzia, 735- 8º Andar</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 2217 1100</td>
+<td>
+98,027</td>
+<td>
+98,027</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Willis Towers Watson, Rio De Janeiro, Brazil</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695131</td>
+</tr>
+<tr><td>
+Previndus- Associacao de Previdencia Complementar</td>
+<td>
+Corporation</td>
+<td>
+Rua Santa Luzia, 735- 8º Andar</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 2217 1100</td>
+<td>
+98,027</td>
+<td>
+98,027</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Willis Towers Watson, Rio De Janeiro, Brazil</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695131</td>
+</tr>
+<tr><td>
+Previndus- Associacao de Previdencia Complementar</td>
+<td>
+Corporation</td>
+<td>
+Rua Santa Luzia, 735- 8º Andar</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 2217 1100</td>
+<td>
+98,027</td>
+<td>
+98,027</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Willis Towers Watson, Rio De Janeiro, Brazil</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695131</td>
+</tr>
+<tr><td>
+Previnorte- Fundação de Previdência Complementar</td>
+<td>
+Corporation</td>
+<td>
+Scn Block 01,Block 'C' - 8th Floor Brasília Trade Center Building</td>
+<td>
+Brasilia</td>
+<td>
+</td>
+<td>
++55 61 2105 0300</td>
+<td>
+912,902</td>
+<td>
+165,489</td>
+<td>
+747,413</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695133</td>
+</tr>
+<tr><td>
+Previnorte- Fundação de Previdência Complementar</td>
+<td>
+Corporation</td>
+<td>
+Scn Block 01,Block 'C' - 8th Floor Brasília Trade Center Building</td>
+<td>
+Brasilia</td>
+<td>
+</td>
+<td>
++55 61 2105 0300</td>
+<td>
+912,902</td>
+<td>
+165,489</td>
+<td>
+747,413</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695133</td>
+</tr>
+<tr><td>
+Previnorte- Fundação de Previdência Complementar</td>
+<td>
+Corporation</td>
+<td>
+Scn Block 01,Block 'C' - 8th Floor Brasília Trade Center Building</td>
+<td>
+Brasilia</td>
+<td>
+</td>
+<td>
++55 61 2105 0300</td>
+<td>
+912,902</td>
+<td>
+165,489</td>
+<td>
+747,413</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695133</td>
+</tr>
+<tr><td>
+Previnorte- Fundação de Previdência Complementar</td>
+<td>
+Corporation</td>
+<td>
+Scn Block 01,Block 'C' - 8th Floor Brasília Trade Center Building</td>
+<td>
+Brasilia</td>
+<td>
+</td>
+<td>
++55 61 2105 0300</td>
+<td>
+912,902</td>
+<td>
+165,489</td>
+<td>
+747,413</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695133</td>
+</tr>
+<tr><td>
+Previnorte- Fundação de Previdência Complementar</td>
+<td>
+Corporation</td>
+<td>
+Scn Block 01,Block 'C' - 8th Floor Brasília Trade Center Building</td>
+<td>
+Brasilia</td>
+<td>
+</td>
+<td>
++55 61 2105 0300</td>
+<td>
+912,902</td>
+<td>
+165,489</td>
+<td>
+747,413</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695133</td>
+</tr>
+<tr><td>
+Previnorte- Fundação de Previdência Complementar</td>
+<td>
+Corporation</td>
+<td>
+Scn Block 01,Block 'C' - 8th Floor Brasília Trade Center Building</td>
+<td>
+Brasilia</td>
+<td>
+</td>
+<td>
++55 61 2105 0300</td>
+<td>
+912,902</td>
+<td>
+165,489</td>
+<td>
+747,413</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695133</td>
+</tr>
+<tr><td>
+Previnorte- Fundação de Previdência Complementar</td>
+<td>
+Corporation</td>
+<td>
+Scn Block 01,Block 'C' - 8th Floor Brasília Trade Center Building</td>
+<td>
+Brasilia</td>
+<td>
+</td>
+<td>
++55 61 2105 0300</td>
+<td>
+912,902</td>
+<td>
+165,489</td>
+<td>
+747,413</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695133</td>
+</tr>
+<tr><td>
+PREVIRB - IRB Brasil Resseguros S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avenida Marechal Câmara, Nº 171, 7º Andar, Castelo</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 2272 0200</td>
+<td>
+569,618</td>
+<td>
+569,618</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695134</td>
+</tr>
+<tr><td>
+PREVIRB - IRB Brasil Resseguros S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avenida Marechal Câmara, Nº 171, 7º Andar, Castelo</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 2272 0200</td>
+<td>
+569,618</td>
+<td>
+569,618</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695134</td>
+</tr>
+<tr><td>
+Previsc - Sociedade de Previdencia Complementar do Sistema FIESC</td>
+<td>
+Corporation</td>
+<td>
+Rod. Admar Gonzaga, 2765. 2nd Floor, Bairro Itacorubi</td>
+<td>
+Florianópolis</td>
+<td>
+</td>
+<td>
++55 48 3239 3300</td>
+<td>
+262,496</td>
+<td>
+262,496</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Bradesco Asset Management Dtvm Sa (Bram), São Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695135</td>
+</tr>
+<tr><td>
+Previsc - Sociedade de Previdencia Complementar do Sistema FIESC</td>
+<td>
+Corporation</td>
+<td>
+Rod. Admar Gonzaga, 2765. 2nd Floor, Bairro Itacorubi</td>
+<td>
+Florianópolis</td>
+<td>
+</td>
+<td>
++55 48 3239 3300</td>
+<td>
+262,496</td>
+<td>
+262,496</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Bradesco Asset Management Dtvm Sa (Bram), São Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695135</td>
+</tr>
+<tr><td>
+Previsc - Sociedade de Previdencia Complementar do Sistema FIESC</td>
+<td>
+Corporation</td>
+<td>
+Rod. Admar Gonzaga, 2765. 2nd Floor, Bairro Itacorubi</td>
+<td>
+Florianópolis</td>
+<td>
+</td>
+<td>
++55 48 3239 3300</td>
+<td>
+262,496</td>
+<td>
+262,496</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Bradesco Asset Management Dtvm Sa (Bram), São Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695135</td>
+</tr>
+<tr><td>
+Prevsan - Fundacao de Previdencia dos Empregados da Saneago</td>
+<td>
+Corporation</td>
+<td>
+Rua 38, 114 Jardim Goias</td>
+<td>
+Goiânia</td>
+<td>
+</td>
+<td>
++55 62 3236 1500</td>
+<td>
+203,962</td>
+<td>
+203,962</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695246</td>
+</tr>
+<tr><td>
+Prevuniao - Sociedade de Previdência Privada</td>
+<td>
+Corporation</td>
+<td>
+Av. Pastor Martin Luther King Jr. Jr. nº 126, bloco 10, Ala C, 6º andar e 7º andar</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3279 9977</td>
+<td>
+322,034</td>
+<td>
+322,034</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695247</td>
+</tr>
+<tr><td>
+Prhosper- Previdencia Rhodia</td>
+<td>
+Corporation</td>
+<td>
+215 Avenida Maria Coelho De Aguiar, 1st Floor</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 11 3741 7189</td>
+<td>
+312,455</td>
+<td>
+</td>
+<td>
+312,455</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695249</td>
+</tr>
+<tr><td>
+Prhosper- Previdencia Rhodia</td>
+<td>
+Corporation</td>
+<td>
+215 Avenida Maria Coelho De Aguiar, 1st Floor</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 11 3741 7189</td>
+<td>
+312,455</td>
+<td>
+</td>
+<td>
+312,455</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695249</td>
+</tr>
+<tr><td>
+Promon Engenharia</td>
+<td>
+Corporation</td>
+<td>
+Avenida Presidente Juscelino Kubitschek, 1830 13th floor, Tower 3</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 5213 4700</td>
+<td>
+387,066</td>
+<td>
+387,066</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Banco Itau SA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695137</td>
+</tr>
+<tr><td>
+RandonPrev - Fundo de Pensao</td>
+<td>
+Corporation</td>
+<td>
+Avenida Abramo Randon 770, Interlagos</td>
+<td>
+Caxias Do Sul</td>
+<td>
+</td>
+<td>
++55 54 3239 2108</td>
+<td>
+96,599</td>
+<td>
+96,599</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Willis Towers Watson, Rio De Janeiro, Brazil</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695250</td>
+</tr>
+<tr><td>
+RBSPrev Sociedade Previdenciaria</td>
+<td>
+Corporation</td>
+<td>
+Avenida Erico Verissimo, 400</td>
+<td>
+Porto Alegre</td>
+<td>
+</td>
+<td>
++55 51 3218 4300</td>
+<td>
+53,293</td>
+<td>
+</td>
+<td>
+53,293</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695139</td>
+</tr>
+<tr><td>
+Real Grandeza Fundação de Previdencia e Assistencia Social</td>
+<td>
+Government</td>
+<td>
+Rua Mena Barreto, 143 - 1º Andar - Botafogo</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 21 2528 6800</td>
+<td>
+3,695,049</td>
+<td>
+3,222,264</td>
+<td>
+472,785</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9403213</td>
+</tr>
+<tr><td>
+Real Grandeza Fundação de Previdencia e Assistencia Social</td>
+<td>
+Government</td>
+<td>
+Rua Mena Barreto, 143 - 1º Andar - Botafogo</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 21 2528 6800</td>
+<td>
+3,695,049</td>
+<td>
+3,222,264</td>
+<td>
+472,785</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9403213</td>
+</tr>
+<tr><td>
+Real Grandeza Fundação de Previdencia e Assistencia Social</td>
+<td>
+Government</td>
+<td>
+Rua Mena Barreto, 143 - 1º Andar - Botafogo</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 21 2528 6800</td>
+<td>
+3,695,049</td>
+<td>
+3,222,264</td>
+<td>
+472,785</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9403213</td>
+</tr>
+<tr><td>
+Refer- Fundação Rede Ferroviária de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Da Quitanda, 173</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 81 3254 8337</td>
+<td>
+1,423,928</td>
+<td>
+1,423,928</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Bradesco Asset Management Dtvm Sa (Bram), São Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695141</td>
+</tr>
+<tr><td>
+Refer- Fundação Rede Ferroviária de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Da Quitanda, 173</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 81 3254 8337</td>
+<td>
+1,423,928</td>
+<td>
+1,423,928</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Bradesco Asset Management Dtvm Sa (Bram), São Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695141</td>
+</tr>
+<tr><td>
+Refer- Fundação Rede Ferroviária de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Da Quitanda, 173</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 81 3254 8337</td>
+<td>
+1,423,928</td>
+<td>
+1,423,928</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Bradesco Asset Management Dtvm Sa (Bram), São Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695141</td>
+</tr>
+<tr><td>
+Refer- Fundação Rede Ferroviária de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Da Quitanda, 173</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 81 3254 8337</td>
+<td>
+1,423,928</td>
+<td>
+1,423,928</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Bradesco Asset Management Dtvm Sa (Bram), São Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695141</td>
+</tr>
+<tr><td>
+Refer- Fundação Rede Ferroviária de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Da Quitanda, 173</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 81 3254 8337</td>
+<td>
+1,423,928</td>
+<td>
+1,423,928</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Bradesco Asset Management Dtvm Sa (Bram), São Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695141</td>
+</tr>
+<tr><td>
+Refer- Fundação Rede Ferroviária de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Da Quitanda, 173</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 81 3254 8337</td>
+<td>
+1,423,928</td>
+<td>
+1,423,928</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Bradesco Asset Management Dtvm Sa (Bram), São Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695141</td>
+</tr>
+<tr><td>
+Refer- Fundação Rede Ferroviária de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Da Quitanda, 173</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 81 3254 8337</td>
+<td>
+1,423,928</td>
+<td>
+1,423,928</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Bradesco Asset Management Dtvm Sa (Bram), São Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695141</td>
+</tr>
+<tr><td>
+Refer- Fundação Rede Ferroviária de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Rua Da Quitanda, 173</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 81 3254 8337</td>
+<td>
+1,423,928</td>
+<td>
+1,423,928</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Bradesco Asset Management Dtvm Sa (Bram), São Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695141</td>
+</tr>
+<tr><td>
+Regius - Sociedade Civil de Previdencia Privada</td>
+<td>
+Corporation</td>
+<td>
+Sgas 902 Edifício Athenas 2º andar Bloco C</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 3035 4400</td>
+<td>
+749,730</td>
+<td>
+749,730</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695142</td>
+</tr>
+<tr><td>
+Regius - Sociedade Civil de Previdencia Privada</td>
+<td>
+Corporation</td>
+<td>
+Sgas 902 Edifício Athenas 2º andar Bloco C</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 3035 4400</td>
+<td>
+749,730</td>
+<td>
+749,730</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695142</td>
+</tr>
+<tr><td>
+Regius - Sociedade Civil de Previdencia Privada</td>
+<td>
+Corporation</td>
+<td>
+Sgas 902 Edifício Athenas 2º andar Bloco C</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 3035 4400</td>
+<td>
+749,730</td>
+<td>
+749,730</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695142</td>
+</tr>
+<tr><td>
+Regius - Sociedade Civil de Previdencia Privada</td>
+<td>
+Corporation</td>
+<td>
+Sgas 902 Edifício Athenas 2º andar Bloco C</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 3035 4400</td>
+<td>
+749,730</td>
+<td>
+749,730</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695142</td>
+</tr>
+<tr><td>
+Rio Paranapanema Energia S.A.</td>
+<td>
+Corporation</td>
+<td>
+Rua Funchal 418, 3rd Floor</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 11 4550 6036</td>
+<td>
+88,673</td>
+<td>
+88,673</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9696311</td>
+</tr>
+<tr><td>
+Sabesprev - Fundacao Sabesp de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Alameda Santos, 1827, 11º Andar</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 11 3145 4678</td>
+<td>
+804,563</td>
+<td>
+539,882</td>
+<td>
+264,681</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695143</td>
+</tr>
+<tr><td>
+Sabesprev - Fundacao Sabesp de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Alameda Santos, 1827, 11º Andar</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 11 3145 4678</td>
+<td>
+804,563</td>
+<td>
+539,882</td>
+<td>
+264,681</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695143</td>
+</tr>
+<tr><td>
+Sabesprev - Fundacao Sabesp de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Alameda Santos, 1827, 11º Andar</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 11 3145 4678</td>
+<td>
+804,563</td>
+<td>
+539,882</td>
+<td>
+264,681</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695143</td>
+</tr>
+<tr><td>
+Sanofi Brasil - Planejar</td>
+<td>
+Corporation</td>
+<td>
+Avenida Major Sylvio De Magalhães Padilha 5200</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3759 6000</td>
+<td>
+270,957</td>
+<td>
+270,957</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9366822</td>
+</tr>
+<tr><td>
+Banco Santander (Brasil) S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avenida Presidente Juscelino Kubitscheck, 2041 And 2235, 22nd Floor, Block A, Vila Olímpia</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 11 3553 3300</td>
+<td>
+972,893</td>
+<td>
+972,893</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695195</td>
+</tr>
+<tr><td>
+Sao Rafael - Sociedade de Previdencia Privada</td>
+<td>
+Corporation</td>
+<td>
+Rua Do Carmo, 11 Sala 401</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 4009 2746</td>
+<td>
+201,188</td>
+<td>
+</td>
+<td>
+201,188</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695145</td>
+</tr>
+<tr><td>
+Scania Latin America Ltda. - PREVISCANIA</td>
+<td>
+Corporation</td>
+<td>
+Avenida Jose Odorizzi, 151</td>
+<td>
+São Bernardo Do Campo</td>
+<td>
+</td>
+<td>
++55 11 4090 2960</td>
+<td>
+84,641</td>
+<td>
+84,641</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9366839</td>
+</tr>
+<tr><td>
+Sebraeprev - Servico Brazileiro de Apoio as Micro e Pequenas Empresas</td>
+<td>
+Corporation</td>
+<td>
+Sepn, Quadra 515, Bloco C, Store 32, 1st Floor</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 61 3327-1669</td>
+<td>
+236,942</td>
+<td>
+236,942</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695257</td>
+</tr>
+<tr><td>
+Seguro Estrela Prata DVTM</td>
+<td>
+Corporation</td>
+<td>
+140 Rua Voluntários Da Pátria</td>
+<td>
+Porte Alegre</td>
+<td>
+</td>
+<td>
++55 51 3229 2274</td>
+<td>
+191,167</td>
+<td>
+</td>
+<td>
+191,167</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9366263</td>
+</tr>
+<tr><td>
+Seguro Estrela Prata DVTM</td>
+<td>
+Corporation</td>
+<td>
+140 Rua Voluntários Da Pátria</td>
+<td>
+Porte Alegre</td>
+<td>
+</td>
+<td>
++55 51 3229 2274</td>
+<td>
+191,167</td>
+<td>
+</td>
+<td>
+191,167</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9366263</td>
+</tr>
+<tr><td>
+Sergus - Banco do Estado de Sergipe S.A</td>
+<td>
+Corporation</td>
+<td>
+Avenida Augusto Maynard, 321 1º Andar</td>
+<td>
+Aracaju</td>
+<td>
+</td>
+<td>
++55 79 2106 4500</td>
+<td>
+178,390</td>
+<td>
+178,390</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695146</td>
+</tr>
+<tr><td>
+Serpros - Fundo Multipatrocinado</td>
+<td>
+Corporation</td>
+<td>
+</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 11 0721 1010</td>
+<td>
+2,460,108</td>
+<td>
+2,460,108</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695147</td>
+</tr>
+<tr><td>
+Serpros - Fundo Multipatrocinado</td>
+<td>
+Corporation</td>
+<td>
+</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 11 0721 1010</td>
+<td>
+2,460,108</td>
+<td>
+2,460,108</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695147</td>
+</tr>
+<tr><td>
+Serpros - Fundo Multipatrocinado</td>
+<td>
+Corporation</td>
+<td>
+</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 11 0721 1010</td>
+<td>
+2,460,108</td>
+<td>
+2,460,108</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695147</td>
+</tr>
+<tr><td>
+Shell Brasil S.A. (ComShell)</td>
+<td>
+Corporation</td>
+<td>
+Av. República Do Chile, 330 33rd floor, West Tower</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 11 0717 0010</td>
+<td>
+230,000</td>
+<td>
+130,241</td>
+<td>
+99,759</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695054</td>
+</tr>
+<tr><td>
+Shell Brasil S.A. (ComShell)</td>
+<td>
+Corporation</td>
+<td>
+Av. República Do Chile, 330 33rd floor, West Tower</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 11 0717 0010</td>
+<td>
+230,000</td>
+<td>
+130,241</td>
+<td>
+99,759</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695054</td>
+</tr>
+<tr><td>
+Supre - Sercomtel SA</td>
+<td>
+Corporation</td>
+<td>
+Rua Professor Joao Candido, 555</td>
+<td>
+Londrina</td>
+<td>
+</td>
+<td>
++55 43 3375 1102</td>
+<td>
+58,691</td>
+<td>
+58,691</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695150</td>
+</tr>
+<tr><td>
+Suprev- Fundacao Multipatrocinada de Suplementacao Previdencial</td>
+<td>
+Corporation</td>
+<td>
+59 Rua Dona Maria Pera, Sao Judas</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 5585 0733</td>
+<td>
+64,709</td>
+<td>
+43,955</td>
+<td>
+20,754</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695262</td>
+</tr>
+<tr><td>
+Suprev- Fundacao Multipatrocinada de Suplementacao Previdencial</td>
+<td>
+Corporation</td>
+<td>
+59 Rua Dona Maria Pera, Sao Judas</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 5585 0733</td>
+<td>
+64,709</td>
+<td>
+43,955</td>
+<td>
+20,754</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695262</td>
+</tr>
+<tr><td>
+Suprev- Fundacao Multipatrocinada de Suplementacao Previdencial</td>
+<td>
+Corporation</td>
+<td>
+59 Rua Dona Maria Pera, Sao Judas</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 5585 0733</td>
+<td>
+64,709</td>
+<td>
+43,955</td>
+<td>
+20,754</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695262</td>
+</tr>
+<tr><td>
+Suprev- Fundacao Multipatrocinada de Suplementacao Previdencial</td>
+<td>
+Corporation</td>
+<td>
+59 Rua Dona Maria Pera, Sao Judas</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 5585 0733</td>
+<td>
+64,709</td>
+<td>
+43,955</td>
+<td>
+20,754</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695262</td>
+</tr>
+<tr><td>
+Suprev- Fundacao Multipatrocinada de Suplementacao Previdencial</td>
+<td>
+Corporation</td>
+<td>
+59 Rua Dona Maria Pera, Sao Judas</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 5585 0733</td>
+<td>
+64,709</td>
+<td>
+43,955</td>
+<td>
+20,754</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695262</td>
+</tr>
+<tr><td>
+Suprev- Fundacao Multipatrocinada de Suplementacao Previdencial</td>
+<td>
+Corporation</td>
+<td>
+59 Rua Dona Maria Pera, Sao Judas</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 5585 0733</td>
+<td>
+64,709</td>
+<td>
+43,955</td>
+<td>
+20,754</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695262</td>
+</tr>
+<tr><td>
+Suprev- Fundacao Multipatrocinada de Suplementacao Previdencial</td>
+<td>
+Corporation</td>
+<td>
+59 Rua Dona Maria Pera, Sao Judas</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 5585 0733</td>
+<td>
+64,709</td>
+<td>
+43,955</td>
+<td>
+20,754</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695262</td>
+</tr>
+<tr><td>
+Syngenta Previ - Sociedade de Previdencia Privada</td>
+<td>
+Corporation</td>
+<td>
+Av. Nações Unidas, Nº 17.007 – Torre Sigma – 11º andar – Bairro Várzea de Baixo</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 5463 2379</td>
+<td>
+367,451</td>
+<td>
+367,451</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695264</td>
+</tr>
+<tr><td>
+Telebras - Telecomunicações Brasileiras S.A.</td>
+<td>
+Corporation</td>
+<td>
+Sig Quadra 04, Lots 075, 083, 125 And 175 - Bloco A Salas 201, 202, 214 a 224 - Edifício Capital Finan</td>
+<td>
+Brasilia</td>
+<td>
+</td>
+<td>
++55 61 2027 1000</td>
+<td>
+270,346</td>
+<td>
+270,346</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9335791</td>
+</tr>
+<tr><td>
+Telebras - Telecomunicações Brasileiras S.A.</td>
+<td>
+Corporation</td>
+<td>
+Sig Quadra 04, Lots 075, 083, 125 And 175 - Bloco A Salas 201, 202, 214 a 224 - Edifício Capital Finan</td>
+<td>
+Brasilia</td>
+<td>
+</td>
+<td>
++55 61 2027 1000</td>
+<td>
+270,346</td>
+<td>
+270,346</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9335791</td>
+</tr>
+<tr><td>
+Telebras - Telecomunicações Brasileiras S.A.</td>
+<td>
+Corporation</td>
+<td>
+Sig Quadra 04, Lots 075, 083, 125 And 175 - Bloco A Salas 201, 202, 214 a 224 - Edifício Capital Finan</td>
+<td>
+Brasilia</td>
+<td>
+</td>
+<td>
++55 61 2027 1000</td>
+<td>
+270,346</td>
+<td>
+270,346</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9335791</td>
+</tr>
+<tr><td>
+TELOS - Fundação Embratel de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Avenida Presidente Vargas 290, 9th Floor</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 2121 6900</td>
+<td>
+2,193,700</td>
+<td>
+2,193,700</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695152</td>
+</tr>
+<tr><td>
+TELOS - Fundação Embratel de Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Avenida Presidente Vargas 290, 9th Floor</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 2121 6900</td>
+<td>
+2,193,700</td>
+<td>
+2,193,700</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695152</td>
+</tr>
+<tr><td>
+Ultraprev- Associacao de Previdencia Complementar</td>
+<td>
+Corporation</td>
+<td>
+Avenida Brigadeiro Luiz Antonio, 1343, 8o. Andar Ala B</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3177 6755</td>
+<td>
+203,776</td>
+<td>
+</td>
+<td>
+203,776</td>
+<td>
+</td>
+<td>
+Bradesco Asset Management Dtvm Sa (Bram), São Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695267</td>
+</tr>
+<tr><td>
+UnileverPrev - Sociedade de Previdência Complementar</td>
+<td>
+Corporation</td>
+<td>
+Av. Pres. Juscelino Kubitscheck, 1309 - 9º. Andar</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 11 3568 9089</td>
+<td>
+917,722</td>
+<td>
+906,577</td>
+<td>
+11,145</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695153</td>
+</tr>
+<tr><td>
+UnileverPrev - Sociedade de Previdência Complementar</td>
+<td>
+Corporation</td>
+<td>
+Av. Pres. Juscelino Kubitscheck, 1309 - 9º. Andar</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 11 3568 9089</td>
+<td>
+917,722</td>
+<td>
+906,577</td>
+<td>
+11,145</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695153</td>
+</tr>
+<tr><td>
+UnileverPrev - Sociedade de Previdência Complementar</td>
+<td>
+Corporation</td>
+<td>
+Av. Pres. Juscelino Kubitscheck, 1309 - 9º. Andar</td>
+<td>
+São Paulo</td>
+<td>
+</td>
+<td>
++55 11 3568 9089</td>
+<td>
+917,722</td>
+<td>
+906,577</td>
+<td>
+11,145</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695153</td>
+</tr>
+<tr><td>
+UnisysPrevi</td>
+<td>
+Corporation</td>
+<td>
+Rua Do Passeio Nº 38 – Torre 2 - 15º Andar - Parte</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3900 7844</td>
+<td>
+66,811</td>
+<td>
+66,811</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Banco Itau SA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695270</td>
+</tr>
+<tr><td>
+UnisysPrevi</td>
+<td>
+Corporation</td>
+<td>
+Rua Do Passeio Nº 38 – Torre 2 - 15º Andar - Parte</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3900 7844</td>
+<td>
+66,811</td>
+<td>
+66,811</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Mercer, Louisville, KY</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695270</td>
+</tr>
+<tr><td>
+Usinas Siderúrgicas de Minas Gerais S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avenida Do Contorno, 6.594, Savassi</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 31 3499 8110</td>
+<td>
+1,257,678</td>
+<td>
+1,257,678</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9414736</td>
+</tr>
+<tr><td>
+Usinas Siderúrgicas de Minas Gerais S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avenida Do Contorno, 6.594, Savassi</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 31 3499 8110</td>
+<td>
+1,257,678</td>
+<td>
+1,257,678</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9414736</td>
+</tr>
+<tr><td>
+Usinas Siderúrgicas de Minas Gerais S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avenida Do Contorno, 6.594, Savassi</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 31 3499 8110</td>
+<td>
+1,257,678</td>
+<td>
+1,257,678</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9414736</td>
+</tr>
+<tr><td>
+Usinas Siderúrgicas de Minas Gerais S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avenida Do Contorno, 6.594, Savassi</td>
+<td>
+Belo Horizonte</td>
+<td>
+</td>
+<td>
++55 31 3499 8110</td>
+<td>
+1,257,678</td>
+<td>
+1,257,678</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9414736</td>
+</tr>
+<tr><td>
+Vale S.A. - VALIA</td>
+<td>
+Corporation</td>
+<td>
+Praia De Botafogo, 186. Rooms 1801 To 2001</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3814 8888</td>
+<td>
+6,824,118</td>
+<td>
+6,824,118</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Willis Towers Watson, Rio De Janeiro, Brazil</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695155</td>
+</tr>
+<tr><td>
+Vale S.A. - VALIA</td>
+<td>
+Corporation</td>
+<td>
+Praia De Botafogo, 186. Rooms 1801 To 2001</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3814 8888</td>
+<td>
+6,824,118</td>
+<td>
+6,824,118</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695155</td>
+</tr>
+<tr><td>
+Vale S.A. - VALIA</td>
+<td>
+Corporation</td>
+<td>
+Praia De Botafogo, 186. Rooms 1801 To 2001</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3814 8888</td>
+<td>
+6,824,118</td>
+<td>
+6,824,118</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Willis Towers Watson, Rio De Janeiro, Brazil</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695155</td>
+</tr>
+<tr><td>
+Vale S.A. - VALIA</td>
+<td>
+Corporation</td>
+<td>
+Praia De Botafogo, 186. Rooms 1801 To 2001</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3814 8888</td>
+<td>
+6,824,118</td>
+<td>
+6,824,118</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Willis Towers Watson, Rio De Janeiro, Brazil</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695155</td>
+</tr>
+<tr><td>
+Vale S.A. - VALIA</td>
+<td>
+Corporation</td>
+<td>
+Praia De Botafogo, 186. Rooms 1801 To 2001</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3814 8888</td>
+<td>
+6,824,118</td>
+<td>
+6,824,118</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695155</td>
+</tr>
+<tr><td>
+Vale S.A. - VALIA</td>
+<td>
+Corporation</td>
+<td>
+Praia De Botafogo, 186. Rooms 1801 To 2001</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3814 8888</td>
+<td>
+6,824,118</td>
+<td>
+6,824,118</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695155</td>
+</tr>
+<tr><td>
+Vale S.A. - VALIA</td>
+<td>
+Corporation</td>
+<td>
+Praia De Botafogo, 186. Rooms 1801 To 2001</td>
+<td>
+Rio De Janeiro</td>
+<td>
+</td>
+<td>
++55 21 3814 8888</td>
+<td>
+6,824,118</td>
+<td>
+6,824,118</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695155</td>
+</tr>
+<tr><td>
+Vexty</td>
+<td>
+Corporation</td>
+<td>
+Avenida Das Nacoes Unidas, 14.401, 5th Floor - City Park - Torre Aroeira Chacara Santo Antonio</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 3474 8060</td>
+<td>
+955,549</td>
+<td>
+</td>
+<td>
+955,549</td>
+<td>
+</td>
+<td>
+Banco Itau SA, Sao Paulo, SP, Brazil</td>
+<td>
+</td>
+<td>
+Custodian</td>
+<td>
+9695114</td>
+</tr>
+<tr><td>
+Visão Prev - Sociedade de Previdência Complementar</td>
+<td>
+Corporation</td>
+<td>
+Alameda Santos, 787 - Conjuntos 11 E 12, Jardim Paulista</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 5508 8000</td>
+<td>
+1,771,492</td>
+<td>
+280,750</td>
+<td>
+1,490,742</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695156</td>
+</tr>
+<tr><td>
+Visão Prev - Sociedade de Previdência Complementar</td>
+<td>
+Corporation</td>
+<td>
+Alameda Santos, 787 - Conjuntos 11 E 12, Jardim Paulista</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 5508 8000</td>
+<td>
+1,771,492</td>
+<td>
+280,750</td>
+<td>
+1,490,742</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695156</td>
+</tr>
+<tr><td>
+Visão Prev - Sociedade de Previdência Complementar</td>
+<td>
+Corporation</td>
+<td>
+Alameda Santos, 787 - Conjuntos 11 E 12, Jardim Paulista</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 5508 8000</td>
+<td>
+1,771,492</td>
+<td>
+280,750</td>
+<td>
+1,490,742</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695156</td>
+</tr>
+<tr><td>
+Visão Prev - Sociedade de Previdência Complementar</td>
+<td>
+Corporation</td>
+<td>
+Alameda Santos, 787 - Conjuntos 11 E 12, Jardim Paulista</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 5508 8000</td>
+<td>
+1,771,492</td>
+<td>
+280,750</td>
+<td>
+1,490,742</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695156</td>
+</tr>
+<tr><td>
+Visão Prev - Sociedade de Previdência Complementar</td>
+<td>
+Corporation</td>
+<td>
+Alameda Santos, 787 - Conjuntos 11 E 12, Jardim Paulista</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 5508 8000</td>
+<td>
+1,771,492</td>
+<td>
+280,750</td>
+<td>
+1,490,742</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695156</td>
+</tr>
+<tr><td>
+VIVA Previdência</td>
+<td>
+Corporation</td>
+<td>
+Trencho 3</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 68 2106 4305</td>
+<td>
+484,185</td>
+<td>
+484,185</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695098</td>
+</tr>
+<tr><td>
+VIVA Previdência</td>
+<td>
+Corporation</td>
+<td>
+Trencho 3</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 68 2106 4305</td>
+<td>
+484,185</td>
+<td>
+484,185</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695098</td>
+</tr>
+<tr><td>
+VIVA Previdência</td>
+<td>
+Corporation</td>
+<td>
+Trencho 3</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 68 2106 4305</td>
+<td>
+484,185</td>
+<td>
+484,185</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695098</td>
+</tr>
+<tr><td>
+VIVA Previdência</td>
+<td>
+Corporation</td>
+<td>
+Trencho 3</td>
+<td>
+Brasília</td>
+<td>
+</td>
+<td>
++55 68 2106 4305</td>
+<td>
+484,185</td>
+<td>
+484,185</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695098</td>
+</tr>
+<tr><td>
+Volvo do Brasil - VikingPrev</td>
+<td>
+Corporation</td>
+<td>
+Avenida Juscelino Kubitschek De Oliveira, 2600, Cic</td>
+<td>
+Curitiba</td>
+<td>
+</td>
+<td>
++55 41 3317 8998</td>
+<td>
+279,851</td>
+<td>
+279,851</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+Mercer, Louisville, KY</td>
+<td>
+</td>
+<td>
+Actuary</td>
+<td>
+9695272</td>
+</tr>
+<tr><td>
+Votorantim Cimentos SA</td>
+<td>
+Corporation</td>
+<td>
+Edifício Sky Corporate R. Gomes de Carvalho, 1996</td>
+<td>
+Sao Paulo</td>
+<td>
+</td>
+<td>
++55 11 4572 4000</td>
+<td>
+139,005</td>
+<td>
+139,005</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9369773</td>
+</tr>
+<tr><td>
+Votorantim Participacoes SA - FUNSEJEM</td>
+<td>
+Corporation</td>
+<td>
+Jabaquara Ave., 1909, 2nd Floor</td>
+<td>
+Mirandópolis</td>
+<td>
+</td>
+<td>
++55 11 3386 6500</td>
+<td>
+431,723</td>
+<td>
+431,723</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9364034</td>
+</tr>
+<tr><td>
+Votorantim Participacoes SA - FUNSEJEM</td>
+<td>
+Corporation</td>
+<td>
+Jabaquara Ave., 1909, 2nd Floor</td>
+<td>
+Mirandópolis</td>
+<td>
+</td>
+<td>
++55 11 3386 6500</td>
+<td>
+431,723</td>
+<td>
+431,723</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9364034</td>
+</tr>
+<tr><td>
+VWPP - Volkswagen Previdencia Privada</td>
+<td>
+Corporation</td>
+<td>
+Via Anchieta, Km 23.5, Sala 7, Cpi 1284</td>
+<td>
+Sao Bernardo Do Campo</td>
+<td>
+</td>
+<td>
+(11) 4347-2398</td>
+<td>
+718,586</td>
+<td>
+718,586</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695274</td>
+</tr>
+<tr><td>
+WEG - Seguridade Social</td>
+<td>
+Corporation</td>
+<td>
+Av. Preffeito Waldemar Grubba 3000-Vila Lalau</td>
+<td>
+Jaragua Do Sul</td>
+<td>
+</td>
+<td>
++55 47 3276 4414</td>
+<td>
+370,721</td>
+<td>
+370,721</td>
+<td>
+</td>
+<td>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9695276</td>
+</tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+
+</table>
+</body>
+</HTML>

@@ -1,0 +1,5849 @@
+
+<HTML  xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns:html="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/xml; charset=utf-8">
+<!--[if gte mso 9]><xml>
+ <x:ExcelWorkbook>
+  <x:ExcelWorksheets>
+   <x:ExcelWorksheet>
+    <x:Name>M_ExcelGenN</x:Name>
+    <x:WorksheetOptions>
+     <x:DefaultRowHeight>264</x:DefaultRowHeight>
+     <x:Selected/>
+     <x:DoNotDisplayGridlines/>
+     <x:FreezePanes/>
+     <x:FrozenNoSplit/>
+     <x:SplitHorizontal>1</x:SplitHorizontal>
+     <x:TopRowBottomPane>1</x:TopRowBottomPane>
+     <x:ActivePane>2</x:ActivePane>
+     <x:Panes>
+      <x:Pane>
+       <x:Number>3</x:Number>
+      </x:Pane>
+      <x:Pane>
+       <x:Number>2</x:Number>
+       <x:RangeSelection>$2:$2</x:RangeSelection>
+      </x:Pane>
+     </x:Panes>
+     <x:ProtectContents>False</x:ProtectContents>
+     <x:ProtectObjects>False</x:ProtectObjects>
+     <x:ProtectScenarios>False</x:ProtectScenarios>
+    </x:WorksheetOptions>
+   </x:ExcelWorksheet>
+  </x:ExcelWorksheets>
+  <x:ProtectStructure>False</x:ProtectStructure>
+  <x:ProtectWindows>False</x:ProtectWindows>
+ </x:ExcelWorkbook>
+</xml><![endif]-->
+</head>
+<body>
+<table borderColor="#808080" border="1">
+	<tr><th>Firm Name</th><th>Category</th><th>Address</th><th>City</th><th>State</th><th>Phone#</th><th>Total PS Assets</th><th>Type of Plan</th><th>Plan Assets</th><th>Investment Region</th><th>Pooled Investments</th><th>Asset Type</th><th>Asset Style</th><th>Dollar Amount of Asset Type in Plan (in 000's)</th><th>% of Asset type in Plan</th><th>Pid#</th></tr>
+<FreezePanes/>
+<tr><td>
+Ackermans & van Haaren NV</td>
+<td>
+Corporation</td>
+<td>
+Begijnenvest 113</td>
+<td>
+Antwerp</td>
+<td>
+</td>
+<td>
++32 3 231 87 70</td>
+<td>
+235,804</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+235,804</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9685828</td>
+</tr>
+<tr><td>
+Ageas SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Rue Du Marquis 1</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 557 57 11</td>
+<td>
+291,359</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+291,359</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+22,085</td>
+<td>
+8</td>
+<td>
+9696483</td>
+</tr>
+<tr><td>
+Ageas SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Rue Du Marquis 1</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 557 57 11</td>
+<td>
+291,359</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+291,359</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+11,043</td>
+<td>
+4</td>
+<td>
+9696483</td>
+</tr>
+<tr><td>
+Ageas SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Rue Du Marquis 1</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 557 57 11</td>
+<td>
+291,359</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+291,359</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Debt</td>
+<td>
+178,778</td>
+<td>
+61</td>
+<td>
+9696483</td>
+</tr>
+<tr><td>
+Ageas SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Rue Du Marquis 1</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 557 57 11</td>
+<td>
+291,359</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+291,359</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Real Estate</td>
+<td>
+ Unspecified</td>
+<td>
+24,270</td>
+<td>
+8</td>
+<td>
+9696483</td>
+</tr>
+<tr><td>
+Ageas SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Rue Du Marquis 1</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 557 57 11</td>
+<td>
+291,359</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+291,359</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Other Investments</td>
+<td>
+ Unspecified</td>
+<td>
+55,183</td>
+<td>
+19</td>
+<td>
+9696483</td>
+</tr>
+<tr><td>
+Agfa-Gevaert NV</td>
+<td>
+Corporation</td>
+<td>
+Septestraat 27</td>
+<td>
+Mortsel</td>
+<td>
+</td>
+<td>
++32 3 444 21 11</td>
+<td>
+981,128</td>
+<td>
+Defined Contribution Plan (plan with contributions only)</td>
+<td>
+179,892</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682848</td>
+</tr>
+<tr><td>
+Agfa-Gevaert NV</td>
+<td>
+Corporation</td>
+<td>
+Septestraat 27</td>
+<td>
+Mortsel</td>
+<td>
+</td>
+<td>
++32 3 444 21 11</td>
+<td>
+981,128</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+801,236</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9682848</td>
+</tr>
+<tr><td>
+Aliaxis S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avenue Arnaud Fraiteur 15-23</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 775 50 50</td>
+<td>
+233,936</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+233,936</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+19,370</td>
+<td>
+8</td>
+<td>
+9310605</td>
+</tr>
+<tr><td>
+Aliaxis S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avenue Arnaud Fraiteur 15-23</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 775 50 50</td>
+<td>
+233,936</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+233,936</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+24,142</td>
+<td>
+10</td>
+<td>
+9310605</td>
+</tr>
+<tr><td>
+Aliaxis S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avenue Arnaud Fraiteur 15-23</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 775 50 50</td>
+<td>
+233,936</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+233,936</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Corporate Bonds</td>
+<td>
+11,112</td>
+<td>
+5</td>
+<td>
+9310605</td>
+</tr>
+<tr><td>
+Aliaxis S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avenue Arnaud Fraiteur 15-23</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 775 50 50</td>
+<td>
+233,936</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+233,936</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+General Insurance</td>
+<td>
+80,357</td>
+<td>
+34</td>
+<td>
+9310605</td>
+</tr>
+<tr><td>
+Aliaxis S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avenue Arnaud Fraiteur 15-23</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 775 50 50</td>
+<td>
+233,936</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+233,936</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Government Bonds</td>
+<td>
+91,703</td>
+<td>
+39</td>
+<td>
+9310605</td>
+</tr>
+<tr><td>
+Aliaxis S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avenue Arnaud Fraiteur 15-23</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 775 50 50</td>
+<td>
+233,936</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+233,936</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Real Estate</td>
+<td>
+ Unspecified</td>
+<td>
+6,527</td>
+<td>
+3</td>
+<td>
+9310605</td>
+</tr>
+<tr><td>
+Aliaxis S.A.</td>
+<td>
+Corporation</td>
+<td>
+Avenue Arnaud Fraiteur 15-23</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 775 50 50</td>
+<td>
+233,936</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+233,936</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Other Investments</td>
+<td>
+ Unspecified</td>
+<td>
+725</td>
+<td>
+</td>
+<td>
+9310605</td>
+</tr>
+<tr><td>
+Amonis OFP</td>
+<td>
+Corporation</td>
+<td>
+Place De Jamblinne De Meux 4</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 738 00 25</td>
+<td>
+2,099,830</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+2,099,830</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+49,346</td>
+<td>
+2</td>
+<td>
+9696944</td>
+</tr>
+<tr><td>
+Amonis OFP</td>
+<td>
+Corporation</td>
+<td>
+Place De Jamblinne De Meux 4</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 738 00 25</td>
+<td>
+2,099,830</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+2,099,830</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+39,267</td>
+<td>
+2</td>
+<td>
+9696944</td>
+</tr>
+<tr><td>
+Amonis OFP</td>
+<td>
+Corporation</td>
+<td>
+Place De Jamblinne De Meux 4</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 738 00 25</td>
+<td>
+2,099,830</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+2,099,830</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Bonds</td>
+<td>
+2,004,498</td>
+<td>
+95</td>
+<td>
+9696944</td>
+</tr>
+<tr><td>
+Amonis OFP</td>
+<td>
+Corporation</td>
+<td>
+Place De Jamblinne De Meux 4</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 738 00 25</td>
+<td>
+2,099,830</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+2,099,830</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Real Estate</td>
+<td>
+ Unspecified</td>
+<td>
+6,719</td>
+<td>
+</td>
+<td>
+9696944</td>
+</tr>
+<tr><td>
+Anheuser-Busch InBev NV</td>
+<td>
+Corporation</td>
+<td>
+Brouwerijplein, 1</td>
+<td>
+Leuven</td>
+<td>
+</td>
+<td>
++32 1 627 61 11</td>
+<td>
+3,851,000</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+3,851,000</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+616,160</td>
+<td>
+16</td>
+<td>
+9696471</td>
+</tr>
+<tr><td>
+Anheuser-Busch InBev NV</td>
+<td>
+Corporation</td>
+<td>
+Brouwerijplein, 1</td>
+<td>
+Leuven</td>
+<td>
+</td>
+<td>
++32 1 627 61 11</td>
+<td>
+3,851,000</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+3,851,000</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Corporate Bonds</td>
+<td>
+1,386,360</td>
+<td>
+36</td>
+<td>
+9696471</td>
+</tr>
+<tr><td>
+Anheuser-Busch InBev NV</td>
+<td>
+Corporation</td>
+<td>
+Brouwerijplein, 1</td>
+<td>
+Leuven</td>
+<td>
+</td>
+<td>
++32 1 627 61 11</td>
+<td>
+3,851,000</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+3,851,000</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+General Insurance</td>
+<td>
+269,570</td>
+<td>
+7</td>
+<td>
+9696471</td>
+</tr>
+<tr><td>
+Anheuser-Busch InBev NV</td>
+<td>
+Corporation</td>
+<td>
+Brouwerijplein, 1</td>
+<td>
+Leuven</td>
+<td>
+</td>
+<td>
++32 1 627 61 11</td>
+<td>
+3,851,000</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+3,851,000</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Government Bonds</td>
+<td>
+1,386,360</td>
+<td>
+36</td>
+<td>
+9696471</td>
+</tr>
+<tr><td>
+Anheuser-Busch InBev NV</td>
+<td>
+Corporation</td>
+<td>
+Brouwerijplein, 1</td>
+<td>
+Leuven</td>
+<td>
+</td>
+<td>
++32 1 627 61 11</td>
+<td>
+3,851,000</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+3,851,000</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Real Estate</td>
+<td>
+ Unspecified</td>
+<td>
+192,550</td>
+<td>
+5</td>
+<td>
+9696471</td>
+</tr>
+<tr><td>
+Antwerp ZOO Society</td>
+<td>
+Tax Exempt Organization</td>
+<td>
+Koningin Astridplein 20-26</td>
+<td>
+Antwerp</td>
+<td>
+</td>
+<td>
++32 3 224 89 36</td>
+<td>
+2,930</td>
+<td>
+Investment Pool Funds</td>
+<td>
+2,930</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+2,930</td>
+<td>
+100</td>
+<td>
+9310943</td>
+</tr>
+<tr><td>
+Bank Degroof Petercam</td>
+<td>
+Corporation</td>
+<td>
+Nijverheidsstraat 44</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 287 91 11</td>
+<td>
+126,908</td>
+<td>
+Closed or Frozen Defined Benefit Plan</td>
+<td>
+126,908</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9685809</td>
+</tr>
+<tr><td>
+The Bank of New York Mellon SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Boulevard Anspachlaan 1</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 545 81 11</td>
+<td>
+109,997</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+109,997</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+1,320</td>
+<td>
+1</td>
+<td>
+9411821</td>
+</tr>
+<tr><td>
+The Bank of New York Mellon SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Boulevard Anspachlaan 1</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 545 81 11</td>
+<td>
+109,997</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+109,997</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Government Bonds</td>
+<td>
+35,749</td>
+<td>
+33</td>
+<td>
+9411821</td>
+</tr>
+<tr><td>
+The Bank of New York Mellon SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Boulevard Anspachlaan 1</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 545 81 11</td>
+<td>
+109,997</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+109,997</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Debt</td>
+<td>
+1,650</td>
+<td>
+2</td>
+<td>
+9411821</td>
+</tr>
+<tr><td>
+The Bank of New York Mellon SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Boulevard Anspachlaan 1</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 545 81 11</td>
+<td>
+109,997</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+109,997</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Real Estate</td>
+<td>
+ Unspecified</td>
+<td>
+5,390</td>
+<td>
+5</td>
+<td>
+9411821</td>
+</tr>
+<tr><td>
+The Bank of New York Mellon SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Boulevard Anspachlaan 1</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 545 81 11</td>
+<td>
+109,997</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+109,997</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Other Investment</td>
+<td>
+ Unspecified</td>
+<td>
+5,610</td>
+<td>
+5</td>
+<td>
+9411821</td>
+</tr>
+<tr><td>
+The Bank of New York Mellon SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Boulevard Anspachlaan 1</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 545 81 11</td>
+<td>
+109,997</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+109,997</td>
+<td>
+Belgium</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+19,249</td>
+<td>
+18</td>
+<td>
+9411821</td>
+</tr>
+<tr><td>
+The Bank of New York Mellon SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Boulevard Anspachlaan 1</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 545 81 11</td>
+<td>
+109,997</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+109,997</td>
+<td>
+Emerging Markets</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+4,400</td>
+<td>
+4</td>
+<td>
+9411821</td>
+</tr>
+<tr><td>
+The Bank of New York Mellon SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Boulevard Anspachlaan 1</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 545 81 11</td>
+<td>
+109,997</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+109,997</td>
+<td>
+Global</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+36,629</td>
+<td>
+33</td>
+<td>
+9411821</td>
+</tr>
+<tr><td>
+Bekaert SA</td>
+<td>
+Corporation</td>
+<td>
+Bekaertstraat 2</td>
+<td>
+Zwevegem</td>
+<td>
+</td>
+<td>
++32 5 676 61 00</td>
+<td>
+195,447</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+195,447</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+3,205</td>
+<td>
+2</td>
+<td>
+9696488</td>
+</tr>
+<tr><td>
+Bekaert SA</td>
+<td>
+Corporation</td>
+<td>
+Bekaertstraat 2</td>
+<td>
+Zwevegem</td>
+<td>
+</td>
+<td>
++32 5 676 61 00</td>
+<td>
+195,447</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+195,447</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+73,801</td>
+<td>
+38</td>
+<td>
+9696488</td>
+</tr>
+<tr><td>
+Bekaert SA</td>
+<td>
+Corporation</td>
+<td>
+Bekaertstraat 2</td>
+<td>
+Zwevegem</td>
+<td>
+</td>
+<td>
++32 5 676 61 00</td>
+<td>
+195,447</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+195,447</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+General Insurance</td>
+<td>
+61,781</td>
+<td>
+32</td>
+<td>
+9696488</td>
+</tr>
+<tr><td>
+Bekaert SA</td>
+<td>
+Corporation</td>
+<td>
+Bekaertstraat 2</td>
+<td>
+Zwevegem</td>
+<td>
+</td>
+<td>
++32 5 676 61 00</td>
+<td>
+195,447</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+195,447</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Bonds</td>
+<td>
+56,660</td>
+<td>
+29</td>
+<td>
+9696488</td>
+</tr>
+<tr><td>
+Belgisch Olympisch en Interfederaal Comité (BOIC)</td>
+<td>
+Tax Exempt Organization</td>
+<td>
+Boechoutlaan 9</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 474 51 50</td>
+<td>
+24,179</td>
+<td>
+Investment Pool Funds</td>
+<td>
+24,179</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+2,771</td>
+<td>
+11</td>
+<td>
+9311033</td>
+</tr>
+<tr><td>
+Belgisch Olympisch en Interfederaal Comité (BOIC)</td>
+<td>
+Tax Exempt Organization</td>
+<td>
+Boechoutlaan 9</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 474 51 50</td>
+<td>
+24,179</td>
+<td>
+Investment Pool Funds</td>
+<td>
+24,179</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Other Investments</td>
+<td>
+ Unspecified</td>
+<td>
+21,408</td>
+<td>
+89</td>
+<td>
+9311033</td>
+</tr>
+<tr><td>
+BNP Paribas Fortis SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Warandeberg 3</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 762 90 00</td>
+<td>
+676,526</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+676,526</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+CDs</td>
+<td>
+27,061</td>
+<td>
+4</td>
+<td>
+9696470</td>
+</tr>
+<tr><td>
+BNP Paribas Fortis SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Warandeberg 3</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 762 90 00</td>
+<td>
+676,526</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+676,526</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+47,357</td>
+<td>
+7</td>
+<td>
+9696470</td>
+</tr>
+<tr><td>
+BNP Paribas Fortis SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Warandeberg 3</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 762 90 00</td>
+<td>
+676,526</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+676,526</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Government Bonds</td>
+<td>
+338,263</td>
+<td>
+50</td>
+<td>
+9696470</td>
+</tr>
+<tr><td>
+BNP Paribas Fortis SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Warandeberg 3</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 762 90 00</td>
+<td>
+676,526</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+676,526</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Bonds</td>
+<td>
+115,009</td>
+<td>
+17</td>
+<td>
+9696470</td>
+</tr>
+<tr><td>
+BNP Paribas Fortis SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Warandeberg 3</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 762 90 00</td>
+<td>
+676,526</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+676,526</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Real Estate</td>
+<td>
+ Unspecified</td>
+<td>
+13,531</td>
+<td>
+2</td>
+<td>
+9696470</td>
+</tr>
+<tr><td>
+BNP Paribas Fortis SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Warandeberg 3</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 762 90 00</td>
+<td>
+676,526</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+676,526</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Other Investments</td>
+<td>
+ Unspecified</td>
+<td>
+135,305</td>
+<td>
+20</td>
+<td>
+9696470</td>
+</tr>
+<tr><td>
+Bpost Group</td>
+<td>
+Corporation</td>
+<td>
+Boulevard Anspachlaan 1 Bus 1</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 276 76 43</td>
+<td>
+78,027</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+78,027</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9396847</td>
+</tr>
+<tr><td>
+Compagnie d' Enterprises CFE SA</td>
+<td>
+Corporation</td>
+<td>
+Avenue Edmond Van Nieuwenhuyse 30</td>
+<td>
+Auderghem</td>
+<td>
+</td>
+<td>
++32 2 661 12 11</td>
+<td>
+49,792</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+49,792</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9696500</td>
+</tr>
+<tr><td>
+D'Ieteren SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Rue Du Mail, 50</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 536 51 11</td>
+<td>
+68,612</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+68,612</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Other Investments</td>
+<td>
+ Unspecified</td>
+<td>
+68,612</td>
+<td>
+100</td>
+<td>
+9696060</td>
+</tr>
+<tr><td>
+DuPont European Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+Bedrijvenlaan 9</td>
+<td>
+Hardenberg</td>
+<td>
+</td>
+<td>
++ 31 5 232 08 26 7</td>
+<td>
+340,318</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+340,318</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+12,932</td>
+<td>
+4</td>
+<td>
+9779665</td>
+</tr>
+<tr><td>
+DuPont European Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+Bedrijvenlaan 9</td>
+<td>
+Hardenberg</td>
+<td>
+</td>
+<td>
++ 31 5 232 08 26 7</td>
+<td>
+340,318</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+340,318</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+192,892</td>
+<td>
+57</td>
+<td>
+9779665</td>
+</tr>
+<tr><td>
+DuPont European Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+Bedrijvenlaan 9</td>
+<td>
+Hardenberg</td>
+<td>
+</td>
+<td>
++ 31 5 232 08 26 7</td>
+<td>
+340,318</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+340,318</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Bonds</td>
+<td>
+134,494</td>
+<td>
+40</td>
+<td>
+9779665</td>
+</tr>
+<tr><td>
+Elia Group</td>
+<td>
+Corporation</td>
+<td>
+Boulevard De I'Empereur 20</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 (0) 478 90 13 16</td>
+<td>
+323,143</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+323,143</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+14,154</td>
+<td>
+4</td>
+<td>
+9696981</td>
+</tr>
+<tr><td>
+Elia Group</td>
+<td>
+Corporation</td>
+<td>
+Boulevard De I'Empereur 20</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 (0) 478 90 13 16</td>
+<td>
+323,143</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+323,143</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+General Insurance</td>
+<td>
+57,326</td>
+<td>
+18</td>
+<td>
+9696981</td>
+</tr>
+<tr><td>
+Elia Group</td>
+<td>
+Corporation</td>
+<td>
+Boulevard De I'Empereur 20</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 (0) 478 90 13 16</td>
+<td>
+323,143</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+323,143</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Other Investments</td>
+<td>
+ Unspecified</td>
+<td>
+5,914</td>
+<td>
+2</td>
+<td>
+9696981</td>
+</tr>
+<tr><td>
+Elia Group</td>
+<td>
+Corporation</td>
+<td>
+Boulevard De I'Empereur 20</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 (0) 478 90 13 16</td>
+<td>
+323,143</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+323,143</td>
+<td>
+International</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+39,714</td>
+<td>
+12</td>
+<td>
+9696981</td>
+</tr>
+<tr><td>
+Elia Group</td>
+<td>
+Corporation</td>
+<td>
+Boulevard De I'Empereur 20</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 (0) 478 90 13 16</td>
+<td>
+323,143</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+323,143</td>
+<td>
+International</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Bonds</td>
+<td>
+84,211</td>
+<td>
+26</td>
+<td>
+9696981</td>
+</tr>
+<tr><td>
+Elia Group</td>
+<td>
+Corporation</td>
+<td>
+Boulevard De I'Empereur 20</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 (0) 478 90 13 16</td>
+<td>
+323,143</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+323,143</td>
+<td>
+European Union</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+28,049</td>
+<td>
+9</td>
+<td>
+9696981</td>
+</tr>
+<tr><td>
+Elia Group</td>
+<td>
+Corporation</td>
+<td>
+Boulevard De I'Empereur 20</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 (0) 478 90 13 16</td>
+<td>
+323,143</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+323,143</td>
+<td>
+European Union</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Government Bonds</td>
+<td>
+37,549</td>
+<td>
+12</td>
+<td>
+9696981</td>
+</tr>
+<tr><td>
+Elia Group</td>
+<td>
+Corporation</td>
+<td>
+Boulevard De I'Empereur 20</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 (0) 478 90 13 16</td>
+<td>
+323,143</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+323,143</td>
+<td>
+European Union</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Bonds</td>
+<td>
+56,227</td>
+<td>
+17</td>
+<td>
+9696981</td>
+</tr>
+<tr><td>
+Etex Group SA</td>
+<td>
+Corporation</td>
+<td>
+Passport Building Luchthaven Brussel Nationaal, Gebouw 1K</td>
+<td>
+Zaventem</td>
+<td>
+</td>
+<td>
++32 2 778 1211</td>
+<td>
+992,250</td>
+<td>
+Closed or Frozen Defined Benefit Plan</td>
+<td>
+992,250</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+49,613</td>
+<td>
+5</td>
+<td>
+9696476</td>
+</tr>
+<tr><td>
+Etex Group SA</td>
+<td>
+Corporation</td>
+<td>
+Passport Building Luchthaven Brussel Nationaal, Gebouw 1K</td>
+<td>
+Zaventem</td>
+<td>
+</td>
+<td>
++32 2 778 1211</td>
+<td>
+992,250</td>
+<td>
+Closed or Frozen Defined Benefit Plan</td>
+<td>
+992,250</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+29,768</td>
+<td>
+3</td>
+<td>
+9696476</td>
+</tr>
+<tr><td>
+Etex Group SA</td>
+<td>
+Corporation</td>
+<td>
+Passport Building Luchthaven Brussel Nationaal, Gebouw 1K</td>
+<td>
+Zaventem</td>
+<td>
+</td>
+<td>
++32 2 778 1211</td>
+<td>
+992,250</td>
+<td>
+Closed or Frozen Defined Benefit Plan</td>
+<td>
+992,250</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+General Insurance</td>
+<td>
+89,303</td>
+<td>
+9</td>
+<td>
+9696476</td>
+</tr>
+<tr><td>
+Etex Group SA</td>
+<td>
+Corporation</td>
+<td>
+Passport Building Luchthaven Brussel Nationaal, Gebouw 1K</td>
+<td>
+Zaventem</td>
+<td>
+</td>
+<td>
++32 2 778 1211</td>
+<td>
+992,250</td>
+<td>
+Closed or Frozen Defined Benefit Plan</td>
+<td>
+992,250</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Bonds</td>
+<td>
+744,188</td>
+<td>
+75</td>
+<td>
+9696476</td>
+</tr>
+<tr><td>
+Etex Group SA</td>
+<td>
+Corporation</td>
+<td>
+Passport Building Luchthaven Brussel Nationaal, Gebouw 1K</td>
+<td>
+Zaventem</td>
+<td>
+</td>
+<td>
++32 2 778 1211</td>
+<td>
+992,250</td>
+<td>
+Closed or Frozen Defined Benefit Plan</td>
+<td>
+992,250</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Other Investments</td>
+<td>
+ Unspecified</td>
+<td>
+79,380</td>
+<td>
+8</td>
+<td>
+9696476</td>
+</tr>
+<tr><td>
+Euroclear Bank SA/NV</td>
+<td>
+Corporation</td>
+<td>
+1 Boulevard Du Roi Albert Ii</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 326 12 11</td>
+<td>
+556,563</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+556,563</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+1,725</td>
+<td>
+</td>
+<td>
+9685806</td>
+</tr>
+<tr><td>
+Euroclear Bank SA/NV</td>
+<td>
+Corporation</td>
+<td>
+1 Boulevard Du Roi Albert Ii</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 326 12 11</td>
+<td>
+556,563</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+556,563</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+General Insurance</td>
+<td>
+1,002</td>
+<td>
+</td>
+<td>
+9685806</td>
+</tr>
+<tr><td>
+Euroclear Bank SA/NV</td>
+<td>
+Corporation</td>
+<td>
+1 Boulevard Du Roi Albert Ii</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 326 12 11</td>
+<td>
+556,563</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+556,563</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Real Estate</td>
+<td>
+ Unspecified</td>
+<td>
+3,284</td>
+<td>
+1</td>
+<td>
+9685806</td>
+</tr>
+<tr><td>
+Euroclear Bank SA/NV</td>
+<td>
+Corporation</td>
+<td>
+1 Boulevard Du Roi Albert Ii</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 326 12 11</td>
+<td>
+556,563</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+556,563</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Other Investments</td>
+<td>
+ Unspecified</td>
+<td>
+51,538</td>
+<td>
+9</td>
+<td>
+9685806</td>
+</tr>
+<tr><td>
+Euroclear Bank SA/NV</td>
+<td>
+Corporation</td>
+<td>
+1 Boulevard Du Roi Albert Ii</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 326 12 11</td>
+<td>
+556,563</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+556,563</td>
+<td>
+Emerging Markets</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+21,483</td>
+<td>
+4</td>
+<td>
+9685806</td>
+</tr>
+<tr><td>
+Euroclear Bank SA/NV</td>
+<td>
+Corporation</td>
+<td>
+1 Boulevard Du Roi Albert Ii</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 326 12 11</td>
+<td>
+556,563</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+556,563</td>
+<td>
+Europe</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+835</td>
+<td>
+</td>
+<td>
+9685806</td>
+</tr>
+<tr><td>
+Euroclear Bank SA/NV</td>
+<td>
+Corporation</td>
+<td>
+1 Boulevard Du Roi Albert Ii</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 326 12 11</td>
+<td>
+556,563</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+556,563</td>
+<td>
+Europe</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Corporate Bonds</td>
+<td>
+96,508</td>
+<td>
+17</td>
+<td>
+9685806</td>
+</tr>
+<tr><td>
+Euroclear Bank SA/NV</td>
+<td>
+Corporation</td>
+<td>
+1 Boulevard Du Roi Albert Ii</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 326 12 11</td>
+<td>
+556,563</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+556,563</td>
+<td>
+Europe</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Government Bonds</td>
+<td>
+109,643</td>
+<td>
+20</td>
+<td>
+9685806</td>
+</tr>
+<tr><td>
+Euroclear Bank SA/NV</td>
+<td>
+Corporation</td>
+<td>
+1 Boulevard Du Roi Albert Ii</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 326 12 11</td>
+<td>
+556,563</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+556,563</td>
+<td>
+Europe</td>
+<td>
+Unspecified</td>
+<td>
+Real Estate</td>
+<td>
+REITs</td>
+<td>
+17,699</td>
+<td>
+3</td>
+<td>
+9685806</td>
+</tr>
+<tr><td>
+Euroclear Bank SA/NV</td>
+<td>
+Corporation</td>
+<td>
+1 Boulevard Du Roi Albert Ii</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 326 12 11</td>
+<td>
+556,563</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+556,563</td>
+<td>
+Global</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+252,847</td>
+<td>
+45</td>
+<td>
+9685806</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+Rue De La Fusée 96</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 729 90 01</td>
+<td>
+776,535</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Alternatives</td>
+<td>
+ Unspecified</td>
+<td>
+376,852</td>
+<td>
+49</td>
+<td>
+9685844</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+Rue De La Fusée 96</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 729 90 01</td>
+<td>
+776,535</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Alternatives</td>
+<td>
+Infrastructure</td>
+<td>
+12,365</td>
+<td>
+2</td>
+<td>
+9685844</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+Rue De La Fusée 96</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 729 90 01</td>
+<td>
+776,535</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+30,440</td>
+<td>
+4</td>
+<td>
+9685844</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+Rue De La Fusée 96</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 729 90 01</td>
+<td>
+776,535</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Real Estate</td>
+<td>
+Private</td>
+<td>
+1,622</td>
+<td>
+</td>
+<td>
+9685844</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+Rue De La Fusée 96</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 729 90 01</td>
+<td>
+776,535</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+Emerging Markets</td>
+<td>
+Mutual Fund</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+65,124</td>
+<td>
+8</td>
+<td>
+9685844</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+Rue De La Fusée 96</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 729 90 01</td>
+<td>
+776,535</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+Europe</td>
+<td>
+Unspecified</td>
+<td>
+Alternatives</td>
+<td>
+Infrastructure</td>
+<td>
+14,844</td>
+<td>
+2</td>
+<td>
+9685844</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+Rue De La Fusée 96</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 729 90 01</td>
+<td>
+776,535</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+Europe</td>
+<td>
+Unspecified</td>
+<td>
+Real Estate</td>
+<td>
+REITs</td>
+<td>
+65,235</td>
+<td>
+8</td>
+<td>
+9685844</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+Rue De La Fusée 96</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 729 90 01</td>
+<td>
+776,535</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+Europe</td>
+<td>
+Mutual Fund</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+10,380</td>
+<td>
+1</td>
+<td>
+9685844</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+Rue De La Fusée 96</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 729 90 01</td>
+<td>
+776,535</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+Europe</td>
+<td>
+Mutual Fund</td>
+<td>
+Fixed Income</td>
+<td>
+Government Bonds</td>
+<td>
+35,348</td>
+<td>
+5</td>
+<td>
+9685844</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+Rue De La Fusée 96</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 729 90 01</td>
+<td>
+776,535</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+Europe</td>
+<td>
+Mutual Fund</td>
+<td>
+Fixed Income</td>
+<td>
+Bonds</td>
+<td>
+58,582</td>
+<td>
+8</td>
+<td>
+9685844</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+Rue De La Fusée 96</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 729 90 01</td>
+<td>
+776,535</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+Global</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+Indexed</td>
+<td>
+102,092</td>
+<td>
+13</td>
+<td>
+9685844</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+Rue De La Fusée 96</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 729 90 01</td>
+<td>
+776,535</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+European Union</td>
+<td>
+Unspecified</td>
+<td>
+Alternatives</td>
+<td>
+Infrastructure</td>
+<td>
+3,661</td>
+<td>
+</td>
+<td>
+9685844</td>
+</tr>
+<tr><td>
+European Parliament</td>
+<td>
+Government</td>
+<td>
+60 Rue Wiertz</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 (0) 22 84 21 11</td>
+<td>
+136,249</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+136,249</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+9760556</td>
+</tr>
+<tr><td>
+ExxonMobil Petroleum & Chemical BVBA</td>
+<td>
+Corporation</td>
+<td>
+Hermeslaan 2</td>
+<td>
+Machelen</td>
+<td>
+</td>
+<td>
++32 2 239 31 11</td>
+<td>
+2,820,536</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+574,111</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+24,629</td>
+<td>
+4</td>
+<td>
+9409854</td>
+</tr>
+<tr><td>
+ExxonMobil Petroleum & Chemical BVBA</td>
+<td>
+Corporation</td>
+<td>
+Hermeslaan 2</td>
+<td>
+Machelen</td>
+<td>
+</td>
+<td>
++32 2 239 31 11</td>
+<td>
+2,820,536</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+574,111</td>
+<td>
+ Unspecified</td>
+<td>
+Mutual Fund</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+549,482</td>
+<td>
+96</td>
+<td>
+9409854</td>
+</tr>
+<tr><td>
+ExxonMobil Petroleum & Chemical BVBA</td>
+<td>
+Corporation</td>
+<td>
+Hermeslaan 2</td>
+<td>
+Machelen</td>
+<td>
+</td>
+<td>
++32 2 239 31 11</td>
+<td>
+2,820,536</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+2,246,425</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+19,769</td>
+<td>
+1</td>
+<td>
+9409854</td>
+</tr>
+<tr><td>
+ExxonMobil Petroleum & Chemical BVBA</td>
+<td>
+Corporation</td>
+<td>
+Hermeslaan 2</td>
+<td>
+Machelen</td>
+<td>
+</td>
+<td>
++32 2 239 31 11</td>
+<td>
+2,820,536</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+2,246,425</td>
+<td>
+ Unspecified</td>
+<td>
+Mutual Fund</td>
+<td>
+Unspecified</td>
+<td>
+ Unspecified</td>
+<td>
+2,226,656</td>
+<td>
+99</td>
+<td>
+9409854</td>
+</tr>
+<tr><td>
+Fluvius System Operator cvba</td>
+<td>
+Corporation</td>
+<td>
+199 Brusselsesteenweg</td>
+<td>
+Melle</td>
+<td>
+</td>
+<td>
++32 9 263 45 04</td>
+<td>
+1,686,803</td>
+<td>
+Closed or Frozen Defined Benefit Plan</td>
+<td>
+1,686,803</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+107,787</td>
+<td>
+6</td>
+<td>
+9363219</td>
+</tr>
+<tr><td>
+Fluvius System Operator cvba</td>
+<td>
+Corporation</td>
+<td>
+199 Brusselsesteenweg</td>
+<td>
+Melle</td>
+<td>
+</td>
+<td>
++32 9 263 45 04</td>
+<td>
+1,686,803</td>
+<td>
+Closed or Frozen Defined Benefit Plan</td>
+<td>
+1,686,803</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Real Estate</td>
+<td>
+ Unspecified</td>
+<td>
+24,459</td>
+<td>
+1</td>
+<td>
+9363219</td>
+</tr>
+<tr><td>
+Fluvius System Operator cvba</td>
+<td>
+Corporation</td>
+<td>
+199 Brusselsesteenweg</td>
+<td>
+Melle</td>
+<td>
+</td>
+<td>
++32 9 263 45 04</td>
+<td>
+1,686,803</td>
+<td>
+Closed or Frozen Defined Benefit Plan</td>
+<td>
+1,686,803</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Other Investments</td>
+<td>
+ Unspecified</td>
+<td>
+32,049</td>
+<td>
+2</td>
+<td>
+9363219</td>
+</tr>
+<tr><td>
+Fluvius System Operator cvba</td>
+<td>
+Corporation</td>
+<td>
+199 Brusselsesteenweg</td>
+<td>
+Melle</td>
+<td>
+</td>
+<td>
++32 9 263 45 04</td>
+<td>
+1,686,803</td>
+<td>
+Closed or Frozen Defined Benefit Plan</td>
+<td>
+1,686,803</td>
+<td>
+Europe</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+213,212</td>
+<td>
+13</td>
+<td>
+9363219</td>
+</tr>
+<tr><td>
+Fluvius System Operator cvba</td>
+<td>
+Corporation</td>
+<td>
+199 Brusselsesteenweg</td>
+<td>
+Melle</td>
+<td>
+</td>
+<td>
++32 9 263 45 04</td>
+<td>
+1,686,803</td>
+<td>
+Closed or Frozen Defined Benefit Plan</td>
+<td>
+1,686,803</td>
+<td>
+Europe</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Government Bonds</td>
+<td>
+394,206</td>
+<td>
+23</td>
+<td>
+9363219</td>
+</tr>
+<tr><td>
+Fluvius System Operator cvba</td>
+<td>
+Corporation</td>
+<td>
+199 Brusselsesteenweg</td>
+<td>
+Melle</td>
+<td>
+</td>
+<td>
++32 9 263 45 04</td>
+<td>
+1,686,803</td>
+<td>
+Closed or Frozen Defined Benefit Plan</td>
+<td>
+1,686,803</td>
+<td>
+Europe</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Bonds</td>
+<td>
+337,867</td>
+<td>
+20</td>
+<td>
+9363219</td>
+</tr>
+<tr><td>
+Fluvius System Operator cvba</td>
+<td>
+Corporation</td>
+<td>
+199 Brusselsesteenweg</td>
+<td>
+Melle</td>
+<td>
+</td>
+<td>
++32 9 263 45 04</td>
+<td>
+1,686,803</td>
+<td>
+Closed or Frozen Defined Benefit Plan</td>
+<td>
+1,686,803</td>
+<td>
+International</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+215,911</td>
+<td>
+13</td>
+<td>
+9363219</td>
+</tr>
+<tr><td>
+Fluvius System Operator cvba</td>
+<td>
+Corporation</td>
+<td>
+199 Brusselsesteenweg</td>
+<td>
+Melle</td>
+<td>
+</td>
+<td>
++32 9 263 45 04</td>
+<td>
+1,686,803</td>
+<td>
+Closed or Frozen Defined Benefit Plan</td>
+<td>
+1,686,803</td>
+<td>
+International</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Bonds</td>
+<td>
+361,313</td>
+<td>
+21</td>
+<td>
+9363219</td>
+</tr>
+<tr><td>
+Fluxys Belgium SA</td>
+<td>
+Corporation</td>
+<td>
+Avenue Des Arts 31</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 282 72 11</td>
+<td>
+292,780</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+292,780</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+17,040</td>
+<td>
+6</td>
+<td>
+9696986</td>
+</tr>
+<tr><td>
+Fluxys Belgium SA</td>
+<td>
+Corporation</td>
+<td>
+Avenue Des Arts 31</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 282 72 11</td>
+<td>
+292,780</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+292,780</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Other Investments</td>
+<td>
+ Unspecified</td>
+<td>
+6,178</td>
+<td>
+2</td>
+<td>
+9696986</td>
+</tr>
+<tr><td>
+Fluxys Belgium SA</td>
+<td>
+Corporation</td>
+<td>
+Avenue Des Arts 31</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 282 72 11</td>
+<td>
+292,780</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+292,780</td>
+<td>
+International</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+38,823</td>
+<td>
+13</td>
+<td>
+9696986</td>
+</tr>
+<tr><td>
+Fluxys Belgium SA</td>
+<td>
+Corporation</td>
+<td>
+Avenue Des Arts 31</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 282 72 11</td>
+<td>
+292,780</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+292,780</td>
+<td>
+International</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Bonds</td>
+<td>
+94,187</td>
+<td>
+32</td>
+<td>
+9696986</td>
+</tr>
+<tr><td>
+Fluxys Belgium SA</td>
+<td>
+Corporation</td>
+<td>
+Avenue Des Arts 31</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 282 72 11</td>
+<td>
+292,780</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+292,780</td>
+<td>
+European Union</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+26,819</td>
+<td>
+9</td>
+<td>
+9696986</td>
+</tr>
+<tr><td>
+Fluxys Belgium SA</td>
+<td>
+Corporation</td>
+<td>
+Avenue Des Arts 31</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 282 72 11</td>
+<td>
+292,780</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+292,780</td>
+<td>
+European Union</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Government Bonds</td>
+<td>
+42,922</td>
+<td>
+15</td>
+<td>
+9696986</td>
+</tr>
+<tr><td>
+Fluxys Belgium SA</td>
+<td>
+Corporation</td>
+<td>
+Avenue Des Arts 31</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 282 72 11</td>
+<td>
+292,780</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+292,780</td>
+<td>
+European Union</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Bonds</td>
+<td>
+66,812</td>
+<td>
+23</td>
+<td>
+9696986</td>
+</tr>
+<tr><td>
+Groupe Bruxelles Lambert SA</td>
+<td>
+Corporation</td>
+<td>
+Avenue Marnix 24</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 289 17 86</td>
+<td>
+1,175,367</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,175,367</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+82,276</td>
+<td>
+7</td>
+<td>
+9696498</td>
+</tr>
+<tr><td>
+Groupe Bruxelles Lambert SA</td>
+<td>
+Corporation</td>
+<td>
+Avenue Marnix 24</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 289 17 86</td>
+<td>
+1,175,367</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,175,367</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Bonds</td>
+<td>
+681,713</td>
+<td>
+58</td>
+<td>
+9696498</td>
+</tr>
+<tr><td>
+Groupe Bruxelles Lambert SA</td>
+<td>
+Corporation</td>
+<td>
+Avenue Marnix 24</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 289 17 86</td>
+<td>
+1,175,367</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,175,367</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Real Estate</td>
+<td>
+ Unspecified</td>
+<td>
+47,015</td>
+<td>
+4</td>
+<td>
+9696498</td>
+</tr>
+<tr><td>
+Groupe Bruxelles Lambert SA</td>
+<td>
+Corporation</td>
+<td>
+Avenue Marnix 24</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 289 17 86</td>
+<td>
+1,175,367</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,175,367</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Other Investments</td>
+<td>
+ Unspecified</td>
+<td>
+364,364</td>
+<td>
+31</td>
+<td>
+9696498</td>
+</tr>
+<tr><td>
+ING Belgium SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Avenue Marnix 24</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 547 21 11</td>
+<td>
+582,532</td>
+<td>
+Closed or Frozen Defined Benefit Plan</td>
+<td>
+582,532</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+169,400</td>
+<td>
+29</td>
+<td>
+9696478</td>
+</tr>
+<tr><td>
+ING Belgium SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Avenue Marnix 24</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 547 21 11</td>
+<td>
+582,532</td>
+<td>
+Closed or Frozen Defined Benefit Plan</td>
+<td>
+582,532</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Debt</td>
+<td>
+271,052</td>
+<td>
+47</td>
+<td>
+9696478</td>
+</tr>
+<tr><td>
+ING Belgium SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Avenue Marnix 24</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 547 21 11</td>
+<td>
+582,532</td>
+<td>
+Closed or Frozen Defined Benefit Plan</td>
+<td>
+582,532</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Real Estate</td>
+<td>
+ Unspecified</td>
+<td>
+36,758</td>
+<td>
+6</td>
+<td>
+9696478</td>
+</tr>
+<tr><td>
+ING Belgium SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Avenue Marnix 24</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 547 21 11</td>
+<td>
+582,532</td>
+<td>
+Closed or Frozen Defined Benefit Plan</td>
+<td>
+582,532</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Other Investments</td>
+<td>
+ Unspecified</td>
+<td>
+105,322</td>
+<td>
+18</td>
+<td>
+9696478</td>
+</tr>
+<tr><td>
+Katholieke Universiteit Leuven</td>
+<td>
+Endowment</td>
+<td>
+Oude Markt 13 - Bus 5005</td>
+<td>
+Leuven</td>
+<td>
+</td>
+<td>
++32 1 632 40 10</td>
+<td>
+2,458,313</td>
+<td>
+Investment Pool Funds</td>
+<td>
+2,458,313</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+2,438,892</td>
+<td>
+99</td>
+<td>
+9417419</td>
+</tr>
+<tr><td>
+Katholieke Universiteit Leuven</td>
+<td>
+Endowment</td>
+<td>
+Oude Markt 13 - Bus 5005</td>
+<td>
+Leuven</td>
+<td>
+</td>
+<td>
++32 1 632 40 10</td>
+<td>
+2,458,313</td>
+<td>
+Investment Pool Funds</td>
+<td>
+2,458,313</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+19,421</td>
+<td>
+1</td>
+<td>
+9417419</td>
+</tr>
+<tr><td>
+KBC Group NV</td>
+<td>
+Corporation</td>
+<td>
+Havenlaan 2</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++ 32 78 35 31 37</td>
+<td>
+2,982,556</td>
+<td>
+Closed or Frozen Defined Benefit Plan</td>
+<td>
+2,643,741</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+32,254</td>
+<td>
+1</td>
+<td>
+9696472</td>
+</tr>
+<tr><td>
+KBC Group NV</td>
+<td>
+Corporation</td>
+<td>
+Havenlaan 2</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++ 32 78 35 31 37</td>
+<td>
+2,982,556</td>
+<td>
+Closed or Frozen Defined Benefit Plan</td>
+<td>
+2,643,741</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+7,931</td>
+<td>
+</td>
+<td>
+9696472</td>
+</tr>
+<tr><td>
+KBC Group NV</td>
+<td>
+Corporation</td>
+<td>
+Havenlaan 2</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++ 32 78 35 31 37</td>
+<td>
+2,982,556</td>
+<td>
+Closed or Frozen Defined Benefit Plan</td>
+<td>
+2,643,741</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Bonds</td>
+<td>
+25,116</td>
+<td>
+1</td>
+<td>
+9696472</td>
+</tr>
+<tr><td>
+KBC Group NV</td>
+<td>
+Corporation</td>
+<td>
+Havenlaan 2</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++ 32 78 35 31 37</td>
+<td>
+2,982,556</td>
+<td>
+Closed or Frozen Defined Benefit Plan</td>
+<td>
+2,643,741</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Real Estate</td>
+<td>
+ Unspecified</td>
+<td>
+2,644</td>
+<td>
+</td>
+<td>
+9696472</td>
+</tr>
+<tr><td>
+KBC Group NV</td>
+<td>
+Corporation</td>
+<td>
+Havenlaan 2</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++ 32 78 35 31 37</td>
+<td>
+2,982,556</td>
+<td>
+Closed or Frozen Defined Benefit Plan</td>
+<td>
+2,643,741</td>
+<td>
+ Unspecified</td>
+<td>
+Mutual Fund</td>
+<td>
+Unspecified</td>
+<td>
+ Unspecified</td>
+<td>
+2,575,797</td>
+<td>
+97</td>
+<td>
+9696472</td>
+</tr>
+<tr><td>
+KBC Group NV</td>
+<td>
+Corporation</td>
+<td>
+Havenlaan 2</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++ 32 78 35 31 37</td>
+<td>
+2,982,556</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+338,815</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+3,388</td>
+<td>
+1</td>
+<td>
+9696472</td>
+</tr>
+<tr><td>
+KBC Group NV</td>
+<td>
+Corporation</td>
+<td>
+Havenlaan 2</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++ 32 78 35 31 37</td>
+<td>
+2,982,556</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+338,815</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+111,809</td>
+<td>
+33</td>
+<td>
+9696472</td>
+</tr>
+<tr><td>
+KBC Group NV</td>
+<td>
+Corporation</td>
+<td>
+Havenlaan 2</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++ 32 78 35 31 37</td>
+<td>
+2,982,556</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+338,815</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Bonds</td>
+<td>
+179,572</td>
+<td>
+53</td>
+<td>
+9696472</td>
+</tr>
+<tr><td>
+KBC Group NV</td>
+<td>
+Corporation</td>
+<td>
+Havenlaan 2</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++ 32 78 35 31 37</td>
+<td>
+2,982,556</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+338,815</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Real Estate</td>
+<td>
+ Unspecified</td>
+<td>
+44,046</td>
+<td>
+13</td>
+<td>
+9696472</td>
+</tr>
+<tr><td>
+King Baudouin Foundation</td>
+<td>
+Tax Exempt Organization</td>
+<td>
+Rue Brederode 21</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 500 45 55</td>
+<td>
+684,694</td>
+<td>
+Investment Pool Funds</td>
+<td>
+684,694</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+5,820</td>
+<td>
+1</td>
+<td>
+9900086</td>
+</tr>
+<tr><td>
+King Baudouin Foundation</td>
+<td>
+Tax Exempt Organization</td>
+<td>
+Rue Brederode 21</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 500 45 55</td>
+<td>
+684,694</td>
+<td>
+Investment Pool Funds</td>
+<td>
+684,694</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+673,533</td>
+<td>
+98</td>
+<td>
+9900086</td>
+</tr>
+<tr><td>
+King Baudouin Foundation</td>
+<td>
+Tax Exempt Organization</td>
+<td>
+Rue Brederode 21</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 500 45 55</td>
+<td>
+684,694</td>
+<td>
+Investment Pool Funds</td>
+<td>
+684,694</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Other Investments</td>
+<td>
+ Unspecified</td>
+<td>
+5,341</td>
+<td>
+1</td>
+<td>
+9900086</td>
+</tr>
+<tr><td>
+Nestlé Belgilux SA</td>
+<td>
+Corporation</td>
+<td>
+221 Rue De Birmingham</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 529 52 52</td>
+<td>
+254,045</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+254,045</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+254,045</td>
+<td>
+100</td>
+<td>
+9415188</td>
+</tr>
+<tr><td>
+Ogéo Fund</td>
+<td>
+Corporation</td>
+<td>
+Rue Sainte-Marie 5 Box 4</td>
+<td>
+Liège</td>
+<td>
+</td>
+<td>
++32 4 222 01 15</td>
+<td>
+977,462</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+977,462</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Real Estate</td>
+<td>
+ Unspecified</td>
+<td>
+8,993</td>
+<td>
+1</td>
+<td>
+9900034</td>
+</tr>
+<tr><td>
+Ogéo Fund</td>
+<td>
+Corporation</td>
+<td>
+Rue Sainte-Marie 5 Box 4</td>
+<td>
+Liège</td>
+<td>
+</td>
+<td>
++32 4 222 01 15</td>
+<td>
+977,462</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+977,462</td>
+<td>
+ Unspecified</td>
+<td>
+Mutual Fund</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+968,469</td>
+<td>
+99</td>
+<td>
+9900034</td>
+</tr>
+<tr><td>
+Pensioenfonds Metaal OFP</td>
+<td>
+Corporation</td>
+<td>
+Galerie Ravenstein 4/7</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 504 97 78</td>
+<td>
+1,795,539</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,795,539</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Alternatives</td>
+<td>
+Derivatives</td>
+<td>
+2,514</td>
+<td>
+</td>
+<td>
+9362105</td>
+</tr>
+<tr><td>
+Pensioenfonds Metaal OFP</td>
+<td>
+Corporation</td>
+<td>
+Galerie Ravenstein 4/7</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 504 97 78</td>
+<td>
+1,795,539</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,795,539</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+1,064,036</td>
+<td>
+59</td>
+<td>
+9362105</td>
+</tr>
+<tr><td>
+Pensioenfonds Metaal OFP</td>
+<td>
+Corporation</td>
+<td>
+Galerie Ravenstein 4/7</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 504 97 78</td>
+<td>
+1,795,539</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,795,539</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Bonds</td>
+<td>
+728,989</td>
+<td>
+41</td>
+<td>
+9362105</td>
+</tr>
+<tr><td>
+Pensioenfonds UZ Gent OFP</td>
+<td>
+Corporation</td>
+<td>
+C. Heymanslaan 10</td>
+<td>
+Gent</td>
+<td>
+</td>
+<td>
++32 9 332 21 11</td>
+<td>
+1,170,149</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,170,149</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+1,135,981</td>
+<td>
+97</td>
+<td>
+9306716</td>
+</tr>
+<tr><td>
+Pensioenfonds UZ Gent OFP</td>
+<td>
+Corporation</td>
+<td>
+C. Heymanslaan 10</td>
+<td>
+Gent</td>
+<td>
+</td>
+<td>
++32 9 332 21 11</td>
+<td>
+1,170,149</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,170,149</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Debt</td>
+<td>
+234</td>
+<td>
+</td>
+<td>
+9306716</td>
+</tr>
+<tr><td>
+Pensioenfonds UZ Gent OFP</td>
+<td>
+Corporation</td>
+<td>
+C. Heymanslaan 10</td>
+<td>
+Gent</td>
+<td>
+</td>
+<td>
++32 9 332 21 11</td>
+<td>
+1,170,149</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,170,149</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Other Investments</td>
+<td>
+ Unspecified</td>
+<td>
+33,934</td>
+<td>
+3</td>
+<td>
+9306716</td>
+</tr>
+<tr><td>
+Proximus SA</td>
+<td>
+Corporation</td>
+<td>
+Koning Albert Ii-Laan 27 B</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 205 4000</td>
+<td>
+1,291,248</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,291,248</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+544,907</td>
+<td>
+42</td>
+<td>
+9696485</td>
+</tr>
+<tr><td>
+Proximus SA</td>
+<td>
+Corporation</td>
+<td>
+Koning Albert Ii-Laan 27 B</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 205 4000</td>
+<td>
+1,291,248</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,291,248</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Convertible Bonds</td>
+<td>
+59,397</td>
+<td>
+5</td>
+<td>
+9696485</td>
+</tr>
+<tr><td>
+Proximus SA</td>
+<td>
+Corporation</td>
+<td>
+Koning Albert Ii-Laan 27 B</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 205 4000</td>
+<td>
+1,291,248</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,291,248</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Debt</td>
+<td>
+562,984</td>
+<td>
+44</td>
+<td>
+9696485</td>
+</tr>
+<tr><td>
+Proximus SA</td>
+<td>
+Corporation</td>
+<td>
+Koning Albert Ii-Laan 27 B</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 205 4000</td>
+<td>
+1,291,248</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,291,248</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Other Investments</td>
+<td>
+ Unspecified</td>
+<td>
+123,960</td>
+<td>
+10</td>
+<td>
+9696485</td>
+</tr>
+<tr><td>
+Recticel Group</td>
+<td>
+Corporation</td>
+<td>
+Bourgetlaan 42 Avenue Du Bourget</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 775 18 11</td>
+<td>
+66,534</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+34,718</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+312</td>
+<td>
+1</td>
+<td>
+9685804</td>
+</tr>
+<tr><td>
+Recticel Group</td>
+<td>
+Corporation</td>
+<td>
+Bourgetlaan 42 Avenue Du Bourget</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 775 18 11</td>
+<td>
+66,534</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+34,718</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Corporate Bonds</td>
+<td>
+2,864</td>
+<td>
+8</td>
+<td>
+9685804</td>
+</tr>
+<tr><td>
+Recticel Group</td>
+<td>
+Corporation</td>
+<td>
+Bourgetlaan 42 Avenue Du Bourget</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 775 18 11</td>
+<td>
+66,534</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+34,718</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+General Insurance</td>
+<td>
+18,710</td>
+<td>
+54</td>
+<td>
+9685804</td>
+</tr>
+<tr><td>
+Recticel Group</td>
+<td>
+Corporation</td>
+<td>
+Bourgetlaan 42 Avenue Du Bourget</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 775 18 11</td>
+<td>
+66,534</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+34,718</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Government Bonds</td>
+<td>
+12,832</td>
+<td>
+37</td>
+<td>
+9685804</td>
+</tr>
+<tr><td>
+Recticel Group</td>
+<td>
+Corporation</td>
+<td>
+Bourgetlaan 42 Avenue Du Bourget</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 775 18 11</td>
+<td>
+66,534</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+377</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+3</td>
+<td>
+1</td>
+<td>
+9685804</td>
+</tr>
+<tr><td>
+Recticel Group</td>
+<td>
+Corporation</td>
+<td>
+Bourgetlaan 42 Avenue Du Bourget</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 775 18 11</td>
+<td>
+66,534</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+377</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Corporate Bonds</td>
+<td>
+31</td>
+<td>
+8</td>
+<td>
+9685804</td>
+</tr>
+<tr><td>
+Recticel Group</td>
+<td>
+Corporation</td>
+<td>
+Bourgetlaan 42 Avenue Du Bourget</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 775 18 11</td>
+<td>
+66,534</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+377</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+GIC</td>
+<td>
+203</td>
+<td>
+54</td>
+<td>
+9685804</td>
+</tr>
+<tr><td>
+Recticel Group</td>
+<td>
+Corporation</td>
+<td>
+Bourgetlaan 42 Avenue Du Bourget</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 775 18 11</td>
+<td>
+66,534</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+377</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Government Bonds</td>
+<td>
+139</td>
+<td>
+37</td>
+<td>
+9685804</td>
+</tr>
+<tr><td>
+Recticel Group</td>
+<td>
+Corporation</td>
+<td>
+Bourgetlaan 42 Avenue Du Bourget</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 775 18 11</td>
+<td>
+66,534</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+31,439</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+283</td>
+<td>
+1</td>
+<td>
+9685804</td>
+</tr>
+<tr><td>
+Recticel Group</td>
+<td>
+Corporation</td>
+<td>
+Bourgetlaan 42 Avenue Du Bourget</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 775 18 11</td>
+<td>
+66,534</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+31,439</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Corporate Bonds</td>
+<td>
+2,594</td>
+<td>
+8</td>
+<td>
+9685804</td>
+</tr>
+<tr><td>
+Recticel Group</td>
+<td>
+Corporation</td>
+<td>
+Bourgetlaan 42 Avenue Du Bourget</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 775 18 11</td>
+<td>
+66,534</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+31,439</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+GIC</td>
+<td>
+16,942</td>
+<td>
+54</td>
+<td>
+9685804</td>
+</tr>
+<tr><td>
+Recticel Group</td>
+<td>
+Corporation</td>
+<td>
+Bourgetlaan 42 Avenue Du Bourget</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 775 18 11</td>
+<td>
+66,534</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+31,439</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Government Bonds</td>
+<td>
+11,620</td>
+<td>
+37</td>
+<td>
+9685804</td>
+</tr>
+<tr><td>
+SFPI-FPIM</td>
+<td>
+Sovereign Wealth Funds</td>
+<td>
+Avenue Louise 32/4</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 548 52 11</td>
+<td>
+10,588,697</td>
+<td>
+Sovereign Wealth Fund</td>
+<td>
+10,588,697</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+72,003</td>
+<td>
+1</td>
+<td>
+9337139</td>
+</tr>
+<tr><td>
+SFPI-FPIM</td>
+<td>
+Sovereign Wealth Funds</td>
+<td>
+Avenue Louise 32/4</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 548 52 11</td>
+<td>
+10,588,697</td>
+<td>
+Sovereign Wealth Fund</td>
+<td>
+10,588,697</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+5,448,943</td>
+<td>
+51</td>
+<td>
+9337139</td>
+</tr>
+<tr><td>
+SFPI-FPIM</td>
+<td>
+Sovereign Wealth Funds</td>
+<td>
+Avenue Louise 32/4</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 548 52 11</td>
+<td>
+10,588,697</td>
+<td>
+Sovereign Wealth Fund</td>
+<td>
+10,588,697</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Investments in Affiliated Companies</td>
+<td>
+ Unspecified</td>
+<td>
+2,280,805</td>
+<td>
+22</td>
+<td>
+9337139</td>
+</tr>
+<tr><td>
+SFPI-FPIM</td>
+<td>
+Sovereign Wealth Funds</td>
+<td>
+Avenue Louise 32/4</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 548 52 11</td>
+<td>
+10,588,697</td>
+<td>
+Sovereign Wealth Fund</td>
+<td>
+10,588,697</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Other Investments</td>
+<td>
+ Unspecified</td>
+<td>
+2,786,945</td>
+<td>
+26</td>
+<td>
+9337139</td>
+</tr>
+<tr><td>
+Shell Belgium Pension Fund OFP</td>
+<td>
+Corporation</td>
+<td>
+Kantersteen 47</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 508 91 11</td>
+<td>
+420,131</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+420,131</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+21,763</td>
+<td>
+5</td>
+<td>
+9306725</td>
+</tr>
+<tr><td>
+Shell Belgium Pension Fund OFP</td>
+<td>
+Corporation</td>
+<td>
+Kantersteen 47</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 508 91 11</td>
+<td>
+420,131</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+420,131</td>
+<td>
+ Unspecified</td>
+<td>
+Mutual Fund</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+398,368</td>
+<td>
+95</td>
+<td>
+9306725</td>
+</tr>
+<tr><td>
+Solvay SA</td>
+<td>
+Corporation</td>
+<td>
+Rue De Ransbeek, 310</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 264 21 11</td>
+<td>
+885,112</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+885,112</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+8,851</td>
+<td>
+1</td>
+<td>
+9696474</td>
+</tr>
+<tr><td>
+Solvay SA</td>
+<td>
+Corporation</td>
+<td>
+Rue De Ransbeek, 310</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 264 21 11</td>
+<td>
+885,112</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+885,112</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+177,022</td>
+<td>
+20</td>
+<td>
+9696474</td>
+</tr>
+<tr><td>
+Solvay SA</td>
+<td>
+Corporation</td>
+<td>
+Rue De Ransbeek, 310</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 264 21 11</td>
+<td>
+885,112</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+885,112</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Bonds</td>
+<td>
+619,578</td>
+<td>
+70</td>
+<td>
+9696474</td>
+</tr>
+<tr><td>
+Solvay SA</td>
+<td>
+Corporation</td>
+<td>
+Rue De Ransbeek, 310</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 264 21 11</td>
+<td>
+885,112</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+885,112</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Real Estate</td>
+<td>
+ Unspecified</td>
+<td>
+17,702</td>
+<td>
+2</td>
+<td>
+9696474</td>
+</tr>
+<tr><td>
+Solvay SA</td>
+<td>
+Corporation</td>
+<td>
+Rue De Ransbeek, 310</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 264 21 11</td>
+<td>
+885,112</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+885,112</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Other Invesments</td>
+<td>
+ Unspecified</td>
+<td>
+61,958</td>
+<td>
+7</td>
+<td>
+9696474</td>
+</tr>
+<tr><td>
+Tessenderlo Group NV</td>
+<td>
+Corporation</td>
+<td>
+Troonstraat 130, Rue Du Trone</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 639 18 11</td>
+<td>
+121,193</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+121,193</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+9,574</td>
+<td>
+8</td>
+<td>
+9696487</td>
+</tr>
+<tr><td>
+Tessenderlo Group NV</td>
+<td>
+Corporation</td>
+<td>
+Troonstraat 130, Rue Du Trone</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 639 18 11</td>
+<td>
+121,193</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+121,193</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+General Insurance</td>
+<td>
+57,445</td>
+<td>
+47</td>
+<td>
+9696487</td>
+</tr>
+<tr><td>
+Tessenderlo Group NV</td>
+<td>
+Corporation</td>
+<td>
+Troonstraat 130, Rue Du Trone</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 639 18 11</td>
+<td>
+121,193</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+121,193</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Real Estate</td>
+<td>
+ Unspecified</td>
+<td>
+4,363</td>
+<td>
+4</td>
+<td>
+9696487</td>
+</tr>
+<tr><td>
+Tessenderlo Group NV</td>
+<td>
+Corporation</td>
+<td>
+Troonstraat 130, Rue Du Trone</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 639 18 11</td>
+<td>
+121,193</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+121,193</td>
+<td>
+ Unspecified</td>
+<td>
+Mutual Fund</td>
+<td>
+Unspecified</td>
+<td>
+ Unspecified</td>
+<td>
+49,810</td>
+<td>
+41</td>
+<td>
+9696487</td>
+</tr>
+<tr><td>
+Tractebel Engineering</td>
+<td>
+Corporation</td>
+<td>
+Boulevard Simon Bolivar 36</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 773 99 11</td>
+<td>
+186,405</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+186,405</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+6,561</td>
+<td>
+4</td>
+<td>
+9326282</td>
+</tr>
+<tr><td>
+Tractebel Engineering</td>
+<td>
+Corporation</td>
+<td>
+Boulevard Simon Bolivar 36</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 773 99 11</td>
+<td>
+186,405</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+186,405</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Other Investments</td>
+<td>
+ Unspecified</td>
+<td>
+179,844</td>
+<td>
+96</td>
+<td>
+9326282</td>
+</tr>
+<tr><td>
+Umicore SA</td>
+<td>
+Corporation</td>
+<td>
+Broekstraat 31</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 227 7111</td>
+<td>
+330,428</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+330,428</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Cash & Short-Term</td>
+<td>
+ Unspecified</td>
+<td>
+25,972</td>
+<td>
+8</td>
+<td>
+9696490</td>
+</tr>
+<tr><td>
+Umicore SA</td>
+<td>
+Corporation</td>
+<td>
+Broekstraat 31</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 227 7111</td>
+<td>
+330,428</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+330,428</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+73,685</td>
+<td>
+22</td>
+<td>
+9696490</td>
+</tr>
+<tr><td>
+Umicore SA</td>
+<td>
+Corporation</td>
+<td>
+Broekstraat 31</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 227 7111</td>
+<td>
+330,428</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+330,428</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+General Insurance</td>
+<td>
+90,669</td>
+<td>
+27</td>
+<td>
+9696490</td>
+</tr>
+<tr><td>
+Umicore SA</td>
+<td>
+Corporation</td>
+<td>
+Broekstraat 31</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 227 7111</td>
+<td>
+330,428</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+330,428</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Debt</td>
+<td>
+118,987</td>
+<td>
+36</td>
+<td>
+9696490</td>
+</tr>
+<tr><td>
+Umicore SA</td>
+<td>
+Corporation</td>
+<td>
+Broekstraat 31</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 227 7111</td>
+<td>
+330,428</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+330,428</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Real Estate</td>
+<td>
+ Unspecified</td>
+<td>
+11,202</td>
+<td>
+3</td>
+<td>
+9696490</td>
+</tr>
+<tr><td>
+Umicore SA</td>
+<td>
+Corporation</td>
+<td>
+Broekstraat 31</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
++32 2 227 7111</td>
+<td>
+330,428</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+330,428</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Other Investments</td>
+<td>
+ Unspecified</td>
+<td>
+9,913</td>
+<td>
+3</td>
+<td>
+9696490</td>
+</tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+
+</table>
+</body>
+</HTML>

@@ -1,0 +1,1198 @@
+
+<HTML  xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns:html="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/xml; charset=utf-8">
+<!--[if gte mso 9]><xml>
+ <x:ExcelWorkbook>
+  <x:ExcelWorksheets>
+   <x:ExcelWorksheet>
+    <x:Name>M_ExcelGenN</x:Name>
+    <x:WorksheetOptions>
+     <x:DefaultRowHeight>264</x:DefaultRowHeight>
+     <x:Selected/>
+     <x:DoNotDisplayGridlines/>
+     <x:FreezePanes/>
+     <x:FrozenNoSplit/>
+     <x:SplitHorizontal>1</x:SplitHorizontal>
+     <x:TopRowBottomPane>1</x:TopRowBottomPane>
+     <x:ActivePane>2</x:ActivePane>
+     <x:Panes>
+      <x:Pane>
+       <x:Number>3</x:Number>
+      </x:Pane>
+      <x:Pane>
+       <x:Number>2</x:Number>
+       <x:RangeSelection>$2:$2</x:RangeSelection>
+      </x:Pane>
+     </x:Panes>
+     <x:ProtectContents>False</x:ProtectContents>
+     <x:ProtectObjects>False</x:ProtectObjects>
+     <x:ProtectScenarios>False</x:ProtectScenarios>
+    </x:WorksheetOptions>
+   </x:ExcelWorksheet>
+  </x:ExcelWorksheets>
+  <x:ProtectStructure>False</x:ProtectStructure>
+  <x:ProtectWindows>False</x:ProtectWindows>
+ </x:ExcelWorkbook>
+</xml><![endif]-->
+</head>
+<body>
+<table borderColor="#808080" border="1">
+	<tr><th>Firm Name</th><th>Category</th><th>Total PS Assets</th><th>Plan Name</th><th>Type of Plan</th><th>Plan Assets</th><th>Management Co. Name</th><th>Dollar Amount Managed (in 000's)</th><th>Managed Investment Region</th><th>Managed Pooled Investments</th><th>Managed Asset Type</th><th>Managed Asset Style</th><th>Year hired</th><th>Total DB Assets</th><th>Total E/F Assets</th><th>Total DC Assets</th></tr>
+<FreezePanes/>
+<tr><td>
+Administradora de Fondos de Cesantia Chile</td>
+<td>
+Government</td>
+<td>
+12,139,371</td>
+<td>
+Unemployment Funds</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+12,139,371</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+</td>
+<td>
+12,139,371</td>
+</tr>
+<tr><td>
+AFP Capital</td>
+<td>
+Corporation</td>
+<td>
+45,399,500</td>
+<td>
+Fondo A</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+7,260,562</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+</td>
+<td>
+45,399,500</td>
+</tr>
+<tr><td>
+AFP Capital</td>
+<td>
+Corporation</td>
+<td>
+45,399,500</td>
+<td>
+Fondo B</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+8,250,901</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+</td>
+<td>
+45,399,500</td>
+</tr>
+<tr><td>
+AFP Capital</td>
+<td>
+Corporation</td>
+<td>
+45,399,500</td>
+<td>
+Fondo C</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+14,400,389</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+</td>
+<td>
+45,399,500</td>
+</tr>
+<tr><td>
+AFP Capital</td>
+<td>
+Corporation</td>
+<td>
+45,399,500</td>
+<td>
+Fondo D</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+8,780,522</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+</td>
+<td>
+45,399,500</td>
+</tr>
+<tr><td>
+AFP Capital</td>
+<td>
+Corporation</td>
+<td>
+45,399,500</td>
+<td>
+Fondo E</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+6,707,126</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+</td>
+<td>
+45,399,500</td>
+</tr>
+<tr><td>
+AFP Cuprum</td>
+<td>
+Corporation</td>
+<td>
+41,169,401</td>
+<td>
+Fondo A</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+8,770,347</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+</td>
+<td>
+41,169,401</td>
+</tr>
+<tr><td>
+AFP Cuprum</td>
+<td>
+Corporation</td>
+<td>
+41,169,401</td>
+<td>
+Fondo B</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+8,081,387</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+</td>
+<td>
+41,169,401</td>
+</tr>
+<tr><td>
+AFP Cuprum</td>
+<td>
+Corporation</td>
+<td>
+41,169,401</td>
+<td>
+Fondo C</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+13,984,383</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+</td>
+<td>
+41,169,401</td>
+</tr>
+<tr><td>
+AFP Cuprum</td>
+<td>
+Corporation</td>
+<td>
+41,169,401</td>
+<td>
+Fondo D</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+5,172,689</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+</td>
+<td>
+41,169,401</td>
+</tr>
+<tr><td>
+AFP Cuprum</td>
+<td>
+Corporation</td>
+<td>
+41,169,401</td>
+<td>
+Fondo E</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+5,160,595</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+</td>
+<td>
+41,169,401</td>
+</tr>
+<tr><td>
+AFP Habitat SA</td>
+<td>
+Corporation</td>
+<td>
+72,149,456</td>
+<td>
+Fondo A</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+13,510,815</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+</td>
+<td>
+72,149,456</td>
+</tr>
+<tr><td>
+AFP Habitat SA</td>
+<td>
+Corporation</td>
+<td>
+72,149,456</td>
+<td>
+Fondo B</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+12,769,386</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+</td>
+<td>
+72,149,456</td>
+</tr>
+<tr><td>
+AFP Habitat SA</td>
+<td>
+Corporation</td>
+<td>
+72,149,456</td>
+<td>
+Fondo C</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+27,095,891</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+</td>
+<td>
+72,149,456</td>
+</tr>
+<tr><td>
+AFP Habitat SA</td>
+<td>
+Corporation</td>
+<td>
+72,149,456</td>
+<td>
+Fondo D</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+11,618,700</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+</td>
+<td>
+72,149,456</td>
+</tr>
+<tr><td>
+AFP Habitat SA</td>
+<td>
+Corporation</td>
+<td>
+72,149,456</td>
+<td>
+Fondo E</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+7,154,664</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+</td>
+<td>
+72,149,456</td>
+</tr>
+<tr><td>
+AFP Modelo S.A.</td>
+<td>
+Corporation</td>
+<td>
+22,785,478</td>
+<td>
+Fondo A (Más riesgoso)</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+3,767,026</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+</td>
+<td>
+22,785,478</td>
+</tr>
+<tr><td>
+AFP Modelo S.A.</td>
+<td>
+Corporation</td>
+<td>
+22,785,478</td>
+<td>
+Fondo B (Riesgoso)</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+9,409,824</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+</td>
+<td>
+22,785,478</td>
+</tr>
+<tr><td>
+AFP Modelo S.A.</td>
+<td>
+Corporation</td>
+<td>
+22,785,478</td>
+<td>
+Fondo C (Intermedio)</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+5,822,860</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+</td>
+<td>
+22,785,478</td>
+</tr>
+<tr><td>
+AFP Modelo S.A.</td>
+<td>
+Corporation</td>
+<td>
+22,785,478</td>
+<td>
+Fondo D (Conservador)</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+1,293,302</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+</td>
+<td>
+22,785,478</td>
+</tr>
+<tr><td>
+AFP Modelo S.A.</td>
+<td>
+Corporation</td>
+<td>
+22,785,478</td>
+<td>
+Fondo E (Más Conservador)</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+2,492,466</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+</td>
+<td>
+22,785,478</td>
+</tr>
+<tr><td>
+AFP PlanVital</td>
+<td>
+Corporation</td>
+<td>
+11,831,206</td>
+<td>
+Fondo A</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,476,785</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+1,476,785</td>
+<td>
+</td>
+<td>
+10,354,421</td>
+</tr>
+<tr><td>
+AFP PlanVital</td>
+<td>
+Corporation</td>
+<td>
+11,831,206</td>
+<td>
+Fondo B</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+3,772,565</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+1,476,785</td>
+<td>
+</td>
+<td>
+10,354,421</td>
+</tr>
+<tr><td>
+AFP PlanVital</td>
+<td>
+Corporation</td>
+<td>
+11,831,206</td>
+<td>
+Fondo C</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+3,582,450</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+1,476,785</td>
+<td>
+</td>
+<td>
+10,354,421</td>
+</tr>
+<tr><td>
+AFP PlanVital</td>
+<td>
+Corporation</td>
+<td>
+11,831,206</td>
+<td>
+Fondo D</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+1,576,728</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+1,476,785</td>
+<td>
+</td>
+<td>
+10,354,421</td>
+</tr>
+<tr><td>
+AFP PlanVital</td>
+<td>
+Corporation</td>
+<td>
+11,831,206</td>
+<td>
+Fondo E</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+1,422,678</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+1,476,785</td>
+<td>
+</td>
+<td>
+10,354,421</td>
+</tr>
+<tr><td>
+AFP Provida</td>
+<td>
+Corporation</td>
+<td>
+42,805,955</td>
+<td>
+Fondo A</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+4,615,387</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+</td>
+<td>
+42,805,955</td>
+</tr>
+<tr><td>
+AFP Provida</td>
+<td>
+Corporation</td>
+<td>
+42,805,955</td>
+<td>
+Fondo B</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+6,293,139</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+</td>
+<td>
+42,805,955</td>
+</tr>
+<tr><td>
+AFP Provida</td>
+<td>
+Corporation</td>
+<td>
+42,805,955</td>
+<td>
+Fondo C</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+15,253,932</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+</td>
+<td>
+42,805,955</td>
+</tr>
+<tr><td>
+AFP Provida</td>
+<td>
+Corporation</td>
+<td>
+42,805,955</td>
+<td>
+Fondo D</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+11,427,622</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+</td>
+<td>
+42,805,955</td>
+</tr>
+<tr><td>
+AFP Provida</td>
+<td>
+Corporation</td>
+<td>
+42,805,955</td>
+<td>
+Fondo E</td>
+<td>
+Generic Defined Contribution or Profit Sharing Plan</td>
+<td>
+5,215,875</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+</td>
+<td>
+42,805,955</td>
+</tr>
+<tr><td>
+Anglo American Chile</td>
+<td>
+Corporation</td>
+<td>
+33,000</td>
+<td>
+Americas DB Pension Scheme</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+33,000</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+33,000</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Enel Américas SA</td>
+<td>
+Corporation</td>
+<td>
+1,920,053</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,920,053</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+1,920,053</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Ministerio de Hacienda</td>
+<td>
+Sovereign Wealth Funds</td>
+<td>
+13,629,150</td>
+<td>
+Fondo de Estabilización Económica y Social</td>
+<td>
+Sovereign Wealth Fund</td>
+<td>
+4,519,220</td>
+<td>
+BNP Paribas Asset Management USA, Inc., New York, NY</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Ministerio de Hacienda</td>
+<td>
+Sovereign Wealth Funds</td>
+<td>
+13,629,150</td>
+<td>
+Fondo de Estabilización Económica y Social</td>
+<td>
+Sovereign Wealth Fund</td>
+<td>
+4,519,220</td>
+<td>
+Western Asset Management Company Limited, London, United Kingdom</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Ministerio de Hacienda</td>
+<td>
+Sovereign Wealth Funds</td>
+<td>
+13,629,150</td>
+<td>
+Fondo de Reserva de Pensiones</td>
+<td>
+Sovereign Wealth Fund</td>
+<td>
+9,109,930</td>
+<td>
+BlackRock, New York, NY</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Ministerio de Hacienda</td>
+<td>
+Sovereign Wealth Funds</td>
+<td>
+13,629,150</td>
+<td>
+Fondo de Reserva de Pensiones</td>
+<td>
+Sovereign Wealth Fund</td>
+<td>
+9,109,930</td>
+<td>
+BNP Paribas Asset Management USA, Inc., New York, NY</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Ministerio de Hacienda</td>
+<td>
+Sovereign Wealth Funds</td>
+<td>
+13,629,150</td>
+<td>
+Fondo de Reserva de Pensiones</td>
+<td>
+Sovereign Wealth Fund</td>
+<td>
+9,109,930</td>
+<td>
+BNY Mellon Investment Management, New York, NY</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Ministerio de Hacienda</td>
+<td>
+Sovereign Wealth Funds</td>
+<td>
+13,629,150</td>
+<td>
+Fondo de Reserva de Pensiones</td>
+<td>
+Sovereign Wealth Fund</td>
+<td>
+9,109,930</td>
+<td>
+Nomura Asset Management USA Inc., New York, NY</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Ministerio de Hacienda</td>
+<td>
+Sovereign Wealth Funds</td>
+<td>
+13,629,150</td>
+<td>
+Fondo de Reserva de Pensiones</td>
+<td>
+Sovereign Wealth Fund</td>
+<td>
+9,109,930</td>
+<td>
+UBS Global Asset Management (Americas) Inc.</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Ministerio de Hacienda</td>
+<td>
+Sovereign Wealth Funds</td>
+<td>
+13,629,150</td>
+<td>
+Fondo de Reserva de Pensiones</td>
+<td>
+Sovereign Wealth Fund</td>
+<td>
+9,109,930</td>
+<td>
+Western Asset Management Company Limited, London, United Kingdom</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Universidad de Chile</td>
+<td>
+Endowment</td>
+<td>
+190,453</td>
+<td>
+Investment Pool Funds</td>
+<td>
+Investment Pool Funds</td>
+<td>
+190,453</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+190,453</td>
+<td>
+</td>
+</tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+
+</table>
+</body>
+</HTML>

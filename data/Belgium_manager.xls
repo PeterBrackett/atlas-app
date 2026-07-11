@@ -1,0 +1,2669 @@
+
+<HTML  xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns:html="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/xml; charset=utf-8">
+<!--[if gte mso 9]><xml>
+ <x:ExcelWorkbook>
+  <x:ExcelWorksheets>
+   <x:ExcelWorksheet>
+    <x:Name>M_ExcelGenN</x:Name>
+    <x:WorksheetOptions>
+     <x:DefaultRowHeight>264</x:DefaultRowHeight>
+     <x:Selected/>
+     <x:DoNotDisplayGridlines/>
+     <x:FreezePanes/>
+     <x:FrozenNoSplit/>
+     <x:SplitHorizontal>1</x:SplitHorizontal>
+     <x:TopRowBottomPane>1</x:TopRowBottomPane>
+     <x:ActivePane>2</x:ActivePane>
+     <x:Panes>
+      <x:Pane>
+       <x:Number>3</x:Number>
+      </x:Pane>
+      <x:Pane>
+       <x:Number>2</x:Number>
+       <x:RangeSelection>$2:$2</x:RangeSelection>
+      </x:Pane>
+     </x:Panes>
+     <x:ProtectContents>False</x:ProtectContents>
+     <x:ProtectObjects>False</x:ProtectObjects>
+     <x:ProtectScenarios>False</x:ProtectScenarios>
+    </x:WorksheetOptions>
+   </x:ExcelWorksheet>
+  </x:ExcelWorksheets>
+  <x:ProtectStructure>False</x:ProtectStructure>
+  <x:ProtectWindows>False</x:ProtectWindows>
+ </x:ExcelWorkbook>
+</xml><![endif]-->
+</head>
+<body>
+<table borderColor="#808080" border="1">
+	<tr><th>Firm Name</th><th>Category</th><th>Total PS Assets</th><th>Plan Name</th><th>Type of Plan</th><th>Plan Assets</th><th>Management Co. Name</th><th>Dollar Amount Managed (in 000's)</th><th>Managed Investment Region</th><th>Managed Pooled Investments</th><th>Managed Asset Type</th><th>Managed Asset Style</th><th>Year hired</th><th>Total DB Assets</th><th>Total E/F Assets</th><th>Total DC Assets</th></tr>
+<FreezePanes/>
+<tr><td>
+Ackermans & van Haaren NV</td>
+<td>
+Corporation</td>
+<td>
+235,804</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+235,804</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+235,804</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Ageas SA/NV</td>
+<td>
+Corporation</td>
+<td>
+291,359</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+291,359</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+291,359</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Agfa-Gevaert NV</td>
+<td>
+Corporation</td>
+<td>
+981,128</td>
+<td>
+Defined Contribution Plan</td>
+<td>
+Defined Contribution Plan (plan with contributions only)</td>
+<td>
+179,892</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+801,236</td>
+<td>
+</td>
+<td>
+179,892</td>
+</tr>
+<tr><td>
+Agfa-Gevaert NV</td>
+<td>
+Corporation</td>
+<td>
+981,128</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+801,236</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+801,236</td>
+<td>
+</td>
+<td>
+179,892</td>
+</tr>
+<tr><td>
+Aliaxis S.A.</td>
+<td>
+Corporation</td>
+<td>
+233,936</td>
+<td>
+Defined Benefit Plans</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+233,936</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+233,936</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Amonis OFP</td>
+<td>
+Corporation</td>
+<td>
+2,099,830</td>
+<td>
+Amonis OFP</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+2,099,830</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+2,099,830</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Anheuser-Busch InBev NV</td>
+<td>
+Corporation</td>
+<td>
+3,851,000</td>
+<td>
+Defined Benefit Plans (ex-Brazil, US, Mexico, UK)</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+3,851,000</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+3,851,000</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Antwerp ZOO Society</td>
+<td>
+Tax Exempt Organization</td>
+<td>
+2,930</td>
+<td>
+Investment Pool Funds</td>
+<td>
+Investment Pool Funds</td>
+<td>
+2,930</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+2,930</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Bank Degroof Petercam</td>
+<td>
+Corporation</td>
+<td>
+126,908</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+Closed or Frozen Defined Benefit Plan</td>
+<td>
+126,908</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+126,908</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+The Bank of New York Mellon SA/NV</td>
+<td>
+Corporation</td>
+<td>
+109,997</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+109,997</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+109,997</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Bekaert SA</td>
+<td>
+Corporation</td>
+<td>
+195,447</td>
+<td>
+Belgium Defined Benefit Plan</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+195,447</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+195,447</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Belgisch Olympisch en Interfederaal Comité (BOIC)</td>
+<td>
+Tax Exempt Organization</td>
+<td>
+24,179</td>
+<td>
+Investment Pool Funds</td>
+<td>
+Investment Pool Funds</td>
+<td>
+24,179</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+24,179</td>
+<td>
+</td>
+</tr>
+<tr><td>
+BNP Paribas Fortis SA/NV</td>
+<td>
+Corporation</td>
+<td>
+676,526</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+676,526</td>
+<td>
+AG Insurance, Brussels, Belgium</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+676,526</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+BNP Paribas Fortis SA/NV</td>
+<td>
+Corporation</td>
+<td>
+676,526</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+676,526</td>
+<td>
+BNP Paribas Fortis SA, Brussels, Belgium</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+676,526</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Bpost Group</td>
+<td>
+Corporation</td>
+<td>
+78,027</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+78,027</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+78,027</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Compagnie d' Enterprises CFE SA</td>
+<td>
+Corporation</td>
+<td>
+49,792</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+49,792</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+49,792</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+D'Ieteren SA/NV</td>
+<td>
+Corporation</td>
+<td>
+68,612</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+68,612</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+68,612</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+DuPont European Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+340,318</td>
+<td>
+DuPont European Pension Fund</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+340,318</td>
+<td>
+DuPont Capital Management Corp., Wilmington, DE</td>
+<td>
+340,318</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+</td>
+<td>
+340,318</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+DuPont European Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+340,318</td>
+<td>
+DuPont European Pension Fund</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+340,318</td>
+<td>
+DuPont Capital Management Corp., Wilmington, DE</td>
+<td>
+340,318</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Fixed Income</td>
+<td>
+Bonds</td>
+<td>
+</td>
+<td>
+340,318</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Elia Group</td>
+<td>
+Corporation</td>
+<td>
+323,143</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+323,143</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+323,143</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Etex Group SA</td>
+<td>
+Corporation</td>
+<td>
+992,250</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+Closed or Frozen Defined Benefit Plan</td>
+<td>
+992,250</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+992,250</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Euroclear Bank SA/NV</td>
+<td>
+Corporation</td>
+<td>
+556,563</td>
+<td>
+Euroclear Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+556,563</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+556,563</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+776,535</td>
+<td>
+EUROCONTROL Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+Antin Infrastructure Partners, London, United Kingdom</td>
+<td>
+</td>
+<td>
+Europe</td>
+<td>
+Unspecified</td>
+<td>
+Alternatives</td>
+<td>
+Infrastructure</td>
+<td>
+</td>
+<td>
+776,535</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+776,535</td>
+<td>
+EUROCONTROL Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+Ardian, New York, NY</td>
+<td>
+</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Real Estate</td>
+<td>
+Private</td>
+<td>
+</td>
+<td>
+776,535</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+776,535</td>
+<td>
+EUROCONTROL Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+AXA Investment Managers UK Ltd., London, United Kingdom</td>
+<td>
+</td>
+<td>
+Europe</td>
+<td>
+Unspecified</td>
+<td>
+Alternatives</td>
+<td>
+Infrastructure</td>
+<td>
+</td>
+<td>
+776,535</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+776,535</td>
+<td>
+EUROCONTROL Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+BlackRock, New York, NY</td>
+<td>
+</td>
+<td>
+Emerging Markets</td>
+<td>
+Mutual Fund</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+</td>
+<td>
+776,535</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+776,535</td>
+<td>
+EUROCONTROL Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+BNP Paribas Asset Management, Paris, France</td>
+<td>
+</td>
+<td>
+Europe</td>
+<td>
+Unspecified</td>
+<td>
+Real Estate</td>
+<td>
+REITs</td>
+<td>
+</td>
+<td>
+776,535</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+776,535</td>
+<td>
+EUROCONTROL Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+Candriam France S.A.S., Paris, France</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+776,535</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+776,535</td>
+<td>
+EUROCONTROL Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+Capital Dynamics, Ltd., London, West Midlands, United Kingdom</td>
+<td>
+</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Alternatives</td>
+<td>
+Infrastructure</td>
+<td>
+</td>
+<td>
+776,535</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+776,535</td>
+<td>
+EUROCONTROL Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+First State Investments (UK) Limited, London, United Kingdom</td>
+<td>
+</td>
+<td>
+Europe</td>
+<td>
+Mutual Fund</td>
+<td>
+Alternatives</td>
+<td>
+Infrastructure</td>
+<td>
+</td>
+<td>
+776,535</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+776,535</td>
+<td>
+EUROCONTROL Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+JP Morgan Investment Management Inc., New York, NY</td>
+<td>
+</td>
+<td>
+ Unspecified</td>
+<td>
+Unspecified</td>
+<td>
+Alternatives</td>
+<td>
+Infrastructure</td>
+<td>
+</td>
+<td>
+776,535</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+776,535</td>
+<td>
+EUROCONTROL Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+KBC Asset Management NV, Brussels, Belgium</td>
+<td>
+</td>
+<td>
+Europe</td>
+<td>
+Mutual Fund</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+</td>
+<td>
+776,535</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+776,535</td>
+<td>
+EUROCONTROL Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+LaSalle Investment Management, Chicago, IL</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+776,535</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+776,535</td>
+<td>
+EUROCONTROL Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+Macquarie Group Limited, Sydney, NSW, Australia</td>
+<td>
+</td>
+<td>
+European Union</td>
+<td>
+Unspecified</td>
+<td>
+Alternatives</td>
+<td>
+Infrastructure</td>
+<td>
+</td>
+<td>
+776,535</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+776,535</td>
+<td>
+EUROCONTROL Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+Meridiam Infrastructure North America Corporation, New York, NY</td>
+<td>
+</td>
+<td>
+Europe</td>
+<td>
+Unspecified</td>
+<td>
+Alternatives</td>
+<td>
+Infrastructure</td>
+<td>
+</td>
+<td>
+776,535</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+776,535</td>
+<td>
+EUROCONTROL Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+State Street Investment Management, Boston, MA</td>
+<td>
+</td>
+<td>
+Emerging Markets</td>
+<td>
+Mutual Fund</td>
+<td>
+Equities</td>
+<td>
+ Unspecified</td>
+<td>
+</td>
+<td>
+776,535</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+776,535</td>
+<td>
+EUROCONTROL Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+The Vanguard Group Inc., Malvern, PA</td>
+<td>
+</td>
+<td>
+Europe</td>
+<td>
+Mutual Fund</td>
+<td>
+Fixed Income</td>
+<td>
+Government Bonds</td>
+<td>
+</td>
+<td>
+776,535</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+776,535</td>
+<td>
+EUROCONTROL Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+The Vanguard Group Inc., Malvern, PA</td>
+<td>
+</td>
+<td>
+Europe</td>
+<td>
+Mutual Fund</td>
+<td>
+Fixed Income</td>
+<td>
+Bonds</td>
+<td>
+</td>
+<td>
+776,535</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+776,535</td>
+<td>
+EUROCONTROL Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+The Vanguard Group Inc., Malvern, PA</td>
+<td>
+</td>
+<td>
+Global</td>
+<td>
+Unspecified</td>
+<td>
+Equities</td>
+<td>
+Indexed</td>
+<td>
+</td>
+<td>
+776,535</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+776,535</td>
+<td>
+EUROCONTROL Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+776,535</td>
+<td>
+UBS Asset Management, Zurich, Switzerland</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+776,535</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+European Parliament</td>
+<td>
+Government</td>
+<td>
+136,249</td>
+<td>
+Other Retirement Benefit Schemes</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+136,249</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+136,249</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+ExxonMobil Petroleum & Chemical BVBA</td>
+<td>
+Corporation</td>
+<td>
+2,820,536</td>
+<td>
+ExxonMobil OFP - Belgium Section</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+574,111</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+2,820,536</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+ExxonMobil Petroleum & Chemical BVBA</td>
+<td>
+Corporation</td>
+<td>
+2,820,536</td>
+<td>
+ExxonMobil OFP - Netherlands Section</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+2,246,425</td>
+<td>
+Horsley Bridge Partners LLC, San Francisco, CA</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+2,820,536</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Fluvius System Operator cvba</td>
+<td>
+Corporation</td>
+<td>
+1,686,803</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+Closed or Frozen Defined Benefit Plan</td>
+<td>
+1,686,803</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+1,686,803</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Fluxys Belgium SA</td>
+<td>
+Corporation</td>
+<td>
+292,780</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+292,780</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+292,780</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Groupe Bruxelles Lambert SA</td>
+<td>
+Corporation</td>
+<td>
+1,175,367</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,175,367</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+1,175,367</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+ING Belgium SA/NV</td>
+<td>
+Corporation</td>
+<td>
+582,532</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+Closed or Frozen Defined Benefit Plan</td>
+<td>
+582,532</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+582,532</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Katholieke Universiteit Leuven</td>
+<td>
+Endowment</td>
+<td>
+2,458,313</td>
+<td>
+Investment Pool Funds</td>
+<td>
+Investment Pool Funds</td>
+<td>
+2,458,313</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+</td>
+<td>
+2,458,313</td>
+<td>
+</td>
+</tr>
+<tr><td>
+KBC Group NV</td>
+<td>
+Corporation</td>
+<td>
+2,982,556</td>
+<td>
+Pensioenfonds KBC</td>
+<td>
+Closed or Frozen Defined Benefit Plan</td>
+<td>
+2,643,741</td>
+<td>
+In House Asset Management</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+2,982,556</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+KBC Group NV</td>
+<td>
+Corporation</td>
+<td>
+2,982,556</td>
+<td>
+Other Defined Benefit Plans</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+338,815</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+2,982,556</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+King Baudouin Foundation</td>
+<td>
+Tax Exempt Organization</td>
+<td>
+684,694</td>
+<td>
+Investment Pool Funds</td>
+<td>
+Investment Pool Funds</td>
+<td>
+684,694</td>
+<td>
+Amundi Asset Management, Paris, France</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+684,694</td>
+<td>
+</td>
+</tr>
+<tr><td>
+King Baudouin Foundation</td>
+<td>
+Tax Exempt Organization</td>
+<td>
+684,694</td>
+<td>
+Investment Pool Funds</td>
+<td>
+Investment Pool Funds</td>
+<td>
+684,694</td>
+<td>
+AXA Investment Managers - Real Assets, Paris, France</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+684,694</td>
+<td>
+</td>
+</tr>
+<tr><td>
+King Baudouin Foundation</td>
+<td>
+Tax Exempt Organization</td>
+<td>
+684,694</td>
+<td>
+Investment Pool Funds</td>
+<td>
+Investment Pool Funds</td>
+<td>
+684,694</td>
+<td>
+BlackRock, New York, NY</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+684,694</td>
+<td>
+</td>
+</tr>
+<tr><td>
+King Baudouin Foundation</td>
+<td>
+Tax Exempt Organization</td>
+<td>
+684,694</td>
+<td>
+Investment Pool Funds</td>
+<td>
+Investment Pool Funds</td>
+<td>
+684,694</td>
+<td>
+Goldman, Sachs & Co. LLC, New York, NY</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+684,694</td>
+<td>
+</td>
+</tr>
+<tr><td>
+King Baudouin Foundation</td>
+<td>
+Tax Exempt Organization</td>
+<td>
+684,694</td>
+<td>
+Investment Pool Funds</td>
+<td>
+Investment Pool Funds</td>
+<td>
+684,694</td>
+<td>
+Schroders Investment Management (Japan) Ltd., Tokyo, Chiyoda-ku, Japan</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+684,694</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Nestlé Belgilux SA</td>
+<td>
+Corporation</td>
+<td>
+254,045</td>
+<td>
+Fonds de Pensions Europeen Nestle</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+254,045</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+254,045</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Ogéo Fund</td>
+<td>
+Corporation</td>
+<td>
+977,462</td>
+<td>
+Defined Benefit Plans</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+977,462</td>
+<td>
+BNP Paribas Asset Management, Paris, France</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+977,462</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Ogéo Fund</td>
+<td>
+Corporation</td>
+<td>
+977,462</td>
+<td>
+Defined Benefit Plans</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+977,462</td>
+<td>
+Candriam Investors Group, Brussels, Belgium</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+977,462</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Ogéo Fund</td>
+<td>
+Corporation</td>
+<td>
+977,462</td>
+<td>
+Defined Benefit Plans</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+977,462</td>
+<td>
+Degroof Petercam Asset Management SA, Brussels, Belgium</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+977,462</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Ogéo Fund</td>
+<td>
+Corporation</td>
+<td>
+977,462</td>
+<td>
+Defined Benefit Plans</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+977,462</td>
+<td>
+KBC Asset Management NV, Brussels, Belgium</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+2013</td>
+<td>
+977,462</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Pensioenfonds Metaal OFP</td>
+<td>
+Corporation</td>
+<td>
+1,795,539</td>
+<td>
+Pensioenfonds Metaal</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,795,539</td>
+<td>
+abrdn, Aberdeen, United Kingdom</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+1,795,539</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Pensioenfonds Metaal OFP</td>
+<td>
+Corporation</td>
+<td>
+1,795,539</td>
+<td>
+Pensioenfonds Metaal</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,795,539</td>
+<td>
+AXA Investment Managers, Puteaux, France</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+1,795,539</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Pensioenfonds Metaal OFP</td>
+<td>
+Corporation</td>
+<td>
+1,795,539</td>
+<td>
+Pensioenfonds Metaal</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,795,539</td>
+<td>
+Cohen & Steers Capital Management, Inc., New York, NY</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+1,795,539</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Pensioenfonds Metaal OFP</td>
+<td>
+Corporation</td>
+<td>
+1,795,539</td>
+<td>
+Pensioenfonds Metaal</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,795,539</td>
+<td>
+Degroof Petercam Asset Management SA, Brussels, Belgium</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+1,795,539</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Pensioenfonds Metaal OFP</td>
+<td>
+Corporation</td>
+<td>
+1,795,539</td>
+<td>
+Pensioenfonds Metaal</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,795,539</td>
+<td>
+DWS International GMBH, Frankfurt, Germany</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+1,795,539</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Pensioenfonds Metaal OFP</td>
+<td>
+Corporation</td>
+<td>
+1,795,539</td>
+<td>
+Pensioenfonds Metaal</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,795,539</td>
+<td>
+Lazard Asset Management LLC, New York, NY</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+1,795,539</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Pensioenfonds Metaal OFP</td>
+<td>
+Corporation</td>
+<td>
+1,795,539</td>
+<td>
+Pensioenfonds Metaal</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,795,539</td>
+<td>
+Northern Trust Global Investments, Ltd., London, United Kingdom</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+1,795,539</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Pensioenfonds Metaal OFP</td>
+<td>
+Corporation</td>
+<td>
+1,795,539</td>
+<td>
+Pensioenfonds Metaal</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,795,539</td>
+<td>
+PMV nv, Brussels, Belgium</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+1,795,539</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Pensioenfonds UZ Gent OFP</td>
+<td>
+Corporation</td>
+<td>
+1,170,149</td>
+<td>
+Pension Plan</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,170,149</td>
+<td>
+BNP Paribas Fortis SA, Brussels, Belgium</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+1,170,149</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Pensioenfonds UZ Gent OFP</td>
+<td>
+Corporation</td>
+<td>
+1,170,149</td>
+<td>
+Pension Plan</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,170,149</td>
+<td>
+Candriam Investors Group, Brussels, Belgium</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+1,170,149</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Pensioenfonds UZ Gent OFP</td>
+<td>
+Corporation</td>
+<td>
+1,170,149</td>
+<td>
+Pension Plan</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,170,149</td>
+<td>
+Degroof Petercam Asset Management SA, Brussels, Belgium</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+2012</td>
+<td>
+1,170,149</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Pensioenfonds UZ Gent OFP</td>
+<td>
+Corporation</td>
+<td>
+1,170,149</td>
+<td>
+Pension Plan</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,170,149</td>
+<td>
+Dimensional Fund Advisors Ltd., London, United Kingdom</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+1,170,149</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Pensioenfonds UZ Gent OFP</td>
+<td>
+Corporation</td>
+<td>
+1,170,149</td>
+<td>
+Pension Plan</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,170,149</td>
+<td>
+Goldman Sachs Asset Management International Ltd., London, United Kingdom</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+1,170,149</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Pensioenfonds UZ Gent OFP</td>
+<td>
+Corporation</td>
+<td>
+1,170,149</td>
+<td>
+Pension Plan</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,170,149</td>
+<td>
+KBC Asset Management NV, Brussels, Belgium</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+1,170,149</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Pensioenfonds UZ Gent OFP</td>
+<td>
+Corporation</td>
+<td>
+1,170,149</td>
+<td>
+Pension Plan</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,170,149</td>
+<td>
+Pacific Investment Management Company LLC  (PIMCO), Newport Beach, CA</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+1,170,149</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Pensioenfonds UZ Gent OFP</td>
+<td>
+Corporation</td>
+<td>
+1,170,149</td>
+<td>
+Pension Plan</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,170,149</td>
+<td>
+Robeco Institutional Asset Management BV, Rotterdam, Netherlands</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+1,170,149</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Pensioenfonds UZ Gent OFP</td>
+<td>
+Corporation</td>
+<td>
+1,170,149</td>
+<td>
+Pension Plan</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,170,149</td>
+<td>
+Vanguard Asset Management Limited, London, United Kingdom</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+1,170,149</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Proximus SA</td>
+<td>
+Corporation</td>
+<td>
+1,291,248</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+1,291,248</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+1,291,248</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Recticel Group</td>
+<td>
+Corporation</td>
+<td>
+66,534</td>
+<td>
+Defined Benefit Plan-Belgium</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+34,718</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+66,534</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Recticel Group</td>
+<td>
+Corporation</td>
+<td>
+66,534</td>
+<td>
+Defined Benefit Plan-Other Countries</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+377</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+66,534</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Recticel Group</td>
+<td>
+Corporation</td>
+<td>
+66,534</td>
+<td>
+Defined Benefit Plan-UK</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+31,439</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+66,534</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+SFPI-FPIM</td>
+<td>
+Sovereign Wealth Funds</td>
+<td>
+10,588,697</td>
+<td>
+Sovereign Wealth Fund</td>
+<td>
+Sovereign Wealth Fund</td>
+<td>
+10,588,697</td>
+<td>
+BNP Paribas Asset Management, Paris, France</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Shell Belgium Pension Fund OFP</td>
+<td>
+Corporation</td>
+<td>
+420,131</td>
+<td>
+Pension Fund</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+420,131</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+420,131</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Solvay SA</td>
+<td>
+Corporation</td>
+<td>
+885,112</td>
+<td>
+Defined Benefit Plans ex-UK & ex-U.S.</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+885,112</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+885,112</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Tessenderlo Group NV</td>
+<td>
+Corporation</td>
+<td>
+121,193</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+121,193</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+121,193</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Tractebel Engineering</td>
+<td>
+Corporation</td>
+<td>
+186,405</td>
+<td>
+Pensioenkas Tractebel</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+186,405</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+186,405</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td>
+Umicore SA</td>
+<td>
+Corporation</td>
+<td>
+330,428</td>
+<td>
+Defined Benefit Plan</td>
+<td>
+Defined Benefit Multinational Consolidated Plan</td>
+<td>
+330,428</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>
+330,428</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+
+</table>
+</body>
+</HTML>

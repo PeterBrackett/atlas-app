@@ -1,0 +1,1157 @@
+
+<HTML  xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns:html="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/xml; charset=utf-8">
+<!--[if gte mso 9]><xml>
+ <x:ExcelWorkbook>
+  <x:ExcelWorksheets>
+   <x:ExcelWorksheet>
+    <x:Name>M_ExcelGenN</x:Name>
+    <x:WorksheetOptions>
+     <x:DefaultRowHeight>264</x:DefaultRowHeight>
+     <x:Selected/>
+     <x:DoNotDisplayGridlines/>
+     <x:FreezePanes/>
+     <x:FrozenNoSplit/>
+     <x:SplitHorizontal>1</x:SplitHorizontal>
+     <x:TopRowBottomPane>1</x:TopRowBottomPane>
+     <x:ActivePane>2</x:ActivePane>
+     <x:Panes>
+      <x:Pane>
+       <x:Number>3</x:Number>
+      </x:Pane>
+      <x:Pane>
+       <x:Number>2</x:Number>
+       <x:RangeSelection>$2:$2</x:RangeSelection>
+      </x:Pane>
+     </x:Panes>
+     <x:ProtectContents>False</x:ProtectContents>
+     <x:ProtectObjects>False</x:ProtectObjects>
+     <x:ProtectScenarios>False</x:ProtectScenarios>
+    </x:WorksheetOptions>
+   </x:ExcelWorksheet>
+  </x:ExcelWorksheets>
+  <x:ProtectStructure>False</x:ProtectStructure>
+  <x:ProtectWindows>False</x:ProtectWindows>
+ </x:ExcelWorkbook>
+</xml><![endif]-->
+</head>
+<body>
+<table borderColor="#808080" border="1">
+	<tr><th>Firm Name</th><th>Category</th><th>City</th><th>State</th><th>Country</th><th>Phone#</th><th>Total PS Assets</th><th>Total E/F Assets</th><th>Pension Assets</th><th>Other Assets</th><th>Total DC Assets</th><th>Total DB Assets</th><th>Pid#</th></tr>
+<FreezePanes/>
+<tr><td>
+Ackermans & van Haaren NV</td>
+<td>
+Corporation</td>
+<td>
+Antwerp</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 3 231 87 70</td>
+<td>
+235,804</td>
+<td>
+</td>
+<td>
+235,804</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+235,804</td>
+<td>
+9685828</td>
+</tr>
+<tr><td>
+Ageas SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 2 557 57 11</td>
+<td>
+291,359</td>
+<td>
+</td>
+<td>
+291,359</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+291,359</td>
+<td>
+9696483</td>
+</tr>
+<tr><td>
+Agfa-Gevaert NV</td>
+<td>
+Corporation</td>
+<td>
+Mortsel</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 3 444 21 11</td>
+<td>
+981,128</td>
+<td>
+</td>
+<td>
+981,128</td>
+<td>
+</td>
+<td>
+179,892</td>
+<td>
+801,236</td>
+<td>
+9682848</td>
+</tr>
+<tr><td>
+Aliaxis S.A.</td>
+<td>
+Corporation</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 2 775 50 50</td>
+<td>
+233,936</td>
+<td>
+</td>
+<td>
+233,936</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+233,936</td>
+<td>
+9310605</td>
+</tr>
+<tr><td>
+Amonis OFP</td>
+<td>
+Corporation</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 2 738 00 25</td>
+<td>
+2,099,830</td>
+<td>
+</td>
+<td>
+2,099,830</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+2,099,830</td>
+<td>
+9696944</td>
+</tr>
+<tr><td>
+Anheuser-Busch InBev NV</td>
+<td>
+Corporation</td>
+<td>
+Leuven</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 1 627 61 11</td>
+<td>
+3,851,000</td>
+<td>
+</td>
+<td>
+3,851,000</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+3,851,000</td>
+<td>
+9696471</td>
+</tr>
+<tr><td>
+Antwerp ZOO Society</td>
+<td>
+Tax Exempt Organization</td>
+<td>
+Antwerp</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 3 224 89 36</td>
+<td>
+2,930</td>
+<td>
+2,930</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+9310943</td>
+</tr>
+<tr><td>
+Bank Degroof Petercam</td>
+<td>
+Corporation</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 2 287 91 11</td>
+<td>
+126,908</td>
+<td>
+</td>
+<td>
+126,908</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+126,908</td>
+<td>
+9685809</td>
+</tr>
+<tr><td>
+The Bank of New York Mellon SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 2 545 81 11</td>
+<td>
+109,997</td>
+<td>
+</td>
+<td>
+109,997</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+109,997</td>
+<td>
+9411821</td>
+</tr>
+<tr><td>
+Bekaert SA</td>
+<td>
+Corporation</td>
+<td>
+Zwevegem</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 5 676 61 00</td>
+<td>
+195,447</td>
+<td>
+</td>
+<td>
+195,447</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+195,447</td>
+<td>
+9696488</td>
+</tr>
+<tr><td>
+Belgisch Olympisch en Interfederaal Comité (BOIC)</td>
+<td>
+Tax Exempt Organization</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 2 474 51 50</td>
+<td>
+24,179</td>
+<td>
+24,179</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+9311033</td>
+</tr>
+<tr><td>
+BNP Paribas Fortis SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 2 762 90 00</td>
+<td>
+676,526</td>
+<td>
+</td>
+<td>
+676,526</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+676,526</td>
+<td>
+9696470</td>
+</tr>
+<tr><td>
+Bpost Group</td>
+<td>
+Corporation</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 2 276 76 43</td>
+<td>
+78,027</td>
+<td>
+</td>
+<td>
+78,027</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+78,027</td>
+<td>
+9396847</td>
+</tr>
+<tr><td>
+Compagnie d' Enterprises CFE SA</td>
+<td>
+Corporation</td>
+<td>
+Auderghem</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 2 661 12 11</td>
+<td>
+49,792</td>
+<td>
+</td>
+<td>
+49,792</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+49,792</td>
+<td>
+9696500</td>
+</tr>
+<tr><td>
+D'Ieteren SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 2 536 51 11</td>
+<td>
+68,612</td>
+<td>
+</td>
+<td>
+68,612</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+68,612</td>
+<td>
+9696060</td>
+</tr>
+<tr><td>
+DuPont European Pension Fund</td>
+<td>
+Corporation</td>
+<td>
+Hardenberg</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++ 31 5 232 08 26 7</td>
+<td>
+340,318</td>
+<td>
+</td>
+<td>
+340,318</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+340,318</td>
+<td>
+9779665</td>
+</tr>
+<tr><td>
+Elia Group</td>
+<td>
+Corporation</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 (0) 478 90 13 16</td>
+<td>
+323,143</td>
+<td>
+</td>
+<td>
+323,143</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+323,143</td>
+<td>
+9696981</td>
+</tr>
+<tr><td>
+Etex Group SA</td>
+<td>
+Corporation</td>
+<td>
+Zaventem</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 2 778 1211</td>
+<td>
+992,250</td>
+<td>
+</td>
+<td>
+992,250</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+992,250</td>
+<td>
+9696476</td>
+</tr>
+<tr><td>
+Euroclear Bank SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 2 326 12 11</td>
+<td>
+556,563</td>
+<td>
+</td>
+<td>
+556,563</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+556,563</td>
+<td>
+9685806</td>
+</tr>
+<tr><td>
+EUROCONTROL</td>
+<td>
+Corporation</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 2 729 90 01</td>
+<td>
+776,535</td>
+<td>
+</td>
+<td>
+776,535</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+776,535</td>
+<td>
+9685844</td>
+</tr>
+<tr><td>
+European Parliament</td>
+<td>
+Government</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 (0) 22 84 21 11</td>
+<td>
+136,249</td>
+<td>
+</td>
+<td>
+136,249</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+136,249</td>
+<td>
+9760556</td>
+</tr>
+<tr><td>
+ExxonMobil Petroleum & Chemical BVBA</td>
+<td>
+Corporation</td>
+<td>
+Machelen</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 2 239 31 11</td>
+<td>
+2,820,536</td>
+<td>
+</td>
+<td>
+2,820,536</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+2,820,536</td>
+<td>
+9409854</td>
+</tr>
+<tr><td>
+Fluvius System Operator cvba</td>
+<td>
+Corporation</td>
+<td>
+Melle</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 9 263 45 04</td>
+<td>
+1,686,803</td>
+<td>
+</td>
+<td>
+1,686,803</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+1,686,803</td>
+<td>
+9363219</td>
+</tr>
+<tr><td>
+Fluxys Belgium SA</td>
+<td>
+Corporation</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 2 282 72 11</td>
+<td>
+292,780</td>
+<td>
+</td>
+<td>
+292,780</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+292,780</td>
+<td>
+9696986</td>
+</tr>
+<tr><td>
+Groupe Bruxelles Lambert SA</td>
+<td>
+Corporation</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 2 289 17 86</td>
+<td>
+1,175,367</td>
+<td>
+</td>
+<td>
+1,175,367</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+1,175,367</td>
+<td>
+9696498</td>
+</tr>
+<tr><td>
+ING Belgium SA/NV</td>
+<td>
+Corporation</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 2 547 21 11</td>
+<td>
+582,532</td>
+<td>
+</td>
+<td>
+582,532</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+582,532</td>
+<td>
+9696478</td>
+</tr>
+<tr><td>
+Katholieke Universiteit Leuven</td>
+<td>
+Endowment</td>
+<td>
+Leuven</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 1 632 40 10</td>
+<td>
+2,458,313</td>
+<td>
+2,458,313</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+9417419</td>
+</tr>
+<tr><td>
+KBC Group NV</td>
+<td>
+Corporation</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++ 32 78 35 31 37</td>
+<td>
+2,982,556</td>
+<td>
+</td>
+<td>
+2,982,556</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+2,982,556</td>
+<td>
+9696472</td>
+</tr>
+<tr><td>
+King Baudouin Foundation</td>
+<td>
+Tax Exempt Organization</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 2 500 45 55</td>
+<td>
+684,694</td>
+<td>
+684,694</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+9900086</td>
+</tr>
+<tr><td>
+Nestlé Belgilux SA</td>
+<td>
+Corporation</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 2 529 52 52</td>
+<td>
+254,045</td>
+<td>
+</td>
+<td>
+254,045</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+254,045</td>
+<td>
+9415188</td>
+</tr>
+<tr><td>
+Ogéo Fund</td>
+<td>
+Corporation</td>
+<td>
+Liège</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 4 222 01 15</td>
+<td>
+977,462</td>
+<td>
+</td>
+<td>
+977,462</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+977,462</td>
+<td>
+9900034</td>
+</tr>
+<tr><td>
+Pensioenfonds Metaal OFP</td>
+<td>
+Corporation</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 2 504 97 78</td>
+<td>
+1,795,539</td>
+<td>
+</td>
+<td>
+1,795,539</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+1,795,539</td>
+<td>
+9362105</td>
+</tr>
+<tr><td>
+Pensioenfonds UZ Gent OFP</td>
+<td>
+Corporation</td>
+<td>
+Gent</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 9 332 21 11</td>
+<td>
+1,170,149</td>
+<td>
+</td>
+<td>
+1,170,149</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+1,170,149</td>
+<td>
+9306716</td>
+</tr>
+<tr><td>
+Proximus SA</td>
+<td>
+Corporation</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 2 205 4000</td>
+<td>
+1,291,248</td>
+<td>
+</td>
+<td>
+1,291,248</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+1,291,248</td>
+<td>
+9696485</td>
+</tr>
+<tr><td>
+Recticel Group</td>
+<td>
+Corporation</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 2 775 18 11</td>
+<td>
+66,534</td>
+<td>
+</td>
+<td>
+66,534</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+66,534</td>
+<td>
+9685804</td>
+</tr>
+<tr><td>
+SFPI-FPIM</td>
+<td>
+Sovereign Wealth Funds</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 2 548 52 11</td>
+<td>
+10,588,697</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+10,588,697</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+9337139</td>
+</tr>
+<tr><td>
+Shell Belgium Pension Fund OFP</td>
+<td>
+Corporation</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 2 508 91 11</td>
+<td>
+420,131</td>
+<td>
+</td>
+<td>
+420,131</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+420,131</td>
+<td>
+9306725</td>
+</tr>
+<tr><td>
+Solvay SA</td>
+<td>
+Corporation</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 2 264 21 11</td>
+<td>
+885,112</td>
+<td>
+</td>
+<td>
+885,112</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+885,112</td>
+<td>
+9696474</td>
+</tr>
+<tr><td>
+Tessenderlo Group NV</td>
+<td>
+Corporation</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 2 639 18 11</td>
+<td>
+121,193</td>
+<td>
+</td>
+<td>
+121,193</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+121,193</td>
+<td>
+9696487</td>
+</tr>
+<tr><td>
+Tractebel Engineering</td>
+<td>
+Corporation</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 2 773 99 11</td>
+<td>
+186,405</td>
+<td>
+</td>
+<td>
+186,405</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+186,405</td>
+<td>
+9326282</td>
+</tr>
+<tr><td>
+Umicore SA</td>
+<td>
+Corporation</td>
+<td>
+Brussels</td>
+<td>
+</td>
+<td>
+Belgium</td>
+<td>
++32 2 227 7111</td>
+<td>
+330,428</td>
+<td>
+</td>
+<td>
+330,428</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+330,428</td>
+<td>
+9696490</td>
+</tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+
+</table>
+</body>
+</HTML>

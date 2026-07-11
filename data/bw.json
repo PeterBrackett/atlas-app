@@ -1,0 +1,285 @@
+{
+  "country_code": "BW",
+  "country_name": "Botswana",
+  "reporting_period": "2026-07 (S&P export date)",
+  "source_note": "Currency confirmed: S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). These figures are USD. Category mapping and plan-type routing reused the established rule set from prior builds; no unresolved judgement calls for this country. Categories/institutions excluded from all pension segments (Reserve Banks and similar non-pension pools, or institutions with no DB/DC/E&F breakdown reported): none material. 6 institutions tracked, $14.7bn tracked across all segments.",
+  "scorecard_note": "Not yet scored \u2014 none of the 12 opportunity-scorecard dimensions have been filled in for any Botswana segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
+  "allocation_note": "Built the same real-bottom-up way as every other country: summed actual plan-level AA lines into the six standard buckets, with ambiguous plan types (Investment Pool Funds, Hybrid DB/DC Plan, Other Retirement Fund) ratio-split across each institution's actual segments using the two-pass double-count-avoidance logic, and explicitly-named pools (Sovereign Wealth Fund, Endowment Fund, Foundation Fund Or Investment Pool, Other Tax-exempt Fund) routed directly. Same 5%-of-asset-type materiality threshold for style breakdowns.",
+  "segments": [
+    {
+      "segment": "DB Pension (Govt)",
+      "aum_bn": 8.785981,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 5.073904,
+          "pct_of_segment": 57.7,
+          "styles": [
+            {
+              "asset_style": "Offshore",
+              "value_bn": 4.673263
+            },
+            {
+              "asset_style": "Private Equity",
+              "value_bn": 0.400641
+            }
+          ]
+        },
+        {
+          "asset_type": "Equities",
+          "value_bn": 1.477802,
+          "pct_of_segment": 16.8,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 1.477802
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 1.295054,
+          "pct_of_segment": 14.7,
+          "styles": [
+            {
+              "asset_style": "Bonds",
+              "value_bn": 1.295054
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 0.837304,
+          "pct_of_segment": 9.5,
+          "styles": [
+            {
+              "asset_style": "Money Market",
+              "value_bn": 0.809189
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.028115
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 0.101917,
+          "pct_of_segment": 1.2,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.101917
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 8.785981,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (Botswana)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-10",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+        }
+      ]
+    },
+    {
+      "segment": "SWF",
+      "aum_bn": 4.837366,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 2.368858,
+          "pct_of_segment": 49.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 2.368858
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 1.324471,
+          "pct_of_segment": 27.4,
+          "styles": [
+            {
+              "asset_style": "Bonds",
+              "value_bn": 1.324471
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 0.753178,
+          "pct_of_segment": 15.6,
+          "styles": [
+            {
+              "asset_style": "Repurchase Agreements",
+              "value_bn": 0.433428
+            },
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.212844
+            },
+            {
+              "asset_style": "Savings & Temporary Cash",
+              "value_bn": 0.106906
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 0.390859,
+          "pct_of_segment": 8.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.390859
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 4.837366,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (Botswana)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-10",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+        }
+      ]
+    },
+    {
+      "segment": "DC Pension (Corp)",
+      "aum_bn": 0.874628,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 0.515708,
+          "pct_of_segment": 59.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.515708
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 0.184482,
+          "pct_of_segment": 21.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.184482
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 0.092696,
+          "pct_of_segment": 10.6,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.092696
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 0.028967,
+          "pct_of_segment": 3.3,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.028967
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 0.005794,
+          "pct_of_segment": 0.7,
+          "styles": [
+            {
+              "asset_style": "Private Equity",
+              "value_bn": 0.005794
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 0.874628,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (Botswana)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-10",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+        }
+      ],
+      "allocation_incomplete": true
+    },
+    {
+      "segment": "DC Pension (Endowments)",
+      "aum_bn": 0.197125,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 0.197125,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (Botswana)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-10",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+        }
+      ],
+      "allocation_incomplete": true
+    }
+  ]
+}
