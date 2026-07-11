@@ -1,0 +1,4488 @@
+{
+  "country_code": "KR",
+  "country_name": "South Korea",
+  "extraction_date": "2026-07-10",
+  "record_count": 85,
+  "source_files": [
+    "Korea_company.xls",
+    "Korea_AA.xls",
+    "Korea_manager.xls",
+    "Korea_provider.xls"
+  ],
+  "schema_version": "Atlas_Schema_Proposal_v1.md, Section 1",
+  "institutions": [
+    {
+      "entity_id": "KR-0001",
+      "entity_name": "Amorepacific Corp.",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9360482",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 419203.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "KR-0002",
+      "entity_name": "Asiana Airlines",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9417892",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 196600.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 196600.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 189975.0,
+              "pct_of_plan": 97.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 6625.0,
+              "pct_of_plan": 3.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0003",
+      "entity_name": "Bank of Korea",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Reserve Banks",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9345463",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 383416153.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 383416153.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Currency Overlay",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 76683.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Precious Metals",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4639335.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Specialty Funds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 14531472.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Agency Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1533665.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 21739696.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 18902416.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Bank",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 26685764.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5942950.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Unspecified",
+              "investment_region": "South Korea",
+              "vehicle_type": "Unspecified",
+              "value": 1610348.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Unspecified",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 10160528.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 277593295.0,
+              "pct_of_plan": 72.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0004",
+      "entity_name": "BNK Financial Group",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9509499",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 707751.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 707751.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 653820.0,
+              "pct_of_plan": 92.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 53931.0,
+              "pct_of_plan": 8.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0005",
+      "entity_name": "CJ Cheil Jedang",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9417886",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 755161.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 755161.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 684553.0,
+              "pct_of_plan": 91.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 70608.0,
+              "pct_of_plan": 9.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0006",
+      "entity_name": "Construction Workers Mutual Aid Association",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Union",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9362163",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 3692726.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 3692726.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1078276.0,
+              "pct_of_plan": 29.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 313882.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 236334.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2064234.0,
+              "pct_of_plan": 56.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0007",
+      "entity_name": "Coway Co., Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9328490",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 239916.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 239916.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 166934.0,
+              "pct_of_plan": 70.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 72982.0,
+              "pct_of_plan": 30.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0008",
+      "entity_name": "Daelim Industrial Co., Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9418310",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 222869.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 222869.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 222869.0,
+              "pct_of_plan": 100.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0009",
+      "entity_name": "Dongkuk Steel Mill Co., Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9328198",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 264346.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 264346.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 215336.0,
+              "pct_of_plan": 81.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 48798.0,
+              "pct_of_plan": 18.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 211.0,
+              "pct_of_plan": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0010",
+      "entity_name": "Doosan Corporation",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9395801",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 132731.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 132731.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 132731.0,
+              "pct_of_plan": 100.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0011",
+      "entity_name": "Doosan Heavy Industries & Construction",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9418427",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 886937.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 886937.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 91709.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 528703.0,
+              "pct_of_plan": 60.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unit Trust",
+              "value": 266525.0,
+              "pct_of_plan": 30.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0012",
+      "entity_name": "Government Employees Pension System",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Government",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9336468",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 12211660.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 12211660.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2625507.0,
+              "pct_of_plan": 22.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2540025.0,
+              "pct_of_plan": 21.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3052915.0,
+              "pct_of_plan": 25.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3993213.0,
+              "pct_of_plan": 33.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0013",
+      "entity_name": "GS Caltex Corp.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9337937",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 362325.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 362325.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 145.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 31993.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Beneficiary Certificates",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 330187.0,
+              "pct_of_plan": 91.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0014",
+      "entity_name": "GS Engineering & Construction Corporation",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9417629",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 430238.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 430238.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 59932.0,
+              "pct_of_plan": 14.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 332703.0,
+              "pct_of_plan": 77.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "GIC",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 37603.0,
+              "pct_of_plan": 9.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0015",
+      "entity_name": "Hana Financial Group Inc.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9345436",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 1918438.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 1918438.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 571886.0,
+              "pct_of_plan": 30.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "GIC",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1137058.0,
+              "pct_of_plan": 59.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 209493.0,
+              "pct_of_plan": 11.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0016",
+      "entity_name": "Hanjin Heavy Industries & Construction Co., Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9621405",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 79034.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 79034.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 54462.0,
+              "pct_of_plan": 69.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 12290.0,
+              "pct_of_plan": 16.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 12282.0,
+              "pct_of_plan": 16.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0017",
+      "entity_name": "Hankook Tire Co., Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9361345",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 362197.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 362197.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 471.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 361726.0,
+              "pct_of_plan": 100.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0018",
+      "entity_name": "Hanon Systems",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9418353",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 196944.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 196944.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 7267.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 6834.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Corporate Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5416.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 8390.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 169037.0,
+              "pct_of_plan": 86.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0019",
+      "entity_name": "Hanwha Life Insurance Co., Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9376421",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 153129.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 153129.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Contributions to National Pension Fund",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 306.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Insurer's Guaranteed Interest Deposits and Others",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 152823.0,
+              "pct_of_plan": 100.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0020",
+      "entity_name": "Hanwha Ocean Co., Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9328194",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 520376.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 520376.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 52766.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 467610.0,
+              "pct_of_plan": 90.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0021",
+      "entity_name": "Hyosung Corp.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9363167",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 63782.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 63782.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 10211.0,
+              "pct_of_plan": 16.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 53571.0,
+              "pct_of_plan": 84.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0022",
+      "entity_name": "Hyundai Marine & Fire Insurance Co., Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9418543",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 330211.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 330211.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "National Pension Fund",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 429.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Principal Guaratneed Financial Products",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 329782.0,
+              "pct_of_plan": 100.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0023",
+      "entity_name": "Hyundai Motor Company",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9328919",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 5681424.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "KR-0024",
+      "entity_name": "IM Financial Group",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9418197",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 413929.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 413929.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 413929.0,
+              "pct_of_plan": 100.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0025",
+      "entity_name": "Industrial Bank of Korea",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9336277",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 1265913.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 1265913.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1265913.0,
+              "pct_of_plan": 100.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0026",
+      "entity_name": "JB Financial Group Co., Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9418024",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 269196.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 269196.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 216461.0,
+              "pct_of_plan": 80.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 11629.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 41106.0,
+              "pct_of_plan": 15.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0027",
+      "entity_name": "Kakao Corporation",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9417319",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 167101.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "KR-0028",
+      "entity_name": "KB Financial Group, Inc.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9698668",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 2014698.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 2014698.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1944184.0,
+              "pct_of_plan": 97.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 69910.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Investment Funds",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 604.0,
+              "pct_of_plan": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0029",
+      "entity_name": "KCC Corporation",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9418483",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 382088.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 382088.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 382088.0,
+              "pct_of_plan": 100.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0030",
+      "entity_name": "KEB Hana Bank",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9418435",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 1619047.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 1619047.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 424838.0,
+              "pct_of_plan": 26.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1194209.0,
+              "pct_of_plan": 74.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0031",
+      "entity_name": "Kia Corporation",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9328301",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 2702131.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 2702131.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2702131.0,
+              "pct_of_plan": 100.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0032",
+      "entity_name": "Korea Development Bank",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9360893",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 411883.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 411883.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 386346.0,
+              "pct_of_plan": 94.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1194.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 17670.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Others Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 6673.0,
+              "pct_of_plan": 2.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0033",
+      "entity_name": "Korea Electric Power Corporation",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9328561",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 2653957.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 2653957.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 337849.0,
+              "pct_of_plan": 13.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1858.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 308921.0,
+              "pct_of_plan": 12.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2005330.0,
+              "pct_of_plan": 76.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0034",
+      "entity_name": "Korea Gas Corporation",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9682918",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 311146.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 311146.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 99007.0,
+              "pct_of_plan": 32.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 77320.0,
+              "pct_of_plan": 25.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 87743.0,
+              "pct_of_plan": 28.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 47076.0,
+              "pct_of_plan": 15.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0035",
+      "entity_name": "Korea Investment Corporation",
+      "former_names": [],
+      "entity_type": "Sovereign Wealth Fund",
+      "sub_type": "Sovereign Wealth Funds",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9681916",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 309320.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Sovereign Wealth Fund",
+          "plan_assets": 293313.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 14431.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 140908.0,
+              "pct_of_plan": 48.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 115712.0,
+              "pct_of_plan": 39.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Private",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 21031.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1232.0,
+              "pct_of_plan": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0036",
+      "entity_name": "Korea National Oil Corporation",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9698646",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 84467.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "KR-0037",
+      "entity_name": "Korea Post",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9362215",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 89657485.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "KR-0038",
+      "entity_name": "Korea Teachers Pension",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Government",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9308415",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 24234543.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 24234543.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5554557.0,
+              "pct_of_plan": 23.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 518619.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 9761674.0,
+              "pct_of_plan": 40.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 6649959.0,
+              "pct_of_plan": 27.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1456496.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Other Assets",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 293238.0,
+              "pct_of_plan": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0039",
+      "entity_name": "Korean Air Lines Co. Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9373736",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 520004.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 520004.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 453183.0,
+              "pct_of_plan": 87.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 16640.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 47112.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3068.0,
+              "pct_of_plan": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0040",
+      "entity_name": "Korean Federation of Small and Medium Business",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Government",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9417538",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 19015537.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 19015537.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5676138.0,
+              "pct_of_plan": 30.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 608497.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3156579.0,
+              "pct_of_plan": 17.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 9574323.0,
+              "pct_of_plan": 50.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0041",
+      "entity_name": "Korean Teachers Credit Union",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Government",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9418287",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 55302708.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 55302708.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 31649740.0,
+              "pct_of_plan": 57.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 685754.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5972692.0,
+              "pct_of_plan": 11.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5712770.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Participant",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 11281752.0,
+              "pct_of_plan": 20.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0042",
+      "entity_name": "KT Corporation",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9337290",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 1713231.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "KR-0043",
+      "entity_name": "KT&G Corporation",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9345523",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 320883.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 320883.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 15595.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 305288.0,
+              "pct_of_plan": 95.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0044",
+      "entity_name": "Kumho Petrochemical Co., Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9417894",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 231028.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 231028.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Retirement Pension Fund",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 231028.0,
+              "pct_of_plan": 100.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0045",
+      "entity_name": "Kumho Tires",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9417882",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 141004.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 141004.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 140722.0,
+              "pct_of_plan": 100.0
+            },
+            {
+              "asset_type": "National Pension Fund",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 282.0,
+              "pct_of_plan": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0046",
+      "entity_name": "Kyobo Life Insurance Co., Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9418266",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 169103.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 169103.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 14137.0,
+              "pct_of_plan": 8.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5580.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 74710.0,
+              "pct_of_plan": 44.0
+            },
+            {
+              "asset_type": "Beneficiary certificates",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 74676.0,
+              "pct_of_plan": 44.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0047",
+      "entity_name": "Kyongnam Bank",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9362715",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 184670.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 184670.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 184652.0,
+              "pct_of_plan": 100.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 18.0,
+              "pct_of_plan": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0048",
+      "entity_name": "LG Chem, Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9328337",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 1537477.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 1537477.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 12915.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1524562.0,
+              "pct_of_plan": 99.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0049",
+      "entity_name": "LG Display Co., Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9310659",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 1101373.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 1101373.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1101373.0,
+              "pct_of_plan": 100.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0050",
+      "entity_name": "LG Electronics Inc.",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9363166",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 3730865.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "KR-0051",
+      "entity_name": "LG Household & Health Care, Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9328357",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 709687.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 709687.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 283662.0,
+              "pct_of_plan": 40.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 143854.0,
+              "pct_of_plan": 20.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 282172.0,
+              "pct_of_plan": 40.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0052",
+      "entity_name": "LG Innotek",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9509581",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 657205.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "KR-0053",
+      "entity_name": "LG Uplus Corporation",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9328371",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 739815.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "KR-0054",
+      "entity_name": "Local Finance Association",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Government",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9412962",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 804206.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 804206.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 371624.0,
+              "pct_of_plan": 46.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 84120.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 102295.0,
+              "pct_of_plan": 13.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 246167.0,
+              "pct_of_plan": 31.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0055",
+      "entity_name": "Lotte Chemical Corporation",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9418187",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 39015.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "KR-0056",
+      "entity_name": "Lotte Shopping Co., Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9337589",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 624765.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 624765.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 624765.0,
+              "pct_of_plan": 100.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0057",
+      "entity_name": "LS Group",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9418192",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 698351.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 698351.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 279131.0,
+              "pct_of_plan": 40.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 419220.0,
+              "pct_of_plan": 60.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0058",
+      "entity_name": "Mando Corporation",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9751046",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 332047.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 332047.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 51235.0,
+              "pct_of_plan": 15.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 193451.0,
+              "pct_of_plan": 58.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 87362.0,
+              "pct_of_plan": 26.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0059",
+      "entity_name": "Military Mutual Aid Association",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Government",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9326508",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 15288135.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 15288135.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3731834.0,
+              "pct_of_plan": 24.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Company Shares",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 718542.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1614427.0,
+              "pct_of_plan": 11.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3435244.0,
+              "pct_of_plan": 22.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5788088.0,
+              "pct_of_plan": 38.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0060",
+      "entity_name": "National Agricultural Cooperative Federation",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Government",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9413285",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 73245.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "KR-0061",
+      "entity_name": "National Pension Fund of the Republic of Korea",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Government",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9682803",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 907487538.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 907487538.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 154635876.0,
+              "pct_of_plan": 17.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2722463.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 453744.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "South Korea",
+              "vehicle_type": "Unspecified",
+              "value": 104361067.0,
+              "pct_of_plan": 12.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "South Korea",
+              "vehicle_type": "Unspecified",
+              "value": 257272717.0,
+              "pct_of_plan": 28.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 322067327.0,
+              "pct_of_plan": 35.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 65974344.0,
+              "pct_of_plan": 7.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0062",
+      "entity_name": "NH Investment & Securities Co., Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9407472",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 142371.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 142371.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 32176.0,
+              "pct_of_plan": 23.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 110195.0,
+              "pct_of_plan": 77.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0063",
+      "entity_name": "OCI Company, Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9328171",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 125749.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 125749.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "GIC",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 91973.0,
+              "pct_of_plan": 73.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 33776.0,
+              "pct_of_plan": 27.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0064",
+      "entity_name": "Orion Corporation",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9361455",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 96542.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 96542.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 73208.0,
+              "pct_of_plan": 76.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 23334.0,
+              "pct_of_plan": 24.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0065",
+      "entity_name": "Paradise Co., Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9418292",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 540229.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 540229.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 540229.0,
+              "pct_of_plan": 100.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0066",
+      "entity_name": "Police Mutual Aid Association",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Union",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9362203",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 5099956.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 5099956.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1098531.0,
+              "pct_of_plan": 22.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Unspecified",
+              "investment_region": "South Korea",
+              "vehicle_type": "Unspecified",
+              "value": 292227.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Infrastructure",
+              "investment_region": "South Korea",
+              "vehicle_type": "Unspecified",
+              "value": 54570.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "South Korea",
+              "vehicle_type": "Unspecified",
+              "value": 180538.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "South Korea",
+              "vehicle_type": "Unspecified",
+              "value": 982252.0,
+              "pct_of_plan": 19.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "South Korea",
+              "vehicle_type": "Unspecified",
+              "value": 622195.0,
+              "pct_of_plan": 12.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Unspecified",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 614035.0,
+              "pct_of_plan": 12.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Infrastructure",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 504386.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 219298.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 20910.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 511016.0,
+              "pct_of_plan": 10.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0067",
+      "entity_name": "POSCO",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9328865",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 955096.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "KR-0068",
+      "entity_name": "Presbyterian Church General Assembly Pension Foundation",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Government",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9417476",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 399155.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 399155.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1038.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 377521.0,
+              "pct_of_plan": 95.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 439.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 20157.0,
+              "pct_of_plan": 5.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0069",
+      "entity_name": "Public Officials Benefit Association",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Union",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9308306",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 27726709.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 27726709.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedge Funds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 693168.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Real Assets",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 9011180.0,
+              "pct_of_plan": 33.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3049938.0,
+              "pct_of_plan": 11.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Credit",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 6959404.0,
+              "pct_of_plan": 25.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2245863.0,
+              "pct_of_plan": 8.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2661764.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3105391.0,
+              "pct_of_plan": 11.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0070",
+      "entity_name": "S-Oil Corporation",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9682928",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 474497.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "KR-0071",
+      "entity_name": "Samsung Electro-Mechanics Co., Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9418396",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 839143.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 839143.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 838304.0,
+              "pct_of_plan": 100.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 839.0,
+              "pct_of_plan": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0072",
+      "entity_name": "Samsung Electronics Co., Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9698614",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 14801291.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 14801291.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 11658977.0,
+              "pct_of_plan": 79.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3142314.0,
+              "pct_of_plan": 21.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0073",
+      "entity_name": "Samsung Fire & Marine Insurance Co., Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9326222",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 578826.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 578826.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Retirement Pension Plan Assets",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 578826.0,
+              "pct_of_plan": 100.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0074",
+      "entity_name": "Samsung Heavy Industries Co., Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9326247",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 431612.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 431612.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 431137.0,
+              "pct_of_plan": 100.0
+            },
+            {
+              "asset_type": "National Pension Conversion",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 475.0,
+              "pct_of_plan": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0075",
+      "entity_name": "Samsung Life Insurance Co., Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9311376",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 680596.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 680596.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 618934.0,
+              "pct_of_plan": 91.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 60777.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 885.0,
+              "pct_of_plan": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0076",
+      "entity_name": "Samsung SDI Co., Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9366250",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 886044.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 886044.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 885867.0,
+              "pct_of_plan": 100.0
+            },
+            {
+              "asset_type": "National Pension Fund",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 177.0,
+              "pct_of_plan": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0077",
+      "entity_name": "Shinhan Bank",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9359161",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 1979273.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 1979273.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 31668.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1947605.0,
+              "pct_of_plan": 98.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0078",
+      "entity_name": "Shinhan Card Co., Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9363200",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 244194.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 244194.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 243950.0,
+              "pct_of_plan": 100.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 244.0,
+              "pct_of_plan": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0079",
+      "entity_name": "Shinhan Financial Group",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9326167",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 1979273.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 1979273.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1292663.0,
+              "pct_of_plan": 65.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 31668.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 654941.0,
+              "pct_of_plan": 33.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0080",
+      "entity_name": "SK Hynix Inc.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9411650",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 3435317.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 3435317.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3434286.0,
+              "pct_of_plan": 100.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1031.0,
+              "pct_of_plan": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0081",
+      "entity_name": "SK Inc.",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9363583",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 2811072.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "KR-0082",
+      "entity_name": "SK Innovation Co. Ltd.",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9359162",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 658074.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "KR-0083",
+      "entity_name": "Songwon Industrial Co., Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9410868",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 106257.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 72757.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Investment Funds",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 72757.0,
+              "pct_of_plan": 100.0
+            }
+          ]
+        },
+        {
+          "plan_type": "Defined Benefit Multinational Consolidated Plan",
+          "plan_assets": 394.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 7283.0,
+              "pct_of_plan": 22.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1655.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 11918.0,
+              "pct_of_plan": 36.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5297.0,
+              "pct_of_plan": 16.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 6952.0,
+              "pct_of_plan": 21.0
+            },
+            {
+              "asset_type": "Investment Funds",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 394.0,
+              "pct_of_plan": 100.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0084",
+      "entity_name": "South Korea Music Co., Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9366258",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 934312.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 934312.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3364.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "South Korea",
+              "vehicle_type": "Unspecified",
+              "value": 361485.0,
+              "pct_of_plan": 39.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "South Korea",
+              "vehicle_type": "Unspecified",
+              "value": 274127.0,
+              "pct_of_plan": 29.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 168456.0,
+              "pct_of_plan": 18.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 126880.0,
+              "pct_of_plan": 14.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "KR-0085",
+      "entity_name": "Woori Financial Group",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "KR",
+      "country_name": "South Korea",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9311373",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 1612121.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 1612121.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1612121.0,
+              "pct_of_plan": 100.0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

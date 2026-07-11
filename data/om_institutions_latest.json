@@ -1,0 +1,107 @@
+{
+  "country_code": "OM",
+  "country_name": "Oman",
+  "extraction_date": "2026-07-10",
+  "record_count": 2,
+  "source_files": [
+    "Oman_company.xls",
+    "Oman_AA.xls",
+    "Oman_manager.xls",
+    "Oman_provider.xls"
+  ],
+  "schema_version": "Atlas_Schema_Proposal_v1.md, Section 1",
+  "institutions": [
+    {
+      "entity_id": "OM-0001",
+      "entity_name": "Central Bank of Oman",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Reserve Banks",
+      "country_code": "OM",
+      "country_name": "Oman",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9367849",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 18357356.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 18357356.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Precious Metals",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 607628.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 9116263.0,
+              "pct_of_plan": 50.0
+            },
+            {
+              "asset_type": "IMF Reserve Assets",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1191392.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Placements Abroad",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 7442072.0,
+              "pct_of_plan": 41.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "OM-0002",
+      "entity_name": "Oman Investment Authority",
+      "former_names": [],
+      "entity_type": "Sovereign Wealth Fund",
+      "sub_type": "Sovereign Wealth Funds",
+      "country_code": "OM",
+      "country_name": "Oman",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9681953",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 23000000.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    }
+  ]
+}

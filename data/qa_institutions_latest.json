@@ -1,0 +1,221 @@
+{
+  "country_code": "QA",
+  "country_name": "Qatar",
+  "extraction_date": "2026-07-10",
+  "record_count": 3,
+  "source_files": [
+    "Qatar_company.xls",
+    "Qatar_AA.xls",
+    "Qatar_manager.xls",
+    "Qatar_provider.xls"
+  ],
+  "schema_version": "Atlas_Schema_Proposal_v1.md, Section 1",
+  "institutions": [
+    {
+      "entity_id": "QA-0001",
+      "entity_name": "Ooredoo - Qatar Telecom",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "QA",
+      "country_name": "Qatar",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9698767",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 155331.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "QA-0002",
+      "entity_name": "Qatar Central Bank",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Reserve Banks",
+      "country_code": "QA",
+      "country_name": "Qatar",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9369227",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 97876938.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 97876938.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Precious Metals",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3503994.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "International Sukuk",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3484419.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Investments in Associates",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3474631.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Investments in Subsidiaries",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 10091112.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Qatar Sukuk",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 24381145.0,
+              "pct_of_plan": 25.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 528535.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 3357179.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 1830299.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 185966.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "International",
+              "vehicle_type": "Mutual Fund",
+              "value": 127240.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Qatar",
+              "vehicle_type": "Unspecified",
+              "value": 929831.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Qatar",
+              "vehicle_type": "Unspecified",
+              "value": 29686075.0,
+              "pct_of_plan": 30.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Qatar",
+              "vehicle_type": "Unspecified",
+              "value": 15640735.0,
+              "pct_of_plan": 16.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Qatar",
+              "vehicle_type": "Unspecified",
+              "value": 411083.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Qatar",
+              "vehicle_type": "Mutual Fund",
+              "value": 244692.0,
+              "pct_of_plan": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "QA-0003",
+      "entity_name": "Qatar Investment Authority",
+      "former_names": [],
+      "entity_type": "Sovereign Wealth Fund",
+      "sub_type": "Sovereign Wealth Funds",
+      "country_code": "QA",
+      "country_name": "Qatar",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9681911",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 599505562.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    }
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "country_code": "AE",
+  "country_name": "United Arab Emirates",
+  "reporting_period": "2026-07 (S&P export date)",
+  "source_note": "Currency confirmed (2026-07-10): S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). These figures are USD. Category mapping and plan-type routing reused the established rule set from prior builds; no unresolved judgement calls for this country. Categories/institutions excluded from all pension segments (Reserve Banks and similar non-pension pools, or institutions with no DB/DC/E&F breakdown reported): Reserve Banks ($242.80bn). 13 institutions tracked, $1,467.6bn tracked across all segments.",
+  "scorecard_note": "Not yet scored \u2014 none of the 12 opportunity-scorecard dimensions have been filled in for any United Arab Emirates segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
+  "allocation_note": "Built the same real-bottom-up way as every other country: summed actual plan-level AA lines into the six standard buckets, with ambiguous plan types (Investment Pool Funds, Hybrid DB/DC Plan, Other Retirement Fund) ratio-split across each institution's actual segments using the two-pass double-count-avoidance logic, and explicitly-named pools (Sovereign Wealth Fund, Endowment Fund, Foundation Fund Or Investment Pool, Other Tax-exempt Fund) routed directly. Same 5%-of-asset-type materiality threshold for style breakdowns.",
+  "segments": [
+    {
+      "segment": "SWF",
+      "aum_bn": 1465.766522,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 575.988474,
+          "pct_of_segment": 39.3,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 575.988474
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 417.65059,
+          "pct_of_segment": 28.5,
+          "styles": [
+            {
+              "asset_style": "Private Equity",
+              "value_bn": 202.023203
+            },
+            {
+              "asset_style": "Infrastructure",
+              "value_bn": 96.111537
+            },
+            {
+              "asset_style": "Hedge Funds",
+              "value_bn": 70.011439
+            },
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 49.504411
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 278.249418,
+          "pct_of_segment": 19.0,
+          "styles": [
+            {
+              "asset_style": "Bonds",
+              "value_bn": 250.040855
+            },
+            {
+              "asset_style": "Credit",
+              "value_bn": 17.05748
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 11.151083
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 70.165886,
+          "pct_of_segment": 4.8,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 70.165886
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 5.981647,
+          "pct_of_segment": 0.4,
+          "styles": [
+            {
+              "asset_style": "CDs",
+              "value_bn": 5.561914
+            },
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.419733
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 0.327064,
+          "pct_of_segment": 0.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.327064
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 1465.766522,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (United Arab Emirates)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-10",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+        }
+      ],
+      "allocation_incomplete": true
+    },
+    {
+      "segment": "DB Pension (Corp)",
+      "aum_bn": 1.819451,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 0.302757,
+          "pct_of_segment": 16.6,
+          "styles": [
+            {
+              "asset_style": "Debt",
+              "value_bn": 0.302757
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 0.236128,
+          "pct_of_segment": 13.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.236128
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 0.064445,
+          "pct_of_segment": 3.5,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.064445
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 0.039194,
+          "pct_of_segment": 2.2,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.039194
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 1.819451,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (United Arab Emirates)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-10",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+        }
+      ],
+      "allocation_incomplete": true
+    }
+  ]
+}

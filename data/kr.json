@@ -1,0 +1,403 @@
+{
+  "country_code": "KR",
+  "country_name": "South Korea",
+  "reporting_period": "2026-07 (S&P export date)",
+  "source_note": "Currency confirmed (2026-07-10): S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). These figures are USD. Category mapping and plan-type routing reused the established rule set from prior builds; no unresolved judgement calls for this country. Categories/institutions excluded from all pension segments (Reserve Banks and similar non-pension pools, or institutions with no DB/DC/E&F breakdown reported): Reserve Banks ($383.42bn); Corporation ($89.66bn); Government ($19.41bn). 86 institutions tracked, $1,126.2bn tracked across all segments.",
+  "scorecard_note": "Not yet scored \u2014 none of the 12 opportunity-scorecard dimensions have been filled in for any South Korea segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
+  "allocation_note": "Built the same real-bottom-up way as every other country: summed actual plan-level AA lines into the six standard buckets, with ambiguous plan types (Investment Pool Funds, Hybrid DB/DC Plan, Other Retirement Fund) ratio-split across each institution's actual segments using the two-pass double-count-avoidance logic, and explicitly-named pools (Sovereign Wealth Fund, Endowment Fund, Foundation Fund Or Investment Pool, Other Tax-exempt Fund) routed directly. Same 5%-of-asset-type materiality threshold for style breakdowns.",
+  "segments": [
+    {
+      "segment": "DB Pension (Govt)",
+      "aum_bn": 1015.402035,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 446.036512,
+          "pct_of_segment": 43.9,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 445.31797
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 0.718542
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 354.201845,
+          "pct_of_segment": 34.9,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 324.703557
+            },
+            {
+              "asset_style": "Bonds",
+              "value_bn": 18.216536
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 11.281752
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 198.569138,
+          "pct_of_segment": 19.6,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 198.569138
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 6.550981,
+          "pct_of_segment": 0.6,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 6.550981
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 6.53507,
+          "pct_of_segment": 0.6,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 6.53507
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 3.435244,
+          "pct_of_segment": 0.3,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 3.435244
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 1015.402035,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (South Korea)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-10",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Corp)",
+      "aum_bn": 73.98158,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 22.620382,
+          "pct_of_segment": 30.6,
+          "styles": [
+            {
+              "asset_style": "CDs",
+              "value_bn": 16.446144
+            },
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 6.174238
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 19.122883,
+          "pct_of_segment": 25.8,
+          "styles": [
+            {
+              "asset_style": "Bonds",
+              "value_bn": 12.632206
+            },
+            {
+              "asset_style": "General Insurance",
+              "value_bn": 2.579091
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 1.481748
+            },
+            {
+              "asset_style": "GIC",
+              "value_bn": 1.266634
+            },
+            {
+              "asset_style": "Debt",
+              "value_bn": 1.163204
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 12.566154,
+          "pct_of_segment": 17.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 12.566154
+            }
+          ]
+        },
+        {
+          "asset_type": "Equities",
+          "value_bn": 1.526859,
+          "pct_of_segment": 2.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 1.526859
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 0.007283,
+          "pct_of_segment": 0.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.007283
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 0.006952,
+          "pct_of_segment": 0.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.006952
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 73.98158,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (South Korea)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-10",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+        }
+      ],
+      "allocation_incomplete": true
+    },
+    {
+      "segment": "DB Pension (Union)",
+      "aum_bn": 36.519391,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 22.257184,
+          "pct_of_segment": 60.9,
+          "styles": [
+            {
+              "asset_style": "Real Assets",
+              "value_bn": 9.01118
+            },
+            {
+              "asset_style": "Private Credit",
+              "value_bn": 6.959404
+            },
+            {
+              "asset_style": "Private Equity",
+              "value_bn": 3.049938
+            },
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 1.984538
+            },
+            {
+              "asset_style": "Other/Unspecified",
+              "value_bn": 1.252124
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 5.72916,
+          "pct_of_segment": 15.7,
+          "styles": [
+            {
+              "asset_style": "Bonds",
+              "value_bn": 5.72916
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 3.105391,
+          "pct_of_segment": 8.5,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 3.105391
+            }
+          ]
+        },
+        {
+          "asset_type": "Equities",
+          "value_bn": 2.882033,
+          "pct_of_segment": 7.9,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 2.882033
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 1.412413,
+          "pct_of_segment": 3.9,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 1.412413
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 1.133211,
+          "pct_of_segment": 3.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 1.133211
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 36.519391,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (South Korea)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-10",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+        }
+      ]
+    },
+    {
+      "segment": "SWF",
+      "aum_bn": 0.30932,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 0.155339,
+          "pct_of_segment": 50.2,
+          "styles": [
+            {
+              "asset_style": "CDs",
+              "value_bn": 0.140908
+            },
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.014431
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 0.136743,
+          "pct_of_segment": 44.2,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.115712
+            },
+            {
+              "asset_style": "Private",
+              "value_bn": 0.021031
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 0.001232,
+          "pct_of_segment": 0.4,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.001232
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 0.30932,
+          "as_of": "2026-07",
+          "source": "S&P Money Manager Database export (South Korea)",
+          "note": "",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-10",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+        }
+      ],
+      "allocation_incomplete": true
+    }
+  ]
+}
