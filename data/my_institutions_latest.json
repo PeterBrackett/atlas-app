@@ -1,0 +1,993 @@
+{
+  "country_code": "MY",
+  "country_name": "Malaysia",
+  "extraction_date": "2026-07-10",
+  "record_count": 9,
+  "source_files": [
+    "Malaysia_company.xls",
+    "Malaysia_AA.xls",
+    "Malaysia_manager.xls",
+    "Malaysia_provider.xls"
+  ],
+  "schema_version": "Atlas_Schema_Proposal_v1.md, Section 1",
+  "institutions": [
+    {
+      "entity_id": "MY-0001",
+      "entity_name": "Armed Forces Board (LTAT)",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Government",
+      "country_code": "MY",
+      "country_name": "Malaysia",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9682911",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 2070807.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 2070807.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 97535.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 84903.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 102919.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Investment in associated companies",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 282665.0,
+              "pct_of_plan": 14.0
+            },
+            {
+              "asset_type": "Investment in subsidiary companies",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1502785.0,
+              "pct_of_plan": 73.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "MY-0002",
+      "entity_name": "Bank Negara Malaysia",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Reserve Banks",
+      "country_code": "MY",
+      "country_name": "Malaysia",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9367784",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 125571945.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 125571945.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Precious Metals",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 109548965.0,
+              "pct_of_plan": 87.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 263701.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5437265.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Holdings of Special Drawing Rights",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5989782.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1406406.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Malaysia",
+              "vehicle_type": "Unspecified",
+              "value": 2925826.0,
+              "pct_of_plan": 2.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "MY-0003",
+      "entity_name": "Khazanah Nasional Bhd",
+      "former_names": [],
+      "entity_type": "Sovereign Wealth Fund",
+      "sub_type": "Sovereign Wealth Funds",
+      "country_code": "MY",
+      "country_name": "Malaysia",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9681920",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 29946078.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Sovereign Wealth Fund",
+          "plan_assets": 29946078.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Limited Partnerships",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1937511.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2461568.0,
+              "pct_of_plan": 8.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 11373520.0,
+              "pct_of_plan": 38.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 823517.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 13349962.0,
+              "pct_of_plan": 45.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "MY-0004",
+      "entity_name": "Kumpulan Wang Persaraan (Diperbadankan)",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Government",
+      "country_code": "MY",
+      "country_name": "Malaysia",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9308395",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 41669473.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 41669473.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Derivatives",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 112508.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 745884.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2541838.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 21293101.0,
+              "pct_of_plan": 51.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 15030179.0,
+              "pct_of_plan": 36.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 58337.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Investments in Associates",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 220848.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Investments in subsidiaries",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1666779.0,
+              "pct_of_plan": 4.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "MY-0005",
+      "entity_name": "Kumpulan Wang Simpanan Perkerja",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DC",
+      "sub_type": "Government",
+      "country_code": "MY",
+      "country_name": "Malaysia",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9682832",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 267169574.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Generic Defined Contribution or Profit Sharing Plan",
+          "plan_assets": 267169574.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Derivatives",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 213736.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Hedge Funds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 133585.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 14186704.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Commercial Paper",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 454188.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 68849599.0,
+              "pct_of_plan": 26.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 21881188.0,
+              "pct_of_plan": 8.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Sharia Compliant",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 22522395.0,
+              "pct_of_plan": 8.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 15442401.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 293887.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Other Investment Assets",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2965582.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Debt",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 3045733.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unlisted",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 6705956.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 7373880.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Debt",
+              "investment_region": "Malaysia",
+              "vehicle_type": "Unspecified",
+              "value": 2511394.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Malaysia",
+              "vehicle_type": "Unspecified",
+              "value": 45018073.0,
+              "pct_of_plan": 17.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unlisted",
+              "investment_region": "Malaysia",
+              "vehicle_type": "Unspecified",
+              "value": 2324375.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Malaysia",
+              "vehicle_type": "Unspecified",
+              "value": 14908062.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Malaysia",
+              "vehicle_type": "Unspecified",
+              "value": 38338834.0,
+              "pct_of_plan": 14.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "MY-0006",
+      "entity_name": "Pertubuhan Keselamatan Sosial",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Government",
+      "country_code": "MY",
+      "country_name": "Malaysia",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9682912",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 7735237.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 7735237.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 218134.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Money Market",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 975413.0,
+              "pct_of_plan": 13.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1776784.0,
+              "pct_of_plan": 23.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4764906.0,
+              "pct_of_plan": 62.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "MY-0007",
+      "entity_name": "Public Bank Berhad",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "MY",
+      "country_name": "Malaysia",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9310070",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 600317.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 600317.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 60.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 204168.0,
+              "pct_of_plan": 34.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Corporate Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 57390.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 123965.0,
+              "pct_of_plan": 21.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 204048.0,
+              "pct_of_plan": 34.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unit Trust",
+              "value": 10686.0,
+              "pct_of_plan": 2.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "MY-0008",
+      "entity_name": "Public Mutual Bhd",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DC",
+      "sub_type": "Corporation",
+      "country_code": "MY",
+      "country_name": "Malaysia",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9406630",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 442685.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Generic Defined Contribution or Profit Sharing Plan",
+          "plan_assets": 15294.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 6878.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 117097.0,
+              "pct_of_plan": 93.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2234.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 7523.0,
+              "pct_of_plan": 13.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 37683.0,
+              "pct_of_plan": 66.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1148.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Common Collective Trust",
+              "value": 11029.0,
+              "pct_of_plan": 19.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 148.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4965.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 16802.0,
+              "pct_of_plan": 31.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 30891.0,
+              "pct_of_plan": 56.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Common Collective Trust",
+              "value": 2120.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5730.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 149753.0,
+              "pct_of_plan": 94.0
+            },
+            {
+              "asset_type": "Other",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 492.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Common Collective Trust",
+              "value": 2762.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2341.0,
+              "pct_of_plan": 8.0
+            },
+            {
+              "asset_type": "other",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 11912.0,
+              "pct_of_plan": 40.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Common Collective Trust",
+              "value": 5295.0,
+              "pct_of_plan": 18.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 2311.0,
+              "pct_of_plan": 8.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Indonesia",
+              "vehicle_type": "Unspecified",
+              "value": 139.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Japan",
+              "vehicle_type": "Unspecified",
+              "value": 1061.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "South Korea",
+              "vehicle_type": "Unspecified",
+              "value": 4023.0,
+              "pct_of_plan": 13.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Malaysia",
+              "vehicle_type": "Unspecified",
+              "value": 1817.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Hong Kong S.A.R.",
+              "vehicle_type": "Unspecified",
+              "value": 642.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Taiwan",
+              "vehicle_type": "Unspecified",
+              "value": 594.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 107.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5567.0,
+              "pct_of_plan": 36.0
+            },
+            {
+              "asset_type": "other",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 9620.0,
+              "pct_of_plan": 63.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "MY-0009",
+      "entity_name": "Tenaga Nasional Bhd",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "MY",
+      "country_name": "Malaysia",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9310077",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 399564.0,
+        "aum_currency": "USD",
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 399564.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 174609.0,
+              "pct_of_plan": 44.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 173011.0,
+              "pct_of_plan": 43.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 51943.0,
+              "pct_of_plan": 13.0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

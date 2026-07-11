@@ -34,6 +34,7 @@
     { "code": "PE", "name": "Peru", "region": "Americas", "sub_region": "Latin America", "total_ps_assets_thousands": 24281090, "institutions_tracked": 6, "status": "built", "href": "country.html?c=pe" },
     { "code": "CL", "name": "Chile", "region": "Americas", "sub_region": "Latin America", "total_ps_assets_thousands": 264053023, "institutions_tracked": 11, "status": "built", "href": "country.html?c=cl" },
     { "code": "BW", "name": "Botswana", "region": "Africa", "sub_region": "Sub-Saharan Africa", "total_ps_assets_thousands": 14695100, "institutions_tracked": 5, "status": "built", "href": "country.html?c=bw" },
-    { "code": "BR", "name": "Brazil", "region": "Americas", "sub_region": "Latin America", "total_ps_assets_thousands": 215181294, "institutions_tracked": 170, "status": "built", "href": "country.html?c=br" }
+    { "code": "BR", "name": "Brazil", "region": "Americas", "sub_region": "Latin America", "total_ps_assets_thousands": 215181294, "institutions_tracked": 170, "status": "built", "href": "country.html?c=br" },
+    { "code": "MY", "name": "Malaysia", "region": "Asia Pacific", "sub_region": "Southeast Asia", "total_ps_assets_thousands": 350033735, "institutions_tracked": 9, "status": "built", "href": "country.html?c=my" }
   ]
 }
