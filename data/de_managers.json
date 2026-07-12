@@ -1,0 +1,753 @@
+{
+  "country_code": "DE",
+  "country_name": "Germany",
+  "reporting_period": "2026-07 (S&P export date)",
+  "source_note": "Sourced from the S&P Money Manager Database Manager export (Germany_manager.xls), which records, per plan, which external manager runs how much of that plan's assets, in what asset type/style. Segment routing reuses the same category/plan-type rules as every other Atlas data product. 'Self-managed' and 'Not disclosed' are kept as two separate categories, not merged: 'Self-managed' is only used where S&P explicitly tags the mandate as run in-house (e.g. 'In House Asset Management') -- covering both rows with a specific dollar figure and, for a plan whose only manager tag anywhere is that self-managed tag, the plan's full remaining gap too. 'Not disclosed' is reserved for genuine unknowns -- plans with no manager information at all, or plans naming at least one real external manager where a leftover gap remains that can't be attributed to anyone specifically. Neither bucket has an asset-type breakdown, since the raw data doesn't say how those amounts are invested. 'identified_coverage_pct' on each segment counts both named external managers and self-managed amounts as identified -- only 'Not disclosed' counts against coverage. Manager names are grouped by the firm name portion of the raw 'Name, City, Country' field, so the same manager's different regional offices roll up together. Built with the generalized build_managers.py script, same rule set as the UK pilot (2 of 382 plans ($127.47bn) could not be routed to any segment and are excluded entirely -- same categories excluded everywhere else in Atlas: Reserve Banks and similar non-pension pools).",
+  "segments": [
+    {
+      "segment": "DB Pension (Corp)",
+      "total_plan_assets_bn": 716.828406,
+      "total_identified_managed_bn": 3.526695,
+      "identified_coverage_pct": 0.5,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 713.301711,
+          "market_share_pct": 99.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 713.301711
+            }
+          ]
+        },
+        {
+          "manager_name": "Pegasus Capital Advisors, LP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 3.421222,
+          "market_share_pct": 0.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 3.421222,
+              "styles": [
+                {
+                  "asset_style": "Specialty Funds",
+                  "value_bn": 3.421222
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "SEI Investments Management Corporation",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.042075,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.042075,
+              "styles": [
+                {
+                  "asset_style": "Credit",
+                  "value_bn": 0.042075
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Allianz Global Investors GmbH",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.034222,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.034222,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.034222
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Lupus alpha Asset Management GmbH",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.029176,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.029176,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.029176
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Union)",
+      "total_plan_assets_bn": 195.325084,
+      "total_identified_managed_bn": 0.008607,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 195.316477,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 195.316477
+            }
+          ]
+        },
+        {
+          "manager_name": "JP Morgan Investment Management Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.008607,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.008607,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.008607
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DC Pension (Corp)",
+      "total_plan_assets_bn": 69.615645,
+      "total_identified_managed_bn": 8.558704,
+      "identified_coverage_pct": 12.3,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 61.056941,
+          "market_share_pct": 87.7,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 61.056941
+            }
+          ]
+        },
+        {
+          "manager_name": "The Vanguard Group Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 7.321054,
+          "market_share_pct": 10.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Asset Allocation",
+              "value_bn": 0.050538,
+              "styles": [
+                {
+                  "asset_style": "Income",
+                  "value_bn": 0.032222
+                },
+                {
+                  "asset_style": "Target Date",
+                  "value_bn": 0.018316
+                }
+              ]
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 7.270516,
+              "styles": [
+                {
+                  "asset_style": "Money Market",
+                  "value_bn": 7.270516
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "JP Morgan Investment Management Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.510354,
+          "market_share_pct": 0.7,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.510354,
+              "styles": [
+                {
+                  "asset_style": "Large Cap Growth",
+                  "value_bn": 0.496768
+                },
+                {
+                  "asset_style": "Small Cap Growth",
+                  "value_bn": 0.013586
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BlackRock",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.307684,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.001014,
+              "styles": [
+                {
+                  "asset_style": "Total Return",
+                  "value_bn": 0.001014
+                }
+              ]
+            },
+            {
+              "asset_type": "Asset Allocation",
+              "value_bn": 0.30667,
+              "styles": [
+                {
+                  "asset_style": "Income",
+                  "value_bn": 0.30667
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Self-managed",
+          "is_self_managed": true,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.121757,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.121757
+            }
+          ]
+        },
+        {
+          "manager_name": "Allspring Funds Management, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.065719,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.003217,
+              "styles": [
+                {
+                  "asset_style": "Stable Value",
+                  "value_bn": 0.003217
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.062502,
+              "styles": [
+                {
+                  "asset_style": "Small Cap Value",
+                  "value_bn": 0.062502
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Pacific Investment Management Company LLC (PIMCO)",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.054385,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Asset Allocation",
+              "value_bn": 0.054385,
+              "styles": [
+                {
+                  "asset_style": "Income",
+                  "value_bn": 0.054385
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Federated Hermes Investment Counseling",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.034904,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.034904,
+              "styles": [
+                {
+                  "asset_style": "High Yield Bonds",
+                  "value_bn": 0.034904
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Massachusetts Financial Services Company",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.031596,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.031596,
+              "styles": [
+                {
+                  "asset_style": "Mid Cap Growth",
+                  "value_bn": 0.000493
+                },
+                {
+                  "asset_style": "Large Cap Value",
+                  "value_bn": 0.000576
+                },
+                {
+                  "asset_style": "Growth",
+                  "value_bn": 0.030527
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "PGIM, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.029541,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.012176,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.012176
+                }
+              ]
+            },
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.017365,
+              "styles": [
+                {
+                  "asset_style": "Core PLUS",
+                  "value_bn": 0.017365
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Fidelity Investments",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.029222,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.029222,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.029222
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Principal Global Investors, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.024879,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.000211,
+              "styles": [
+                {
+                  "asset_style": "Small Cap Growth",
+                  "value_bn": 0.000211
+                }
+              ]
+            },
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.024668,
+              "styles": [
+                {
+                  "asset_style": "GIC",
+                  "value_bn": 0.024668
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Capital Research and Management Company",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.008789,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.008789,
+              "styles": [
+                {
+                  "asset_style": "Growth",
+                  "value_bn": 0.008789
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Northern Trust Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.005187,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.005187,
+              "styles": [
+                {
+                  "asset_style": "Indexed",
+                  "value_bn": 0.005187
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "American Century Investment Management Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.005137,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.005137,
+              "styles": [
+                {
+                  "asset_style": "Mid Cap Value",
+                  "value_bn": 0.005137
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Great-West Capital Management, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.004348,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Self Directed Brokerage Account",
+              "value_bn": 0.004348,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.004348
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Victory Capital Management Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.002717,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.002717,
+              "styles": [
+                {
+                  "asset_style": "Small Cap",
+                  "value_bn": 0.002717
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Great Gray Trust Company, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000825,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.000825,
+              "styles": [
+                {
+                  "asset_style": "Growth",
+                  "value_bn": 0.000825
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "MFS Institutional Advisors, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000568,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.000568,
+              "styles": [
+                {
+                  "asset_style": "Large Cap Value",
+                  "value_bn": 0.000568
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BNY Mellon Investment Adviser, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 3.8e-05,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 3.8e-05,
+              "styles": [
+                {
+                  "asset_style": "Money Market",
+                  "value_bn": 3.8e-05
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Govt)",
+      "total_plan_assets_bn": 61.284123,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 61.284123,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 61.284123
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "Tax exempt E&F",
+      "total_plan_assets_bn": 34.509454,
+      "total_identified_managed_bn": 0.035837,
+      "identified_coverage_pct": 0.1,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 34.473617,
+          "market_share_pct": 99.9,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 34.473617
+            }
+          ]
+        },
+        {
+          "manager_name": "Janus Immobilien & Consulting GmbH",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.035837,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.035837,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.035837
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "SWF",
+      "total_plan_assets_bn": 23.195314,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 23.195314,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 23.195314
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DC Pension (Union)",
+      "total_plan_assets_bn": 17.538652,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 17.538652,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 17.538652
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DC Pension (Tax exempt)",
+      "total_plan_assets_bn": 0.781371,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 0.781371,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.781371
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "Endowments E&F",
+      "total_plan_assets_bn": 0.349463,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 0.349463,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.349463
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Tax exempt)",
+      "total_plan_assets_bn": 0.000542,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 0.000542,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.000542
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

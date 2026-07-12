@@ -1,0 +1,676 @@
+{
+  "country_code": "NO",
+  "country_name": "Norway",
+  "reporting_period": "2026-07 (S&P export date)",
+  "source_note": "Sourced from the S&P Money Manager Database Manager export (Norway_manager.xls), which records, per plan, which external manager runs how much of that plan's assets, in what asset type/style. Segment routing reuses the same category/plan-type rules as every other Atlas data product. 'Self-managed' and 'Not disclosed' are kept as two separate categories, not merged: 'Self-managed' is only used where S&P explicitly tags the mandate as run in-house (e.g. 'In House Asset Management') -- covering both rows with a specific dollar figure and, for a plan whose only manager tag anywhere is that self-managed tag, the plan's full remaining gap too. 'Not disclosed' is reserved for genuine unknowns -- plans with no manager information at all, or plans naming at least one real external manager where a leftover gap remains that can't be attributed to anyone specifically. Neither bucket has an asset-type breakdown, since the raw data doesn't say how those amounts are invested. 'identified_coverage_pct' on each segment counts both named external managers and self-managed amounts as identified -- only 'Not disclosed' counts against coverage. Manager names are grouped by the firm name portion of the raw 'Name, City, Country' field, so the same manager's different regional offices roll up together. Built with the generalized build_managers.py script, same rule set as the UK pilot (0 of 84 plans ($0.00bn) could not be routed to any segment and are excluded entirely -- same categories excluded everywhere else in Atlas: Reserve Banks and similar non-pension pools).",
+  "segments": [
+    {
+      "segment": "SWF",
+      "total_plan_assets_bn": 2000.514855,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 2000.514855,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 2000.514855
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Govt)",
+      "total_plan_assets_bn": 121.778372,
+      "total_identified_managed_bn": 1.283801,
+      "identified_coverage_pct": 1.1,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 120.494571,
+          "market_share_pct": 98.9,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 120.494571
+            }
+          ]
+        },
+        {
+          "manager_name": "KLP Fondsforvaltning AS",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.259604,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.259604,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.259604
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "DNB Asset Management AS",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.192221,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Real Estate",
+              "value_bn": 0.192221,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.192221
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Storebrand Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.167029,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Real Estate",
+              "value_bn": 0.167029,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.167029
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Nordea Investment Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.109218,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.109218,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.109218
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Pareto Securities AS",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.101046,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Real Estate",
+              "value_bn": 0.101046,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.101046
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Nordea EjendomsInvest",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.073277,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.073277,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.073277
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Alfred Berg Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.058655,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.058655,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.058655
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "RobecoSAM AG",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.033339,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.033339,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.033339
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Lancelot Asset Management AB",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.031237,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.031237,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.031237
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Danske Invest",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.028104,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.028104,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.028104
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "T. Rowe Price International Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.027536,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.027536,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.027536
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "AXA Investment Managers - Real Assets",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.027251,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.027251,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.027251
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Holberg Fondene",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.024463,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.024463,
+              "styles": [
+                {
+                  "asset_style": "Money Market",
+                  "value_bn": 0.024463
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Payden & Rygel Global, Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.024179,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.024179,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.024179
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Danske Private Equity A/S",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.023926,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.023926,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.023926
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Union Asset Management Holding AG",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.019938,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Real Estate",
+              "value_bn": 0.019938,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.019938
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Baillie Gifford & Co.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.019741,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.019741,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.019741
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BNP Paribas Asset Management UK Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.016612,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.016612,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.016612
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "AKO Capital LLP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.012402,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.012402,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.012402
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Generation Investment Management US LLP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.011039,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.004836,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.004836
+                }
+              ]
+            },
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.006203,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.006203
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Cubera Private Equity AS",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.010412,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.010412,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.010412
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Genesis Investment Management, LLP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.008363,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.008363,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.008363
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Revelop",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.004209,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.004209,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.004209
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Corp)",
+      "total_plan_assets_bn": 18.507328,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 18.507328,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 18.507328
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "Tax exempt E&F",
+      "total_plan_assets_bn": 1.552368,
+      "total_identified_managed_bn": 0.140226,
+      "identified_coverage_pct": 9.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 1.412142,
+          "market_share_pct": 91.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 1.412142
+            }
+          ]
+        },
+        {
+          "manager_name": "KLP Fondsforvaltning AS",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.051304,
+          "market_share_pct": 3.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.051304,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.051304
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "DNB Asset Management AS",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.042688,
+          "market_share_pct": 2.7,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.042688,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.042688
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Danske Invest",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.030753,
+          "market_share_pct": 2.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.030753,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.030753
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Storebrand Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.010866,
+          "market_share_pct": 0.7,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.010866,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.010866
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Fondsfinans Kapitalforvaltning AS",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.004615,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.004615,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.004615
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Tax exempt)",
+      "total_plan_assets_bn": 0.042477,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 0.042477,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.042477
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DC Pension (Tax exempt)",
+      "total_plan_assets_bn": 0.008139,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 0.008139,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.008139
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

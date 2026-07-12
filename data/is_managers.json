@@ -1,0 +1,1086 @@
+{
+  "country_code": "IS",
+  "country_name": "Iceland",
+  "reporting_period": "2026-07 (S&P export date)",
+  "source_note": "Sourced from the S&P Money Manager Database Manager export (Iceland_manager.xls), which records, per plan, which external manager runs how much of that plan's assets, in what asset type/style. Segment routing reuses the same category/plan-type rules as every other Atlas data product. 'Self-managed' and 'Not disclosed' are kept as two separate categories, not merged: 'Self-managed' is only used where S&P explicitly tags the mandate as run in-house (e.g. 'In House Asset Management') -- covering both rows with a specific dollar figure and, for a plan whose only manager tag anywhere is that self-managed tag, the plan's full remaining gap too. 'Not disclosed' is reserved for genuine unknowns -- plans with no manager information at all, or plans naming at least one real external manager where a leftover gap remains that can't be attributed to anyone specifically. Neither bucket has an asset-type breakdown, since the raw data doesn't say how those amounts are invested. 'identified_coverage_pct' on each segment counts both named external managers and self-managed amounts as identified -- only 'Not disclosed' counts against coverage. Manager names are grouped by the firm name portion of the raw 'Name, City, Country' field, so the same manager's different regional offices roll up together. Built with the generalized build_managers.py script, same rule set as the UK pilot (1 of 20 plans ($7.29bn) could not be routed to any segment and are excluded entirely -- same categories excluded everywhere else in Atlas: Reserve Banks and similar non-pension pools).",
+  "segments": [
+    {
+      "segment": "DB Pension (Corp)",
+      "total_plan_assets_bn": 32.117481,
+      "total_identified_managed_bn": 4.364504,
+      "identified_coverage_pct": 13.6,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 27.752977,
+          "market_share_pct": 86.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 27.752977
+            }
+          ]
+        },
+        {
+          "manager_name": "The Vanguard Group Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 1.047119,
+          "market_share_pct": 3.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 1.047119,
+              "styles": [
+                {
+                  "asset_style": "Government Bonds",
+                  "value_bn": 0.389207
+                },
+                {
+                  "asset_style": "Indexed",
+                  "value_bn": 0.657912
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BlackRock",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.918772,
+          "market_share_pct": 2.9,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.457749,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.457749
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.461023,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.461023
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Vanguard Asset Management Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.310119,
+          "market_share_pct": 1.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.310119,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.310119
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "MFS Institutional Advisors, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.140673,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.140673,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.140673
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "GuardCap Asset Management Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.138501,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.138501,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.138501
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "LGT Capital Partners AG",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.127373,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.032099,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.008567
+                },
+                {
+                  "asset_style": "Private Debt",
+                  "value_bn": 0.023532
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.095274,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.095274
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Storebrand Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.126064,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.126064,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.126064
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Capital Group, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.102426,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.102426,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.102426
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Seilern Investment Management Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.101668,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.101668,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.101668
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Morgan Stanley Investment Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.101566,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.016523,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.016523
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.085043,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.085043
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Skagen Funds",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.086168,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.086168,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.086168
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "State Street Investment Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.073533,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.073533,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.073533
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "T. Rowe Price Associates, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.07007,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.07007,
+              "styles": [
+                {
+                  "asset_style": "Growth",
+                  "value_bn": 0.07007
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Wellington Management Company, LLP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.06991,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.06991,
+              "styles": [
+                {
+                  "asset_style": "Growth",
+                  "value_bn": 0.06991
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "AlpInvest Partners BV",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.06888,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.029875,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.011321
+                },
+                {
+                  "asset_style": "Limited Partnerships",
+                  "value_bn": 0.018554
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.039005,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.039005
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Janus Henderson Investors",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.065032,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.065032,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.065032
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "KKR Credit Advisors (US) LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.056909,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.056909,
+              "styles": [
+                {
+                  "asset_style": "Infrastructure",
+                  "value_bn": 0.056909
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "The Carlyle Group",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.050632,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.011627,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.011627
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.039005,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.039005
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Ashbridge Partners, North York",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.047317,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.047317,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.047317
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Montanaro Investment Managers Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.043481,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.043481,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.043481
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "GQG Partners, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.043355,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.043355,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.043355
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Jupiter Asset Management Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.043355,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.043355,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.043355
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Acadian Asset Management (UK) Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.042841,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.042841,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.042841
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Partners Group AG",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.041033,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.013428,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.013428
+                }
+              ]
+            },
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.027605,
+              "styles": [
+                {
+                  "asset_style": "Infrastructure",
+                  "value_bn": 0.027605
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Fisher Investments Institutional Group",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.036447,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.036447,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.036447
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Morgan Stanley AIP GP LP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.035719,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.035719,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.008567
+                },
+                {
+                  "asset_style": "Real Assets",
+                  "value_bn": 0.027152
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Kohlberg Kravis Roberts & Co. LP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.030965,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.030965,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.007955
+                },
+                {
+                  "asset_style": "Infrastructure",
+                  "value_bn": 0.02301
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Hamilton Lane Advisors, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.029867,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.029867,
+              "styles": [
+                {
+                  "asset_style": "Limited Partnerships",
+                  "value_bn": 0.029867
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Metropolitan Real Estate Equity Management, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.029413,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Real Estate",
+              "value_bn": 0.029413,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.029413
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Blackstone Alternative Asset Management LP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.028774,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.028774,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.028774
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Adams Street Partners, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.027831,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.027831,
+              "styles": [
+                {
+                  "asset_style": "Limited Partnerships",
+                  "value_bn": 0.027831
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Hamilton Lane (UK) Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.024937,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.024937,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.024937
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Oberon Asset Management LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.02247,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.02247,
+              "styles": [
+                {
+                  "asset_style": "Credit",
+                  "value_bn": 0.012239
+                },
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.010231
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Brookfield Asset Management PIC US, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.021948,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.021948,
+              "styles": [
+                {
+                  "asset_style": "Infrastructure",
+                  "value_bn": 0.021948
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "EQT Partners, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.021101,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.021101,
+              "styles": [
+                {
+                  "asset_style": "Infrastructure",
+                  "value_bn": 0.021101
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Schroders Capital Management (US) Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.016744,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.016744,
+              "styles": [
+                {
+                  "asset_style": "Private Equity Fund of Funds",
+                  "value_bn": 0.016744
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "abrdn plc",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.016291,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.016291,
+              "styles": [
+                {
+                  "asset_style": "Opportunistic",
+                  "value_bn": 0.016291
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Five Arrows Managers North America LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.015605,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.015605,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.015605
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "North Sea Capital A/S",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.013769,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.013769,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.013769
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Ares Capital Management LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.013428,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.013428,
+              "styles": [
+                {
+                  "asset_style": "Private Credit",
+                  "value_bn": 0.013428
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "LEM Capital, LP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.013124,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.013124,
+              "styles": [
+                {
+                  "asset_style": "Limited Partnerships",
+                  "value_bn": 0.013124
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Portfolio Advisors LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.012851,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.012851,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.012851
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "LGT Capital Partners (Ireland) Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.00765,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.00765,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.00765
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Warburg Pincus International, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.007034,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.007034,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.007034
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Schroders plc",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.005755,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.005755,
+              "styles": [
+                {
+                  "asset_style": "Corporate Bonds",
+                  "value_bn": 0.005755
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Aldwych Capital Partners, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.005115,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.005115,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.005115
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "M&G Investment Management Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.005115,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.005115,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.005115
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Pacific Investment Management Company (PIMCO) (Europe)",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.005115,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.005115,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.005115
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Colchester Global Investors Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000639,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.000639,
+              "styles": [
+                {
+                  "asset_style": "Corporate Bonds",
+                  "value_bn": 0.000639
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Govt)",
+      "total_plan_assets_bn": 16.896545,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 16.896545,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 16.896545
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Union)",
+      "total_plan_assets_bn": 10.678962,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 10.678962,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 10.678962
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

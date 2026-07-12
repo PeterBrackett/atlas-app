@@ -1,0 +1,1005 @@
+{
+  "country_code": "NZ",
+  "country_name": "New Zealand",
+  "reporting_period": "2026-07 (S&P export date)",
+  "source_note": "Sourced from the S&P Money Manager Database Manager export (NZ_manager.xls), which records, per plan, which external manager runs how much of that plan's assets, in what asset type/style. Segment routing reuses the same category/plan-type rules as every other Atlas data product. 'Self-managed' and 'Not disclosed' are kept as two separate categories, not merged: 'Self-managed' is only used where S&P explicitly tags the mandate as run in-house (e.g. 'In House Asset Management') -- covering both rows with a specific dollar figure and, for a plan whose only manager tag anywhere is that self-managed tag, the plan's full remaining gap too. 'Not disclosed' is reserved for genuine unknowns -- plans with no manager information at all, or plans naming at least one real external manager where a leftover gap remains that can't be attributed to anyone specifically. Neither bucket has an asset-type breakdown, since the raw data doesn't say how those amounts are invested. 'identified_coverage_pct' on each segment counts both named external managers and self-managed amounts as identified -- only 'Not disclosed' counts against coverage. Manager names are grouped by the firm name portion of the raw 'Name, City, Country' field, so the same manager's different regional offices roll up together. Built with the generalized build_managers.py script, same rule set as the UK pilot (2 of 124 plans ($97.28bn) could not be routed to any segment and are excluded entirely -- same categories excluded everywhere else in Atlas: Reserve Banks and similar non-pension pools).",
+  "segments": [
+    {
+      "segment": "DC Pension (Corp)",
+      "total_plan_assets_bn": 42.545095,
+      "total_identified_managed_bn": 15.055147,
+      "identified_coverage_pct": 35.4,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 27.489948,
+          "market_share_pct": 64.6,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 27.489948
+            }
+          ]
+        },
+        {
+          "manager_name": "ANZ Investments",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 10.550423,
+          "market_share_pct": 24.8,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 10.515753,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 10.515753
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.03467,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.03467
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "AMP Capital Investors, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 3.855941,
+          "market_share_pct": 9.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 3.855941,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 3.855941
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Pendal Group Limited, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.247496,
+          "market_share_pct": 0.6,
+          "by_asset_type": [
+            {
+              "asset_type": "Asset Allocation",
+              "value_bn": 0.247496,
+              "styles": [
+                {
+                  "asset_style": "Balanced",
+                  "value_bn": 0.247496
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Fisher Funds Management Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.153376,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.153376,
+              "styles": [
+                {
+                  "asset_style": "Infrastructure",
+                  "value_bn": 0.153376
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Milford Asset Management Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.142618,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Asset Allocation",
+              "value_bn": 0.142618,
+              "styles": [
+                {
+                  "asset_style": "Aggressive",
+                  "value_bn": 0.142618
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Mercer Asset Management, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.035106,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Asset Allocation",
+              "value_bn": 0.035106,
+              "styles": [
+                {
+                  "asset_style": "Balanced",
+                  "value_bn": 0.035106
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Macquarie Group Limited, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.034415,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.034415,
+              "styles": [
+                {
+                  "asset_style": "CDs",
+                  "value_bn": 0.034415
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Mercer Investment Management, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.024392,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.024392,
+              "styles": [
+                {
+                  "asset_style": "Infrastructure",
+                  "value_bn": 0.024392
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Harbour Asset Management Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.005722,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.005722,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.005722
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Nikko Asset Management New Zealand Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.005658,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.005658,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.005658
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Corp)",
+      "total_plan_assets_bn": 39.505103,
+      "total_identified_managed_bn": 0.742816,
+      "identified_coverage_pct": 1.9,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 38.762287,
+          "market_share_pct": 98.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 38.762287
+            }
+          ]
+        },
+        {
+          "manager_name": "Mercer Investment Management, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.2651,
+          "market_share_pct": 0.7,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.11073,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.11073
+                }
+              ]
+            },
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.15437,
+              "styles": [
+                {
+                  "asset_style": "Hedge Fund of Funds",
+                  "value_bn": 0.15437
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Harbour Asset Management Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.109004,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.096426,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.096426
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.012578,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.012578
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Fisher Funds Management Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.099622,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.049187,
+              "styles": [
+                {
+                  "asset_style": "CDs",
+                  "value_bn": 0.049187
+                }
+              ]
+            },
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.050435,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.050435
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Russell Investments",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.075782,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.075782,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.075782
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Russell Investment Group, Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.059879,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.059879,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.059879
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "ANZ Investments",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.047576,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.047576,
+              "styles": [
+                {
+                  "asset_style": "Money Market",
+                  "value_bn": 0.047576
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Salt Funds Management Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.030598,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.030598,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.018054
+                },
+                {
+                  "asset_style": "Dividend Yield",
+                  "value_bn": 0.012544
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "First Sentier Investors, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.022073,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.022073,
+              "styles": [
+                {
+                  "asset_style": "Infrastructure",
+                  "value_bn": 0.022073
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Milford Asset Management Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.017862,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.017862,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.017862
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Mint Asset Management Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.01532,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.01532,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.01532
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "Tax exempt E&F",
+      "total_plan_assets_bn": 6.102979,
+      "total_identified_managed_bn": 0.236991,
+      "identified_coverage_pct": 3.9,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 5.865988,
+          "market_share_pct": 96.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 5.865988
+            }
+          ]
+        },
+        {
+          "manager_name": "Mercer Investment Management, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.134429,
+          "market_share_pct": 2.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Asset Allocation",
+              "value_bn": 0.030138,
+              "styles": [
+                {
+                  "asset_style": "Balanced",
+                  "value_bn": 0.030138
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.104291,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.104291
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Pacific Equity Partners, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.026961,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.026961,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.026961
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Pioneer Capital Partners",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.026961,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.026961,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.026961
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Pencarrow Private Equity Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.015925,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.015925,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.015925
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Direct Capital Private Equity",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.011925,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.011925,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.011925
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "ANZ Investments",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.006454,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.006454,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.006454
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Nikko Asset Management New Zealand Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.005596,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.005596,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.005596
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Next Capital, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.00437,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.00437,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.00437
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Waterman Capital",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.002074,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.002074,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.002074
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Self-managed",
+          "is_self_managed": true,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001185,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.001185
+            }
+          ]
+        },
+        {
+          "manager_name": "Movac Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001111,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.001111,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.001111
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Govt)",
+      "total_plan_assets_bn": 4.643898,
+      "total_identified_managed_bn": 0.316241,
+      "identified_coverage_pct": 6.8,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 4.327657,
+          "market_share_pct": 93.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 4.327657
+            }
+          ]
+        },
+        {
+          "manager_name": "Mercer Investment Management, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.271322,
+          "market_share_pct": 5.8,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.271322,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.271322
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Harbour Asset Management Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.044919,
+          "market_share_pct": 1.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.044919,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.044919
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Union)",
+      "total_plan_assets_bn": 2.341484,
+      "total_identified_managed_bn": 0.753762,
+      "identified_coverage_pct": 32.2,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 1.587722,
+          "market_share_pct": 67.8,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 1.587722
+            }
+          ]
+        },
+        {
+          "manager_name": "Mercer Investments (Australia) Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.481383,
+          "market_share_pct": 20.6,
+          "by_asset_type": [
+            {
+              "asset_type": "Asset Allocation",
+              "value_bn": 0.481383,
+              "styles": [
+                {
+                  "asset_style": "Balanced",
+                  "value_bn": 0.481383
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Mercer Investment Management, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.111141,
+          "market_share_pct": 4.7,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.111141,
+              "styles": [
+                {
+                  "asset_style": "Absolute Return",
+                  "value_bn": 0.111141
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Russell Investment Group, Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.091666,
+          "market_share_pct": 3.9,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.091666,
+              "styles": [
+                {
+                  "asset_style": "Offshore",
+                  "value_bn": 0.091666
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "ANZ Investments",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.051105,
+          "market_share_pct": 2.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.051105,
+              "styles": [
+                {
+                  "asset_style": "CDs",
+                  "value_bn": 0.051105
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Harbour Asset Management Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.018467,
+          "market_share_pct": 0.8,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.018467,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.018467
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DC Pension (Union)",
+      "total_plan_assets_bn": 1.614048,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 1.614048,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 1.614048
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "Endowments E&F",
+      "total_plan_assets_bn": 0.948146,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 0.948146,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.948146
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DC Pension (Govt)",
+      "total_plan_assets_bn": 0.878237,
+      "total_identified_managed_bn": 0.316682,
+      "identified_coverage_pct": 36.1,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 0.561555,
+          "market_share_pct": 63.9,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.561555
+            }
+          ]
+        },
+        {
+          "manager_name": "Harbour Asset Management Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.197938,
+          "market_share_pct": 22.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.197938,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.197938
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Mercer Investments (Australia) Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.118744,
+          "market_share_pct": 13.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.118744,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.118744
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "Foundations E&F",
+      "total_plan_assets_bn": 0.014835,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 0.014835,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.014835
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

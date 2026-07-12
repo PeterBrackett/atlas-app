@@ -1,0 +1,3061 @@
+{
+  "country_code": "ZA",
+  "country_name": "South Africa",
+  "reporting_period": "2026-07 (S&P export date)",
+  "source_note": "Sourced from the S&P Money Manager Database Manager export (South_Africa_manager.xls), which records, per plan, which external manager runs how much of that plan's assets, in what asset type/style. Segment routing reuses the same category/plan-type rules as every other Atlas data product. 'Self-managed' and 'Not disclosed' are kept as two separate categories, not merged: 'Self-managed' is only used where S&P explicitly tags the mandate as run in-house (e.g. 'In House Asset Management') -- covering both rows with a specific dollar figure and, for a plan whose only manager tag anywhere is that self-managed tag, the plan's full remaining gap too. 'Not disclosed' is reserved for genuine unknowns -- plans with no manager information at all, or plans naming at least one real external manager where a leftover gap remains that can't be attributed to anyone specifically. Neither bucket has an asset-type breakdown, since the raw data doesn't say how those amounts are invested. 'identified_coverage_pct' on each segment counts both named external managers and self-managed amounts as identified -- only 'Not disclosed' counts against coverage. Manager names are grouped by the firm name portion of the raw 'Name, City, Country' field, so the same manager's different regional offices roll up together. Built with the generalized build_managers.py script, same rule set as the UK pilot (2 of 125 plans ($70.57bn) could not be routed to any segment and are excluded entirely -- same categories excluded everywhere else in Atlas: Reserve Banks and similar non-pension pools).",
+  "segments": [
+    {
+      "segment": "DB Pension (Govt)",
+      "total_plan_assets_bn": 148.876239,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 148.876239,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 148.876239
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Corp)",
+      "total_plan_assets_bn": 46.458071,
+      "total_identified_managed_bn": 3.401167,
+      "identified_coverage_pct": 7.3,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 43.056905,
+          "market_share_pct": 92.7,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 43.056905
+            }
+          ]
+        },
+        {
+          "manager_name": "Ninety One",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.487948,
+          "market_share_pct": 1.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.450225,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.450225
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.02476,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.02476
+                }
+              ]
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.012963,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.012963
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Old Mutual Investment Group (SA) (Pty) Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.409637,
+          "market_share_pct": 0.9,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.409637,
+              "styles": [
+                {
+                  "asset_style": "General Insurance",
+                  "value_bn": 0.409637
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Coronation Asset Management Proprietary Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.305778,
+          "market_share_pct": 0.7,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.063224,
+              "styles": [
+                {
+                  "asset_style": "General Insurance",
+                  "value_bn": 0.063224
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.233891,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.233891
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.002907,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.002907
+                }
+              ]
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.005756,
+              "styles": [
+                {
+                  "asset_style": "Money Market",
+                  "value_bn": 0.005756
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Aluwani Capital Partners",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.283359,
+          "market_share_pct": 0.6,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.283359,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.283359
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Allan Gray Proprietary Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.222946,
+          "market_share_pct": 0.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.217535,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.217535
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.002407,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.002407
+                }
+              ]
+            },
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.003004,
+              "styles": [
+                {
+                  "asset_style": "Corporate Bonds",
+                  "value_bn": 0.003004
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Argon Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.219188,
+          "market_share_pct": 0.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.219188,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.219188
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BlackRock Investment Management (UK) Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.216974,
+          "market_share_pct": 0.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.109463,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.109463
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.107511,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.107511
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "STANLIB Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.164996,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.164996,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.164996
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Balondolozi Investment Services",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.126161,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.126161,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.126161
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Prescient Investment Management (Pty) Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.110583,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.110583,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.110583
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "SEI Investments Management Corporation",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.108169,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.108169,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.108169
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Nedgroup Investments",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.079832,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.079832,
+              "styles": [
+                {
+                  "asset_style": "General Insurance",
+                  "value_bn": 0.079832
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Prowess Investment Managers (Pty) Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.068895,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.068895,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.068895
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "M&G Investments Southern Africa (Pty) Ltd, Claremont",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.066926,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.066926,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.066926
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Mianzo Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.063845,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.063845,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.063845
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Fairtree Capital (Pty) Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.062297,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.062297,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.062297
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Aeon Investment Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.055525,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.055525,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.055525
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Morgan Stanley Investment Management Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.054492,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.054492,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.054492
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Sands Capital Management, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.051517,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.051517,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.051517
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Sanlam Investment Management (Pty) Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.036835,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.036835,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.036835
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Futuregrowth Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.027887,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.027887,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.027887
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "TriAlpha Investment Management (Pty) Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.022009,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.022009,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.022009
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Abax Investments (Pty) Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.020681,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.016017,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.016017
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.001845,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.001845
+                }
+              ]
+            },
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.002819,
+              "styles": [
+                {
+                  "asset_style": "Corporate Bonds",
+                  "value_bn": 0.002819
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "All Seasons Capital Management Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.015944,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.015944,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.015944
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "All Weather Capital",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.012505,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.012505,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.012505
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "27four Investment Managers (Pty) Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.01177,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.01177,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.01177
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Self-managed",
+          "is_self_managed": true,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.010093,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.010093
+            }
+          ]
+        },
+        {
+          "manager_name": "Perpetua Investment Managers (Pty) Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.009035,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.009035,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.009035
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Momentum Investments, Centurion",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.008557,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.008557,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.008557
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Convergence Investment Partners, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.008338,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.008338,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.008338
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Hosking Partners LLP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.007597,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.007597,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.007597
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Ashburton Investments",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.007081,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.007081,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.007081
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Vantage Capital Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.007021,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.007021,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.007021
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Vunani Fund Managers (Pty) Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.006784,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.006784,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.006784
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Taquanta Asset Managers (Pty) Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.006497,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.006497,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.006497
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "South Suez Capital",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.006221,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.006221,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.006221
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Sesfikile Capital (Pty) Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.004877,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.004877,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.004877
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Old Mutual Customized Solutions (Pty) Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.002926,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.002926,
+              "styles": [
+                {
+                  "asset_style": "Corporate Bonds",
+                  "value_bn": 0.002926
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Camissa Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001938,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.001938,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.001938
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Meago Asset Managers",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001657,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.001657,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.001657
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Mergence Investment Managers (Pty) Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001657,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.001657,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.001657
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Thyme Capital (Pty) Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001125,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.001125,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.001125
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Summit Africa",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000844,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000844,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000844
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Apex Capital Management (New York) LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000688,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000688,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000688
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Ascension Capital Advisors",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000688,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000688,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000688
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Sentio Capital Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000438,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000438,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000438
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Transition Capital Partners, Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000406,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000406,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000406
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DC Pension (Corp)",
+      "total_plan_assets_bn": 32.49984,
+      "total_identified_managed_bn": 5.341676,
+      "identified_coverage_pct": 16.4,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 27.158164,
+          "market_share_pct": 83.6,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 27.158164
+            }
+          ]
+        },
+        {
+          "manager_name": "Ninety One",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.591918,
+          "market_share_pct": 1.8,
+          "by_asset_type": [
+            {
+              "asset_type": "Asset Allocation",
+              "value_bn": 0.068286,
+              "styles": [
+                {
+                  "asset_style": "Balanced",
+                  "value_bn": 0.068286
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.523632,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.523632
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Sanlam Investment Management (Pty) Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.459465,
+          "market_share_pct": 1.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 5.1e-05,
+              "styles": [
+                {
+                  "asset_style": "General Insurance",
+                  "value_bn": 5.1e-05
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.454603,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.454603
+                }
+              ]
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.004811,
+              "styles": [
+                {
+                  "asset_style": "Money Market",
+                  "value_bn": 0.004811
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Coronation Asset Management Proprietary Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.309696,
+          "market_share_pct": 1.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Asset Allocation",
+              "value_bn": 0.054617,
+              "styles": [
+                {
+                  "asset_style": "Balanced",
+                  "value_bn": 0.054617
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.255079,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.255079
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Allan Gray Proprietary Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.29752,
+          "market_share_pct": 0.9,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.200577,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.200577
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.066809,
+              "styles": [
+                {
+                  "asset_style": "Preferred",
+                  "value_bn": 0.066809
+                }
+              ]
+            },
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.030134,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.030134
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Futuregrowth Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.276263,
+          "market_share_pct": 0.9,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.234324,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.234324
+                }
+              ]
+            },
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.041939,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.041939
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Old Mutual Multi-Managers",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.235466,
+          "market_share_pct": 0.7,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.235466,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.235466
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Aeon Investment Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.186692,
+          "market_share_pct": 0.6,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.186692,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.186692
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "All Seasons Capital Management Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.186272,
+          "market_share_pct": 0.6,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.186272,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.186272
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Novare Investments",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.175008,
+          "market_share_pct": 0.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Asset Allocation",
+              "value_bn": 0.175008,
+              "styles": [
+                {
+                  "asset_style": "Balanced",
+                  "value_bn": 0.175008
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "TriAlpha Investment Management (Pty) Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.155073,
+          "market_share_pct": 0.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.155073,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.155073
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Oriental Group Planificadores Financieros",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.142764,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.142764,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.142764
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Ashburton Investments",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.14011,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.14011,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.14011
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Univest Company BV",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.131482,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.131482,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.131482
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Mazi Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.128823,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.128823,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.128823
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Fairtree Capital (Pty) Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.118284,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.118284,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.118284
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Sygnia Asset Management (Pty) Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.104564,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.061724,
+              "styles": [
+                {
+                  "asset_style": "General Insurance",
+                  "value_bn": 0.061724
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.04284,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.04284
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "M&G Investments Southern Africa (Pty) Ltd, Claremont",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.098428,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.098428,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.098428
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Prescient Investment Management (Pty) Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.092093,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.092093,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.092093
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Momentum Investments, Centurion",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.091082,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.091082,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.091082
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Self-managed",
+          "is_self_managed": true,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.088283,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.088283
+            }
+          ]
+        },
+        {
+          "manager_name": "Hosking Partners LLP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.088052,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.088052,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.088052
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Abax Investments (Pty) Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.081115,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.081115,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.081115
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Mergence Investment Managers (Pty) Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.075873,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.060493,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.060493
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.01538,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.01538
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "South Suez Capital",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.068454,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.068454,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.068454
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Camissa Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.067641,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.067641,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.067641
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Orbis Investment Management, Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.066855,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.066855,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.066855
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "All Weather Capital",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.058435,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.047594,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.047594
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.010841,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.010841
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Vunani Fund Managers (Pty) Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.057672,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.04988,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.04988
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.007792,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.007792
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Old Mutual Investment Group (SA) (Pty) Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.056777,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.056777,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.056777
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Aluwani Capital Partners",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.05022,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.041209,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.041209
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.009011,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.009011
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Steyn Capital Management (Pty) Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.050044,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.050044,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.050044
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "27four Investment Managers (Pty) Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.045782,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Asset Allocation",
+              "value_bn": 0.003694,
+              "styles": [
+                {
+                  "asset_style": "Balanced",
+                  "value_bn": 0.003694
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.042088,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.042088
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Sands Capital Management, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.037183,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.037183,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.037183
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BlackRock (Singapore) Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.036585,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.036585,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.036585
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Argon Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.036158,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.02735,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.02735
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.008808,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.008808
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Meago Asset Managers",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.033348,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.018036,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.018036
+                }
+              ]
+            },
+            {
+              "asset_type": "Real Estate",
+              "value_bn": 0.015312,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.015312
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Morgan Stanley Investment Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.033055,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.033055,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.033055
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Perpetua Investment Managers (Pty) Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.030076,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.030076,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.030076
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Mianzo Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.027766,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.015638,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.015638
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.012128,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.012128
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Standard Bank",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.024317,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.001812,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.001812
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.022505,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.022505
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Edge Capital (Pty) Ltd, Cape Town",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.023173,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.023173,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.023173
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "First National Fund Advisers",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.021268,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.021268,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.021268
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Sesfikile Capital (Pty) Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.021206,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.021206,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.021206
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Absa Capital, Johannesburg",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.020981,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.020981,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.020981
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Prowess Investment Managers (Pty) Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.020821,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.020821,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.020821
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "STANLIB Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.020467,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.015047,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.015047
+                }
+              ]
+            },
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.00542,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.00542
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Sentio Capital Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.018616,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.018616,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.018616
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Morgan Stanley Investment Management Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.016012,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.016012,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.016012
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Investec Wealth Strategies",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.014881,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.014881,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.014881
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Acadian Asset Management LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.012195,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.012195,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.012195
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Thyme Capital (Pty) Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.01194,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.01194,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.01194
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Summit Africa",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.011315,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.011315,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.011315
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Taquanta Asset Managers (Pty) Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.010776,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.010776,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.010776
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Cannon Asset Managers Pty Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.010773,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.010773,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.010773
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Balondolozi Investment Services",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.010705,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.010705,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.010705
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Apex Advisory Group, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.010554,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.010554,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.010554
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Ethos Private Equity",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.009722,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.009722,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.009722
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Cartesian Capital Group, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.009214,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.009214,
+              "styles": [
+                {
+                  "asset_style": "Money Market",
+                  "value_bn": 0.009214
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Vantage Capital Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.008507,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.008507,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.008507
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "State Street Investment Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.00524,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.00524,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.00524
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Visio Capital Management (Pty) Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.004891,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.004891,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.004891
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "PGIM, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.004713,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.004713,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.004713
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Summit Investment Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.004575,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.004575,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.004575
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Momentum Investments",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.003741,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.003741,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.003741
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Stonehage Fleming",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000696,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000696,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000696
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "Endowments E&F",
+      "total_plan_assets_bn": 7.006321,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 7.006321,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 7.006321
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "Healthcare non-profit E&F",
+      "total_plan_assets_bn": 5.464,
+      "total_identified_managed_bn": 0.357238,
+      "identified_coverage_pct": 6.5,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 5.106762,
+          "market_share_pct": 93.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 5.106762
+            }
+          ]
+        },
+        {
+          "manager_name": "Ninety One",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.10032,
+          "market_share_pct": 1.8,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.10032,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.10032
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Allan Gray Proprietary Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.066589,
+          "market_share_pct": 1.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.066589,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.066589
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Coronation Asset Management Proprietary Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.035181,
+          "market_share_pct": 0.6,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.035181,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.035181
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Argon Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.034309,
+          "market_share_pct": 0.6,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.034309,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.034309
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Sanlam Investment Management (Pty) Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.034161,
+          "market_share_pct": 0.6,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.034161,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.034161
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Abax Investments (Pty) Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.033306,
+          "market_share_pct": 0.6,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.033306,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.033306
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "M&G Investments Southern Africa (Pty) Ltd, Claremont",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.032533,
+          "market_share_pct": 0.6,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.032533,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.032533
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "STANLIB Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.020839,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.020839,
+              "styles": [
+                {
+                  "asset_style": "Money Market",
+                  "value_bn": 0.020839
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Union)",
+      "total_plan_assets_bn": 5.423064,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 5.423064,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 5.423064
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DC Pension (Union)",
+      "total_plan_assets_bn": 4.184109,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 4.184109,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 4.184109
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "Tax exempt E&F",
+      "total_plan_assets_bn": 1.804245,
+      "total_identified_managed_bn": 0.173712,
+      "identified_coverage_pct": 9.6,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 1.630533,
+          "market_share_pct": 90.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 1.630533
+            }
+          ]
+        },
+        {
+          "manager_name": "STANLIB Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.117032,
+          "market_share_pct": 6.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.018245,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.018245
+                }
+              ]
+            },
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.098787,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.098787
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Argon Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.013866,
+          "market_share_pct": 0.8,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.013866,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.013866
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "M&G Investments Southern Africa (Pty) Ltd, Claremont",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.009197,
+          "market_share_pct": 0.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.009197,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.009197
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Coronation Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.008977,
+          "market_share_pct": 0.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.008977,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.008977
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Mazi Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.008467,
+          "market_share_pct": 0.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.008467,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.008467
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Aluwani Capital Partners",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.0082,
+          "market_share_pct": 0.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.0082,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.0082
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Ninety One",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.007973,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.007973,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.007973
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Endowments)",
+      "total_plan_assets_bn": 0.98245,
+      "total_identified_managed_bn": 0.093784,
+      "identified_coverage_pct": 9.5,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 0.888666,
+          "market_share_pct": 90.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.888666
+            }
+          ]
+        },
+        {
+          "manager_name": "Ninety One",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.03059,
+          "market_share_pct": 3.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.03059,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.03059
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Ashburton Investments",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.02517,
+          "market_share_pct": 2.6,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.02517,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.02517
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Sasfin Asset Managers (Pty) Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.017207,
+          "market_share_pct": 1.8,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.017207,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.017207
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Sanlam Investment Management (Pty) Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.014966,
+          "market_share_pct": 1.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.014966,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.014966
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Nedbank Capital",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001942,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.001942,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.001942
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "RMB Capital Management, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001864,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.001864,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.001864
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Standard Bank",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001809,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.001809,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.001809
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Absa Capital, Johannesburg",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000236,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000236,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000236
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DC Pension (Endowments)",
+      "total_plan_assets_bn": 0.023913,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 0.023913,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.023913
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

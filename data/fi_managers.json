@@ -1,0 +1,765 @@
+{
+  "country_code": "FI",
+  "country_name": "Finland",
+  "reporting_period": "2026-07 (S&P export date)",
+  "source_note": "Sourced from the S&P Money Manager Database Manager export (Finland_manager.xls), which records, per plan, which external manager runs how much of that plan's assets, in what asset type/style. Segment routing reuses the same category/plan-type rules as every other Atlas data product. 'Self-managed' and 'Not disclosed' are kept as two separate categories, not merged: 'Self-managed' is only used where S&P explicitly tags the mandate as run in-house (e.g. 'In House Asset Management') -- covering both rows with a specific dollar figure and, for a plan whose only manager tag anywhere is that self-managed tag, the plan's full remaining gap too. 'Not disclosed' is reserved for genuine unknowns -- plans with no manager information at all, or plans naming at least one real external manager where a leftover gap remains that can't be attributed to anyone specifically. Neither bucket has an asset-type breakdown, since the raw data doesn't say how those amounts are invested. 'identified_coverage_pct' on each segment counts both named external managers and self-managed amounts as identified -- only 'Not disclosed' counts against coverage. Manager names are grouped by the firm name portion of the raw 'Name, City, Country' field, so the same manager's different regional offices roll up together. Built with the generalized build_managers.py script, same rule set as the UK pilot (1 of 57 plans ($95.32bn) could not be routed to any segment and are excluded entirely -- same categories excluded everywhere else in Atlas: Reserve Banks and similar non-pension pools).",
+  "segments": [
+    {
+      "segment": "DB Pension (Corp)",
+      "total_plan_assets_bn": 196.816781,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 196.816781,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 196.816781
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Govt)",
+      "total_plan_assets_bn": 110.524064,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 110.524064,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 110.524064
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "Endowments E&F",
+      "total_plan_assets_bn": 2.214089,
+      "total_identified_managed_bn": 0.515522,
+      "identified_coverage_pct": 23.3,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 1.698567,
+          "market_share_pct": 76.7,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 1.698567
+            }
+          ]
+        },
+        {
+          "manager_name": "SEB Fondbolag Finland AB",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.109128,
+          "market_share_pct": 4.9,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.109128,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.109128
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Storebrand Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.107942,
+          "market_share_pct": 4.9,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.107942,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.107942
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Handelsbanken Fonder AB",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.107478,
+          "market_share_pct": 4.9,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.107478,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.107478
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "The Vanguard Group Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.096441,
+          "market_share_pct": 4.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.096441,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.096441
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Amundi Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.038164,
+          "market_share_pct": 1.7,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.038164,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.038164
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Goldman Sachs Asset Management LP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.033419,
+          "market_share_pct": 1.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.033419,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.033419
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "State Street Investment Management France",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.021093,
+          "market_share_pct": 1.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.021093,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.021093
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "The Forest Company",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001857,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.001857,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.001857
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Tax exempt)",
+      "total_plan_assets_bn": 2.113453,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 2.113453,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 2.113453
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "Tax exempt E&F",
+      "total_plan_assets_bn": 1.884154,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 1.884154,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 1.884154
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "SWF",
+      "total_plan_assets_bn": 0.878732,
+      "total_identified_managed_bn": 0.47724,
+      "identified_coverage_pct": 54.3,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 0.401492,
+          "market_share_pct": 45.7,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.401492
+            }
+          ]
+        },
+        {
+          "manager_name": "Danske Invest",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.083128,
+          "market_share_pct": 9.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.083128,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.083128
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "J.P. Morgan Asset Management (UK) Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.063181,
+          "market_share_pct": 7.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.063181,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.063181
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Schroders plc",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.056942,
+          "market_share_pct": 6.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.056942,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.056942
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "SEB Fondbolag Finland AB",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.047012,
+          "market_share_pct": 5.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.047012,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.047012
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Mandatum Life Insurance Company Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.03638,
+          "market_share_pct": 4.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.03638,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.03638
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Impax Asset Management, Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.034974,
+          "market_share_pct": 4.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.034974,
+              "styles": [
+                {
+                  "asset_style": "Infrastructure",
+                  "value_bn": 0.034974
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "UB Fund Management Company Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.026186,
+          "market_share_pct": 3.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Real Estate",
+              "value_bn": 0.026186,
+              "styles": [
+                {
+                  "asset_style": "Timberland",
+                  "value_bn": 0.026186
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "C Worldwide Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.015993,
+          "market_share_pct": 1.8,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.015993,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.015993
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Aktia Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.015817,
+          "market_share_pct": 1.8,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.015817,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.015817
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "HarbourVest Partners, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.011599,
+          "market_share_pct": 1.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.011599,
+              "styles": [
+                {
+                  "asset_style": "Limited Partnerships",
+                  "value_bn": 0.011599
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BNP Paribas Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.011511,
+          "market_share_pct": 1.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Real Estate",
+              "value_bn": 0.011511,
+              "styles": [
+                {
+                  "asset_style": "REITs",
+                  "value_bn": 0.011511
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Bridgepoint Advisers Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.010545,
+          "market_share_pct": 1.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.010545,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.010545
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Lifeline Ventures",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.009139,
+          "market_share_pct": 1.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.009139,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.009139
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BlackRock",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.009051,
+          "market_share_pct": 1.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.009051,
+              "styles": [
+                {
+                  "asset_style": "Infrastructure",
+                  "value_bn": 0.009051
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Hamilton Lane (UK) Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.008084,
+          "market_share_pct": 0.9,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.008084,
+              "styles": [
+                {
+                  "asset_style": "Venture Capital",
+                  "value_bn": 0.008084
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Ardian France",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.006766,
+          "market_share_pct": 0.8,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.006766,
+              "styles": [
+                {
+                  "asset_style": "Venture Capital",
+                  "value_bn": 0.006766
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "CapMan Oyj",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.006063,
+          "market_share_pct": 0.7,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.006063,
+              "styles": [
+                {
+                  "asset_style": "Infrastructure",
+                  "value_bn": 0.006063
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Dasos Capital Oy",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.0058,
+          "market_share_pct": 0.7,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.0058,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.0058
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "H.I.G. Capital, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.005185,
+          "market_share_pct": 0.6,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.005185,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.005185
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "EQT Partners AB",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.004482,
+          "market_share_pct": 0.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.004482,
+              "styles": [
+                {
+                  "asset_style": "Venture Capital",
+                  "value_bn": 0.004482
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Armada Credit Partners Oy",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.004306,
+          "market_share_pct": 0.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.004306,
+              "styles": [
+                {
+                  "asset_style": "Securities Lending Collateral",
+                  "value_bn": 0.004306
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Verdane Capital",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.003163,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.003163,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.003163
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Vaaka Partners Oy",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001933,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.001933,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.001933
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DC Pension (Corp)",
+      "total_plan_assets_bn": 0.357025,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 0.357025,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.357025
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Union)",
+      "total_plan_assets_bn": 0.288272,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 0.288272,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.288272
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

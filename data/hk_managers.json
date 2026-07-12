@@ -1,0 +1,1342 @@
+{
+  "country_code": "HK",
+  "country_name": "Hong Kong",
+  "reporting_period": "2026-07 (S&P export date)",
+  "source_note": "Sourced from the S&P Money Manager Database Manager export (HK_manager.xls), which records, per plan, which external manager runs how much of that plan's assets, in what asset type/style. Segment routing reuses the same category/plan-type rules as every other Atlas data product. 'Self-managed' and 'Not disclosed' are kept as two separate categories, not merged: 'Self-managed' is only used where S&P explicitly tags the mandate as run in-house (e.g. 'In House Asset Management') -- covering both rows with a specific dollar figure and, for a plan whose only manager tag anywhere is that self-managed tag, the plan's full remaining gap too. 'Not disclosed' is reserved for genuine unknowns -- plans with no manager information at all, or plans naming at least one real external manager where a leftover gap remains that can't be attributed to anyone specifically. Neither bucket has an asset-type breakdown, since the raw data doesn't say how those amounts are invested. 'identified_coverage_pct' on each segment counts both named external managers and self-managed amounts as identified -- only 'Not disclosed' counts against coverage. Manager names are grouped by the firm name portion of the raw 'Name, City, Country' field, so the same manager's different regional offices roll up together. Built with the generalized build_managers.py script, same rule set as the UK pilot (0 of 356 plans ($0.00bn) could not be routed to any segment and are excluded entirely -- same categories excluded everywhere else in Atlas: Reserve Banks and similar non-pension pools).",
+  "segments": [
+    {
+      "segment": "SWF",
+      "total_plan_assets_bn": 446.683126,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 446.683126,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 446.683126
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Govt)",
+      "total_plan_assets_bn": 282.043396,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 282.043396,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 282.043396
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DC Pension (Corp)",
+      "total_plan_assets_bn": 147.877893,
+      "total_identified_managed_bn": 3.192124,
+      "identified_coverage_pct": 2.2,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 144.685769,
+          "market_share_pct": 97.8,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 144.685769
+            }
+          ]
+        },
+        {
+          "manager_name": "BlackRock",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.654828,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.260238,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.260238
+                }
+              ]
+            },
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.344173,
+              "styles": [
+                {
+                  "asset_style": "Government Bonds",
+                  "value_bn": 0.344173
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.050417,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.050417
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Alibaba Investments",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.544652,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.544652,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.544652
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "AIA Capital Investment Management Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.351312,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.351312,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.351312
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "HSBC Global Asset Management (Hong Kong) Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.249053,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.249053,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.249053
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Franklin Templeton Investments (Asia) Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.188375,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.171791,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.049161
+                },
+                {
+                  "asset_style": "Growth",
+                  "value_bn": 0.12263
+                }
+              ]
+            },
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.016584,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.016584
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Allianz Global Investors Asia Pacific Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.129022,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Asset Allocation",
+              "value_bn": 0.08518,
+              "styles": [
+                {
+                  "asset_style": "Balanced",
+                  "value_bn": 0.052022
+                },
+                {
+                  "asset_style": "Growth",
+                  "value_bn": 0.033158
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.043842,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.043842
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "MUFG Union Bank",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.124267,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.124267,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.124267
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Sumitomo Mitsui Trust (Hong Kong) Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.124267,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.124267,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.124267
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Amundi Hong Kong Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.117723,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.117723,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.117723
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "JPMorgan Funds (Asia) Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.114624,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.047236,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.047236
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.067388,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.067388
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Natixis Asset Management Japan Co., Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.112241,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.112241,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.112241
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Bank of China Group Investment Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.108691,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.108691,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.108691
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Invesco Hong Kong Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.106826,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.059663,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.059663
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.047163,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.047163
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "First Sentier Investors, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.057324,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.057324,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.057324
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BlackRock Asset Management North Asia Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.056597,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.056597,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.056597
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Berkshire Asset Management, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.052774,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.052774,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.052774
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Massachusetts Mutual Life Insurance Company",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.026237,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.026237,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.026237
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Macquarie Group Limited, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.02334,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.02334,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.02334
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "CMS Asset Management (HK) Co. Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.020072,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.020072,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.020072
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Ping An of China Asset Management (Hong Kong) Co. Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.008721,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.008721,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.008721
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "KB Financial Partners, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.005128,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.005128,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.005128
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Shell Asset Management Company BV",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.005004,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.005004,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.005004
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Bhp",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.003407,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.003407,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.003407
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "HDFC Asset Management Company Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.002271,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.002271,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.002271
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "CSL Capital Management, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.002082,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.002082,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.002082
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "JP Morgan Investment Management Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001506,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.001506,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.001506
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Standard Chartered Bank (Hong Kong) Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001113,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.001113,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.001113
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Sumitomo Mitsui DS Asset Management (Hong Kong) Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000357,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000357,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000357
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Barclays Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.00031,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.00031,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.00031
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "Tax exempt E&F",
+      "total_plan_assets_bn": 19.522807,
+      "total_identified_managed_bn": 0.148754,
+      "identified_coverage_pct": 0.8,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 19.374053,
+          "market_share_pct": 99.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 19.374053
+            }
+          ]
+        },
+        {
+          "manager_name": "BlackRock Investment Management (UK) Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.018646,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.018646,
+              "styles": [
+                {
+                  "asset_style": "Government Bonds",
+                  "value_bn": 0.018646
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Edgbaston Investment Partners LLP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.014889,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.014889,
+              "styles": [
+                {
+                  "asset_style": "Value",
+                  "value_bn": 0.014889
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Wellington Management Company, LLP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.012496,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.012496,
+              "styles": [
+                {
+                  "asset_style": "Core-Diversified",
+                  "value_bn": 0.012496
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Overlook Investments Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.010715,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.010715,
+              "styles": [
+                {
+                  "asset_style": "Hedge Funds",
+                  "value_bn": 0.010715
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Summit Partners, LP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.010687,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.010687,
+              "styles": [
+                {
+                  "asset_style": "Venture Capital",
+                  "value_bn": 0.010687
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Independent Franchise Partners, LLP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.010548,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.010548,
+              "styles": [
+                {
+                  "asset_style": "All Cap",
+                  "value_bn": 0.010548
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Van Eck Associates Corporation",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.009295,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.009295,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.009295
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Silver Lake Technology Management, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.009156,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.009156,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.009156
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Gresham Investment Management LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.006846,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.006846,
+              "styles": [
+                {
+                  "asset_style": "Commodities",
+                  "value_bn": 0.006846
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "The Vanguard Group Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.006318,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.006318,
+              "styles": [
+                {
+                  "asset_style": "Government Bonds",
+                  "value_bn": 0.006318
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Colchester Global Investors Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.006123,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.006123,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.006123
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Tikehau Capital",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.006067,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Real Estate",
+              "value_bn": 0.006067,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.006067
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Hengistbury Investment Partners",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.005399,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.005399,
+              "styles": [
+                {
+                  "asset_style": "Hedge Funds",
+                  "value_bn": 0.005399
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Nitorum Capital, L.P.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.005009,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.005009,
+              "styles": [
+                {
+                  "asset_style": "Limited Partnerships",
+                  "value_bn": 0.005009
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "MCP Asset Management Company Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.004509,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.004509,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.004509
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Qiming Venture Partners",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.002811,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.002811,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.002811
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Ufenau Capital Partners AG",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001976,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.001976,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.001976
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "UOB Global Capital LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.00167,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.00167,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.00167
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "KPS Capital Partners, LP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001614,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.001614,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.001614
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Southern Cross Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001503,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.001503,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.001503
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Deerfield Management Company, LP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001336,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.001336,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.001336
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Siguler Guff Advisers, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000612,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.000612,
+              "styles": [
+                {
+                  "asset_style": "Private Equity Fund of Funds",
+                  "value_bn": 0.000612
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "V\u00e4rde Management, LP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000529,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.000529,
+              "styles": [
+                {
+                  "asset_style": "Hedge Funds",
+                  "value_bn": 0.000529
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "Endowments E&F",
+      "total_plan_assets_bn": 19.115932,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 19.115932,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 19.115932
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Corp)",
+      "total_plan_assets_bn": 13.680504,
+      "total_identified_managed_bn": 1.083671,
+      "identified_coverage_pct": 7.9,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 12.596833,
+          "market_share_pct": 92.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 12.596833
+            }
+          ]
+        },
+        {
+          "manager_name": "Self-managed",
+          "is_self_managed": true,
+          "is_undisclosed": false,
+          "total_managed_bn": 1.059,
+          "market_share_pct": 7.7,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 1.059
+            }
+          ]
+        },
+        {
+          "manager_name": "Hang Seng Investment Management Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.02083,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.02083,
+              "styles": [
+                {
+                  "asset_style": "Energy",
+                  "value_bn": 0.02083
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "AIA Capital Investment Management Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001952,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.001952,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.001952
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Alibaba Investments",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001889,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.001889,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.001889
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Tax exempt)",
+      "total_plan_assets_bn": 0.242425,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 0.242425,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.242425
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Endowments)",
+      "total_plan_assets_bn": 0.033041,
+      "total_identified_managed_bn": 0.002342,
+      "identified_coverage_pct": 7.1,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 0.030699,
+          "market_share_pct": 92.9,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.030699
+            }
+          ]
+        },
+        {
+          "manager_name": "Fidelity Investments",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.002342,
+          "market_share_pct": 7.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.002342,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.002342
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DC Pension (Endowments)",
+      "total_plan_assets_bn": 0.009096,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 0.009096,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.009096
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

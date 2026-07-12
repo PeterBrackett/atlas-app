@@ -1,0 +1,3575 @@
+{
+  "country_code": "BR",
+  "country_name": "Brazil",
+  "reporting_period": "2026-07 (S&P export date)",
+  "source_note": "Sourced from the S&P Money Manager Database Manager export (Brazil_manager.xls), which records, per plan, which external manager runs how much of that plan's assets, in what asset type/style. Segment routing reuses the same category/plan-type rules as every other Atlas data product. 'Self-managed' and 'Not disclosed' are kept as two separate categories, not merged: 'Self-managed' is only used where S&P explicitly tags the mandate as run in-house (e.g. 'In House Asset Management') -- covering both rows with a specific dollar figure and, for a plan whose only manager tag anywhere is that self-managed tag, the plan's full remaining gap too. 'Not disclosed' is reserved for genuine unknowns -- plans with no manager information at all, or plans naming at least one real external manager where a leftover gap remains that can't be attributed to anyone specifically. Neither bucket has an asset-type breakdown, since the raw data doesn't say how those amounts are invested. 'identified_coverage_pct' on each segment counts both named external managers and self-managed amounts as identified -- only 'Not disclosed' counts against coverage. Manager names are grouped by the firm name portion of the raw 'Name, City, Country' field, so the same manager's different regional offices roll up together. Built with the generalized build_managers.py script, same rule set as the UK pilot (0 of 484 plans ($0.00bn) could not be routed to any segment and are excluded entirely -- same categories excluded everywhere else in Atlas: Reserve Banks and similar non-pension pools).",
+  "segments": [
+    {
+      "segment": "DB Pension (Corp)",
+      "total_plan_assets_bn": 178.464657,
+      "total_identified_managed_bn": 55.627033,
+      "identified_coverage_pct": 31.2,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 122.837624,
+          "market_share_pct": 68.8,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 122.837624
+            }
+          ]
+        },
+        {
+          "manager_name": "BB DTVM, Rio De Janeiro",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 41.392275,
+          "market_share_pct": 23.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 41.392275,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 41.392275
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Santander Brazil Asset Management DTVM SA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 5.417038,
+          "market_share_pct": 3.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 4.851764,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 4.851764
+                }
+              ]
+            },
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.565274,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.565274
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Self-managed",
+          "is_self_managed": true,
+          "is_undisclosed": false,
+          "total_managed_bn": 3.453553,
+          "market_share_pct": 1.9,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 3.453553
+            }
+          ]
+        },
+        {
+          "manager_name": "Itau BBA, Sao Paulo",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 1.464805,
+          "market_share_pct": 0.8,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 1.396483,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 1.396483
+                }
+              ]
+            },
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.068322,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.068322
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Santander Asset Management, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.972893,
+          "market_share_pct": 0.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.972893,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.972893
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Western Asset Management Company DTVM Limitada",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.477172,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.471548,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.471548
+                }
+              ]
+            },
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.000123,
+              "styles": [
+                {
+                  "asset_style": "Multi-Sector Bonds",
+                  "value_bn": 0.000123
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.005501,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.005501
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BNP Paribas Asset Management Brazil Ltda., Sao Paulo",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.329931,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.329931,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.329931
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Bradesco Asset Management SA DTVM",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.260274,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.21697,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.21697
+                }
+              ]
+            },
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.000469,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000469
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.019491,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.019491
+                }
+              ]
+            },
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.023344,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.023344
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Bradesco Asset Management SA DTVM, Sao Paulo",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.23089,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Real Estate",
+              "value_bn": 0.000914,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000914
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.229976,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.229976
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Schroder Investment Management Brasil Ltda., Sao Paulo",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.16035,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.16035,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.16035
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Itau Unibanco Asset Management Ltda.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.153686,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.039038,
+              "styles": [
+                {
+                  "asset_style": "Multi-Sector Bonds",
+                  "value_bn": 0.009965
+                },
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.029073
+                }
+              ]
+            },
+            {
+              "asset_type": "Asset Allocation",
+              "value_bn": 0.013162,
+              "styles": [
+                {
+                  "asset_style": "Multi-Asset",
+                  "value_bn": 0.013162
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.101486,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.101486
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Vinci Partners Investments Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.129003,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.020532,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.020532
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.069561,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.069561
+                }
+              ]
+            },
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.009192,
+              "styles": [
+                {
+                  "asset_style": "Private Credit",
+                  "value_bn": 0.009192
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.029718,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.029718
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Capitania S/A",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.11019,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.11019,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.11019
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Bahia Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.096377,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.094456,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.094456
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.00073,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.00073
+                }
+              ]
+            },
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.001191,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.001191
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "SulAmerica Investimentos DTVM, SA, Sao Paulo",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.07633,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.033119,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.033119
+                }
+              ]
+            },
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.043211,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.042488
+                },
+                {
+                  "asset_style": "Variable Annuities",
+                  "value_bn": 0.000723
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BB DTVM",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.06456,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.007045,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.007045
+                }
+              ]
+            },
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.057515,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.057515
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "SulAmerica Investimentos DTVM, SA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.063017,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.019264,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.019264
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.004823,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.004823
+                }
+              ]
+            },
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.03893,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.03893
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Votorantim Asset Management, Sao Paulo",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.062705,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.036482,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.036482
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.000104,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000104
+                }
+              ]
+            },
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.026119,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.026119
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BRB Banco de Brasilia",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.057325,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.057325,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.057325
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Icatu Vanguarda, Rio De Janiro",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.042394,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.026987,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.026987
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.015407,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.015407
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Kinea, Sao Paulo",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.03436,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.016004,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.016004
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.001521,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.001521
+                }
+              ]
+            },
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.016835,
+              "styles": [
+                {
+                  "asset_style": "Multi-Sector Bonds",
+                  "value_bn": 0.016835
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "XP Asset Management, Sao Paulo",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.033075,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.033075,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.033075
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Atmos Capital",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.032132,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.032132,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.032132
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BTG Pactual Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.031614,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.013457,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.013457
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.018157,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.018157
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Spectra Energy Partners, LP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.026546,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.026546,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.026546
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Grupo Ibiuna Investimentos",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.026232,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.026232,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.026232
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Itau BBA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.025416,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 3.7e-05,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 3.7e-05
+                }
+              ]
+            },
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.025379,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.025379
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Banco Safra",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.024814,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.024814,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.024814
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Vista Investment Management, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.024307,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.024307,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.024307
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Groupo Lacan",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.02137,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.013811,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.013811
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.006943,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.006943
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.000616,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000616
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Patria Investments",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.020191,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.00986,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.00986
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 9e-06,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 9e-06
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.010322,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.010322
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "NEO Investments",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.019076,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.019076,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.019076
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "AZ Quest Investimentos Ltda",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.018681,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.013612,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.013612
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.003307,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.003307
+                }
+              ]
+            },
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.001762,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.001762
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Kapitalo Investimentos Ltda., S\u00e3o Paulo",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.018293,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.018293,
+              "styles": [
+                {
+                  "asset_style": "Multi-Sector Bonds",
+                  "value_bn": 0.018293
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Indie Capital Investimentos Ltda., Sao Paulo",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.018252,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.004503,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.004503
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.013749,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.013749
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BlackRock",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.018,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.018,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.018
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BNP Paribas Asset Management Brazil Ltda.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.017233,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.017233,
+              "styles": [
+                {
+                  "asset_style": "Multi-Sector Bonds",
+                  "value_bn": 0.017233
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Bogari Capital, Rio De Janeiro",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.014607,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.010945,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.010945
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.003662,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.003662
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Schroder Investment Management North America Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.014197,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.014197,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.014197
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Legacy Partners, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.014063,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.014063,
+              "styles": [
+                {
+                  "asset_style": "Multi-Sector Bonds",
+                  "value_bn": 0.014063
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Capital Guardian (Canada), Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.012862,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.012862,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.012862
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Signal Securities, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.012199,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.012199,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.012199
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "SPX Gestao de Recursos Ltda",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.009838,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.009838,
+              "styles": [
+                {
+                  "asset_style": "Multi-Sector Bonds",
+                  "value_bn": 0.009838
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "VBI Real Estate Gestao de Carteiras Ltda.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.009758,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.009758,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.009758
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Integral Trust Services, Sao Paulo",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.008741,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.008741,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.008741
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "LeBlon Equities",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.008542,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.001603,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.001603
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000219,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000219
+                }
+              ]
+            },
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.00672,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.00672
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Canvas Ventures",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.008296,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.008296,
+              "styles": [
+                {
+                  "asset_style": "Multi-Sector Bonds",
+                  "value_bn": 0.008296
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Guepardo Investments",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.007003,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.007003,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.007003
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Oceana Investimentos",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.006969,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.006969,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.006969
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Legg Mason Partners Fund Advisor, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.00644,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.00644,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.00644
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Copa Investimentos",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.005971,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.005971,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.005971
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Morgan Stanley Investment Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.005811,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.005811,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.005811
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Occam Capital Management, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.005176,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.004746,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.004746
+                }
+              ]
+            },
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.00043,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.00043
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Stratus Group",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.005127,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.005127,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.005127
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Claritas Investments Ltd., Sao Paulo",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.005086,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.002431,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.002431
+                }
+              ]
+            },
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.002655,
+              "styles": [
+                {
+                  "asset_style": "Private Credit",
+                  "value_bn": 0.002655
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Federated Hermes Investment Management Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.005008,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.005008,
+              "styles": [
+                {
+                  "asset_style": "Multi-Sector Bonds",
+                  "value_bn": 0.005008
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BTG Pactual Chile Servicios Financieros S.A.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.004544,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.004544,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.004544
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Moat Capital",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.003753,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.003753,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.003753
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BNY Mellon Investment Adviser, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.003369,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.003369,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.003369
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Nordea Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.003166,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.003166,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.003166
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Tarpon Investimentos SA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.002655,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.002655,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.002655
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Pacific Investment Management Company LLC (PIMCO)",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.002566,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.002566,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.002566
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BNY Mellon Investment Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.002282,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.002282,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.002282
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BRL Trust Investimentos, Sao Paulo",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.002227,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.002227,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.002227
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Rio Bravo Investimentos Ltda, Sao Paulo",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.002146,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Real Estate",
+              "value_bn": 0.000625,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000625
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.001521,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.001521
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Constellation Investimentos e Participacoes Ltda",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001926,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.001926,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.001926
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Absolute Capital Management, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001328,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.001328,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.001328
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "M Square Global Investimentos Ltda.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001301,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.001301,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.001301
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "JP Morgan Investment Management Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001292,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.001292,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.001292
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Dynamo Internacional",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000989,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000989,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000989
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "RB Capital Group",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000783,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Real Estate",
+              "value_bn": 0.000783,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000783
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Brasil Plural",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000536,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000536,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000536
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Banco do Nordeste do Brazil S.A.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000484,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000484,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000484
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Apex Capital Management (New York) LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000359,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000199,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000199
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.00016,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.00016
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Apex Capital Management, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000335,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.000335,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000335
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Astute Fund Management Berhad",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000296,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.000296,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000296
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "JP Morgan Alternative Asset Management, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.0002,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.0002,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.0002
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "ARX Investimentos",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000139,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Asset Allocation",
+              "value_bn": 0.000139,
+              "styles": [
+                {
+                  "asset_style": "Multi-Asset",
+                  "value_bn": 0.000139
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Caixa Economica Federal, Sao Paulo",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000121,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Asset Allocation",
+              "value_bn": 7.3e-05,
+              "styles": [
+                {
+                  "asset_style": "Multi-Asset",
+                  "value_bn": 7.3e-05
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 4.8e-05,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 4.8e-05
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Angra Partners",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 8.3e-05,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 8.3e-05,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 8.3e-05
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BCV Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 8.3e-05,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 8.3e-05,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 8.3e-05
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Trek Investimentos",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 1.7e-05,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 1.7e-05,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 1.7e-05
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DC Pension (Corp)",
+      "total_plan_assets_bn": 28.947833,
+      "total_identified_managed_bn": 2.083808,
+      "identified_coverage_pct": 7.2,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 26.864025,
+          "market_share_pct": 92.8,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 26.864025
+            }
+          ]
+        },
+        {
+          "manager_name": "Itau Unibanco Asset Management Ltda.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.548533,
+          "market_share_pct": 1.9,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 3e-05,
+              "styles": [
+                {
+                  "asset_style": "Multi-Sector Bonds",
+                  "value_bn": 3e-05
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.548503,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.548503
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Bradesco Asset Management SA DTVM, Sao Paulo",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.452778,
+          "market_share_pct": 1.6,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.452778,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.452778
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BB DTVM, Rio De Janeiro",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.343745,
+          "market_share_pct": 1.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.343745,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.343745
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Icatu Vanguarda, Rio De Janiro",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.139091,
+          "market_share_pct": 0.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.030002,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.030002
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.109089,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.109089
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Santander Brazil Asset Management DTVM SA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.138669,
+          "market_share_pct": 0.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.061794,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.061794
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.076875,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.076875
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "J. Safra Asset Management Corporation",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.076973,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.076973,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.076973
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Mapfre Asset Management SGIIC, SA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.076874,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.076874,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.076874
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Votorantim Asset Management, Sao Paulo",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.070839,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.070839,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.070839
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "SulAmerica Investimentos DTVM, SA, Sao Paulo",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.051808,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.051808,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.051808
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Western Asset Management Company DTVM Limitada",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.026212,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.026212,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.026212
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Schroder Investment Management Brasil Ltda., Sao Paulo",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.017494,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.017494,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.017494
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Kinea, Sao Paulo",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.016963,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 2.7e-05,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 2.7e-05
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.01249,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.01249
+                }
+              ]
+            },
+            {
+              "asset_type": "Asset Allocation",
+              "value_bn": 0.004446,
+              "styles": [
+                {
+                  "asset_style": "Multi-Asset",
+                  "value_bn": 0.004446
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "SPX Gestao de Recursos Ltda",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.014372,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 2.8e-05,
+              "styles": [
+                {
+                  "asset_style": "Multi-Sector Bonds",
+                  "value_bn": 2.8e-05
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.010924,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.010924
+                }
+              ]
+            },
+            {
+              "asset_type": "Asset Allocation",
+              "value_bn": 0.00342,
+              "styles": [
+                {
+                  "asset_style": "Multi-Asset",
+                  "value_bn": 0.00342
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Angra Partners",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.014354,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.014354,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.014354
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Pacific Investment Management Company LLC (PIMCO)",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.009707,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.009707,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.009707
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BlackRock",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.007283,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.007283,
+              "styles": [
+                {
+                  "asset_style": "Variable Annuities",
+                  "value_bn": 0.007283
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "VBI Real Estate Gestao de Carteiras Ltda.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.007189,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.007189,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.007189
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Itau BBA, Sao Paulo",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.006995,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.005078,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.005078
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.001917,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.001917
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Bahia Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.006299,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.000265,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000265
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.006034,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.006034
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Kapitalo Investimentos Ltda., S\u00e3o Paulo",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.006256,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 5e-05,
+              "styles": [
+                {
+                  "asset_style": "Multi-Sector Bonds",
+                  "value_bn": 5e-05
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.006206,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.006206
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Atmos Capital",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.006104,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 7.2e-05,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 7.2e-05
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.006032,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.006032
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "GAP Asset Management, Rio De Janeiro",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.004827,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.004827,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.004827
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Bradesco Asset Management SA DTVM",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.004677,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.002021,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.002021
+                }
+              ]
+            },
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.002656,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.002656
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Itau BBA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.004587,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.003297,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.003297
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.00129,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.00129
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Occam Capital Management, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.004265,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Asset Allocation",
+              "value_bn": 0.004265,
+              "styles": [
+                {
+                  "asset_style": "Multi-Asset",
+                  "value_bn": 0.004265
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "XP Asset Management, Sao Paulo",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.004185,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.004185,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.004185
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Grupo Ibiuna Investimentos",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.004044,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Asset Allocation",
+              "value_bn": 0.004044,
+              "styles": [
+                {
+                  "asset_style": "Multi-Asset",
+                  "value_bn": 0.004044
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "JP Morgan Alternative Asset Management, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.003965,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.003965,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.003965
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Moat Capital",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.003612,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000956,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000956
+                }
+              ]
+            },
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.002656,
+              "styles": [
+                {
+                  "asset_style": "Variable Annuities",
+                  "value_bn": 0.002656
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Oceana Investimentos",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.00332,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.00332,
+              "styles": [
+                {
+                  "asset_style": "Variable Annuities",
+                  "value_bn": 0.00332
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BRZ Investimentos, Sao Paulo",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.002121,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.002121,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.002121
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "LeBlon Equities",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001365,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000319,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000319
+                }
+              ]
+            },
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.001046,
+              "styles": [
+                {
+                  "asset_style": "Variable Annuities",
+                  "value_bn": 0.001046
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Vinci Partners Investments Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001308,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.001246,
+              "styles": [
+                {
+                  "asset_style": "Private Credit",
+                  "value_bn": 0.001246
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 6.2e-05,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 6.2e-05
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Copa Investimentos",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000679,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 1.1e-05,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 1.1e-05
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000668,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000668
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Bogari Capital, Rio De Janeiro",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000359,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 2.5e-05,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 2.5e-05
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000334,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000334
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "NEO Investments",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000289,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000289,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000289
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Guepardo Investments",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000267,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000267,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000267
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "XP Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000265,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000265,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000265
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Groupo Lacan",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000246,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 2.4e-05,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 2.4e-05
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000222,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000222
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BNY Mellon Investment Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000236,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000236,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000236
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Capitania S/A",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000233,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.000233,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000233
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Vista Investment Management, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 6.5e-05,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 6.5e-05,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 6.5e-05
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Spectra Energy Partners, LP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 4.9e-05,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 4.9e-05,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 4.9e-05
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Itau Unibanco, Sao Paulo",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 4.8e-05,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 4.8e-05,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 4.8e-05
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Capital Guardian (Canada), Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 4.2e-05,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 4.2e-05,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 4.2e-05
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Legacy Partners, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 3.9e-05,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 3.9e-05,
+              "styles": [
+                {
+                  "asset_style": "Multi-Sector Bonds",
+                  "value_bn": 3.9e-05
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Schroder Investment Management North America Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 3.9e-05,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 3.9e-05,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 3.9e-05
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "AZ Quest Investimentos Ltda",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 3.1e-05,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 3.1e-05,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 3.1e-05
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Indie Capital Investimentos Ltda., Sao Paulo",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 3.1e-05,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 3.1e-05,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 3.1e-05
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Canvas Ventures",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 2.3e-05,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 2.3e-05,
+              "styles": [
+                {
+                  "asset_style": "Multi-Sector Bonds",
+                  "value_bn": 2.3e-05
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Signal Securities, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 2.3e-05,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 2.3e-05,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 2.3e-05
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Patria Investments",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 1.8e-05,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 1.8e-05,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 1.8e-05
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Stratus Group",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 1e-05,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 1e-05,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 1e-05
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BTG Pactual Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 1e-06,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 1e-06,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 1e-06
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Govt)",
+      "total_plan_assets_bn": 8.223037,
+      "total_identified_managed_bn": 0.002975,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 8.220062,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 8.220062
+            }
+          ]
+        },
+        {
+          "manager_name": "BlackRock",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.00153,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.000617,
+              "styles": [
+                {
+                  "asset_style": "Large Cap",
+                  "value_bn": 0.000617
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000913,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000913
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Bradesco Asset Management SA DTVM",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000913,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000913,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000913
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "NEO Investments",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000194,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000194,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000194
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Brasil Plural",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 9.3e-05,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 9.3e-05,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 9.3e-05
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Santander Brazil Asset Management DTVM SA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 8.4e-05,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 8.4e-05,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 8.4e-05
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Kinea, Sao Paulo",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 8.1e-05,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 8.1e-05,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 8.1e-05
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Vinci Partners Investments Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 8e-05,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 8e-05,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 8e-05
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DC Pension (Govt)",
+      "total_plan_assets_bn": 0.744395,
+      "total_identified_managed_bn": 0.044329,
+      "identified_coverage_pct": 6.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 0.700066,
+          "market_share_pct": 94.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.700066
+            }
+          ]
+        },
+        {
+          "manager_name": "Brasil Plural",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.028162,
+          "market_share_pct": 3.8,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.028162,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.028162
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "NEO Investments",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.009918,
+          "market_share_pct": 1.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.009918,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.009918
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Kinea, Sao Paulo",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.003524,
+          "market_share_pct": 0.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.003524,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.003524
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Vinci Partners Investments Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001619,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.001619,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.001619
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Santander Brazil Asset Management DTVM SA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000617,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000617,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000617
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BlackRock",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000257,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000257,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000257
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Bradesco Asset Management SA DTVM",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000232,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000232,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000232
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Tax exempt)",
+      "total_plan_assets_bn": 0.114159,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 0.114159,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.114159
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

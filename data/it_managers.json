@@ -1,0 +1,2459 @@
+{
+  "country_code": "IT",
+  "country_name": "Italy",
+  "reporting_period": "2026-07 (S&P export date)",
+  "source_note": "Sourced from the S&P Money Manager Database Manager export (Italy_manager.xls), which records, per plan, which external manager runs how much of that plan's assets, in what asset type/style. Segment routing reuses the same category/plan-type rules as every other Atlas data product. 'Self-managed' and 'Not disclosed' are kept as two separate categories, not merged: 'Self-managed' is only used where S&P explicitly tags the mandate as run in-house (e.g. 'In House Asset Management') -- covering both rows with a specific dollar figure and, for a plan whose only manager tag anywhere is that self-managed tag, the plan's full remaining gap too. 'Not disclosed' is reserved for genuine unknowns -- plans with no manager information at all, or plans naming at least one real external manager where a leftover gap remains that can't be attributed to anyone specifically. Neither bucket has an asset-type breakdown, since the raw data doesn't say how those amounts are invested. 'identified_coverage_pct' on each segment counts both named external managers and self-managed amounts as identified -- only 'Not disclosed' counts against coverage. Manager names are grouped by the firm name portion of the raw 'Name, City, Country' field, so the same manager's different regional offices roll up together. Built with the generalized build_managers.py script, same rule set as the UK pilot (1 of 223 plans ($1,119.83bn) could not be routed to any segment and are excluded entirely -- same categories excluded everywhere else in Atlas: Reserve Banks and similar non-pension pools).",
+  "segments": [
+    {
+      "segment": "DC Pension (Corp)",
+      "total_plan_assets_bn": 85.246612,
+      "total_identified_managed_bn": 19.007489,
+      "identified_coverage_pct": 22.3,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 66.239124,
+          "market_share_pct": 77.7,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 66.239124
+            }
+          ]
+        },
+        {
+          "manager_name": "Generali Investments",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 4.005607,
+          "market_share_pct": 4.7,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 3.835859,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 3.835859
+                }
+              ]
+            },
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.169748,
+              "styles": [
+                {
+                  "asset_style": "General Insurance",
+                  "value_bn": 0.169748
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Eurizon Capital SGR",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 2.930557,
+          "market_share_pct": 3.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 2.927838,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 2.927838
+                }
+              ]
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.002719,
+              "styles": [
+                {
+                  "asset_style": "CDs",
+                  "value_bn": 0.002719
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Unipol Gruppo Finanziario SpA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 1.66805,
+          "market_share_pct": 2.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 1.354532,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 1.354532
+                }
+              ]
+            },
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.313518,
+              "styles": [
+                {
+                  "asset_style": "General Insurance",
+                  "value_bn": 0.313518
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Amundi Pioneer Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 1.013371,
+          "market_share_pct": 1.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.889756,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.889756
+                }
+              ]
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.123615,
+              "styles": [
+                {
+                  "asset_style": "CDs",
+                  "value_bn": 0.008799
+                },
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.114816
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Pictet Asset Management SA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.946817,
+          "market_share_pct": 1.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.933107,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.933107
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.01371,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.01371
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BNP Paribas Asset Management USA, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.83003,
+          "market_share_pct": 1.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.83003,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.83003
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BlackRock Investment Management (UK) Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.746879,
+          "market_share_pct": 0.9,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.70117,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.70117
+                }
+              ]
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.045709,
+              "styles": [
+                {
+                  "asset_style": "CDs",
+                  "value_bn": 0.045709
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Allianz Global Investors GmbH",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.562502,
+          "market_share_pct": 0.7,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.537752,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.537752
+                }
+              ]
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.02475,
+              "styles": [
+                {
+                  "asset_style": "CDs",
+                  "value_bn": 0.02475
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Schroders Italy SIM SpA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.562147,
+          "market_share_pct": 0.7,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.562147,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.562147
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Banor Capital",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.47262,
+          "market_share_pct": 0.6,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.47262,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.47262
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Amundi Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.325338,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.325338,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.325338
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "AXA MPS Assicurazioni Vita SpA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.297354,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.297354,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.297354
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BlackRock",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.295562,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.295562,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.295562
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Groupama Asset Management SGR SpA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.279669,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.27679,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.27679
+                }
+              ]
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.002879,
+              "styles": [
+                {
+                  "asset_style": "CDs",
+                  "value_bn": 0.002879
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "JPMorgan Asset Management (Europe) S.a.r.l.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.270188,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.270188,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.270188
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Pacific Investment Management Company (PIMCO) (Europe)",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.26905,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.26905,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.26905
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Arca SGR SpA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.268048,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.268048,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.268048
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Anima SGR SpA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.266445,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.134471,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.134471
+                }
+              ]
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.131974,
+              "styles": [
+                {
+                  "asset_style": "CDs",
+                  "value_bn": 0.131974
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Lazard Asset Management Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.259319,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.259319,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.259319
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Vontobel Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.224292,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.224292,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.224292
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Self-managed",
+          "is_self_managed": true,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.209162,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.209162
+            }
+          ]
+        },
+        {
+          "manager_name": "State Street Investment Management SGR SpA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.206663,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.016779,
+              "styles": [
+                {
+                  "asset_style": "CDs",
+                  "value_bn": 0.013401
+                },
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.003378
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.189884,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.189884
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Lazard Asset Management LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.195377,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.195377,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.195377
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "AXA Investment Managers - Real Assets",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.181303,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.181303,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.181303
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "DWS International GMBH",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.170955,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.170955,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.170955
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Natixis Investment Managers SA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.153008,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.153008,
+              "styles": [
+                {
+                  "asset_style": "CDs",
+                  "value_bn": 0.153008
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Azimut Holding SpA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.149193,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.063476,
+              "styles": [
+                {
+                  "asset_style": "Infrastructure",
+                  "value_bn": 0.063476
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.085717,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.085717
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Fisher Investments UK",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.149178,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.149178,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.149178
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "State Street Investment Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.131563,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.116886,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.116886
+                }
+              ]
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.014677,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.014677
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Pacific Investment Management Company LLC (PIMCO)",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.130047,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.130047,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.130047
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Fideuram Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.123976,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.123976,
+              "styles": [
+                {
+                  "asset_style": "General Insurance",
+                  "value_bn": 0.123976
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BNY Mellon Investment Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.118206,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.118206,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.118206
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "NN Investment Partners France",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.104963,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.104963,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.104963
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BNP Paribas Asset Management, Milan",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.096431,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.096431,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.096431
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BNY Mellon Investment Adviser, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.080463,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.080463,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.080463
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Amundi Pioneer Asset Management, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.062208,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.062208,
+              "styles": [
+                {
+                  "asset_style": "CDs",
+                  "value_bn": 0.062208
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Credit Suisse (Italy) SpA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.061363,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.049114,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.049114
+                }
+              ]
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.012249,
+              "styles": [
+                {
+                  "asset_style": "CDs",
+                  "value_bn": 0.012249
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Neuberger Berman",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.053792,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.035077,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.035077
+                }
+              ]
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.018715,
+              "styles": [
+                {
+                  "asset_style": "CDs",
+                  "value_bn": 0.018715
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Degroof Petercam Asset Management SA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.041524,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.041524,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.041524
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Mirova",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.028206,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.028206,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.028206
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "StepStone Group LP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.026712,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.026712,
+              "styles": [
+                {
+                  "asset_style": "CDs",
+                  "value_bn": 0.026712
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BNP Paribas Asset Management Brazil Ltda., Sao Paulo",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.017205,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.017205,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.017205
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Merrill Lynch International",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.006436,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.003203,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.003203
+                }
+              ]
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.003233,
+              "styles": [
+                {
+                  "asset_style": "CDs",
+                  "value_bn": 0.003233
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Candriam Investors Group",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.006078,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.006078,
+              "styles": [
+                {
+                  "asset_style": "CDs",
+                  "value_bn": 0.006078
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "IdeA Capital Funds SGR",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.004956,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.004956,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.004956
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "UBS Asset Management (UK) Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.002556,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.002556,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.002556
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Morgan Stanley Investment Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.00208,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.00208,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.00208
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "AXA Equitable Funds Management Group, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 4e-05,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 4e-05,
+              "styles": [
+                {
+                  "asset_style": "General Insurance",
+                  "value_bn": 4e-05
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DC Pension (Union)",
+      "total_plan_assets_bn": 69.823005,
+      "total_identified_managed_bn": 26.616785,
+      "identified_coverage_pct": 38.1,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 43.20622,
+          "market_share_pct": 61.9,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 43.20622
+            }
+          ]
+        },
+        {
+          "manager_name": "Eurizon Capital SGR",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 4.380938,
+          "market_share_pct": 6.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 4.060753,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 4.060753
+                }
+              ]
+            },
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.320185,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.320185
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BlackRock Investment Management (UK) Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 3.013347,
+          "market_share_pct": 4.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 3.013347,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 3.013347
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Generali Investments",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 2.721815,
+          "market_share_pct": 3.9,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 2.721815,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 2.721815
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "AXA Investment Managers",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 2.546895,
+          "market_share_pct": 3.6,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 2.546895,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 2.546895
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Amundi Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 2.371052,
+          "market_share_pct": 3.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 2.371052,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 2.371052
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Allianz Global Investors GmbH",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 2.066589,
+          "market_share_pct": 3.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 2.066589,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 2.066589
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Unipol Gruppo Finanziario SpA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 1.986406,
+          "market_share_pct": 2.8,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 1.986406,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 1.986406
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Anima SGR SpA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 1.587144,
+          "market_share_pct": 2.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 1.587144,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 1.587144
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Credit Suisse Asset Management Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 1.50542,
+          "market_share_pct": 2.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 1.50542,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 1.50542
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Groupama Asset Management SGR SpA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.916266,
+          "market_share_pct": 1.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.717877,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.717877
+                }
+              ]
+            },
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.198389,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.198389
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Allianz Bank Financial Advisors SpA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.718986,
+          "market_share_pct": 1.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.718986,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.718986
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Amundi Pioneer Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.534844,
+          "market_share_pct": 0.8,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.534844,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.534844
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Groupama Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.505267,
+          "market_share_pct": 0.7,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.505267,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.505267
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "AXA Investment Managers - Real Assets",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.422957,
+          "market_share_pct": 0.6,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.422957,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.422957
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "HSBC Global Asset Management (France)",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.379596,
+          "market_share_pct": 0.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.379596,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.379596
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Candriam Investors Group",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.327157,
+          "market_share_pct": 0.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.327157,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.327157
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Pacific Investment Management Company (PIMCO) (Europe)",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.302493,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.302493,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.302493
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Payden & Rygel Global, Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.302493,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.302493,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.302493
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Green Arrow Capital SGR",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.019766,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.019766,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.019766
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "State Street Investment Management SGR SpA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.004202,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.004202,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.004202
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Goldman Sachs International, Milan Branch",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.002101,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.002101,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.002101
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Candriam France S.A.S.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001051,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.001051,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.001051
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Corp)",
+      "total_plan_assets_bn": 52.650108,
+      "total_identified_managed_bn": 1.624106,
+      "identified_coverage_pct": 3.1,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 51.026002,
+          "market_share_pct": 96.9,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 51.026002
+            }
+          ]
+        },
+        {
+          "manager_name": "AXA MPS Assicurazioni Vita SpA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.300621,
+          "market_share_pct": 0.6,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.300621,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.300621
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Amundi Pioneer Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.296446,
+          "market_share_pct": 0.6,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.296446,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.296446
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Vontobel Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.281453,
+          "market_share_pct": 0.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.281453,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.281453
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "State Street Investment Management SGR SpA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.259058,
+          "market_share_pct": 0.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.259058,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.259058
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Schroders Italy SIM SpA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.228123,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.228123,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.228123
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Groupama Asset Management SGR SpA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.14177,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.14177,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.14177
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Eurizon Capital SGR",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.041734,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.041734,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.041734
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Allianz Global Investors GmbH",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.038473,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.038473,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.038473
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BNY Mellon Investment Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.031494,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.031494,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.031494
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Epsilon SGR SpA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.004934,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.004934,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.004934
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Union)",
+      "total_plan_assets_bn": 36.706348,
+      "total_identified_managed_bn": 1.407474,
+      "identified_coverage_pct": 3.8,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 35.298874,
+          "market_share_pct": 96.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 35.298874
+            }
+          ]
+        },
+        {
+          "manager_name": "Allianz Global Investors GmbH",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.704381,
+          "market_share_pct": 1.9,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.704381,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.704381
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Eurizon Capital SGR",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.702235,
+          "market_share_pct": 1.9,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.702235,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.702235
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Goldman Sachs International, Milan Branch",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000858,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000858,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000858
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "SWF",
+      "total_plan_assets_bn": 13.731053,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 13.731053,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 13.731053
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Govt)",
+      "total_plan_assets_bn": 11.425518,
+      "total_identified_managed_bn": 4.394782,
+      "identified_coverage_pct": 38.5,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 7.030736,
+          "market_share_pct": 61.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 7.030736
+            }
+          ]
+        },
+        {
+          "manager_name": "AXA Investment Managers",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 1.271425,
+          "market_share_pct": 11.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 1.271425,
+              "styles": [
+                {
+                  "asset_style": "Convertible Bonds",
+                  "value_bn": 1.271425
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Schroders plc",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.410908,
+          "market_share_pct": 3.6,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.410908,
+              "styles": [
+                {
+                  "asset_style": "Convertible Bonds",
+                  "value_bn": 0.410908
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Pacific Investment Management Company LLC (PIMCO)",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.408632,
+          "market_share_pct": 3.6,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.408632,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.408632
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Nordea Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.256106,
+          "market_share_pct": 2.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.256106,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.256106
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Pictet Asset Management SA",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.251553,
+          "market_share_pct": 2.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.251553,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.251553
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Vanguard Asset Management Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.209438,
+          "market_share_pct": 1.8,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.209438,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.209438
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Vontobel Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.18212,
+          "market_share_pct": 1.6,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.18212,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.18212
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BlueBay Asset Management USA LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.170737,
+          "market_share_pct": 1.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.170737,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.170737
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BlackRock",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.135452,
+          "market_share_pct": 1.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.135452,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.135452
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Amundi Pioneer Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.133175,
+          "market_share_pct": 1.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.133175,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.133175
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Eurizon Capital SGR",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.132037,
+          "market_share_pct": 1.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.132037,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.132037
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "M&G Investment Management Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.127484,
+          "market_share_pct": 1.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.127484,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.127484
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Aberdeen Asset Managers Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.121793,
+          "market_share_pct": 1.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.121793,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.121793
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Algebris Investments (UK) LLP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.11041,
+          "market_share_pct": 1.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.11041,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.11041
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Candriam France S.A.S.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.070571,
+          "market_share_pct": 0.6,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.070571,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.070571
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BNY Mellon Investment Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.066018,
+          "market_share_pct": 0.6,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.066018,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.066018
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Lazard Asset Management Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.062604,
+          "market_share_pct": 0.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.062604,
+              "styles": [
+                {
+                  "asset_style": "Convertible Bonds",
+                  "value_bn": 0.062604
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BNP Paribas Asset Management, Milan",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.048945,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.048945,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.048945
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Goldman Sachs Asset Management GmbH",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.039839,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.039839,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.039839
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "UBS Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.033009,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.033009,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.033009
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Franklin Templeton Portfolio Advisors, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.031871,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.031871,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.031871
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "American Beacon Advisors, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.027318,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.027318,
+              "styles": [
+                {
+                  "asset_style": "ESG",
+                  "value_bn": 0.027318
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "abrdn",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.025041,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.025041,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.025041
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "GAM International Management Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.021627,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.021627,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.021627
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "JP Morgan Investment Management Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.021627,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.021627,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.021627
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "RWC Asset Management LLP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.017074,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.017074,
+              "styles": [
+                {
+                  "asset_style": "Convertible Bonds",
+                  "value_bn": 0.017074
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Leadenhall Capital Partners LLP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.007968,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.007968,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.007968
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Tax exempt)",
+      "total_plan_assets_bn": 10.423137,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 10.423137,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 10.423137
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "Tax exempt E&F",
+      "total_plan_assets_bn": 6.816915,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 6.816915,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 6.816915
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DC Pension (Govt)",
+      "total_plan_assets_bn": 1.604065,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 1.604065,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 1.604065
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4260 @@
+{
+  "country_code": "AU",
+  "country_name": "Australia",
+  "reporting_period": "2026-07 (S&P export date)",
+  "source_note": "Sourced from the S&P Money Manager Database Manager export (Australia_manager.xls), which records, per plan, which external manager runs how much of that plan's assets, in what asset type/style. Segment routing reuses the same category/plan-type rules as every other Atlas data product. 'Self-managed' and 'Not disclosed' are kept as two separate categories, not merged: 'Self-managed' is only used where S&P explicitly tags the mandate as run in-house (e.g. 'In House Asset Management') -- covering both rows with a specific dollar figure and, for a plan whose only manager tag anywhere is that self-managed tag, the plan's full remaining gap too. 'Not disclosed' is reserved for genuine unknowns -- plans with no manager information at all, or plans naming at least one real external manager where a leftover gap remains that can't be attributed to anyone specifically. Neither bucket has an asset-type breakdown, since the raw data doesn't say how those amounts are invested. 'identified_coverage_pct' on each segment counts both named external managers and self-managed amounts as identified -- only 'Not disclosed' counts against coverage. Manager names are grouped by the firm name portion of the raw 'Name, City, Country' field, so the same manager's different regional offices roll up together. Built with the generalized build_managers.py script, same rule set as the UK pilot (1 of 258 plans ($271.99bn) could not be routed to any segment and are excluded entirely -- same categories excluded everywhere else in Atlas: Reserve Banks and similar non-pension pools).",
+  "segments": [
+    {
+      "segment": "DB Pension (Union)",
+      "total_plan_assets_bn": 736.727058,
+      "total_identified_managed_bn": 2.413426,
+      "identified_coverage_pct": 0.3,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 734.313632,
+          "market_share_pct": 99.7,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 734.313632
+            }
+          ]
+        },
+        {
+          "manager_name": "JANA Partners LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.934846,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.934846,
+              "styles": [
+                {
+                  "asset_style": "Dividend Yield",
+                  "value_bn": 0.934846
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Investa, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.104402,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.104402,
+              "styles": [
+                {
+                  "asset_style": "Real Assets",
+                  "value_bn": 0.104402
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Loomis, Sayles & Company, LP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.104402,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.104402,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.104402
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BlackRock",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.102866,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.102866,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.102866
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Cooper Investors Pty Limited, Melbourne",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.093655,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.093655,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.093655
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Schroder Investment Management North America Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.082907,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.082907,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.082907
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "WaveStone Capital, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.082907,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.082907,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.082907
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "MFS International (UK) Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.078301,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.078301,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.078301
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Sanders Capital, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.076766,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.076766,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.076766
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Hyperion Asset Management Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.055272,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.055272,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.055272
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Brookfield Asset Management PIC Canada, LP, Toronto",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.053736,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.053736,
+              "styles": [
+                {
+                  "asset_style": "Real Assets",
+                  "value_bn": 0.053736
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Atlas Infrastructure",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.050666,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.050666,
+              "styles": [
+                {
+                  "asset_style": "Real Assets",
+                  "value_bn": 0.050666
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Hardman Johnston Global Advisors LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.050666,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.050666,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.050666
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Martin Currie Inc",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.050666,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.050666,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.050666
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Macquarie Investment Management Business Trust",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.042989,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.042989,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.042989
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "HarbourVest Partners, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.042621,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.042621,
+              "styles": [
+                {
+                  "asset_style": "Limited Partnerships",
+                  "value_bn": 0.042621
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Partners Group (USA), Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.041454,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.041454,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.041454
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Queensland Investment Corporation (QIC), Brisbane",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.041454,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.041454,
+              "styles": [
+                {
+                  "asset_style": "Real Assets",
+                  "value_bn": 0.041454
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Baillie Gifford & Co.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.038383,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.038383,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.038383
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Bentham Asset Management, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.033777,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.033777,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.033777
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Kapstream Capital Pty Ltd, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.030706,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.030706,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.030706
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Stone Harbor Investment Partners",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.027636,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.027636,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.027636
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "GPT Group, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.0261,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.0261,
+              "styles": [
+                {
+                  "asset_style": "Real Assets",
+                  "value_bn": 0.0261
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Coller Investment Management Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.02303,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.02303,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.02303
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Flexstone Partners",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.021494,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.021494,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.021494
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Siguler Guff Advisers, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.020384,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.020384,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.006141
+                },
+                {
+                  "asset_style": "Private Equity Fund of Funds",
+                  "value_bn": 0.014243
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Macquarie Group Limited, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.017264,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.017264,
+              "styles": [
+                {
+                  "asset_style": "Infrastructure",
+                  "value_bn": 0.017264
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Janus Henderson Investors",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.016185,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.016185,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.016185
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Kayne Anderson Capital Advisors LP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.013272,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Real Estate",
+              "value_bn": 0.013272,
+              "styles": [
+                {
+                  "asset_style": "Core",
+                  "value_bn": 0.013272
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "PIMCO Australia Pty Limited, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.012624,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.012624,
+              "styles": [
+                {
+                  "asset_style": "Absolute Return",
+                  "value_bn": 0.012624
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Revolution Ventures Management Company, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.011437,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.011437,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.011437
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Hayfin Capital Management LLP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.010747,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.010747,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.010747
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Continuity Capital Partners Pty Limited, Canberra",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.006141,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.006141,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.006141
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "LGT Capital Partners (USA) Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.005395,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.005395,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.005395
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "EG Funds Management, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.004606,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.004606,
+              "styles": [
+                {
+                  "asset_style": "Real Assets",
+                  "value_bn": 0.004606
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Partners Group AG",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.003669,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.003669,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.003669
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DC Pension (Corp)",
+      "total_plan_assets_bn": 337.819443,
+      "total_identified_managed_bn": 2.939471,
+      "identified_coverage_pct": 0.9,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 334.879972,
+          "market_share_pct": 99.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 334.879972
+            }
+          ]
+        },
+        {
+          "manager_name": "Perpetual Investment Management Limited, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 2.484687,
+          "market_share_pct": 0.7,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.824274,
+              "styles": [
+                {
+                  "asset_style": "Socially Responsible",
+                  "value_bn": 0.824274
+                }
+              ]
+            },
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 1.660413,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 1.660413
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Crescent Wealth",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.229485,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.229485,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.229485
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Macquarie Group Limited, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.124552,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.124552,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.124552
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BlackRock Asset Management Australia Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.027753,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.027753,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.027753
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Mercer Investments (Australia) Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.018276,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.018276,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.018276
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Macquarie Investment Management Global Limited, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.01202,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.01202,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.01202
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Schroder Investment Management Australia Ltd., Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.007051,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.007051,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.007051
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Schroders plc",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.006366,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.006366,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.006366
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Towers Watson Investment Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.004543,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.004543,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.004543
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BlackRock",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.003859,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.003859,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.003859
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Bell Asset Management Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.003683,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.003683,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.003683
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BlackRock Asset Management Australia Ltd, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.003483,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.003483,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.003483
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Karara Capital Ltd., Melbourne",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.00341,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.00341,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.00341
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Northcape Capital Pty Ltd, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.003289,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.003289,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.003289
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Hartford Funds Management Company, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.003077,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.003077,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.003077
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Resolution Capital Limited, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.002871,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.002871,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.002871
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "State Street Investment Management Australia, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001066,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.001066,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.001066
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Govt)",
+      "total_plan_assets_bn": 327.003108,
+      "total_identified_managed_bn": 8.070777,
+      "identified_coverage_pct": 2.5,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 318.932331,
+          "market_share_pct": 97.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 318.932331
+            }
+          ]
+        },
+        {
+          "manager_name": "Queensland Investment Corporation (QIC), Brisbane",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 5.086761,
+          "market_share_pct": 1.6,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 5.086761,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 5.086761
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Vanguard Investments Australia Ltd., Melbourne",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.403803,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.209639,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.209639
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.194164,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.194164
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BlackRock Asset Management Australia Ltd, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.231512,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.231512,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.231512
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Vantage Infrastructure Holdings Limited, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.181006,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.181006,
+              "styles": [
+                {
+                  "asset_style": "Utility Bonds",
+                  "value_bn": 0.181006
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Macquarie Group Limited, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.162937,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.162937,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.162937
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "GQG Partners, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.155901,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.128516,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.128516
+                }
+              ]
+            },
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.027385,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.027385
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Independent Franchise Partners, LLP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.143219,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.143219,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.143219
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Macquarie Investment Management Global Limited, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.137887,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.137887,
+              "styles": [
+                {
+                  "asset_style": "Infrastructure",
+                  "value_bn": 0.137887
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "NSW Treasury Corporation, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.123326,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Asset Allocation",
+              "value_bn": 0.123326,
+              "styles": [
+                {
+                  "asset_style": "Multi-Asset",
+                  "value_bn": 0.123326
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "PIMCO Australia Pty Limited, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.092885,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.092885,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.092885
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Ausbil Investment Management Ltd, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.092732,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.092732,
+              "styles": [
+                {
+                  "asset_style": "Infrastructure",
+                  "value_bn": 0.092732
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Hyperion Asset Management Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.075761,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.075761,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.075761
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Palisade Investment Partners, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.074204,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.074204,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.074204
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Resolution Capital Limited, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.074031,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.074031,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.074031
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Challenger Investment Partners",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.071955,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.071955,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.071955
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Lazard Asset Management LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.071263,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.071263,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.071263
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Arrowstreet Capital, Limited Partnership",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.066723,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.066723,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.066723
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Metrics Credit Partners Pty, Ltd., North Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.066686,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.066686,
+              "styles": [
+                {
+                  "asset_style": "Corporate Bonds",
+                  "value_bn": 0.066686
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Barings Australia Pty Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.065728,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.065728,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.065728
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Lendlease Corporation",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.064872,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Real Estate",
+              "value_bn": 0.064872,
+              "styles": [
+                {
+                  "asset_style": "Commercial",
+                  "value_bn": 0.064872
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Finisterre Capital LLP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.057599,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.057599,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.057599
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Vinva Investment Management, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.056943,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.056943,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.056943
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Yarra Capital Management, Melbourne",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.056561,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.056561,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.056561
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Charter Hall, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.056252,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Real Estate",
+              "value_bn": 0.056252,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.056252
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Northcape Capital Pty Ltd, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.044192,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.044192,
+              "styles": [
+                {
+                  "asset_style": "Core-Diversified",
+                  "value_bn": 0.044192
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Vantage Asset Management Pty Ltd., Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.042526,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.042526,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.042526
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Janus Henderson Investors",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.040932,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.040932,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.040932
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "DEXUS Property Group, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.040828,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Real Estate",
+              "value_bn": 0.040828,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.040828
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Centaur Property Funds Management, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.032456,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.032456,
+              "styles": [
+                {
+                  "asset_style": "Credit",
+                  "value_bn": 0.032456
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "T. Rowe Price International Limited, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.032456,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.032456,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.032456
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "First Sentier Investors, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.031565,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.031565,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.031565
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Mirvac, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.025081,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.025081,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.025081
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Warakirri Asset Management Pty Ltd., Melbourne",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.016156,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Real Estate",
+              "value_bn": 0.016156,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.016156
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Pacific Investment Management Company LLC (PIMCO)",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.015242,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.015242,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.015242
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "UBS Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.015201,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.015201,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.015201
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Western Asset Management Company Pty Ltd, Melbourne",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.014786,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.014786,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.014786
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Realm Investments, Melbourne",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.014779,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.014779,
+              "styles": [
+                {
+                  "asset_style": "Credit",
+                  "value_bn": 0.014779
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Revolution Asset Management, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.014344,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.014344,
+              "styles": [
+                {
+                  "asset_style": "Credit",
+                  "value_bn": 0.014344
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Celeste Funds Management, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.012169,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.012169,
+              "styles": [
+                {
+                  "asset_style": "Small Cap",
+                  "value_bn": 0.012169
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "ClearBridge Investments, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.00407,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.00407,
+              "styles": [
+                {
+                  "asset_style": "Infrastructure",
+                  "value_bn": 0.00407
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "MFS Institutional Advisors, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.003447,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.003447,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.003447
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DC Pension (Union)",
+      "total_plan_assets_bn": 260.461059,
+      "total_identified_managed_bn": 8.442278,
+      "identified_coverage_pct": 3.2,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 252.018781,
+          "market_share_pct": 96.8,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 252.018781
+            }
+          ]
+        },
+        {
+          "manager_name": "BlackRock Asset Management Australia Ltd, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 1.384835,
+          "market_share_pct": 0.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 1.004701,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 1.004701
+                }
+              ]
+            },
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.380134,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.380134
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "IFM Investors Pty Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 1.323006,
+          "market_share_pct": 0.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Real Estate",
+              "value_bn": 0.036452,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.036452
+                }
+              ]
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 1.286554,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 1.286554
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "First Sentier Investors, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.587681,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.587681,
+              "styles": [
+                {
+                  "asset_style": "Infrastructure",
+                  "value_bn": 0.587681
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Ausbil Investment Management Ltd, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.584209,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.584209,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.584209
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "State Street Investment Management Australia, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.465594,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.465594,
+              "styles": [
+                {
+                  "asset_style": "Derivatives",
+                  "value_bn": 0.465594
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Vinva Investment Management, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.438957,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.438957,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.438957
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Los Angeles Capital Management and Equity Research, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.41676,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.41676,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.41676
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "AllianceBernstein Australia Limited, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.300222,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.300222,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.300222
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BlackRock",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.261529,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.261529,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 0.261529
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Fife Capital",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.227823,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Real Estate",
+              "value_bn": 0.227823,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.227823
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Metropolis Capital Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.203177,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.203177,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.203177
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "C Worldwide Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.197553,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.197553,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.197553
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Bennelong Funds Management Ltd., Melbourne",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.184795,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.184795,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.184795
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Cerberus Capital Management, LP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.175424,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.175424,
+              "styles": [
+                {
+                  "asset_style": "Credit",
+                  "value_bn": 0.175424
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Industry Superannuation Property Trust, Melbourne",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.16908,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.16908,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.16908
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Allan Gray Australia, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.158183,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.158183,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.158183
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "First Trust Advisors, LP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.135334,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.135334,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.135334
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Vanguard Investments Australia Ltd., Melbourne",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.113666,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.113666,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.113666
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Eley Griffiths Group Pty Ltd, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.107916,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.107916,
+              "styles": [
+                {
+                  "asset_style": "Small Cap",
+                  "value_bn": 0.107916
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Parametric Portfolio Associates LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.101554,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.101554,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.101554
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Tribeca Investment Partners, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.096005,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.096005,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.096005
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "National Australia Bank Limited, Docklands",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.084295,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.084295,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.084295
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Industry Super Australia Pty Ltd, Melbourne",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.08331,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.08331,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.08331
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Wasatch Advisors, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.077137,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.077137,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.077137
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Partners Group AG",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.075678,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.075678,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.075678
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Pacific Investment Management Company LLC (PIMCO)",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.072764,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.072764,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.072764
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Intermediate Capital Managers Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.061512,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.061512,
+              "styles": [
+                {
+                  "asset_style": "Credit",
+                  "value_bn": 0.061512
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Campbell Global",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.054384,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Real Estate",
+              "value_bn": 0.054384,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.054384
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Macquarie Investment Management Global Limited, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.051716,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.051716,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.051716
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Western Asset Management Company Pty Ltd, Melbourne",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.050121,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.050121,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.050121
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Warren Equity Partners LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.045565,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.045565,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.045565
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Hyperion Asset Management Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.035025,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.035025,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.035025
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Antin Infrastructure Partners",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.027339,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.027339,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.027339
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Pendal Group Limited, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.025527,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.025527,
+              "styles": [
+                {
+                  "asset_style": "Absolute Return",
+                  "value_bn": 0.025527
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Westbourne Capital, Melbourne",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.018629,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.008085,
+              "styles": [
+                {
+                  "asset_style": "Infrastructure",
+                  "value_bn": 0.008085
+                }
+              ]
+            },
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.010544,
+              "styles": [
+                {
+                  "asset_style": "Credit",
+                  "value_bn": 0.010544
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "State Street Investment Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.017742,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.017742,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.017742
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Continuity Capital Partners Pty Limited, Canberra",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.013319,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.013319,
+              "styles": [
+                {
+                  "asset_style": "Credit",
+                  "value_bn": 0.013319
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "AIF Capital Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.007214,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.007214,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.007214
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Wilshire Associates Incorporated",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.003164,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.003164,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.003164
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Perennial Investment Partners Ltd, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.002775,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.002775,
+              "styles": [
+                {
+                  "asset_style": "Derivatives",
+                  "value_bn": 0.002775
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "ROC Equity Partners",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001055,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.001055,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.001055
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Frontier Capital Management Co., LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000352,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.000352,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.000352
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Stafford Capital Partners, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000352,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.000352,
+              "styles": [
+                {
+                  "asset_style": "Private Equity",
+                  "value_bn": 0.000352
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "SWF",
+      "total_plan_assets_bn": 222.85513,
+      "total_identified_managed_bn": 1.220184,
+      "identified_coverage_pct": 0.5,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 221.634946,
+          "market_share_pct": 99.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 221.634946
+            }
+          ]
+        },
+        {
+          "manager_name": "Self-managed",
+          "is_self_managed": true,
+          "is_undisclosed": false,
+          "total_managed_bn": 1.220184,
+          "market_share_pct": 0.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 1.220184
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Corp)",
+      "total_plan_assets_bn": 149.441788,
+      "total_identified_managed_bn": 8.570801,
+      "identified_coverage_pct": 5.7,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 140.870987,
+          "market_share_pct": 94.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 140.870987
+            }
+          ]
+        },
+        {
+          "manager_name": "Macquarie Group Limited, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.986832,
+          "market_share_pct": 0.7,
+          "by_asset_type": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.846621,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.846621
+                }
+              ]
+            },
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.140211,
+              "styles": [
+                {
+                  "asset_style": "Infrastructure",
+                  "value_bn": 0.140211
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "WTW",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.602545,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.602545,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.602545
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Queensland Investment Corporation (QIC), Brisbane",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.531369,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.431218,
+              "styles": [
+                {
+                  "asset_style": "Hedged",
+                  "value_bn": 0.431218
+                }
+              ]
+            },
+            {
+              "asset_type": "Real Estate",
+              "value_bn": 0.100151,
+              "styles": [
+                {
+                  "asset_style": "Direct",
+                  "value_bn": 0.100151
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BlackRock",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.528742,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.528742,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.528742
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Vanguard Investments Australia Ltd., Melbourne",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.423837,
+          "market_share_pct": 0.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.423837,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.423837
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Alphinity Investment Management, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.364548,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.364548,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.364548
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Hyperion Asset Management Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.341369,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.341369,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.341369
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "DEXUS Property Group, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.262826,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Real Estate",
+              "value_bn": 0.262826,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.098579
+                },
+                {
+                  "asset_style": "Direct",
+                  "value_bn": 0.164247
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Australia & New Zealand Banking Group Ltd (ANZ), Melbourne",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.262526,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.262526,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.262526
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Fulcrum Asset Management LLP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.238277,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.238277,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.238277
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Intermediate Capital Managers Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.234991,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.234991,
+              "styles": [
+                {
+                  "asset_style": "Credit",
+                  "value_bn": 0.062732
+                },
+                {
+                  "asset_style": "Debt",
+                  "value_bn": 0.172259
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Morgan Stanley Australia Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.224337,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.224337,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.224337
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Parametric Portfolio Associates LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.220331,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.220331,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.220331
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "PIMCO Australia Pty Limited, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.220331,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.220331,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.220331
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Colchester Capital, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.20981,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.20981,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.20981
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Realindex Investments Pty Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.199267,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.199267,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.199267
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Palisade Investment Partners, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.192941,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.192941,
+              "styles": [
+                {
+                  "asset_style": "Infrastructure",
+                  "value_bn": 0.192941
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Allan Gray Australia, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.189251,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.189251,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.189251
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Harris Associates LP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.180271,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.180271,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.180271
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "AllianceBernstein LP (AB)",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.172259,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.172259,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.172259
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Cooper Investors Pty Limited, Melbourne",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.172259,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.172259,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.172259
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Resolution Capital Limited, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.140752,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Real Estate",
+              "value_bn": 0.140752,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.140752
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Sands Capital Management, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.132199,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.132199,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.132199
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "JANA Investment Advisers Pty Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.122657,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.122657,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.122657
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "First Sentier Investors, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.112169,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "value_bn": 0.112169,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.112169
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "IFM Investors Pty Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.108163,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.108163,
+              "styles": [
+                {
+                  "asset_style": "Infrastructure",
+                  "value_bn": 0.108163
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Vinva Investment Management, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.100161,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.100161,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.100161
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Northcape Capital Pty Ltd, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.092139,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.092139,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.092139
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Wasatch Advisors, Inc.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.088133,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.088133,
+              "styles": [
+                {
+                  "asset_style": "Opportunistic",
+                  "value_bn": 0.088133
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BlueBay Asset Management USA LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.0854,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.0854,
+              "styles": [
+                {
+                  "asset_style": "Credit",
+                  "value_bn": 0.0854
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Mirvac, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.0854,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Real Estate",
+              "value_bn": 0.0854,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.0854
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Wellington Management Australia Pty Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.081183,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.081183,
+              "styles": [
+                {
+                  "asset_style": "Credit",
+                  "value_bn": 0.081183
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Insight Investment Australia Pty Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.080656,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.080656,
+              "styles": [
+                {
+                  "asset_style": "Credit",
+                  "value_bn": 0.080656
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Investa, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.072108,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Real Estate",
+              "value_bn": 0.072108,
+              "styles": [
+                {
+                  "asset_style": "Direct",
+                  "value_bn": 0.072108
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Maple-Brown Abbott Investment Management, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.070112,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.070112,
+              "styles": [
+                {
+                  "asset_style": "Infrastructure",
+                  "value_bn": 0.070112
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Barwon Investment Partners, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.069058,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Real Estate",
+              "value_bn": 0.069058,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.069058
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "SUSI Partners AG",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.054825,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.054825,
+              "styles": [
+                {
+                  "asset_style": "Infrastructure",
+                  "value_bn": 0.054825
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Lazard Asset Management Pacific Co., Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.048072,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.048072,
+              "styles": [
+                {
+                  "asset_style": "Infrastructure",
+                  "value_bn": 0.048072
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Ancala Partners LLP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.043227,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.043227,
+              "styles": [
+                {
+                  "asset_style": "Infrastructure",
+                  "value_bn": 0.043227
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Acorn Capital Ltd, Melbourne",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.04006,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.04006,
+              "styles": [
+                {
+                  "asset_style": "Opportunistic",
+                  "value_bn": 0.04006
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Duxton Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.04006,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Real Estate",
+              "value_bn": 0.04006,
+              "styles": [
+                {
+                  "asset_style": "Agricultural",
+                  "value_bn": 0.04006
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Finisterre Capital LLP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.028042,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.028042,
+              "styles": [
+                {
+                  "asset_style": "Debt",
+                  "value_bn": 0.028042
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Acadian Asset Management (Australia) Ltd., Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.02003,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.02003,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.02003
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Hayfin Capital Management LLP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.02003,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.02003,
+              "styles": [
+                {
+                  "asset_style": "Debt",
+                  "value_bn": 0.02003
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "AMP Capital Investors",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.01937,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.01937,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.01937
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Westbourne Capital, Melbourne",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.016762,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.016762,
+              "styles": [
+                {
+                  "asset_style": "Credit",
+                  "value_bn": 0.004744
+                },
+                {
+                  "asset_style": "Debt",
+                  "value_bn": 0.012018
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Stafford Capital Partners, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.012018,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.012018,
+              "styles": [
+                {
+                  "asset_style": "Opportunistic",
+                  "value_bn": 0.012018
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "DEXUS Property Group",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.009066,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.009066,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.009066
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Challenger Investment Partners",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.008012,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.008012,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.008012
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Industry Super Australia Pty Ltd, Melbourne",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.004006,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.004006,
+              "styles": [
+                {
+                  "asset_style": "Opportunistic",
+                  "value_bn": 0.004006
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Newbury Associates LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.004006,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.004006,
+              "styles": [
+                {
+                  "asset_style": "Opportunistic",
+                  "value_bn": 0.004006
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Siguler Guff Advisers, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.004006,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.004006,
+              "styles": [
+                {
+                  "asset_style": "Opportunistic",
+                  "value_bn": 0.004006
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DC Pension (Govt)",
+      "total_plan_assets_bn": 24.220688,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 24.220688,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 24.220688
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "Tax exempt E&F",
+      "total_plan_assets_bn": 22.442834,
+      "total_identified_managed_bn": 2.08179,
+      "identified_coverage_pct": 9.3,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 20.361044,
+          "market_share_pct": 90.7,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 20.361044
+            }
+          ]
+        },
+        {
+          "manager_name": "JANA Investment Advisers Pty Ltd, Melbourne",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 1.734188,
+          "market_share_pct": 7.7,
+          "by_asset_type": [
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 1.734188,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 1.734188
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Self-managed",
+          "is_self_managed": true,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.092206,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.092206
+            }
+          ]
+        },
+        {
+          "manager_name": "Solaris Investment Management Ltd, Brisbane",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.050598,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.050598,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.050598
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "NSW Treasury Corporation, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.048305,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Unspecified",
+              "value_bn": 0.048305,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.048305
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Northern Trust Global Investments, Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.043287,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.043287,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.043287
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Vanguard Investments Australia Ltd., Melbourne",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.033881,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.033881,
+              "styles": [
+                {
+                  "asset_style": "Dividend Yield",
+                  "value_bn": 0.033881
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "DEXUS Property Group, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.033091,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Real Estate",
+              "value_bn": 0.033091,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.033091
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "BlackRock",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.024241,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.024241,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.024241
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "IFM Investors Pty Ltd",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.010389,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Alternatives",
+              "value_bn": 0.010389,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.010389
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Alphinity Investment Management, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.005418,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.005418,
+              "styles": [
+                {
+                  "asset_style": "Value",
+                  "value_bn": 0.005418
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Perpetual Investment Management Limited, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.004387,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.004387,
+              "styles": [
+                {
+                  "asset_style": "ESG",
+                  "value_bn": 0.004387
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Adamantem Capital",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.001731,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.001731,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.001731
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Social Ventures Australia, Sydney",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 6.8e-05,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 6.8e-05,
+              "styles": [
+                {
+                  "asset_style": "Bonds",
+                  "value_bn": 6.8e-05
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "Endowments E&F",
+      "total_plan_assets_bn": 13.17941,
+      "total_identified_managed_bn": 0.566631,
+      "identified_coverage_pct": 4.3,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 12.612779,
+          "market_share_pct": 95.7,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 12.612779
+            }
+          ]
+        },
+        {
+          "manager_name": "Queensland Investment Corporation (QIC), Brisbane",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.566286,
+          "market_share_pct": 4.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.566286,
+              "styles": [
+                {
+                  "asset_style": "Unlisted",
+                  "value_bn": 0.566286
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "First Sentier Investors",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.000345,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.000345,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.000345
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "Healthcare non-profit E&F",
+      "total_plan_assets_bn": 1.42656,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 1.42656,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 1.42656
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Endowments)",
+      "total_plan_assets_bn": 0.03112,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 0.03112,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.03112
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DC Pension (Endowments)",
+      "total_plan_assets_bn": 0.024104,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 0.024104,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.024104
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Tax exempt)",
+      "total_plan_assets_bn": 0.001135,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 0.001135,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.001135
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

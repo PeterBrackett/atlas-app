@@ -1,0 +1,261 @@
+{
+  "country_code": "PE",
+  "country_name": "Peru",
+  "reporting_period": "2026-07 (S&P export date)",
+  "source_note": "Sourced from the S&P Money Manager Database Manager export (Peru_manager.xls), which records, per plan, which external manager runs how much of that plan's assets, in what asset type/style. Segment routing reuses the same category/plan-type rules as every other Atlas data product. 'Self-managed' and 'Not disclosed' are kept as two separate categories, not merged: 'Self-managed' is only used where S&P explicitly tags the mandate as run in-house (e.g. 'In House Asset Management') -- covering both rows with a specific dollar figure and, for a plan whose only manager tag anywhere is that self-managed tag, the plan's full remaining gap too. 'Not disclosed' is reserved for genuine unknowns -- plans with no manager information at all, or plans naming at least one real external manager where a leftover gap remains that can't be attributed to anyone specifically. Neither bucket has an asset-type breakdown, since the raw data doesn't say how those amounts are invested. 'identified_coverage_pct' on each segment counts both named external managers and self-managed amounts as identified -- only 'Not disclosed' counts against coverage. Manager names are grouped by the firm name portion of the raw 'Name, City, Country' field, so the same manager's different regional offices roll up together. Built with the generalized build_managers.py script, same rule set as the UK pilot (1 of 14 plans ($89.57bn) could not be routed to any segment and are excluded entirely -- same categories excluded everywhere else in Atlas: Reserve Banks and similar non-pension pools).",
+  "segments": [
+    {
+      "segment": "DC Pension (Corp)",
+      "total_plan_assets_bn": 19.560982,
+      "total_identified_managed_bn": 1.98984,
+      "identified_coverage_pct": 10.2,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 17.571142,
+          "market_share_pct": 89.8,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 17.571142
+            }
+          ]
+        },
+        {
+          "manager_name": "BlackRock",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.70682,
+          "market_share_pct": 3.6,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.70682,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.70682
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Van Eck Associates Corporation",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.38143,
+          "market_share_pct": 1.9,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.38143,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.38143
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Vista Equity Partners Management, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.20255,
+          "market_share_pct": 1.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.20255,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.20255
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Global X Management Company, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.152099,
+          "market_share_pct": 0.8,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.152099,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.152099
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Apax Partners LLP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.125827,
+          "market_share_pct": 0.6,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.125827,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.125827
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Lexington Partners, LP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.111678,
+          "market_share_pct": 0.6,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.111678,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.111678
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Pacific Investment Management Company (PIMCO) (Europe)",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.105663,
+          "market_share_pct": 0.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.105663,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.105663
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Vontobel Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.085163,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.085163,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.085163
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Vontobel Asset Management, Zurich",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.080248,
+          "market_share_pct": 0.4,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.080248,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.080248
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Pacific Investment Management Company LLC (PIMCO)",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.038362,
+          "market_share_pct": 0.2,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.038362,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.038362
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "SWF",
+      "total_plan_assets_bn": 3.214329,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 3.214329,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 3.214329
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DC Pension (Govt)",
+      "total_plan_assets_bn": 1.505779,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 1.505779,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 1.505779
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

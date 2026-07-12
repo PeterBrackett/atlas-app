@@ -1,0 +1,512 @@
+{
+  "country_code": "SE",
+  "country_name": "Sweden",
+  "reporting_period": "2026-07 (S&P export date)",
+  "source_note": "Sourced from the S&P Money Manager Database Manager export (Sweden_manager.xls), which records, per plan, which external manager runs how much of that plan's assets, in what asset type/style. Segment routing reuses the same category/plan-type rules as every other Atlas data product. 'Self-managed' and 'Not disclosed' are kept as two separate categories, not merged: 'Self-managed' is only used where S&P explicitly tags the mandate as run in-house (e.g. 'In House Asset Management') -- covering both rows with a specific dollar figure and, for a plan whose only manager tag anywhere is that self-managed tag, the plan's full remaining gap too. 'Not disclosed' is reserved for genuine unknowns -- plans with no manager information at all, or plans naming at least one real external manager where a leftover gap remains that can't be attributed to anyone specifically. Neither bucket has an asset-type breakdown, since the raw data doesn't say how those amounts are invested. 'identified_coverage_pct' on each segment counts both named external managers and self-managed amounts as identified -- only 'Not disclosed' counts against coverage. Manager names are grouped by the firm name portion of the raw 'Name, City, Country' field, so the same manager's different regional offices roll up together. Built with the generalized build_managers.py script, same rule set as the UK pilot (1 of 101 plans ($110.95bn) could not be routed to any segment and are excluded entirely -- same categories excluded everywhere else in Atlas: Reserve Banks and similar non-pension pools).",
+  "segments": [
+    {
+      "segment": "DB Pension (Corp)",
+      "total_plan_assets_bn": 184.280839,
+      "total_identified_managed_bn": 5.649044,
+      "identified_coverage_pct": 3.1,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 178.631795,
+          "market_share_pct": 96.9,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 178.631795
+            }
+          ]
+        },
+        {
+          "manager_name": "Self-managed",
+          "is_self_managed": true,
+          "is_undisclosed": false,
+          "total_managed_bn": 5.649044,
+          "market_share_pct": 3.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 5.649044
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Govt)",
+      "total_plan_assets_bn": 174.018872,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 174.018872,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 174.018872
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DC Pension (Govt)",
+      "total_plan_assets_bn": 161.232261,
+      "total_identified_managed_bn": 1.056105,
+      "identified_coverage_pct": 0.7,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 160.176156,
+          "market_share_pct": 99.3,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 160.176156
+            }
+          ]
+        },
+        {
+          "manager_name": "Nordea Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.182147,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.182147,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.182147
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Warburg Pincus International, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.127853,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.127853,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.127853
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Newbury Associates LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.115594,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.115594,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.115594
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Advent International PLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.103334,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.103334,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.103334
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "WCAS Management Corporation",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.103334,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.103334,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.103334
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Storebrand Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.099831,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.099831,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.099831
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Cinven Partners LLP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.084068,
+          "market_share_pct": 0.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.084068,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.084068
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Aermont Capital LLP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.077062,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.077062,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.077062
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "White Peaks Asset Management, LLC",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.066554,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.066554,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.066554
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Montanaro Investment Managers Ltd.",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.056045,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.056045,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.056045
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "RBC Global Asset Management (UK) Limited",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.040283,
+          "market_share_pct": 0.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Other/Unclassified",
+              "value_bn": 0.040283,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.040283
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "Tax exempt E&F",
+      "total_plan_assets_bn": 3.303409,
+      "total_identified_managed_bn": 0.536253,
+      "identified_coverage_pct": 16.2,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 2.767156,
+          "market_share_pct": 83.8,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 2.767156
+            }
+          ]
+        },
+        {
+          "manager_name": "Generation Investment Management US LLP",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.187497,
+          "market_share_pct": 5.7,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.187497,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.187497
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Nordea Asset Management",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.089813,
+          "market_share_pct": 2.7,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.089813,
+              "styles": [
+                {
+                  "asset_style": "Corporate Bonds",
+                  "value_bn": 0.089813
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "RobecoSAM AG",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.083152,
+          "market_share_pct": 2.5,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.083152,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.083152
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Stewart Investors",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.070236,
+          "market_share_pct": 2.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.070236,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.070236
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "European Investment Bank",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.06963,
+          "market_share_pct": 2.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Fixed Income",
+              "value_bn": 0.06963,
+              "styles": [
+                {
+                  "asset_style": "Corporate Bonds",
+                  "value_bn": 0.06963
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "manager_name": "Mirova",
+          "is_self_managed": false,
+          "is_undisclosed": false,
+          "total_managed_bn": 0.035925,
+          "market_share_pct": 1.1,
+          "by_asset_type": [
+            {
+              "asset_type": "Equities",
+              "value_bn": 0.035925,
+              "styles": [
+                {
+                  "asset_style": "Unspecified",
+                  "value_bn": 0.035925
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DB Pension (Tax exempt)",
+      "total_plan_assets_bn": 2.537942,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 2.537942,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 2.537942
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "Endowments E&F",
+      "total_plan_assets_bn": 1.028241,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 1.028241,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 1.028241
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "Foundations E&F",
+      "total_plan_assets_bn": 0.180584,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 0.180584,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.180584
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "segment": "DC Pension (Corp)",
+      "total_plan_assets_bn": 0.028644,
+      "total_identified_managed_bn": 0.0,
+      "identified_coverage_pct": 0.0,
+      "managers": [
+        {
+          "manager_name": "Not disclosed",
+          "is_self_managed": false,
+          "is_undisclosed": true,
+          "total_managed_bn": 0.028644,
+          "market_share_pct": 100.0,
+          "by_asset_type": [
+            {
+              "asset_type": "Not broken down",
+              "value_bn": 0.028644
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
