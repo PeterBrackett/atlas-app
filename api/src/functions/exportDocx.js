@@ -3,7 +3,7 @@ const {
   Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell,
   HeadingLevel, WidthType, ShadingType, PageBreak
 } = require('docx');
-const { buildAumRows, buildScorecardMatrix } = require('../shared/exportHelpers');
+const { buildAumRows, buildScorecardMatrix, buildTopInstitutionsSections } = require('../shared/exportHelpers');
 
 const HEADER_FILL = 'D9E2F3';
 
@@ -48,11 +48,51 @@ function buildScorecardTable(matrix) {
   return new Table({ width: { size: 100, type: WidthType.PERCENTAGE }, rows: [headerRow, ...dataRows] });
 }
 
-// One country's section: heading + AUM table + scorecard table. Shared by
-// both the single-country payload (country.html's per-page export) and the
-// multi-country payload (picker.html's project builder) so a project export
-// is just this block repeated once per selected country, rather than a
-// separate document layout to maintain.
+function buildTopInstitutionsTable(section) {
+  const headerRow = new TableRow({
+    children: [headerCell('Rank'), headerCell('Institution'), headerCell('AUM ($bn)')]
+  });
+  const dataRows = section.institutions.map((inst, i) => new TableRow({
+    children: [
+      bodyCell(String(i + 1)),
+      bodyCell(inst.name),
+      bodyCell(typeof inst.aum_bn === 'number' ? inst.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-')
+    ]
+  }));
+  return new Table({ width: { size: 100, type: WidthType.PERCENTAGE }, rows: [headerRow, ...dataRows] });
+}
+
+// One heading + one small table per segment that has institution-level data
+// -- Peter's standard "top 10 institutions by AUM, and their combined AUM as
+// a % of the segment" report format. Segments built from industry
+// aggregates (e.g. Life/Non-life insurance) or countries not yet backfilled
+// at institution level (currently just the US) are skipped, not guessed at
+// -- see buildTopInstitutionsSections in exportHelpers.js.
+function buildTopInstitutionsBlock(segments) {
+  const sections = buildTopInstitutionsSections(segments);
+  if (!sections.length) return [];
+
+  const heading = new Paragraph({ text: 'Top institutions by AUM', heading: HeadingLevel.HEADING_2, spacing: { before: 400, after: 100 } });
+  const perSegment = sections.flatMap((section) => {
+    const nText = section.n_institutions ? ` of ${section.n_institutions.toLocaleString()} identified` : '';
+    return [
+      new Paragraph({
+        text: `${section.segment} — top ${section.institutions.length}${nText} institutions hold ${section.top10_share_pct}% of segment AUM`,
+        heading: HeadingLevel.HEADING_3,
+        spacing: { before: 250, after: 80 }
+      }),
+      buildTopInstitutionsTable(section)
+    ];
+  });
+  return [heading, ...perSegment];
+}
+
+// One country's section: heading + AUM table + scorecard table + top
+// institutions by segment. Shared by both the single-country payload
+// (country.html's per-page export) and the multi-country payload
+// (picker.html's project builder) so a project export is just this block
+// repeated once per selected country, rather than a separate document
+// layout to maintain.
 function buildCountrySection(countryName, segments, { headingLevel = HeadingLevel.HEADING_1, pageBreakBefore = false } = {}) {
   const aumRows = buildAumRows(segments);
   const matrix = buildScorecardMatrix(segments);
@@ -68,7 +108,8 @@ function buildCountrySection(countryName, segments, { headingLevel = HeadingLeve
     new Paragraph({ text: 'AUM by segment', heading: HeadingLevel.HEADING_2, spacing: { before: 300, after: 100 } }),
     buildAumTable(aumRows),
     new Paragraph({ text: 'Opportunity scorecard', heading: HeadingLevel.HEADING_2, spacing: { before: 400, after: 100 } }),
-    buildScorecardTable(matrix)
+    buildScorecardTable(matrix),
+    ...buildTopInstitutionsBlock(segments)
   ];
 }
 

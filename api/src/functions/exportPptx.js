@@ -1,6 +1,6 @@
 const { app } = require('@azure/functions');
 const PptxGenJS = require('pptxgenjs');
-const { buildAumRows, buildScorecardMatrix } = require('../shared/exportHelpers');
+const { buildAumRows, buildScorecardMatrix, buildTopInstitutionsSections } = require('../shared/exportHelpers');
 
 const HEADER_FILL = 'D9E2F3';
 const BORDER = { type: 'solid', color: 'CCCCCC', pt: 0.5 };
@@ -38,10 +38,48 @@ function buildScorecardTableRows(matrix) {
   return [header, ...body];
 }
 
-// One country's slide pair (AUM + scorecard) — shared between the
-// single-country payload (country.html) and the multi-country payload
-// (picker.html's project builder), so a project export is just this
-// repeated once per selected country.
+function buildTopInstitutionsTableRows(section) {
+  const header = ['Rank', 'Institution', 'AUM ($bn)'].map((t) => ({ text: t, options: headerCellOpts() }));
+  const body = section.institutions.map((inst, i) => ([
+    { text: String(i + 1), options: { fontSize: 9 } },
+    { text: inst.name, options: { fontSize: 9 } },
+    { text: typeof inst.aum_bn === 'number' ? inst.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-', options: { fontSize: 9 } }
+  ]));
+  return [header, ...body];
+}
+
+// One slide per segment that has institution-level data -- Peter's standard
+// "top 10 institutions by AUM, and their combined AUM as a % of the segment"
+// report format. Segments built from industry aggregates (e.g. Life/Non-life
+// insurance) or countries not yet backfilled at institution level (currently
+// just the US) are skipped, not guessed at -- see buildTopInstitutionsSections
+// in exportHelpers.js. One slide per segment (rather than cramming every
+// segment onto one slide, the way the AUM/scorecard tables do) since a top-10
+// roster is naturally a taller, narrower table that doesn't compress well
+// side by side with others.
+function addTopInstitutionsSlides(pptx, countryName, segments) {
+  const sections = buildTopInstitutionsSections(segments);
+  sections.forEach((section) => {
+    const slide = pptx.addSlide();
+    slide.addText(`Atlas — ${countryName}`, { x: 0.4, y: 0.25, fontSize: 24, bold: true });
+    const nText = section.n_institutions ? ` of ${section.n_institutions.toLocaleString()} identified` : '';
+    slide.addText(
+      `${section.segment} — top ${section.institutions.length}${nText} institutions hold ${section.top10_share_pct}% of segment AUM`,
+      { x: 0.4, y: 0.85, fontSize: 12, color: '666666' }
+    );
+    slide.addTable(buildTopInstitutionsTableRows(section), {
+      x: 2.5, y: 1.4, w: 8.3,
+      border: BORDER,
+      autoPage: false
+    });
+  });
+}
+
+// One country's slide set (AUM + scorecard + one per segment with
+// institution-level data) — shared between the single-country payload
+// (country.html) and the multi-country payload (picker.html's project
+// builder), so a project export is just this repeated once per selected
+// country.
 function addCountrySlides(pptx, countryName, segments, generatedDate) {
   const aumRows = buildAumRows(segments);
   const matrix = buildScorecardMatrix(segments);
@@ -63,6 +101,8 @@ function addCountrySlides(pptx, countryName, segments, generatedDate) {
     border: BORDER,
     autoPage: false
   });
+
+  addTopInstitutionsSlides(pptx, countryName, segments);
 }
 
 app.http('exportPptx', {
