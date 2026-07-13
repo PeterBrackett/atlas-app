@@ -120,7 +120,13 @@
           "by": "peter.brackett@institutionaladviser.co.uk",
           "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
-      ]
+      ],
+      "concentration": {
+        "top3_share_pct": 100.0,
+        "hhi": 10000,
+        "n_institutions": 1,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "DB Pension (Govt)",
@@ -228,7 +234,13 @@
           "by": "peter.brackett@institutionaladviser.co.uk",
           "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
-      ]
+      ],
+      "concentration": {
+        "top3_share_pct": 100.0,
+        "hhi": 6795,
+        "n_institutions": 3,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "SWF",
@@ -309,7 +321,13 @@
           "by": "peter.brackett@institutionaladviser.co.uk",
           "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
-      ]
+      ],
+      "concentration": {
+        "top3_share_pct": 100.0,
+        "hhi": 10000,
+        "n_institutions": 1,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "DB Pension (Corp)",
@@ -398,7 +416,13 @@
           "by": "peter.brackett@institutionaladviser.co.uk",
           "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
-      ]
+      ],
+      "concentration": {
+        "top3_share_pct": 100.0,
+        "hhi": 5202,
+        "n_institutions": 2,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "DC Pension (Corp)",
@@ -483,7 +507,13 @@
           "by": "peter.brackett@institutionaladviser.co.uk",
           "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
-      ]
+      ],
+      "concentration": {
+        "top3_share_pct": 100.0,
+        "hhi": 10000,
+        "n_institutions": 1,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     }
   ]
 }

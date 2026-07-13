@@ -149,7 +149,13 @@
           "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ],
-      "allocation_incomplete": true
+      "allocation_incomplete": true,
+      "concentration": {
+        "top3_share_pct": 20.6,
+        "hhi": 259,
+        "n_institutions": 155,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "DC Pension (Corp)",
@@ -266,7 +272,13 @@
           "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ],
-      "allocation_incomplete": true
+      "allocation_incomplete": true,
+      "concentration": {
+        "top3_share_pct": 68.7,
+        "hhi": 2448,
+        "n_institutions": 45,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "DB Pension (Govt)",
@@ -386,7 +398,13 @@
           "by": "peter.brackett@institutionaladviser.co.uk",
           "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
-      ]
+      ],
+      "concentration": {
+        "top3_share_pct": 99.2,
+        "hhi": 4957,
+        "n_institutions": 5,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "DC Pension (Govt)",
@@ -490,7 +508,13 @@
           "by": "peter.brackett@institutionaladviser.co.uk",
           "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
-      ]
+      ],
+      "concentration": {
+        "top3_share_pct": 100.0,
+        "hhi": 6434,
+        "n_institutions": 3,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "DB Pension (Tax exempt)",

@@ -141,7 +141,13 @@
           "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ],
-      "allocation_incomplete": true
+      "allocation_incomplete": true,
+      "concentration": {
+        "top3_share_pct": 33.3,
+        "hhi": 629,
+        "n_institutions": 35,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "SWF",
@@ -200,7 +206,13 @@
           "by": "peter.brackett@institutionaladviser.co.uk",
           "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
-      ]
+      ],
+      "concentration": {
+        "top3_share_pct": 100.0,
+        "hhi": 10000,
+        "n_institutions": 1,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "Endowments E&F",
@@ -248,7 +260,13 @@
           "by": "peter.brackett@institutionaladviser.co.uk",
           "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
-      ]
+      ],
+      "concentration": {
+        "top3_share_pct": 100.0,
+        "hhi": 10000,
+        "n_institutions": 1,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "Tax exempt E&F",
@@ -307,7 +325,13 @@
           "by": "peter.brackett@institutionaladviser.co.uk",
           "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
-      ]
+      ],
+      "concentration": {
+        "top3_share_pct": 100.0,
+        "hhi": 9265,
+        "n_institutions": 3,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "DC Pension (Corp)",
@@ -359,7 +383,13 @@
           "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ],
-      "allocation_incomplete": true
+      "allocation_incomplete": true,
+      "concentration": {
+        "top3_share_pct": 100.0,
+        "hhi": 10000,
+        "n_institutions": 1,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     }
   ]
 }

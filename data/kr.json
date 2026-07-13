@@ -108,7 +108,13 @@
           "by": "peter.brackett@institutionaladviser.co.uk",
           "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
-      ]
+      ],
+      "concentration": {
+        "top3_share_pct": 95.4,
+        "hhi": 7732,
+        "n_institutions": 9,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "DB Pension (Corp)",
@@ -221,7 +227,13 @@
           "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ],
-      "allocation_incomplete": true
+      "allocation_incomplete": true,
+      "concentration": {
+        "top3_share_pct": 67.3,
+        "hhi": 3129,
+        "n_institutions": 71,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "DB Pension (Union)",
@@ -329,7 +341,13 @@
           "by": "peter.brackett@institutionaladviser.co.uk",
           "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
-      ]
+      ],
+      "concentration": {
+        "top3_share_pct": 100.0,
+        "hhi": 6062,
+        "n_institutions": 3,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "SWF",
@@ -397,7 +415,13 @@
           "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ],
-      "allocation_incomplete": true
+      "allocation_incomplete": true,
+      "concentration": {
+        "top3_share_pct": 100.0,
+        "hhi": 10000,
+        "n_institutions": 1,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     }
   ]
 }
