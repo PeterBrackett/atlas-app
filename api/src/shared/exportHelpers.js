@@ -109,6 +109,28 @@ function buildScorecardMatrix(segments) {
   };
 }
 
+// Top institutions by AUM per segment, matching Peter's standard "top 10 +
+// concentration %" report format -- mirrors atlas-site/country.html's
+// segmentsWithTopInstitutions(). Only segments with
+// concentration.top_institutions populated (see add_top_institutions.py /
+// add_top_institutions_uk.py) are included: segments built from industry
+// aggregates rather than individual institutions (e.g. Life/Non-life
+// insurance), or countries not yet backfilled (currently just the US --
+// its institutions file only retains a global top 10, not a per-segment
+// roster), are skipped rather than guessed at.
+function buildTopInstitutionsSections(segments) {
+  return (segments || [])
+    .filter((s) => s.concentration && Array.isArray(s.concentration.top_institutions) && s.concentration.top_institutions.length)
+    .slice()
+    .sort((a, b) => segmentSortIndex(a.segment) - segmentSortIndex(b.segment))
+    .map((s) => ({
+      segment: s.segment,
+      top10_share_pct: s.concentration.top10_share_pct,
+      n_institutions: s.concentration.n_institutions,
+      institutions: s.concentration.top_institutions
+    }));
+}
+
 module.exports = {
   SCORECARD_DIMENSIONS,
   CANONICAL_SEGMENT_ORDER,
@@ -116,5 +138,6 @@ module.exports = {
   computeOverallScore,
   scoredDimensionCount,
   buildAumRows,
-  buildScorecardMatrix
+  buildScorecardMatrix,
+  buildTopInstitutionsSections
 };
