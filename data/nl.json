@@ -133,7 +133,13 @@
           "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ],
-      "allocation_incomplete": true
+      "allocation_incomplete": true,
+      "concentration": {
+        "top3_share_pct": 24.9,
+        "hhi": 440,
+        "n_institutions": 118,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "DC Pension (Corp)",
@@ -258,7 +264,13 @@
           "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ],
-      "allocation_incomplete": true
+      "allocation_incomplete": true,
+      "concentration": {
+        "top3_share_pct": 46.7,
+        "hhi": 1109,
+        "n_institutions": 24,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "DB Pension (Govt)",
@@ -379,7 +391,13 @@
           "by": "peter.brackett@institutionaladviser.co.uk",
           "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
-      ]
+      ],
+      "concentration": {
+        "top3_share_pct": 100.0,
+        "hhi": 5644,
+        "n_institutions": 2,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "DB Pension (Union)",
@@ -504,7 +522,13 @@
           "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ],
-      "allocation_incomplete": true
+      "allocation_incomplete": true,
+      "concentration": {
+        "top3_share_pct": 49.6,
+        "hhi": 1020,
+        "n_institutions": 38,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "DC Pension (Union)",
@@ -628,7 +652,13 @@
           "by": "peter.brackett@institutionaladviser.co.uk",
           "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
-      ]
+      ],
+      "concentration": {
+        "top3_share_pct": 100.0,
+        "hhi": 8752,
+        "n_institutions": 4,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "Endowments E&F",
@@ -698,7 +728,13 @@
           "by": "peter.brackett@institutionaladviser.co.uk",
           "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
-      ]
+      ],
+      "concentration": {
+        "top3_share_pct": 40.9,
+        "hhi": 1126,
+        "n_institutions": 10,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "Tax exempt E&F",
@@ -815,7 +851,13 @@
           "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
       ],
-      "allocation_incomplete": true
+      "allocation_incomplete": true,
+      "concentration": {
+        "top3_share_pct": 47.4,
+        "hhi": 1101,
+        "n_institutions": 40,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "Healthcare non-profit E&F",
@@ -874,7 +916,13 @@
           "by": "peter.brackett@institutionaladviser.co.uk",
           "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
         }
-      ]
+      ],
+      "concentration": {
+        "top3_share_pct": 100.0,
+        "hhi": 5014,
+        "n_institutions": 2,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     }
   ]
 }

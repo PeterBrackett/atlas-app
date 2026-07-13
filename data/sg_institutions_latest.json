@@ -1,0 +1,2429 @@
+{
+  "country_code": "SG",
+  "country_name": "Singapore",
+  "extraction_date": "2026-07-10",
+  "record_count": 33,
+  "source_files": [
+    "Singapore_company.xls",
+    "Singapore_AA.xls",
+    "Singapore_manager.xls",
+    "Singapore_provider.xls"
+  ],
+  "schema_version": "Atlas_Schema_Proposal_v1.md, Section 1",
+  "institutions": [
+    {
+      "entity_id": "SG-0001",
+      "entity_name": "Central Provident Fund Board",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DC",
+      "sub_type": "Government",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9682904",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 529354710.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Generic Defined Contribution or Profit Sharing Plan",
+          "plan_assets": 495825760.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5553249.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 17899310.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Corporate Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1487477.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 297495.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Preferred",
+              "investment_region": "Singapore",
+              "vehicle_type": "Unspecified",
+              "value": 297495.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Singapore",
+              "vehicle_type": "Unspecified",
+              "value": 247913.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Floating Rate Note",
+              "investment_region": "Singapore",
+              "vehicle_type": "Unspecified",
+              "value": 469745325.0,
+              "pct_of_plan": 95.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "REITs",
+              "investment_region": "Singapore",
+              "vehicle_type": "Unspecified",
+              "value": 297495.0,
+              "pct_of_plan": 0.0
+            }
+          ]
+        },
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 5606296.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Derivatives",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 9359.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 52682.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 189790.0,
+              "pct_of_plan": 20.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 203877.0,
+              "pct_of_plan": 21.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Singapore",
+              "vehicle_type": "Unspecified",
+              "value": 579.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Singapore",
+              "vehicle_type": "Unspecified",
+              "value": 284250.0,
+              "pct_of_plan": 29.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 65901.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 158431.0,
+              "pct_of_plan": 16.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 22805.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Singapore",
+              "vehicle_type": "Unspecified",
+              "value": 11379555.0,
+              "pct_of_plan": 100.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 199109.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Singapore",
+              "vehicle_type": "Unspecified",
+              "value": 15356316.0,
+              "pct_of_plan": 99.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 330211.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Singapore",
+              "vehicle_type": "Unspecified",
+              "value": 5276085.0,
+              "pct_of_plan": 94.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0002",
+      "entity_name": "Chinese Development Assistance Council",
+      "former_names": [],
+      "entity_type": "E&F",
+      "sub_type": "Tax Exempt Organization",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9355010",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 124938.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Foundation Fund Or Investment Pool",
+          "plan_assets": 31842.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Derivatives",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 150.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 19629.0,
+              "pct_of_plan": 62.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5558.0,
+              "pct_of_plan": 17.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 6506.0,
+              "pct_of_plan": 20.0
+            }
+          ]
+        },
+        {
+          "plan_type": "Endowment Fund",
+          "plan_assets": 93096.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4192.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 21140.0,
+              "pct_of_plan": 23.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 14949.0,
+              "pct_of_plan": 16.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Corporate Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 52816.0,
+              "pct_of_plan": 57.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0003",
+      "entity_name": "City Developments Limited",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9682949",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 64945.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 64945.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5215.0,
+              "pct_of_plan": 8.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 52131.0,
+              "pct_of_plan": 80.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 7599.0,
+              "pct_of_plan": 12.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0004",
+      "entity_name": "Del Monte Pacific Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9698650",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 217686.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 217686.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2925.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1582.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Corporate Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 34294.0,
+              "pct_of_plan": 16.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 36743.0,
+              "pct_of_plan": 17.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5309.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Common Collective Trust",
+              "value": 62760.0,
+              "pct_of_plan": 29.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Common Collective Trust",
+              "value": 48237.0,
+              "pct_of_plan": 22.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Mutual Fund",
+              "value": 8319.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Philippines",
+              "vehicle_type": "Unspecified",
+              "value": 17517.0,
+              "pct_of_plan": 8.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0005",
+      "entity_name": "GIC Private Ltd.",
+      "former_names": [],
+      "entity_type": "Sovereign Wealth Fund",
+      "sub_type": "Sovereign Wealth Funds",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9681905",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 800800000.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Sovereign Wealth Fund",
+          "plan_assets": 800800000.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Inflation-Linked",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 48048000.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 136136000.0,
+              "pct_of_plan": 17.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 296296000.0,
+              "pct_of_plan": 37.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 80080000.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Developed",
+              "vehicle_type": "Unspecified",
+              "value": 112112000.0,
+              "pct_of_plan": 14.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Emerging Markets",
+              "vehicle_type": "Unspecified",
+              "value": 128128000.0,
+              "pct_of_plan": 16.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0006",
+      "entity_name": "Great Eastern Holdings Ltd.",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9344905",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 89649541.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 89649541.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Derivatives",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 367563.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3845965.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 12927464.0,
+              "pct_of_plan": 14.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1389568.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 46770166.0,
+              "pct_of_plan": 52.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1281988.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Other Investment",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 23066827.0,
+              "pct_of_plan": 26.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0007",
+      "entity_name": "GuocoLeisure Ltd",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9698633",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 101761.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 101761.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1607.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Core-Diversified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 18482.0,
+              "pct_of_plan": 18.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3152.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 78520.0,
+              "pct_of_plan": 77.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0008",
+      "entity_name": "Hutchison Port Holdings Trust",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9310120",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 165676.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 165676.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 9941.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 99406.0,
+              "pct_of_plan": 60.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Finance & Banking Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 14911.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 18224.0,
+              "pct_of_plan": 11.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 11597.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Global Ex-U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 11597.0,
+              "pct_of_plan": 7.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0009",
+      "entity_name": "Inland Revenue Authority of Singapore",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Government",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9361487",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 530493.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 530493.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 127159.0,
+              "pct_of_plan": 24.0
+            },
+            {
+              "asset_type": "Funds with fund managers",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 403334.0,
+              "pct_of_plan": 76.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0010",
+      "entity_name": "JurongHealth Fund",
+      "former_names": [],
+      "entity_type": "E&F",
+      "sub_type": "Health Service Organization - nonprofit",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9760606",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 87512.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 87512.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1181.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unit Trust",
+              "value": 86331.0,
+              "pct_of_plan": 99.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0011",
+      "entity_name": "Maritime & Port Authority of Singapore",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Government",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9394228",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 645376.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 645376.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 154955.0,
+              "pct_of_plan": 24.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 490421.0,
+              "pct_of_plan": 76.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0012",
+      "entity_name": "Monetary Authority of Singapore",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Government",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9344908",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 411340127.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "SG-0013",
+      "entity_name": "Movement for the Intellectually Disabled of Singapore",
+      "former_names": [],
+      "entity_type": "E&F",
+      "sub_type": "Tax Exempt Organization",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9355041",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 34914.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 34914.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 7.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Savings & Temporary Cash",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5789.0,
+              "pct_of_plan": 17.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 18183.0,
+              "pct_of_plan": 52.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 10935.0,
+              "pct_of_plan": 31.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0014",
+      "entity_name": "Nanyang Polytechnic",
+      "former_names": [],
+      "entity_type": "Endowment",
+      "sub_type": "Endowment",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9326074",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 498868.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 498868.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 300269.0,
+              "pct_of_plan": 60.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 20054.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Corporate Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 21950.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unit Trust",
+              "value": 3193.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unit Trust",
+              "value": 34921.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unit Trust",
+              "value": 118481.0,
+              "pct_of_plan": 24.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0015",
+      "entity_name": "Nanyang Technological University",
+      "former_names": [],
+      "entity_type": "Endowment",
+      "sub_type": "Endowment",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9311258",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 7614879.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 5273248.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Limited Partnerships",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1478091.0,
+              "pct_of_plan": 28.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Venture Capital",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 14238.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1159060.0,
+              "pct_of_plan": 22.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2189980.0,
+              "pct_of_plan": 42.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 222531.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Singapore",
+              "vehicle_type": "Unspecified",
+              "value": 209348.0,
+              "pct_of_plan": 4.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0016",
+      "entity_name": "National Council of Social Service",
+      "former_names": [],
+      "entity_type": "E&F",
+      "sub_type": "Tax Exempt Organization",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9355017",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 277946.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 277946.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 52337.0,
+              "pct_of_plan": 19.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Currency",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5059.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 30046.0,
+              "pct_of_plan": 11.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 99949.0,
+              "pct_of_plan": 36.0
+            },
+            {
+              "asset_type": "Other Invetsment",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 90555.0,
+              "pct_of_plan": 33.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0017",
+      "entity_name": "National University of Singapore",
+      "former_names": [],
+      "entity_type": "Endowment",
+      "sub_type": "Endowment",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9311243",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 16549181.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Endowment Fund",
+          "plan_assets": 4923305.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Derivatives",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 14278.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 21170.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4887857.0,
+              "pct_of_plan": 99.0
+            }
+          ]
+        },
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 11625876.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Derivatives",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 13951.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 98820.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 77893.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 11392196.0,
+              "pct_of_plan": 98.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 43016.0,
+              "pct_of_plan": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0018",
+      "entity_name": "Ngee Ann Polytechnic",
+      "former_names": [],
+      "entity_type": "Endowment",
+      "sub_type": "Endowment",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9326055",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 652128.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Endowment Fund",
+          "plan_assets": 464842.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 175989.0,
+              "pct_of_plan": 38.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 288853.0,
+              "pct_of_plan": 62.0
+            }
+          ]
+        },
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 187286.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Derivatives",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 805.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 185956.0,
+              "pct_of_plan": 99.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unlisted",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 187.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Student",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 337.0,
+              "pct_of_plan": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0019",
+      "entity_name": "SATS Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9377359",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 61933.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 61933.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 11520.0,
+              "pct_of_plan": 19.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Japan",
+              "vehicle_type": "Unspecified",
+              "value": 8609.0,
+              "pct_of_plan": 14.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Japan",
+              "vehicle_type": "Unspecified",
+              "value": 28303.0,
+              "pct_of_plan": 46.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 7556.0,
+              "pct_of_plan": 12.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 5946.0,
+              "pct_of_plan": 10.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0020",
+      "entity_name": "Sembcorp Industries Ltd.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9682946",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 177696.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 177696.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 32714.0,
+              "pct_of_plan": 18.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 125649.0,
+              "pct_of_plan": 71.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 19333.0,
+              "pct_of_plan": 11.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0021",
+      "entity_name": "Sentosa Development Corporation",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Government",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9412929",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 1166835.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 1166835.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Venture Capital",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 14702.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 636275.0,
+              "pct_of_plan": 55.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 515858.0,
+              "pct_of_plan": 44.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0022",
+      "entity_name": "Singapore Children's Society",
+      "former_names": [],
+      "entity_type": "E&F",
+      "sub_type": "Tax Exempt Organization",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9355047",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 76738.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 76738.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Derivatives",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 176.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 34724.0,
+              "pct_of_plan": 45.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 20550.0,
+              "pct_of_plan": 27.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 21287.0,
+              "pct_of_plan": 28.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0023",
+      "entity_name": "Singapore Institute of Technology",
+      "former_names": [],
+      "entity_type": "Endowment",
+      "sub_type": "Endowment",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9409529",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 1012139.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 1012139.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 206476.0,
+              "pct_of_plan": 20.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 805663.0,
+              "pct_of_plan": 80.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0024",
+      "entity_name": "Singapore Management University",
+      "former_names": [],
+      "entity_type": "Endowment",
+      "sub_type": "Endowment",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9371657",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 2916854.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 1759934.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Derivatives",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 880.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 502109.0,
+              "pct_of_plan": 29.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 191481.0,
+              "pct_of_plan": 11.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 128827.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Investment in subsidiaries",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 880.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 935757.0,
+              "pct_of_plan": 53.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0025",
+      "entity_name": "Singapore Polytechnic",
+      "former_names": [],
+      "entity_type": "Endowment",
+      "sub_type": "Endowment",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9326053",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 500233.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 500233.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 213750.0,
+              "pct_of_plan": 43.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unit Trust",
+              "value": 212949.0,
+              "pct_of_plan": 43.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Singapore",
+              "vehicle_type": "Unit Trust",
+              "value": 73534.0,
+              "pct_of_plan": 15.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0026",
+      "entity_name": "Singapore Symphony Orchestra",
+      "former_names": [],
+      "entity_type": "E&F",
+      "sub_type": "Tax Exempt Organization",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9371364",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 126004.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 77065.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 7938.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 54.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 69073.0,
+              "pct_of_plan": 90.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0027",
+      "entity_name": "Singapore Totalisator Board",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Government",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9371686",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 3867494.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 3867494.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 744493.0,
+              "pct_of_plan": 19.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 314041.0,
+              "pct_of_plan": 8.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unit Trust",
+              "value": 2808961.0,
+              "pct_of_plan": 73.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0028",
+      "entity_name": "Singapore Tourism Board",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Government",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9394573",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 391769.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 391769.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 165170.0,
+              "pct_of_plan": 42.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 225032.0,
+              "pct_of_plan": 57.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1567.0,
+              "pct_of_plan": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0029",
+      "entity_name": "Singapore University of Technology & Design",
+      "former_names": [],
+      "entity_type": "Endowment",
+      "sub_type": "Endowment",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9408343",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 2049280.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 1247699.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 289591.0,
+              "pct_of_plan": 23.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 28572.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 233694.0,
+              "pct_of_plan": 19.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 238810.0,
+              "pct_of_plan": 19.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unit Trust",
+              "value": 457032.0,
+              "pct_of_plan": 37.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0030",
+      "entity_name": "Society for the Physically Disabled",
+      "former_names": [],
+      "entity_type": "E&F",
+      "sub_type": "Tax Exempt Organization",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9760539",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 22745.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 22745.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 22745.0,
+              "pct_of_plan": 100.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0031",
+      "entity_name": "Temasek Holdings (Private) Limited",
+      "former_names": [],
+      "entity_type": "Sovereign Wealth Fund",
+      "sub_type": "Sovereign Wealth Funds",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9681978",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 434000000.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Sovereign Wealth Fund",
+          "plan_assets": 434000000.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Multi-Sector Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 34720000.0,
+              "pct_of_plan": 8.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 69440000.0,
+              "pct_of_plan": 16.0
+            },
+            {
+              "asset_type": "Financial Services",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 91140000.0,
+              "pct_of_plan": 21.0
+            },
+            {
+              "asset_type": "Life Sciences & Agribusiness",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 39060000.0,
+              "pct_of_plan": 9.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 26040000.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Telecommunications, Media & Technology",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 73780000.0,
+              "pct_of_plan": 17.0
+            },
+            {
+              "asset_type": "Transportation & Industrials",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 99820000.0,
+              "pct_of_plan": 23.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0032",
+      "entity_name": "Temasek Polytechnic",
+      "former_names": [],
+      "entity_type": "Endowment",
+      "sub_type": "Endowment",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9326062",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 324906.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 294111.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 217407.0,
+              "pct_of_plan": 74.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 76704.0,
+              "pct_of_plan": 26.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "SG-0033",
+      "entity_name": "Urban Redevelopment Authority",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Government",
+      "country_code": "SG",
+      "country_name": "Singapore",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9371676",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 739206.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 739206.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 203799.0,
+              "pct_of_plan": 28.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 203947.0,
+              "pct_of_plan": 28.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unit Trust",
+              "value": 331460.0,
+              "pct_of_plan": 45.0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

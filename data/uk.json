@@ -2,7 +2,7 @@
   "country_code": "GB",
   "country_name": "United Kingdom",
   "reporting_period": "2026-06 (S&P export date)",
-  "source_note": "Currency confirmed (2026-07-10): S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). All bottom-up S&P figures across Atlas, including every UK segment except the DB Pension (Govt) override below, are USD, not local currency as previously assumed — see Sources & Methodology. This does not change any published number since every segment here is single-sourced except one: DB Pension (Govt) is a top-down override (£393.94bn, genuinely GBP, aligned to official LGPS statistics) shown instead of the raw S&P bottom-up sum ($689.63bn, confirmed USD, ≈£514.65bn at the 2026-07-10 spot rate of 1.34 USD/GBP) — the two were previously compared as if both were GBP, which understated the true gap between them. Even in like-for-like GBP terms, the LGPS override remains materially lower than the bottom-up estimate (£393.94bn vs ≈£514.65bn) — see Sources & Methodology for why LGPS was still judged the more reliable figure for this segment.",
+  "source_note": "Currency confirmed (2026-07-10): S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). All bottom-up S&P figures across Atlas, including every UK segment except the DB Pension (Govt) override below, are USD, not local currency as previously assumed \u2014 see Sources & Methodology. This does not change any published number since every segment here is single-sourced except one: DB Pension (Govt) is a top-down override (\u00a3393.94bn, genuinely GBP, aligned to official LGPS statistics) shown instead of the raw S&P bottom-up sum ($689.63bn, confirmed USD, \u2248\u00a3514.65bn at the 2026-07-10 spot rate of 1.34 USD/GBP) \u2014 the two were previously compared as if both were GBP, which understated the true gap between them. Even in like-for-like GBP terms, the LGPS override remains materially lower than the bottom-up estimate (\u00a3393.94bn vs \u2248\u00a3514.65bn) \u2014 see Sources & Methodology for why LGPS was still judged the more reliable figure for this segment.",
   "scorecard_note": "Opportunity scorecard scores carried over from the original FINAL_Country_Matrix.xlsx UK analysis (scored 2026-06-01). Regulatory complexity uses TMF Group rankings as a reference where available; all other dimensions are analyst judgment. See Sources & Methodology for the scoring convention and the Overall formula.",
   "segments": [
     {
@@ -48,7 +48,7 @@
           "date": "2026-06-01",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Industry aggregate."
+          "detail": "Initial segment build \u2014 Industry aggregate."
         }
       ]
     },
@@ -202,9 +202,15 @@
           "date": "2026-06-01",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P aggregate)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P aggregate)."
         }
-      ]
+      ],
+      "concentration": {
+        "top3_share_pct": 15.6,
+        "hhi": 185,
+        "n_institutions": 765,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "Tax exempt E&F",
@@ -340,9 +346,15 @@
           "date": "2026-06-01",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P aggregate)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P aggregate)."
         }
-      ]
+      ],
+      "concentration": {
+        "top3_share_pct": 25.2,
+        "hhi": 306,
+        "n_institutions": 541,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "DB Pension (Govt)",
@@ -486,14 +498,14 @@
           "currency": "USD",
           "as_of": "2026-07-09",
           "source": "S&P Money Manager Database, Government category, Total DB Assets (live lookup)",
-          "note": "Refreshed 2026-07-09 after a discrepancy was flagged against a live MMD read. Supersedes the original build-time figure of $634.45bn (2026-06), which had gone stale by roughly $55bn over about a month. Equity allocation not separately available on this basis. Currency corrected 2026-07-10: this figure is USD ($689.63bn), confirmed by S&P directly -- it was previously assumed GBP and compared directly against the GBP-denominated LGPS override below, which understated the real gap between them. GBP-equivalent at the 2026-07-10 spot rate (1.34 USD/GBP) is approximately £514.65bn.",
+          "note": "Refreshed 2026-07-09 after a discrepancy was flagged against a live MMD read. Supersedes the original build-time figure of $634.45bn (2026-06), which had gone stale by roughly $55bn over about a month. Equity allocation not separately available on this basis. Currency corrected 2026-07-10: this figure is USD ($689.63bn), confirmed by S&P directly -- it was previously assumed GBP and compared directly against the GBP-denominated LGPS override below, which understated the real gap between them. GBP-equivalent at the 2026-07-10 spot rate (1.34 USD/GBP) is approximately \u00a3514.65bn.",
           "active": false
         },
         {
           "basis": "Top-down override (LGPS official)",
           "aum_bn": 393.94,
           "currency": "GBP",
-          "as_of": "unknown — LGPS publication date not independently confirmed",
+          "as_of": "unknown \u2014 LGPS publication date not independently confirmed",
           "source": "Official LGPS statistics (DLUHC/ONS)",
           "note": "",
           "active": true
@@ -504,21 +516,27 @@
           "date": "2026-06-01",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial build: LGPS official top-down figure (£393.94bn) selected as active over the raw S&P bottom-up sum (£634.45bn), judged more reliable for this segment specifically."
+          "detail": "Initial build: LGPS official top-down figure (\u00a3393.94bn) selected as active over the raw S&P bottom-up sum (\u00a3634.45bn), judged more reliable for this segment specifically."
         },
         {
           "date": "2026-07-09",
           "event": "refresh",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Bottom-up alternate figure refreshed from a live MMD lookup: £634.45bn (as of 2026-06) → £689.63bn (as of 2026-07-09). Active source (LGPS override) unchanged — this refresh only updates the comparison figure, it does not switch which number is shown on the site."
+          "detail": "Bottom-up alternate figure refreshed from a live MMD lookup: \u00a3634.45bn (as of 2026-06) \u2192 \u00a3689.63bn (as of 2026-07-09). Active source (LGPS override) unchanged \u2014 this refresh only updates the comparison figure, it does not switch which number is shown on the site."
         },
         {
           "date": "2026-07-10",
           "event": "currency_correction",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "S&P confirmed directly that Money Manager Database exports default to USD platform-wide. The bottom-up alternate figure was mislabeled GBP throughout — it is actually $689.63bn USD, not £689.63bn. Corrected in-place (currency field added, note updated); GBP-equivalent at the 2026-07-10 spot rate (1.34 USD/GBP) is approximately £514.65bn. Active source (LGPS override, genuinely GBP) unchanged — this correction does not switch which number is shown on the site, but does change the size of the gap between the two."
+          "detail": "S&P confirmed directly that Money Manager Database exports default to USD platform-wide. The bottom-up alternate figure was mislabeled GBP throughout \u2014 it is actually $689.63bn USD, not \u00a3689.63bn. Corrected in-place (currency field added, note updated); GBP-equivalent at the 2026-07-10 spot rate (1.34 USD/GBP) is approximately \u00a3514.65bn. Active source (LGPS override, genuinely GBP) unchanged \u2014 this correction does not switch which number is shown on the site, but does change the size of the gap between the two."
         }
-      ]
+      ],
+      "concentration": {
+        "top3_share_pct": 20.5,
+        "hhi": 261,
+        "n_institutions": 107,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "Non-life insurance",
@@ -563,7 +581,7 @@
           "date": "2026-06-01",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Industry aggregate."
+          "detail": "Initial segment build \u2014 Industry aggregate."
         }
       ]
     },
@@ -713,9 +731,15 @@
           "date": "2026-06-01",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P aggregate)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P aggregate)."
         }
-      ]
+      ],
+      "concentration": {
+        "top3_share_pct": 39.4,
+        "hhi": 725,
+        "n_institutions": 152,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "DC Pension (Corp)",
@@ -847,9 +871,15 @@
           "date": "2026-06-01",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P aggregate)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P aggregate)."
         }
-      ]
+      ],
+      "concentration": {
+        "top3_share_pct": 74.1,
+        "hhi": 2083,
+        "n_institutions": 62,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "DB Pension (Union)",
@@ -985,9 +1015,15 @@
           "date": "2026-06-01",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P aggregate)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P aggregate)."
         }
-      ]
+      ],
+      "concentration": {
+        "top3_share_pct": 92.4,
+        "hhi": 6493,
+        "n_institutions": 8,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "DB Pension (Endowments)",
@@ -1135,9 +1171,15 @@
           "date": "2026-06-01",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P aggregate)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P aggregate)."
         }
-      ]
+      ],
+      "concentration": {
+        "top3_share_pct": 27.7,
+        "hhi": 472,
+        "n_institutions": 50,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "DB Pension (Tax exempt)",
@@ -1301,9 +1343,15 @@
           "date": "2026-06-01",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P aggregate)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P aggregate)."
         }
-      ]
+      ],
+      "concentration": {
+        "top3_share_pct": 37.3,
+        "hhi": 895,
+        "n_institutions": 138,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     },
     {
       "segment": "DC Pension (Govt)",
@@ -1427,10 +1475,16 @@
           "date": "2026-06-01",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build — Bottom-up (S&P aggregate)."
+          "detail": "Initial segment build \u2014 Bottom-up (S&P aggregate)."
         }
-      ]
+      ],
+      "concentration": {
+        "top3_share_pct": 85.7,
+        "hhi": 4805,
+        "n_institutions": 90,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+      }
     }
   ],
-  "allocation_note": "Equities figures are the originally validated per-segment totals. All other asset classes (Fixed Income, Cash & Short-Term, Real Estate, Alternatives, Other/Unclassified) and the finer style breakdown within each are estimated: derived from the real S&P Money Manager Database allocation export's relative shape for that segment's DB/DC/E&F institutions, then scaled to fill the remainder of the segment's already-validated AUM. DB vs DC vs Endowment/Foundation split uses each allocation row's own Type of Plan where available, falling back to the sponsoring institution's own DB/DC asset ratio for ambiguous plan types (mainly 'Investment Pool Funds'). Bank of England and British Business Bank (Reserve Banks category) are excluded throughout — their S&P records reflect central bank balance sheet assets, not staff pension schemes, and would otherwise distort every segment they touched by well over £1 trillion. Life insurance and Non-life insurance have no S&P allocation data at all (S&P's plan-sponsor exports don't cover insurers) so only the known equity figure is shown for those two segments. See Sources & Methodology for the full writeup."
+  "allocation_note": "Equities figures are the originally validated per-segment totals. All other asset classes (Fixed Income, Cash & Short-Term, Real Estate, Alternatives, Other/Unclassified) and the finer style breakdown within each are estimated: derived from the real S&P Money Manager Database allocation export's relative shape for that segment's DB/DC/E&F institutions, then scaled to fill the remainder of the segment's already-validated AUM. DB vs DC vs Endowment/Foundation split uses each allocation row's own Type of Plan where available, falling back to the sponsoring institution's own DB/DC asset ratio for ambiguous plan types (mainly 'Investment Pool Funds'). Bank of England and British Business Bank (Reserve Banks category) are excluded throughout \u2014 their S&P records reflect central bank balance sheet assets, not staff pension schemes, and would otherwise distort every segment they touched by well over \u00a31 trillion. Life insurance and Non-life insurance have no S&P allocation data at all (S&P's plan-sponsor exports don't cover insurers) so only the known equity figure is shown for those two segments. See Sources & Methodology for the full writeup."
 }

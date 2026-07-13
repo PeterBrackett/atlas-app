@@ -1,0 +1,1345 @@
+{
+  "country_code": "ES",
+  "country_name": "Spain",
+  "extraction_date": "2026-07-10",
+  "record_count": 21,
+  "source_files": [
+    "Spain_company.xls",
+    "Spain_AA.xls",
+    "Spain_manager.xls",
+    "Spain_provider.xls"
+  ],
+  "schema_version": "Atlas_Schema_Proposal_v1.md, Section 1",
+  "institutions": [
+    {
+      "entity_id": "ES-0001",
+      "entity_name": "Amadeus IT Group SA",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "ES",
+      "country_name": "Spain",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9368349",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 94692.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "ES-0002",
+      "entity_name": "Banco de Espa\u00f1a",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Reserve Banks",
+      "country_code": "ES",
+      "country_name": "Spain",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9369218",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 711581812.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Investment Pool Funds",
+          "plan_assets": 711581812.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Precious Metals",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 36646463.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 578587171.0,
+              "pct_of_plan": 81.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 213475.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Claims on non-euro area residents denominated in euro",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 7685084.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Currency",
+              "investment_region": "Spain",
+              "vehicle_type": "Unspecified",
+              "value": 3415593.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Currency",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 85034027.0,
+              "pct_of_plan": 12.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "ES-0003",
+      "entity_name": "Banco Popular",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "ES",
+      "country_name": "Spain",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9305907",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 690694.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 690694.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 10360.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5733.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Corporate Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 358401.0,
+              "pct_of_plan": 52.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Mortgage-Backed",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 138.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Other Investment",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 4835.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Exchange-Traded Fund",
+              "value": 50144.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Mutual Fund",
+              "value": 12363.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Unspecified",
+              "investment_region": "U.S.",
+              "vehicle_type": "Unspecified",
+              "value": 219433.0,
+              "pct_of_plan": 32.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Unspecified",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 29285.0,
+              "pct_of_plan": 4.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "ES-0004",
+      "entity_name": "Banco Sabadell SA",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "ES",
+      "country_name": "Spain",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9368355",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 478116.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 478116.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 669.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 458561.0,
+              "pct_of_plan": 96.0
+            },
+            {
+              "asset_type": "Unspecified",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Mutual Fund",
+              "value": 18886.0,
+              "pct_of_plan": 4.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "ES-0005",
+      "entity_name": "Banco Santander SA",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "ES",
+      "country_name": "Spain",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9680083",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 1167642.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 1167642.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 782320.0,
+              "pct_of_plan": 67.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 128441.0,
+              "pct_of_plan": 11.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 256881.0,
+              "pct_of_plan": 22.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "ES-0006",
+      "entity_name": "Bankinter SA",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "ES",
+      "country_name": "Spain",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9368356",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 99057.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 99057.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 416.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 17176.0,
+              "pct_of_plan": 17.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 68587.0,
+              "pct_of_plan": 69.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 12877.0,
+              "pct_of_plan": 13.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "ES-0007",
+      "entity_name": "Banco Bilbao Vizcaya Argentaria SA",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "ES",
+      "country_name": "Spain",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9682200",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 2407019.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 2407019.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 2407019.0,
+              "pct_of_plan": 100.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "ES-0008",
+      "entity_name": "CaixaBank SA",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "ES",
+      "country_name": "Spain",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9783145",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 8376559.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Hybrid DB/DC Plan",
+          "plan_assets": 8376559.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Infrastructure",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 251297.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Equity",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 921421.0,
+              "pct_of_plan": 11.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "Private Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 83766.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 335062.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 335062.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "GIC",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 335062.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "High Yield Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 335062.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 251297.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 83766.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Currency",
+              "investment_region": "Emerging Markets",
+              "vehicle_type": "Unspecified",
+              "value": 167531.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Emerging Markets",
+              "vehicle_type": "Unspecified",
+              "value": 502594.0,
+              "pct_of_plan": 6.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Emerging Markets",
+              "vehicle_type": "Unspecified",
+              "value": 418828.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Alternatives",
+              "asset_style": "ESG",
+              "investment_region": "Europe",
+              "vehicle_type": "Unspecified",
+              "value": 251297.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Europe",
+              "vehicle_type": "Unspecified",
+              "value": 418828.0,
+              "pct_of_plan": 5.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Europe",
+              "vehicle_type": "Unspecified",
+              "value": 586359.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Europe",
+              "vehicle_type": "Unspecified",
+              "value": 837656.0,
+              "pct_of_plan": 10.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Global",
+              "vehicle_type": "Unspecified",
+              "value": 1256484.0,
+              "pct_of_plan": 15.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 335062.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "International",
+              "vehicle_type": "Unspecified",
+              "value": 670125.0,
+              "pct_of_plan": 8.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "ES-0009",
+      "entity_name": "Ebro Foods SA",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "ES",
+      "country_name": "Spain",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9394194",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 49615.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "ES-0010",
+      "entity_name": "Fomento de Construcciones y Contratas, S.A. (FCC)",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "ES",
+      "country_name": "Spain",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9364146",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 48817.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "ES-0011",
+      "entity_name": "Fondo de Reserva de la Seguridad Social",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Government",
+      "country_code": "ES",
+      "country_name": "Spain",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9329645",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 10348360.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 10348360.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Government Bonds",
+              "investment_region": "Spain",
+              "vehicle_type": "Unspecified",
+              "value": 10348360.0,
+              "pct_of_plan": 100.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "ES-0012",
+      "entity_name": "Geroa Pentsioak EPSV",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DC",
+      "sub_type": "Corporation",
+      "country_code": "ES",
+      "country_name": "Spain",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9305616",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 3802026.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Generic Defined Contribution or Profit Sharing Plan",
+          "plan_assets": 3802026.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 29276.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1477087.0,
+              "pct_of_plan": 39.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 469930.0,
+              "pct_of_plan": 12.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 19010.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 760.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Hybrid Instruments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 3422.0,
+              "pct_of_plan": 0.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1802541.0,
+              "pct_of_plan": 47.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "ES-0013",
+      "entity_name": "Grupo Catalana Occidente SA",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "ES",
+      "country_name": "Spain",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9368347",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 356674.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Multinational Consolidated Plan",
+          "plan_assets": 356674.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 39198.0,
+              "pct_of_plan": 11.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 83569.0,
+              "pct_of_plan": 23.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "General Insurance",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 205551.0,
+              "pct_of_plan": 58.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Variable Annuities",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 28356.0,
+              "pct_of_plan": 8.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "ES-0014",
+      "entity_name": "Ibercaja Banco, S.A.",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "ES",
+      "country_name": "Spain",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9305901",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 178032.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 178032.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "CDs",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 14314.0,
+              "pct_of_plan": 8.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 34164.0,
+              "pct_of_plan": 19.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Debt",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 129554.0,
+              "pct_of_plan": 73.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "ES-0015",
+      "entity_name": "Kutxabank SA",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "ES",
+      "country_name": "Spain",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9368348",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 379369.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 379369.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Asset Allocation",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 361994.0,
+              "pct_of_plan": 95.0
+            },
+            {
+              "asset_type": "Internal Funds",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 17375.0,
+              "pct_of_plan": 5.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "ES-0016",
+      "entity_name": "Mapfre SA",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "ES",
+      "country_name": "Spain",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9682270",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 73666.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "ES-0017",
+      "entity_name": "Mutua Madrile\u00f1a",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "ES",
+      "country_name": "Spain",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9682266",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 1058382.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "ES-0018",
+      "entity_name": "Naturgy Energy Group SA",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "ES",
+      "country_name": "Spain",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9304930",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 501048.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "ES-0019",
+      "entity_name": "Santander Consumer Finance, S.A.",
+      "former_names": [],
+      "entity_type": "Other",
+      "sub_type": "Corporation",
+      "country_code": "ES",
+      "country_name": "Spain",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9370906",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 77256.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": []
+    },
+    {
+      "entity_id": "ES-0020",
+      "entity_name": "Telef\u00f3nica de Espa\u00f1a",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DB",
+      "sub_type": "Corporation",
+      "country_code": "ES",
+      "country_name": "Spain",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9306652",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 3286441.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "Defined Benefit Plan",
+          "plan_assets": 3286441.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Cash & Short-Term",
+              "asset_style": "Money Market",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 229394.0,
+              "pct_of_plan": 7.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1043445.0,
+              "pct_of_plan": 32.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1785523.0,
+              "pct_of_plan": 54.0
+            },
+            {
+              "asset_type": "Other Investments",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 228079.0,
+              "pct_of_plan": 7.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "ES-0021",
+      "entity_name": "Werfen",
+      "former_names": [],
+      "entity_type": "Pension \u2013 DC",
+      "sub_type": "Corporation",
+      "country_code": "ES",
+      "country_name": "Spain",
+      "region_state": null,
+      "domicile_regulator": null,
+      "regulatory_id": "9543443",
+      "sponsor_parent": null,
+      "year_established": null,
+      "status": null,
+      "website": null,
+      "financials": {
+        "total_aum": 128737.0,
+        "aum_currency": null,
+        "aum_as_of_date": "2026-07-10",
+        "aum_source": "S&P export",
+        "member_count": null,
+        "funding_ratio": null,
+        "net_cashflow": null
+      },
+      "plans": [
+        {
+          "plan_type": "401(k) Plan",
+          "plan_assets": 128737.0,
+          "as_of_date": "2026-07-10",
+          "allocation": [
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "GIC",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 5355.0,
+              "pct_of_plan": 4.0
+            },
+            {
+              "asset_type": "Loans",
+              "asset_style": "Participant",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Unspecified",
+              "value": 1162.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Asset Allocation",
+              "asset_style": "Target Date",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Common Collective Trust",
+              "value": 61160.0,
+              "pct_of_plan": 48.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Large Cap Growth",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Mutual Fund",
+              "value": 10266.0,
+              "pct_of_plan": 8.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Mid Cap Growth",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Mutual Fund",
+              "value": 2196.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Value",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Mutual Fund",
+              "value": 4377.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Inflation-Protected Bonds",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Mutual Fund",
+              "value": 1745.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Unspecified",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 3837.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Large Cap",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 16418.0,
+              "pct_of_plan": 13.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Mid Cap",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 3765.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Mid Cap Value",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 2755.0,
+              "pct_of_plan": 2.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Small Cap",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 3769.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Small Cap Growth",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 1273.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Small Cap Value",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 1554.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Fixed Income",
+              "asset_style": "Core",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 3824.0,
+              "pct_of_plan": 3.0
+            },
+            {
+              "asset_type": "Real Estate",
+              "asset_style": "Commercial",
+              "investment_region": "Unspecified",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 676.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Large Cap Growth",
+              "investment_region": "Emerging Markets",
+              "vehicle_type": "Mutual Fund",
+              "value": 1096.0,
+              "pct_of_plan": 1.0
+            },
+            {
+              "asset_type": "Equities",
+              "asset_style": "Core-Diversified",
+              "investment_region": "International",
+              "vehicle_type": "Pooled Separate Account",
+              "value": 3505.0,
+              "pct_of_plan": 3.0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
