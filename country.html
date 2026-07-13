@@ -23,7 +23,7 @@
   </div>
   <div id="auth-status" style="font-size:0.82rem; color:#b9c6d3;"></div>
 </header>
-<nav class="breadcrumb"><a href="index.html">&larr; Global overview</a> &nbsp;|&nbsp; <a href="sources.html">Sources &amp; methodology</a></nav>
+<nav class="breadcrumb"><a href="index.html">&larr; Global overview</a> &nbsp;|&nbsp; <a href="picker.html">Project builder</a> &nbsp;|&nbsp; <a href="sources.html">Sources &amp; methodology</a></nav>
 
 <main>
   <h1 id="country-name-heading" class="country-name-heading"></h1>
@@ -132,11 +132,15 @@ function onAllocationSelectorChange() {
   renderScorecardMatrix();
 }
 
-// ---- Manager market share (pilot, currently UK only) ----
+// ---- Manager market share ----
 // Sourced from a separate {code}_managers.json, built from the S&P Manager
 // export rather than the Company/AA files the rest of this page uses, so it
 // loads independently and the whole section just stays hidden for any
-// country that doesn't have one yet — no error, no broken link.
+// country that doesn't have one yet — no error, no broken link. Piloted on
+// the UK, then generalized (build_managers.py) to every other Atlas country
+// that has a <Country>_manager.xls source file on hand (33 of 34 as of the
+// 2026-07-12 rollout — Ireland is the one exception, no manager export has
+// been pulled for it yet).
 let MANAGER_DATA = null;
 const MANAGER_SELF_MANAGED = 'Self-managed';
 const MANAGER_UNDISCLOSED = 'Not disclosed';

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas — Project Builder</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script src="scorecard-dimensions.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <img src="logo.png" alt="Atlas logo" class="brand-logo">
+    <div>
+      <h1>Atlas</h1>
+      <div class="tagline">Project builder — pick countries, build a combined view</div>
+    </div>
+  </div>
+  <div id="auth-status" style="font-size:0.82rem; color:#b9c6d3;"></div>
+</header>
+<nav class="breadcrumb"><a href="index.html">&larr; Global overview</a> &nbsp;|&nbsp; <a href="sources.html">Sources &amp; methodology</a></nav>
+
+<main>
+  <h1 class="country-name-heading">Project builder</h1>
+  <p class="note" style="border-top:none; padding-top:0;">
+    Most projects don't need all 34 countries. Pick the ones that are actually in scope, then build a combined AUM-by-segment and opportunity-scorecard view across just those — on screen, or as a single downloadable Word/PowerPoint file.
+  </p>
+
+  <div class="summary-bar" id="picker-summary-bar"></div>
+
+  <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:12px;">
+    <button type="button" class="btn-primary" style="cursor:pointer;" onclick="setAllChecked(true)">Select all</button>
+    <button type="button" class="btn-primary" style="cursor:pointer;" onclick="setAllChecked(false)">Select none</button>
+    <input type="text" id="country-filter-input" placeholder="Filter by name…" oninput="renderCountryChecklist()" style="padding:6px 10px; border:1px solid var(--border); border-radius:6px; min-width:200px;">
+    <span class="note" id="selection-count" style="border-top:none; padding-top:0; margin:0;"></span>
+  </div>
+
+  <div id="country-checklist" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:4px 16px; margin-bottom:20px;"></div>
+
+  <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:24px;">
+    <button type="button" id="build-btn" class="btn-primary" style="cursor:pointer;" onclick="buildProjectView()">Build table</button>
+    <label style="font-size:0.85rem;">Show:
+      <select id="project-view-select" onchange="renderProjectMatrix()">
+        <option value="overall">Opportunity score (Overall)</option>
+        <option value="aum">AUM ($bn)</option>
+      </select>
+    </label>
+    <button type="button" id="export-docx-btn" class="btn-primary" style="cursor:pointer; display:none;" onclick="downloadProjectExport('docx')">Download as Word</button>
+    <button type="button" id="export-pptx-btn" class="btn-primary" style="cursor:pointer; display:none;" onclick="downloadProjectExport('pptx')">Download as PowerPoint</button>
+  </div>
+
+  <p class="note" id="project-hint" style="margin-top:-12px;"></p>
+  <div class="matrix-wrap">
+    <table class="matrix-table" id="project-matrix"></table>
+  </div>
+</main>
+
+<script>
+let ALL_COUNTRIES = [];      // full global.json countries list, status === 'built' only
+let SELECTED_CODES = new Set();
+let PROJECT_DATA = [];       // [{ meta, slug, data }] for the last "Build table" click
+
+async function checkAuth() {
+  try {
+    const res = await fetch('/.auth/me');
+    const payload = await res.json();
+    const principal = payload && payload.clientPrincipal;
+    const user = principal ? (principal.userDetails || 'signed in') : null;
+    const el = document.getElementById('auth-status');
+    if (user) {
+      el.innerHTML = `Signed in as ${user} &nbsp;|&nbsp; <a href="/.auth/logout?post_logout_redirect_uri=${encodeURIComponent(window.location.href)}" style="color:#b9c6d3;">Log out</a>`;
+    } else {
+      el.innerHTML = `<a href="/.auth/login/aad?post_login_redirect_uri=${encodeURIComponent(window.location.href)}" style="color:#b9c6d3;">Log in</a>`;
+    }
+  } catch (e) { /* not signed in, not fatal for this page */ }
+}
+
+async function fetchCountryData(code) {
+  try {
+    const res = await fetch(`/api/data/${code}`);
+    if (!res.ok) throw new Error('API not ready');
+    return await res.json();
+  } catch (e) {
+    try {
+      const res = await fetch(`data/${code}.json`);
+      if (!res.ok) return null;
+      return await res.json();
+    } catch (e2) {
+      return null;
+    }
+  }
+}
+
+// Same href-derived slug logic as index.html's overview matrix — the ISO
+// `code` field doesn't always match the data-file slug (e.g. GB vs uk).
+function slugFromHref(href) {
+  const match = /[?&]c=([^&]+)/.exec(href || '');
+  return match ? match[1] : null;
+}
+
+function renderCountryChecklist() {
+  const filter = document.getElementById('country-filter-input').value.trim().toLowerCase();
+  const container = document.getElementById('country-checklist');
+  const countries = ALL_COUNTRIES
+    .filter(c => !filter || c.name.toLowerCase().includes(filter))
+    .slice()
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+  container.innerHTML = countries.map(c => {
+    const code = (slugFromHref(c.href) || c.code.toLowerCase());
+    const checked = SELECTED_CODES.has(code) ? 'checked' : '';
+    return `<label style="display:flex; align-items:center; gap:6px; font-size:0.88rem; cursor:pointer;">
+      <input type="checkbox" data-code="${code}" ${checked} onchange="onCheckboxChange(this)">
+      ${c.name}
+    </label>`;
+  }).join('');
+
+  updateSelectionCount();
+}
+
+function onCheckboxChange(input) {
+  const code = input.dataset.code;
+  if (input.checked) SELECTED_CODES.add(code);
+  else SELECTED_CODES.delete(code);
+  updateSelectionCount();
+}
+
+function setAllChecked(checked) {
+  // Applies to every built country, not just the ones currently visible
+  // under a filter — a "select all" that only grabbed the filtered subset
+  // would be a surprising footgun once the filter box is cleared again.
+  ALL_COUNTRIES.forEach(c => {
+    const code = slugFromHref(c.href) || c.code.toLowerCase();
+    if (checked) SELECTED_CODES.add(code);
+    else SELECTED_CODES.delete(code);
+  });
+  renderCountryChecklist();
+}
+
+function updateSelectionCount() {
+  document.getElementById('selection-count').textContent =
+    `${SELECTED_CODES.size} of ${ALL_COUNTRIES.length} selected`;
+}
+
+async function buildProjectView() {
+  if (!SELECTED_CODES.size) {
+    alert('Select at least one country first.');
+    return;
+  }
+  const btn = document.getElementById('build-btn');
+  btn.disabled = true;
+  const originalText = btn.textContent;
+  btn.textContent = 'Loading…';
+
+  try {
+    const selected = ALL_COUNTRIES.filter(c => SELECTED_CODES.has(slugFromHref(c.href) || c.code.toLowerCase()));
+    const loaded = await Promise.all(selected.map(async meta => {
+      const slug = slugFromHref(meta.href) || meta.code.toLowerCase();
+      return { meta, slug, data: await fetchCountryData(slug) };
+    }));
+
+    PROJECT_DATA = loaded.filter(c => c.data);
+    const failed = loaded.filter(c => !c.data).map(c => c.meta.name);
+
+    if (!PROJECT_DATA.length) {
+      document.getElementById('project-hint').textContent = 'None of the selected countries could be loaded.';
+      document.getElementById('project-matrix').innerHTML = '';
+      document.getElementById('export-docx-btn').style.display = 'none';
+      document.getElementById('export-pptx-btn').style.display = 'none';
+      return;
+    }
+
+    document.getElementById('export-docx-btn').style.display = '';
+    document.getElementById('export-pptx-btn').style.display = '';
+    renderProjectMatrix(failed);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+}
+
+// Same shape as index.html's renderOverviewMatrixBody, just scoped to
+// PROJECT_DATA (the countries picked for this project) instead of every
+// built country in Atlas.
+function renderProjectMatrix(failed) {
+  const table = document.getElementById('project-matrix');
+  if (!PROJECT_DATA.length) return;
+
+  const view = document.getElementById('project-view-select').value;
+
+  const segmentsPresent = new Set();
+  PROJECT_DATA.forEach(c => (c.data.segments || []).forEach(s => segmentsPresent.add(s.segment)));
+  const columns = CANONICAL_SEGMENT_ORDER.filter(s => segmentsPresent.has(s));
+  const headerCells = columns.map(seg => `<th>${seg}</th>`).join('');
+
+  const rows = PROJECT_DATA.map(c => {
+    const href = c.meta.href || `country.html?c=${c.slug}`;
+    const cells = columns.map(segName => {
+      const seg = (c.data.segments || []).find(s => s.segment === segName);
+      if (!seg) return `<td>—</td>`;
+      if (view === 'aum') {
+        return `<td>${typeof seg.aum_bn === 'number' ? seg.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '—'}</td>`;
+      }
+      const overall = computeOverallScore(seg.scorecard);
+      return `<td class="${overallScoreClass(overall)}">${overall === null ? '—' : overall}</td>`;
+    }).join('');
+    return `<tr><td class="matrix-rowlabel"><a class="country-link" href="${href}">${c.meta.name}</a></td>${cells}</tr>`;
+  }).join('');
+
+  table.innerHTML = `<thead><tr><th class="matrix-rowlabel">Country</th>${headerCells}</tr></thead><tbody>${rows}</tbody>`;
+
+  const failedNote = (failed && failed.length)
+    ? ` Could not load: ${failed.join(', ')}.`
+    : '';
+  const viewNote = view === 'aum'
+    ? 'Showing AUM ($bn) per segment.'
+    : 'Showing the Overall opportunity score (blank = not fully scored yet).';
+  document.getElementById('project-hint').textContent =
+    `${PROJECT_DATA.length} of ${SELECTED_CODES.size} selected countries loaded. ${viewNote}${failedNote}`;
+}
+
+async function downloadProjectExport(format) {
+  if (!PROJECT_DATA.length) {
+    alert('Build the table first.');
+    return;
+  }
+  const btn = document.getElementById(`export-${format}-btn`);
+  const originalText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Preparing…';
+
+  try {
+    const countries = PROJECT_DATA.map(c => ({
+      country_name: c.data.country_name || c.meta.name,
+      segments: c.data.segments || []
+    }));
+
+    const res = await fetch(`/api/export/${format}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ countries })
+    });
+
+    if (!res.ok) {
+      const detail = await res.json().catch(() => ({}));
+      alert(`Couldn't generate the file: ${detail.error || res.status}`);
+      return;
+    }
+
+    const blob = await res.blob();
+    const url = URL.createObjectURL(blob);
+    const ext = format === 'docx' ? 'docx' : 'pptx';
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Atlas_Project_${countries.length}_countries.${ext}`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  } catch (e) {
+    alert('Could not reach the server to generate this file.');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+}
+
+async function load() {
+  await checkAuth();
+
+  let data;
+  try {
+    const res = await fetch('/api/data/global');
+    if (!res.ok) throw new Error('API not ready');
+    data = await res.json();
+  } catch (e) {
+    const res = await fetch('data/global.json');
+    data = await res.json();
+  }
+
+  ALL_COUNTRIES = (data.countries || []).filter(c => c.status === 'built');
+
+  document.getElementById('picker-summary-bar').innerHTML = `
+    <div class="stat-card"><div class="value">${ALL_COUNTRIES.length}</div><div class="label">Countries available to pick from</div></div>
+  `;
+
+  renderCountryChecklist();
+}
+
+load();
+</script>
+</body>
+</html>
