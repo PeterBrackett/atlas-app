@@ -1,7 +1,7 @@
 const { app } = require('@azure/functions');
 const {
   Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell,
-  HeadingLevel, WidthType, ShadingType
+  HeadingLevel, WidthType, ShadingType, PageBreak
 } = require('docx');
 const { buildAumRows, buildScorecardMatrix } = require('../shared/exportHelpers');
 
@@ -48,6 +48,30 @@ function buildScorecardTable(matrix) {
   return new Table({ width: { size: 100, type: WidthType.PERCENTAGE }, rows: [headerRow, ...dataRows] });
 }
 
+// One country's section: heading + AUM table + scorecard table. Shared by
+// both the single-country payload (country.html's per-page export) and the
+// multi-country payload (picker.html's project builder) so a project export
+// is just this block repeated once per selected country, rather than a
+// separate document layout to maintain.
+function buildCountrySection(countryName, segments, { headingLevel = HeadingLevel.HEADING_1, pageBreakBefore = false } = {}) {
+  const aumRows = buildAumRows(segments);
+  const matrix = buildScorecardMatrix(segments);
+  const heading = new Paragraph({
+    heading: headingLevel,
+    children: [
+      ...(pageBreakBefore ? [new PageBreak()] : []),
+      new TextRun({ text: `Atlas — ${countryName}` })
+    ]
+  });
+  return [
+    heading,
+    new Paragraph({ text: 'AUM by segment', heading: HeadingLevel.HEADING_2, spacing: { before: 300, after: 100 } }),
+    buildAumTable(aumRows),
+    new Paragraph({ text: 'Opportunity scorecard', heading: HeadingLevel.HEADING_2, spacing: { before: 400, after: 100 } }),
+    buildScorecardTable(matrix)
+  ];
+}
+
 app.http('exportDocx', {
   methods: ['POST'],
   authLevel: 'anonymous',
@@ -60,37 +84,48 @@ app.http('exportDocx', {
       return { status: 400, jsonBody: { error: 'Invalid or missing JSON body' } };
     }
 
-    const countryName = body.country_name || 'Country';
-    const segments = Array.isArray(body.segments) ? body.segments : [];
+    // Two accepted shapes: the original single-country payload from
+    // country.html ({country_name, segments}), and picker.html's
+    // multi-country project payload ({countries: [{country_name, segments}, ...]}).
+    const isMulti = Array.isArray(body.countries);
+    const countries = isMulti
+      ? body.countries.filter((c) => c && Array.isArray(c.segments) && c.segments.length)
+      : (Array.isArray(body.segments) && body.segments.length ? [{ country_name: body.country_name || 'Country', segments: body.segments }] : []);
 
-    if (!segments.length) {
+    if (!countries.length) {
       return { status: 400, jsonBody: { error: 'No segments provided to export' } };
     }
 
+    const docTitle = isMulti ? `Atlas — Project (${countries.length} countries)` : `Atlas — ${countries[0].country_name}`;
+    const safeName = isMulti
+      ? `Project_${countries.length}_countries`
+      : countries[0].country_name.replace(/[^a-z0-9]+/gi, '_').replace(/^_+|_+$/g, '');
+
     try {
-      const aumRows = buildAumRows(segments);
-      const matrix = buildScorecardMatrix(segments);
       const generatedDate = new Date().toISOString().slice(0, 10);
 
-      const doc = new Document({
-        sections: [{
-          children: [
-            new Paragraph({ text: `Atlas — ${countryName}`, heading: HeadingLevel.HEADING_1 }),
-            new Paragraph({ text: `Generated ${generatedDate}` }),
-            new Paragraph({ text: 'AUM by segment', heading: HeadingLevel.HEADING_2, spacing: { before: 300, after: 100 } }),
-            buildAumTable(aumRows),
-            new Paragraph({ text: 'Opportunity scorecard', heading: HeadingLevel.HEADING_2, spacing: { before: 400, after: 100 } }),
-            buildScorecardTable(matrix),
-            new Paragraph({
-              text: 'Source: Atlas. See Sources & Methodology on the site for how these figures are derived.',
-              spacing: { before: 300 }
-            })
-          ]
-        }]
+      const children = [];
+      if (isMulti) {
+        children.push(new Paragraph({ text: docTitle, heading: HeadingLevel.TITLE }));
+        children.push(new Paragraph({ text: `Generated ${generatedDate} — ${countries.map((c) => c.country_name).join(', ')}` }));
+      } else {
+        children.push(new Paragraph({ text: `Generated ${generatedDate}` }));
+      }
+
+      countries.forEach((c, i) => {
+        children.push(...buildCountrySection(c.country_name, c.segments, {
+          headingLevel: isMulti ? HeadingLevel.HEADING_1 : HeadingLevel.HEADING_1,
+          pageBreakBefore: isMulti && i > 0
+        }));
       });
 
+      children.push(new Paragraph({
+        text: 'Source: Atlas. See Sources & Methodology on the site for how these figures are derived.',
+        spacing: { before: 300 }
+      }));
+
+      const doc = new Document({ sections: [{ children }] });
       const buffer = await Packer.toBuffer(doc);
-      const safeName = countryName.replace(/[^a-z0-9]+/gi, '_').replace(/^_+|_+$/g, '');
 
       return {
         status: 200,
