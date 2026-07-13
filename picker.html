@@ -102,21 +102,36 @@ function slugFromHref(href) {
   return match ? match[1] : null;
 }
 
+// Same fallback as index.html's region grouping -- a country missing a
+// region tag should show up under an obvious bucket, not vanish or crash the sort.
+const UNASSIGNED_REGION = 'Unassigned';
+
 function renderCountryChecklist() {
   const filter = document.getElementById('country-filter-input').value.trim().toLowerCase();
   const container = document.getElementById('country-checklist');
   const countries = ALL_COUNTRIES
-    .filter(c => !filter || c.name.toLowerCase().includes(filter))
-    .slice()
-    .sort((a, b) => a.name.localeCompare(b.name));
+    .filter(c => !filter || c.name.toLowerCase().includes(filter));
 
-  container.innerHTML = countries.map(c => {
-    const code = (slugFromHref(c.href) || c.code.toLowerCase());
-    const checked = SELECTED_CODES.has(code) ? 'checked' : '';
-    return `<label style="display:flex; align-items:center; gap:6px; font-size:0.88rem; cursor:pointer;">
-      <input type="checkbox" data-code="${code}" ${checked} onchange="onCheckboxChange(this)">
-      ${c.name}
-    </label>`;
+  const grouped = {};
+  countries.forEach(c => {
+    const region = c.region || UNASSIGNED_REGION;
+    if (!grouped[region]) grouped[region] = [];
+    grouped[region].push(c);
+  });
+  const regionNames = Object.keys(grouped).sort((a, b) => regionSortIndex(a) - regionSortIndex(b));
+
+  container.innerHTML = regionNames.map(region => {
+    const regionCountries = grouped[region].slice().sort((a, b) => a.name.localeCompare(b.name));
+    const header = `<div style="grid-column:1/-1; padding:10px 2px 2px; font-weight:700; color:var(--navy); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.04em;">${region}</div>`;
+    const items = regionCountries.map(c => {
+      const code = (slugFromHref(c.href) || c.code.toLowerCase());
+      const checked = SELECTED_CODES.has(code) ? 'checked' : '';
+      return `<label style="display:flex; align-items:center; gap:6px; font-size:0.88rem; cursor:pointer;">
+        <input type="checkbox" data-code="${code}" ${checked} onchange="onCheckboxChange(this)">
+        ${c.name}
+      </label>`;
+    }).join('');
+    return header + items;
   }).join('');
 
   updateSelectionCount();
@@ -197,18 +212,33 @@ function renderProjectMatrix(failed) {
   const columns = CANONICAL_SEGMENT_ORDER.filter(s => segmentsPresent.has(s));
   const headerCells = columns.map(seg => `<th>${seg}</th>`).join('');
 
-  const rows = PROJECT_DATA.map(c => {
-    const href = c.meta.href || `country.html?c=${c.slug}`;
-    const cells = columns.map(segName => {
-      const seg = (c.data.segments || []).find(s => s.segment === segName);
-      if (!seg) return `<td>—</td>`;
-      if (view === 'aum') {
-        return `<td>${typeof seg.aum_bn === 'number' ? seg.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '—'}</td>`;
-      }
-      const overall = computeOverallScore(seg.scorecard);
-      return `<td class="${overallScoreClass(overall)}">${overall === null ? '—' : overall}</td>`;
+  // Grouped by region (same convention as index.html's overview table) so a
+  // project spanning several regions reads as a set of regional blocks
+  // rather than an arbitrary order tied to selection sequence.
+  const grouped = {};
+  PROJECT_DATA.forEach(c => {
+    const region = c.meta.region || UNASSIGNED_REGION;
+    if (!grouped[region]) grouped[region] = [];
+    grouped[region].push(c);
+  });
+  const regionNames = Object.keys(grouped).sort((a, b) => regionSortIndex(a) - regionSortIndex(b));
+
+  const rows = regionNames.map(region => {
+    const regionHeader = `<tr class="region-header"><td colspan="${columns.length + 1}">${region}</td></tr>`;
+    const countryRows = grouped[region].map(c => {
+      const href = c.meta.href || `country.html?c=${c.slug}`;
+      const cells = columns.map(segName => {
+        const seg = (c.data.segments || []).find(s => s.segment === segName);
+        if (!seg) return `<td>—</td>`;
+        if (view === 'aum') {
+          return `<td>${typeof seg.aum_bn === 'number' ? seg.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '—'}</td>`;
+        }
+        const overall = computeOverallScore(seg.scorecard);
+        return `<td class="${overallScoreClass(overall)}">${overall === null ? '—' : overall}</td>`;
+      }).join('');
+      return `<tr><td class="matrix-rowlabel"><a class="country-link" href="${href}">${c.meta.name}</a></td>${cells}</tr>`;
     }).join('');
-    return `<tr><td class="matrix-rowlabel"><a class="country-link" href="${href}">${c.meta.name}</a></td>${cells}</tr>`;
+    return regionHeader + countryRows;
   }).join('');
 
   table.innerHTML = `<thead><tr><th class="matrix-rowlabel">Country</th>${headerCells}</tr></thead><tbody>${rows}</tbody>`;
@@ -234,7 +264,14 @@ async function downloadProjectExport(format) {
   btn.textContent = 'Preparing…';
 
   try {
-    const countries = PROJECT_DATA.map(c => ({
+    // Same region-grouped order as the on-screen table, so the exported
+    // doc/deck reads as the same set of regional blocks the user just saw.
+    const ordered = PROJECT_DATA.slice().sort((a, b) => {
+      const ra = regionSortIndex(a.meta.region || UNASSIGNED_REGION);
+      const rb = regionSortIndex(b.meta.region || UNASSIGNED_REGION);
+      return ra !== rb ? ra - rb : a.meta.name.localeCompare(b.meta.name);
+    });
+    const countries = ordered.map(c => ({
       country_name: c.data.country_name || c.meta.name,
       segments: c.data.segments || []
     }));
