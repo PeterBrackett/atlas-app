@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas — Overview &amp; Scorecard</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script src="scorecard-dimensions.js"></script>
+<script src="tmf-rankings.js"></script>
+<script src="ef-epi.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <img src="logo.png" alt="Atlas logo" class="brand-logo">
+    <div>
+      <h1>Atlas</h1>
+      <div class="tagline">Global overview &amp; opportunity scorecard</div>
+    </div>
+  </div>
+  <div id="auth-status" style="font-size:0.82rem; color:#b9c6d3;"></div>
+</header>
+<nav class="breadcrumb"><a href="index.html">&larr; Atlas home</a> &nbsp;|&nbsp; <a href="picker.html">Project builder</a> &nbsp;|&nbsp; <a href="sources.html">Sources &amp; methodology</a></nav>
+
+<main>
+  <div class="summary-bar" id="summary-bar"></div>
+
+  <h2>Opportunity scorecard — Overall by segment</h2>
+
+  <details style="margin-bottom:16px;">
+    <summary style="cursor:pointer; font-size:0.85rem; color:var(--muted); padding:4px 0; font-weight:600;">Bulk auto-scoring tools (market opportunity, regulatory complexity, distribution resources required, languages required)</summary>
+    <div style="margin-top:10px;">
+      <div class="summary-bar" id="mo-basis-bar" style="margin-bottom:16px;"></div>
+      <div id="overview-threshold-controls" style="display:none; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px; padding:10px; border:1px solid var(--border); border-radius:6px; background:var(--card); font-size:0.85rem;">
+        <strong>Auto-score "Market opportunity" from an allocation:</strong>
+        <label>Asset class<br>
+          <select id="mo-asset-type-select" onchange="onMoAssetSelectorChange()"></select>
+        </label>
+        <label>Style<br>
+          <select id="mo-asset-style-select" onchange="onMoAssetSelectorChange()"></select>
+        </label>
+        <label>Threshold ($bn)<br><input type="number" step="any" id="mo-threshold-input" placeholder="e.g. 5" style="width:110px;"></label>
+        <label>Optimal ($bn)<br><input type="number" step="any" id="mo-optimal-input" placeholder="e.g. 20" style="width:110px;"></label>
+        <button type="button" id="mo-apply-btn" class="btn-primary" onclick="applyMarketOpportunityThresholds()" style="cursor:pointer; align-self:flex-end;">Apply across all countries</button>
+        <span class="note" style="border-top:none; padding-top:0; margin:0; flex-basis:100%; font-size:0.78rem;">Scores every segment in every loaded country at once, based on the asset class picked here (independent of the "Show:" selector below): below threshold = 1, at or above threshold = 2, at or above optimal = 3. A segment with no allocation data for this selection is treated as $0 (scores 1, unless threshold is 0 or less). Overwrites any existing Market opportunity score. This panel is always here whenever you're signed in — it no longer depends on which view is selected below.</span>
+      </div>
+
+      <div class="summary-bar" id="reg-basis-bar" style="margin-bottom:16px;"></div>
+      <div id="reg-threshold-controls" style="display:none; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px; padding:10px; border:1px solid var(--border); border-radius:6px; background:var(--card); font-size:0.85rem;">
+        <strong>Auto-score "Regulatory complexity" from TMF Group rankings (<span id="tmf-gbci-year"></span>):</strong>
+        <label>Threshold (rank)<br><input type="number" step="1" id="reg-threshold-input" placeholder="e.g. 27" style="width:110px;"></label>
+        <label>Optimal (rank)<br><input type="number" step="1" id="reg-optimal-input" placeholder="e.g. 56" style="width:110px;"></label>
+        <button type="button" id="reg-apply-btn" class="btn-primary" onclick="applyRegulatoryComplexityThresholds()" style="cursor:pointer; align-self:flex-end;">Apply across all countries</button>
+        <span class="note" style="border-top:none; padding-top:0; margin:0; flex-basis:100%; font-size:0.78rem;">TMF's rank 1 is the most complex jurisdiction to do business in, rank 79 the least — this is inverted from the allocation scorer above since low complexity is the attractive case: rank at or below threshold = 1, above threshold = 2, at or above optimal = 3. Countries TMF doesn't cover (Iceland, as of the 2025 edition) are skipped and left as-is — reported after applying. Same segment-independent country-level value applied to every segment, and overwrites any existing Regulatory complexity score.</span>
+      </div>
+
+      <div class="summary-bar" id="dist-basis-bar" style="margin-bottom:16px;"></div>
+      <div id="dist-threshold-controls" style="display:none; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px; padding:10px; border:1px solid var(--border); border-radius:6px; background:var(--card); font-size:0.85rem;">
+        <strong>Auto-score "Distribution resources required" from institution concentration:</strong>
+        <label>Threshold (top-3 share %)<br><input type="number" step="any" id="dist-threshold-input" placeholder="e.g. 20" style="width:130px;"></label>
+        <label>Optimal (top-3 share %)<br><input type="number" step="any" id="dist-optimal-input" placeholder="e.g. 50" style="width:130px;"></label>
+        <button type="button" id="dist-apply-btn" class="btn-primary" onclick="applyDistributionResourcesThresholds()" style="cursor:pointer; align-self:flex-end;">Apply across all countries</button>
+        <span class="note" style="border-top:none; padding-top:0; margin:0; flex-basis:100%; font-size:0.78rem;">Uses each segment's top-3-institution share of AUM (from the same Company-file institution data segment totals are built from) as a proxy for how much distribution resource covering the market would take: below threshold = 1, at or above threshold = 2, at or above optimal = 3 — a handful of large institutions dominating a segment needs less coverage effort than AUM spread across thousands of small ones. Segments with no institution-level concentration data (e.g. Life/Non-life insurance, built from industry aggregates rather than individual institutions) are skipped, not guessed at. Overwrites any existing Distribution resources required score.</span>
+      </div>
+
+      <div class="summary-bar" id="lang-basis-bar" style="margin-bottom:16px;"></div>
+      <div id="lang-threshold-controls" style="display:none; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px; padding:10px; border:1px solid var(--border); border-radius:6px; background:var(--card); font-size:0.85rem;">
+        <strong>Auto-score "Languages required" from EF English Proficiency Index (<span id="ef-epi-year"></span>):</strong>
+        <label>Threshold (EF EPI score)<br><input type="number" step="any" id="lang-threshold-input" placeholder="e.g. 550" style="width:130px;"></label>
+        <label>Optimal (EF EPI score)<br><input type="number" step="any" id="lang-optimal-input" placeholder="e.g. 600" style="width:130px;"></label>
+        <button type="button" id="lang-apply-btn" class="btn-primary" onclick="applyLanguagesRequiredThresholds()" style="cursor:pointer; align-self:flex-end;">Apply across all countries</button>
+        <span class="note" style="border-top:none; padding-top:0; margin:0; flex-basis:100%; font-size:0.78rem;">EF EPI score runs 0-800, higher = more of the population speaks English well — direction matches the allocation scorer above (not inverted): below threshold = 1, at or above threshold = 2, at or above optimal = 3. The US, UK, Ireland, Canada, Australia and New Zealand aren't ranked by EF EPI at all (it only measures non-native proficiency), so they're automatically scored 3 — English is the native language there by definition. Singapore is also unranked by EF EPI but is scored 3 as a judgment call, since English is Singapore's dominant language of government, courts and business; override this per-segment if you'd rather treat it differently. Iceland has no EF EPI coverage and isn't an English-native/business market, so it's genuinely uncovered and skipped, same as Iceland's Regulatory complexity gap. Same country-level value applied to every segment, and overwrites any existing Languages required score.</span>
+      </div>
+    </div>
+  </details>
+
+  <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:12px; font-size:0.85rem;">
+    <label for="overview-view-select"><strong>Show:</strong></label>
+    <select id="overview-view-select" onchange="onOverviewViewChange()">
+      <option value="overall">Opportunity score (Overall)</option>
+      <option value="allocation">Asset allocation ($bn)</option>
+    </select>
+    <span id="overview-alloc-controls" style="display:none; gap:10px; align-items:center;">
+      <select id="overview-alloc-type-select" onchange="onOverviewAllocSelectorChange()"></select>
+      <select id="overview-alloc-style-select" onchange="onOverviewAllocSelectorChange()"></select>
+    </span>
+  </div>
+  <p class="note" style="margin-top:-4px; margin-bottom:16px; border-top:none; padding-top:0;" id="overview-hint"></p>
+  <div class="matrix-wrap">
+    <table class="matrix-table" id="overview-matrix"></table>
+  </div>
+
+  <h2 style="margin-top:32px;">By region</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Region</th>
+        <th class="numeric">Countries built</th>
+        <th class="numeric">Institutions tracked</th>
+        <th class="numeric">Total AUM tracked (USD, thousands)</th>
+      </tr>
+    </thead>
+    <tbody id="region-rows"></tbody>
+  </table>
+
+  <h2 style="margin-top:32px;">Countries</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Country</th>
+        <th class="numeric">Institutions tracked</th>
+        <th class="numeric">Total AUM tracked (USD, thousands)</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="country-rows"></tbody>
+  </table>
+
+  <p class="note" id="global-note"></p>
+</main>
+
+<script>
+let CURRENT_USER = null; // set by checkAuth(), null if not signed in
+
+async function checkAuth() {
+  try {
+    const res = await fetch('/.auth/me');
+    const payload = await res.json();
+    const principal = payload && payload.clientPrincipal;
+    CURRENT_USER = principal ? (principal.userDetails || 'signed in') : null;
+  } catch (e) {
+    CURRENT_USER = null;
+  }
+
+  const el = document.getElementById('auth-status');
+  if (CURRENT_USER) {
+    el.innerHTML = `Signed in as ${CURRENT_USER} &nbsp;|&nbsp; <a href="/.auth/logout?post_logout_redirect_uri=${encodeURIComponent(window.location.href)}" style="color:#b9c6d3;">Log out</a>`;
+  } else {
+    el.innerHTML = `<a href="/.auth/login/aad?post_login_redirect_uri=${encodeURIComponent(window.location.href)}" style="color:#b9c6d3;">Log in to auto-score market opportunity</a>`;
+  }
+}
+
+async function fetchCountryData(code) {
+  try {
+    const res = await fetch(`/api/data/${code}`);
+    if (!res.ok) throw new Error('API not ready');
+    return await res.json();
+  } catch (e) {
+    try {
+      const res = await fetch(`data/${code}.json`);
+      if (!res.ok) return null;
+      return await res.json();
+    } catch (e2) {
+      return null;
+    }
+  }
+}
+
+// Cross-country matrix state, populated once by loadOverviewData() and
+// reused by every re-render (view-mode switch, allocation type/style
+// change) so switching views never re-fetches every country's data.
+let OVERVIEW_USABLE = [];       // [{ meta, data }] for countries that loaded
+let OVERVIEW_BUILT_COUNT = 0;
+let OVERVIEW_VIEW = 'overall';  // 'overall' | 'allocation'
+let OVERVIEW_ALLOC_TYPE = 'Equities';
+let OVERVIEW_ALLOC_STYLE = '';
+
+// Asset class used by the "auto-score Market opportunity" panel. Kept
+// deliberately separate from OVERVIEW_ALLOC_TYPE/STYLE (which just controls
+// what the matrix displays when "Show: Asset allocation" is picked) — the
+// two used to share one selection, which meant the scoring panel only
+// existed while that specific view was active. Since the "Show:" dropdown
+// resets to "Overall" on every page load, that made the panel look like it
+// had vanished on every reload. Now they're independent: this panel is
+// visible any time you're signed in, regardless of which view is showing.
+let MO_ASSET_TYPE = 'Equities';
+let MO_ASSET_STYLE = '';
+
+function onOverviewViewChange() {
+  OVERVIEW_VIEW = document.getElementById('overview-view-select').value;
+  document.getElementById('overview-alloc-controls').style.display =
+    OVERVIEW_VIEW === 'allocation' ? 'inline-flex' : 'none';
+  renderOverviewMatrixBody();
+}
+
+// Signed-in-only (it's a write action) -- otherwise always shown once
+// country data has loaded, independent of which matrix view is selected.
+// Covers both the allocation-based (Market opportunity) and TMF-rank-based
+// (Regulatory complexity) auto-scoring panels, since both share the same
+// visibility rule.
+function updateThresholdControlsVisibility() {
+  const show = !!CURRENT_USER && OVERVIEW_USABLE.length > 0;
+  document.getElementById('overview-threshold-controls').style.display = show ? 'flex' : 'none';
+  document.getElementById('reg-threshold-controls').style.display = show ? 'flex' : 'none';
+  document.getElementById('dist-threshold-controls').style.display = show ? 'flex' : 'none';
+  document.getElementById('lang-threshold-controls').style.display = show ? 'flex' : 'none';
+}
+
+function populateMoAssetSelectors() {
+  const allSegs = OVERVIEW_USABLE.flatMap(c => c.data.segments || []);
+  const typeSelect = document.getElementById('mo-asset-type-select');
+  const types = assetTypesPresent(allSegs);
+  typeSelect.innerHTML = types.map(t => `<option value="${t}" ${t === MO_ASSET_TYPE ? 'selected' : ''}>${t}</option>`).join('');
+  populateMoStyleSelector();
+}
+
+function populateMoStyleSelector() {
+  const allSegs = OVERVIEW_USABLE.flatMap(c => c.data.segments || []);
+  const styleSelect = document.getElementById('mo-asset-style-select');
+  const styles = assetStylesPresent(allSegs, MO_ASSET_TYPE);
+  styleSelect.innerHTML = `<option value="">All styles (${MO_ASSET_TYPE} total)</option>` +
+    styles.map(s => `<option value="${s}" ${s === MO_ASSET_STYLE ? 'selected' : ''}>${s}</option>`).join('');
+  if (!styles.includes(MO_ASSET_STYLE)) MO_ASSET_STYLE = '';
+}
+
+function onMoAssetSelectorChange() {
+  const typeSelect = document.getElementById('mo-asset-type-select');
+  const styleSelect = document.getElementById('mo-asset-style-select');
+  const typeChanged = typeSelect.value !== MO_ASSET_TYPE;
+  MO_ASSET_TYPE = typeSelect.value;
+  if (typeChanged) {
+    MO_ASSET_STYLE = '';
+    populateMoStyleSelector();
+  } else {
+    MO_ASSET_STYLE = styleSelect.value;
+  }
+}
+
+function onOverviewAllocSelectorChange() {
+  const typeSelect = document.getElementById('overview-alloc-type-select');
+  const styleSelect = document.getElementById('overview-alloc-style-select');
+  const typeChanged = typeSelect.value !== OVERVIEW_ALLOC_TYPE;
+  OVERVIEW_ALLOC_TYPE = typeSelect.value;
+  if (typeChanged) {
+    OVERVIEW_ALLOC_STYLE = '';
+    populateOverviewStyleSelector();
+  } else {
+    OVERVIEW_ALLOC_STYLE = styleSelect.value;
+  }
+  renderOverviewMatrixBody();
+}
+
+function populateOverviewAllocSelectors() {
+  const allSegs = OVERVIEW_USABLE.flatMap(c => c.data.segments || []);
+  const typeSelect = document.getElementById('overview-alloc-type-select');
+  const types = assetTypesPresent(allSegs);
+  typeSelect.innerHTML = types.map(t => `<option value="${t}" ${t === OVERVIEW_ALLOC_TYPE ? 'selected' : ''}>${t}</option>`).join('');
+  populateOverviewStyleSelector();
+}
+
+function populateOverviewStyleSelector() {
+  const allSegs = OVERVIEW_USABLE.flatMap(c => c.data.segments || []);
+  const styleSelect = document.getElementById('overview-alloc-style-select');
+  const styles = assetStylesPresent(allSegs, OVERVIEW_ALLOC_TYPE);
+  styleSelect.innerHTML = `<option value="">All styles (${OVERVIEW_ALLOC_TYPE} total)</option>` +
+    styles.map(s => `<option value="${s}" ${s === OVERVIEW_ALLOC_STYLE ? 'selected' : ''}>${s}</option>`).join('');
+  if (!styles.includes(OVERVIEW_ALLOC_STYLE)) OVERVIEW_ALLOC_STYLE = '';
+}
+
+// Reads the threshold/optimal inputs, classifies every loaded segment's
+// "Market opportunity" score from its allocation value under the currently
+// selected asset type/style, and writes all of it in one batched request.
+// A segment with no allocation data for the selection is treated as $0 --
+// e.g. a country with no equity exposure at all genuinely does score 1 for
+// an equity manager's market opportunity there, same as a country that
+// reports a small nonzero figure below threshold; it isn't left unscored.
+async function applyMarketOpportunityThresholds() {
+  const threshold = parseFloat(document.getElementById('mo-threshold-input').value);
+  const optimal = parseFloat(document.getElementById('mo-optimal-input').value);
+
+  if (Number.isNaN(threshold) || Number.isNaN(optimal)) {
+    alert('Enter numeric threshold and optimal values (in $bn).');
+    return;
+  }
+  if (optimal < threshold) {
+    alert('Optimal should be greater than or equal to threshold.');
+    return;
+  }
+
+  const label = MO_ASSET_STYLE ? `${MO_ASSET_TYPE} — ${MO_ASSET_STYLE}` : MO_ASSET_TYPE;
+  const assignments = [];
+  OVERVIEW_USABLE.forEach(c => {
+    (c.data.segments || []).forEach(seg => {
+      const result = getAllocationValue(seg, MO_ASSET_TYPE, MO_ASSET_STYLE);
+      const value_bn = result ? result.value_bn : 0;
+      const score = value_bn >= optimal ? 3 : (value_bn >= threshold ? 2 : 1);
+      assignments.push({ country: c.slug, segment: seg.segment, value: score });
+    });
+  });
+
+  if (!assignments.length) {
+    alert('No segments loaded to score.');
+    return;
+  }
+
+  const confirmMsg = `Set "Market opportunity" for all ${assignments.length} segments across ${OVERVIEW_USABLE.length} countries, based on ${label} allocation:\n` +
+    `< $${threshold}bn → 1\n≥ $${threshold}bn → 2\n≥ $${optimal}bn → 3\n\n` +
+    `This overwrites any existing Market opportunity score on every segment. Continue?`;
+  if (!confirm(confirmMsg)) return;
+
+  const btn = document.getElementById('mo-apply-btn');
+  btn.disabled = true;
+  const originalText = btn.textContent;
+  btn.textContent = 'Applying…';
+
+  try {
+    const res = await fetch('/api/segments/set-scorecard-global', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ dimension: 'market_opportunity', assignments })
+    });
+    const result = await res.json();
+
+    if (!res.ok && !result.success) {
+      alert(`Couldn't apply scores: ${result.error || 'unknown error'}`);
+      return;
+    }
+
+    // Update in-memory data so switching to the Overall view reflects this
+    // right away, without a page reload.
+    const byCountrySeg = {};
+    assignments.forEach(a => { byCountrySeg[`${a.country}::${a.segment}`] = a.value; });
+
+    let successCount = 0;
+    const failedCountries = [];
+    OVERVIEW_USABLE.forEach(c => {
+      const r = result.results && result.results[c.slug];
+      if (r && r.success) {
+        successCount += 1;
+        (c.data.segments || []).forEach(seg => {
+          const key = `${c.slug}::${seg.segment}`;
+          if (Object.prototype.hasOwnProperty.call(byCountrySeg, key)) {
+            if (!seg.scorecard) seg.scorecard = {};
+            seg.scorecard.market_opportunity = byCountrySeg[key];
+          }
+        });
+      } else if (r) {
+        failedCountries.push(`${c.meta.name} (${r.error})`);
+      }
+    });
+
+    renderOverviewMatrixBody();
+    alert(`Applied to ${successCount} of ${OVERVIEW_USABLE.length} countries.` +
+      (failedCountries.length ? `\n\nFailed: ${failedCountries.join(', ')}` : ''));
+
+    // Record what this run was based on onto global.json itself, so the
+    // basis boxes at the top of the page stay accurate even after signing
+    // out or reloading later. Best-effort -- if this particular write fails,
+    // the scores themselves are already saved above; only the "what was
+    // this based on" reminder would be stale, not the underlying data.
+    try {
+      const basisRes = await fetch('/api/global/set-scorecard-basis', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          basis_key: 'market_opportunity_basis',
+          basis: {
+            asset_type: MO_ASSET_TYPE,
+            asset_style: MO_ASSET_STYLE || null,
+            threshold_bn: threshold,
+            optimal_bn: optimal,
+            countries_updated: successCount,
+            segments_updated: assignments.length
+          }
+        })
+      });
+      const basisResult = await basisRes.json();
+      if (basisRes.ok && basisResult.basis) {
+        GLOBAL_DATA.market_opportunity_basis = basisResult.basis;
+        renderMarketOpportunityBasis(GLOBAL_DATA.market_opportunity_basis);
+      }
+    } catch (e) { /* scores are saved; the basis reminder just won't update this time */ }
+  } catch (e) {
+    alert('Could not reach the server to save this change.');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+}
+
+// Same idea as applyMarketOpportunityThresholds(), but for "Regulatory
+// complexity" driven by TMF's GBCI rank (tmf-rankings.js) instead of an
+// allocation figure -- and country-level rather than per-segment, since
+// regulatory burden doesn't vary by DB Corp vs DC Govt within one country.
+// Every segment in a matched country gets the same value. Countries with no
+// TMF entry (Iceland, as of 2025) are skipped and reported, not guessed at.
+async function applyRegulatoryComplexityThresholds() {
+  const threshold = parseFloat(document.getElementById('reg-threshold-input').value);
+  const optimal = parseFloat(document.getElementById('reg-optimal-input').value);
+
+  if (Number.isNaN(threshold) || Number.isNaN(optimal)) {
+    alert('Enter numeric threshold and optimal rank values.');
+    return;
+  }
+  if (optimal < threshold) {
+    alert('Optimal rank should be greater than or equal to threshold rank.');
+    return;
+  }
+
+  const assignments = [];
+  const skipped = [];
+  OVERVIEW_USABLE.forEach(c => {
+    const rank = tmfRankForCode(c.meta.code);
+    if (rank === null) {
+      skipped.push(c.meta.name);
+      return;
+    }
+    const score = rank >= optimal ? 3 : (rank >= threshold ? 2 : 1);
+    (c.data.segments || []).forEach(seg => {
+      assignments.push({ country: c.slug, segment: seg.segment, value: score });
+    });
+  });
+
+  if (!assignments.length) {
+    alert('No countries with a TMF ranking are loaded to score.');
+    return;
+  }
+
+  const countriesScored = OVERVIEW_USABLE.length - skipped.length;
+  const confirmMsg = `Set "Regulatory complexity" for ${countriesScored} countries (${assignments.length} segments) from TMF ${TMF_GBCI_YEAR} rank:\n` +
+    `rank <= ${threshold} → 1 (most complex)\nrank ${threshold}-${optimal} → 2\nrank >= ${optimal} → 3 (least complex)\n\n` +
+    (skipped.length ? `Skipped (no TMF data): ${skipped.join(', ')}\n\n` : '') +
+    `This overwrites any existing Regulatory complexity score on every segment in every matched country. Continue?`;
+  if (!confirm(confirmMsg)) return;
+
+  const btn = document.getElementById('reg-apply-btn');
+  btn.disabled = true;
+  const originalText = btn.textContent;
+  btn.textContent = 'Applying…';
+
+  try {
+    const res = await fetch('/api/segments/set-scorecard-global', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ dimension: 'regulatory_complexity', assignments })
+    });
+    const result = await res.json();
+
+    if (!res.ok && !result.success) {
+      alert(`Couldn't apply scores: ${result.error || 'unknown error'}`);
+      return;
+    }
+
+    const byCountrySeg = {};
+    assignments.forEach(a => { byCountrySeg[`${a.country}::${a.segment}`] = a.value; });
+
+    let successCount = 0;
+    const failedCountries = [];
+    OVERVIEW_USABLE.forEach(c => {
+      const r = result.results && result.results[c.slug];
+      if (r && r.success) {
+        successCount += 1;
+        (c.data.segments || []).forEach(seg => {
+          const key = `${c.slug}::${seg.segment}`;
+          if (Object.prototype.hasOwnProperty.call(byCountrySeg, key)) {
+            if (!seg.scorecard) seg.scorecard = {};
+            seg.scorecard.regulatory_complexity = byCountrySeg[key];
+          }
+        });
+      } else if (r) {
+        failedCountries.push(`${c.meta.name} (${r.error})`);
+      }
+    });
+
+    renderOverviewMatrixBody();
+    alert(`Applied to ${successCount} of ${countriesScored} countries with TMF data.` +
+      (skipped.length ? `\n\nSkipped (no TMF data): ${skipped.join(', ')}` : '') +
+      (failedCountries.length ? `\n\nFailed: ${failedCountries.join(', ')}` : ''));
+
+    try {
+      const basisRes = await fetch('/api/global/set-scorecard-basis', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          basis_key: 'regulatory_complexity_basis',
+          basis: {
+            source: `TMF Group GBCI ${TMF_GBCI_YEAR}`,
+            threshold_rank: threshold,
+            optimal_rank: optimal,
+            countries_updated: successCount,
+            segments_updated: assignments.length,
+            countries_skipped: skipped
+          }
+        })
+      });
+      const basisResult = await basisRes.json();
+      if (basisRes.ok && basisResult.basis) {
+        GLOBAL_DATA.regulatory_complexity_basis = basisResult.basis;
+        renderRegulatoryComplexityBasis(GLOBAL_DATA.regulatory_complexity_basis);
+      }
+    } catch (e) { /* scores are saved; the basis reminder just won't update this time */ }
+  } catch (e) {
+    alert('Could not reach the server to save this change.');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+}
+
+// Same threshold/optimal shape as the other two auto-scorers, driven by
+// each segment's own top3_share_pct (institution concentration, computed
+// from the same Company-file data segment AUM totals already come from --
+// see add_concentration.py). Segment-level, not country-level, since
+// concentration genuinely varies segment to segment within one country.
+// Segments with no concentration data at all (industry-aggregate-basis
+// segments like Life/Non-life insurance) are skipped rather than treated
+// as 0%, since a missing figure isn't the same as a genuinely fragmented one.
+async function applyDistributionResourcesThresholds() {
+  const threshold = parseFloat(document.getElementById('dist-threshold-input').value);
+  const optimal = parseFloat(document.getElementById('dist-optimal-input').value);
+
+  if (Number.isNaN(threshold) || Number.isNaN(optimal)) {
+    alert('Enter numeric threshold and optimal top-3 share percentages.');
+    return;
+  }
+  if (optimal < threshold) {
+    alert('Optimal should be greater than or equal to threshold.');
+    return;
+  }
+
+  const assignments = [];
+  let segmentsSkipped = 0;
+  OVERVIEW_USABLE.forEach(c => {
+    (c.data.segments || []).forEach(seg => {
+      const conc = seg.concentration;
+      if (!conc || typeof conc.top3_share_pct !== 'number') {
+        segmentsSkipped += 1;
+        return;
+      }
+      const share = conc.top3_share_pct;
+      const score = share >= optimal ? 3 : (share >= threshold ? 2 : 1);
+      assignments.push({ country: c.slug, segment: seg.segment, value: score });
+    });
+  });
+
+  if (!assignments.length) {
+    alert('No segments with concentration data are loaded to score.');
+    return;
+  }
+
+  const confirmMsg = `Set "Distribution resources required" for ${assignments.length} segments, based on top-3-institution AUM share:\n` +
+    `< ${threshold}% → 1\n${threshold}%-${optimal}% → 2\n>= ${optimal}% → 3\n\n` +
+    (segmentsSkipped ? `${segmentsSkipped} segments have no concentration data and will be skipped.\n\n` : '') +
+    `This overwrites any existing Distribution resources required score on every matched segment. Continue?`;
+  if (!confirm(confirmMsg)) return;
+
+  const btn = document.getElementById('dist-apply-btn');
+  btn.disabled = true;
+  const originalText = btn.textContent;
+  btn.textContent = 'Applying…';
+
+  try {
+    const res = await fetch('/api/segments/set-scorecard-global', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ dimension: 'distribution_resources_required', assignments })
+    });
+    const result = await res.json();
+
+    if (!res.ok && !result.success) {
+      alert(`Couldn't apply scores: ${result.error || 'unknown error'}`);
+      return;
+    }
+
+    const byCountrySeg = {};
+    assignments.forEach(a => { byCountrySeg[`${a.country}::${a.segment}`] = a.value; });
+
+    let successCount = 0;
+    const failedCountries = [];
+    OVERVIEW_USABLE.forEach(c => {
+      const r = result.results && result.results[c.slug];
+      if (r && r.success) {
+        successCount += 1;
+        (c.data.segments || []).forEach(seg => {
+          const key = `${c.slug}::${seg.segment}`;
+          if (Object.prototype.hasOwnProperty.call(byCountrySeg, key)) {
+            if (!seg.scorecard) seg.scorecard = {};
+            seg.scorecard.distribution_resources_required = byCountrySeg[key];
+          }
+        });
+      } else if (r) {
+        failedCountries.push(`${c.meta.name} (${r.error})`);
+      }
+    });
+
+    renderOverviewMatrixBody();
+    alert(`Applied to ${successCount} countries (${assignments.length} segments).` +
+      (segmentsSkipped ? ` ${segmentsSkipped} segments skipped (no concentration data).` : '') +
+      (failedCountries.length ? `\n\nFailed: ${failedCountries.join(', ')}` : ''));
+
+    try {
+      const basisRes = await fetch('/api/global/set-scorecard-basis', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          basis_key: 'distribution_resources_basis',
+          basis: {
+            metric: 'Top-3 institution AUM share (%)',
+            threshold_pct: threshold,
+            optimal_pct: optimal,
+            countries_updated: successCount,
+            segments_updated: assignments.length,
+            segments_skipped: segmentsSkipped
+          }
+        })
+      });
+      const basisResult = await basisRes.json();
+      if (basisRes.ok && basisResult.basis) {
+        GLOBAL_DATA.distribution_resources_basis = basisResult.basis;
+        renderDistributionResourcesBasis(GLOBAL_DATA.distribution_resources_basis);
+      }
+    } catch (e) { /* scores are saved; the basis reminder just won't update this time */ }
+  } catch (e) {
+    alert('Could not reach the server to save this change.');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+}
+
+// Country-level, like Regulatory complexity, driven by ef-epi.js. Three
+// buckets per country: EF-EPI-scored (threshold/optimal applies normally),
+// auto-3 (native-English or English-as-business-language markets EF EPI
+// doesn't rank at all), and uncovered (Iceland -- a genuine gap, skipped).
+async function applyLanguagesRequiredThresholds() {
+  const threshold = parseFloat(document.getElementById('lang-threshold-input').value);
+  const optimal = parseFloat(document.getElementById('lang-optimal-input').value);
+
+  if (Number.isNaN(threshold) || Number.isNaN(optimal)) {
+    alert('Enter numeric threshold and optimal EF EPI score values.');
+    return;
+  }
+  if (optimal < threshold) {
+    alert('Optimal should be greater than or equal to threshold.');
+    return;
+  }
+
+  const assignments = [];
+  const skipped = [];
+  const autoTop = [];
+  OVERVIEW_USABLE.forEach(c => {
+    const status = languageCoverageStatus(c.meta.code);
+    let score;
+    if (status === 'native' || status === 'business-english') {
+      score = 3;
+      autoTop.push(c.meta.name);
+    } else if (status === 'epi-scored') {
+      const epi = epiScoreForCode(c.meta.code);
+      score = epi >= optimal ? 3 : (epi >= threshold ? 2 : 1);
+    } else {
+      skipped.push(c.meta.name);
+      return;
+    }
+    (c.data.segments || []).forEach(seg => {
+      assignments.push({ country: c.slug, segment: seg.segment, value: score });
+    });
+  });
+
+  if (!assignments.length) {
+    alert('No countries with EF EPI data (or native-English status) are loaded to score.');
+    return;
+  }
+
+  const countriesScored = OVERVIEW_USABLE.length - skipped.length;
+  const confirmMsg = `Set "Languages required" for ${countriesScored} countries (${assignments.length} segments) from EF EPI ${EF_EPI_YEAR}:\n` +
+    `EF EPI < ${threshold} → 1\nEF EPI ${threshold}-${optimal} → 2\nEF EPI >= ${optimal} → 3\n` +
+    (autoTop.length ? `Automatic 3 (native English or English as business language): ${autoTop.join(', ')}\n` : '') +
+    '\n' + (skipped.length ? `Skipped (no EF EPI data, not English-native/business): ${skipped.join(', ')}\n\n` : '') +
+    `This overwrites any existing Languages required score on every segment in every matched country. Continue?`;
+  if (!confirm(confirmMsg)) return;
+
+  const btn = document.getElementById('lang-apply-btn');
+  btn.disabled = true;
+  const originalText = btn.textContent;
+  btn.textContent = 'Applying…';
+
+  try {
+    const res = await fetch('/api/segments/set-scorecard-global', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ dimension: 'languages_required', assignments })
+    });
+    const result = await res.json();
+
+    if (!res.ok && !result.success) {
+      alert(`Couldn't apply scores: ${result.error || 'unknown error'}`);
+      return;
+    }
+
+    const byCountrySeg = {};
+    assignments.forEach(a => { byCountrySeg[`${a.country}::${a.segment}`] = a.value; });
+
+    let successCount = 0;
+    const failedCountries = [];
+    OVERVIEW_USABLE.forEach(c => {
+      const r = result.results && result.results[c.slug];
+      if (r && r.success) {
+        successCount += 1;
+        (c.data.segments || []).forEach(seg => {
+          const key = `${c.slug}::${seg.segment}`;
+          if (Object.prototype.hasOwnProperty.call(byCountrySeg, key)) {
+            if (!seg.scorecard) seg.scorecard = {};
+            seg.scorecard.languages_required = byCountrySeg[key];
+          }
+        });
+      } else if (r) {
+        failedCountries.push(`${c.meta.name} (${r.error})`);
+      }
+    });
+
+    renderOverviewMatrixBody();
+    alert(`Applied to ${successCount} of ${countriesScored} countries.` +
+      (skipped.length ? `\n\nSkipped (no EF EPI data): ${skipped.join(', ')}` : '') +
+      (failedCountries.length ? `\n\nFailed: ${failedCountries.join(', ')}` : ''));
+
+    try {
+      const basisRes = await fetch('/api/global/set-scorecard-basis', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          basis_key: 'languages_required_basis',
+          basis: {
+            source: `EF English Proficiency Index ${EF_EPI_YEAR}`,
+            threshold_score: threshold,
+            optimal_score: optimal,
+            countries_updated: successCount,
+            segments_updated: assignments.length,
+            countries_skipped: skipped
+          }
+        })
+      });
+      const basisResult = await basisRes.json();
+      if (basisRes.ok && basisResult.basis) {
+        GLOBAL_DATA.languages_required_basis = basisResult.basis;
+        renderLanguagesRequiredBasis(GLOBAL_DATA.languages_required_basis);
+      }
+    } catch (e) { /* scores are saved; the basis reminder just won't update this time */ }
+  } catch (e) {
+    alert('Could not reach the server to save this change.');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+}
+
+// The whole global.json object as last loaded, kept around so the
+// market-opportunity-basis boxes can be updated in place after a successful
+// auto-score run, without a full page reload.
+let GLOBAL_DATA = null;
+
+// Always-visible boxes summarising what the current "Market opportunity" /
+// "Regulatory complexity" scores are actually based on, if they were set via
+// their respective threshold auto-scorers -- shown regardless of sign-in
+// state or which view is selected, specifically so the basis doesn't get
+// lost once you sign out of the area where you set it. Persisted on
+// global.json itself (not just browser state) via setScorecardBasis.js, so
+// it survives reloads and is visible to anyone looking at the page, not
+// just the editor.
+function renderMarketOpportunityBasis(basis) {
+  const el = document.getElementById('mo-basis-bar');
+  if (!basis) {
+    el.innerHTML = `<div class="stat-card"><div class="value">—</div><div class="label">Market opportunity has not been auto-scored from an allocation threshold yet — scores are whatever's been entered manually per segment.</div></div>`;
+    return;
+  }
+  const classLabel = basis.asset_style ? `${basis.asset_type} — ${basis.asset_style}` : basis.asset_type;
+  const appliedInfo = `Applied ${basis.applied_date || 'unknown date'}${basis.applied_by ? ` by ${basis.applied_by}` : ''}` +
+    (basis.countries_updated ? `, ${basis.countries_updated} countries` : '') +
+    (basis.segments_updated ? `, ${basis.segments_updated} segments` : '') + '.';
+  el.innerHTML = `
+    <div class="stat-card"><div class="value">${classLabel}</div><div class="label">Asset class basis</div></div>
+    <div class="stat-card"><div class="value">$${basis.threshold_bn.toLocaleString()}bn</div><div class="label">Threshold (score 2 at/above)</div></div>
+    <div class="stat-card"><div class="value">$${basis.optimal_bn.toLocaleString()}bn</div><div class="label">Optimal (score 3 at/above)</div></div>
+    <div class="stat-card" style="flex-basis:100%; text-align:left;"><div class="label">${appliedInfo} Individual segments may have been edited by hand since — this only reflects the basis of the last bulk auto-score run.</div></div>
+  `;
+}
+
+function renderRegulatoryComplexityBasis(basis) {
+  const el = document.getElementById('reg-basis-bar');
+  if (!basis) {
+    el.innerHTML = `<div class="stat-card"><div class="value">—</div><div class="label">Regulatory complexity has not been auto-scored from TMF rankings yet — scores are whatever's been entered manually per segment.</div></div>`;
+    return;
+  }
+  const appliedInfo = `Applied ${basis.applied_date || 'unknown date'}${basis.applied_by ? ` by ${basis.applied_by}` : ''}` +
+    (basis.countries_updated ? `, ${basis.countries_updated} countries` : '') +
+    (basis.segments_updated ? `, ${basis.segments_updated} segments` : '') + '.' +
+    (basis.countries_skipped && basis.countries_skipped.length ? ` No TMF data for: ${basis.countries_skipped.join(', ')}.` : '');
+  el.innerHTML = `
+    <div class="stat-card"><div class="value">${basis.source || 'TMF Group GBCI'}</div><div class="label">Ranking source</div></div>
+    <div class="stat-card"><div class="value">Rank ${basis.threshold_rank}</div><div class="label">Threshold (score 2 at/above)</div></div>
+    <div class="stat-card"><div class="value">Rank ${basis.optimal_rank}</div><div class="label">Optimal (score 3 at/above)</div></div>
+    <div class="stat-card" style="flex-basis:100%; text-align:left;"><div class="label">${appliedInfo} Individual segments may have been edited by hand since — this only reflects the basis of the last bulk auto-score run.</div></div>
+  `;
+}
+
+function renderDistributionResourcesBasis(basis) {
+  const el = document.getElementById('dist-basis-bar');
+  if (!basis) {
+    el.innerHTML = `<div class="stat-card"><div class="value">—</div><div class="label">Distribution resources required has not been auto-scored from institution concentration yet — scores are whatever's been entered manually per segment.</div></div>`;
+    return;
+  }
+  const appliedInfo = `Applied ${basis.applied_date || 'unknown date'}${basis.applied_by ? ` by ${basis.applied_by}` : ''}` +
+    (basis.countries_updated ? `, ${basis.countries_updated} countries` : '') +
+    (basis.segments_updated ? `, ${basis.segments_updated} segments` : '') + '.' +
+    (basis.segments_skipped ? ` ${basis.segments_skipped} segments had no concentration data and were skipped.` : '');
+  el.innerHTML = `
+    <div class="stat-card"><div class="value">${basis.metric || 'Top-3 institution share'}</div><div class="label">Concentration metric</div></div>
+    <div class="stat-card"><div class="value">${basis.threshold_pct}%</div><div class="label">Threshold (score 2 at/above)</div></div>
+    <div class="stat-card"><div class="value">${basis.optimal_pct}%</div><div class="label">Optimal (score 3 at/above)</div></div>
+    <div class="stat-card" style="flex-basis:100%; text-align:left;"><div class="label">${appliedInfo} Individual segments may have been edited by hand since — this only reflects the basis of the last bulk auto-score run.</div></div>
+  `;
+}
+
+function renderLanguagesRequiredBasis(basis) {
+  const el = document.getElementById('lang-basis-bar');
+  if (!basis) {
+    el.innerHTML = `<div class="stat-card"><div class="value">—</div><div class="label">Languages required has not been auto-scored from EF EPI yet — scores are whatever's been entered manually per segment.</div></div>`;
+    return;
+  }
+  const appliedInfo = `Applied ${basis.applied_date || 'unknown date'}${basis.applied_by ? ` by ${basis.applied_by}` : ''}` +
+    (basis.countries_updated ? `, ${basis.countries_updated} countries` : '') +
+    (basis.segments_updated ? `, ${basis.segments_updated} segments` : '') + '.' +
+    (basis.countries_skipped && basis.countries_skipped.length ? ` No EF EPI data for: ${basis.countries_skipped.join(', ')}.` : '');
+  el.innerHTML = `
+    <div class="stat-card"><div class="value">${basis.source || 'EF English Proficiency Index'}</div><div class="label">Proficiency source</div></div>
+    <div class="stat-card"><div class="value">${basis.threshold_score}</div><div class="label">Threshold (score 2 at/above)</div></div>
+    <div class="stat-card"><div class="value">${basis.optimal_score}</div><div class="label">Optimal (score 3 at/above)</div></div>
+    <div class="stat-card" style="flex-basis:100%; text-align:left;"><div class="label">${appliedInfo} Native-English and English-as-business-language markets are always auto-scored 3. Individual segments may have been edited by hand since — this only reflects the basis of the last bulk auto-score run.</div></div>
+  `;
+}
+
+// Fetches every built country's data once (the slow part) and hands off to
+// renderOverviewMatrixBody() for the actual table build. Split out so
+// switching view mode or allocation type/style afterwards is instant —
+// no re-fetching, just re-rendering from OVERVIEW_USABLE.
+async function loadOverviewData(builtCountries) {
+  OVERVIEW_BUILT_COUNT = builtCountries.length;
+  const table = document.getElementById('overview-matrix');
+
+  if (!builtCountries.length) {
+    table.innerHTML = '';
+    document.getElementById('overview-hint').textContent = 'No countries built out yet.';
+    return;
+  }
+
+  // Derive the lookup slug from href's ?c= param, not from the ISO `code`
+  // field — they don't always match (e.g. code "GB" but slug "uk", matching
+  // every actual filename/URL elsewhere: uk.json, country.html?c=uk). Using
+  // code.toLowerCase() here silently 404'd every request for GB specifically
+  // ("gb" != "uk"), which is why this matrix always said "could not be
+  // loaded" even once uk.json existed and country.html?c=uk worked fine.
+  const slugFromHref = (href) => {
+    const match = /[?&]c=([^&]+)/.exec(href || '');
+    return match ? match[1] : null;
+  };
+
+  const countryData = await Promise.all(builtCountries.map(async c => {
+    const slug = slugFromHref(c.href) || c.code.toLowerCase();
+    return { meta: c, slug, data: await fetchCountryData(slug) };
+  }));
+
+  OVERVIEW_USABLE = countryData.filter(c => c.data);
+  const failed = countryData.filter(c => !c.data).map(c => c.meta.name);
+
+  if (!OVERVIEW_USABLE.length) {
+    table.innerHTML = '';
+    document.getElementById('overview-hint').textContent = 'Country data could not be loaded.';
+    return;
+  }
+
+  populateOverviewAllocSelectors();
+  populateMoAssetSelectors();
+  updateThresholdControlsVisibility();
+  renderOverviewMatrixBody(failed);
+}
+
+// The cross-country comparison view — every built country's segments laid
+// out either against the Overall opportunity score (the shape of the
+// "Overall" sheet in FINAL_Country_Matrix.xlsx) or, when "Asset allocation"
+// is picked, against a single allocation type/style so every country x
+// segment cell updates to that selection at once (e.g. picking "Equities"
+// shows every country's equity exposure by segment in one screen, rather
+// than clicking into 22 separate country pages and setting the dropdown on
+// each one — the point raised that prompted building this view).
+function renderOverviewMatrixBody(failed) {
+  const table = document.getElementById('overview-matrix');
+  const usable = OVERVIEW_USABLE;
+
+  // Only show segment columns that actually appear in at least one built
+  // country, in canonical order, so the table doesn't carry 19 columns of
+  // near-total blanks while only a handful of countries are built out.
+  const segmentsPresent = new Set();
+  usable.forEach(c => (c.data.segments || []).forEach(s => segmentsPresent.add(s.segment)));
+  const columns = CANONICAL_SEGMENT_ORDER.filter(s => segmentsPresent.has(s));
+
+  const headerCells = columns.map(seg => `<th>${seg}</th>`).join('');
+
+  const rows = usable.map(c => {
+    const href = c.meta.href || `country.html?c=${c.meta.code.toLowerCase()}`;
+    const cells = columns.map(segName => {
+      const seg = (c.data.segments || []).find(s => s.segment === segName);
+      if (!seg) return `<td>—</td>`;
+      if (OVERVIEW_VIEW === 'allocation') {
+        const result = getAllocationValue(seg, OVERVIEW_ALLOC_TYPE, OVERVIEW_ALLOC_STYLE);
+        return `<td>${result ? result.value_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '—'}</td>`;
+      }
+      const overall = computeOverallScore(seg.scorecard);
+      return `<td class="${overallScoreClass(overall)}">${overall === null ? '—' : overall}</td>`;
+    }).join('');
+    return `<tr><td class="matrix-rowlabel"><a class="country-link" href="${href}">${c.meta.name}</a></td>${cells}</tr>`;
+  }).join('');
+
+  table.innerHTML = `
+    <thead><tr><th class="matrix-rowlabel">Country</th>${headerCells}</tr></thead>
+    <tbody>${rows}</tbody>
+  `;
+
+  const failedNote = (failed && failed.length)
+    ? ` Could not load: ${failed.join(', ')} — check that their data files have been uploaded to both GitHub and SharePoint.`
+    : '';
+  const viewNote = OVERVIEW_VIEW === 'allocation'
+    ? `Showing ${OVERVIEW_ALLOC_STYLE ? `${OVERVIEW_ALLOC_TYPE} — ${OVERVIEW_ALLOC_STYLE}` : OVERVIEW_ALLOC_TYPE} allocation ($bn) per segment. Blank cells mean that segment has no allocation data for this selection.`
+    : `Blank cells mean that segment isn't fully scored yet — see the country page to complete it.`;
+  document.getElementById('overview-hint').textContent =
+    `${usable.length} of ${OVERVIEW_BUILT_COUNT} built countries loaded. ${viewNote}${failedNote}`;
+}
+
+// Countries without a region/sub_region set (shouldn't normally happen once
+// every entry is tagged) fall into this bucket rather than being silently
+// dropped or crashing the sort, so a missing tag is visible, not hidden.
+const UNASSIGNED_REGION = 'Unassigned';
+
+function renderRegionSummary(countries) {
+  const byRegion = {};
+  countries.forEach(c => {
+    const region = c.region || UNASSIGNED_REGION;
+    if (!byRegion[region]) byRegion[region] = { countriesBuilt: 0, institutions: 0, aum: 0 };
+    if (c.status === 'built') {
+      byRegion[region].countriesBuilt += 1;
+      byRegion[region].institutions += c.institutions_tracked;
+      byRegion[region].aum += c.total_ps_assets_thousands;
+    }
+  });
+
+  const regionNames = Object.keys(byRegion).sort((a, b) => regionSortIndex(a) - regionSortIndex(b));
+
+  const rows = regionNames.map(region => {
+    const r = byRegion[region];
+    return `<tr>
+      <td>${region}</td>
+      <td class="numeric">${r.countriesBuilt.toLocaleString()}</td>
+      <td class="numeric">${r.institutions.toLocaleString()}</td>
+      <td class="numeric">${r.aum.toLocaleString()}</td>
+    </tr>`;
+  }).join('');
+
+  document.getElementById('region-rows').innerHTML = rows;
+}
+
+function renderCountryRows(countries) {
+  const grouped = {};
+  countries.forEach(c => {
+    const region = c.region || UNASSIGNED_REGION;
+    if (!grouped[region]) grouped[region] = [];
+    grouped[region].push(c);
+  });
+
+  const regionNames = Object.keys(grouped).sort((a, b) => regionSortIndex(a) - regionSortIndex(b));
+
+  const rows = regionNames.map(region => {
+    const regionCountries = grouped[region].slice().sort((a, b) => b.total_ps_assets_thousands - a.total_ps_assets_thousands);
+    const headerRow = `<tr class="region-header"><td colspan="4">${region}</td></tr>`;
+    const countryRows = regionCountries.map(c => {
+      const subRegion = c.sub_region ? ` <span class="status-pill">${c.sub_region}</span>` : '';
+      const name = c.status === 'built'
+        ? `<a class="country-link" href="${c.href}">${c.name}</a>${subRegion}`
+        : `${c.name}${subRegion}`;
+      const status = c.status === 'built'
+        ? `<span class="badge bottom-up">Built</span>`
+        : `<span class="status-pill">Coming soon</span>`;
+      return `<tr>
+        <td>${name}</td>
+        <td class="numeric">${c.institutions_tracked.toLocaleString()}</td>
+        <td class="numeric">${c.total_ps_assets_thousands.toLocaleString()}</td>
+        <td>${status}</td>
+      </tr>`;
+    }).join('');
+    return headerRow + countryRows;
+  }).join('');
+
+  document.getElementById('country-rows').innerHTML = rows;
+}
+
+async function load() {
+  await checkAuth();
+  updateThresholdControlsVisibility();
+
+  let data;
+  try {
+    const res = await fetch('/api/data/global');
+    if (!res.ok) throw new Error('API not ready');
+    data = await res.json();
+  } catch (e) {
+    // Falls back to the bundled sample file until the SharePoint-backed API is live.
+    const res = await fetch('data/global.json');
+    data = await res.json();
+  }
+
+  GLOBAL_DATA = data;
+  renderMarketOpportunityBasis(data.market_opportunity_basis);
+  renderRegulatoryComplexityBasis(data.regulatory_complexity_basis);
+  renderDistributionResourcesBasis(data.distribution_resources_basis);
+  renderLanguagesRequiredBasis(data.languages_required_basis);
+  document.getElementById('tmf-gbci-year').textContent = TMF_GBCI_YEAR;
+  document.getElementById('ef-epi-year').textContent = EF_EPI_YEAR;
+
+  const countries = data.countries.slice().sort((a, b) => b.total_ps_assets_thousands - a.total_ps_assets_thousands);
+
+  const totalInstitutions = countries.reduce((s, c) => s + c.institutions_tracked, 0);
+  const built = countries.filter(c => c.status === 'built').length;
+
+  document.getElementById('summary-bar').innerHTML = `
+    <div class="stat-card"><div class="value">${countries.length}</div><div class="label">Countries in scope</div></div>
+    <div class="stat-card"><div class="value">${built}</div><div class="label">Country pages built</div></div>
+    <div class="stat-card"><div class="value">${totalInstitutions.toLocaleString()}</div><div class="label">Institutions tracked</div></div>
+  `;
+
+  loadOverviewData(countries.filter(c => c.status === 'built'));
+  renderRegionSummary(countries);
+  renderCountryRows(countries);
+
+  document.getElementById('global-note').textContent = data.generated_note;
+}
+load();
+</script>
+</body>
+</html>

@@ -22,7 +22,7 @@
   </div>
   <div id="auth-status" style="font-size:0.82rem; color:#b9c6d3;"></div>
 </header>
-<nav class="breadcrumb"><a href="index.html">&larr; Global overview</a> &nbsp;|&nbsp; <a href="sources.html">Sources &amp; methodology</a></nav>
+<nav class="breadcrumb"><a href="index.html">&larr; Atlas home</a> &nbsp;|&nbsp; <a href="overview.html">Global overview</a> &nbsp;|&nbsp; <a href="sources.html">Sources &amp; methodology</a></nav>
 
 <main>
   <h1 class="country-name-heading">Project builder</h1>
@@ -95,14 +95,14 @@ async function fetchCountryData(code) {
   }
 }
 
-// Same href-derived slug logic as index.html's overview matrix — the ISO
+// Same href-derived slug logic as overview.html's overview matrix — the ISO
 // `code` field doesn't always match the data-file slug (e.g. GB vs uk).
 function slugFromHref(href) {
   const match = /[?&]c=([^&]+)/.exec(href || '');
   return match ? match[1] : null;
 }
 
-// Same fallback as index.html's region grouping -- a country missing a
+// Same fallback as overview.html's region grouping -- a country missing a
 // region tag should show up under an obvious bucket, not vanish or crash the sort.
 const UNASSIGNED_REGION = 'Unassigned';
 
@@ -198,7 +198,7 @@ async function buildProjectView() {
   }
 }
 
-// Same shape as index.html's renderOverviewMatrixBody, just scoped to
+// Same shape as overview.html's renderOverviewMatrixBody, just scoped to
 // PROJECT_DATA (the countries picked for this project) instead of every
 // built country in Atlas.
 function renderProjectMatrix(failed) {
@@ -212,7 +212,7 @@ function renderProjectMatrix(failed) {
   const columns = CANONICAL_SEGMENT_ORDER.filter(s => segmentsPresent.has(s));
   const headerCells = columns.map(seg => `<th>${seg}</th>`).join('');
 
-  // Grouped by region (same convention as index.html's overview table) so a
+  // Grouped by region (same convention as overview.html's overview table) so a
   // project spanning several regions reads as a set of regional blocks
   // rather than an arbitrary order tied to selection sequence.
   const grouped = {};

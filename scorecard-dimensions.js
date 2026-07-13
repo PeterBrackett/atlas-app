@@ -8,9 +8,19 @@
 // calculation) since it's judged the primary driver of whether a segment
 // is worth pursuing at all. See Sources & Methodology for the full writeup.
 
+// autoScoreNote is set only on the 4 dimensions that can be bulk-overwritten
+// in one click from the "Bulk auto-scoring tools" panel on overview.html
+// (Market opportunity from allocation size, Regulatory complexity from TMF
+// rank, Distribution resources required from institution concentration,
+// Languages required from EF EPI). country.html uses this to show a small
+// "auto" flag next to the row label, since a value here could be an
+// untouched bulk-scored figure rather than a considered per-segment
+// judgment call -- worth a second look before relying on it. The other 8
+// dimensions have no such tool and are always a manual entry.
 const SCORECARD_DIMENSIONS = [
   { key: 'market_opportunity', label: 'Market opportunity', weight: 3,
-    question: 'Is there sufficient investable opportunity in this segment to warrant active marketing?' },
+    question: 'Is there sufficient investable opportunity in this segment to warrant active marketing?',
+    autoScoreNote: 'Can be bulk-set from an allocation threshold via the overview page’s auto-scoring tools — check it reflects a real judgment call, not just an untouched auto-score.' },
   { key: 'outsourced_management', label: 'Outsourced management', weight: 1,
     question: 'Are assets outsourced to external managers, or run internally?' },
   { key: 'pricing_impact', label: 'Pricing impact', weight: 1,
@@ -18,15 +28,18 @@ const SCORECARD_DIMENSIONS = [
   { key: 'alignment_of_investment_thinking', label: 'Alignment of investment thinking', weight: 1,
     question: 'Does the market buy the kind of strategy on offer (e.g. concentrated equity, private credit)?' },
   { key: 'distribution_resources_required', label: 'Distribution resources required', weight: 1,
-    question: 'How concentrated is asset ownership, and how much resource is needed to cover the market?' },
+    question: 'How concentrated is asset ownership, and how much resource is needed to cover the market?',
+    autoScoreNote: 'Can be bulk-set from institution concentration (top-3 AUM share) via the overview page’s auto-scoring tools — check it reflects a real judgment call, not just an untouched auto-score.' },
   { key: 'regulatory_complexity', label: 'Regulatory complexity', weight: 1,
-    question: 'How onerous are accounting, tax and other requirements? Uses TMF Group rankings as a reference where available.' },
+    question: 'How onerous are accounting, tax and other requirements? Uses TMF Group rankings as a reference where available.',
+    autoScoreNote: 'Can be bulk-set from TMF Group rankings via the overview page’s auto-scoring tools — check it reflects a real judgment call, not just an untouched auto-score.' },
   { key: 'client_servicing', label: 'Client servicing', weight: 1,
     question: 'What is the expected demand for reporting and face-to-face meetings?' },
   { key: 'local_presence_required', label: 'Local presence required', weight: 1,
     question: 'Do regulations or culture require a physical office in the market?' },
   { key: 'languages_required', label: 'Languages required', weight: 1,
-    question: 'Is English an acceptable language for marketing and client service?' },
+    question: 'Is English an acceptable language for marketing and client service?',
+    autoScoreNote: 'Can be bulk-set from the EF English Proficiency Index via the overview page’s auto-scoring tools — check it reflects a real judgment call, not just an untouched auto-score.' },
   { key: 'investor_decision_making', label: 'Investor decision-making', weight: 1,
     question: 'Are decisions made by committee or by an individual, and what are typical timeframes for action?' },
   { key: 'comingled_vehicles', label: 'Comingled vehicles', weight: 1,

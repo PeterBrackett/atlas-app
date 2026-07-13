@@ -23,7 +23,7 @@
   </div>
   <div id="auth-status" style="font-size:0.82rem; color:#b9c6d3;"></div>
 </header>
-<nav class="breadcrumb"><a href="index.html">&larr; Global overview</a> &nbsp;|&nbsp; <a href="picker.html">Project builder</a> &nbsp;|&nbsp; <a href="sources.html">Sources &amp; methodology</a></nav>
+<nav class="breadcrumb"><a href="index.html">&larr; Atlas home</a> &nbsp;|&nbsp; <a href="overview.html">Global overview</a> &nbsp;|&nbsp; <a href="picker.html">Project builder</a> &nbsp;|&nbsp; <a href="sources.html">Sources &amp; methodology</a></nav>
 
 <main>
   <h1 id="country-name-heading" class="country-name-heading"></h1>
@@ -98,7 +98,7 @@ let CURRENT_ALLOC_STYLE = ''; // '' means "all styles" (the whole asset-type tot
 // actually appear in the loaded country's data, so the controls never offer a
 // choice with nothing behind it. getAllocationValue/assetTypesPresent/
 // assetStylesPresent live in scorecard-dimensions.js, shared with the
-// cross-country allocation view on index.html.
+// cross-country allocation view on overview.html.
 function populateAllocationSelectors(segs) {
   const typeSelect = document.getElementById('alloc-type-select');
   const types = assetTypesPresent(segs);
@@ -497,13 +497,15 @@ function renderScorecardMatrix() {
 
       return `<td id="${cellId}" class="${scoreCellClass(value, missing)}">${missing ? '—' : value}</td>`;
     }).join('');
+    const autoFlag = dim.autoScoreNote ? `<span class="auto-flag" title="${dim.autoScoreNote}">Auto</span>` : '';
+    const dimLabelText = `${dim.label}${dim.weight > 1 ? ` (×${dim.weight})` : ''}`;
     return `<tr title="${dim.question}"><td class="matrix-rowlabel" title="${dim.question}">` +
       (CURRENT_USER ? `<div style="display:flex; align-items:center; justify-content:space-between; gap:6px;">` +
-        `<span>${dim.label}${dim.weight > 1 ? ` (×${dim.weight})` : ''}</span>` +
+        `<span>${dimLabelText}${autoFlag}</span>` +
         `<select class="matrix-select" style="width:auto; min-width:52px;" data-dim="${dim.key}" ` +
         `onchange="saveScorecardBulk(this)" title="Set this score for every segment in one go"><option value="">Set all…</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select>` +
         `</div>`
-        : `${dim.label}${dim.weight > 1 ? ` (×${dim.weight})` : ''}`) +
+        : `${dimLabelText}${autoFlag}`) +
       `</td>${cells}</tr>`;
   }).join('');
 
@@ -655,7 +657,7 @@ async function load() {
   COUNTRY_CODE = code;
 
   if (!code) {
-    document.querySelector('main').innerHTML = '<p class="note">No country specified. Go back to the <a href="index.html">global overview</a> and pick one from the list.</p>';
+    document.querySelector('main').innerHTML = '<p class="note">No country specified. Go back to the <a href="overview.html">global overview</a> and pick one from the list.</p>';
     return;
   }
 
@@ -663,7 +665,7 @@ async function load() {
   try {
     data = await loadData(code);
   } catch (e) {
-    document.querySelector('main').innerHTML = `<p class="note">Couldn't load data for '${code}'. It may not be built out yet — check back from the <a href="index.html">global overview</a>.</p>`;
+    document.querySelector('main').innerHTML = `<p class="note">Couldn't load data for '${code}'. It may not be built out yet — check back from the <a href="overview.html">global overview</a>.</p>`;
     return;
   }
 

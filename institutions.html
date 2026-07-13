@@ -116,7 +116,7 @@
     </div>
   </div>
 </header>
-<nav class="breadcrumb"><a href="index.html">&larr; Global overview</a> &nbsp;|&nbsp; <a id="country-link" href="country.html">Country breakdown</a> &nbsp;|&nbsp; <a href="sources.html">Sources &amp; methodology</a></nav>
+<nav class="breadcrumb"><a href="index.html">&larr; Atlas home</a> &nbsp;|&nbsp; <a href="overview.html">Global overview</a> &nbsp;|&nbsp; <a id="country-link" href="country.html">Country breakdown</a> &nbsp;|&nbsp; <a href="sources.html">Sources &amp; methodology</a></nav>
 
 <main>
   <div class="summary-bar" id="summary-bar"></div>
@@ -480,7 +480,7 @@ async function load() {
     if (!res.ok) throw new Error('not found');
     data = await res.json();
   } catch (e) {
-    document.querySelector('main').innerHTML = `<p class="note">No institution-level dataset available for '${code}' yet (checked both the live API and the bundled static file). This view currently only has data for the UK pilot — go back to the <a href="index.html">global overview</a> or the <a href="country.html?c=${code}">segment breakdown</a> for ${code.toUpperCase()}.</p>`;
+    document.querySelector('main').innerHTML = `<p class="note">No institution-level dataset available for '${code}' yet (checked both the live API and the bundled static file). This view currently only has data for the UK pilot — go back to the <a href="overview.html">global overview</a> or the <a href="country.html?c=${code}">segment breakdown</a> for ${code.toUpperCase()}.</p>`;
     return;
   }
 

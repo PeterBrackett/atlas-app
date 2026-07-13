@@ -343,3 +343,58 @@ select.matrix-select {
 
 .scored-badge.complete { background: #e4f0ee; color: var(--accent); }
 .scored-badge.incomplete { background: #fdeee0; color: #9a5a1a; }
+
+/* Home hub — big clickable cards pointing at each part of the app. */
+.nav-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+  margin: 8px 0 32px;
+}
+
+a.nav-card {
+  display: block;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px 22px 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+a.nav-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 2px 10px rgba(15, 37, 64, 0.08);
+}
+
+a.nav-card .nav-card-title {
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+}
+
+a.nav-card .nav-card-desc {
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+/* Small "may be auto-populated" flag next to scorecard dimension labels on
+   country.html -- these 4 dimensions can be bulk-overwritten from the
+   overview page's auto-scoring tools, so a manually-checked value and an
+   untouched auto-scored one look identical without this. */
+.auto-flag {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 6px;
+  border-radius: 8px;
+  font-size: 0.66rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  background: #eef1f4;
+  color: var(--muted);
+  cursor: help;
+}
