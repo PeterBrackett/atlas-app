@@ -58,6 +58,26 @@
 
   <p class="note" id="data-note"></p>
 
+  <div id="topinst-section" style="display:none;">
+    <h2 style="margin-top:32px;">Top institutions by AUM</h2>
+    <p class="note" style="margin-top:-8px; margin-bottom:16px; border-top:none; padding-top:0;" id="topinst-hint"></p>
+    <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:12px; font-size:0.85rem;">
+      <label for="topinst-segment-select"><strong>Segment:</strong></label>
+      <select id="topinst-segment-select" onchange="renderTopInstitutionsTable()"></select>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Institution</th>
+          <th class="numeric">AUM (bn)</th>
+        </tr>
+      </thead>
+      <tbody id="topinst-rows"></tbody>
+    </table>
+    <p class="note" id="topinst-note" style="font-size:0.78rem;"></p>
+  </div>
+
   <div id="manager-share-section" style="display:none;">
     <h2 style="margin-top:32px;">Manager market share</h2>
     <p class="note" style="margin-top:-8px; margin-bottom:16px; border-top:none; padding-top:0;" id="manager-share-hint"></p>
@@ -141,6 +161,66 @@ function onAllocationSelectorChange() {
 // that has a <Country>_manager.xls source file on hand (33 of 34 as of the
 // 2026-07-12 rollout — Ireland is the one exception, no manager export has
 // been pulled for it yet).
+// Top institutions by AUM, per segment -- unlike manager market share, this
+// doesn't need its own fetch: concentration.top_institutions/top10_share_pct
+// are already embedded in each segment object inside LOADED_SEGMENTS (see
+// add_top_institutions.py / add_top_institutions_uk.py), so this just reads
+// what's already loaded. Segments built from industry aggregates rather than
+// individual institutions (e.g. Life/Non-life insurance) have no
+// concentration.top_institutions and are left out of the dropdown entirely.
+function segmentsWithTopInstitutions() {
+  return LOADED_SEGMENTS
+    .filter(s => s.concentration && Array.isArray(s.concentration.top_institutions) && s.concentration.top_institutions.length)
+    .slice()
+    .sort((a, b) => segmentSortIndex(a.segment) - segmentSortIndex(b.segment));
+}
+
+function populateTopInstitutionsSegmentSelect() {
+  const segs = segmentsWithTopInstitutions();
+  document.getElementById('topinst-segment-select').innerHTML =
+    segs.map(s => `<option value="${s.segment}">${s.segment}</option>`).join('');
+}
+
+function currentTopInstitutionsSegment() {
+  const name = document.getElementById('topinst-segment-select').value;
+  return segmentsWithTopInstitutions().find(s => s.segment === name);
+}
+
+function renderTopInstitutionsTable() {
+  const seg = currentTopInstitutionsSegment();
+  const rows = document.getElementById('topinst-rows');
+  if (!seg) { rows.innerHTML = ''; document.getElementById('topinst-note').textContent = ''; return; }
+
+  const list = seg.concentration.top_institutions;
+  rows.innerHTML = list.map((inst, i) => `
+    <tr>
+      <td class="numeric">${i + 1}</td>
+      <td>${inst.name}</td>
+      <td class="numeric">${inst.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 })}</td>
+    </tr>`).join('');
+
+  const pct = seg.concentration.top10_share_pct;
+  const n = seg.concentration.n_institutions;
+  document.getElementById('topinst-note').textContent =
+    `These ${list.length} institution${list.length === 1 ? '' : 's'} hold ${pct}% of ${seg.segment}'s total identified institution AUM` +
+    (n ? ` (${n.toLocaleString()} institutions identified in this segment).` : '.') +
+    ' Institution-level AUM from the S&P Money Manager Database Company export — same ground-truth source used for segment totals.';
+}
+
+function loadTopInstitutionsSection() {
+  const segs = segmentsWithTopInstitutions();
+  const section = document.getElementById('topinst-section');
+  if (!segs.length) {
+    section.style.display = 'none';
+    return;
+  }
+  section.style.display = 'block';
+  populateTopInstitutionsSegmentSelect();
+  document.getElementById('topinst-hint').textContent =
+    `The largest individual institutions by AUM within each segment, and their combined share of that segment's total — the same figures Peter typically includes in reports to show concentration within a segment.`;
+  renderTopInstitutionsTable();
+}
+
 let MANAGER_DATA = null;
 const MANAGER_SELF_MANAGED = 'Self-managed';
 const MANAGER_UNDISCLOSED = 'Not disclosed';
@@ -840,6 +920,8 @@ async function load() {
 
   document.getElementById('segment-rows').innerHTML = rows;
   document.getElementById('data-note').textContent = data.source_note || '';
+
+  loadTopInstitutionsSection();
 
   // Individual-institution browser only exists for countries that have a raw
   // records subtable extracted (currently just the UK pilot) — check before
