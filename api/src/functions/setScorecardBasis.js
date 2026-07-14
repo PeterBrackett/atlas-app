@@ -13,7 +13,7 @@ const ALLOWED_EDITOR_EMAIL = (process.env.ATLAS_ALLOWED_EDITOR_EMAIL || '').toLo
 // Which top-level global.json fields this endpoint is allowed to write --
 // an explicit allow-list rather than accepting any key name, so a client
 // bug can't stomp on an unrelated part of global.json (e.g. `countries`).
-const ALLOWED_BASIS_KEYS = ['market_opportunity_basis', 'regulatory_complexity_basis', 'distribution_resources_basis', 'languages_required_basis'];
+const ALLOWED_BASIS_KEYS = ['market_opportunity_basis', 'regulatory_complexity_basis', 'distribution_resources_basis', 'languages_required_basis', 'local_presence_required_basis', 'client_servicing_basis'];
 
 let msalClient;
 function getMsalClient() {
