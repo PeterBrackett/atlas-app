@@ -12,6 +12,8 @@
 <script src="scorecard-dimensions.js"></script>
 <script src="tmf-rankings.js"></script>
 <script src="ef-epi.js"></script>
+<script src="fdi-restrictiveness.js"></script>
+<script src="mercer-integrity.js"></script>
 </head>
 <body>
 <header class="site-header">
@@ -32,7 +34,7 @@
   <h2>Opportunity scorecard — Overall by segment</h2>
 
   <details style="margin-bottom:16px;">
-    <summary style="cursor:pointer; font-size:0.85rem; color:var(--muted); padding:4px 0; font-weight:600;">Bulk auto-scoring tools (market opportunity, regulatory complexity, distribution resources required, languages required)</summary>
+    <summary style="cursor:pointer; font-size:0.85rem; color:var(--muted); padding:4px 0; font-weight:600;">Bulk auto-scoring tools (market opportunity, regulatory complexity, distribution resources required, languages required, local presence required, client servicing)</summary>
     <div style="margin-top:10px;">
       <div class="summary-bar" id="mo-basis-bar" style="margin-bottom:16px;"></div>
       <div id="overview-threshold-controls" style="display:none; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px; padding:10px; border:1px solid var(--border); border-radius:6px; background:var(--card); font-size:0.85rem;">
@@ -74,6 +76,24 @@
         <label>Optimal (EF EPI score)<br><input type="number" step="any" id="lang-optimal-input" placeholder="e.g. 600" style="width:130px;"></label>
         <button type="button" id="lang-apply-btn" class="btn-primary" onclick="applyLanguagesRequiredThresholds()" style="cursor:pointer; align-self:flex-end;">Apply across all countries</button>
         <span class="note" style="border-top:none; padding-top:0; margin:0; flex-basis:100%; font-size:0.78rem;">EF EPI score runs 0-800, higher = more of the population speaks English well — direction matches the allocation scorer above (not inverted): below threshold = 1, at or above threshold = 2, at or above optimal = 3. The US, UK, Ireland, Canada, Australia and New Zealand aren't ranked by EF EPI at all (it only measures non-native proficiency), so they're automatically scored 3 — English is the native language there by definition. Singapore is also unranked by EF EPI but is scored 3 as a judgment call, since English is Singapore's dominant language of government, courts and business; override this per-segment if you'd rather treat it differently. Iceland has no EF EPI coverage and isn't an English-native/business market, so it's genuinely uncovered and skipped, same as Iceland's Regulatory complexity gap. Same country-level value applied to every segment, and overwrites any existing Languages required score.</span>
+      </div>
+
+      <div class="summary-bar" id="local-basis-bar" style="margin-bottom:16px;"></div>
+      <div id="local-threshold-controls" style="display:none; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px; padding:10px; border:1px solid var(--border); border-radius:6px; background:var(--card); font-size:0.85rem;">
+        <strong>Auto-score "Local presence required" from OECD FDI Restrictiveness (<span id="fdirri-year"></span>):</strong>
+        <label>Threshold (index)<br><input type="number" step="any" id="local-threshold-input" placeholder="e.g. 0.02" style="width:110px;"></label>
+        <label>Optimal (index)<br><input type="number" step="any" id="local-optimal-input" placeholder="e.g. 0.1" style="width:110px;"></label>
+        <button type="button" id="local-apply-btn" class="btn-primary" onclick="applyLocalPresenceThresholds()" style="cursor:pointer; align-self:flex-end;">Apply across all countries</button>
+        <span class="note" style="border-top:none; padding-top:0; margin:0; flex-basis:100%; font-size:0.78rem;">FDIRRI runs 0 (fully open to foreign investment) to 1 (fully closed) — this is the economy-wide score, not asset-management-specific (the sector-level fund-management score turned out to be nearly uniform across countries, so it can't discriminate; see fdi-restrictiveness.js). Direction is reversed from every other tool here since low restrictiveness is the attractive case: index at or below threshold = 3, above threshold but at or below optimal = 2, above optimal = 1. Hong Kong, UAE, Qatar and Oman aren't covered by this index and are skipped, not guessed at. Same country-level value applied to every segment, and overwrites any existing Local presence required score.</span>
+      </div>
+
+      <div class="summary-bar" id="client-basis-bar" style="margin-bottom:16px;"></div>
+      <div id="client-threshold-controls" style="display:none; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px; padding:10px; border:1px solid var(--border); border-radius:6px; background:var(--card); font-size:0.85rem;">
+        <strong>Auto-score "Client servicing" from Mercer CFA Institute Global Pension Index — Integrity (<span id="mercer-integrity-year"></span>):</strong>
+        <label>Threshold (Integrity score)<br><input type="number" step="any" id="client-threshold-input" placeholder="e.g. 55" style="width:140px;"></label>
+        <label>Optimal (Integrity score)<br><input type="number" step="any" id="client-optimal-input" placeholder="e.g. 80" style="width:140px;"></label>
+        <button type="button" id="client-apply-btn" class="btn-primary" onclick="applyClientServicingThresholds()" style="cursor:pointer; align-self:flex-end;">Apply across all countries</button>
+        <span class="note" style="border-top:none; padding-top:0; margin:0; flex-basis:100%; font-size:0.78rem;">Integrity sub-index runs 0-100, higher = stronger pension governance/regulation/communication — direction matches the allocation scorer above (not inverted): below threshold = 1, at or above threshold = 2, at or above optimal = 3. Qatar isn't covered by the Index and is skipped, not guessed at. This same Integrity number was also proposed for "Investor decision-making", but it's only wired up here to avoid two scorecard dimensions moving in lockstep off one source — see mercer-integrity.js. Same country-level value applied to every segment, and overwrites any existing Client servicing score.</span>
       </div>
     </div>
   </details>
@@ -198,6 +218,8 @@ function updateThresholdControlsVisibility() {
   document.getElementById('reg-threshold-controls').style.display = show ? 'flex' : 'none';
   document.getElementById('dist-threshold-controls').style.display = show ? 'flex' : 'none';
   document.getElementById('lang-threshold-controls').style.display = show ? 'flex' : 'none';
+  document.getElementById('local-threshold-controls').style.display = show ? 'flex' : 'none';
+  document.getElementById('client-threshold-controls').style.display = show ? 'flex' : 'none';
 }
 
 function populateMoAssetSelectors() {
@@ -747,6 +769,243 @@ async function applyLanguagesRequiredThresholds() {
   }
 }
 
+// Country-level, like Regulatory complexity, driven by
+// fdi-restrictiveness.js. Genuinely inverted formula (not just an inverted
+// raw scale like TMF's rank-1-is-worst quirk): FDIRRI's 0 is the good end,
+// so low raw values score HIGH here -- at-or-below-threshold is the best
+// tier, above-optimal is the worst. See the note text in the panel above
+// and the comments in fdi-restrictiveness.js for why. Countries FDIRRI
+// doesn't cover (Hong Kong, UAE, Qatar, Oman) are skipped and reported.
+async function applyLocalPresenceThresholds() {
+  const threshold = parseFloat(document.getElementById('local-threshold-input').value);
+  const optimal = parseFloat(document.getElementById('local-optimal-input').value);
+
+  if (Number.isNaN(threshold) || Number.isNaN(optimal)) {
+    alert('Enter numeric threshold and optimal FDIRRI index values.');
+    return;
+  }
+  if (optimal < threshold) {
+    alert('Optimal should be greater than or equal to threshold.');
+    return;
+  }
+
+  const assignments = [];
+  const skipped = [];
+  OVERVIEW_USABLE.forEach(c => {
+    const idx = fdirriScoreForCode(c.meta.code);
+    if (idx === null) {
+      skipped.push(c.meta.name);
+      return;
+    }
+    // Reversed vs every other scorer: low index = open = good.
+    const score = idx <= threshold ? 3 : (idx <= optimal ? 2 : 1);
+    (c.data.segments || []).forEach(seg => {
+      assignments.push({ country: c.slug, segment: seg.segment, value: score });
+    });
+  });
+
+  if (!assignments.length) {
+    alert('No countries with FDIRRI data are loaded to score.');
+    return;
+  }
+
+  const countriesScored = OVERVIEW_USABLE.length - skipped.length;
+  const confirmMsg = `Set "Local presence required" for ${countriesScored} countries (${assignments.length} segments) from FDIRRI ${FDIRRI_YEAR} (Total - All activities):\n` +
+    `index <= ${threshold} → 3 (open)\nindex ${threshold}-${optimal} → 2\nindex > ${optimal} → 1 (restrictive)\n\n` +
+    (skipped.length ? `Skipped (no FDIRRI data): ${skipped.join(', ')}\n\n` : '') +
+    `This overwrites any existing Local presence required score on every segment in every matched country. Continue?`;
+  if (!confirm(confirmMsg)) return;
+
+  const btn = document.getElementById('local-apply-btn');
+  btn.disabled = true;
+  const originalText = btn.textContent;
+  btn.textContent = 'Applying…';
+
+  try {
+    const res = await fetch('/api/segments/set-scorecard-global', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ dimension: 'local_presence_required', assignments })
+    });
+    const result = await res.json();
+
+    if (!res.ok && !result.success) {
+      alert(`Couldn't apply scores: ${result.error || 'unknown error'}`);
+      return;
+    }
+
+    const byCountrySeg = {};
+    assignments.forEach(a => { byCountrySeg[`${a.country}::${a.segment}`] = a.value; });
+
+    let successCount = 0;
+    const failedCountries = [];
+    OVERVIEW_USABLE.forEach(c => {
+      const r = result.results && result.results[c.slug];
+      if (r && r.success) {
+        successCount += 1;
+        (c.data.segments || []).forEach(seg => {
+          const key = `${c.slug}::${seg.segment}`;
+          if (Object.prototype.hasOwnProperty.call(byCountrySeg, key)) {
+            if (!seg.scorecard) seg.scorecard = {};
+            seg.scorecard.local_presence_required = byCountrySeg[key];
+          }
+        });
+      } else if (r) {
+        failedCountries.push(`${c.meta.name} (${r.error})`);
+      }
+    });
+
+    renderOverviewMatrixBody();
+    alert(`Applied to ${successCount} of ${countriesScored} countries with FDIRRI data.` +
+      (skipped.length ? `\n\nSkipped (no FDIRRI data): ${skipped.join(', ')}` : '') +
+      (failedCountries.length ? `\n\nFailed: ${failedCountries.join(', ')}` : ''));
+
+    try {
+      const basisRes = await fetch('/api/global/set-scorecard-basis', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          basis_key: 'local_presence_required_basis',
+          basis: {
+            source: `OECD FDI Regulatory Restrictiveness Index ${FDIRRI_YEAR} (Total - All activities)`,
+            threshold_index: threshold,
+            optimal_index: optimal,
+            countries_updated: successCount,
+            segments_updated: assignments.length,
+            countries_skipped: skipped
+          }
+        })
+      });
+      const basisResult = await basisRes.json();
+      if (basisRes.ok && basisResult.basis) {
+        GLOBAL_DATA.local_presence_required_basis = basisResult.basis;
+        renderLocalPresenceBasis(GLOBAL_DATA.local_presence_required_basis);
+      }
+    } catch (e) { /* scores are saved; the basis reminder just won't update this time */ }
+  } catch (e) {
+    alert('Could not reach the server to save this change.');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+}
+
+// Country-level, like Regulatory complexity/Languages required, driven by
+// mercer-integrity.js. Normal (non-inverted) direction -- higher Integrity
+// score is better. Qatar (no Mercer coverage) is skipped and reported.
+async function applyClientServicingThresholds() {
+  const threshold = parseFloat(document.getElementById('client-threshold-input').value);
+  const optimal = parseFloat(document.getElementById('client-optimal-input').value);
+
+  if (Number.isNaN(threshold) || Number.isNaN(optimal)) {
+    alert('Enter numeric threshold and optimal Integrity score values.');
+    return;
+  }
+  if (optimal < threshold) {
+    alert('Optimal should be greater than or equal to threshold.');
+    return;
+  }
+
+  const assignments = [];
+  const skipped = [];
+  OVERVIEW_USABLE.forEach(c => {
+    const score100 = mercerIntegrityScoreForCode(c.meta.code);
+    if (score100 === null) {
+      skipped.push(c.meta.name);
+      return;
+    }
+    const score = score100 >= optimal ? 3 : (score100 >= threshold ? 2 : 1);
+    (c.data.segments || []).forEach(seg => {
+      assignments.push({ country: c.slug, segment: seg.segment, value: score });
+    });
+  });
+
+  if (!assignments.length) {
+    alert('No countries with Mercer Integrity data are loaded to score.');
+    return;
+  }
+
+  const countriesScored = OVERVIEW_USABLE.length - skipped.length;
+  const confirmMsg = `Set "Client servicing" for ${countriesScored} countries (${assignments.length} segments) from Mercer CFA Institute Global Pension Index ${MERCER_INTEGRITY_YEAR} — Integrity:\n` +
+    `score < ${threshold} → 1\nscore ${threshold}-${optimal} → 2\nscore >= ${optimal} → 3\n\n` +
+    (skipped.length ? `Skipped (no Mercer data): ${skipped.join(', ')}\n\n` : '') +
+    `This overwrites any existing Client servicing score on every segment in every matched country. Continue?`;
+  if (!confirm(confirmMsg)) return;
+
+  const btn = document.getElementById('client-apply-btn');
+  btn.disabled = true;
+  const originalText = btn.textContent;
+  btn.textContent = 'Applying…';
+
+  try {
+    const res = await fetch('/api/segments/set-scorecard-global', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ dimension: 'client_servicing', assignments })
+    });
+    const result = await res.json();
+
+    if (!res.ok && !result.success) {
+      alert(`Couldn't apply scores: ${result.error || 'unknown error'}`);
+      return;
+    }
+
+    const byCountrySeg = {};
+    assignments.forEach(a => { byCountrySeg[`${a.country}::${a.segment}`] = a.value; });
+
+    let successCount = 0;
+    const failedCountries = [];
+    OVERVIEW_USABLE.forEach(c => {
+      const r = result.results && result.results[c.slug];
+      if (r && r.success) {
+        successCount += 1;
+        (c.data.segments || []).forEach(seg => {
+          const key = `${c.slug}::${seg.segment}`;
+          if (Object.prototype.hasOwnProperty.call(byCountrySeg, key)) {
+            if (!seg.scorecard) seg.scorecard = {};
+            seg.scorecard.client_servicing = byCountrySeg[key];
+          }
+        });
+      } else if (r) {
+        failedCountries.push(`${c.meta.name} (${r.error})`);
+      }
+    });
+
+    renderOverviewMatrixBody();
+    alert(`Applied to ${successCount} of ${countriesScored} countries with Mercer Integrity data.` +
+      (skipped.length ? `\n\nSkipped (no Mercer data): ${skipped.join(', ')}` : '') +
+      (failedCountries.length ? `\n\nFailed: ${failedCountries.join(', ')}` : ''));
+
+    try {
+      const basisRes = await fetch('/api/global/set-scorecard-basis', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          basis_key: 'client_servicing_basis',
+          basis: {
+            source: `Mercer CFA Institute Global Pension Index ${MERCER_INTEGRITY_YEAR} — Integrity sub-index`,
+            threshold_score: threshold,
+            optimal_score: optimal,
+            countries_updated: successCount,
+            segments_updated: assignments.length,
+            countries_skipped: skipped
+          }
+        })
+      });
+      const basisResult = await basisRes.json();
+      if (basisRes.ok && basisResult.basis) {
+        GLOBAL_DATA.client_servicing_basis = basisResult.basis;
+        renderClientServicingBasis(GLOBAL_DATA.client_servicing_basis);
+      }
+    } catch (e) { /* scores are saved; the basis reminder just won't update this time */ }
+  } catch (e) {
+    alert('Could not reach the server to save this change.');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+}
+
 // The whole global.json object as last loaded, kept around so the
 // market-opportunity-basis boxes can be updated in place after a successful
 // auto-score run, without a full page reload.
@@ -829,6 +1088,42 @@ function renderLanguagesRequiredBasis(basis) {
     <div class="stat-card"><div class="value">${basis.threshold_score}</div><div class="label">Threshold (score 2 at/above)</div></div>
     <div class="stat-card"><div class="value">${basis.optimal_score}</div><div class="label">Optimal (score 3 at/above)</div></div>
     <div class="stat-card" style="flex-basis:100%; text-align:left;"><div class="label">${appliedInfo} Native-English and English-as-business-language markets are always auto-scored 3. Individual segments may have been edited by hand since — this only reflects the basis of the last bulk auto-score run.</div></div>
+  `;
+}
+
+function renderLocalPresenceBasis(basis) {
+  const el = document.getElementById('local-basis-bar');
+  if (!basis) {
+    el.innerHTML = `<div class="stat-card"><div class="value">—</div><div class="label">Local presence required has not been auto-scored from FDIRRI yet — scores are whatever's been entered manually per segment.</div></div>`;
+    return;
+  }
+  const appliedInfo = `Applied ${basis.applied_date || 'unknown date'}${basis.applied_by ? ` by ${basis.applied_by}` : ''}` +
+    (basis.countries_updated ? `, ${basis.countries_updated} countries` : '') +
+    (basis.segments_updated ? `, ${basis.segments_updated} segments` : '') + '.' +
+    (basis.countries_skipped && basis.countries_skipped.length ? ` No FDIRRI data for: ${basis.countries_skipped.join(', ')}.` : '');
+  el.innerHTML = `
+    <div class="stat-card"><div class="value">${basis.source || 'OECD FDI Regulatory Restrictiveness Index'}</div><div class="label">Index source</div></div>
+    <div class="stat-card"><div class="value">${basis.threshold_index}</div><div class="label">Threshold (score 3 at/below)</div></div>
+    <div class="stat-card"><div class="value">${basis.optimal_index}</div><div class="label">Optimal (score 1 above)</div></div>
+    <div class="stat-card" style="flex-basis:100%; text-align:left;"><div class="label">${appliedInfo} Direction is reversed from the other tools — low index = open = good. Individual segments may have been edited by hand since — this only reflects the basis of the last bulk auto-score run.</div></div>
+  `;
+}
+
+function renderClientServicingBasis(basis) {
+  const el = document.getElementById('client-basis-bar');
+  if (!basis) {
+    el.innerHTML = `<div class="stat-card"><div class="value">—</div><div class="label">Client servicing has not been auto-scored from Mercer Integrity yet — scores are whatever's been entered manually per segment.</div></div>`;
+    return;
+  }
+  const appliedInfo = `Applied ${basis.applied_date || 'unknown date'}${basis.applied_by ? ` by ${basis.applied_by}` : ''}` +
+    (basis.countries_updated ? `, ${basis.countries_updated} countries` : '') +
+    (basis.segments_updated ? `, ${basis.segments_updated} segments` : '') + '.' +
+    (basis.countries_skipped && basis.countries_skipped.length ? ` No Mercer data for: ${basis.countries_skipped.join(', ')}.` : '');
+  el.innerHTML = `
+    <div class="stat-card"><div class="value">${basis.source || 'Mercer CFA Institute Global Pension Index — Integrity'}</div><div class="label">Index source</div></div>
+    <div class="stat-card"><div class="value">${basis.threshold_score}</div><div class="label">Threshold (score 2 at/above)</div></div>
+    <div class="stat-card"><div class="value">${basis.optimal_score}</div><div class="label">Optimal (score 3 at/above)</div></div>
+    <div class="stat-card" style="flex-basis:100%; text-align:left;"><div class="label">${appliedInfo} Individual segments may have been edited by hand since — this only reflects the basis of the last bulk auto-score run.</div></div>
   `;
 }
 
@@ -1014,8 +1309,12 @@ async function load() {
   renderRegulatoryComplexityBasis(data.regulatory_complexity_basis);
   renderDistributionResourcesBasis(data.distribution_resources_basis);
   renderLanguagesRequiredBasis(data.languages_required_basis);
+  renderLocalPresenceBasis(data.local_presence_required_basis);
+  renderClientServicingBasis(data.client_servicing_basis);
   document.getElementById('tmf-gbci-year').textContent = TMF_GBCI_YEAR;
   document.getElementById('ef-epi-year').textContent = EF_EPI_YEAR;
+  document.getElementById('fdirri-year').textContent = FDIRRI_YEAR;
+  document.getElementById('mercer-integrity-year').textContent = MERCER_INTEGRITY_YEAR;
 
   const countries = data.countries.slice().sort((a, b) => b.total_ps_assets_thousands - a.total_ps_assets_thousands);
 
