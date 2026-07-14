@@ -205,6 +205,14 @@ h2 {
   margin-top: 0;
 }
 
+/* Small glyph next to each scorecard dimension's row label on country.html
+   (see DIMENSION_ICONS / dimensionIconSvg() in scorecard-dimensions.js).
+   color: currentColor on the paths means this one rule re-colors all 12. */
+.dim-icon {
+  flex-shrink: 0;
+  color: var(--navy);
+}
+
 .research-notes {
   background: var(--card);
   border: 1px solid var(--border);

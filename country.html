@@ -578,14 +578,14 @@ function renderScorecardMatrix() {
       return `<td id="${cellId}" class="${scoreCellClass(value, missing)}">${missing ? '—' : value}</td>`;
     }).join('');
     const autoFlag = dim.autoScoreNote ? `<span class="auto-flag" title="${dim.autoScoreNote}">Auto</span>` : '';
-    const dimLabelText = `${dim.label}${dim.weight > 1 ? ` (×${dim.weight})` : ''}`;
+    const dimLabelText = `${dimensionIconSvg(dim.key)}<span>${dim.label}${dim.weight > 1 ? ` (×${dim.weight})` : ''}</span>`;
     return `<tr title="${dim.question}"><td class="matrix-rowlabel" title="${dim.question}">` +
       (CURRENT_USER ? `<div style="display:flex; align-items:center; justify-content:space-between; gap:6px;">` +
-        `<span>${dimLabelText}${autoFlag}</span>` +
+        `<span style="display:flex; align-items:center; gap:6px;">${dimLabelText}${autoFlag}</span>` +
         `<select class="matrix-select" style="width:auto; min-width:52px;" data-dim="${dim.key}" ` +
         `onchange="saveScorecardBulk(this)" title="Set this score for every segment in one go"><option value="">Set all…</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select>` +
         `</div>`
-        : `${dimLabelText}${autoFlag}`) +
+        : `<span style="display:flex; align-items:center; gap:6px;">${dimLabelText}${autoFlag}</span>`) +
       `</td>${cells}</tr>`;
   }).join('');
 
