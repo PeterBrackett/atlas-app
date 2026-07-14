@@ -44,16 +44,42 @@
   <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:24px;">
     <button type="button" id="build-btn" class="btn-primary" style="cursor:pointer;" onclick="buildProjectView()">Build table</button>
     <label style="font-size:0.85rem;">Show:
-      <select id="project-view-select" onchange="renderProjectMatrix()">
+      <select id="project-view-select" onchange="onProjectViewChange()">
         <option value="overall">Opportunity score (Overall)</option>
         <option value="aum">AUM ($bn)</option>
+        <option value="allocation">Asset allocation ($bn)</option>
       </select>
     </label>
+    <span id="project-alloc-controls" style="display:none; gap:10px; align-items:center;">
+      <select id="project-alloc-type-select" onchange="onProjectAllocSelectorChange()"></select>
+      <select id="project-alloc-style-select" onchange="onProjectAllocSelectorChange()"></select>
+    </span>
     <button type="button" id="export-docx-btn" class="btn-primary" style="cursor:pointer; display:none;" onclick="downloadProjectExport('docx')">Download as Word</button>
     <button type="button" id="export-pptx-btn" class="btn-primary" style="cursor:pointer; display:none;" onclick="downloadProjectExport('pptx')">Download as PowerPoint</button>
   </div>
 
   <p class="note" id="project-hint" style="margin-top:-12px;"></p>
+
+  <details id="project-mo-details" style="margin-bottom:16px; display:none;">
+    <summary style="cursor:pointer; font-size:0.85rem; color:var(--muted); padding:4px 0; font-weight:600;">Bulk auto-score "Market opportunity" for this project</summary>
+    <div style="margin-top:10px;">
+      <div id="project-mo-controls" style="display:none; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:10px; padding:10px; border:1px solid var(--border); border-radius:6px; background:var(--card); font-size:0.85rem;">
+        <strong>Allocate an asset class:</strong>
+        <label>Asset class<br>
+          <select id="project-mo-asset-type-select" onchange="onProjectMoSelectorChange()"></select>
+        </label>
+        <label>Style<br>
+          <select id="project-mo-asset-style-select" onchange="onProjectMoSelectorChange()"></select>
+        </label>
+        <label>Threshold ($bn)<br><input type="number" step="any" id="project-mo-threshold-input" placeholder="e.g. 5" style="width:110px;"></label>
+        <label>Optimal ($bn)<br><input type="number" step="any" id="project-mo-optimal-input" placeholder="e.g. 20" style="width:110px;"></label>
+        <button type="button" id="project-mo-apply-btn" class="btn-primary" onclick="applyProjectMarketOpportunityThresholds()" style="cursor:pointer; align-self:flex-end;">Apply to this project's countries</button>
+        <span class="note" style="border-top:none; padding-top:0; margin:0; flex-basis:100%; font-size:0.78rem;">Scores every segment in the <span id="project-mo-country-count">0</span> countries built above, based on the asset class picked here: below threshold = 1, at or above threshold = 2, at or above optimal = 3. A segment with no allocation data for this selection is treated as $0 (scores 1, unless threshold is 0 or less). Overwrites any existing Market opportunity score for these segments — but only for the countries in this project; every other country in Atlas is untouched.</span>
+      </div>
+      <p class="note" id="project-mo-signin-hint" style="border-top:none; padding-top:0; margin:0; font-size:0.82rem;"></p>
+    </div>
+  </details>
+
   <div class="matrix-wrap">
     <table class="matrix-table" id="project-matrix"></table>
   </div>
@@ -64,19 +90,39 @@ let ALL_COUNTRIES = [];      // full global.json countries list, status === 'bui
 let SELECTED_CODES = new Set();
 let PROJECT_DATA = [];       // [{ meta, slug, data }] for the last "Build table" click
 
+// Asset class/style for the "Asset allocation" view -- same idea as
+// overview.html's overview-alloc-type-select/overview-alloc-style-select,
+// scoped to whatever's actually present across PROJECT_DATA's segments
+// rather than every built country in Atlas.
+let PROJECT_ALLOC_TYPE = 'Equities';
+let PROJECT_ALLOC_STYLE = '';
+
+// Separate asset-class selection for the "Market opportunity" bulk auto-scorer
+// below, mirroring overview.html's MO_ASSET_TYPE/MO_ASSET_STYLE — kept
+// independent of PROJECT_ALLOC_TYPE/PROJECT_ALLOC_STYLE (the "Show: Asset
+// allocation" viewer above) since a project might want to browse Fixed Income
+// exposure while scoring Market opportunity off Equities, or vice versa.
+let PROJECT_MO_ASSET_TYPE = 'Equities';
+let PROJECT_MO_ASSET_STYLE = '';
+
+let CURRENT_USER = null; // set by checkAuth(), null if not signed in — gates the write action below
+
 async function checkAuth() {
   try {
     const res = await fetch('/.auth/me');
     const payload = await res.json();
     const principal = payload && payload.clientPrincipal;
     const user = principal ? (principal.userDetails || 'signed in') : null;
+    CURRENT_USER = user;
     const el = document.getElementById('auth-status');
     if (user) {
       el.innerHTML = `Signed in as ${user} &nbsp;|&nbsp; <a href="/.auth/logout?post_logout_redirect_uri=${encodeURIComponent(window.location.href)}" style="color:#b9c6d3;">Log out</a>`;
     } else {
       el.innerHTML = `<a href="/.auth/login/aad?post_login_redirect_uri=${encodeURIComponent(window.location.href)}" style="color:#b9c6d3;">Log in</a>`;
     }
-  } catch (e) { /* not signed in, not fatal for this page */ }
+  } catch (e) {
+    CURRENT_USER = null;
+  }
 }
 
 async function fetchCountryData(code) {
@@ -186,16 +232,203 @@ async function buildProjectView() {
       document.getElementById('project-matrix').innerHTML = '';
       document.getElementById('export-docx-btn').style.display = 'none';
       document.getElementById('export-pptx-btn').style.display = 'none';
+      document.getElementById('project-mo-details').style.display = 'none';
       return;
     }
 
     document.getElementById('export-docx-btn').style.display = '';
     document.getElementById('export-pptx-btn').style.display = '';
+    populateProjectAllocSelectors();
+    populateProjectMoAssetSelectors();
+    updateProjectMoVisibility();
     renderProjectMatrix(failed);
   } finally {
     btn.disabled = false;
     btn.textContent = originalText;
   }
+}
+
+// Same idea as overview.html's populateOverviewAllocSelectors/
+// populateOverviewStyleSelector, scoped to PROJECT_DATA's segments.
+function populateProjectAllocSelectors() {
+  const allSegs = PROJECT_DATA.flatMap(c => c.data.segments || []);
+  const typeSelect = document.getElementById('project-alloc-type-select');
+  const types = assetTypesPresent(allSegs);
+  typeSelect.innerHTML = types.map(t => `<option value="${t}" ${t === PROJECT_ALLOC_TYPE ? 'selected' : ''}>${t}</option>`).join('');
+  populateProjectStyleSelector();
+}
+
+function populateProjectStyleSelector() {
+  const allSegs = PROJECT_DATA.flatMap(c => c.data.segments || []);
+  const styleSelect = document.getElementById('project-alloc-style-select');
+  const styles = assetStylesPresent(allSegs, PROJECT_ALLOC_TYPE);
+  styleSelect.innerHTML = `<option value="">All styles (${PROJECT_ALLOC_TYPE} total)</option>` +
+    styles.map(s => `<option value="${s}" ${s === PROJECT_ALLOC_STYLE ? 'selected' : ''}>${s}</option>`).join('');
+  if (!styles.includes(PROJECT_ALLOC_STYLE)) PROJECT_ALLOC_STYLE = '';
+}
+
+function onProjectAllocSelectorChange() {
+  const typeSelect = document.getElementById('project-alloc-type-select');
+  const styleSelect = document.getElementById('project-alloc-style-select');
+  const typeChanged = typeSelect.value !== PROJECT_ALLOC_TYPE;
+  PROJECT_ALLOC_TYPE = typeSelect.value;
+  if (typeChanged) {
+    PROJECT_ALLOC_STYLE = '';
+    populateProjectStyleSelector();
+  } else {
+    PROJECT_ALLOC_STYLE = styleSelect.value;
+  }
+  renderProjectMatrix();
+}
+
+// Same idea as overview.html's populateMoAssetSelectors/populateMoStyleSelector,
+// scoped to PROJECT_DATA's segments rather than every built country.
+function populateProjectMoAssetSelectors() {
+  const allSegs = PROJECT_DATA.flatMap(c => c.data.segments || []);
+  const typeSelect = document.getElementById('project-mo-asset-type-select');
+  const types = assetTypesPresent(allSegs);
+  typeSelect.innerHTML = types.map(t => `<option value="${t}" ${t === PROJECT_MO_ASSET_TYPE ? 'selected' : ''}>${t}</option>`).join('');
+  populateProjectMoStyleSelector();
+}
+
+function populateProjectMoStyleSelector() {
+  const allSegs = PROJECT_DATA.flatMap(c => c.data.segments || []);
+  const styleSelect = document.getElementById('project-mo-asset-style-select');
+  const styles = assetStylesPresent(allSegs, PROJECT_MO_ASSET_TYPE);
+  styleSelect.innerHTML = `<option value="">All styles (${PROJECT_MO_ASSET_TYPE} total)</option>` +
+    styles.map(s => `<option value="${s}" ${s === PROJECT_MO_ASSET_STYLE ? 'selected' : ''}>${s}</option>`).join('');
+  if (!styles.includes(PROJECT_MO_ASSET_STYLE)) PROJECT_MO_ASSET_STYLE = '';
+}
+
+function onProjectMoSelectorChange() {
+  const typeSelect = document.getElementById('project-mo-asset-type-select');
+  const styleSelect = document.getElementById('project-mo-asset-style-select');
+  const typeChanged = typeSelect.value !== PROJECT_MO_ASSET_TYPE;
+  PROJECT_MO_ASSET_TYPE = typeSelect.value;
+  if (typeChanged) {
+    PROJECT_MO_ASSET_STYLE = '';
+    populateProjectMoStyleSelector();
+  } else {
+    PROJECT_MO_ASSET_STYLE = styleSelect.value;
+  }
+}
+
+// Shows/hides the "Bulk auto-score Market opportunity" panel: only worth
+// showing once a table's been built (there's something to score), and the
+// write controls themselves only once signed in — same gating rule as
+// overview.html's updateThresholdControlsVisibility().
+function updateProjectMoVisibility() {
+  const hasData = PROJECT_DATA.length > 0;
+  document.getElementById('project-mo-details').style.display = hasData ? '' : 'none';
+  if (!hasData) return;
+  document.getElementById('project-mo-country-count').textContent = PROJECT_DATA.length;
+  const signedIn = !!CURRENT_USER;
+  document.getElementById('project-mo-controls').style.display = signedIn ? 'flex' : 'none';
+  document.getElementById('project-mo-signin-hint').textContent = signedIn
+    ? ''
+    : 'Sign in to allocate an asset class and apply Market opportunity scores to this project.';
+}
+
+// Same mechanism as overview.html's applyMarketOpportunityThresholds() —
+// same API call, same threshold/optimal classification logic — but the
+// assignments array is built only from PROJECT_DATA (the countries picked
+// for this project), so a project touching 6 countries never overwrites
+// Market opportunity scores on the other 28.
+async function applyProjectMarketOpportunityThresholds() {
+  const threshold = parseFloat(document.getElementById('project-mo-threshold-input').value);
+  const optimal = parseFloat(document.getElementById('project-mo-optimal-input').value);
+
+  if (Number.isNaN(threshold) || Number.isNaN(optimal)) {
+    alert('Enter numeric threshold and optimal values (in $bn).');
+    return;
+  }
+  if (optimal < threshold) {
+    alert('Optimal should be greater than or equal to threshold.');
+    return;
+  }
+
+  const label = PROJECT_MO_ASSET_STYLE ? `${PROJECT_MO_ASSET_TYPE} — ${PROJECT_MO_ASSET_STYLE}` : PROJECT_MO_ASSET_TYPE;
+  const assignments = [];
+  PROJECT_DATA.forEach(c => {
+    (c.data.segments || []).forEach(seg => {
+      const result = getAllocationValue(seg, PROJECT_MO_ASSET_TYPE, PROJECT_MO_ASSET_STYLE);
+      const value_bn = result ? result.value_bn : 0;
+      const score = value_bn >= optimal ? 3 : (value_bn >= threshold ? 2 : 1);
+      assignments.push({ country: c.slug, segment: seg.segment, value: score });
+    });
+  });
+
+  if (!assignments.length) {
+    alert('No segments in this project to score.');
+    return;
+  }
+
+  const confirmMsg = `Set "Market opportunity" for all ${assignments.length} segments across ${PROJECT_DATA.length} countries in this project, based on ${label} allocation:\n` +
+    `< $${threshold}bn → 1\n≥ $${threshold}bn → 2\n≥ $${optimal}bn → 3\n\n` +
+    `This overwrites any existing Market opportunity score on these segments only (other countries in Atlas are untouched). Continue?`;
+  if (!confirm(confirmMsg)) return;
+
+  const btn = document.getElementById('project-mo-apply-btn');
+  btn.disabled = true;
+  const originalText = btn.textContent;
+  btn.textContent = 'Applying…';
+
+  try {
+    const res = await fetch('/api/segments/set-scorecard-global', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ dimension: 'market_opportunity', assignments })
+    });
+    const result = await res.json();
+
+    if (!res.ok && !result.success) {
+      alert(`Couldn't apply scores: ${result.error || 'unknown error'}`);
+      return;
+    }
+
+    // Update in-memory PROJECT_DATA so the Overall score column reflects this
+    // immediately, without a page reload.
+    const byCountrySeg = {};
+    assignments.forEach(a => { byCountrySeg[`${a.country}::${a.segment}`] = a.value; });
+
+    let successCount = 0;
+    const failedCountries = [];
+    PROJECT_DATA.forEach(c => {
+      const r = result.results && result.results[c.slug];
+      if (r && r.success) {
+        successCount += 1;
+        (c.data.segments || []).forEach(seg => {
+          const key = `${c.slug}::${seg.segment}`;
+          if (Object.prototype.hasOwnProperty.call(byCountrySeg, key)) {
+            if (!seg.scorecard) seg.scorecard = {};
+            seg.scorecard.market_opportunity = byCountrySeg[key];
+          }
+        });
+      } else if (r) {
+        failedCountries.push(`${c.meta.name} (${r.error})`);
+      }
+    });
+
+    // Switch the "Show:" selector to Overall so the change is visible right
+    // away, then re-render — the whole point of this control is to see the
+    // Market opportunity / Overall score move after allocating an asset class.
+    document.getElementById('project-view-select').value = 'overall';
+    document.getElementById('project-alloc-controls').style.display = 'none';
+    renderProjectMatrix();
+    alert(`Applied to ${successCount} of ${PROJECT_DATA.length} countries in this project.` +
+      (failedCountries.length ? `\n\nFailed: ${failedCountries.join(', ')}` : ''));
+  } catch (e) {
+    alert('Could not reach the server to save this change.');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+}
+
+function onProjectViewChange() {
+  const view = document.getElementById('project-view-select').value;
+  document.getElementById('project-alloc-controls').style.display = view === 'allocation' ? 'inline-flex' : 'none';
+  renderProjectMatrix();
 }
 
 // Same shape as overview.html's renderOverviewMatrixBody, just scoped to
@@ -233,6 +466,10 @@ function renderProjectMatrix(failed) {
         if (view === 'aum') {
           return `<td>${typeof seg.aum_bn === 'number' ? seg.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '—'}</td>`;
         }
+        if (view === 'allocation') {
+          const result = getAllocationValue(seg, PROJECT_ALLOC_TYPE, PROJECT_ALLOC_STYLE);
+          return `<td>${result ? result.value_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '—'}</td>`;
+        }
         const overall = computeOverallScore(seg.scorecard);
         return `<td class="${overallScoreClass(overall)}">${overall === null ? '—' : overall}</td>`;
       }).join('');
@@ -248,7 +485,9 @@ function renderProjectMatrix(failed) {
     : '';
   const viewNote = view === 'aum'
     ? 'Showing AUM ($bn) per segment.'
-    : 'Showing the Overall opportunity score (blank = not fully scored yet).';
+    : view === 'allocation'
+      ? `Showing ${PROJECT_ALLOC_STYLE ? `${PROJECT_ALLOC_TYPE} — ${PROJECT_ALLOC_STYLE}` : PROJECT_ALLOC_TYPE} allocation ($bn) per segment. Blank cells mean that segment has no allocation data for this selection.`
+      : 'Showing the Overall opportunity score (blank = not fully scored yet).';
   document.getElementById('project-hint').textContent =
     `${PROJECT_DATA.length} of ${SELECTED_CODES.size} selected countries loaded. ${viewNote}${failedNote}`;
 }
@@ -308,6 +547,7 @@ async function downloadProjectExport(format) {
 
 async function load() {
   await checkAuth();
+  updateProjectMoVisibility();
 
   let data;
   try {
