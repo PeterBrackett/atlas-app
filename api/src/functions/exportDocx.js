@@ -1,9 +1,10 @@
 const { app } = require('@azure/functions');
 const {
-  Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell,
+  Document, Packer, Paragraph, TextRun, ImageRun, Table, TableRow, TableCell,
   HeadingLevel, WidthType, ShadingType, PageBreak
 } = require('docx');
 const { buildAumRows, buildScorecardMatrix, buildTopInstitutionsSections } = require('../shared/exportHelpers');
+const { getDimensionIconBuffer } = require('../shared/dimensionIcons');
 
 const HEADER_FILL = 'D9E2F3';
 
@@ -16,6 +17,26 @@ function headerCell(text) {
 
 function bodyCell(text) {
   return new TableCell({ children: [new Paragraph({ text: String(text) })] });
+}
+
+// Same as headerCell(), but for a scorecard dimension row: prepends the
+// dimension's icon (see dimensionIcons.js, rasterized from the same shapes
+// used on country.html) before the label text, when one exists for that
+// dimension key. Falls back to a plain text header cell if the icon lookup
+// comes up empty, so a future dimension added without an icon still renders
+// rather than breaking the export.
+function dimensionHeaderCell(row) {
+  const iconBuffer = row.key ? getDimensionIconBuffer(row.key) : null;
+  if (!iconBuffer) return headerCell(row.label);
+  return new TableCell({
+    shading: { type: ShadingType.CLEAR, fill: HEADER_FILL, color: 'auto' },
+    children: [new Paragraph({
+      children: [
+        new ImageRun({ data: iconBuffer, type: 'png', transformation: { width: 14, height: 14 } }),
+        new TextRun({ text: `  ${row.label}`, bold: true })
+      ]
+    })]
+  });
 }
 
 function buildAumTable(rows) {
@@ -43,7 +64,7 @@ function buildScorecardTable(matrix) {
     children: [headerCell('Dimension'), ...matrix.columnLabels.map((label) => headerCell(label))]
   });
   const dataRows = matrix.rows.map((row) => new TableRow({
-    children: [headerCell(row.label), ...row.values.map((v) => bodyCell(v))]
+    children: [dimensionHeaderCell(row), ...row.values.map((v) => bodyCell(v))]
   }));
   return new Table({ width: { size: 100, type: WidthType.PERCENTAGE }, rows: [headerRow, ...dataRows] });
 }
