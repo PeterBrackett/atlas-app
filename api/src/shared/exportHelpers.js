@@ -78,6 +78,7 @@ function buildScorecardMatrix(segments) {
   const cols = (segments || []).slice().sort((a, b) => segmentSortIndex(a.segment) - segmentSortIndex(b.segment));
 
   const dimensionRows = SCORECARD_DIMENSIONS.map((dim) => ({
+    key: dim.key,
     label: dim.label + (dim.weight > 1 ? ` (x${dim.weight})` : ''),
     values: cols.map((s) => {
       const v = s.scorecard ? s.scorecard[dim.key] : undefined;
