@@ -57,8 +57,57 @@ function equityValue(segment) {
   return entry ? entry.value_bn : null;
 }
 
+// Server-side mirror of scorecard-dimensions.js's allocationCoverageRatio/
+// getAllocationRange/formatAllocationRange (see that file for the full
+// reasoning) -- kept as a deliberate duplicate for the same reason as
+// SCORECARD_DIMENSIONS above: the site's copy is a plain browser <script>,
+// this is a separate Node deployment with no shared module access at build
+// time. If the min/max logic ever changes, update both files.
+function allocationCoverageRatio(segment) {
+  const aum = segment.aum_bn;
+  if (!aum) return null;
+  const allocSum = (segment.allocation || []).reduce((sum, a) => sum + (a.value_bn || 0), 0);
+  return allocSum / aum;
+}
+
+// Kept in sync with the same constant in scorecard-dimensions.js -- see the
+// comment there for why a small tolerance is needed on the >100% check.
+const COVERAGE_ANOMALY_TOLERANCE = 1.001;
+
+function getAllocationRange(segment, assetType, assetStyle) {
+  const entry = (segment.allocation || []).find((a) => a.asset_type === assetType);
+  if (!entry) return null;
+  let value_bn = entry.value_bn;
+  if (assetStyle) {
+    const style = (entry.styles || []).find((s) => s.asset_style === assetStyle);
+    if (!style) return null;
+    value_bn = style.value_bn;
+  }
+
+  const coverage = allocationCoverageRatio(segment);
+  const coverage_pct = typeof coverage === 'number' ? Math.round(coverage * 1000) / 10 : null;
+
+  if (coverage === null || coverage <= 0 || coverage > COVERAGE_ANOMALY_TOLERANCE) {
+    return { value_bn, min_bn: value_bn, max_bn: value_bn, coverage_pct, flagged: coverage !== null && coverage > COVERAGE_ANOMALY_TOLERANCE };
+  }
+
+  const max_bn = Math.round((value_bn / coverage) * 1000) / 1000;
+  return { value_bn, min_bn: value_bn, max_bn, coverage_pct, flagged: false };
+}
+
+function formatAllocationRange(range) {
+  if (!range) return null;
+  const fmt = (v) => v.toLocaleString(undefined, { maximumFractionDigits: 2 });
+  if (range.flagged) return `$${fmt(range.value_bn)}bn (data flagged)`;
+  if (range.coverage_pct === null || range.coverage_pct >= 100) return `$${fmt(range.value_bn)}bn`;
+  return `$${fmt(range.min_bn)}–${fmt(range.max_bn)}bn (${range.coverage_pct}% reported)`;
+}
+
 // Rows for the "AUM by segment" table, sorted largest-first -- same order
-// country.html uses.
+// country.html uses. equity_range is the min/max-scaled string (or null if
+// there's no Equities data at all for this segment, e.g. Life/Non-life
+// insurance's OECD-sourced allocation, which has no reporting-coverage gap
+// to speak of since it's an industry aggregate, not itemised institutions).
 function buildAumRows(segments) {
   return (segments || [])
     .slice()
@@ -67,6 +116,7 @@ function buildAumRows(segments) {
       segment: s.segment,
       aum_bn: s.aum_bn,
       equity_bn: equityValue(s),
+      equity_range: formatAllocationRange(getAllocationRange(s, 'Equities', '')),
       basis: s.basis || ''
     }));
 }
