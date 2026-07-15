@@ -3,7 +3,7 @@
   "country_name": "Singapore",
   "reporting_period": "2026-07 (S&P export date)",
   "source_note": "Currency confirmation is still an open item, as with other countries -- figures are inferred from context rather than stated explicitly by the source data; see the pending cross-country currency question in Sources & Methodology. Category mapping and plan-type routing reused the established rule set from prior builds; no unresolved judgement calls for this country. Categories/institutions excluded from all pension segments (Reserve Banks and similar non-pension pools, or institutions with no DB/DC/E&F breakdown reported): Government ($418.68bn); Corporation ($89.65bn). 34 institutions tracked, $1,764.3bn tracked across all segments.",
-  "scorecard_note": "Not yet scored \u2014 none of the 12 opportunity-scorecard dimensions have been filled in for any Singapore segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
+  "scorecard_note": "Not yet scored — none of the 12 opportunity-scorecard dimensions have been filled in for any Singapore segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
   "allocation_note": "Built the same real-bottom-up way as every other country: summed actual plan-level AA lines into the six standard buckets, with ambiguous plan types (Investment Pool Funds, Hybrid DB/DC Plan, Other Retirement Fund) ratio-split across each institution's actual segments using the two-pass double-count-avoidance logic, and explicitly-named pools (Sovereign Wealth Fund, Endowment Fund, Foundation Fund Or Investment Pool, Other Tax-exempt Fund) routed directly. Same 5%-of-asset-type materiality threshold for style breakdowns.",
   "segments": [
     {
@@ -98,19 +98,30 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 5441,
         "n_institutions": 2,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "GIC Private Ltd.",
+            "aum_bn": 800.8
+          },
+          {
+            "name": "Temasek Holdings (Private) Limited",
+            "aum_bn": 434.0
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "DC Pension (Govt)",
-      "aum_bn": 495.82576,
+      "aum_bn": 529.35,
       "basis": "Bottom-up (S&P Money Manager Database export)",
       "scorecard": {},
       "allocation": [
@@ -201,14 +212,27 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-15",
+          "event": "data_correction",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "aum_bn corrected from 495.82576 to 529.35 bn. Institution-level total (single institution, concentration matches exactly) is 529.350, essentially identical to the allocation-derived total of 529.355 -- both ~7% above the recorded aum_bn of 495.826. Corrected to the institution-level figure."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 10000,
         "n_institutions": 1,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Central Provident Fund Board",
+            "aum_bn": 529.35
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
@@ -327,7 +351,7 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true,
@@ -335,7 +359,46 @@
         "top3_share_pct": 84.3,
         "hhi": 3360,
         "n_institutions": 9,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "National University of Singapore",
+            "aum_bn": 16.55
+          },
+          {
+            "name": "Nanyang Technological University",
+            "aum_bn": 7.61
+          },
+          {
+            "name": "Singapore Management University",
+            "aum_bn": 2.92
+          },
+          {
+            "name": "Singapore University of Technology & Design",
+            "aum_bn": 2.05
+          },
+          {
+            "name": "Singapore Institute of Technology",
+            "aum_bn": 1.01
+          },
+          {
+            "name": "Ngee Ann Polytechnic",
+            "aum_bn": 0.65
+          },
+          {
+            "name": "Singapore Polytechnic",
+            "aum_bn": 0.5
+          },
+          {
+            "name": "Nanyang Polytechnic",
+            "aum_bn": 0.5
+          },
+          {
+            "name": "Temasek Polytechnic",
+            "aum_bn": 0.32
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
@@ -439,14 +502,45 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 71.0,
         "hhi": 2002,
         "n_institutions": 6,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Great Eastern Holdings Ltd.",
+            "aum_bn": 89.65
+          },
+          {
+            "name": "Del Monte Pacific Ltd.",
+            "aum_bn": 0.22
+          },
+          {
+            "name": "Sembcorp Industries Ltd.",
+            "aum_bn": 0.18
+          },
+          {
+            "name": "Hutchison Port Holdings Trust",
+            "aum_bn": 0.17
+          },
+          {
+            "name": "GuocoLeisure Ltd",
+            "aum_bn": 0.1
+          },
+          {
+            "name": "City Developments Limited",
+            "aum_bn": 0.06
+          },
+          {
+            "name": "SATS Ltd.",
+            "aum_bn": 0.06
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
@@ -546,7 +640,7 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true,
@@ -554,7 +648,34 @@
         "top3_share_pct": 79.7,
         "hhi": 2645,
         "n_institutions": 6,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "National Council of Social Service",
+            "aum_bn": 0.28
+          },
+          {
+            "name": "Singapore Symphony Orchestra",
+            "aum_bn": 0.13
+          },
+          {
+            "name": "Chinese Development Assistance Council",
+            "aum_bn": 0.12
+          },
+          {
+            "name": "Singapore Children's Society",
+            "aum_bn": 0.08
+          },
+          {
+            "name": "Movement for the Intellectually Disabled of Singapore",
+            "aum_bn": 0.03
+          },
+          {
+            "name": "Society for the Physically Disabled",
+            "aum_bn": 0.02
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
@@ -601,15 +722,206 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 10000,
         "n_institutions": 1,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "JurongHealth Fund",
+            "aum_bn": 0.09
+          }
+        ],
+        "top10_share_pct": 100.0
       }
+    },
+    {
+      "segment": "Life insurance",
+      "aum_bn": 123.374,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 10.122,
+          "pct_of_segment": 8.2,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 10.122
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 66.578,
+          "pct_of_segment": 54.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 66.578
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 4.407,
+          "pct_of_segment": 3.6,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 4.407
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 1.598,
+          "pct_of_segment": 1.3,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 1.598
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 1.714,
+          "pct_of_segment": 1.4,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 1.714
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 38.955,
+          "pct_of_segment": 31.6,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 38.955
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 123.374,
+          "as_of": "2022-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-14",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2022 data). Scorecard not yet scored -- dimensions to be filled in manually."
+        }
+      ]
+    },
+    {
+      "segment": "Non-life insurance",
+      "aum_bn": 12.19,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 0.21,
+          "pct_of_segment": 1.7,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.21
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 6.903,
+          "pct_of_segment": 56.6,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 6.903
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 4.588,
+          "pct_of_segment": 37.6,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 4.588
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 0.21,
+          "pct_of_segment": 1.7,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.21
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 0.022,
+          "pct_of_segment": 0.2,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.022
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 0.256,
+          "pct_of_segment": 2.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.256
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 12.19,
+          "as_of": "2022-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-14",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2022 data). Scorecard not yet scored -- dimensions to be filled in manually."
+        }
+      ]
     }
   ]
 }

@@ -3,7 +3,7 @@
   "country_name": "France",
   "reporting_period": "2026-07 (S&P export date)",
   "source_note": "Currency confirmed (2026-07-10): S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). These figures are USD. Category mapping and plan-type routing reused the established rule set from prior builds; no unresolved judgement calls for this country. Categories/institutions excluded from all pension segments (Reserve Banks and similar non-pension pools, or institutions with no DB/DC/E&F breakdown reported): Government ($0.84bn). 125 institutions tracked, $574.0bn tracked across all segments.",
-  "scorecard_note": "Not yet scored \u2014 none of the 12 opportunity-scorecard dimensions have been filled in for any France segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
+  "scorecard_note": "Not yet scored — none of the 12 opportunity-scorecard dimensions have been filled in for any France segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
   "allocation_note": "Built the same real-bottom-up way as every other country: summed actual plan-level AA lines into the six standard buckets, with ambiguous plan types (Investment Pool Funds, Hybrid DB/DC Plan, Other Retirement Fund) ratio-split across each institution's actual segments using the two-pass double-count-avoidance logic, and explicitly-named pools (Sovereign Wealth Fund, Endowment Fund, Foundation Fund Or Investment Pool, Other Tax-exempt Fund) routed directly. Same 5%-of-asset-type materiality threshold for style breakdowns.",
   "segments": [
     {
@@ -61,7 +61,7 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true,
@@ -69,7 +69,18 @@
         "top3_share_pct": 100.0,
         "hhi": 8656,
         "n_institutions": 2,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Caisse des Dépôts et Consignations",
+            "aum_bn": 306.94
+          },
+          {
+            "name": "Bpifrance Participations",
+            "aum_bn": 23.97
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
@@ -208,7 +219,7 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true,
@@ -216,12 +227,55 @@
         "top3_share_pct": 32.4,
         "hhi": 541,
         "n_institutions": 89,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "CARAC",
+            "aum_bn": 11.92
+          },
+          {
+            "name": "Electricité de France SA",
+            "aum_bn": 11.1
+          },
+          {
+            "name": "Total SA",
+            "aum_bn": 7.75
+          },
+          {
+            "name": "Groupe BPCE",
+            "aum_bn": 6.74
+          },
+          {
+            "name": "ENGIE",
+            "aum_bn": 5.79
+          },
+          {
+            "name": "L'Oréal SA",
+            "aum_bn": 4.12
+          },
+          {
+            "name": "Bouygues SA",
+            "aum_bn": 3.24
+          },
+          {
+            "name": "Atos SE",
+            "aum_bn": 2.52
+          },
+          {
+            "name": "Societe Generale Group",
+            "aum_bn": 2.33
+          },
+          {
+            "name": "Crédit Agricole Group",
+            "aum_bn": 2.3
+          }
+        ],
+        "top10_share_pct": 61.0
       }
     },
     {
       "segment": "DB Pension (Govt)",
-      "aum_bn": 91.879391,
+      "aum_bn": 192.97,
       "basis": "Bottom-up (S&P Money Manager Database export)",
       "scorecard": {},
       "allocation": [
@@ -331,14 +385,63 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-15",
+          "event": "data_correction",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "aum_bn corrected from 91.879391 to 192.97 bn. Institution-level total (all 10 of 10 institutions listed) sums to 192.970; allocation-derived total is 177.297 -- both roughly double the recorded aum_bn of 91.879. Corrected to the institution-level figure."
         }
       ],
       "concentration": {
         "top3_share_pct": 89.7,
         "hhi": 3343,
         "n_institutions": 10,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Bpifrance Financement",
+            "aum_bn": 100.36
+          },
+          {
+            "name": "Etablissement de Retraite Additionnelle de la Fonction Publique (ERAFP)",
+            "aum_bn": 45.73
+          },
+          {
+            "name": "Fonds de Reserve pour les Retraites (FRR)",
+            "aum_bn": 21.98
+          },
+          {
+            "name": "Banque de France",
+            "aum_bn": 14.69
+          },
+          {
+            "name": "Caisse de Retraite du Personnel Navigant (CRPN)",
+            "aum_bn": 5.05
+          },
+          {
+            "name": "Caisse d'Allocation Vieillesse des Agents (CAVAMAC)",
+            "aum_bn": 1.92
+          },
+          {
+            "name": "Le Sénat",
+            "aum_bn": 1.48
+          },
+          {
+            "name": "Caisse Nationale de Retraite des Industries Électriques et Gazières (CNIEG)",
+            "aum_bn": 0.84
+          },
+          {
+            "name": "Council of Europe",
+            "aum_bn": 0.79
+          },
+          {
+            "name": "SGAM AG2R La Mondiale",
+            "aum_bn": 0.13
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
@@ -438,14 +541,29 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 4062,
         "n_institutions": 3,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Ircantec",
+            "aum_bn": 18.97
+          },
+          {
+            "name": "AGRICA",
+            "aum_bn": 8.02
+          },
+          {
+            "name": "Caisse Autonome de Retraite des Médicins de France (CARMF)",
+            "aum_bn": 7.28
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
@@ -552,14 +670,25 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 6550,
         "n_institutions": 2,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Union Mutualiste Retraite (UMR)",
+            "aum_bn": 11.97
+          },
+          {
+            "name": "Caisse Nationale des Barreaux Français (CNBF)",
+            "aum_bn": 3.41
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
@@ -647,7 +776,7 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true,
@@ -655,7 +784,50 @@
         "top3_share_pct": 86.8,
         "hhi": 5061,
         "n_institutions": 11,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Fondation de France",
+            "aum_bn": 2.52
+          },
+          {
+            "name": "Medecins Sans Frontières",
+            "aum_bn": 0.41
+          },
+          {
+            "name": "Les Restaurants Du Coeur",
+            "aum_bn": 0.21
+          },
+          {
+            "name": "Fondation Asterix",
+            "aum_bn": 0.16
+          },
+          {
+            "name": "Secours Catholique",
+            "aum_bn": 0.12
+          },
+          {
+            "name": "Fondation Perce-Neige",
+            "aum_bn": 0.08
+          },
+          {
+            "name": "Les Petits Frères des Pauvres",
+            "aum_bn": 0.05
+          },
+          {
+            "name": "UNICEF France",
+            "aum_bn": 0.03
+          },
+          {
+            "name": "Banques Alimentaires",
+            "aum_bn": 0.02
+          },
+          {
+            "name": "CGIAR",
+            "aum_bn": 0.01
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
@@ -775,14 +947,25 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 9173,
         "n_institutions": 2,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Framatome Inc.",
+            "aum_bn": 1.3
+          },
+          {
+            "name": "Boiron SA",
+            "aum_bn": 0.08
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
@@ -833,7 +1016,7 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
@@ -887,14 +1070,29 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 6333,
         "n_institutions": 3,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Institut Curie",
+            "aum_bn": 0.33
+          },
+          {
+            "name": "Groupe Hospitalier Paris Saint-Joseph",
+            "aum_bn": 0.05
+          },
+          {
+            "name": "La Fondation Hôpital Saint Joseph",
+            "aum_bn": 0.04
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
@@ -918,7 +1116,7 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true,
@@ -926,8 +1124,199 @@
         "top3_share_pct": 100.0,
         "hhi": 10000,
         "n_institutions": 1,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "INSEAD",
+            "aum_bn": 0.41
+          }
+        ],
+        "top10_share_pct": 100.0
       }
+    },
+    {
+      "segment": "Life insurance",
+      "aum_bn": 862.945,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 55.118,
+          "pct_of_segment": 6.4,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 55.118
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 382.134,
+          "pct_of_segment": 44.3,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 382.134
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 14.484,
+          "pct_of_segment": 1.7,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 14.484
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 13.732,
+          "pct_of_segment": 1.6,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 13.732
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 31.573,
+          "pct_of_segment": 3.7,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 31.573
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 365.903,
+          "pct_of_segment": 42.4,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 365.903
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 862.945,
+          "as_of": "2024-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-14",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2024 data). Scorecard not yet scored -- dimensions to be filled in manually."
+        }
+      ]
+    },
+    {
+      "segment": "Non-life insurance",
+      "aum_bn": 281.084,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 84.994,
+          "pct_of_segment": 30.2,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 84.994
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 126.018,
+          "pct_of_segment": 44.8,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 126.018
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 14.987,
+          "pct_of_segment": 5.3,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 14.987
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 6.122,
+          "pct_of_segment": 2.2,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 6.122
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 6.733,
+          "pct_of_segment": 2.4,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 6.733
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 42.229,
+          "pct_of_segment": 15.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 42.229
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 281.084,
+          "as_of": "2024-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-14",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2024 data). Scorecard not yet scored -- dimensions to be filled in manually."
+        }
+      ]
     }
   ]
 }

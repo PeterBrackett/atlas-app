@@ -3,7 +3,7 @@
   "country_name": "New Zealand",
   "reporting_period": "2026-07 (S&P export date)",
   "source_note": "Currency confirmation is still an open item, as with other countries -- figures are inferred from context rather than stated explicitly by the source data; see the pending cross-country currency question in Sources & Methodology. Category mapping and plan-type routing reused the established rule set from prior builds; no unresolved judgement calls for this country. Categories/institutions excluded from all pension segments (Reserve Banks and similar non-pension pools, or institutions with no DB/DC/E&F breakdown reported): Government ($53.14bn); Reserve Banks ($44.73bn). 64 institutions tracked, $64.4bn tracked across all segments.",
-  "scorecard_note": "Not yet scored \u2014 none of the 12 opportunity-scorecard dimensions have been filled in for any New Zealand segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
+  "scorecard_note": "Not yet scored — none of the 12 opportunity-scorecard dimensions have been filled in for any New Zealand segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
   "allocation_note": "Built the same real-bottom-up way as every other country: summed actual plan-level AA lines into the six standard buckets, with ambiguous plan types (Investment Pool Funds, Hybrid DB/DC Plan, Other Retirement Fund) ratio-split across each institution's actual segments using the two-pass double-count-avoidance logic, and explicitly-named pools (Sovereign Wealth Fund, Endowment Fund, Foundation Fund Or Investment Pool, Other Tax-exempt Fund) routed directly. Same 5%-of-asset-type materiality threshold for style breakdowns.",
   "segments": [
     {
@@ -134,7 +134,7 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true,
@@ -142,7 +142,38 @@
         "top3_share_pct": 70.3,
         "hhi": 1974,
         "n_institutions": 10,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Fisher Funds",
+            "aum_bn": 6.51
+          },
+          {
+            "name": "AMP KiwiSaver Scheme",
+            "aum_bn": 4.39
+          },
+          {
+            "name": "Booster KiwiSaver Scheme",
+            "aum_bn": 3.95
+          },
+          {
+            "name": "SuperLife",
+            "aum_bn": 3.65
+          },
+          {
+            "name": "NZ Funds KiwiSaver Scheme",
+            "aum_bn": 0.61
+          },
+          {
+            "name": "Craigs Investment Partners Limited",
+            "aum_bn": 0.52
+          },
+          {
+            "name": "Rio Tinto Alcan (New Zealand) Ltd.",
+            "aum_bn": 0.11
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
@@ -289,19 +320,62 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 43.3,
         "hhi": 896,
         "n_institutions": 28,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Foundation North",
+            "aum_bn": 1.09
+          },
+          {
+            "name": "Ngati Whatua Orakei Trust",
+            "aum_bn": 0.82
+          },
+          {
+            "name": "Ngai Tahu Charitable Group",
+            "aum_bn": 0.74
+          },
+          {
+            "name": "Dilworth School",
+            "aum_bn": 0.54
+          },
+          {
+            "name": "Southern Cross Medical Care Society",
+            "aum_bn": 0.44
+          },
+          {
+            "name": "Selwyn Foundation",
+            "aum_bn": 0.43
+          },
+          {
+            "name": "Central Lakes Trust",
+            "aum_bn": 0.23
+          },
+          {
+            "name": "New Zealand Methodist Trust Association",
+            "aum_bn": 0.2
+          },
+          {
+            "name": "Salvation Army New Zealand Group",
+            "aum_bn": 0.19
+          },
+          {
+            "name": "University of Otago Foundation Trust",
+            "aum_bn": 0.19
+          }
+        ],
+        "top10_share_pct": 79.5
       }
     },
     {
       "segment": "DB Pension (Corp)",
-      "aum_bn": 5.890801,
+      "aum_bn": 62.17,
       "basis": "Bottom-up (S&P Money Manager Database export)",
       "scorecard": {},
       "allocation": [
@@ -423,14 +497,63 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-15",
+          "event": "data_correction",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "aum_bn corrected from 5.890801 to 62.17 bn. Institution-level total (all 10 of 10 institutions listed) sums to 62.170; allocation-derived total is 36.967 -- both well above the recorded aum_bn of 5.891. Corrected to the institution-level figure."
         }
       ],
       "concentration": {
         "top3_share_pct": 78.9,
         "hhi": 2780,
         "n_institutions": 10,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Accident Compensation Corporation",
+            "aum_bn": 33.85
+          },
+          {
+            "name": "ANZ Investments KiwiSaver",
+            "aum_bn": 12.26
+          },
+          {
+            "name": "ASB KiwiSaver Scheme",
+            "aum_bn": 11.15
+          },
+          {
+            "name": "Mercer N.Z.",
+            "aum_bn": 2.06
+          },
+          {
+            "name": "Medical Assurance Society",
+            "aum_bn": 1.63
+          },
+          {
+            "name": "New Zealand Fire Service Superannuation Scheme",
+            "aum_bn": 0.35
+          },
+          {
+            "name": "Westpac New Zealand Ltd.",
+            "aum_bn": 0.3
+          },
+          {
+            "name": "Fletcher Building Ltd.",
+            "aum_bn": 0.22
+          },
+          {
+            "name": "Bank of New Zealand",
+            "aum_bn": 0.18
+          },
+          {
+            "name": "New Zealand Steel Ltd.",
+            "aum_bn": 0.17
+          }
+        ],
+        "top10_share_pct": 99.8
       }
     },
     {
@@ -522,7 +645,7 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true,
@@ -530,7 +653,34 @@
         "top3_share_pct": 100.0,
         "hhi": 7251,
         "n_institutions": 3,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "New Zealand Superannuation Fund",
+            "aum_bn": 52.55
+          },
+          {
+            "name": "Government Superannuation Fund",
+            "aum_bn": 3.48
+          },
+          {
+            "name": "National Provident Fund",
+            "aum_bn": 0.58
+          },
+          {
+            "name": "Earthquake Commission",
+            "aum_bn": 0.34
+          },
+          {
+            "name": "New Plymouth District Council",
+            "aum_bn": 0.25
+          },
+          {
+            "name": "New Zealand Local Government Insurance Corporation Ltd.",
+            "aum_bn": 0.07
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
@@ -673,14 +823,29 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 3822,
         "n_institutions": 3,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "UniSaver New Zealand",
+            "aum_bn": 1.19
+          },
+          {
+            "name": "Dairy Industry Superannuation Scheme",
+            "aum_bn": 0.67
+          },
+          {
+            "name": "Teachers Retirement Savings Scheme",
+            "aum_bn": 0.48
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
@@ -727,14 +892,21 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 10000,
         "n_institutions": 1,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Police Super Scheme",
+            "aum_bn": 1.61
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
@@ -845,7 +1017,7 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true,
@@ -853,7 +1025,26 @@
         "top3_share_pct": 97.4,
         "hhi": 3308,
         "n_institutions": 4,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "St Johns College Trust",
+            "aum_bn": 0.39
+          },
+          {
+            "name": "University of Auckland Foundation",
+            "aum_bn": 0.29
+          },
+          {
+            "name": "University of Canterbury",
+            "aum_bn": 0.24
+          },
+          {
+            "name": "Victoria University of Wellington",
+            "aum_bn": 0.02
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
@@ -922,14 +1113,25 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 5172,
         "n_institutions": 2,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "New Zealand Local Government Insurance Corporation Ltd.",
+            "aum_bn": 0.32
+          },
+          {
+            "name": "National Provident Fund",
+            "aum_bn": 0.26
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
@@ -998,7 +1200,7 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {

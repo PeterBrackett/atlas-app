@@ -3,7 +3,7 @@
   "country_name": "Brazil",
   "reporting_period": "2026-07 (S&P export date)",
   "source_note": "Currency confirmed: S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). These figures are USD. Category mapping and plan-type routing reused the established rule set from prior builds; no unresolved judgement calls for this country. Categories/institutions excluded from all pension segments (Reserve Banks and similar non-pension pools, or institutions with no DB/DC/E&F breakdown reported): none material. 171 institutions tracked, $215.2bn tracked across all segments.",
-  "scorecard_note": "Not yet scored \u2014 none of the 12 opportunity-scorecard dimensions have been filled in for any Brazil segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
+  "scorecard_note": "Not yet scored — none of the 12 opportunity-scorecard dimensions have been filled in for any Brazil segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
   "allocation_note": "Built the same real-bottom-up way as every other country: summed actual plan-level AA lines into the six standard buckets, with ambiguous plan types (Investment Pool Funds, Hybrid DB/DC Plan, Other Retirement Fund) ratio-split across each institution's actual segments using the two-pass double-count-avoidance logic, and explicitly-named pools (Sovereign Wealth Fund, Endowment Fund, Foundation Fund Or Investment Pool, Other Tax-exempt Fund) routed directly. Same 5%-of-asset-type materiality threshold for style breakdowns.",
   "segments": [
     {
@@ -146,7 +146,7 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true,
@@ -154,7 +154,50 @@
         "top3_share_pct": 20.6,
         "hhi": 259,
         "n_institutions": 155,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Previ - Caixa de Previdencia dos Funcionarios do Banco do Brasil",
+            "aum_bn": 8.43
+          },
+          {
+            "name": "Vale S.A. - VALIA",
+            "aum_bn": 6.82
+          },
+          {
+            "name": "Banespa - Banco do Estado de São Paulo - BANESPREV",
+            "aum_bn": 5.28
+          },
+          {
+            "name": "Forluz - Fundacao Forluminas de Seguridade Social",
+            "aum_bn": 4.37
+          },
+          {
+            "name": "Fapes - Fundacao de Assistencia e Previdencia Social do BNDES",
+            "aum_bn": 3.56
+          },
+          {
+            "name": "BNDES Participações SA",
+            "aum_bn": 2.59
+          },
+          {
+            "name": "Serpros - Fundo Multipatrocinado",
+            "aum_bn": 2.46
+          },
+          {
+            "name": "Postalis- Instituto de Seguridade Social dos Correios e Telegrafos",
+            "aum_bn": 2.44
+          },
+          {
+            "name": "Ceres - Fundação de Seguridade Social",
+            "aum_bn": 2.21
+          },
+          {
+            "name": "TELOS - Fundação Embratel de Seguridade Social",
+            "aum_bn": 2.19
+          }
+        ],
+        "top10_share_pct": 40.5
       }
     },
     {
@@ -269,7 +312,7 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true,
@@ -277,12 +320,55 @@
         "top3_share_pct": 68.7,
         "hhi": 2448,
         "n_institutions": 45,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Funcef - Fundação dos Economiários Federais",
+            "aum_bn": 8.63
+          },
+          {
+            "name": "Inovar Previdencia",
+            "aum_bn": 3.25
+          },
+          {
+            "name": "Fundação Previdenciária IBM",
+            "aum_bn": 1.18
+          },
+          {
+            "name": "Vexty",
+            "aum_bn": 0.96
+          },
+          {
+            "name": "Bandeprev Previdencia Social",
+            "aum_bn": 0.47
+          },
+          {
+            "name": "Fundacao CESP - Vivest",
+            "aum_bn": 0.32
+          },
+          {
+            "name": "Prhosper- Previdencia Rhodia",
+            "aum_bn": 0.31
+          },
+          {
+            "name": "Previ - Caixa de Previdencia dos Funcionarios do Banco do Brasil",
+            "aum_bn": 0.31
+          },
+          {
+            "name": "PRECE - Previdencia Companhia Estadual de Aguas e Esgotos (CEDAE)",
+            "aum_bn": 0.29
+          },
+          {
+            "name": "Previg - Sociedade de Previdência Complementar",
+            "aum_bn": 0.25
+          }
+        ],
+        "top10_share_pct": 84.0
       }
     },
     {
       "segment": "DB Pension (Govt)",
-      "aum_bn": 6.921995,
+      "aum_bn": 7.97,
       "basis": "Bottom-up (S&P Money Manager Database export)",
       "scorecard": {},
       "allocation": [
@@ -396,14 +482,43 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-15",
+          "event": "data_correction",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "aum_bn corrected from 6.921995 to 7.97 bn. Institution-level total (concentration.top_institutions, all 5 of 5 institutions listed) sums to 7.970, closely matching the allocation-derived total of 7.957 -- both independently ~15% above the recorded aum_bn of 6.922. Corrected to the institution-level figure."
         }
       ],
       "concentration": {
         "top3_share_pct": 99.2,
         "hhi": 4957,
         "n_institutions": 5,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Fundacao Sistel de Seguridade Social",
+            "aum_bn": 4.6
+          },
+          {
+            "name": "Real Grandeza Fundação de Previdencia e Assistencia Social",
+            "aum_bn": 3.2
+          },
+          {
+            "name": "FUNASA Fundação Nacional de Saúde (CAPESESP)",
+            "aum_bn": 0.1
+          },
+          {
+            "name": "Companhia de Saneamento Ambiental do Distrito Federal (CAESB)",
+            "aum_bn": 0.06
+          },
+          {
+            "name": "Data Prev - Empresa de Tecnologia e Informações da Previdência Social",
+            "aum_bn": 0.01
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
@@ -506,14 +621,29 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 6434,
         "n_institutions": 3,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Real Grandeza Fundação de Previdencia e Assistencia Social",
+            "aum_bn": 0.47
+          },
+          {
+            "name": "Data Prev - Empresa de Tecnologia e Informações da Previdência Social",
+            "aum_bn": 0.14
+          },
+          {
+            "name": "Companhia de Saneamento Ambiental do Distrito Federal (CAESB)",
+            "aum_bn": 0.0
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
@@ -575,7 +705,191 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        }
+      ]
+    },
+    {
+      "segment": "Life insurance",
+      "aum_bn": 198.96,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 0.035,
+          "pct_of_segment": 0.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.035
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 8.951,
+          "pct_of_segment": 4.5,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 8.951
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 0.191,
+          "pct_of_segment": 0.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.191
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 0.025,
+          "pct_of_segment": 0.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.025
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 1.088,
+          "pct_of_segment": 0.5,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 1.088
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 188.669,
+          "pct_of_segment": 94.8,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 188.669
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 198.96,
+          "as_of": "2023-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-14",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2023 data). Scorecard not yet scored -- dimensions to be filled in manually."
+        }
+      ]
+    },
+    {
+      "segment": "Non-life insurance",
+      "aum_bn": 3.576,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 0.001,
+          "pct_of_segment": 0.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.001
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 2.098,
+          "pct_of_segment": 58.7,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 2.098
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 0.059,
+          "pct_of_segment": 1.7,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.059
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 0.012,
+          "pct_of_segment": 0.3,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.012
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 0.052,
+          "pct_of_segment": 1.5,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.052
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 1.355,
+          "pct_of_segment": 37.9,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 1.355
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 3.576,
+          "as_of": "2023-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-14",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2023 data). Scorecard not yet scored -- dimensions to be filled in manually."
         }
       ]
     }

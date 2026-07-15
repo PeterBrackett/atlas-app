@@ -3,7 +3,7 @@
   "country_name": "Hong Kong",
   "reporting_period": "2026-07 (S&P export date)",
   "source_note": "Currency confirmation is still an open item, as with other countries -- figures are inferred from context rather than stated explicitly by the source data; see the pending cross-country currency question in Sources & Methodology. Category mapping and plan-type routing reused the established rule set from prior builds; no unresolved judgement calls for this country. Categories/institutions excluded from all pension segments (Reserve Banks and similar non-pension pools, or institutions with no DB/DC/E&F breakdown reported): Government ($33.89bn). 55 institutions tracked, $660.2bn tracked across all segments.",
-  "scorecard_note": "Not yet scored \u2014 none of the 12 opportunity-scorecard dimensions have been filled in for any Hong Kong segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
+  "scorecard_note": "Not yet scored — none of the 12 opportunity-scorecard dimensions have been filled in for any Hong Kong segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
   "allocation_note": "Built the same real-bottom-up way as every other country: summed actual plan-level AA lines into the six standard buckets, with ambiguous plan types (Investment Pool Funds, Hybrid DB/DC Plan, Other Retirement Fund) ratio-split across each institution's actual segments using the two-pass double-count-avoidance logic, and explicitly-named pools (Sovereign Wealth Fund, Endowment Fund, Foundation Fund Or Investment Pool, Other Tax-exempt Fund) routed directly. Same 5%-of-asset-type materiality threshold for style breakdowns.",
   "segments": [
     {
@@ -39,14 +39,21 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 10000,
         "n_institutions": 1,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Hong Kong Monetary Authority Investment Portfolio",
+            "aum_bn": 446.68
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
@@ -177,7 +184,7 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true,
@@ -185,7 +192,50 @@
         "top3_share_pct": 57.4,
         "hhi": 1520,
         "n_institutions": 16,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Manulife (International) Limited",
+            "aum_bn": 41.09
+          },
+          {
+            "name": "HSBC MPF",
+            "aum_bn": 26.52
+          },
+          {
+            "name": "American International Assurance Company (Trustee) Ltd.",
+            "aum_bn": 17.25
+          },
+          {
+            "name": "Sun Life Rainbow MPF",
+            "aum_bn": 16.35
+          },
+          {
+            "name": "BOCI-Prudential Trustee Ltd.",
+            "aum_bn": 12.37
+          },
+          {
+            "name": "Hospital Authority",
+            "aum_bn": 9.39
+          },
+          {
+            "name": "Bank Consortium Trust Co., Ltd.",
+            "aum_bn": 7.99
+          },
+          {
+            "name": "FIL Investment Management (Hong Kong) Ltd.",
+            "aum_bn": 6.46
+          },
+          {
+            "name": "Principal Trust Company Asia MPF",
+            "aum_bn": 2.76
+          },
+          {
+            "name": "Invesco Strategic MPF Scheme",
+            "aum_bn": 2.59
+          }
+        ],
+        "top10_share_pct": 97.3
       }
     },
     {
@@ -308,7 +358,7 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true,
@@ -316,7 +366,26 @@
         "top3_share_pct": 98.6,
         "hhi": 6610,
         "n_institutions": 5,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "West Kowloon Cultural District Authority",
+            "aum_bn": 3.48
+          },
+          {
+            "name": "The Croucher Foundation",
+            "aum_bn": 0.28
+          },
+          {
+            "name": "Hong Kong International School Association Ltd.",
+            "aum_bn": 0.23
+          },
+          {
+            "name": "Hong Kong Red Cross",
+            "aum_bn": 0.05
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
@@ -443,7 +512,7 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true,
@@ -451,7 +520,34 @@
         "top3_share_pct": 65.6,
         "hhi": 1779,
         "n_institutions": 8,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Hong Kong Metropolitan University",
+            "aum_bn": 3.79
+          },
+          {
+            "name": "Hong Kong University of Science & Technology",
+            "aum_bn": 2.65
+          },
+          {
+            "name": "Hong Kong Polytechnic University",
+            "aum_bn": 1.61
+          },
+          {
+            "name": "City University of Hong Kong",
+            "aum_bn": 1.11
+          },
+          {
+            "name": "Hong Kong Baptist University",
+            "aum_bn": 1.04
+          },
+          {
+            "name": "Lingnan University",
+            "aum_bn": 0.16
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
@@ -582,7 +678,7 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true,
@@ -590,12 +686,55 @@
         "top3_share_pct": 62.2,
         "hhi": 1952,
         "n_institutions": 20,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "BEA Master Trust Scheme",
+            "aum_bn": 5.32
+          },
+          {
+            "name": "CK Hutchison Holdings Ltd.",
+            "aum_bn": 2.13
+          },
+          {
+            "name": "MTR Corporation Ltd.",
+            "aum_bn": 2.1
+          },
+          {
+            "name": "Hong Kong & Shanghai Banking Corporation Ltd.",
+            "aum_bn": 1.06
+          },
+          {
+            "name": "Cathay Pacific Airways Ltd.",
+            "aum_bn": 0.68
+          },
+          {
+            "name": "Jardine Matheson Holdings Ltd.",
+            "aum_bn": 0.58
+          },
+          {
+            "name": "Swire Pacific Ltd.",
+            "aum_bn": 0.46
+          },
+          {
+            "name": "Hang Seng Bank Ltd.",
+            "aum_bn": 0.44
+          },
+          {
+            "name": "HK Electric Investments Ltd.",
+            "aum_bn": 0.42
+          },
+          {
+            "name": "Lenovo Group Ltd.",
+            "aum_bn": 0.4
+          }
+        ],
+        "top10_share_pct": 91.3
       }
     },
     {
       "segment": "DB Pension (Govt)",
-      "aum_bn": 12.987748,
+      "aum_bn": 282.05,
       "basis": "Bottom-up (S&P Money Manager Database export)",
       "scorecard": {},
       "allocation": [
@@ -667,14 +806,43 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-15",
+          "event": "data_correction",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "aum_bn corrected from 12.987748 to 282.05 bn. aum_bn (12.988) was ~20x smaller than both the institution-level total (282.050, summing the 5 listed institutions) and the allocation-derived total (248.156). concentration.n_institutions also incorrectly said 1 despite 5 institutions being listed -- corrected both fields to the institution-level figures."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 10000,
-        "n_institutions": 1,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "n_institutions": 5,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "The Treasury of Hong Kong S.A.R.",
+            "aum_bn": 248.16
+          },
+          {
+            "name": "The Hong Kong Mortgage Corporation Ltd.",
+            "aum_bn": 24.95
+          },
+          {
+            "name": "Hong Kong Housing Authority",
+            "aum_bn": 7.65
+          },
+          {
+            "name": "Mandatory Provident Fund Authority",
+            "aum_bn": 0.68
+          },
+          {
+            "name": "Securities & Futures Commission",
+            "aum_bn": 0.61
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
@@ -762,14 +930,21 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 10000,
         "n_institutions": 1,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "The Hong Kong Jockey Club",
+            "aum_bn": 15.72
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
@@ -827,7 +1002,7 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true,
@@ -835,7 +1010,18 @@
         "top3_share_pct": 100.0,
         "hhi": 7073,
         "n_institutions": 3,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "University of Hong Kong",
+            "aum_bn": 4.82
+          },
+          {
+            "name": "Chinese University of Hong Kong",
+            "aum_bn": 3.97
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
@@ -859,7 +1045,7 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true,
@@ -869,6 +1055,146 @@
         "n_institutions": 1,
         "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
       }
+    },
+    {
+      "segment": "Life insurance",
+      "aum_bn": 395.958,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 36.16,
+          "pct_of_segment": 9.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 36.16
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 222.631,
+          "pct_of_segment": 56.2,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 222.631
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 13.896,
+          "pct_of_segment": 3.5,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 13.896
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 123.27,
+          "pct_of_segment": 31.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 123.27
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 395.958,
+          "as_of": "2024-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-14",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2024 data). Scorecard not yet scored -- dimensions to be filled in manually."
+        }
+      ]
+    },
+    {
+      "segment": "Non-life insurance",
+      "aum_bn": 20.562,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 0.608,
+          "pct_of_segment": 3.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.608
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 8.515,
+          "pct_of_segment": 41.4,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 8.515
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 6.886,
+          "pct_of_segment": 33.5,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 6.886
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 4.554,
+          "pct_of_segment": 22.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 4.554
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 20.562,
+          "as_of": "2024-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-14",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2024 data). Scorecard not yet scored -- dimensions to be filled in manually."
+        }
+      ]
     }
   ]
 }
