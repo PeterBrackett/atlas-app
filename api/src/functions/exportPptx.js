@@ -111,7 +111,12 @@ function buildAumTableRows(rows) {
 function buildScorecardTableRows(matrix) {
   const headerLabels = ['Dimension', ...matrix.columnLabels];
   const bodyText = matrix.rows.map((row) => [row.label, ...row.values]);
-  const maxCharsPerCol = [40, ...matrix.columnLabels.map(() => 6)];
+  // 46, not 40 -- room for the longest label plus the " (off)" suffix
+  // buildScorecardMatrix() appends when a dimension is toggled off (see the
+  // "toggle factors on/off" feature), e.g. "Distribution resources
+  // required (x1) (off)" at 43 chars. Still needs to fit on one line for
+  // the icon-alignment math above to hold.
+  const maxCharsPerCol = [46, ...matrix.columnLabels.map(() => 6)];
   const colW = estimateColumnCharWidths(headerLabels, bodyText, { minChars: 3, maxCharsPerCol }).map(charsToInches);
 
   const header = headerLabels.map((t) => ({
@@ -233,9 +238,9 @@ function addTopInstitutionsSlides(pptx, countryName, segments) {
 // (country.html) and the multi-country payload (picker.html's project
 // builder), so a project export is just this repeated once per selected
 // country.
-function addCountrySlides(pptx, countryName, segments, generatedDate) {
+function addCountrySlides(pptx, countryName, segments, generatedDate, enabledDimensions) {
   const aumRows = buildAumRows(segments);
-  const matrix = buildScorecardMatrix(segments);
+  const matrix = buildScorecardMatrix(segments, enabledDimensions);
 
   const aumSlide = addAtlasSlide(pptx);
   aumSlide.addText(`Atlas — ${countryName}`, { x: TITLE_X, y: 0.25, fontSize: 24, bold: true });
@@ -307,7 +312,7 @@ app.http('exportPptx', {
         titleSlide.addText(`Generated ${generatedDate} — ${countries.map((c) => c.country_name).join(', ')}`, { x: 0.4, y: 3.6, fontSize: 14, color: '666666' });
       }
 
-      countries.forEach((c) => addCountrySlides(pptx, c.country_name, c.segments, generatedDate));
+      countries.forEach((c) => addCountrySlides(pptx, c.country_name, c.segments, generatedDate, body.enabled_dimensions));
 
       const buffer = await pptx.write({ outputType: 'nodebuffer' });
 

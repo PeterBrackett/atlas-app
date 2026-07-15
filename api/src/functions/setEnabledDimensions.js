@@ -10,14 +10,15 @@ const DATA_FOLDER = 'AtlasData';
 // Same authorisation model as the other write endpoints.
 const ALLOWED_EDITOR_EMAIL = (process.env.ATLAS_ALLOWED_EDITOR_EMAIL || '').toLowerCase();
 
-// Which top-level global.json fields this endpoint is allowed to write --
-// an explicit allow-list rather than accepting any key name, so a client
-// bug can't stomp on an unrelated part of global.json (e.g. `countries`).
-const ALLOWED_BASIS_KEYS = [
-  'market_opportunity_basis', 'regulatory_complexity_basis', 'distribution_resources_basis',
-  'languages_required_basis', 'local_presence_required_basis', 'client_servicing_basis',
-  'consultant_reliant_basis', 'pricing_impact_basis', 'outsourced_management_basis',
-  'comingled_vehicles_basis', 'investor_decision_making_basis'
+// Kept in sync with SCORECARD_DIMENSIONS in scorecard-dimensions.js /
+// exportHelpers.js -- an explicit allow-list of dimension keys, same reason
+// as VALID_DIMENSIONS in setScorecardGlobal.js.
+const VALID_DIMENSIONS = [
+  'market_opportunity', 'outsourced_management', 'pricing_impact',
+  'alignment_of_investment_thinking', 'distribution_resources_required',
+  'regulatory_complexity', 'client_servicing', 'local_presence_required',
+  'languages_required', 'investor_decision_making', 'comingled_vehicles',
+  'consultant_reliant'
 ];
 
 let msalClient;
@@ -52,20 +53,20 @@ function getClientPrincipal(request) {
   }
 }
 
-// Generalised version of the original setMarketOpportunityBasis.js --
-// records what a bulk auto-score run (setScorecardGlobal.js) was actually
-// based on onto global.json itself, keyed by an allow-listed basis field
-// name, so the front page can show a "here's what this was based on"
-// reminder for more than one dimension without a near-duplicate endpoint
-// per dimension. First used for Market opportunity (asset allocation
-// thresholds); Regulatory complexity (TMF rank thresholds) is the second.
-// Supersedes setMarketOpportunityBasis.js -- delete that file if it was
-// already deployed, this one replaces it (same global.json field name for
-// market_opportunity_basis, so nothing already saved needs migrating).
-app.http('setScorecardBasis', {
+// Saves the global "which scorecard dimensions count toward Overall" toggle
+// (Peter's 2026-07-15 request) onto global.json's top-level
+// enabled_dimensions field -- a plain {dimensionKey: boolean} map, missing
+// keys defaulting to enabled (see isDimensionEnabled() in
+// scorecard-dimensions.js / exportHelpers.js). Global and persisted, not a
+// per-session filter: every reader of overview.html/country.html/picker.html
+// and every Word/PPT export sees the same enabled/disabled set once saved,
+// same as the *_basis reminders setScorecardBasis.js writes. Replaces the
+// whole map on each save (not a per-key patch) since the client always
+// sends the full 12-entry state from its checkboxes.
+app.http('setEnabledDimensions', {
   methods: ['POST'],
   authLevel: 'anonymous',
-  route: 'global/set-scorecard-basis',
+  route: 'global/set-enabled-dimensions',
   handler: async (request, context) => {
     const principal = getClientPrincipal(request);
     const userEmail = ((principal && principal.userDetails) || '').toLowerCase();
@@ -84,12 +85,17 @@ app.http('setScorecardBasis', {
       return { status: 400, jsonBody: { error: 'Invalid request body' } };
     }
 
-    const { basis_key, basis } = body || {};
-    if (!basis_key || !ALLOWED_BASIS_KEYS.includes(basis_key)) {
-      return { status: 400, jsonBody: { error: `Unknown or missing basis_key. Allowed: ${ALLOWED_BASIS_KEYS.join(', ')}` } };
+    const { enabled_dimensions } = body || {};
+    if (!enabled_dimensions || typeof enabled_dimensions !== 'object' || Array.isArray(enabled_dimensions)) {
+      return { status: 400, jsonBody: { error: 'enabled_dimensions object is required' } };
     }
-    if (!basis || typeof basis !== 'object') {
-      return { status: 400, jsonBody: { error: 'basis object is required' } };
+    for (const key of Object.keys(enabled_dimensions)) {
+      if (!VALID_DIMENSIONS.includes(key)) {
+        return { status: 400, jsonBody: { error: `Unknown scorecard dimension: ${key}` } };
+      }
+      if (typeof enabled_dimensions[key] !== 'boolean') {
+        return { status: 400, jsonBody: { error: `enabled_dimensions.${key} must be a boolean` } };
+      }
     }
 
     const fileName = 'global.json';
@@ -109,11 +115,9 @@ app.http('setScorecardBasis', {
       }
       const data = await getResp.json();
 
-      data[basis_key] = {
-        ...basis,
-        applied_date: new Date().toISOString().slice(0, 10),
-        applied_by: userEmail
-      };
+      data.enabled_dimensions = enabled_dimensions;
+      data.enabled_dimensions_updated_date = new Date().toISOString().slice(0, 10);
+      data.enabled_dimensions_updated_by = userEmail;
 
       const putResp = await fetch(`${graphBase}:/content`, {
         method: 'PUT',
@@ -130,7 +134,15 @@ app.http('setScorecardBasis', {
         return { status: 502, jsonBody: { error: 'Could not save changes to SharePoint', status: putResp.status } };
       }
 
-      return { status: 200, jsonBody: { success: true, basis_key, basis: data[basis_key] } };
+      return {
+        status: 200,
+        jsonBody: {
+          success: true,
+          enabled_dimensions: data.enabled_dimensions,
+          updated_date: data.enabled_dimensions_updated_date,
+          updated_by: data.enabled_dimensions_updated_by
+        }
+      };
     } catch (err) {
       context.error(err);
       return { status: 500, jsonBody: { error: 'Server error updating global.json', detail: err.message } };

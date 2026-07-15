@@ -132,7 +132,11 @@ function buildAumTable(rows) {
 function buildScorecardTable(matrix) {
   const headerLabels = ['Dimension', ...matrix.columnLabels];
   const bodyText = matrix.rows.map((row) => [row.label, ...row.values]);
-  const maxCharsPerCol = [34, ...matrix.columnLabels.map(() => 6)];
+  // 46, not 34 -- room for the longest label plus the " (off)" suffix
+  // buildScorecardMatrix() appends when a dimension is toggled off (see the
+  // "toggle factors on/off" feature), e.g. "Distribution resources
+  // required (x1) (off)" at 43 chars.
+  const maxCharsPerCol = [46, ...matrix.columnLabels.map(() => 6)];
   const widths = estimateColumnCharWidths(headerLabels, bodyText, { minChars: 3, maxCharsPerCol }).map(charsToDxa);
   widths[0] += 260; // room for the dimension icon alongside the label
 
@@ -200,9 +204,9 @@ function buildTopInstitutionsBlock(segments) {
 // (picker.html's project builder) so a project export is just this block
 // repeated once per selected country, rather than a separate document
 // layout to maintain.
-function buildCountrySection(countryName, segments, { headingLevel = HeadingLevel.HEADING_1, pageBreakBefore = false } = {}) {
+function buildCountrySection(countryName, segments, { headingLevel = HeadingLevel.HEADING_1, pageBreakBefore = false, enabledDimensions } = {}) {
   const aumRows = buildAumRows(segments);
-  const matrix = buildScorecardMatrix(segments);
+  const matrix = buildScorecardMatrix(segments, enabledDimensions);
   const heading = new Paragraph({
     heading: headingLevel,
     children: [
@@ -263,7 +267,8 @@ app.http('exportDocx', {
       countries.forEach((c, i) => {
         children.push(...buildCountrySection(c.country_name, c.segments, {
           headingLevel: isMulti ? HeadingLevel.HEADING_1 : HeadingLevel.HEADING_1,
-          pageBreakBefore: isMulti && i > 0
+          pageBreakBefore: isMulti && i > 0,
+          enabledDimensions: body.enabled_dimensions
         }));
       });
 
