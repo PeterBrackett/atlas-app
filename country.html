@@ -51,6 +51,7 @@
         <th class="numeric">AUM (bn)</th>
         <th class="numeric">Equities (bn)</th>
         <th>Basis</th>
+        <th class="numeric" title="Not every institution counted in AUM also reported an asset-class breakdown. Min = reported figure as-is (assumes non-reporters hold none of this asset class). Max = reported figure scaled up to the segment's full AUM (assumes non-reporters have the same mix as reporters). See Sources &amp; Methodology.">Equities range (min–max)</th>
       </tr>
     </thead>
     <tbody id="segment-rows"></tbody>
@@ -549,7 +550,7 @@ function renderScorecardMatrix() {
   const allocRow = `<tr><td class="matrix-rowlabel" title="Selected via the dropdowns above the matrix">${allocLabel}</td>${
     segs.map(s => {
       const result = getAllocationValue(s, CURRENT_ALLOC_TYPE, CURRENT_ALLOC_STYLE);
-      return numberCell(result ? result.value_bn : null, 2);
+      return `<td class="numeric">${result ? formatAllocationRange(getAllocationRange(s, CURRENT_ALLOC_TYPE, CURRENT_ALLOC_STYLE)) : '—'}</td>`;
     }).join('')
   }</tr>`;
 
@@ -896,7 +897,7 @@ async function load() {
 
     return `
       <tr>
-        <td colspan="4" style="padding-top:0; padding-bottom:12px;">
+        <td colspan="5" style="padding-top:0; padding-bottom:12px;">
           ${hasMultiple ? `<div style="font-size:0.78rem; color:var(--muted); margin-bottom:2px;">All sources for this segment:</div>${sourceRowsHtml}` : ''}
           ${historyHtml}
           ${editControls}
@@ -907,12 +908,14 @@ async function load() {
 
   const rows = segments.map((s, i) => {
     const equity = getAllocationValue(s, 'Equities', '');
+    const equityRange = getAllocationRange(s, 'Equities', '');
     return `
     <tr>
       <td>${s.segment}</td>
       <td class="numeric">${s.aum_bn.toLocaleString(undefined, {maximumFractionDigits: 2})}</td>
       <td class="numeric">${(equity ? equity.value_bn : 0).toLocaleString(undefined, {maximumFractionDigits: 2})}</td>
       <td><span class="badge ${basisClass(s.basis)}">${s.basis || ''}</span></td>
+      <td class="numeric">${formatAllocationRange(equityRange)}</td>
     </tr>
     ${sourcesRows(s, i)}
   `;

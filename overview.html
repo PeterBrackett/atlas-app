@@ -48,7 +48,7 @@
         <label>Threshold ($bn)<br><input type="number" step="any" id="mo-threshold-input" placeholder="e.g. 5" style="width:110px;"></label>
         <label>Optimal ($bn)<br><input type="number" step="any" id="mo-optimal-input" placeholder="e.g. 20" style="width:110px;"></label>
         <button type="button" id="mo-apply-btn" class="btn-primary" onclick="applyMarketOpportunityThresholds()" style="cursor:pointer; align-self:flex-end;">Apply across all countries</button>
-        <span class="note" style="border-top:none; padding-top:0; margin:0; flex-basis:100%; font-size:0.78rem;">Scores every segment in every loaded country at once, based on the asset class picked here (independent of the "Show:" selector below): below threshold = 1, at or above threshold = 2, at or above optimal = 3. A segment with no allocation data for this selection is treated as $0 (scores 1, unless threshold is 0 or less). Overwrites any existing Market opportunity score. This panel is always here whenever you're signed in — it no longer depends on which view is selected below.</span>
+        <span class="note" style="border-top:none; padding-top:0; margin:0; flex-basis:100%; font-size:0.78rem;">Scores every segment in every loaded country at once, based on the asset class picked here (independent of the "Show:" selector below): below threshold = 1, at or above threshold = 2, at or above optimal = 3. As of 2026-07-15 this scores off the extrapolated max figure (reported allocation scaled up for institutions that never filed an asset-class breakdown — see the "range (min–max)" column on each country page), not the raw reported figure, so a segment with a lot of non-reporting institutions will score higher than it used to. A segment with no allocation data at all for this selection is treated as $0 (scores 1, unless threshold is 0 or less) — there's nothing to extrapolate from. Overwrites any existing Market opportunity score. This panel is always here whenever you're signed in — it no longer depends on which view is selected below.</span>
       </div>
 
       <div class="summary-bar" id="reg-basis-bar" style="margin-bottom:16px;"></div>
@@ -307,8 +307,12 @@ async function applyMarketOpportunityThresholds() {
   const assignments = [];
   OVERVIEW_USABLE.forEach(c => {
     (c.data.segments || []).forEach(seg => {
-      const result = getAllocationValue(seg, MO_ASSET_TYPE, MO_ASSET_STYLE);
-      const value_bn = result ? result.value_bn : 0;
+      // Scores off the extrapolated max, not the raw reported figure -- see
+      // getAllocationRange() in scorecard-dimensions.js. A segment with no
+      // allocation data at all for this selection has nothing to
+      // extrapolate from and is treated as $0, same as before.
+      const range = getAllocationRange(seg, MO_ASSET_TYPE, MO_ASSET_STYLE);
+      const value_bn = range ? range.max_bn : 0;
       const score = value_bn >= optimal ? 3 : (value_bn >= threshold ? 2 : 1);
       assignments.push({ country: c.slug, segment: seg.segment, value: score });
     });

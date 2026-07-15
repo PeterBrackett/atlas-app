@@ -170,6 +170,103 @@ function getAllocationValue(segment, assetType, assetStyle) {
   return { value_bn: style.value_bn, pct: Math.round(pct * 10) / 10 };
 }
 
+// Segment-level "how much of this segment's total AUM is actually backed by
+// reported allocation data" ratio -- sum of every allocation entry's
+// value_bn (all asset types combined) divided by the segment's aum_bn. Not
+// every institution counted in aum_bn also filed an asset-class breakdown
+// (documented at source: ~96% of UK firms have at least one allocation line,
+// smaller DC/money-purchase plans disproportionately file none at all), so
+// this is consistently < 100% for most segments. A single ratio computed
+// once per segment and applied uniformly to every asset type/style within
+// it, per Peter's framing (2026-07-15) -- simpler than trying to estimate a
+// separate non-reporting rate per asset class, and there's no data basis to
+// do the latter more precisely anyway.
+//
+// A handful of segments (9 as of 2026-07-15, see fix_aum_bn_bugs.py for the
+// 5 that were resolved as an aum_bn data bug) show >100% -- allocation
+// summing to MORE than the segment total. That's not a reporting-gap
+// situation, it's aum_bn and allocation disagreeing about the segment's true
+// size, so it gets flagged rather than "scaled" (scaling by a ratio above 1
+// would shrink the estimate, which is backwards for a max/ceiling figure).
+function allocationCoverageRatio(segment) {
+  const aum = segment.aum_bn;
+  if (!aum) return null;
+  const allocSum = (segment.allocation || []).reduce((sum, a) => sum + (a.value_bn || 0), 0);
+  return allocSum / aum;
+}
+
+// Same lookup as getAllocationValue(), but returns a min/max range instead
+// of a single figure -- an attempt to make the "how much AUM is really in
+// this asset class" question honest about the fact that not every
+// institution in the segment reported a breakdown:
+//   min_bn  = the reported value as-is. Assumes every non-reporting
+//             institution holds NONE of this asset class -- a genuine floor,
+//             not a best guess.
+//   max_bn  = reported value scaled up by 1/coverage, i.e. value_bn *
+//             (aum_bn / total reported allocation). Assumes non-reporting
+//             institutions have the same asset mix as reporting ones,
+//             extrapolated across the segment's full AUM -- a ceiling, not
+//             a best guess either.
+// The true figure is somewhere in between and unknowable from this data
+// alone -- that's the point of showing a range rather than picking one.
+//
+// Returns null under the same conditions getAllocationValue() would (no
+// data for this type/style at all). When coverage can't be computed (no
+// aum_bn) or is >100% (aum_bn/allocation disagreement -- see
+// allocationCoverageRatio() above), min_bn and max_bn both just equal the
+// reported value_bn and `flagged` is set so callers can surface that this
+// particular figure isn't a real range, just a number with a caveat.
+// 0.1% tolerance on the >100% check -- rounding a corrected aum_bn to 3
+// decimal places (see fix_aum_bn_bugs.py) can leave a coverage ratio like
+// 100.0009% that's really just floating-point noise, not a genuine
+// aum_bn/allocation disagreement worth flagging.
+const COVERAGE_ANOMALY_TOLERANCE = 1.001;
+
+function getAllocationRange(segment, assetType, assetStyle) {
+  const result = getAllocationValue(segment, assetType, assetStyle);
+  if (!result) return null;
+
+  const coverage = allocationCoverageRatio(segment);
+  const coveragePct = typeof coverage === 'number' ? Math.round(coverage * 1000) / 10 : null;
+
+  if (coverage === null || coverage <= 0 || coverage > COVERAGE_ANOMALY_TOLERANCE) {
+    return {
+      value_bn: result.value_bn,
+      min_bn: result.value_bn,
+      max_bn: result.value_bn,
+      coverage_pct: coveragePct,
+      flagged: coverage !== null && coverage > COVERAGE_ANOMALY_TOLERANCE
+    };
+  }
+
+  const maxBn = Math.round((result.value_bn / coverage) * 1000) / 1000;
+  return {
+    value_bn: result.value_bn,
+    min_bn: result.value_bn,
+    max_bn: maxBn,
+    coverage_pct: coveragePct,
+    flagged: false
+  };
+}
+
+// Compact display string for a range from getAllocationRange(), e.g.
+// "$5.24bn" when there's no meaningful range to show (100% coverage, or
+// coverage couldn't be computed), "$5.24-8.16bn (64% reported)" when there
+// is one, or "$5.24bn (data flagged — see notes)" for the >100%-coverage
+// anomaly cases. maximumFractionDigits kept at 2 to match the rest of the
+// site's $bn formatting.
+function formatAllocationRange(range) {
+  if (!range) return '—';
+  const fmt = (v) => v.toLocaleString(undefined, { maximumFractionDigits: 2 });
+  if (range.flagged) {
+    return `$${fmt(range.value_bn)}bn (data flagged — see notes)`;
+  }
+  if (range.coverage_pct === null || range.coverage_pct >= 100) {
+    return `$${fmt(range.value_bn)}bn`;
+  }
+  return `$${fmt(range.min_bn)}–${fmt(range.max_bn)}bn (${range.coverage_pct}% reported)`;
+}
+
 // Builds the ordered list of asset types actually present across a set of
 // segments, in the preferred display order, so a dropdown never offers a
 // choice with nothing behind it. Shared between the per-country and
