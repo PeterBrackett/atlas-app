@@ -121,37 +121,72 @@ function buildAumRows(segments) {
     }));
 }
 
+// Traffic-light colors matching atlas-site/style.css's td.score-1/2/3 and
+// td.overall-red/amber/green rules exactly (same hex values), so the Word
+// and PowerPoint exports read as the same visual language as the site
+// rather than plain black-and-white tables. Returns null for cells that
+// shouldn't be colored (missing/non-numeric values).
+function scoreColor(value) {
+  if (value === 1) return { bg: 'FBE1E1', fg: 'A3291F' };
+  if (value === 2) return { bg: 'FDEEE0', fg: '9A5A1A' };
+  if (value === 3) return { bg: 'E3F2E3', fg: '1F7A34' };
+  return null;
+}
+
+// Overall score thresholds match style.css's comment: range 14-42,
+// <=22 red, 23-30 amber, >=31 green.
+function overallColor(value) {
+  if (typeof value !== 'number') return null;
+  if (value <= 22) return { bg: 'FBE1E1', fg: 'A3291F' };
+  if (value <= 30) return { bg: 'FDEEE0', fg: '9A5A1A' };
+  return { bg: 'E3F2E3', fg: '1F7A34' };
+}
+
 // Column-ordered segments plus row data for the opportunity scorecard
 // matrix, matching renderScorecardMatrix() in country.html: AUM row, then
-// one row per dimension, then Scored and Overall.
+// one row per dimension, then Scored and Overall. Each row carries a
+// parallel `colors` array (one entry per column, null or {bg,fg} hex pair)
+// so the Word/PowerPoint exports can reproduce the site's red/amber/green
+// traffic-light coding without re-deriving it from the display strings.
 function buildScorecardMatrix(segments) {
   const cols = (segments || []).slice().sort((a, b) => segmentSortIndex(a.segment) - segmentSortIndex(b.segment));
 
   const dimensionRows = SCORECARD_DIMENSIONS.map((dim) => ({
     key: dim.key,
+    type: 'dimension',
     label: dim.label + (dim.weight > 1 ? ` (x${dim.weight})` : ''),
     values: cols.map((s) => {
       const v = s.scorecard ? s.scorecard[dim.key] : undefined;
       return typeof v === 'number' ? String(v) : '-';
+    }),
+    colors: cols.map((s) => {
+      const v = s.scorecard ? s.scorecard[dim.key] : undefined;
+      return typeof v === 'number' ? scoreColor(v) : null;
     })
   }));
 
   const scoredRow = {
+    type: 'scored',
     label: 'Scored',
-    values: cols.map((s) => `${scoredDimensionCount(s.scorecard)}/${SCORECARD_DIMENSIONS.length}`)
+    values: cols.map((s) => `${scoredDimensionCount(s.scorecard)}/${SCORECARD_DIMENSIONS.length}`),
+    colors: cols.map(() => null)
   };
 
   const overallRow = {
+    type: 'overall',
     label: 'Overall',
     values: cols.map((s) => {
       const overall = computeOverallScore(s.scorecard);
       return overall === null ? '-' : String(overall);
-    })
+    }),
+    colors: cols.map((s) => overallColor(computeOverallScore(s.scorecard)))
   };
 
   const aumRow = {
+    type: 'aum',
     label: 'AUM ($bn)',
-    values: cols.map((s) => (typeof s.aum_bn === 'number' ? s.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-'))
+    values: cols.map((s) => (typeof s.aum_bn === 'number' ? s.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-')),
+    colors: cols.map(() => null)
   };
 
   return {
@@ -188,6 +223,8 @@ module.exports = {
   segmentSortIndex,
   computeOverallScore,
   scoredDimensionCount,
+  scoreColor,
+  overallColor,
   buildAumRows,
   buildScorecardMatrix,
   buildTopInstitutionsSections
