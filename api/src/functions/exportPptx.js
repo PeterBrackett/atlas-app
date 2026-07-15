@@ -111,12 +111,7 @@ function buildAumTableRows(rows) {
 function buildScorecardTableRows(matrix) {
   const headerLabels = ['Dimension', ...matrix.columnLabels];
   const bodyText = matrix.rows.map((row) => [row.label, ...row.values]);
-  // 46, not 40 -- room for the longest label plus the " (off)" suffix
-  // buildScorecardMatrix() appends when a dimension is toggled off (see the
-  // "toggle factors on/off" feature), e.g. "Distribution resources
-  // required (x1) (off)" at 43 chars. Still needs to fit on one line for
-  // the icon-alignment math above to hold.
-  const maxCharsPerCol = [46, ...matrix.columnLabels.map(() => 6)];
+  const maxCharsPerCol = [40, ...matrix.columnLabels.map(() => 6)];
   const colW = estimateColumnCharWidths(headerLabels, bodyText, { minChars: 3, maxCharsPerCol }).map(charsToInches);
 
   const header = headerLabels.map((t) => ({
