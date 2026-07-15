@@ -112,6 +112,7 @@ let CURRENT_USER = null; // set by checkAuth(), null if not signed in
 let COUNTRY_CODE = '';
 let CURRENT_COUNTRY_NAME = '';
 let LOADED_SEGMENTS = []; // kept in memory so scorecard edits can update the matrix without a full reload
+let ENABLED_DIMENSIONS = null; // global.json's toggle map -- null/missing key both mean "enabled", see isDimensionEnabled()
 let CURRENT_ALLOC_TYPE = 'Equities';
 let CURRENT_ALLOC_STYLE = ''; // '' means "all styles" (the whole asset-type total)
 
@@ -374,6 +375,28 @@ async function loadData(code) {
   }
 }
 
+// Global toggle state for which scorecard dimensions count toward Overall
+// (see the "Dimensions included in Overall score" panel on overview.html).
+// country.html doesn't otherwise need global.json for anything, so this is
+// its own small fetch rather than piggybacking on loadData().
+async function loadEnabledDimensions() {
+  try {
+    const res = await fetch('/api/data/global');
+    if (!res.ok) throw new Error('API not ready');
+    const data = await res.json();
+    return data.enabled_dimensions || null;
+  } catch (e) {
+    try {
+      const res = await fetch('data/global.json');
+      if (!res.ok) return null;
+      const data = await res.json();
+      return data.enabled_dimensions || null;
+    } catch (e2) {
+      return null;
+    }
+  }
+}
+
 async function loadNotes(code) {
   try {
     const res = await fetch(`/api/notes/${code}`);
@@ -397,7 +420,7 @@ async function downloadExport(format) {
     const res = await fetch(`/api/export/${format}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ country_name: CURRENT_COUNTRY_NAME, segments: LOADED_SEGMENTS })
+      body: JSON.stringify({ country_name: CURRENT_COUNTRY_NAME, segments: LOADED_SEGMENTS, enabled_dimensions: ENABLED_DIMENSIONS })
     });
 
     if (!res.ok) {
@@ -531,9 +554,10 @@ function renderScorecardMatrix() {
     return;
   }
 
-  const fullyScored = segs.filter(s => computeOverallScore(s.scorecard) !== null).length;
+  const fullyScored = segs.filter(s => computeOverallScore(s.scorecard, ENABLED_DIMENSIONS) !== null).length;
+  const enabledCount = enabledDimensionCount(ENABLED_DIMENSIONS);
   document.getElementById('scorecard-hint').textContent =
-    `${fullyScored} of ${segs.length} segments fully scored (all 12 dimensions).` +
+    `${fullyScored} of ${segs.length} segments fully scored (${enabledCount} of ${SCORECARD_DIMENSIONS.length} dimensions count toward Overall).` +
     (CURRENT_USER ? ' Blank cells below are highlighted — click to score them.' : '');
 
   populateAllocationSelectors(segs);
@@ -579,30 +603,33 @@ function renderScorecardMatrix() {
       return `<td id="${cellId}" class="${scoreCellClass(value, missing)}">${missing ? '—' : value}</td>`;
     }).join('');
     const autoFlag = dim.autoScoreNote ? `<span class="auto-flag" title="${dim.autoScoreNote}">Auto</span>` : '';
+    const offFlag = isDimensionEnabled(dim.key, ENABLED_DIMENSIONS)
+      ? ''
+      : `<span class="auto-flag" title="Excluded from every segment's Overall score and the Scored count -- toggle it back on from overview.html.">Off</span>`;
     const dimLabelText = `${dimensionIconSvg(dim.key)}<span>${dim.label}${dim.weight > 1 ? ` (×${dim.weight})` : ''}</span>`;
     return `<tr title="${dim.question}"><td class="matrix-rowlabel" title="${dim.question}">` +
       (CURRENT_USER ? `<div style="display:flex; align-items:center; justify-content:space-between; gap:6px;">` +
-        `<span style="display:flex; align-items:center; gap:6px;">${dimLabelText}${autoFlag}</span>` +
+        `<span style="display:flex; align-items:center; gap:6px;">${dimLabelText}${autoFlag}${offFlag}</span>` +
         `<select class="matrix-select" style="width:auto; min-width:52px;" data-dim="${dim.key}" ` +
         `onchange="saveScorecardBulk(this)" title="Set this score for every segment in one go"><option value="">Set all…</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select>` +
         `</div>`
-        : `<span style="display:flex; align-items:center; gap:6px;">${dimLabelText}${autoFlag}</span>`) +
+        : `<span style="display:flex; align-items:center; gap:6px;">${dimLabelText}${autoFlag}${offFlag}</span>`) +
       `</td>${cells}</tr>`;
   }).join('');
 
   const scoredRow = `<tr class="scored-row">` +
     `<td class="matrix-rowlabel">Scored</td>` +
     segs.map((s, segIndex) => {
-      const count = scoredDimensionCount(s.scorecard);
-      const cls = count === SCORECARD_DIMENSIONS.length ? 'complete' : 'incomplete';
-      return `<td id="sc-scored-${segIndex}"><span class="scored-badge ${cls}">${count}/${SCORECARD_DIMENSIONS.length}</span></td>`;
+      const count = scoredDimensionCount(s.scorecard, ENABLED_DIMENSIONS);
+      const cls = count === enabledCount ? 'complete' : 'incomplete';
+      return `<td id="sc-scored-${segIndex}"><span class="scored-badge ${cls}">${count}/${enabledCount}</span></td>`;
     }).join('') +
     `</tr>`;
 
   const overallRow = `<tr class="overall-row">` +
     `<td class="matrix-rowlabel">Overall</td>` +
     segs.map((s, segIndex) => {
-      const overall = computeOverallScore(s.scorecard);
+      const overall = computeOverallScore(s.scorecard, ENABLED_DIMENSIONS);
       return `<td id="sc-overall-${segIndex}" class="${overallScoreClass(overall)}"><strong>${overall === null ? '—' : overall}</strong></td>`;
     }).join('') +
     `</tr>`;
@@ -658,23 +685,24 @@ async function saveScorecardValue(selectEl) {
 
     if (cellEl) cellEl.className = (value === null) ? 'cell-missing' : `score-${value}`;
 
-    const count = scoredDimensionCount(segment.scorecard);
+    const enabledCount = enabledDimensionCount(ENABLED_DIMENSIONS);
+    const count = scoredDimensionCount(segment.scorecard, ENABLED_DIMENSIONS);
     const scoredCellEl = document.getElementById(`sc-scored-${segIndex}`);
     if (scoredCellEl) {
-      const cls = count === SCORECARD_DIMENSIONS.length ? 'complete' : 'incomplete';
-      scoredCellEl.innerHTML = `<span class="scored-badge ${cls}">${count}/${SCORECARD_DIMENSIONS.length}</span>`;
+      const cls = count === enabledCount ? 'complete' : 'incomplete';
+      scoredCellEl.innerHTML = `<span class="scored-badge ${cls}">${count}/${enabledCount}</span>`;
     }
 
     const overallCellEl = document.getElementById(`sc-overall-${segIndex}`);
     if (overallCellEl) {
-      const overall = computeOverallScore(segment.scorecard);
+      const overall = computeOverallScore(segment.scorecard, ENABLED_DIMENSIONS);
       overallCellEl.className = overallScoreClass(overall);
       overallCellEl.innerHTML = `<strong>${overall === null ? '—' : overall}</strong>`;
     }
 
-    const fullyScored = LOADED_SEGMENTS.filter(s => computeOverallScore(s.scorecard) !== null).length;
+    const fullyScored = LOADED_SEGMENTS.filter(s => computeOverallScore(s.scorecard, ENABLED_DIMENSIONS) !== null).length;
     document.getElementById('scorecard-hint').textContent =
-      `${fullyScored} of ${LOADED_SEGMENTS.length} segments fully scored (all 12 dimensions). Blank cells below are highlighted — click to score them.`;
+      `${fullyScored} of ${LOADED_SEGMENTS.length} segments fully scored (${enabledCount} of ${SCORECARD_DIMENSIONS.length} dimensions count toward Overall). Blank cells below are highlighted — click to score them.`;
   } catch (e) {
     alert('Could not reach the server to save this change.');
     selectEl.value = (typeof previousValue === 'number') ? String(previousValue) : '';
@@ -759,6 +787,7 @@ async function load() {
   CURRENT_COUNTRY_NAME = data.country_name || code.toUpperCase();
 
   LOADED_SEGMENTS = data.segments || [];
+  ENABLED_DIMENSIONS = await loadEnabledDimensions();
 
   document.getElementById('export-wrap').innerHTML = `
     <button type="button" id="export-btn-docx" class="btn-primary" onclick="downloadExport('docx')" style="cursor:pointer;">Download as Word</button>

@@ -8,25 +8,32 @@
 // calculation) since it's judged the primary driver of whether a segment
 // is worth pursuing at all. See Sources & Methodology for the full writeup.
 
-// autoScoreNote is set only on the 7 dimensions that can be bulk-overwritten
-// in one click from the "Bulk auto-scoring tools" panel on overview.html
+// autoScoreNote is set on the 11 dimensions that can be bulk-overwritten in
+// one click from the "Bulk auto-scoring tools" panel on overview.html
 // (Market opportunity from allocation size, Regulatory complexity from TMF
 // rank, Distribution resources required from institution concentration,
 // Languages required from EF EPI, Local presence required from OECD
 // FDIRRI, Client servicing from Mercer Integrity, Consultant reliant from
-// IC Research consultant density). country.html uses this to show a small
-// "auto" flag next to the row label, since a value here could be an
-// untouched bulk-scored figure rather than a considered per-segment
-// judgment call -- worth a second look before relying on it. The other 5
-// dimensions have no such tool and are always a manual entry.
+// IC Research consultant density, Pricing impact from segment AUM size,
+// and Outsourced management / Comingled vehicles / Investor
+// decision-making from starting-point defaults by segment type -- see
+// segment-type-defaults.js). country.html uses this to show a small "auto"
+// flag next to the row label, since a value here could be an untouched
+// bulk-scored figure rather than a considered per-segment judgment call --
+// worth a second look before relying on it, especially for the last four,
+// which are heuristics rather than real external data. Only "Alignment of
+// investment thinking" has no such tool and is always a manual entry --
+// no usable proxy for it was found.
 const SCORECARD_DIMENSIONS = [
   { key: 'market_opportunity', label: 'Market opportunity', weight: 3,
     question: 'Is there sufficient investable opportunity in this segment to warrant active marketing?',
     autoScoreNote: 'Can be bulk-set from an allocation threshold via the overview page’s auto-scoring tools — check it reflects a real judgment call, not just an untouched auto-score.' },
   { key: 'outsourced_management', label: 'Outsourced management', weight: 1,
-    question: 'Are assets outsourced to external managers, or run internally?' },
+    question: 'Are assets outsourced to external managers, or run internally?',
+    autoScoreNote: 'Can be bulk-set from a starting-point default by segment type via the overview page’s auto-scoring tools (not real data — see segment-type-defaults.js) — check it reflects a real judgment call, not just an untouched default.' },
   { key: 'pricing_impact', label: 'Pricing impact', weight: 1,
-    question: 'Is there likely to be pricing pressure in this segment?' },
+    question: 'Is there likely to be pricing pressure in this segment?',
+    autoScoreNote: 'Can be bulk-set from a segment-AUM-size heuristic via the overview page’s auto-scoring tools (not a real pricing dataset) — check it reflects a real judgment call, not just an untouched auto-score.' },
   { key: 'alignment_of_investment_thinking', label: 'Alignment of investment thinking', weight: 1,
     question: 'Does the market buy the kind of strategy on offer (e.g. concentrated equity, private credit)?' },
   { key: 'distribution_resources_required', label: 'Distribution resources required', weight: 1,
@@ -45,9 +52,11 @@ const SCORECARD_DIMENSIONS = [
     question: 'Is English an acceptable language for marketing and client service?',
     autoScoreNote: 'Can be bulk-set from the EF English Proficiency Index via the overview page’s auto-scoring tools — check it reflects a real judgment call, not just an untouched auto-score.' },
   { key: 'investor_decision_making', label: 'Investor decision-making', weight: 1,
-    question: 'Are decisions made by committee or by an individual, and what are typical timeframes for action?' },
+    question: 'Are decisions made by committee or by an individual, and what are typical timeframes for action?',
+    autoScoreNote: 'Can be bulk-set from a starting-point default by segment type via the overview page’s auto-scoring tools (not real data — see segment-type-defaults.js) — check it reflects a real judgment call, not just an untouched default.' },
   { key: 'comingled_vehicles', label: 'Comingled vehicles', weight: 1,
-    question: 'Can existing pooled vehicles be deployed, or will bespoke/new funds be required?' },
+    question: 'Can existing pooled vehicles be deployed, or will bespoke/new funds be required?',
+    autoScoreNote: 'Can be bulk-set from a starting-point default by segment type via the overview page’s auto-scoring tools (not real data — see segment-type-defaults.js) — check it reflects a real judgment call, not just an untouched default.' },
   { key: 'consultant_reliant', label: 'Consultant reliant', weight: 1,
     question: 'Are decisions intermediated — will sign-off from an investment consultant be required?',
     autoScoreNote: 'Can be bulk-set from IC Research consultant density via the overview page’s auto-scoring tools — check it reflects a real judgment call, not just an untouched auto-score.' }
@@ -83,14 +92,34 @@ function segmentSortIndex(segmentName) {
   return i === -1 ? CANONICAL_SEGMENT_ORDER.length : i;
 }
 
-// Overall score for a segment, or null if any of the 12 dimensions hasn't
-// been scored yet. Deliberately not a partial sum — an incomplete segment
-// should read as "not yet scored", not as a misleadingly low real number.
-// This is the mechanism that nudges completion: gaps stay visibly blank.
-function computeOverallScore(scorecard) {
+// enabledDimensions is an optional {dimensionKey: boolean} map, sourced
+// from global.json's enabled_dimensions field (see the "toggle factors
+// on/off" feature added 2026-07-15). A dimension counts as enabled unless
+// it's explicitly false in the map -- undefined/missing map, or a missing
+// key within it, both mean "enabled", so every existing call site that
+// doesn't pass this argument at all keeps its old all-12-required
+// behaviour with no code changes needed there.
+function isDimensionEnabled(dimKey, enabledDimensions) {
+  return !enabledDimensions || enabledDimensions[dimKey] !== false;
+}
+
+function enabledDimensionCount(enabledDimensions) {
+  return SCORECARD_DIMENSIONS.filter(d => isDimensionEnabled(d.key, enabledDimensions)).length;
+}
+
+// Overall score for a segment, or null if any ENABLED dimension hasn't
+// been scored yet. Deliberately not a partial sum over the required set —
+// an incomplete segment should read as "not yet scored", not as a
+// misleadingly low real number. This is the mechanism that nudges
+// completion: gaps stay visibly blank. Disabled dimensions (per
+// enabledDimensions) are skipped entirely -- not required, not summed --
+// so toggling something off can turn a previously-null Overall into a real
+// number without needing that dimension scored.
+function computeOverallScore(scorecard, enabledDimensions) {
   if (!scorecard) return null;
   let total = 0;
   for (const dim of SCORECARD_DIMENSIONS) {
+    if (!isDimensionEnabled(dim.key, enabledDimensions)) continue;
     const v = scorecard[dim.key];
     if (typeof v !== 'number') return null;
     total += v * dim.weight;
@@ -98,9 +127,12 @@ function computeOverallScore(scorecard) {
   return total;
 }
 
-function scoredDimensionCount(scorecard) {
+// Count of enabled dimensions that have a score, out of enabledDimensionCount()
+// (not always 12 -- see enabledDimensions above). Disabled dimensions are
+// excluded from both the numerator and the denominator a caller would use.
+function scoredDimensionCount(scorecard, enabledDimensions) {
   if (!scorecard) return 0;
-  return SCORECARD_DIMENSIONS.filter(d => typeof scorecard[d.key] === 'number').length;
+  return SCORECARD_DIMENSIONS.filter(d => isDimensionEnabled(d.key, enabledDimensions) && typeof scorecard[d.key] === 'number').length;
 }
 
 // Overall's true range, given the current 12 dimensions (market_opportunity

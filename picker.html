@@ -88,6 +88,7 @@
 <script>
 let ALL_COUNTRIES = [];      // full global.json countries list, status === 'built' only
 let SELECTED_CODES = new Set();
+let ENABLED_DIMENSIONS = null; // global.json's toggle map -- null/missing key both mean "enabled", see isDimensionEnabled()
 let PROJECT_DATA = [];       // [{ meta, slug, data }] for the last "Build table" click
 
 // Asset class/style for the "Asset allocation" view -- same idea as
@@ -475,7 +476,7 @@ function renderProjectMatrix(failed) {
           const result = getAllocationValue(seg, PROJECT_ALLOC_TYPE, PROJECT_ALLOC_STYLE);
           return `<td>${result ? result.value_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '—'}</td>`;
         }
-        const overall = computeOverallScore(seg.scorecard);
+        const overall = computeOverallScore(seg.scorecard, ENABLED_DIMENSIONS);
         return `<td class="${overallScoreClass(overall)}">${overall === null ? '—' : overall}</td>`;
       }).join('');
       return `<tr><td class="matrix-rowlabel"><a class="country-link" href="${href}">${c.meta.name}</a></td>${cells}</tr>`;
@@ -523,7 +524,7 @@ async function downloadProjectExport(format) {
     const res = await fetch(`/api/export/${format}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ countries })
+      body: JSON.stringify({ countries, enabled_dimensions: ENABLED_DIMENSIONS })
     });
 
     if (!res.ok) {
@@ -565,6 +566,7 @@ async function load() {
   }
 
   ALL_COUNTRIES = (data.countries || []).filter(c => c.status === 'built');
+  ENABLED_DIMENSIONS = data.enabled_dimensions || null;
 
   document.getElementById('picker-summary-bar').innerHTML = `
     <div class="stat-card"><div class="value">${ALL_COUNTRIES.length}</div><div class="label">Countries available to pick from</div></div>

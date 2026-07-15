@@ -15,6 +15,7 @@
 <script src="fdi-restrictiveness.js"></script>
 <script src="mercer-integrity.js"></script>
 <script src="consultant-density.js"></script>
+<script src="segment-type-defaults.js"></script>
 </head>
 <body>
 <header class="site-header">
@@ -35,7 +36,26 @@
   <h2>Opportunity scorecard — Overall by segment</h2>
 
   <details style="margin-bottom:16px;">
-    <summary style="cursor:pointer; font-size:0.85rem; color:var(--muted); padding:4px 0; font-weight:600;">Bulk auto-scoring tools (market opportunity, regulatory complexity, distribution resources required, languages required, local presence required, client servicing, consultant reliant)</summary>
+    <summary style="cursor:pointer; font-size:0.85rem; color:var(--muted); padding:4px 0; font-weight:600;">Dimensions included in Overall score</summary>
+    <div style="margin-top:10px;">
+      <div id="enabled-dims-controls" class="tool-panel" style="display:none;">
+        <div class="tool-panel-inner">
+          <div class="tool-panel-controls" style="flex-basis:100%; max-width:none;">
+            <div class="tool-panel-inputs" id="enabled-dims-checkboxes" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); gap:6px; width:100%;"></div>
+            <button type="button" id="enabled-dims-save-btn" class="btn-primary" onclick="saveEnabledDimensions()" style="cursor:pointer;">Save</button>
+            <details class="tool-explain">
+              <summary>How this works</summary>
+              <span class="note">Unchecking a dimension excludes it from every segment's Overall score calculation (and from the "Scored X/N" count) everywhere — the overview matrix, every country page, the project builder, and Word/PowerPoint exports. Its column/row stays visible, just doesn't count toward Overall or gate it. This is global and persisted, not a personal filter: everyone who loads Atlas sees the same enabled/disabled set until it's changed again here. Turning a dimension back on may make some segments' Overall go blank again if that dimension isn't actually scored for them.</span>
+            </details>
+          </div>
+          <div class="summary-bar tool-panel-basis" id="enabled-dims-basis-bar"></div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details style="margin-bottom:16px;">
+    <summary style="cursor:pointer; font-size:0.85rem; color:var(--muted); padding:4px 0; font-weight:600;">Bulk auto-scoring tools (market opportunity, regulatory complexity, distribution resources required, languages required, local presence required, client servicing, consultant reliant, pricing impact, outsourced management, comingled vehicles, investor decision-making)</summary>
     <div style="margin-top:10px;">
       <div id="overview-threshold-controls" class="tool-panel" style="display:none;">
         <div class="tool-panel-inner">
@@ -168,6 +188,69 @@
           <div class="summary-bar tool-panel-basis" id="consultant-basis-bar"></div>
         </div>
       </div>
+
+      <div id="pricing-threshold-controls" class="tool-panel" style="display:none;">
+        <div class="tool-panel-inner">
+          <div class="tool-panel-controls">
+            <strong>Auto-score "Pricing impact" from segment AUM size:</strong>
+            <div class="tool-panel-inputs">
+              <label>Threshold ($bn)<br><input type="number" step="any" id="pricing-threshold-input" class="tool-input" placeholder="e.g. 5" style="width:110px;"></label>
+              <label>Optimal ($bn)<br><input type="number" step="any" id="pricing-optimal-input" class="tool-input" placeholder="e.g. 30" style="width:110px;"></label>
+            </div>
+            <button type="button" id="pricing-apply-btn" class="btn-primary" onclick="applyPricingImpactThresholds()" style="cursor:pointer;">Apply across all countries</button>
+            <details class="tool-explain">
+              <summary>How this works</summary>
+              <span class="note">A starting-point heuristic, not a real pricing dataset — no external source for this exists, so it uses each segment's own total AUM as a rough proxy for fee-negotiating leverage. Direction is reversed like the allocation scorer's opposite: bigger segments can push harder on pricing, so more AUM means more pricing pressure and a worse (lower) score: at or below threshold = 3 (least pressure), above threshold but at or below optimal = 2, above optimal = 1 (most pressure). Segments with no aum_bn are skipped. Overwrites any existing Pricing impact score.</span>
+            </details>
+          </div>
+          <div class="summary-bar tool-panel-basis" id="pricing-basis-bar"></div>
+        </div>
+      </div>
+
+      <div id="outsourced-threshold-controls" class="tool-panel" style="display:none;">
+        <div class="tool-panel-inner">
+          <div class="tool-panel-controls" style="flex-basis:100%; max-width:none;">
+            <strong>Auto-score "Outsourced management" from default scores by segment type:</strong>
+            <div class="tool-panel-inputs" id="outsourced-segment-inputs" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); gap:6px; width:100%;"></div>
+            <button type="button" id="outsourced-apply-btn" class="btn-primary" onclick="applySegmentTypeDefaults('outsourced_management', 'outsourced')" style="cursor:pointer;">Apply across all countries</button>
+            <details class="tool-explain">
+              <summary>How this works</summary>
+              <span class="note">No external index exists for this — these are starting-point judgment calls by segment type (same value for e.g. every "DC Pension (Corp)" segment worldwide), not anything derived from Atlas's own data. See segment-type-defaults.js for the reasoning behind each default. Edit any box above before applying if a value looks wrong for your view of the market. Every segment matching a listed type gets that score, in every loaded country; segment types not listed here are left untouched. Overwrites any existing Outsourced management score on matched segments.</span>
+            </details>
+          </div>
+          <div class="summary-bar tool-panel-basis" id="outsourced-basis-bar"></div>
+        </div>
+      </div>
+
+      <div id="comingled-threshold-controls" class="tool-panel" style="display:none;">
+        <div class="tool-panel-inner">
+          <div class="tool-panel-controls" style="flex-basis:100%; max-width:none;">
+            <strong>Auto-score "Comingled vehicles" from default scores by segment type:</strong>
+            <div class="tool-panel-inputs" id="comingled-segment-inputs" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); gap:6px; width:100%;"></div>
+            <button type="button" id="comingled-apply-btn" class="btn-primary" onclick="applySegmentTypeDefaults('comingled_vehicles', 'comingled')" style="cursor:pointer;">Apply across all countries</button>
+            <details class="tool-explain">
+              <summary>How this works</summary>
+              <span class="note">Same starting-point-by-segment-type approach as Outsourced management above, not derived from Atlas's own data — see segment-type-defaults.js. Edit any box above before applying if a value looks wrong. Every segment matching a listed type gets that score, in every loaded country; segment types not listed here are left untouched. Overwrites any existing Comingled vehicles score on matched segments.</span>
+            </details>
+          </div>
+          <div class="summary-bar tool-panel-basis" id="comingled-basis-bar"></div>
+        </div>
+      </div>
+
+      <div id="investor-threshold-controls" class="tool-panel" style="display:none;">
+        <div class="tool-panel-inner">
+          <div class="tool-panel-controls" style="flex-basis:100%; max-width:none;">
+            <strong>Auto-score "Investor decision-making" from default scores by segment type:</strong>
+            <div class="tool-panel-inputs" id="investor-segment-inputs" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); gap:6px; width:100%;"></div>
+            <button type="button" id="investor-apply-btn" class="btn-primary" onclick="applySegmentTypeDefaults('investor_decision_making', 'investor')" style="cursor:pointer;">Apply across all countries</button>
+            <details class="tool-explain">
+              <summary>How this works</summary>
+              <span class="note">Same starting-point-by-segment-type approach as Outsourced management above, not derived from Atlas's own data — see segment-type-defaults.js. Edit any box above before applying if a value looks wrong. Every segment matching a listed type gets that score, in every loaded country; segment types not listed here are left untouched. Overwrites any existing Investor decision-making score on matched segments.</span>
+            </details>
+          </div>
+          <div class="summary-bar tool-panel-basis" id="investor-basis-bar"></div>
+        </div>
+      </div>
     </div>
   </details>
 
@@ -294,6 +377,11 @@ function updateThresholdControlsVisibility() {
   document.getElementById('local-threshold-controls').style.display = show ? 'block' : 'none';
   document.getElementById('client-threshold-controls').style.display = show ? 'block' : 'none';
   document.getElementById('consultant-threshold-controls').style.display = show ? 'block' : 'none';
+  document.getElementById('pricing-threshold-controls').style.display = show ? 'block' : 'none';
+  document.getElementById('outsourced-threshold-controls').style.display = show ? 'block' : 'none';
+  document.getElementById('comingled-threshold-controls').style.display = show ? 'block' : 'none';
+  document.getElementById('investor-threshold-controls').style.display = show ? 'block' : 'none';
+  document.getElementById('enabled-dims-controls').style.display = show ? 'block' : 'none';
 }
 
 // Colours each tool's input/select controls green ("live" -- this dimension
@@ -321,6 +409,18 @@ function updateAllToolLiveStatuses(data) {
   setToolLiveStatus(['local-threshold-input', 'local-optimal-input'], !!data.local_presence_required_basis);
   setToolLiveStatus(['client-threshold-input', 'client-optimal-input'], !!data.client_servicing_basis);
   setToolLiveStatus(['consultant-threshold-input', 'consultant-optimal-input'], !!data.consultant_reliant_basis);
+  setToolLiveStatus(['pricing-threshold-input', 'pricing-optimal-input'], !!data.pricing_impact_basis);
+  setSegmentTypeToolLiveStatus('outsourced', !!data.outsourced_management_basis);
+  setSegmentTypeToolLiveStatus('comingled', !!data.comingled_vehicles_basis);
+  setSegmentTypeToolLiveStatus('investor', !!data.investor_decision_making_basis);
+}
+
+// Same idea as setToolLiveStatus(), but for the 19 per-segment-type score
+// boxes rather than a fixed 2-input threshold/optimal pair.
+function setSegmentTypeToolLiveStatus(prefix, isLive) {
+  SEGMENT_TYPE_ORDER.forEach(segmentName => {
+    setToolLiveStatus([segmentTypeInputId(prefix, segmentName)], isLive);
+  });
 }
 
 function populateMoAssetSelectors() {
@@ -1243,6 +1343,267 @@ async function applyConsultantReliantThresholds() {
   }
 }
 
+// Per-segment, like Market opportunity, but off each segment's own total
+// AUM (not a specific asset class) rather than a country-level lookup, and
+// with the direction reversed -- there's no real pricing dataset behind
+// this, it's a size-based heuristic starting point (see the panel's "How
+// this works" text).
+async function applyPricingImpactThresholds() {
+  const threshold = parseFloat(document.getElementById('pricing-threshold-input').value);
+  const optimal = parseFloat(document.getElementById('pricing-optimal-input').value);
+
+  if (Number.isNaN(threshold) || Number.isNaN(optimal)) {
+    alert('Enter numeric threshold and optimal values (in $bn).');
+    return;
+  }
+  if (optimal < threshold) {
+    alert('Optimal should be greater than or equal to threshold.');
+    return;
+  }
+
+  const assignments = [];
+  let skippedSegments = 0;
+  OVERVIEW_USABLE.forEach(c => {
+    (c.data.segments || []).forEach(seg => {
+      if (typeof seg.aum_bn !== 'number') {
+        skippedSegments += 1;
+        return;
+      }
+      // Reversed vs the allocation scorer: bigger segments = more
+      // fee-negotiating leverage = more pricing pressure = worse score.
+      const score = seg.aum_bn <= threshold ? 3 : (seg.aum_bn <= optimal ? 2 : 1);
+      assignments.push({ country: c.slug, segment: seg.segment, value: score });
+    });
+  });
+
+  if (!assignments.length) {
+    alert('No segments with an AUM figure are loaded to score.');
+    return;
+  }
+
+  const confirmMsg = `Set "Pricing impact" for ${assignments.length} segments across ${OVERVIEW_USABLE.length} countries, based on segment AUM:\n` +
+    `AUM <= $${threshold}bn → 3 (least pressure)\nAUM $${threshold}-${optimal}bn → 2\nAUM > $${optimal}bn → 1 (most pressure)\n\n` +
+    (skippedSegments ? `Skipped (no AUM figure): ${skippedSegments} segments\n\n` : '') +
+    `This overwrites any existing Pricing impact score on every matched segment. Continue?`;
+  if (!confirm(confirmMsg)) return;
+
+  const btn = document.getElementById('pricing-apply-btn');
+  btn.disabled = true;
+  const originalText = btn.textContent;
+  btn.textContent = 'Applying…';
+
+  try {
+    const res = await fetch('/api/segments/set-scorecard-global', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ dimension: 'pricing_impact', assignments })
+    });
+    const result = await res.json();
+
+    if (!res.ok && !result.success) {
+      alert(`Couldn't apply scores: ${result.error || 'unknown error'}`);
+      return;
+    }
+
+    const byCountrySeg = {};
+    assignments.forEach(a => { byCountrySeg[`${a.country}::${a.segment}`] = a.value; });
+
+    let successCount = 0;
+    const failedCountries = [];
+    OVERVIEW_USABLE.forEach(c => {
+      const r = result.results && result.results[c.slug];
+      if (r && r.success) {
+        successCount += 1;
+        (c.data.segments || []).forEach(seg => {
+          const key = `${c.slug}::${seg.segment}`;
+          if (Object.prototype.hasOwnProperty.call(byCountrySeg, key)) {
+            if (!seg.scorecard) seg.scorecard = {};
+            seg.scorecard.pricing_impact = byCountrySeg[key];
+          }
+        });
+      } else if (r) {
+        failedCountries.push(`${c.meta.name} (${r.error})`);
+      }
+    });
+
+    renderOverviewMatrixBody();
+    alert(`Applied to ${successCount} of ${OVERVIEW_USABLE.length} countries.` +
+      (failedCountries.length ? `\n\nFailed: ${failedCountries.join(', ')}` : ''));
+
+    try {
+      const basisRes = await fetch('/api/global/set-scorecard-basis', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          basis_key: 'pricing_impact_basis',
+          basis: {
+            source: 'Segment AUM size (heuristic, no external pricing dataset)',
+            threshold_bn: threshold,
+            optimal_bn: optimal,
+            countries_updated: successCount,
+            segments_updated: assignments.length
+          }
+        })
+      });
+      const basisResult = await basisRes.json();
+      if (basisRes.ok && basisResult.basis) {
+        GLOBAL_DATA.pricing_impact_basis = basisResult.basis;
+        renderPricingImpactBasis(GLOBAL_DATA.pricing_impact_basis);
+        updateAllToolLiveStatuses(GLOBAL_DATA);
+      }
+    } catch (e) { /* scores are saved; the basis reminder just won't update this time */ }
+  } catch (e) {
+    alert('Could not reach the server to save this change.');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+}
+
+// Shared by the three segment-type-default tools (Outsourced management,
+// Comingled vehicles, Investor decision-making) -- same mechanism for all
+// three, just a different dimension key, input-id prefix and basis key, so
+// this is written generically rather than three near-duplicate functions.
+const SEGMENT_TYPE_TOOL_META = {
+  outsourced_management: { prefix: 'outsourced', label: 'Outsourced management', basisKey: 'outsourced_management_basis' },
+  comingled_vehicles: { prefix: 'comingled', label: 'Comingled vehicles', basisKey: 'comingled_vehicles_basis' },
+  investor_decision_making: { prefix: 'investor', label: 'Investor decision-making', basisKey: 'investor_decision_making_basis' }
+};
+
+function segmentTypeInputId(prefix, segmentName) {
+  return `${prefix}-score-${segmentName.replace(/[^a-zA-Z0-9]+/g, '-')}`;
+}
+
+// Populates the editable per-segment-type score boxes with their starting
+// defaults (segment-type-defaults.js) -- called once from load(). Segment
+// types with no default (shouldn't happen given the fixed 19-type roster,
+// but defensive in case that list ever changes) are skipped, not guessed at.
+function renderSegmentTypeInputs(prefix, dimensionKey) {
+  const container = document.getElementById(`${prefix}-segment-inputs`);
+  if (!container) return;
+  container.innerHTML = SEGMENT_TYPE_ORDER.map(segmentName => {
+    const def = segmentTypeDefaultScore(dimensionKey, segmentName);
+    if (def === null) return '';
+    const id = segmentTypeInputId(prefix, segmentName);
+    return `<label style="font-weight:400;">${segmentName}<br><input type="number" min="1" max="3" step="1" class="tool-input" id="${id}" value="${def}" style="width:100%;"></label>`;
+  }).join('');
+}
+
+function readSegmentTypeScores(prefix) {
+  const scores = {};
+  let invalid = false;
+  SEGMENT_TYPE_ORDER.forEach(segmentName => {
+    const el = document.getElementById(segmentTypeInputId(prefix, segmentName));
+    if (!el) return;
+    const v = parseInt(el.value, 10);
+    if (![1, 2, 3].includes(v)) { invalid = true; return; }
+    scores[segmentName] = v;
+  });
+  return invalid ? null : scores;
+}
+
+async function applySegmentTypeDefaults(dimensionKey, prefix) {
+  const meta = SEGMENT_TYPE_TOOL_META[dimensionKey];
+  const scores = readSegmentTypeScores(prefix);
+  if (!scores) {
+    alert('Every score box must be 1, 2 or 3.');
+    return;
+  }
+
+  const assignments = [];
+  let skippedSegments = 0;
+  OVERVIEW_USABLE.forEach(c => {
+    (c.data.segments || []).forEach(seg => {
+      if (!Object.prototype.hasOwnProperty.call(scores, seg.segment)) {
+        skippedSegments += 1;
+        return;
+      }
+      assignments.push({ country: c.slug, segment: seg.segment, value: scores[seg.segment] });
+    });
+  });
+
+  if (!assignments.length) {
+    alert('No segments loaded matched a listed segment type.');
+    return;
+  }
+
+  const confirmMsg = `Set "${meta.label}" for ${assignments.length} segments across ${OVERVIEW_USABLE.length} countries, using the per-segment-type defaults shown above (edit them first if you want different values):\n\n` +
+    (skippedSegments ? `Skipped (segment type not listed): ${skippedSegments} segments\n\n` : '') +
+    `This overwrites any existing ${meta.label} score on every matched segment. Continue?`;
+  if (!confirm(confirmMsg)) return;
+
+  const btn = document.getElementById(`${prefix}-apply-btn`);
+  btn.disabled = true;
+  const originalText = btn.textContent;
+  btn.textContent = 'Applying…';
+
+  try {
+    const res = await fetch('/api/segments/set-scorecard-global', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ dimension: dimensionKey, assignments })
+    });
+    const result = await res.json();
+
+    if (!res.ok && !result.success) {
+      alert(`Couldn't apply scores: ${result.error || 'unknown error'}`);
+      return;
+    }
+
+    const byCountrySeg = {};
+    assignments.forEach(a => { byCountrySeg[`${a.country}::${a.segment}`] = a.value; });
+
+    let successCount = 0;
+    const failedCountries = [];
+    OVERVIEW_USABLE.forEach(c => {
+      const r = result.results && result.results[c.slug];
+      if (r && r.success) {
+        successCount += 1;
+        (c.data.segments || []).forEach(seg => {
+          const key = `${c.slug}::${seg.segment}`;
+          if (Object.prototype.hasOwnProperty.call(byCountrySeg, key)) {
+            if (!seg.scorecard) seg.scorecard = {};
+            seg.scorecard[dimensionKey] = byCountrySeg[key];
+          }
+        });
+      } else if (r) {
+        failedCountries.push(`${c.meta.name} (${r.error})`);
+      }
+    });
+
+    renderOverviewMatrixBody();
+    alert(`Applied to ${successCount} of ${OVERVIEW_USABLE.length} countries.` +
+      (failedCountries.length ? `\n\nFailed: ${failedCountries.join(', ')}` : ''));
+
+    try {
+      const basisRes = await fetch('/api/global/set-scorecard-basis', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          basis_key: meta.basisKey,
+          basis: {
+            source: 'Segment-type default scores (heuristic, no external source)',
+            scores_used: scores,
+            countries_updated: successCount,
+            segments_updated: assignments.length
+          }
+        })
+      });
+      const basisResult = await basisRes.json();
+      if (basisRes.ok && basisResult.basis) {
+        GLOBAL_DATA[meta.basisKey] = basisResult.basis;
+        renderSegmentTypeBasis(prefix, GLOBAL_DATA[meta.basisKey], meta.label);
+        updateAllToolLiveStatuses(GLOBAL_DATA);
+      }
+    } catch (e) { /* scores are saved; the basis reminder just won't update this time */ }
+  } catch (e) {
+    alert('Could not reach the server to save this change.');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+}
+
 // The whole global.json object as last loaded, kept around so the
 // market-opportunity-basis boxes can be updated in place after a successful
 // auto-score run, without a full page reload.
@@ -1382,6 +1743,113 @@ function renderConsultantReliantBasis(basis) {
   `;
 }
 
+function renderPricingImpactBasis(basis) {
+  const el = document.getElementById('pricing-basis-bar');
+  if (!basis) {
+    el.innerHTML = `<div class="stat-card"><div class="value">—</div><div class="label">Pricing impact has not been auto-scored yet — scores are whatever's been entered manually per segment.</div></div>`;
+    return;
+  }
+  const appliedInfo = `Applied ${basis.applied_date || 'unknown date'}${basis.applied_by ? ` by ${basis.applied_by}` : ''}` +
+    (basis.countries_updated ? `, ${basis.countries_updated} countries` : '') +
+    (basis.segments_updated ? `, ${basis.segments_updated} segments` : '') + '.';
+  el.innerHTML = `
+    <div class="stat-card"><div class="value">${basis.source || 'Segment AUM size'}</div><div class="label">Basis</div></div>
+    <div class="stat-card"><div class="value">$${basis.threshold_bn}bn</div><div class="label">Threshold (score 3 at/below)</div></div>
+    <div class="stat-card"><div class="value">$${basis.optimal_bn}bn</div><div class="label">Optimal (score 1 above)</div></div>
+    <div class="stat-card" style="flex-basis:100%; text-align:left;"><div class="label">${appliedInfo} A heuristic, not a real pricing dataset — bigger segments score lower (more pricing pressure). Individual segments may have been edited by hand since — this only reflects the basis of the last bulk auto-score run.</div></div>
+  `;
+}
+
+// Shared by the three segment-type-default tools' basis boxes.
+function renderSegmentTypeBasis(prefix, basis, label) {
+  const el = document.getElementById(`${prefix}-basis-bar`);
+  if (!el) return;
+  if (!basis) {
+    el.innerHTML = `<div class="stat-card"><div class="value">—</div><div class="label">${label} has not been auto-scored from segment-type defaults yet — scores are whatever's been entered manually per segment.</div></div>`;
+    return;
+  }
+  const appliedInfo = `Applied ${basis.applied_date || 'unknown date'}${basis.applied_by ? ` by ${basis.applied_by}` : ''}` +
+    (basis.countries_updated ? `, ${basis.countries_updated} countries` : '') +
+    (basis.segments_updated ? `, ${basis.segments_updated} segments` : '') + '.';
+  el.innerHTML = `
+    <div class="stat-card"><div class="value">${basis.source || 'Segment-type default scores'}</div><div class="label">Basis</div></div>
+    <div class="stat-card" style="flex-basis:100%; text-align:left;"><div class="label">${appliedInfo} A starting-point judgment call by segment type, not derived from Atlas's own data — see segment-type-defaults.js. Individual segments may have been edited by hand since — this only reflects the basis of the last bulk auto-score run.</div></div>
+  `;
+}
+
+function enabledDimsCheckboxId(key) {
+  return `enabled-dim-${key}`;
+}
+
+// Populates the 12 checkboxes from SCORECARD_DIMENSIONS, checked state
+// driven by the current global.json enabled_dimensions map (missing key =
+// enabled, matching isDimensionEnabled() in scorecard-dimensions.js).
+function renderEnabledDimensionsCheckboxes(enabledDimensions) {
+  const container = document.getElementById('enabled-dims-checkboxes');
+  if (!container) return;
+  container.innerHTML = SCORECARD_DIMENSIONS.map(dim => {
+    const checked = isDimensionEnabled(dim.key, enabledDimensions) ? 'checked' : '';
+    return `<label style="font-weight:400; display:flex; align-items:center; gap:6px;">
+      <input type="checkbox" id="${enabledDimsCheckboxId(dim.key)}" ${checked}>
+      ${dim.label}
+    </label>`;
+  }).join('');
+}
+
+function renderEnabledDimensionsBasis(data) {
+  const el = document.getElementById('enabled-dims-basis-bar');
+  if (!el) return;
+  if (!data || !data.enabled_dimensions_updated_date) {
+    el.innerHTML = `<div class="stat-card"><div class="value">—</div><div class="label">Every dimension counts toward Overall by default — nothing has been toggled off yet.</div></div>`;
+    return;
+  }
+  const disabledLabels = SCORECARD_DIMENSIONS
+    .filter(dim => !isDimensionEnabled(dim.key, data.enabled_dimensions))
+    .map(dim => dim.label);
+  el.innerHTML = `
+    <div class="stat-card"><div class="value">${disabledLabels.length ? disabledLabels.join(', ') : 'None'}</div><div class="label">Currently excluded from Overall</div></div>
+    <div class="stat-card" style="flex-basis:100%; text-align:left;"><div class="label">Last changed ${data.enabled_dimensions_updated_date}${data.enabled_dimensions_updated_by ? ` by ${data.enabled_dimensions_updated_by}` : ''}.</div></div>
+  `;
+}
+
+async function saveEnabledDimensions() {
+  const enabled_dimensions = {};
+  SCORECARD_DIMENSIONS.forEach(dim => {
+    const el = document.getElementById(enabledDimsCheckboxId(dim.key));
+    enabled_dimensions[dim.key] = el ? !!el.checked : true;
+  });
+
+  const btn = document.getElementById('enabled-dims-save-btn');
+  btn.disabled = true;
+  const originalText = btn.textContent;
+  btn.textContent = 'Saving…';
+
+  try {
+    const res = await fetch('/api/global/set-enabled-dimensions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ enabled_dimensions })
+    });
+    const result = await res.json();
+
+    if (!res.ok || !result.success) {
+      alert(`Couldn't save: ${result.error || 'unknown error'}`);
+      return;
+    }
+
+    GLOBAL_DATA.enabled_dimensions = result.enabled_dimensions;
+    GLOBAL_DATA.enabled_dimensions_updated_date = result.updated_date;
+    GLOBAL_DATA.enabled_dimensions_updated_by = result.updated_by;
+    renderEnabledDimensionsBasis(GLOBAL_DATA);
+    renderOverviewMatrixBody();
+  } catch (e) {
+    alert('Could not reach the server to save this change.');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+}
+
 // Fetches every built country's data once (the slow part) and hands off to
 // renderOverviewMatrixBody() for the actual table build. Split out so
 // switching view mode or allocation type/style afterwards is instant —
@@ -1457,7 +1925,7 @@ function renderOverviewMatrixBody(failed) {
         const result = getAllocationValue(seg, OVERVIEW_ALLOC_TYPE, OVERVIEW_ALLOC_STYLE);
         return `<td>${result ? result.value_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '—'}</td>`;
       }
-      const overall = computeOverallScore(seg.scorecard);
+      const overall = computeOverallScore(seg.scorecard, GLOBAL_DATA && GLOBAL_DATA.enabled_dimensions);
       return `<td class="${overallScoreClass(overall)}">${overall === null ? '—' : overall}</td>`;
     }).join('');
     return `<tr><td class="matrix-rowlabel"><a class="country-link" href="${href}">${c.meta.name}</a></td>${cells}</tr>`;
@@ -1567,6 +2035,15 @@ async function load() {
   renderLocalPresenceBasis(data.local_presence_required_basis);
   renderClientServicingBasis(data.client_servicing_basis);
   renderConsultantReliantBasis(data.consultant_reliant_basis);
+  renderPricingImpactBasis(data.pricing_impact_basis);
+  renderSegmentTypeInputs('outsourced', 'outsourced_management');
+  renderSegmentTypeInputs('comingled', 'comingled_vehicles');
+  renderSegmentTypeInputs('investor', 'investor_decision_making');
+  renderSegmentTypeBasis('outsourced', data.outsourced_management_basis, 'Outsourced management');
+  renderSegmentTypeBasis('comingled', data.comingled_vehicles_basis, 'Comingled vehicles');
+  renderSegmentTypeBasis('investor', data.investor_decision_making_basis, 'Investor decision-making');
+  renderEnabledDimensionsCheckboxes(data.enabled_dimensions);
+  renderEnabledDimensionsBasis(data);
   updateAllToolLiveStatuses(data);
   document.getElementById('tmf-gbci-year').textContent = TMF_GBCI_YEAR;
   document.getElementById('ef-epi-year').textContent = EF_EPI_YEAR;
