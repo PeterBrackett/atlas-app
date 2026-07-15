@@ -2,9 +2,38 @@ const { app } = require('@azure/functions');
 const PptxGenJS = require('pptxgenjs');
 const { buildAumRows, buildScorecardMatrix, buildTopInstitutionsSections } = require('../shared/exportHelpers');
 const { getDimensionIconDataUri } = require('../shared/dimensionIcons');
+const { getAtlasLogoDataUri } = require('../shared/atlasLogo');
 
 const HEADER_FILL = 'D9E2F3';
 const BORDER = { type: 'solid', color: 'CCCCCC', pt: 0.5 };
+
+// Tight cell padding (inches: [top, right, bottom, left]) applied to every
+// table in this export -- pptxgenjs's default cell margin left noticeably
+// more whitespace around short numeric/score cells than the content needed,
+// which was Peter's "quite a bit of wasted space" feedback.
+const CELL_MARGIN = [0.03, 0.05, 0.03, 0.05];
+
+// Atlas logo, top-left of every slide via a slide master (see
+// ATLAS_MASTER_NAME / buildSlideMaster() below) rather than a per-slide
+// addImage() call, so every addSlide({masterName}) call gets it for free.
+// Title text on data slides is shifted right (TITLE_X) to clear the logo.
+const LOGO_X = 0.15;
+const LOGO_Y = 0.15;
+const LOGO_SIZE = 0.35;
+const TITLE_X = 0.65;
+const ATLAS_MASTER_NAME = 'ATLAS_MASTER';
+
+function defineAtlasMaster(pptx) {
+  const logoDataUri = getAtlasLogoDataUri();
+  pptx.defineSlideMaster({
+    title: ATLAS_MASTER_NAME,
+    objects: logoDataUri ? [{ image: { x: LOGO_X, y: LOGO_Y, w: LOGO_SIZE, h: LOGO_SIZE, data: logoDataUri } }] : []
+  });
+}
+
+function addAtlasSlide(pptx) {
+  return pptx.addSlide({ masterName: ATLAS_MASTER_NAME });
+}
 
 // pptxgenjs table cells don't support an embedded image alongside text (only
 // the Word export can do a true inline icon+text cell -- see
@@ -17,13 +46,13 @@ const BORDER = { type: 'solid', color: 'CCCCCC', pt: 0.5 };
 // required") needs to fit on one line at this font size for the alignment
 // to hold.
 const SCORECARD_LABEL_COL_W = 2.6;
-const SCORECARD_ROW_H = 0.3;
-const SCORECARD_ICON_SIZE = 0.16;
+const SCORECARD_ROW_H = 0.26;
+const SCORECARD_ICON_SIZE = 0.14;
 const SCORECARD_TABLE_X = 0.5; // leaves a gutter at 0.3-0.46 for the icons
 const SCORECARD_ICON_X = 0.28;
 
 function headerCellOpts(extra) {
-  return Object.assign({ bold: true, fill: { color: HEADER_FILL }, fontSize: 9 }, extra);
+  return Object.assign({ bold: true, fill: { color: HEADER_FILL }, fontSize: 8, margin: CELL_MARGIN }, extra);
 }
 
 // "Equities range (min-max)" column mirrors the Word export and
@@ -36,26 +65,34 @@ function buildAumTableRows(rows) {
     options: headerCellOpts()
   }));
   const body = rows.map((r) => ([
-    { text: r.segment, options: { fontSize: 9 } },
-    { text: typeof r.aum_bn === 'number' ? r.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-', options: { fontSize: 9 } },
-    { text: typeof r.equity_bn === 'number' ? r.equity_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-', options: { fontSize: 9 } },
-    { text: r.basis || '', options: { fontSize: 8 } },
-    { text: r.equity_range || '-', options: { fontSize: 8 } }
+    { text: r.segment, options: { fontSize: 8, margin: CELL_MARGIN } },
+    { text: typeof r.aum_bn === 'number' ? r.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-', options: { fontSize: 8, margin: CELL_MARGIN } },
+    { text: typeof r.equity_bn === 'number' ? r.equity_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-', options: { fontSize: 8, margin: CELL_MARGIN } },
+    { text: r.basis || '', options: { fontSize: 7, margin: CELL_MARGIN } },
+    { text: r.equity_range || '-', options: { fontSize: 7, margin: CELL_MARGIN } }
   ]));
   return [header, ...body];
 }
 
 // Same "runs wide with many segments" caveat as the Word export -- v1
 // accepts a tight fit on countries with a lot of scored segments (e.g. UK's
-// 11 columns) rather than splitting the matrix across multiple slides.
+// 11 columns) rather than splitting the matrix across multiple slides. Data
+// cells carry the same red/amber/green shading as the site's scorecard
+// matrix, via row.colors[i] (see scoreColor()/overallColor() in
+// exportHelpers.js) -- unscored ('-') cells are left uncolored.
 function buildScorecardTableRows(matrix) {
   const header = ['Dimension', ...matrix.columnLabels].map((t) => ({
     text: t,
-    options: headerCellOpts({ fontSize: 8 })
+    options: headerCellOpts({ fontSize: 7 })
   }));
   const body = matrix.rows.map((row) => ([
-    { text: row.label, options: headerCellOpts({ fontSize: 8 }) },
-    ...row.values.map((v) => ({ text: v, options: { fontSize: 8, align: 'center' } }))
+    { text: row.label, options: headerCellOpts({ fontSize: 7 }) },
+    ...row.values.map((v, i) => {
+      const color = row.colors ? row.colors[i] : null;
+      const base = { fontSize: 7, align: 'center', margin: CELL_MARGIN };
+      if (!color) return { text: v, options: base };
+      return { text: v, options: Object.assign({}, base, { fill: { color: color.bg }, color: color.fg, bold: true }) };
+    })
   ]));
   return [header, ...body];
 }
@@ -87,9 +124,9 @@ function addScorecardDimensionIcons(slide, matrix, tableY) {
 function buildTopInstitutionsTableRows(section) {
   const header = ['Rank', 'Institution', 'AUM ($bn)'].map((t) => ({ text: t, options: headerCellOpts() }));
   const body = section.institutions.map((inst, i) => ([
-    { text: String(i + 1), options: { fontSize: 9 } },
-    { text: inst.name, options: { fontSize: 9 } },
-    { text: typeof inst.aum_bn === 'number' ? inst.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-', options: { fontSize: 9 } }
+    { text: String(i + 1), options: { fontSize: 8, margin: CELL_MARGIN } },
+    { text: inst.name, options: { fontSize: 8, margin: CELL_MARGIN } },
+    { text: typeof inst.aum_bn === 'number' ? inst.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-', options: { fontSize: 8, margin: CELL_MARGIN } }
   ]));
   return [header, ...body];
 }
@@ -106,8 +143,8 @@ function buildTopInstitutionsTableRows(section) {
 function addTopInstitutionsSlides(pptx, countryName, segments) {
   const sections = buildTopInstitutionsSections(segments);
   sections.forEach((section) => {
-    const slide = pptx.addSlide();
-    slide.addText(`Atlas — ${countryName}`, { x: 0.4, y: 0.25, fontSize: 24, bold: true });
+    const slide = addAtlasSlide(pptx);
+    slide.addText(`Atlas — ${countryName}`, { x: TITLE_X, y: 0.25, fontSize: 24, bold: true });
     const nText = section.n_institutions ? ` of ${section.n_institutions.toLocaleString()} identified` : '';
     slide.addText(
       `${section.segment} — top ${section.institutions.length}${nText} institutions hold ${section.top10_share_pct}% of segment AUM`,
@@ -130,8 +167,8 @@ function addCountrySlides(pptx, countryName, segments, generatedDate) {
   const aumRows = buildAumRows(segments);
   const matrix = buildScorecardMatrix(segments);
 
-  const aumSlide = pptx.addSlide();
-  aumSlide.addText(`Atlas — ${countryName}`, { x: 0.4, y: 0.25, fontSize: 24, bold: true });
+  const aumSlide = addAtlasSlide(pptx);
+  aumSlide.addText(`Atlas — ${countryName}`, { x: TITLE_X, y: 0.25, fontSize: 24, bold: true });
   aumSlide.addText(`AUM by segment — generated ${generatedDate}`, { x: 0.4, y: 0.85, fontSize: 12, color: '666666' });
   aumSlide.addTable(buildAumTableRows(aumRows), {
     x: 0.4, y: 1.3, w: 12.5,
@@ -139,8 +176,8 @@ function addCountrySlides(pptx, countryName, segments, generatedDate) {
     autoPage: false
   });
 
-  const scorecardSlide = pptx.addSlide();
-  scorecardSlide.addText(`Atlas — ${countryName}`, { x: 0.4, y: 0.25, fontSize: 24, bold: true });
+  const scorecardSlide = addAtlasSlide(pptx);
+  scorecardSlide.addText(`Atlas — ${countryName}`, { x: TITLE_X, y: 0.25, fontSize: 24, bold: true });
   scorecardSlide.addText('Opportunity scorecard', { x: 0.4, y: 0.85, fontSize: 12, color: '666666' });
   const scorecardTableY = 1.3;
   const scorecardTableW = 12.7 - (SCORECARD_TABLE_X - 0.3); // keep the same right edge as before
@@ -192,9 +229,10 @@ app.http('exportPptx', {
       const pptx = new PptxGenJS();
       pptx.defineLayout({ name: 'ATLAS_WIDE', width: 13.33, height: 7.5 });
       pptx.layout = 'ATLAS_WIDE';
+      defineAtlasMaster(pptx);
 
       if (isMulti) {
-        const titleSlide = pptx.addSlide();
+        const titleSlide = addAtlasSlide(pptx);
         titleSlide.addText(`Atlas — Project (${countries.length} countries)`, { x: 0.4, y: 2.8, fontSize: 32, bold: true });
         titleSlide.addText(`Generated ${generatedDate} — ${countries.map((c) => c.country_name).join(', ')}`, { x: 0.4, y: 3.6, fontSize: 14, color: '666666' });
       }

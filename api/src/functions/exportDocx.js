@@ -1,22 +1,43 @@
 const { app } = require('@azure/functions');
 const {
   Document, Packer, Paragraph, TextRun, ImageRun, Table, TableRow, TableCell,
-  HeadingLevel, WidthType, ShadingType, PageBreak
+  HeadingLevel, WidthType, ShadingType, PageBreak, Header
 } = require('docx');
 const { buildAumRows, buildScorecardMatrix, buildTopInstitutionsSections } = require('../shared/exportHelpers');
 const { getDimensionIconBuffer } = require('../shared/dimensionIcons');
+const { getAtlasLogoBuffer } = require('../shared/atlasLogo');
 
 const HEADER_FILL = 'D9E2F3';
 
-function headerCell(text) {
+// Compact cell margins (dxa/twips) and font sizes (half-points), applied
+// throughout the export tables so more tables fit per page -- Peter's
+// "there's quite a bit of wasted space" feedback on the default docx table
+// styling, which otherwise uses ~11pt text and generous default padding.
+const CELL_MARGINS = { top: 30, bottom: 30, left: 80, right: 80 };
+const HEADER_FONT_SIZE = 16; // 8pt
+const BODY_FONT_SIZE = 16; // 8pt
+
+function headerCell(text, widthPct) {
   return new TableCell({
     shading: { type: ShadingType.CLEAR, fill: HEADER_FILL, color: 'auto' },
-    children: [new Paragraph({ children: [new TextRun({ text: String(text), bold: true })] })]
+    margins: CELL_MARGINS,
+    ...(widthPct ? { width: { size: widthPct, type: WidthType.PERCENTAGE } } : {}),
+    children: [new Paragraph({ children: [new TextRun({ text: String(text), bold: true, size: HEADER_FONT_SIZE })] })]
   });
 }
 
-function bodyCell(text) {
-  return new TableCell({ children: [new Paragraph({ text: String(text) })] });
+// `color` is the optional {bg, fg} hex pair from exportHelpers.js's
+// scoreColor()/overallColor(), reproducing the site's red/amber/green
+// scorecard traffic-light coding (see style.css's td.score-1/2/3 and
+// td.overall-red/amber/green) in the Word table cells.
+function bodyCell(text, color) {
+  return new TableCell({
+    margins: CELL_MARGINS,
+    ...(color ? { shading: { type: ShadingType.CLEAR, fill: color.bg, color: 'auto' } } : {}),
+    children: [new Paragraph({
+      children: [new TextRun({ text: String(text), size: BODY_FONT_SIZE, ...(color ? { color: color.fg, bold: true } : {}) })]
+    })]
+  });
 }
 
 // Same as headerCell(), but for a scorecard dimension row: prepends the
@@ -30,11 +51,25 @@ function dimensionHeaderCell(row) {
   if (!iconBuffer) return headerCell(row.label);
   return new TableCell({
     shading: { type: ShadingType.CLEAR, fill: HEADER_FILL, color: 'auto' },
+    margins: CELL_MARGINS,
     children: [new Paragraph({
       children: [
-        new ImageRun({ data: iconBuffer, type: 'png', transformation: { width: 14, height: 14 } }),
-        new TextRun({ text: `  ${row.label}`, bold: true })
+        new ImageRun({ data: iconBuffer, type: 'png', transformation: { width: 12, height: 12 } }),
+        new TextRun({ text: `  ${row.label}`, bold: true, size: HEADER_FONT_SIZE })
       ]
+    })]
+  });
+}
+
+// Atlas logo, top-left of every page. A docx Header attached to the
+// document's (single) section repeats automatically on every page, so this
+// only needs to be built once rather than re-inserted per country/section.
+function buildLogoHeader() {
+  const logoBuffer = getAtlasLogoBuffer();
+  if (!logoBuffer) return undefined;
+  return new Header({
+    children: [new Paragraph({
+      children: [new ImageRun({ data: logoBuffer, type: 'png', transformation: { width: 28, height: 28 } })]
     })]
   });
 }
@@ -44,9 +79,20 @@ function dimensionHeaderCell(row) {
 // reported Equities figure as-is (assumes non-reporters hold none), max is
 // that figure scaled up to the segment's full AUM (assumes non-reporters
 // match reporters' mix). See getAllocationRange() in exportHelpers.js.
+// Column widths tuned to content (numeric columns don't need as much room
+// as Segment/Basis text), rather than five equal-width columns leaving
+// visible whitespace in the short numeric ones.
+const AUM_COL_WIDTHS = [22, 12, 12, 16, 38];
+
 function buildAumTable(rows) {
   const headerRow = new TableRow({
-    children: [headerCell('Segment'), headerCell('AUM ($bn)'), headerCell('Equities ($bn)'), headerCell('Basis'), headerCell('Equities range (min-max)')]
+    children: [
+      headerCell('Segment', AUM_COL_WIDTHS[0]),
+      headerCell('AUM ($bn)', AUM_COL_WIDTHS[1]),
+      headerCell('Equities ($bn)', AUM_COL_WIDTHS[2]),
+      headerCell('Basis', AUM_COL_WIDTHS[3]),
+      headerCell('Equities range (min-max)', AUM_COL_WIDTHS[4])
+    ]
   });
   const dataRows = rows.map((r) => new TableRow({
     children: [
@@ -61,23 +107,25 @@ function buildAumTable(rows) {
 }
 
 // Word tables don't scroll horizontally the way a webpage can, so a country
-// with many segment columns (e.g. UK's 11) will run wide. Accepted for v1 --
-// Word will shrink/wrap it onto the page reasonably well, and this is the
-// same shape as the on-screen matrix. Revisit if segment counts grow much
-// further (e.g. once a 19-segment country is fully built).
+// with many segment columns (e.g. UK's 11) will run wide. Deliberately left
+// at AUTO width (rather than stretched to 100% of the page) so Word sizes
+// each data column to its actual content -- these are all single-digit
+// scores, so a full-width table here was mostly empty padding. Cells carry
+// the same red/amber/green shading as the site's scorecard matrix, via
+// row.colors[i] (see scoreColor()/overallColor() in exportHelpers.js).
 function buildScorecardTable(matrix) {
   const headerRow = new TableRow({
     children: [headerCell('Dimension'), ...matrix.columnLabels.map((label) => headerCell(label))]
   });
   const dataRows = matrix.rows.map((row) => new TableRow({
-    children: [dimensionHeaderCell(row), ...row.values.map((v) => bodyCell(v))]
+    children: [dimensionHeaderCell(row), ...row.values.map((v, i) => bodyCell(v, row.colors ? row.colors[i] : null))]
   }));
-  return new Table({ width: { size: 100, type: WidthType.PERCENTAGE }, rows: [headerRow, ...dataRows] });
+  return new Table({ rows: [headerRow, ...dataRows] });
 }
 
 function buildTopInstitutionsTable(section) {
   const headerRow = new TableRow({
-    children: [headerCell('Rank'), headerCell('Institution'), headerCell('AUM ($bn)')]
+    children: [headerCell('Rank', 12), headerCell('Institution', 58), headerCell('AUM ($bn)', 30)]
   });
   const dataRows = section.institutions.map((inst, i) => new TableRow({
     children: [
@@ -99,14 +147,14 @@ function buildTopInstitutionsBlock(segments) {
   const sections = buildTopInstitutionsSections(segments);
   if (!sections.length) return [];
 
-  const heading = new Paragraph({ text: 'Top institutions by AUM', heading: HeadingLevel.HEADING_2, spacing: { before: 400, after: 100 } });
+  const heading = new Paragraph({ text: 'Top institutions by AUM', heading: HeadingLevel.HEADING_2, spacing: { before: 200, after: 60 } });
   const perSegment = sections.flatMap((section) => {
     const nText = section.n_institutions ? ` of ${section.n_institutions.toLocaleString()} identified` : '';
     return [
       new Paragraph({
         text: `${section.segment} — top ${section.institutions.length}${nText} institutions hold ${section.top10_share_pct}% of segment AUM`,
         heading: HeadingLevel.HEADING_3,
-        spacing: { before: 250, after: 80 }
+        spacing: { before: 150, after: 40 }
       }),
       buildTopInstitutionsTable(section)
     ];
@@ -132,9 +180,9 @@ function buildCountrySection(countryName, segments, { headingLevel = HeadingLeve
   });
   return [
     heading,
-    new Paragraph({ text: 'AUM by segment', heading: HeadingLevel.HEADING_2, spacing: { before: 300, after: 100 } }),
+    new Paragraph({ text: 'AUM by segment', heading: HeadingLevel.HEADING_2, spacing: { before: 150, after: 60 } }),
     buildAumTable(aumRows),
-    new Paragraph({ text: 'Opportunity scorecard', heading: HeadingLevel.HEADING_2, spacing: { before: 400, after: 100 } }),
+    new Paragraph({ text: 'Opportunity scorecard', heading: HeadingLevel.HEADING_2, spacing: { before: 200, after: 60 } }),
     buildScorecardTable(matrix),
     ...buildTopInstitutionsBlock(segments)
   ];
@@ -192,7 +240,13 @@ app.http('exportDocx', {
         spacing: { before: 300 }
       }));
 
-      const doc = new Document({ sections: [{ children }] });
+      const logoHeader = buildLogoHeader();
+      const doc = new Document({
+        sections: [{
+          ...(logoHeader ? { headers: { default: logoHeader } } : {}),
+          children
+        }]
+      });
       const buffer = await Packer.toBuffer(doc);
 
       return {
