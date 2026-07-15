@@ -39,16 +39,22 @@ function dimensionHeaderCell(row) {
   });
 }
 
+// "Equities range (min-max)" reflects that not every institution counted in
+// a segment's AUM also filed an asset-class breakdown -- min is the
+// reported Equities figure as-is (assumes non-reporters hold none), max is
+// that figure scaled up to the segment's full AUM (assumes non-reporters
+// match reporters' mix). See getAllocationRange() in exportHelpers.js.
 function buildAumTable(rows) {
   const headerRow = new TableRow({
-    children: [headerCell('Segment'), headerCell('AUM ($bn)'), headerCell('Equities ($bn)'), headerCell('Basis')]
+    children: [headerCell('Segment'), headerCell('AUM ($bn)'), headerCell('Equities ($bn)'), headerCell('Basis'), headerCell('Equities range (min-max)')]
   });
   const dataRows = rows.map((r) => new TableRow({
     children: [
       bodyCell(r.segment),
       bodyCell(typeof r.aum_bn === 'number' ? r.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-'),
       bodyCell(typeof r.equity_bn === 'number' ? r.equity_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-'),
-      bodyCell(r.basis || '')
+      bodyCell(r.basis || ''),
+      bodyCell(r.equity_range || '-')
     ]
   }));
   return new Table({ width: { size: 100, type: WidthType.PERCENTAGE }, rows: [headerRow, ...dataRows] });

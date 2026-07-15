@@ -26,8 +26,12 @@ function headerCellOpts(extra) {
   return Object.assign({ bold: true, fill: { color: HEADER_FILL }, fontSize: 9 }, extra);
 }
 
+// "Equities range (min-max)" column mirrors the Word export and
+// country.html -- see the comment above getAllocationRange() in
+// exportHelpers.js for what min/max mean (not every institution counted in
+// AUM also reported an asset-class breakdown).
 function buildAumTableRows(rows) {
-  const header = ['Segment', 'AUM ($bn)', 'Equities ($bn)', 'Basis'].map((t) => ({
+  const header = ['Segment', 'AUM ($bn)', 'Equities ($bn)', 'Basis', 'Equities range (min-max)'].map((t) => ({
     text: t,
     options: headerCellOpts()
   }));
@@ -35,7 +39,8 @@ function buildAumTableRows(rows) {
     { text: r.segment, options: { fontSize: 9 } },
     { text: typeof r.aum_bn === 'number' ? r.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-', options: { fontSize: 9 } },
     { text: typeof r.equity_bn === 'number' ? r.equity_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-', options: { fontSize: 9 } },
-    { text: r.basis || '', options: { fontSize: 8 } }
+    { text: r.basis || '', options: { fontSize: 8 } },
+    { text: r.equity_range || '-', options: { fontSize: 8 } }
   ]));
   return [header, ...body];
 }
