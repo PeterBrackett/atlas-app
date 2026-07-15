@@ -195,6 +195,37 @@ function buildScorecardMatrix(segments) {
   };
 }
 
+// Character-count based column width estimator, shared by both exports so
+// table columns are sized to their actual content instead of being
+// stretched to fill the page/slide (Peter's 2026-07-15 feedback: "Rank only
+// needs to be the width of the word Rank... Institution needs to be the
+// width of the longest name unless very long ones wrap... AUM generally
+// only needs to be the width of AUM ($bn)"). Neither docx nor pptxgenjs
+// measures text and autofits columns on its own, so this does a cheap
+// character-count approximation instead: each column's width is driven by
+// its longest cell (header or body), clamped to [minChars, a per-column
+// cap] so one long institution name doesn't blow out the whole table (it
+// wraps within the cap instead) and a short column like "Rank" doesn't
+// collapse to nothing. Returns character counts, not physical units -- each
+// export file converts to its own unit (twips for docx, inches for
+// pptxgenjs) with its own per-character constant, since the two render at
+// different default font sizes.
+function estimateColumnCharWidths(headerLabels, bodyRows, opts = {}) {
+  const minChars = opts.minChars || 3;
+  const defaultMax = opts.maxChars || 40;
+  const maxCharsPerCol = opts.maxCharsPerCol;
+  const capFor = (i) => (maxCharsPerCol && typeof maxCharsPerCol[i] === 'number') ? maxCharsPerCol[i] : defaultMax;
+
+  const widths = headerLabels.map((h, i) => Math.min(Math.max(String(h == null ? '' : h).length, minChars), capFor(i)));
+  (bodyRows || []).forEach((row) => {
+    for (let i = 0; i < headerLabels.length; i++) {
+      const len = row[i] == null ? 0 : String(row[i]).length;
+      widths[i] = Math.max(widths[i], Math.min(Math.max(len, minChars), capFor(i)));
+    }
+  });
+  return widths;
+}
+
 // Top institutions by AUM per segment, matching Peter's standard "top 10 +
 // concentration %" report format -- mirrors atlas-site/country.html's
 // segmentsWithTopInstitutions(). Only segments with
@@ -225,6 +256,7 @@ module.exports = {
   scoredDimensionCount,
   scoreColor,
   overallColor,
+  estimateColumnCharWidths,
   buildAumRows,
   buildScorecardMatrix,
   buildTopInstitutionsSections
