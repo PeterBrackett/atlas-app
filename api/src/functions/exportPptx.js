@@ -102,12 +102,12 @@ function buildAumTableRows(rows) {
 // Same "runs wide with many segments" caveat as the Word export -- v1
 // accepts a tight fit on countries with a lot of scored segments (e.g. UK's
 // 11 columns) rather than splitting the matrix across multiple slides. Data
-// columns hold short values (1-3, "-", "x/12", two-digit overall scores),
-// so they get a small character cap and the table only ever runs as wide
-// as it needs to, rather than stretching to fill the slide. Cells carry
-// the same red/amber/green shading as the site's scorecard matrix, via
-// row.colors[i] (see scoreColor()/overallColor() in exportHelpers.js) --
-// unscored ('-') cells are left uncolored.
+// columns hold short values (1-3, "0" for unscored, "x/12", two-digit
+// overall scores), so they get a small character cap and the table only
+// ever runs as wide as it needs to, rather than stretching to fill the
+// slide. Cells carry the same red/amber/green shading as the site's
+// scorecard matrix, via row.colors[i] (see scoreColor()/overallColor() in
+// exportHelpers.js) -- unscored cells get MISSING_COLOR's yellow instead.
 function buildScorecardTableRows(matrix) {
   const headerLabels = ['Dimension', ...matrix.columnLabels];
   const bodyText = matrix.rows.map((row) => [row.label, ...row.values]);
