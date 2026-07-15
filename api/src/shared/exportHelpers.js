@@ -46,14 +46,15 @@ function enabledDimensionCount(enabledDimensions) {
   return SCORECARD_DIMENSIONS.filter((d) => isDimensionEnabled(d.key, enabledDimensions)).length;
 }
 
+// Mirrors atlas-site/scorecard-dimensions.js -- changed 2026-07-15 to
+// always return a real number: a missing dimension contributes 0 instead
+// of blocking the whole Overall. See that file's comment for the reasoning.
 function computeOverallScore(scorecard, enabledDimensions) {
-  if (!scorecard) return null;
   let total = 0;
   for (const dim of SCORECARD_DIMENSIONS) {
     if (!isDimensionEnabled(dim.key, enabledDimensions)) continue;
-    const v = scorecard[dim.key];
-    if (typeof v !== 'number') return null;
-    total += v * dim.weight;
+    const v = scorecard ? scorecard[dim.key] : undefined;
+    total += (typeof v === 'number' ? v : 0) * dim.weight;
   }
   return total;
 }
@@ -146,6 +147,12 @@ function scoreColor(value) {
   return null;
 }
 
+// Matches atlas-site/style.css's td.cell-missing (2026-07-15) -- a distinct
+// yellow flag for "no data entered", separate from the red/amber/green
+// score palette above, so a 0 substituted for a genuine gap doesn't read as
+// a real (bad) score of 0.
+const MISSING_COLOR = { bg: 'FFF3B0', fg: '7A5C00' };
+
 // Overall score thresholds match style.css's comment: range 14-42,
 // <=22 red, 23-30 amber, >=31 green.
 function overallColor(value) {
@@ -180,11 +187,11 @@ function buildScorecardMatrix(segments, enabledDimensions) {
       label: dim.label + (dim.weight > 1 ? ` (x${dim.weight})` : ''),
       values: cols.map((s) => {
         const v = s.scorecard ? s.scorecard[dim.key] : undefined;
-        return typeof v === 'number' ? String(v) : '-';
+        return typeof v === 'number' ? String(v) : '0';
       }),
       colors: cols.map((s) => {
         const v = s.scorecard ? s.scorecard[dim.key] : undefined;
-        return typeof v === 'number' ? scoreColor(v) : null;
+        return typeof v === 'number' ? scoreColor(v) : MISSING_COLOR;
       })
     }));
 
@@ -198,10 +205,7 @@ function buildScorecardMatrix(segments, enabledDimensions) {
   const overallRow = {
     type: 'overall',
     label: 'Overall',
-    values: cols.map((s) => {
-      const overall = computeOverallScore(s.scorecard, enabledDimensions);
-      return overall === null ? '-' : String(overall);
-    }),
+    values: cols.map((s) => String(computeOverallScore(s.scorecard, enabledDimensions))),
     colors: cols.map((s) => overallColor(computeOverallScore(s.scorecard, enabledDimensions)))
   };
 
