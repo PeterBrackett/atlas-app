@@ -251,6 +251,21 @@
           <div class="summary-bar tool-panel-basis" id="investor-basis-bar"></div>
         </div>
       </div>
+
+      <div id="align-threshold-controls" class="tool-panel" style="display:none;">
+        <div class="tool-panel-inner">
+          <div class="tool-panel-controls" style="flex-basis:100%; max-width:none;">
+            <strong>Auto-score "Alignment of investment thinking" from default scores by segment type:</strong>
+            <div class="tool-panel-inputs" id="align-segment-inputs" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); gap:6px; width:100%;"></div>
+            <button type="button" id="align-apply-btn" class="btn-primary" onclick="applySegmentTypeDefaults('alignment_of_investment_thinking', 'align')" style="cursor:pointer;">Apply across all countries</button>
+            <details class="tool-explain">
+              <summary>How this works</summary>
+              <span class="note">Same starting-point-by-segment-type approach as Outsourced management above, not derived from Atlas's own data — see segment-type-defaults.js. Edit any box above before applying if a value looks wrong. Every segment matching a listed type gets that score, in every loaded country; segment types not listed here are left untouched. Overwrites any existing Alignment of investment thinking score on matched segments.</span>
+            </details>
+          </div>
+          <div class="summary-bar tool-panel-basis" id="align-basis-bar"></div>
+        </div>
+      </div>
     </div>
   </details>
 
@@ -381,6 +396,7 @@ function updateThresholdControlsVisibility() {
   document.getElementById('outsourced-threshold-controls').style.display = show ? 'block' : 'none';
   document.getElementById('comingled-threshold-controls').style.display = show ? 'block' : 'none';
   document.getElementById('investor-threshold-controls').style.display = show ? 'block' : 'none';
+  document.getElementById('align-threshold-controls').style.display = show ? 'block' : 'none';
   document.getElementById('enabled-dims-controls').style.display = show ? 'block' : 'none';
 }
 
@@ -413,6 +429,7 @@ function updateAllToolLiveStatuses(data) {
   setSegmentTypeToolLiveStatus('outsourced', !!data.outsourced_management_basis);
   setSegmentTypeToolLiveStatus('comingled', !!data.comingled_vehicles_basis);
   setSegmentTypeToolLiveStatus('investor', !!data.investor_decision_making_basis);
+  setSegmentTypeToolLiveStatus('align', !!data.alignment_of_investment_thinking_basis);
 }
 
 // Same idea as setToolLiveStatus(), but for the 19 per-segment-type score
@@ -1460,14 +1477,16 @@ async function applyPricingImpactThresholds() {
   }
 }
 
-// Shared by the three segment-type-default tools (Outsourced management,
-// Comingled vehicles, Investor decision-making) -- same mechanism for all
-// three, just a different dimension key, input-id prefix and basis key, so
-// this is written generically rather than three near-duplicate functions.
+// Shared by the four segment-type-default tools (Outsourced management,
+// Comingled vehicles, Investor decision-making, Alignment of investment
+// thinking) -- same mechanism for all four, just a different dimension
+// key, input-id prefix and basis key, so this is written generically
+// rather than four near-duplicate functions.
 const SEGMENT_TYPE_TOOL_META = {
   outsourced_management: { prefix: 'outsourced', label: 'Outsourced management', basisKey: 'outsourced_management_basis' },
   comingled_vehicles: { prefix: 'comingled', label: 'Comingled vehicles', basisKey: 'comingled_vehicles_basis' },
-  investor_decision_making: { prefix: 'investor', label: 'Investor decision-making', basisKey: 'investor_decision_making_basis' }
+  investor_decision_making: { prefix: 'investor', label: 'Investor decision-making', basisKey: 'investor_decision_making_basis' },
+  alignment_of_investment_thinking: { prefix: 'align', label: 'Alignment of investment thinking', basisKey: 'alignment_of_investment_thinking_basis' }
 };
 
 function segmentTypeInputId(prefix, segmentName) {
@@ -2039,9 +2058,11 @@ async function load() {
   renderSegmentTypeInputs('outsourced', 'outsourced_management');
   renderSegmentTypeInputs('comingled', 'comingled_vehicles');
   renderSegmentTypeInputs('investor', 'investor_decision_making');
+  renderSegmentTypeInputs('align', 'alignment_of_investment_thinking');
   renderSegmentTypeBasis('outsourced', data.outsourced_management_basis, 'Outsourced management');
   renderSegmentTypeBasis('comingled', data.comingled_vehicles_basis, 'Comingled vehicles');
   renderSegmentTypeBasis('investor', data.investor_decision_making_basis, 'Investor decision-making');
+  renderSegmentTypeBasis('align', data.alignment_of_investment_thinking_basis, 'Alignment of investment thinking');
   renderEnabledDimensionsCheckboxes(data.enabled_dimensions);
   renderEnabledDimensionsBasis(data);
   updateAllToolLiveStatuses(data);

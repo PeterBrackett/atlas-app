@@ -8,22 +8,21 @@
 // calculation) since it's judged the primary driver of whether a segment
 // is worth pursuing at all. See Sources & Methodology for the full writeup.
 
-// autoScoreNote is set on the 11 dimensions that can be bulk-overwritten in
-// one click from the "Bulk auto-scoring tools" panel on overview.html
-// (Market opportunity from allocation size, Regulatory complexity from TMF
-// rank, Distribution resources required from institution concentration,
-// Languages required from EF EPI, Local presence required from OECD
-// FDIRRI, Client servicing from Mercer Integrity, Consultant reliant from
-// IC Research consultant density, Pricing impact from segment AUM size,
-// and Outsourced management / Comingled vehicles / Investor
-// decision-making from starting-point defaults by segment type -- see
+// autoScoreNote is set on all 12 dimensions, each of which can be
+// bulk-overwritten in one click from the "Bulk auto-scoring tools" panel on
+// overview.html (Market opportunity from allocation size, Regulatory
+// complexity from TMF rank, Distribution resources required from
+// institution concentration, Languages required from EF EPI, Local
+// presence required from OECD FDIRRI, Client servicing from Mercer
+// Integrity, Consultant reliant from IC Research consultant density,
+// Pricing impact from segment AUM size, and Outsourced management /
+// Comingled vehicles / Investor decision-making / Alignment of investment
+// thinking from starting-point defaults by segment type -- see
 // segment-type-defaults.js). country.html uses this to show a small "auto"
 // flag next to the row label, since a value here could be an untouched
 // bulk-scored figure rather than a considered per-segment judgment call --
-// worth a second look before relying on it, especially for the last four,
-// which are heuristics rather than real external data. Only "Alignment of
-// investment thinking" has no such tool and is always a manual entry --
-// no usable proxy for it was found.
+// worth a second look before relying on it, especially for the last five,
+// which are heuristics rather than real external data.
 const SCORECARD_DIMENSIONS = [
   { key: 'market_opportunity', label: 'Market opportunity', weight: 3,
     question: 'Is there sufficient investable opportunity in this segment to warrant active marketing?',
@@ -35,7 +34,8 @@ const SCORECARD_DIMENSIONS = [
     question: 'Is there likely to be pricing pressure in this segment?',
     autoScoreNote: 'Can be bulk-set from a segment-AUM-size heuristic via the overview page’s auto-scoring tools (not a real pricing dataset) — check it reflects a real judgment call, not just an untouched auto-score.' },
   { key: 'alignment_of_investment_thinking', label: 'Alignment of investment thinking', weight: 1,
-    question: 'Does the market buy the kind of strategy on offer (e.g. concentrated equity, private credit)?' },
+    question: 'Does the market buy the kind of strategy on offer (e.g. concentrated equity, private credit)?',
+    autoScoreNote: 'Can be bulk-set from a starting-point default by segment type via the overview page’s auto-scoring tools (not real data — see segment-type-defaults.js) — check it reflects a real judgment call, not just an untouched default.' },
   { key: 'distribution_resources_required', label: 'Distribution resources required', weight: 1,
     question: 'How concentrated is asset ownership, and how much resource is needed to cover the market?',
     autoScoreNote: 'Can be bulk-set from institution concentration (top-3 AUM share) via the overview page’s auto-scoring tools — check it reflects a real judgment call, not just an untouched auto-score.' },

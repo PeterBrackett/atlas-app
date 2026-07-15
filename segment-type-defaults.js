@@ -1,7 +1,8 @@
-// Starting-point default scores (1-3) for three scorecard dimensions that
+// Starting-point default scores (1-3) for four scorecard dimensions that
 // have no usable external index the way TMF/EF EPI/FDIRRI/Mercer/IC
 // Research do for the others: "Outsourced management", "Comingled
-// vehicles" and "Investor decision-making". These are judgment calls
+// vehicles", "Investor decision-making" and "Alignment of investment
+// thinking". These are judgment calls
 // dressed up as a lookup table, not discovered facts -- they're typical
 // industry patterns by SEGMENT TYPE (same value for e.g. every "DC Pension
 // (Corp)" segment worldwide, regardless of country), not anything derived
@@ -30,6 +31,18 @@
 //   committee-heavy): government and union pension boards and large
 //   insurer/SWF bureaucracies tend to involve multiple sign-offs and
 //   political/committee processes; smaller foundations can move faster.
+// - Alignment of investment thinking (3 = market readily buys concentrated/
+//   differentiated/illiquid strategies, 1 = sticks to mainstream, liquid,
+//   index-like strategies): Endowments & Foundations are the textbook
+//   "endowment model" buyer -- concentrated equity, private equity, hedge
+//   funds -- so score highest. SWFs are similarly long-horizon and willing
+//   to do direct/concentrated deals. DC arrangements are platform/menu
+//   driven and default-heavy, structurally biased toward diversified,
+//   liquid, low-cost strategies, so score lowest. DB pensions and life
+//   insurers sit in between: institutionally sophisticated and increasingly
+//   active in private credit, but LDI/liability-matching keeps them away
+//   from concentrated equity. Non-life insurers need more liquidity to pay
+//   claims, so score lowest alongside DC.
 const SEGMENT_TYPE_DEFAULT_SCORES = {
   outsourced_management: {
     'DB Pension (Corp)': 2,
@@ -93,6 +106,27 @@ const SEGMENT_TYPE_DEFAULT_SCORES = {
     'Life insurance': 1,
     'Non-life insurance': 1,
     'SWF': 1
+  },
+  alignment_of_investment_thinking: {
+    'DB Pension (Corp)': 2,
+    'DC Pension (Corp)': 1,
+    'DB Pension (Govt)': 2,
+    'DC Pension (Govt)': 1,
+    'DB Pension (Union)': 2,
+    'DC Pension (Union)': 1,
+    'DB Pension (Healthcare non-profit)': 2,
+    'DC Pension (Healthcare non-profit)': 1,
+    'DB Pension (Endowments)': 2,
+    'DC Pension (Endowments)': 1,
+    'DB Pension (Tax exempt)': 2,
+    'DC Pension (Tax exempt)': 1,
+    'Endowments E&F': 3,
+    'Tax exempt E&F': 3,
+    'Foundations E&F': 3,
+    'Healthcare non-profit E&F': 3,
+    'Life insurance': 2,
+    'Non-life insurance': 1,
+    'SWF': 3
   }
 };
 
