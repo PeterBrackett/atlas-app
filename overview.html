@@ -36,64 +36,118 @@
   <details style="margin-bottom:16px;">
     <summary style="cursor:pointer; font-size:0.85rem; color:var(--muted); padding:4px 0; font-weight:600;">Bulk auto-scoring tools (market opportunity, regulatory complexity, distribution resources required, languages required, local presence required, client servicing)</summary>
     <div style="margin-top:10px;">
-      <div class="summary-bar" id="mo-basis-bar" style="margin-bottom:16px;"></div>
-      <div id="overview-threshold-controls" style="display:none; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px; padding:10px; border:1px solid var(--border); border-radius:6px; background:var(--card); font-size:0.85rem;">
-        <strong>Auto-score "Market opportunity" from an allocation:</strong>
-        <label>Asset class<br>
-          <select id="mo-asset-type-select" onchange="onMoAssetSelectorChange()"></select>
-        </label>
-        <label>Style<br>
-          <select id="mo-asset-style-select" onchange="onMoAssetSelectorChange()"></select>
-        </label>
-        <label>Threshold ($bn)<br><input type="number" step="any" id="mo-threshold-input" placeholder="e.g. 5" style="width:110px;"></label>
-        <label>Optimal ($bn)<br><input type="number" step="any" id="mo-optimal-input" placeholder="e.g. 20" style="width:110px;"></label>
-        <button type="button" id="mo-apply-btn" class="btn-primary" onclick="applyMarketOpportunityThresholds()" style="cursor:pointer; align-self:flex-end;">Apply across all countries</button>
-        <span class="note" style="border-top:none; padding-top:0; margin:0; flex-basis:100%; font-size:0.78rem;">Scores every segment in every loaded country at once, based on the asset class picked here (independent of the "Show:" selector below): below threshold = 1, at or above threshold = 2, at or above optimal = 3. As of 2026-07-15 this scores off the extrapolated max figure (reported allocation scaled up for institutions that never filed an asset-class breakdown — see the "range (min–max)" column on each country page), not the raw reported figure, so a segment with a lot of non-reporting institutions will score higher than it used to. A segment with no allocation data at all for this selection is treated as $0 (scores 1, unless threshold is 0 or less) — there's nothing to extrapolate from. Overwrites any existing Market opportunity score. This panel is always here whenever you're signed in — it no longer depends on which view is selected below.</span>
+      <div id="overview-threshold-controls" class="tool-panel" style="display:none;">
+        <div class="tool-panel-inner">
+          <div class="tool-panel-controls">
+            <strong>Auto-score "Market opportunity" from an allocation:</strong>
+            <div class="tool-panel-inputs">
+              <label>Asset class<br>
+                <select id="mo-asset-type-select" class="tool-input" onchange="onMoAssetSelectorChange()"></select>
+              </label>
+              <label>Style<br>
+                <select id="mo-asset-style-select" class="tool-input" onchange="onMoAssetSelectorChange()"></select>
+              </label>
+              <label>Threshold ($bn)<br><input type="number" step="any" id="mo-threshold-input" class="tool-input" placeholder="e.g. 5" style="width:110px;"></label>
+              <label>Optimal ($bn)<br><input type="number" step="any" id="mo-optimal-input" class="tool-input" placeholder="e.g. 20" style="width:110px;"></label>
+            </div>
+            <button type="button" id="mo-apply-btn" class="btn-primary" onclick="applyMarketOpportunityThresholds()" style="cursor:pointer;">Apply across all countries</button>
+            <details class="tool-explain">
+              <summary>How this works</summary>
+              <span class="note">Scores every segment in every loaded country at once, based on the asset class picked here (independent of the "Show:" selector below): below threshold = 1, at or above threshold = 2, at or above optimal = 3. As of 2026-07-15 this scores off the extrapolated max figure (reported allocation scaled up for institutions that never filed an asset-class breakdown — see the "range (min–max)" column on each country page), not the raw reported figure, so a segment with a lot of non-reporting institutions will score higher than it used to. A segment with no allocation data at all for this selection is treated as $0 (scores 1, unless threshold is 0 or less) — there's nothing to extrapolate from. Overwrites any existing Market opportunity score. This panel is always here whenever you're signed in — it no longer depends on which view is selected below.</span>
+            </details>
+          </div>
+          <div class="summary-bar tool-panel-basis" id="mo-basis-bar"></div>
+        </div>
       </div>
 
-      <div class="summary-bar" id="reg-basis-bar" style="margin-bottom:16px;"></div>
-      <div id="reg-threshold-controls" style="display:none; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px; padding:10px; border:1px solid var(--border); border-radius:6px; background:var(--card); font-size:0.85rem;">
-        <strong>Auto-score "Regulatory complexity" from TMF Group rankings (<span id="tmf-gbci-year"></span>):</strong>
-        <label>Threshold (rank)<br><input type="number" step="1" id="reg-threshold-input" placeholder="e.g. 27" style="width:110px;"></label>
-        <label>Optimal (rank)<br><input type="number" step="1" id="reg-optimal-input" placeholder="e.g. 56" style="width:110px;"></label>
-        <button type="button" id="reg-apply-btn" class="btn-primary" onclick="applyRegulatoryComplexityThresholds()" style="cursor:pointer; align-self:flex-end;">Apply across all countries</button>
-        <span class="note" style="border-top:none; padding-top:0; margin:0; flex-basis:100%; font-size:0.78rem;">TMF's rank 1 is the most complex jurisdiction to do business in, rank 79 the least — this is inverted from the allocation scorer above since low complexity is the attractive case: rank at or below threshold = 1, above threshold = 2, at or above optimal = 3. Countries TMF doesn't cover (Iceland, as of the 2025 edition) are skipped and left as-is — reported after applying. Same segment-independent country-level value applied to every segment, and overwrites any existing Regulatory complexity score.</span>
+      <div id="reg-threshold-controls" class="tool-panel" style="display:none;">
+        <div class="tool-panel-inner">
+          <div class="tool-panel-controls">
+            <strong>Auto-score "Regulatory complexity" from TMF Group rankings (<span id="tmf-gbci-year"></span>):</strong>
+            <div class="tool-panel-inputs">
+              <label>Threshold (rank)<br><input type="number" step="1" id="reg-threshold-input" class="tool-input" placeholder="e.g. 27" style="width:110px;"></label>
+              <label>Optimal (rank)<br><input type="number" step="1" id="reg-optimal-input" class="tool-input" placeholder="e.g. 56" style="width:110px;"></label>
+            </div>
+            <button type="button" id="reg-apply-btn" class="btn-primary" onclick="applyRegulatoryComplexityThresholds()" style="cursor:pointer;">Apply across all countries</button>
+            <details class="tool-explain">
+              <summary>How this works</summary>
+              <span class="note">TMF's rank 1 is the most complex jurisdiction to do business in, rank 79 the least — this is inverted from the allocation scorer above since low complexity is the attractive case: rank at or below threshold = 1, above threshold = 2, at or above optimal = 3. Countries TMF doesn't cover (Iceland, as of the 2025 edition) are skipped and left as-is — reported after applying. Same segment-independent country-level value applied to every segment, and overwrites any existing Regulatory complexity score.</span>
+            </details>
+          </div>
+          <div class="summary-bar tool-panel-basis" id="reg-basis-bar"></div>
+        </div>
       </div>
 
-      <div class="summary-bar" id="dist-basis-bar" style="margin-bottom:16px;"></div>
-      <div id="dist-threshold-controls" style="display:none; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px; padding:10px; border:1px solid var(--border); border-radius:6px; background:var(--card); font-size:0.85rem;">
-        <strong>Auto-score "Distribution resources required" from institution concentration:</strong>
-        <label>Threshold (top-3 share %)<br><input type="number" step="any" id="dist-threshold-input" placeholder="e.g. 20" style="width:130px;"></label>
-        <label>Optimal (top-3 share %)<br><input type="number" step="any" id="dist-optimal-input" placeholder="e.g. 50" style="width:130px;"></label>
-        <button type="button" id="dist-apply-btn" class="btn-primary" onclick="applyDistributionResourcesThresholds()" style="cursor:pointer; align-self:flex-end;">Apply across all countries</button>
-        <span class="note" style="border-top:none; padding-top:0; margin:0; flex-basis:100%; font-size:0.78rem;">Uses each segment's top-3-institution share of AUM (from the same Company-file institution data segment totals are built from) as a proxy for how much distribution resource covering the market would take: below threshold = 1, at or above threshold = 2, at or above optimal = 3 — a handful of large institutions dominating a segment needs less coverage effort than AUM spread across thousands of small ones. Segments with no institution-level concentration data (e.g. Life/Non-life insurance, built from industry aggregates rather than individual institutions) are skipped, not guessed at. Overwrites any existing Distribution resources required score.</span>
+      <div id="dist-threshold-controls" class="tool-panel" style="display:none;">
+        <div class="tool-panel-inner">
+          <div class="tool-panel-controls">
+            <strong>Auto-score "Distribution resources required" from institution concentration:</strong>
+            <div class="tool-panel-inputs">
+              <label>Threshold (top-3 share %)<br><input type="number" step="any" id="dist-threshold-input" class="tool-input" placeholder="e.g. 20" style="width:130px;"></label>
+              <label>Optimal (top-3 share %)<br><input type="number" step="any" id="dist-optimal-input" class="tool-input" placeholder="e.g. 50" style="width:130px;"></label>
+            </div>
+            <button type="button" id="dist-apply-btn" class="btn-primary" onclick="applyDistributionResourcesThresholds()" style="cursor:pointer;">Apply across all countries</button>
+            <details class="tool-explain">
+              <summary>How this works</summary>
+              <span class="note">Uses each segment's top-3-institution share of AUM (from the same Company-file institution data segment totals are built from) as a proxy for how much distribution resource covering the market would take: below threshold = 1, at or above threshold = 2, at or above optimal = 3 — a handful of large institutions dominating a segment needs less coverage effort than AUM spread across thousands of small ones. Segments with no institution-level concentration data (e.g. Life/Non-life insurance, built from industry aggregates rather than individual institutions) are skipped, not guessed at. Overwrites any existing Distribution resources required score.</span>
+            </details>
+          </div>
+          <div class="summary-bar tool-panel-basis" id="dist-basis-bar"></div>
+        </div>
       </div>
 
-      <div class="summary-bar" id="lang-basis-bar" style="margin-bottom:16px;"></div>
-      <div id="lang-threshold-controls" style="display:none; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px; padding:10px; border:1px solid var(--border); border-radius:6px; background:var(--card); font-size:0.85rem;">
-        <strong>Auto-score "Languages required" from EF English Proficiency Index (<span id="ef-epi-year"></span>):</strong>
-        <label>Threshold (EF EPI score)<br><input type="number" step="any" id="lang-threshold-input" placeholder="e.g. 550" style="width:130px;"></label>
-        <label>Optimal (EF EPI score)<br><input type="number" step="any" id="lang-optimal-input" placeholder="e.g. 600" style="width:130px;"></label>
-        <button type="button" id="lang-apply-btn" class="btn-primary" onclick="applyLanguagesRequiredThresholds()" style="cursor:pointer; align-self:flex-end;">Apply across all countries</button>
-        <span class="note" style="border-top:none; padding-top:0; margin:0; flex-basis:100%; font-size:0.78rem;">EF EPI score runs 0-800, higher = more of the population speaks English well — direction matches the allocation scorer above (not inverted): below threshold = 1, at or above threshold = 2, at or above optimal = 3. The US, UK, Ireland, Canada, Australia and New Zealand aren't ranked by EF EPI at all (it only measures non-native proficiency), so they're automatically scored 3 — English is the native language there by definition. Singapore is also unranked by EF EPI but is scored 3 as a judgment call, since English is Singapore's dominant language of government, courts and business; override this per-segment if you'd rather treat it differently. Iceland has no EF EPI coverage and isn't an English-native/business market, so it's genuinely uncovered and skipped, same as Iceland's Regulatory complexity gap. Same country-level value applied to every segment, and overwrites any existing Languages required score.</span>
+      <div id="lang-threshold-controls" class="tool-panel" style="display:none;">
+        <div class="tool-panel-inner">
+          <div class="tool-panel-controls">
+            <strong>Auto-score "Languages required" from EF English Proficiency Index (<span id="ef-epi-year"></span>):</strong>
+            <div class="tool-panel-inputs">
+              <label>Threshold (EF EPI score)<br><input type="number" step="any" id="lang-threshold-input" class="tool-input" placeholder="e.g. 550" style="width:130px;"></label>
+              <label>Optimal (EF EPI score)<br><input type="number" step="any" id="lang-optimal-input" class="tool-input" placeholder="e.g. 600" style="width:130px;"></label>
+            </div>
+            <button type="button" id="lang-apply-btn" class="btn-primary" onclick="applyLanguagesRequiredThresholds()" style="cursor:pointer;">Apply across all countries</button>
+            <details class="tool-explain">
+              <summary>How this works</summary>
+              <span class="note">EF EPI score runs 0-800, higher = more of the population speaks English well — direction matches the allocation scorer above (not inverted): below threshold = 1, at or above threshold = 2, at or above optimal = 3. The US, UK, Ireland, Canada, Australia and New Zealand aren't ranked by EF EPI at all (it only measures non-native proficiency), so they're automatically scored 3 — English is the native language there by definition. Singapore is also unranked by EF EPI but is scored 3 as a judgment call, since English is Singapore's dominant language of government, courts and business; override this per-segment if you'd rather treat it differently. Iceland has no EF EPI coverage and isn't an English-native/business market, so it's genuinely uncovered and skipped, same as Iceland's Regulatory complexity gap. Same country-level value applied to every segment, and overwrites any existing Languages required score.</span>
+            </details>
+          </div>
+          <div class="summary-bar tool-panel-basis" id="lang-basis-bar"></div>
+        </div>
       </div>
 
-      <div class="summary-bar" id="local-basis-bar" style="margin-bottom:16px;"></div>
-      <div id="local-threshold-controls" style="display:none; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px; padding:10px; border:1px solid var(--border); border-radius:6px; background:var(--card); font-size:0.85rem;">
-        <strong>Auto-score "Local presence required" from OECD FDI Restrictiveness (<span id="fdirri-year"></span>):</strong>
-        <label>Threshold (index)<br><input type="number" step="any" id="local-threshold-input" placeholder="e.g. 0.02" style="width:110px;"></label>
-        <label>Optimal (index)<br><input type="number" step="any" id="local-optimal-input" placeholder="e.g. 0.1" style="width:110px;"></label>
-        <button type="button" id="local-apply-btn" class="btn-primary" onclick="applyLocalPresenceThresholds()" style="cursor:pointer; align-self:flex-end;">Apply across all countries</button>
-        <span class="note" style="border-top:none; padding-top:0; margin:0; flex-basis:100%; font-size:0.78rem;">FDIRRI runs 0 (fully open to foreign investment) to 1 (fully closed) — this is the economy-wide score, not asset-management-specific (the sector-level fund-management score turned out to be nearly uniform across countries, so it can't discriminate; see fdi-restrictiveness.js). Direction is reversed from every other tool here since low restrictiveness is the attractive case: index at or below threshold = 3, above threshold but at or below optimal = 2, above optimal = 1. Hong Kong, UAE, Qatar and Oman aren't covered by this index and are skipped, not guessed at. Same country-level value applied to every segment, and overwrites any existing Local presence required score.</span>
+      <div id="local-threshold-controls" class="tool-panel" style="display:none;">
+        <div class="tool-panel-inner">
+          <div class="tool-panel-controls">
+            <strong>Auto-score "Local presence required" from OECD FDI Restrictiveness (<span id="fdirri-year"></span>):</strong>
+            <div class="tool-panel-inputs">
+              <label>Threshold (index)<br><input type="number" step="any" id="local-threshold-input" class="tool-input" placeholder="e.g. 0.02" style="width:110px;"></label>
+              <label>Optimal (index)<br><input type="number" step="any" id="local-optimal-input" class="tool-input" placeholder="e.g. 0.1" style="width:110px;"></label>
+            </div>
+            <button type="button" id="local-apply-btn" class="btn-primary" onclick="applyLocalPresenceThresholds()" style="cursor:pointer;">Apply across all countries</button>
+            <details class="tool-explain">
+              <summary>How this works</summary>
+              <span class="note">FDIRRI runs 0 (fully open to foreign investment) to 1 (fully closed) — this is the economy-wide score, not asset-management-specific (the sector-level fund-management score turned out to be nearly uniform across countries, so it can't discriminate; see fdi-restrictiveness.js). Direction is reversed from every other tool here since low restrictiveness is the attractive case: index at or below threshold = 3, above threshold but at or below optimal = 2, above optimal = 1. Hong Kong, UAE, Qatar and Oman aren't covered by this index and are skipped, not guessed at. Same country-level value applied to every segment, and overwrites any existing Local presence required score.</span>
+            </details>
+          </div>
+          <div class="summary-bar tool-panel-basis" id="local-basis-bar"></div>
+        </div>
       </div>
 
-      <div class="summary-bar" id="client-basis-bar" style="margin-bottom:16px;"></div>
-      <div id="client-threshold-controls" style="display:none; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px; padding:10px; border:1px solid var(--border); border-radius:6px; background:var(--card); font-size:0.85rem;">
-        <strong>Auto-score "Client servicing" from Mercer CFA Institute Global Pension Index — Integrity (<span id="mercer-integrity-year"></span>):</strong>
-        <label>Threshold (Integrity score)<br><input type="number" step="any" id="client-threshold-input" placeholder="e.g. 55" style="width:140px;"></label>
-        <label>Optimal (Integrity score)<br><input type="number" step="any" id="client-optimal-input" placeholder="e.g. 80" style="width:140px;"></label>
-        <button type="button" id="client-apply-btn" class="btn-primary" onclick="applyClientServicingThresholds()" style="cursor:pointer; align-self:flex-end;">Apply across all countries</button>
-        <span class="note" style="border-top:none; padding-top:0; margin:0; flex-basis:100%; font-size:0.78rem;">Integrity sub-index runs 0-100, higher = stronger pension governance/regulation/communication — direction matches the allocation scorer above (not inverted): below threshold = 1, at or above threshold = 2, at or above optimal = 3. Qatar isn't covered by the Index and is skipped, not guessed at. This same Integrity number was also proposed for "Investor decision-making", but it's only wired up here to avoid two scorecard dimensions moving in lockstep off one source — see mercer-integrity.js. Same country-level value applied to every segment, and overwrites any existing Client servicing score.</span>
+      <div id="client-threshold-controls" class="tool-panel" style="display:none;">
+        <div class="tool-panel-inner">
+          <div class="tool-panel-controls">
+            <strong>Auto-score "Client servicing" from Mercer CFA Institute Global Pension Index — Integrity (<span id="mercer-integrity-year"></span>):</strong>
+            <div class="tool-panel-inputs">
+              <label>Threshold (Integrity score)<br><input type="number" step="any" id="client-threshold-input" class="tool-input" placeholder="e.g. 55" style="width:140px;"></label>
+              <label>Optimal (Integrity score)<br><input type="number" step="any" id="client-optimal-input" class="tool-input" placeholder="e.g. 80" style="width:140px;"></label>
+            </div>
+            <button type="button" id="client-apply-btn" class="btn-primary" onclick="applyClientServicingThresholds()" style="cursor:pointer;">Apply across all countries</button>
+            <details class="tool-explain">
+              <summary>How this works</summary>
+              <span class="note">Integrity sub-index runs 0-100, higher = stronger pension governance/regulation/communication — direction matches the allocation scorer above (not inverted): below threshold = 1, at or above threshold = 2, at or above optimal = 3. Qatar isn't covered by the Index and is skipped, not guessed at. This same Integrity number was also proposed for "Investor decision-making", but it's only wired up here to avoid two scorecard dimensions moving in lockstep off one source — see mercer-integrity.js. Same country-level value applied to every segment, and overwrites any existing Client servicing score.</span>
+            </details>
+          </div>
+          <div class="summary-bar tool-panel-basis" id="client-basis-bar"></div>
+        </div>
       </div>
     </div>
   </details>
@@ -214,12 +268,38 @@ function onOverviewViewChange() {
 // visibility rule.
 function updateThresholdControlsVisibility() {
   const show = !!CURRENT_USER && OVERVIEW_USABLE.length > 0;
-  document.getElementById('overview-threshold-controls').style.display = show ? 'flex' : 'none';
-  document.getElementById('reg-threshold-controls').style.display = show ? 'flex' : 'none';
-  document.getElementById('dist-threshold-controls').style.display = show ? 'flex' : 'none';
-  document.getElementById('lang-threshold-controls').style.display = show ? 'flex' : 'none';
-  document.getElementById('local-threshold-controls').style.display = show ? 'flex' : 'none';
-  document.getElementById('client-threshold-controls').style.display = show ? 'flex' : 'none';
+  document.getElementById('overview-threshold-controls').style.display = show ? 'block' : 'none';
+  document.getElementById('reg-threshold-controls').style.display = show ? 'block' : 'none';
+  document.getElementById('dist-threshold-controls').style.display = show ? 'block' : 'none';
+  document.getElementById('lang-threshold-controls').style.display = show ? 'block' : 'none';
+  document.getElementById('local-threshold-controls').style.display = show ? 'block' : 'none';
+  document.getElementById('client-threshold-controls').style.display = show ? 'block' : 'none';
+}
+
+// Colours each tool's input/select controls green ("live" -- this dimension
+// has an actual recorded basis, meaning the tool has been run at least once
+// and the scores on screen genuinely reflect it) or amber ("pending" -- never
+// run, so any scores showing for this dimension were set some other way, e.g.
+// by hand). Purely a visual status cue; doesn't affect any scoring logic.
+// Driven by the same *_basis fields on global.json the basis-bar boxes
+// already read, and re-run any time those change (initial load, and after a
+// successful apply for that dimension) so it never goes stale.
+function setToolLiveStatus(inputIds, isLive) {
+  inputIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.classList.toggle('tool-live', isLive);
+    el.classList.toggle('tool-pending', !isLive);
+  });
+}
+
+function updateAllToolLiveStatuses(data) {
+  setToolLiveStatus(['mo-asset-type-select', 'mo-asset-style-select', 'mo-threshold-input', 'mo-optimal-input'], !!data.market_opportunity_basis);
+  setToolLiveStatus(['reg-threshold-input', 'reg-optimal-input'], !!data.regulatory_complexity_basis);
+  setToolLiveStatus(['dist-threshold-input', 'dist-optimal-input'], !!data.distribution_resources_basis);
+  setToolLiveStatus(['lang-threshold-input', 'lang-optimal-input'], !!data.languages_required_basis);
+  setToolLiveStatus(['local-threshold-input', 'local-optimal-input'], !!data.local_presence_required_basis);
+  setToolLiveStatus(['client-threshold-input', 'client-optimal-input'], !!data.client_servicing_basis);
 }
 
 function populateMoAssetSelectors() {
@@ -398,6 +478,7 @@ async function applyMarketOpportunityThresholds() {
       if (basisRes.ok && basisResult.basis) {
         GLOBAL_DATA.market_opportunity_basis = basisResult.basis;
         renderMarketOpportunityBasis(GLOBAL_DATA.market_opportunity_basis);
+        updateAllToolLiveStatuses(GLOBAL_DATA);
       }
     } catch (e) { /* scores are saved; the basis reminder just won't update this time */ }
   } catch (e) {
@@ -517,6 +598,7 @@ async function applyRegulatoryComplexityThresholds() {
       if (basisRes.ok && basisResult.basis) {
         GLOBAL_DATA.regulatory_complexity_basis = basisResult.basis;
         renderRegulatoryComplexityBasis(GLOBAL_DATA.regulatory_complexity_basis);
+        updateAllToolLiveStatuses(GLOBAL_DATA);
       }
     } catch (e) { /* scores are saved; the basis reminder just won't update this time */ }
   } catch (e) {
@@ -638,6 +720,7 @@ async function applyDistributionResourcesThresholds() {
       if (basisRes.ok && basisResult.basis) {
         GLOBAL_DATA.distribution_resources_basis = basisResult.basis;
         renderDistributionResourcesBasis(GLOBAL_DATA.distribution_resources_basis);
+        updateAllToolLiveStatuses(GLOBAL_DATA);
       }
     } catch (e) { /* scores are saved; the basis reminder just won't update this time */ }
   } catch (e) {
@@ -763,6 +846,7 @@ async function applyLanguagesRequiredThresholds() {
       if (basisRes.ok && basisResult.basis) {
         GLOBAL_DATA.languages_required_basis = basisResult.basis;
         renderLanguagesRequiredBasis(GLOBAL_DATA.languages_required_basis);
+        updateAllToolLiveStatuses(GLOBAL_DATA);
       }
     } catch (e) { /* scores are saved; the basis reminder just won't update this time */ }
   } catch (e) {
@@ -884,6 +968,7 @@ async function applyLocalPresenceThresholds() {
       if (basisRes.ok && basisResult.basis) {
         GLOBAL_DATA.local_presence_required_basis = basisResult.basis;
         renderLocalPresenceBasis(GLOBAL_DATA.local_presence_required_basis);
+        updateAllToolLiveStatuses(GLOBAL_DATA);
       }
     } catch (e) { /* scores are saved; the basis reminder just won't update this time */ }
   } catch (e) {
@@ -1000,6 +1085,7 @@ async function applyClientServicingThresholds() {
       if (basisRes.ok && basisResult.basis) {
         GLOBAL_DATA.client_servicing_basis = basisResult.basis;
         renderClientServicingBasis(GLOBAL_DATA.client_servicing_basis);
+        updateAllToolLiveStatuses(GLOBAL_DATA);
       }
     } catch (e) { /* scores are saved; the basis reminder just won't update this time */ }
   } catch (e) {
@@ -1315,6 +1401,7 @@ async function load() {
   renderLanguagesRequiredBasis(data.languages_required_basis);
   renderLocalPresenceBasis(data.local_presence_required_basis);
   renderClientServicingBasis(data.client_servicing_basis);
+  updateAllToolLiveStatuses(data);
   document.getElementById('tmf-gbci-year').textContent = TMF_GBCI_YEAR;
   document.getElementById('ef-epi-year').textContent = EF_EPI_YEAR;
   document.getElementById('fdirri-year').textContent = FDIRRI_YEAR;

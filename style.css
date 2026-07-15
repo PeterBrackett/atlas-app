@@ -332,6 +332,76 @@ td.overall-red { background: #fbe1e1; color: #a3291f; }
 td.overall-amber { background: #fdeee0; color: #9a5a1a; }
 td.overall-green { background: #e3f2e3; color: #1f7a34; }
 
+/* Bulk auto-scoring tool panels (overview.html) -- each tool is controls on
+   the left (label, inputs, Apply button, collapsible "How this works"
+   explanation) and its basis/status boxes on the right, rather than
+   everything wrapped inline with a permanently-visible paragraph of
+   explanation, which is what this replaced. */
+.tool-panel {
+  margin-bottom: 16px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--card);
+  font-size: 0.85rem;
+}
+.tool-panel-inner {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.tool-panel-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  flex: 1 1 320px;
+  min-width: 300px;
+}
+.tool-panel-inputs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+.tool-panel-basis {
+  flex: 1 1 320px;
+  min-width: 260px;
+  margin-bottom: 0;
+}
+.tool-explain {
+  width: 100%;
+}
+.tool-explain summary {
+  cursor: pointer;
+  font-size: 0.78rem;
+  color: var(--muted);
+  padding: 2px 0;
+}
+.tool-explain .note {
+  margin-top: 6px;
+  font-size: 0.78rem;
+  border-top: none;
+  padding-top: 0;
+}
+
+/* Bulk auto-scoring tool inputs (overview.html) -- green once that
+   dimension has a recorded basis (i.e. has actually been applied at least
+   once and is "live"), amber if it's never been run and is still just
+   sitting at whatever placeholder/default values. Same red/amber/green
+   palette as the score-1/2/3 and overall-* cells above, so this reads as
+   the same visual language rather than a third colour scheme. Only ever
+   live or pending here -- there's no "red" state for a tool input. */
+.tool-input.tool-live {
+  border: 1px solid #8fc79a;
+  background: #e3f2e3;
+}
+.tool-input.tool-pending {
+  border: 1px solid #e8b073;
+  background: #fdeee0;
+}
+
 select.matrix-select {
   font-size: 0.82rem;
   padding: 2px 3px;
