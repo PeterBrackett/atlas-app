@@ -477,7 +477,7 @@ function renderProjectMatrix(failed) {
           return `<td>${result ? result.value_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '—'}</td>`;
         }
         const overall = computeOverallScore(seg.scorecard, ENABLED_DIMENSIONS);
-        return `<td class="${overallScoreClass(overall)}">${overall === null ? '—' : overall}</td>`;
+        return `<td class="${overallScoreClass(overall)}">${overall}</td>`;
       }).join('');
       return `<tr><td class="matrix-rowlabel"><a class="country-link" href="${href}">${c.meta.name}</a></td>${cells}</tr>`;
     }).join('');

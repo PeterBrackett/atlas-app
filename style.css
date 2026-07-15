@@ -306,8 +306,18 @@ table.matrix-table .overall-row td.matrix-rowlabel {
   background: #f0f3f6;
 }
 
+/* No data entered for this dimension/segment. Changed 2026-07-15 (Peter's
+   request): a missing score now displays as "0" (see scoreCellClass() /
+   the read-only cell markup in country.html) rather than a blank dash, and
+   counts as 0 toward Overall (see computeOverallScore() in
+   scorecard-dimensions.js) so gaps no longer block the Overall score from
+   showing. This yellow is a deliberate fourth colour, distinct from the
+   red/amber/green score-1/2/3 palette below, so a 0 substituted for a gap
+   never reads as a real (bad) score of 1. */
 td.cell-missing {
-  background: #fdf3e0;
+  background: #fff3b0;
+  color: #7a5c00;
+  font-weight: 600;
 }
 
 /* Opportunity scorecard dimension scores, 1-3: red/amber/green traffic-light
@@ -318,7 +328,8 @@ td.score-3 { background: #e3f2e3; color: #1f7a34; }
 
 td.score-1 select.matrix-select,
 td.score-2 select.matrix-select,
-td.score-3 select.matrix-select {
+td.score-3 select.matrix-select,
+td.cell-missing select.matrix-select {
   background: transparent;
   color: inherit;
   font-weight: 600;

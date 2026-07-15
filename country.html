@@ -542,8 +542,12 @@ async function applySource(segmentName, sourceIndex, buttonEl) {
 // the shape of FINAL_Country_Matrix.xlsx: AUM / equity allocation up top,
 // the 12 scoring dimensions in the middle, Overall at the bottom. When
 // signed in, dimension cells become editable selects — anything still
-// blank is highlighted so gaps in the underlying data stay visible until
-// filled in, rather than silently defaulting to a value.
+// blank is highlighted (yellow, showing "0") so gaps in the underlying data
+// stay visible until filled in, rather than silently defaulting to a value.
+// Missing dimensions count as 0 toward Overall (2026-07-15, Peter's
+// request), so Overall is always a real number now — "fully scored" below
+// tracks actual completeness via scoredDimensionCount() instead, since
+// Overall no longer goes blank to signal a gap.
 function renderScorecardMatrix() {
   const segs = LOADED_SEGMENTS.slice().sort((a, b) => segmentSortIndex(a.segment) - segmentSortIndex(b.segment));
   const table = document.getElementById('scorecard-table');
@@ -554,11 +558,11 @@ function renderScorecardMatrix() {
     return;
   }
 
-  const fullyScored = segs.filter(s => computeOverallScore(s.scorecard, ENABLED_DIMENSIONS) !== null).length;
   const enabledCount = enabledDimensionCount(ENABLED_DIMENSIONS);
+  const fullyScored = segs.filter(s => scoredDimensionCount(s.scorecard, ENABLED_DIMENSIONS) === enabledCount).length;
   document.getElementById('scorecard-hint').textContent =
     `${fullyScored} of ${segs.length} segments fully scored (${enabledCount} of ${SCORECARD_DIMENSIONS.length} dimensions count toward Overall).` +
-    (CURRENT_USER ? ' Blank cells below are highlighted — click to score them.' : '');
+    (CURRENT_USER ? ' Yellow cells below (showing 0) are missing — click to score them.' : '');
 
   populateAllocationSelectors(segs);
 
@@ -579,7 +583,10 @@ function renderScorecardMatrix() {
   }</tr>`;
 
   // Traffic-light class for a dimension score: red=1, amber=2, green=3, or
-  // the existing "blank, go fill this in" highlight when unscored.
+  // yellow (cell-missing) when unscored. Missing cells display "0" rather
+  // than a dash (2026-07-15, Peter's request) -- the yellow is what flags
+  // it as a gap rather than a real judgment call, since 0 counts toward
+  // Overall the same as any other value would (see computeOverallScore()).
   const scoreCellClass = (value, missing) => missing ? 'cell-missing' : `score-${value}`;
 
   const dimensionRows = SCORECARD_DIMENSIONS.map(dim => {
@@ -591,7 +598,7 @@ function renderScorecardMatrix() {
 
       if (CURRENT_USER) {
         const options = ['', '1', '2', '3'].map(v => {
-          const label = v === '' ? '–' : v;
+          const label = v === '' ? '0' : v;
           const selected = (v === '' && missing) || (v !== '' && Number(v) === value) ? 'selected' : '';
           return `<option value="${v}" ${selected}>${label}</option>`;
         }).join('');
@@ -600,7 +607,7 @@ function renderScorecardMatrix() {
           `onchange="saveScorecardValue(this)">${options}</select></td>`;
       }
 
-      return `<td id="${cellId}" class="${scoreCellClass(value, missing)}">${missing ? '—' : value}</td>`;
+      return `<td id="${cellId}" class="${scoreCellClass(value, missing)}">${missing ? '0' : value}</td>`;
     }).join('');
     const autoFlag = dim.autoScoreNote ? `<span class="auto-flag" title="${dim.autoScoreNote}">Auto</span>` : '';
     const offFlag = isDimensionEnabled(dim.key, ENABLED_DIMENSIONS)
@@ -630,7 +637,7 @@ function renderScorecardMatrix() {
     `<td class="matrix-rowlabel">Overall</td>` +
     segs.map((s, segIndex) => {
       const overall = computeOverallScore(s.scorecard, ENABLED_DIMENSIONS);
-      return `<td id="sc-overall-${segIndex}" class="${overallScoreClass(overall)}"><strong>${overall === null ? '—' : overall}</strong></td>`;
+      return `<td id="sc-overall-${segIndex}" class="${overallScoreClass(overall)}"><strong>${overall}</strong></td>`;
     }).join('') +
     `</tr>`;
 
@@ -697,12 +704,12 @@ async function saveScorecardValue(selectEl) {
     if (overallCellEl) {
       const overall = computeOverallScore(segment.scorecard, ENABLED_DIMENSIONS);
       overallCellEl.className = overallScoreClass(overall);
-      overallCellEl.innerHTML = `<strong>${overall === null ? '—' : overall}</strong>`;
+      overallCellEl.innerHTML = `<strong>${overall}</strong>`;
     }
 
-    const fullyScored = LOADED_SEGMENTS.filter(s => computeOverallScore(s.scorecard, ENABLED_DIMENSIONS) !== null).length;
+    const fullyScored = LOADED_SEGMENTS.filter(s => scoredDimensionCount(s.scorecard, ENABLED_DIMENSIONS) === enabledCount).length;
     document.getElementById('scorecard-hint').textContent =
-      `${fullyScored} of ${LOADED_SEGMENTS.length} segments fully scored (${enabledCount} of ${SCORECARD_DIMENSIONS.length} dimensions count toward Overall). Blank cells below are highlighted — click to score them.`;
+      `${fullyScored} of ${LOADED_SEGMENTS.length} segments fully scored (${enabledCount} of ${SCORECARD_DIMENSIONS.length} dimensions count toward Overall). Yellow cells below (showing 0) are missing — click to score them.`;
   } catch (e) {
     alert('Could not reach the server to save this change.');
     selectEl.value = (typeof previousValue === 'number') ? String(previousValue) : '';

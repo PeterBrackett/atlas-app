@@ -107,22 +107,24 @@ function enabledDimensionCount(enabledDimensions) {
   return SCORECARD_DIMENSIONS.filter(d => isDimensionEnabled(d.key, enabledDimensions)).length;
 }
 
-// Overall score for a segment, or null if any ENABLED dimension hasn't
-// been scored yet. Deliberately not a partial sum over the required set —
-// an incomplete segment should read as "not yet scored", not as a
-// misleadingly low real number. This is the mechanism that nudges
-// completion: gaps stay visibly blank. Disabled dimensions (per
-// enabledDimensions) are skipped entirely -- not required, not summed --
-// so toggling something off can turn a previously-null Overall into a real
-// number without needing that dimension scored.
+// Overall score for a segment. Changed 2026-07-15 (Peter's request) from
+// "null if any ENABLED dimension hasn't been scored yet" to always
+// returning a real number: a missing dimension now contributes 0 to the
+// weighted sum rather than blocking the whole Overall calculation. This
+// means a segment with e.g. only Regulatory complexity unscored still gets
+// a usable Overall instead of showing blank. The old "blank means
+// incomplete" nudge still exists, it's just moved to the per-cell display
+// (missing cells show "0" highlighted yellow via cell-missing -- see
+// scoreCellClass() in country.html) and to scoredDimensionCount() below,
+// which is the real completion tracker now. Disabled dimensions (per
+// enabledDimensions) are still skipped entirely -- not required, not
+// summed, same as before.
 function computeOverallScore(scorecard, enabledDimensions) {
-  if (!scorecard) return null;
   let total = 0;
   for (const dim of SCORECARD_DIMENSIONS) {
     if (!isDimensionEnabled(dim.key, enabledDimensions)) continue;
-    const v = scorecard[dim.key];
-    if (typeof v !== 'number') return null;
-    total += v * dim.weight;
+    const v = scorecard ? scorecard[dim.key] : undefined;
+    total += (typeof v === 'number' ? v : 0) * dim.weight;
   }
   return total;
 }
@@ -135,12 +137,15 @@ function scoredDimensionCount(scorecard, enabledDimensions) {
   return SCORECARD_DIMENSIONS.filter(d => isDimensionEnabled(d.key, enabledDimensions) && typeof scorecard[d.key] === 'number').length;
 }
 
-// Overall's true range, given the current 12 dimensions (market_opportunity
-// weighted x3, the other 11 weighted x1): min 14 (everything scored 1), max
-// 42 (everything scored 3) -- not 39, which would only be right with 10
-// non-market-opportunity dimensions rather than 11. Recomputed from
-// SCORECARD_DIMENSIONS rather than hard-coded, so it stays correct if a
-// dimension is ever added or removed.
+// Overall's range for a FULLY-SCORED segment, given the current 12
+// dimensions (market_opportunity weighted x3, the other 11 weighted x1):
+// min 14 (everything scored 1), max 42 (everything scored 3) -- not 39,
+// which would only be right with 10 non-market-opportunity dimensions
+// rather than 11. Recomputed from SCORECARD_DIMENSIONS rather than
+// hard-coded, so it stays correct if a dimension is ever added or removed.
+// A segment with gaps can now score below 14 (missing dimensions count as
+// 0 -- see computeOverallScore() above), so these constants describe the
+// best case, not an absolute floor.
 const OVERALL_MIN = SCORECARD_DIMENSIONS.reduce((s, d) => s + 1 * d.weight, 0);
 const OVERALL_MAX = SCORECARD_DIMENSIONS.reduce((s, d) => s + 3 * d.weight, 0);
 
