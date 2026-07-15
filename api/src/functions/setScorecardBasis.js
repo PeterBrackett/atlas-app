@@ -17,7 +17,7 @@ const ALLOWED_BASIS_KEYS = [
   'market_opportunity_basis', 'regulatory_complexity_basis', 'distribution_resources_basis',
   'languages_required_basis', 'local_presence_required_basis', 'client_servicing_basis',
   'consultant_reliant_basis', 'pricing_impact_basis', 'outsourced_management_basis',
-  'comingled_vehicles_basis', 'investor_decision_making_basis'
+  'comingled_vehicles_basis', 'investor_decision_making_basis', 'alignment_of_investment_thinking_basis'
 ];
 
 let msalClient;
