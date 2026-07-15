@@ -8,14 +8,16 @@
 // calculation) since it's judged the primary driver of whether a segment
 // is worth pursuing at all. See Sources & Methodology for the full writeup.
 
-// autoScoreNote is set only on the 4 dimensions that can be bulk-overwritten
+// autoScoreNote is set only on the 7 dimensions that can be bulk-overwritten
 // in one click from the "Bulk auto-scoring tools" panel on overview.html
 // (Market opportunity from allocation size, Regulatory complexity from TMF
 // rank, Distribution resources required from institution concentration,
-// Languages required from EF EPI). country.html uses this to show a small
+// Languages required from EF EPI, Local presence required from OECD
+// FDIRRI, Client servicing from Mercer Integrity, Consultant reliant from
+// IC Research consultant density). country.html uses this to show a small
 // "auto" flag next to the row label, since a value here could be an
 // untouched bulk-scored figure rather than a considered per-segment
-// judgment call -- worth a second look before relying on it. The other 8
+// judgment call -- worth a second look before relying on it. The other 5
 // dimensions have no such tool and are always a manual entry.
 const SCORECARD_DIMENSIONS = [
   { key: 'market_opportunity', label: 'Market opportunity', weight: 3,
@@ -34,9 +36,11 @@ const SCORECARD_DIMENSIONS = [
     question: 'How onerous are accounting, tax and other requirements? Uses TMF Group rankings as a reference where available.',
     autoScoreNote: 'Can be bulk-set from TMF Group rankings via the overview page’s auto-scoring tools — check it reflects a real judgment call, not just an untouched auto-score.' },
   { key: 'client_servicing', label: 'Client servicing', weight: 1,
-    question: 'What is the expected demand for reporting and face-to-face meetings?' },
+    question: 'What is the expected demand for reporting and face-to-face meetings?',
+    autoScoreNote: 'Can be bulk-set from the Mercer CFA Institute Global Pension Index Integrity sub-index via the overview page’s auto-scoring tools — check it reflects a real judgment call, not just an untouched auto-score.' },
   { key: 'local_presence_required', label: 'Local presence required', weight: 1,
-    question: 'Do regulations or culture require a physical office in the market?' },
+    question: 'Do regulations or culture require a physical office in the market?',
+    autoScoreNote: 'Can be bulk-set from the OECD FDI Regulatory Restrictiveness Index via the overview page’s auto-scoring tools — check it reflects a real judgment call, not just an untouched auto-score.' },
   { key: 'languages_required', label: 'Languages required', weight: 1,
     question: 'Is English an acceptable language for marketing and client service?',
     autoScoreNote: 'Can be bulk-set from the EF English Proficiency Index via the overview page’s auto-scoring tools — check it reflects a real judgment call, not just an untouched auto-score.' },
@@ -45,7 +49,8 @@ const SCORECARD_DIMENSIONS = [
   { key: 'comingled_vehicles', label: 'Comingled vehicles', weight: 1,
     question: 'Can existing pooled vehicles be deployed, or will bespoke/new funds be required?' },
   { key: 'consultant_reliant', label: 'Consultant reliant', weight: 1,
-    question: 'Are decisions intermediated — will sign-off from an investment consultant be required?' }
+    question: 'Are decisions intermediated — will sign-off from an investment consultant be required?',
+    autoScoreNote: 'Can be bulk-set from IC Research consultant density via the overview page’s auto-scoring tools — check it reflects a real judgment call, not just an untouched auto-score.' }
 ];
 
 // The 19-segment taxonomy in the fixed display order used across the app

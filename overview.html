@@ -14,6 +14,7 @@
 <script src="ef-epi.js"></script>
 <script src="fdi-restrictiveness.js"></script>
 <script src="mercer-integrity.js"></script>
+<script src="consultant-density.js"></script>
 </head>
 <body>
 <header class="site-header">
@@ -34,7 +35,7 @@
   <h2>Opportunity scorecard — Overall by segment</h2>
 
   <details style="margin-bottom:16px;">
-    <summary style="cursor:pointer; font-size:0.85rem; color:var(--muted); padding:4px 0; font-weight:600;">Bulk auto-scoring tools (market opportunity, regulatory complexity, distribution resources required, languages required, local presence required, client servicing)</summary>
+    <summary style="cursor:pointer; font-size:0.85rem; color:var(--muted); padding:4px 0; font-weight:600;">Bulk auto-scoring tools (market opportunity, regulatory complexity, distribution resources required, languages required, local presence required, client servicing, consultant reliant)</summary>
     <div style="margin-top:10px;">
       <div id="overview-threshold-controls" class="tool-panel" style="display:none;">
         <div class="tool-panel-inner">
@@ -147,6 +148,24 @@
             </details>
           </div>
           <div class="summary-bar tool-panel-basis" id="client-basis-bar"></div>
+        </div>
+      </div>
+
+      <div id="consultant-threshold-controls" class="tool-panel" style="display:none;">
+        <div class="tool-panel-inner">
+          <div class="tool-panel-controls">
+            <strong>Auto-score "Consultant reliant" from IC Research consultant headcount (<span id="consultant-density-date"></span>):</strong>
+            <div class="tool-panel-inputs">
+              <label>Threshold (consultants / $1tn AUM)<br><input type="number" step="any" id="consultant-threshold-input" class="tool-input" placeholder="e.g. 45" style="width:160px;"></label>
+              <label>Optimal (consultants / $1tn AUM)<br><input type="number" step="any" id="consultant-optimal-input" class="tool-input" placeholder="e.g. 220" style="width:160px;"></label>
+            </div>
+            <button type="button" id="consultant-apply-btn" class="btn-primary" onclick="applyConsultantReliantThresholds()" style="cursor:pointer;">Apply across all countries</button>
+            <details class="tool-explain">
+              <summary>How this works</summary>
+              <span class="note">Not a published index like the other sources here — a one-off headcount export from Peter's IC Research Global Advisory Board access (see consultant-density.js), normalized against each country's total tracked AUM to get consultants per $1tn AUM, since raw headcount is dominated by where the big global consulting firms are headquartered (the US and UK alone account for over 15,000 of the ~19,800 individuals in the export). Direction is reversed like the Local presence required tool above, since a denser consultant channel means more distribution resource is needed to reach asset owners: at or below threshold = 3 (low reliance), above threshold but at or below optimal = 2, above optimal = 1 (high reliance). Argentina, Chile, Iceland, Oman, Peru and Qatar aren't in the export and are skipped, not guessed at. Same country-level value applied to every segment, and overwrites any existing Consultant reliant score.</span>
+            </details>
+          </div>
+          <div class="summary-bar tool-panel-basis" id="consultant-basis-bar"></div>
         </div>
       </div>
     </div>
@@ -274,6 +293,7 @@ function updateThresholdControlsVisibility() {
   document.getElementById('lang-threshold-controls').style.display = show ? 'block' : 'none';
   document.getElementById('local-threshold-controls').style.display = show ? 'block' : 'none';
   document.getElementById('client-threshold-controls').style.display = show ? 'block' : 'none';
+  document.getElementById('consultant-threshold-controls').style.display = show ? 'block' : 'none';
 }
 
 // Colours each tool's input/select controls green ("live" -- this dimension
@@ -300,6 +320,7 @@ function updateAllToolLiveStatuses(data) {
   setToolLiveStatus(['lang-threshold-input', 'lang-optimal-input'], !!data.languages_required_basis);
   setToolLiveStatus(['local-threshold-input', 'local-optimal-input'], !!data.local_presence_required_basis);
   setToolLiveStatus(['client-threshold-input', 'client-optimal-input'], !!data.client_servicing_basis);
+  setToolLiveStatus(['consultant-threshold-input', 'consultant-optimal-input'], !!data.consultant_reliant_basis);
 }
 
 function populateMoAssetSelectors() {
@@ -1096,6 +1117,132 @@ async function applyClientServicingThresholds() {
   }
 }
 
+// Country-level, like Local presence required, driven by
+// consultant-density.js. Reversed direction like FDIRRI -- a denser
+// consultant channel (more consultants per $1tn AUM) means more
+// distribution resource is needed, so low density scores HIGH here. Unlike
+// every other auto-scorer, the underlying figure (consultants per $1tn
+// AUM) isn't a static lookup: it's computed per country from the raw
+// IC Research headcount and this country's own total AUM (summed across
+// its loaded segments), via consultantDensityForCode(). Countries with no
+// IC Research entry (Argentina, Chile, Iceland, Oman, Peru, Qatar) are
+// skipped and reported.
+async function applyConsultantReliantThresholds() {
+  const threshold = parseFloat(document.getElementById('consultant-threshold-input').value);
+  const optimal = parseFloat(document.getElementById('consultant-optimal-input').value);
+
+  if (Number.isNaN(threshold) || Number.isNaN(optimal)) {
+    alert('Enter numeric threshold and optimal consultant-density values.');
+    return;
+  }
+  if (optimal < threshold) {
+    alert('Optimal should be greater than or equal to threshold.');
+    return;
+  }
+
+  const assignments = [];
+  const skipped = [];
+  OVERVIEW_USABLE.forEach(c => {
+    const totalAumBn = (c.data.segments || []).reduce((sum, seg) => sum + (typeof seg.aum_bn === 'number' ? seg.aum_bn : 0), 0);
+    const density = consultantDensityForCode(c.meta.code, totalAumBn);
+    if (density === null) {
+      skipped.push(c.meta.name);
+      return;
+    }
+    // Reversed vs most other scorers: low density = less reliance = good.
+    const score = density <= threshold ? 3 : (density <= optimal ? 2 : 1);
+    (c.data.segments || []).forEach(seg => {
+      assignments.push({ country: c.slug, segment: seg.segment, value: score });
+    });
+  });
+
+  if (!assignments.length) {
+    alert('No countries with IC Research consultant data are loaded to score.');
+    return;
+  }
+
+  const countriesScored = OVERVIEW_USABLE.length - skipped.length;
+  const confirmMsg = `Set "Consultant reliant" for ${countriesScored} countries (${assignments.length} segments) from IC Research consultant headcount (${CONSULTANT_HEADCOUNT_DATE}), consultants per $1tn AUM:\n` +
+    `density <= ${threshold} → 3 (low reliance)\ndensity ${threshold}-${optimal} → 2\ndensity > ${optimal} → 1 (high reliance)\n\n` +
+    (skipped.length ? `Skipped (no IC Research data): ${skipped.join(', ')}\n\n` : '') +
+    `This overwrites any existing Consultant reliant score on every segment in every matched country. Continue?`;
+  if (!confirm(confirmMsg)) return;
+
+  const btn = document.getElementById('consultant-apply-btn');
+  btn.disabled = true;
+  const originalText = btn.textContent;
+  btn.textContent = 'Applying…';
+
+  try {
+    const res = await fetch('/api/segments/set-scorecard-global', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ dimension: 'consultant_reliant', assignments })
+    });
+    const result = await res.json();
+
+    if (!res.ok && !result.success) {
+      alert(`Couldn't apply scores: ${result.error || 'unknown error'}`);
+      return;
+    }
+
+    const byCountrySeg = {};
+    assignments.forEach(a => { byCountrySeg[`${a.country}::${a.segment}`] = a.value; });
+
+    let successCount = 0;
+    const failedCountries = [];
+    OVERVIEW_USABLE.forEach(c => {
+      const r = result.results && result.results[c.slug];
+      if (r && r.success) {
+        successCount += 1;
+        (c.data.segments || []).forEach(seg => {
+          const key = `${c.slug}::${seg.segment}`;
+          if (Object.prototype.hasOwnProperty.call(byCountrySeg, key)) {
+            if (!seg.scorecard) seg.scorecard = {};
+            seg.scorecard.consultant_reliant = byCountrySeg[key];
+          }
+        });
+      } else if (r) {
+        failedCountries.push(`${c.meta.name} (${r.error})`);
+      }
+    });
+
+    renderOverviewMatrixBody();
+    alert(`Applied to ${successCount} of ${countriesScored} countries with IC Research data.` +
+      (skipped.length ? `\n\nSkipped (no IC Research data): ${skipped.join(', ')}` : '') +
+      (failedCountries.length ? `\n\nFailed: ${failedCountries.join(', ')}` : ''));
+
+    try {
+      const basisRes = await fetch('/api/global/set-scorecard-basis', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          basis_key: 'consultant_reliant_basis',
+          basis: {
+            source: `IC Research consultant headcount (${CONSULTANT_HEADCOUNT_DATE}), consultants per $1tn AUM`,
+            threshold_density: threshold,
+            optimal_density: optimal,
+            countries_updated: successCount,
+            segments_updated: assignments.length,
+            countries_skipped: skipped
+          }
+        })
+      });
+      const basisResult = await basisRes.json();
+      if (basisRes.ok && basisResult.basis) {
+        GLOBAL_DATA.consultant_reliant_basis = basisResult.basis;
+        renderConsultantReliantBasis(GLOBAL_DATA.consultant_reliant_basis);
+        updateAllToolLiveStatuses(GLOBAL_DATA);
+      }
+    } catch (e) { /* scores are saved; the basis reminder just won't update this time */ }
+  } catch (e) {
+    alert('Could not reach the server to save this change.');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+}
+
 // The whole global.json object as last loaded, kept around so the
 // market-opportunity-basis boxes can be updated in place after a successful
 // auto-score run, without a full page reload.
@@ -1214,6 +1361,24 @@ function renderClientServicingBasis(basis) {
     <div class="stat-card"><div class="value">${basis.threshold_score}</div><div class="label">Threshold (score 2 at/above)</div></div>
     <div class="stat-card"><div class="value">${basis.optimal_score}</div><div class="label">Optimal (score 3 at/above)</div></div>
     <div class="stat-card" style="flex-basis:100%; text-align:left;"><div class="label">${appliedInfo} Individual segments may have been edited by hand since — this only reflects the basis of the last bulk auto-score run.</div></div>
+  `;
+}
+
+function renderConsultantReliantBasis(basis) {
+  const el = document.getElementById('consultant-basis-bar');
+  if (!basis) {
+    el.innerHTML = `<div class="stat-card"><div class="value">—</div><div class="label">Consultant reliant has not been auto-scored from IC Research data yet — scores are whatever's been entered manually per segment.</div></div>`;
+    return;
+  }
+  const appliedInfo = `Applied ${basis.applied_date || 'unknown date'}${basis.applied_by ? ` by ${basis.applied_by}` : ''}` +
+    (basis.countries_updated ? `, ${basis.countries_updated} countries` : '') +
+    (basis.segments_updated ? `, ${basis.segments_updated} segments` : '') + '.' +
+    (basis.countries_skipped && basis.countries_skipped.length ? ` No consultant data for: ${basis.countries_skipped.join(', ')}.` : '');
+  el.innerHTML = `
+    <div class="stat-card"><div class="value">${basis.source || 'IC Research consultant headcount'}</div><div class="label">Data source</div></div>
+    <div class="stat-card"><div class="value">${basis.threshold_density}</div><div class="label">Threshold (score 3 at/below)</div></div>
+    <div class="stat-card"><div class="value">${basis.optimal_density}</div><div class="label">Optimal (score 1 above)</div></div>
+    <div class="stat-card" style="flex-basis:100%; text-align:left;"><div class="label">${appliedInfo} Direction is reversed from most tools — low consultant density = less reliance = good. Individual segments may have been edited by hand since — this only reflects the basis of the last bulk auto-score run.</div></div>
   `;
 }
 
@@ -1401,11 +1566,13 @@ async function load() {
   renderLanguagesRequiredBasis(data.languages_required_basis);
   renderLocalPresenceBasis(data.local_presence_required_basis);
   renderClientServicingBasis(data.client_servicing_basis);
+  renderConsultantReliantBasis(data.consultant_reliant_basis);
   updateAllToolLiveStatuses(data);
   document.getElementById('tmf-gbci-year').textContent = TMF_GBCI_YEAR;
   document.getElementById('ef-epi-year').textContent = EF_EPI_YEAR;
   document.getElementById('fdirri-year').textContent = FDIRRI_YEAR;
   document.getElementById('mercer-integrity-year').textContent = MERCER_INTEGRITY_YEAR;
+  document.getElementById('consultant-density-date').textContent = CONSULTANT_HEADCOUNT_DATE;
 
   const countries = data.countries.slice().sort((a, b) => b.total_ps_assets_thousands - a.total_ps_assets_thousands);
 
