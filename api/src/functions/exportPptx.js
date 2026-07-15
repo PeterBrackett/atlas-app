@@ -155,6 +155,14 @@ function addScorecardDimensionIcons(slide, matrix, tableY) {
   });
 }
 
+// Three top-institutions tables side by side per slide (TOPINST_COLS) --
+// Peter's 2026-07-15 feedback that one segment per slide, stretched across
+// it, wasted the space a now-narrow table leaves. Institution's char cap is
+// tighter here (30, vs. the ~40 that would suit a single full-width table)
+// so three tables' worth of columns reliably fit within one slot each --
+// see TOPINST_SLOT_W below for the budget this is sized against.
+const TOPINST_INSTITUTION_MAX_CHARS = 30;
+
 // Column widths are content-driven the same way as buildAumTableRows() --
 // "Rank" only needs to fit "Rank" (or a 2-digit number), "AUM ($bn)" only
 // needs to fit its header/numbers, and "Institution" gets the rest, capped
@@ -168,7 +176,7 @@ function buildTopInstitutionsTableRows(section) {
   ]);
   const colW = estimateColumnCharWidths(headerLabels, bodyText, {
     minChars: 4,
-    maxCharsPerCol: [6, 40, 12]
+    maxCharsPerCol: [6, TOPINST_INSTITUTION_MAX_CHARS, 12]
   }).map(charsToInches);
 
   const header = headerLabels.map((t) => ({ text: t, options: headerCellOpts() }));
@@ -176,34 +184,48 @@ function buildTopInstitutionsTableRows(section) {
   return { rows: [header, ...body], colW };
 }
 
-// One slide per segment that has institution-level data -- Peter's standard
-// "top 10 institutions by AUM, and their combined AUM as a % of the segment"
-// report format. Segments built from industry aggregates (e.g. Life/Non-life
-// insurance) or countries not yet backfilled at institution level (currently
-// just the US) are skipped, not guessed at -- see buildTopInstitutionsSections
-// in exportHelpers.js. One slide per segment (rather than cramming every
-// segment onto one slide, the way the AUM/scorecard tables do) since a top-10
-// roster is naturally a taller, narrower table that doesn't compress well
-// side by side with others.
+// Layout for the 3-across top-institutions slides: three equal slots
+// (TOPINST_SLOT_W) across the slide width, with a margin on each outer edge
+// and a gutter between slots.
+const TOPINST_COLS = 3;
+const TOPINST_MARGIN = 0.4;
+const TOPINST_GUTTER = 0.3;
+const TOPINST_SLOT_W = (SLIDE_W - 2 * TOPINST_MARGIN - (TOPINST_COLS - 1) * TOPINST_GUTTER) / TOPINST_COLS;
+const TOPINST_SUBTITLE_Y = 0.95;
+const TOPINST_TABLE_Y = 1.55;
+
+// Three segments' top-institutions tables per slide -- Peter's standard
+// "top 10 institutions by AUM, and their combined AUM as a % of the
+// segment" report format, one column per segment rather than one slide per
+// segment (which left a now-narrow table stretched across an otherwise
+// empty slide). Segments built from industry aggregates (e.g. Life/Non-life
+// insurance) or countries not yet backfilled at institution level
+// (currently just the US) are skipped, not guessed at -- see
+// buildTopInstitutionsSections in exportHelpers.js.
 function addTopInstitutionsSlides(pptx, countryName, segments) {
   const sections = buildTopInstitutionsSections(segments);
-  sections.forEach((section) => {
+  for (let i = 0; i < sections.length; i += TOPINST_COLS) {
+    const group = sections.slice(i, i + TOPINST_COLS);
     const slide = addAtlasSlide(pptx);
     slide.addText(`Atlas — ${countryName}`, { x: TITLE_X, y: 0.25, fontSize: 24, bold: true });
-    const nText = section.n_institutions ? ` of ${section.n_institutions.toLocaleString()} identified` : '';
-    slide.addText(
-      `${section.segment} — top ${section.institutions.length}${nText} institutions hold ${section.top10_share_pct}% of segment AUM`,
-      { x: 0.4, y: 0.85, fontSize: 12, color: '666666' }
-    );
-    const topTable = buildTopInstitutionsTableRows(section);
-    const topTableW = topTable.colW.reduce((a, b) => a + b, 0);
-    slide.addTable(topTable.rows, {
-      x: Math.max(0.4, (SLIDE_W - topTableW) / 2), y: 1.4,
-      colW: topTable.colW,
-      border: BORDER,
-      autoPage: false
+    slide.addText('Top institutions by AUM', { x: 0.4, y: 0.6, fontSize: 12, color: '666666' });
+
+    group.forEach((section, col) => {
+      const slotX = TOPINST_MARGIN + col * (TOPINST_SLOT_W + TOPINST_GUTTER);
+      const nText = section.n_institutions ? ` of ${section.n_institutions.toLocaleString()} identified` : '';
+      slide.addText(
+        `${section.segment} — top ${section.institutions.length}${nText} institutions hold ${section.top10_share_pct}% of segment AUM`,
+        { x: slotX, y: TOPINST_SUBTITLE_Y, w: TOPINST_SLOT_W, fontSize: 9, color: '666666' }
+      );
+      const topTable = buildTopInstitutionsTableRows(section);
+      slide.addTable(topTable.rows, {
+        x: slotX, y: TOPINST_TABLE_Y,
+        colW: topTable.colW,
+        border: BORDER,
+        autoPage: false
+      });
     });
-  });
+  }
 }
 
 // One country's slide set (AUM + scorecard + one per segment with
