@@ -163,26 +163,30 @@ function overallColor(value) {
 // traffic-light coding without re-deriving it from the display strings.
 // enabledDimensions is the optional {dimensionKey: boolean} map from the
 // "toggle factors on/off" feature (global.json's enabled_dimensions) --
-// disabled dimensions still get a row (so the export shows the full set,
-// same as the on-screen matrix), but are excluded from the Scored
-// denominator and the Overall sum, matching computeOverallScore() above.
+// unlike the on-screen matrix (country.html/overview.html), which keeps a
+// disabled dimension's column visible with an "Off" flag, Peter's
+// 2026-07-15 request was for exports to leave it out of the table
+// altogether, not just exclude it from the Scored/Overall calculation. So
+// disabled dimensions get no row at all here.
 function buildScorecardMatrix(segments, enabledDimensions) {
   const cols = (segments || []).slice().sort((a, b) => segmentSortIndex(a.segment) - segmentSortIndex(b.segment));
   const enabledCount = enabledDimensionCount(enabledDimensions);
 
-  const dimensionRows = SCORECARD_DIMENSIONS.map((dim) => ({
-    key: dim.key,
-    type: 'dimension',
-    label: dim.label + (dim.weight > 1 ? ` (x${dim.weight})` : '') + (isDimensionEnabled(dim.key, enabledDimensions) ? '' : ' (off)'),
-    values: cols.map((s) => {
-      const v = s.scorecard ? s.scorecard[dim.key] : undefined;
-      return typeof v === 'number' ? String(v) : '-';
-    }),
-    colors: cols.map((s) => {
-      const v = s.scorecard ? s.scorecard[dim.key] : undefined;
-      return typeof v === 'number' ? scoreColor(v) : null;
-    })
-  }));
+  const dimensionRows = SCORECARD_DIMENSIONS
+    .filter((dim) => isDimensionEnabled(dim.key, enabledDimensions))
+    .map((dim) => ({
+      key: dim.key,
+      type: 'dimension',
+      label: dim.label + (dim.weight > 1 ? ` (x${dim.weight})` : ''),
+      values: cols.map((s) => {
+        const v = s.scorecard ? s.scorecard[dim.key] : undefined;
+        return typeof v === 'number' ? String(v) : '-';
+      }),
+      colors: cols.map((s) => {
+        const v = s.scorecard ? s.scorecard[dim.key] : undefined;
+        return typeof v === 'number' ? scoreColor(v) : null;
+      })
+    }));
 
   const scoredRow = {
     type: 'scored',
