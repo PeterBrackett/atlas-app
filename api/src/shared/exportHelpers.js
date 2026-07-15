@@ -34,10 +34,23 @@ function segmentSortIndex(segmentName) {
   return i === -1 ? CANONICAL_SEGMENT_ORDER.length : i;
 }
 
-function computeOverallScore(scorecard) {
+// Kept in sync with the same functions in scorecard-dimensions.js (see the
+// comment there for the reasoning) -- enabledDimensions is an optional
+// {dimensionKey: boolean} map sourced from global.json's enabled_dimensions
+// field; a dimension counts as enabled unless it's explicitly false.
+function isDimensionEnabled(dimKey, enabledDimensions) {
+  return !enabledDimensions || enabledDimensions[dimKey] !== false;
+}
+
+function enabledDimensionCount(enabledDimensions) {
+  return SCORECARD_DIMENSIONS.filter((d) => isDimensionEnabled(d.key, enabledDimensions)).length;
+}
+
+function computeOverallScore(scorecard, enabledDimensions) {
   if (!scorecard) return null;
   let total = 0;
   for (const dim of SCORECARD_DIMENSIONS) {
+    if (!isDimensionEnabled(dim.key, enabledDimensions)) continue;
     const v = scorecard[dim.key];
     if (typeof v !== 'number') return null;
     total += v * dim.weight;
@@ -45,9 +58,9 @@ function computeOverallScore(scorecard) {
   return total;
 }
 
-function scoredDimensionCount(scorecard) {
+function scoredDimensionCount(scorecard, enabledDimensions) {
   if (!scorecard) return 0;
-  return SCORECARD_DIMENSIONS.filter((d) => typeof scorecard[d.key] === 'number').length;
+  return SCORECARD_DIMENSIONS.filter((d) => isDimensionEnabled(d.key, enabledDimensions) && typeof scorecard[d.key] === 'number').length;
 }
 
 // Finds a segment's total Equities allocation figure, if present, matching
@@ -148,13 +161,19 @@ function overallColor(value) {
 // parallel `colors` array (one entry per column, null or {bg,fg} hex pair)
 // so the Word/PowerPoint exports can reproduce the site's red/amber/green
 // traffic-light coding without re-deriving it from the display strings.
-function buildScorecardMatrix(segments) {
+// enabledDimensions is the optional {dimensionKey: boolean} map from the
+// "toggle factors on/off" feature (global.json's enabled_dimensions) --
+// disabled dimensions still get a row (so the export shows the full set,
+// same as the on-screen matrix), but are excluded from the Scored
+// denominator and the Overall sum, matching computeOverallScore() above.
+function buildScorecardMatrix(segments, enabledDimensions) {
   const cols = (segments || []).slice().sort((a, b) => segmentSortIndex(a.segment) - segmentSortIndex(b.segment));
+  const enabledCount = enabledDimensionCount(enabledDimensions);
 
   const dimensionRows = SCORECARD_DIMENSIONS.map((dim) => ({
     key: dim.key,
     type: 'dimension',
-    label: dim.label + (dim.weight > 1 ? ` (x${dim.weight})` : ''),
+    label: dim.label + (dim.weight > 1 ? ` (x${dim.weight})` : '') + (isDimensionEnabled(dim.key, enabledDimensions) ? '' : ' (off)'),
     values: cols.map((s) => {
       const v = s.scorecard ? s.scorecard[dim.key] : undefined;
       return typeof v === 'number' ? String(v) : '-';
@@ -168,7 +187,7 @@ function buildScorecardMatrix(segments) {
   const scoredRow = {
     type: 'scored',
     label: 'Scored',
-    values: cols.map((s) => `${scoredDimensionCount(s.scorecard)}/${SCORECARD_DIMENSIONS.length}`),
+    values: cols.map((s) => `${scoredDimensionCount(s.scorecard, enabledDimensions)}/${enabledCount}`),
     colors: cols.map(() => null)
   };
 
@@ -176,10 +195,10 @@ function buildScorecardMatrix(segments) {
     type: 'overall',
     label: 'Overall',
     values: cols.map((s) => {
-      const overall = computeOverallScore(s.scorecard);
+      const overall = computeOverallScore(s.scorecard, enabledDimensions);
       return overall === null ? '-' : String(overall);
     }),
-    colors: cols.map((s) => overallColor(computeOverallScore(s.scorecard)))
+    colors: cols.map((s) => overallColor(computeOverallScore(s.scorecard, enabledDimensions)))
   };
 
   const aumRow = {
@@ -252,6 +271,8 @@ module.exports = {
   SCORECARD_DIMENSIONS,
   CANONICAL_SEGMENT_ORDER,
   segmentSortIndex,
+  isDimensionEnabled,
+  enabledDimensionCount,
   computeOverallScore,
   scoredDimensionCount,
   scoreColor,
