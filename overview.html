@@ -35,10 +35,10 @@
 
   <h2>Opportunity scorecard — Overall by segment</h2>
 
-  <details style="margin-bottom:16px;">
-    <summary style="cursor:pointer; font-size:0.85rem; color:var(--muted); padding:4px 0; font-weight:600;">Dimensions included in Overall score</summary>
-    <div style="margin-top:10px;">
-      <div id="enabled-dims-controls" class="tool-panel" style="display:none;">
+  <div id="enabled-dims-section" style="display:none; margin-bottom:16px;">
+    <button type="button" class="btn-toggle" onclick="toggleOverviewTool('enabled-dims-body')">Dimensions included in Overall score</button>
+    <div id="enabled-dims-body" style="display:none; margin-top:10px;">
+      <div id="enabled-dims-controls" class="tool-panel">
         <div class="tool-panel-inner">
           <div class="tool-panel-controls" style="flex-basis:100%; max-width:none;">
             <div class="tool-panel-inputs" id="enabled-dims-checkboxes" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); gap:6px; width:100%;"></div>
@@ -52,11 +52,11 @@
         </div>
       </div>
     </div>
-  </details>
+  </div>
 
-  <details style="margin-bottom:16px;">
-    <summary style="cursor:pointer; font-size:0.85rem; color:var(--muted); padding:4px 0; font-weight:600;">Bulk auto-scoring tools (market opportunity, regulatory complexity, distribution resources required, languages required, local presence required, client servicing, consultant reliant, pricing impact, outsourced management, comingled vehicles, investor decision-making)</summary>
-    <div style="margin-top:10px;">
+  <div id="bulk-tools-section" style="display:none; margin-bottom:16px;">
+    <button type="button" class="btn-toggle" onclick="toggleOverviewTool('bulk-tools-body')">Bulk auto-scoring tools (market opportunity, regulatory complexity, distribution resources required, languages required, local presence required, client servicing, consultant reliant, pricing impact, outsourced management, comingled vehicles, investor decision-making, alignment of investment thinking)</button>
+    <div id="bulk-tools-body" style="display:none; margin-top:10px;">
       <div id="overview-threshold-controls" class="tool-panel" style="display:none;">
         <div class="tool-panel-inner">
           <div class="tool-panel-controls">
@@ -267,7 +267,7 @@
         </div>
       </div>
     </div>
-  </details>
+  </div>
 
   <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:12px; font-size:0.85rem;">
     <label for="overview-view-select"><strong>Show:</strong></label>
@@ -383,8 +383,32 @@ function onOverviewViewChange() {
 // Covers both the allocation-based (Market opportunity) and TMF-rank-based
 // (Regulatory complexity) auto-scoring panels, since both share the same
 // visibility rule.
+// Toggles one of the collapsible tool-panel bodies (Dimensions included in
+// Overall score / Bulk auto-scoring tools) open or shut -- these are plain
+// <button>s rather than <details>/<summary> (2026-07-16, Peter's request)
+// so the reveal is an explicit action rather than looking like a text link,
+// and so the whole thing (button included) can be hidden outright for
+// signed-out visitors via updateThresholdControlsVisibility() below, not
+// just the panel content.
+function toggleOverviewTool(bodyId) {
+  const el = document.getElementById(bodyId);
+  if (!el) return;
+  el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+
 function updateThresholdControlsVisibility() {
   const show = !!CURRENT_USER && OVERVIEW_USABLE.length > 0;
+  // The two outer sections (button + collapsible body) -- entirely absent
+  // for signed-out visitors, not just their inner controls, per Peter's
+  // 2026-07-16 request that logged-out users see no trace of these tools.
+  // Collapsed back to hidden whenever not shown, so signing out and back in
+  // doesn't leave a body panel stuck open from a previous session.
+  document.getElementById('enabled-dims-section').style.display = show ? 'block' : 'none';
+  document.getElementById('bulk-tools-section').style.display = show ? 'block' : 'none';
+  if (!show) {
+    document.getElementById('enabled-dims-body').style.display = 'none';
+    document.getElementById('bulk-tools-body').style.display = 'none';
+  }
   document.getElementById('overview-threshold-controls').style.display = show ? 'block' : 'none';
   document.getElementById('reg-threshold-controls').style.display = show ? 'block' : 'none';
   document.getElementById('dist-threshold-controls').style.display = show ? 'block' : 'none';

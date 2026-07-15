@@ -182,6 +182,28 @@ tr.region-header td {
 
 .btn-primary:hover { background: var(--navy-light); }
 
+/* Lighter "reveal a panel" button (overview.html's "Dimensions included in
+   Overall score" / "Bulk auto-scoring tools" toggles, 2026-07-16) --
+   distinct from .btn-primary's solid navy so it doesn't compete visually
+   with the actual action buttons (Save, Apply across all countries) that
+   live inside the panel it opens. Outline style, same navy text. */
+.btn-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  color: var(--navy);
+  border: 1px solid var(--border);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-toggle:hover { background: #f0f3f6; border-color: var(--navy); }
+
 .status-pill {
   font-size: 0.72rem;
   padding: 2px 8px;
