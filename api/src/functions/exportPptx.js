@@ -1,17 +1,30 @@
 const { app } = require('@azure/functions');
 const PptxGenJS = require('pptxgenjs');
-const { buildAumRows, buildScorecardMatrix, buildTopInstitutionsSections } = require('../shared/exportHelpers');
+const { buildAumRows, buildScorecardMatrix, buildTopInstitutionsSections, estimateColumnCharWidths } = require('../shared/exportHelpers');
 const { getDimensionIconDataUri } = require('../shared/dimensionIcons');
 const { getAtlasLogoDataUri } = require('../shared/atlasLogo');
 
 const HEADER_FILL = 'D9E2F3';
 const BORDER = { type: 'solid', color: 'CCCCCC', pt: 0.5 };
+const SLIDE_W = 13.33;
+const SLIDE_H = 7.5;
 
 // Tight cell padding (inches: [top, right, bottom, left]) applied to every
 // table in this export -- pptxgenjs's default cell margin left noticeably
 // more whitespace around short numeric/score cells than the content needed,
 // which was Peter's "quite a bit of wasted space" feedback.
 const CELL_MARGIN = [0.03, 0.05, 0.03, 0.05];
+
+// Converts an estimateColumnCharWidths() character count into an inch-wide
+// pptxgenjs colW entry, so tables are sized to their content instead of
+// stretched across the slide -- Peter's follow-up feedback: "Rank only
+// needs to be the width of the word Rank... AUM generally only needs to be
+// the width of AUM ($bn)". ~0.078in/char is a rough proportional-font
+// average at 7-8pt; the cell's left+right margins are added on top.
+const CHAR_WIDTH_IN = 0.078;
+function charsToInches(chars) {
+  return Math.round((chars * CHAR_WIDTH_IN + CELL_MARGIN[1] + CELL_MARGIN[3]) * 100) / 100;
+}
 
 // Atlas logo, top-left of every slide via a slide master (see
 // ATLAS_MASTER_NAME / buildSlideMaster() below) rather than a per-slide
@@ -41,11 +54,10 @@ function addAtlasSlide(pptx) {
 // addImage() calls positioned in the slide margin just to the left of the
 // table, one per dimension row. This only lines up correctly if the table's
 // rows can't grow taller than ROW_H from text wrapping, which is why the
-// scorecard table below is given a wide, fixed LABEL_COL_W rather than
-// left to auto-size -- the longest label ("Distribution resources
-// required") needs to fit on one line at this font size for the alignment
-// to hold.
-const SCORECARD_LABEL_COL_W = 2.6;
+// scorecard table's label column is capped (rather than left unbounded) at
+// a character count comfortably wide enough for the longest label
+// ("Distribution resources required (x1)") to fit on one line at this font
+// size -- see the maxCharsPerCol[0] in buildScorecardTableRows().
 const SCORECARD_ROW_H = 0.26;
 const SCORECARD_ICON_SIZE = 0.14;
 const SCORECARD_TABLE_X = 0.5; // leaves a gutter at 0.3-0.46 for the icons
@@ -58,30 +70,51 @@ function headerCellOpts(extra) {
 // "Equities range (min-max)" column mirrors the Word export and
 // country.html -- see the comment above getAllocationRange() in
 // exportHelpers.js for what min/max mean (not every institution counted in
-// AUM also reported an asset-class breakdown).
+// AUM also reported an asset-class breakdown). Column widths are
+// content-driven (see estimateColumnCharWidths() in exportHelpers.js)
+// rather than stretched to fill the slide -- Basis and the Equities range
+// string are the two columns most likely to run long, so they get the
+// highest character caps (and wrap, rather than widening the table
+// further, past that). Returns {rows, colW} rather than just the row data,
+// since pptxgenjs needs the column widths as a separate addTable() option.
 function buildAumTableRows(rows) {
-  const header = ['Segment', 'AUM ($bn)', 'Equities ($bn)', 'Basis', 'Equities range (min-max)'].map((t) => ({
-    text: t,
-    options: headerCellOpts()
-  }));
-  const body = rows.map((r) => ([
-    { text: r.segment, options: { fontSize: 8, margin: CELL_MARGIN } },
-    { text: typeof r.aum_bn === 'number' ? r.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-', options: { fontSize: 8, margin: CELL_MARGIN } },
-    { text: typeof r.equity_bn === 'number' ? r.equity_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-', options: { fontSize: 8, margin: CELL_MARGIN } },
-    { text: r.basis || '', options: { fontSize: 7, margin: CELL_MARGIN } },
-    { text: r.equity_range || '-', options: { fontSize: 7, margin: CELL_MARGIN } }
-  ]));
-  return [header, ...body];
+  const headerLabels = ['Segment', 'AUM ($bn)', 'Equities ($bn)', 'Basis', 'Equities range (min-max)'];
+  const bodyText = rows.map((r) => [
+    r.segment,
+    typeof r.aum_bn === 'number' ? r.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-',
+    typeof r.equity_bn === 'number' ? r.equity_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-',
+    r.basis || '',
+    r.equity_range || '-'
+  ]);
+  const colW = estimateColumnCharWidths(headerLabels, bodyText, {
+    minChars: 4,
+    maxCharsPerCol: [26, 10, 10, 22, 30]
+  }).map(charsToInches);
+
+  const header = headerLabels.map((t) => ({ text: t, options: headerCellOpts() }));
+  const body = bodyText.map((cells) => cells.map((text, i) => ({
+    text,
+    options: { fontSize: i < 3 ? 8 : 7, margin: CELL_MARGIN }
+  })));
+  return { rows: [header, ...body], colW };
 }
 
 // Same "runs wide with many segments" caveat as the Word export -- v1
 // accepts a tight fit on countries with a lot of scored segments (e.g. UK's
 // 11 columns) rather than splitting the matrix across multiple slides. Data
-// cells carry the same red/amber/green shading as the site's scorecard
-// matrix, via row.colors[i] (see scoreColor()/overallColor() in
-// exportHelpers.js) -- unscored ('-') cells are left uncolored.
+// columns hold short values (1-3, "-", "x/12", two-digit overall scores),
+// so they get a small character cap and the table only ever runs as wide
+// as it needs to, rather than stretching to fill the slide. Cells carry
+// the same red/amber/green shading as the site's scorecard matrix, via
+// row.colors[i] (see scoreColor()/overallColor() in exportHelpers.js) --
+// unscored ('-') cells are left uncolored.
 function buildScorecardTableRows(matrix) {
-  const header = ['Dimension', ...matrix.columnLabels].map((t) => ({
+  const headerLabels = ['Dimension', ...matrix.columnLabels];
+  const bodyText = matrix.rows.map((row) => [row.label, ...row.values]);
+  const maxCharsPerCol = [40, ...matrix.columnLabels.map(() => 6)];
+  const colW = estimateColumnCharWidths(headerLabels, bodyText, { minChars: 3, maxCharsPerCol }).map(charsToInches);
+
+  const header = headerLabels.map((t) => ({
     text: t,
     options: headerCellOpts({ fontSize: 7 })
   }));
@@ -94,15 +127,16 @@ function buildScorecardTableRows(matrix) {
       return { text: v, options: Object.assign({}, base, { fill: { color: color.bg }, color: color.fg, bold: true }) };
     })
   ]));
-  return [header, ...body];
+  return { rows: [header, ...body], colW };
 }
 
 // Places one small icon per dimension row (see dimensionIcons.js) in the
 // gutter just left of the scorecard table, at the vertical center of that
 // row. Relies on every table row actually being SCORECARD_ROW_H tall --
-// see the comment above SCORECARD_LABEL_COL_W for why the table is sized
-// to make that hold. Rows without a `key` (AUM, Scored, Overall) are
-// skipped, same as the docx export.
+// see the comment above SCORECARD_ROW_H for why the label column is
+// content-capped rather than left unbounded, so labels never wrap onto a
+// second line and break this alignment. Rows without a `key` (AUM, Scored,
+// Overall) are skipped, same as the docx export.
 function addScorecardDimensionIcons(slide, matrix, tableY) {
   matrix.rows.forEach((row, i) => {
     if (!row.key) return;
@@ -121,14 +155,25 @@ function addScorecardDimensionIcons(slide, matrix, tableY) {
   });
 }
 
+// Column widths are content-driven the same way as buildAumTableRows() --
+// "Rank" only needs to fit "Rank" (or a 2-digit number), "AUM ($bn)" only
+// needs to fit its header/numbers, and "Institution" gets the rest, capped
+// so one very long name wraps instead of stretching the table further.
 function buildTopInstitutionsTableRows(section) {
-  const header = ['Rank', 'Institution', 'AUM ($bn)'].map((t) => ({ text: t, options: headerCellOpts() }));
-  const body = section.institutions.map((inst, i) => ([
-    { text: String(i + 1), options: { fontSize: 8, margin: CELL_MARGIN } },
-    { text: inst.name, options: { fontSize: 8, margin: CELL_MARGIN } },
-    { text: typeof inst.aum_bn === 'number' ? inst.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-', options: { fontSize: 8, margin: CELL_MARGIN } }
-  ]));
-  return [header, ...body];
+  const headerLabels = ['Rank', 'Institution', 'AUM ($bn)'];
+  const bodyText = section.institutions.map((inst, i) => [
+    String(i + 1),
+    inst.name,
+    typeof inst.aum_bn === 'number' ? inst.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-'
+  ]);
+  const colW = estimateColumnCharWidths(headerLabels, bodyText, {
+    minChars: 4,
+    maxCharsPerCol: [6, 40, 12]
+  }).map(charsToInches);
+
+  const header = headerLabels.map((t) => ({ text: t, options: headerCellOpts() }));
+  const body = bodyText.map((cells) => cells.map((text) => ({ text, options: { fontSize: 8, margin: CELL_MARGIN } })));
+  return { rows: [header, ...body], colW };
 }
 
 // One slide per segment that has institution-level data -- Peter's standard
@@ -150,8 +195,11 @@ function addTopInstitutionsSlides(pptx, countryName, segments) {
       `${section.segment} — top ${section.institutions.length}${nText} institutions hold ${section.top10_share_pct}% of segment AUM`,
       { x: 0.4, y: 0.85, fontSize: 12, color: '666666' }
     );
-    slide.addTable(buildTopInstitutionsTableRows(section), {
-      x: 2.5, y: 1.4, w: 8.3,
+    const topTable = buildTopInstitutionsTableRows(section);
+    const topTableW = topTable.colW.reduce((a, b) => a + b, 0);
+    slide.addTable(topTable.rows, {
+      x: Math.max(0.4, (SLIDE_W - topTableW) / 2), y: 1.4,
+      colW: topTable.colW,
       border: BORDER,
       autoPage: false
     });
@@ -170,8 +218,10 @@ function addCountrySlides(pptx, countryName, segments, generatedDate) {
   const aumSlide = addAtlasSlide(pptx);
   aumSlide.addText(`Atlas — ${countryName}`, { x: TITLE_X, y: 0.25, fontSize: 24, bold: true });
   aumSlide.addText(`AUM by segment — generated ${generatedDate}`, { x: 0.4, y: 0.85, fontSize: 12, color: '666666' });
-  aumSlide.addTable(buildAumTableRows(aumRows), {
-    x: 0.4, y: 1.3, w: 12.5,
+  const aumTable = buildAumTableRows(aumRows);
+  aumSlide.addTable(aumTable.rows, {
+    x: 0.4, y: 1.3,
+    colW: aumTable.colW,
     border: BORDER,
     autoPage: false
   });
@@ -180,12 +230,10 @@ function addCountrySlides(pptx, countryName, segments, generatedDate) {
   scorecardSlide.addText(`Atlas — ${countryName}`, { x: TITLE_X, y: 0.25, fontSize: 24, bold: true });
   scorecardSlide.addText('Opportunity scorecard', { x: 0.4, y: 0.85, fontSize: 12, color: '666666' });
   const scorecardTableY = 1.3;
-  const scorecardTableW = 12.7 - (SCORECARD_TABLE_X - 0.3); // keep the same right edge as before
-  const numDataCols = matrix.columnLabels.length;
-  const dataColW = (scorecardTableW - SCORECARD_LABEL_COL_W) / Math.max(numDataCols, 1);
-  scorecardSlide.addTable(buildScorecardTableRows(matrix), {
-    x: SCORECARD_TABLE_X, y: scorecardTableY, w: scorecardTableW,
-    colW: [SCORECARD_LABEL_COL_W, ...Array(numDataCols).fill(dataColW)],
+  const scorecardTable = buildScorecardTableRows(matrix);
+  scorecardSlide.addTable(scorecardTable.rows, {
+    x: SCORECARD_TABLE_X, y: scorecardTableY,
+    colW: scorecardTable.colW,
     rowH: SCORECARD_ROW_H,
     border: BORDER,
     autoPage: false
@@ -227,7 +275,7 @@ app.http('exportPptx', {
       const generatedDate = new Date().toISOString().slice(0, 10);
 
       const pptx = new PptxGenJS();
-      pptx.defineLayout({ name: 'ATLAS_WIDE', width: 13.33, height: 7.5 });
+      pptx.defineLayout({ name: 'ATLAS_WIDE', width: SLIDE_W, height: SLIDE_H });
       pptx.layout = 'ATLAS_WIDE';
       defineAtlasMaster(pptx);
 

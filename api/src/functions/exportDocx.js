@@ -3,7 +3,7 @@ const {
   Document, Packer, Paragraph, TextRun, ImageRun, Table, TableRow, TableCell,
   HeadingLevel, WidthType, ShadingType, PageBreak, Header
 } = require('docx');
-const { buildAumRows, buildScorecardMatrix, buildTopInstitutionsSections } = require('../shared/exportHelpers');
+const { buildAumRows, buildScorecardMatrix, buildTopInstitutionsSections, estimateColumnCharWidths } = require('../shared/exportHelpers');
 const { getDimensionIconBuffer } = require('../shared/dimensionIcons');
 const { getAtlasLogoBuffer } = require('../shared/atlasLogo');
 
@@ -17,11 +17,23 @@ const CELL_MARGINS = { top: 30, bottom: 30, left: 80, right: 80 };
 const HEADER_FONT_SIZE = 16; // 8pt
 const BODY_FONT_SIZE = 16; // 8pt
 
-function headerCell(text, widthPct) {
+// Converts an estimateColumnCharWidths() character count into a dxa
+// (twips) column width, so tables are sized to their content rather than
+// stretched to fill the page -- Peter's follow-up feedback that reducing
+// font size alone just left more blank padding around short cells like
+// "Rank" or a 1-3 score, since the columns were still evenly dividing 100%
+// of the page width. ~105 twips/char is a rough proportional-font average
+// at 8pt; the cell's left+right margins are added on top.
+const CHAR_WIDTH_TWIPS = 105;
+function charsToDxa(chars) {
+  return Math.round(chars * CHAR_WIDTH_TWIPS) + CELL_MARGINS.left + CELL_MARGINS.right;
+}
+
+function headerCell(text, widthDxa) {
   return new TableCell({
     shading: { type: ShadingType.CLEAR, fill: HEADER_FILL, color: 'auto' },
     margins: CELL_MARGINS,
-    ...(widthPct ? { width: { size: widthPct, type: WidthType.PERCENTAGE } } : {}),
+    ...(widthDxa ? { width: { size: widthDxa, type: WidthType.DXA } } : {}),
     children: [new Paragraph({ children: [new TextRun({ text: String(text), bold: true, size: HEADER_FONT_SIZE })] })]
   });
 }
@@ -30,10 +42,11 @@ function headerCell(text, widthPct) {
 // scoreColor()/overallColor(), reproducing the site's red/amber/green
 // scorecard traffic-light coding (see style.css's td.score-1/2/3 and
 // td.overall-red/amber/green) in the Word table cells.
-function bodyCell(text, color) {
+function bodyCell(text, color, widthDxa) {
   return new TableCell({
     margins: CELL_MARGINS,
     ...(color ? { shading: { type: ShadingType.CLEAR, fill: color.bg, color: 'auto' } } : {}),
+    ...(widthDxa ? { width: { size: widthDxa, type: WidthType.DXA } } : {}),
     children: [new Paragraph({
       children: [new TextRun({ text: String(text), size: BODY_FONT_SIZE, ...(color ? { color: color.fg, bold: true } : {}) })]
     })]
@@ -46,12 +59,13 @@ function bodyCell(text, color) {
 // dimension key. Falls back to a plain text header cell if the icon lookup
 // comes up empty, so a future dimension added without an icon still renders
 // rather than breaking the export.
-function dimensionHeaderCell(row) {
+function dimensionHeaderCell(row, widthDxa) {
   const iconBuffer = row.key ? getDimensionIconBuffer(row.key) : null;
-  if (!iconBuffer) return headerCell(row.label);
+  if (!iconBuffer) return headerCell(row.label, widthDxa);
   return new TableCell({
     shading: { type: ShadingType.CLEAR, fill: HEADER_FILL, color: 'auto' },
     margins: CELL_MARGINS,
+    ...(widthDxa ? { width: { size: widthDxa, type: WidthType.DXA } } : {}),
     children: [new Paragraph({
       children: [
         new ImageRun({ data: iconBuffer, type: 'png', transformation: { width: 12, height: 12 } }),
@@ -79,62 +93,80 @@ function buildLogoHeader() {
 // reported Equities figure as-is (assumes non-reporters hold none), max is
 // that figure scaled up to the segment's full AUM (assumes non-reporters
 // match reporters' mix). See getAllocationRange() in exportHelpers.js.
-// Column widths tuned to content (numeric columns don't need as much room
-// as Segment/Basis text), rather than five equal-width columns leaving
-// visible whitespace in the short numeric ones.
-const AUM_COL_WIDTHS = [22, 12, 12, 16, 38];
-
+// Column widths are content-driven (see estimateColumnCharWidths() in
+// exportHelpers.js) rather than fixed percentages of the page, so e.g.
+// "AUM ($bn)" doesn't reserve more room than its numbers ever use. Basis
+// and the Equities range string are the two columns most likely to run
+// long, so they get the highest character caps (and wrap, rather than
+// stretching the table further, past that).
 function buildAumTable(rows) {
+  const headerLabels = ['Segment', 'AUM ($bn)', 'Equities ($bn)', 'Basis', 'Equities range (min-max)'];
+  const bodyText = rows.map((r) => [
+    r.segment,
+    typeof r.aum_bn === 'number' ? r.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-',
+    typeof r.equity_bn === 'number' ? r.equity_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-',
+    r.basis || '',
+    r.equity_range || '-'
+  ]);
+  const widths = estimateColumnCharWidths(headerLabels, bodyText, {
+    minChars: 4,
+    maxCharsPerCol: [26, 10, 10, 22, 30]
+  }).map(charsToDxa);
+
   const headerRow = new TableRow({
-    children: [
-      headerCell('Segment', AUM_COL_WIDTHS[0]),
-      headerCell('AUM ($bn)', AUM_COL_WIDTHS[1]),
-      headerCell('Equities ($bn)', AUM_COL_WIDTHS[2]),
-      headerCell('Basis', AUM_COL_WIDTHS[3]),
-      headerCell('Equities range (min-max)', AUM_COL_WIDTHS[4])
-    ]
+    children: headerLabels.map((label, i) => headerCell(label, widths[i]))
   });
-  const dataRows = rows.map((r) => new TableRow({
-    children: [
-      bodyCell(r.segment),
-      bodyCell(typeof r.aum_bn === 'number' ? r.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-'),
-      bodyCell(typeof r.equity_bn === 'number' ? r.equity_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-'),
-      bodyCell(r.basis || ''),
-      bodyCell(r.equity_range || '-')
-    ]
+  const dataRows = bodyText.map((cells) => new TableRow({
+    children: cells.map((text, i) => bodyCell(text, null, widths[i]))
   }));
-  return new Table({ width: { size: 100, type: WidthType.PERCENTAGE }, rows: [headerRow, ...dataRows] });
+  return new Table({ rows: [headerRow, ...dataRows] });
 }
 
 // Word tables don't scroll horizontally the way a webpage can, so a country
-// with many segment columns (e.g. UK's 11) will run wide. Deliberately left
-// at AUTO width (rather than stretched to 100% of the page) so Word sizes
-// each data column to its actual content -- these are all single-digit
-// scores, so a full-width table here was mostly empty padding. Cells carry
-// the same red/amber/green shading as the site's scorecard matrix, via
+// with many segment columns (e.g. UK's 11) will run wide. Column widths are
+// content-driven the same way as buildAumTable() -- these are all
+// single-digit scores or short "x/12" strings, so they get a small char
+// cap and the table only ever runs as wide as it needs to. Cells carry the
+// same red/amber/green shading as the site's scorecard matrix, via
 // row.colors[i] (see scoreColor()/overallColor() in exportHelpers.js).
 function buildScorecardTable(matrix) {
+  const headerLabels = ['Dimension', ...matrix.columnLabels];
+  const bodyText = matrix.rows.map((row) => [row.label, ...row.values]);
+  const maxCharsPerCol = [34, ...matrix.columnLabels.map(() => 6)];
+  const widths = estimateColumnCharWidths(headerLabels, bodyText, { minChars: 3, maxCharsPerCol }).map(charsToDxa);
+  widths[0] += 260; // room for the dimension icon alongside the label
+
   const headerRow = new TableRow({
-    children: [headerCell('Dimension'), ...matrix.columnLabels.map((label) => headerCell(label))]
+    children: [headerCell('Dimension', widths[0]), ...matrix.columnLabels.map((label, i) => headerCell(label, widths[i + 1]))]
   });
   const dataRows = matrix.rows.map((row) => new TableRow({
-    children: [dimensionHeaderCell(row), ...row.values.map((v, i) => bodyCell(v, row.colors ? row.colors[i] : null))]
+    children: [
+      dimensionHeaderCell(row, widths[0]),
+      ...row.values.map((v, i) => bodyCell(v, row.colors ? row.colors[i] : null, widths[i + 1]))
+    ]
   }));
   return new Table({ rows: [headerRow, ...dataRows] });
 }
 
 function buildTopInstitutionsTable(section) {
+  const headerLabels = ['Rank', 'Institution', 'AUM ($bn)'];
+  const bodyText = section.institutions.map((inst, i) => [
+    String(i + 1),
+    inst.name,
+    typeof inst.aum_bn === 'number' ? inst.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-'
+  ]);
+  const widths = estimateColumnCharWidths(headerLabels, bodyText, {
+    minChars: 4,
+    maxCharsPerCol: [6, 40, 12]
+  }).map(charsToDxa);
+
   const headerRow = new TableRow({
-    children: [headerCell('Rank', 12), headerCell('Institution', 58), headerCell('AUM ($bn)', 30)]
+    children: headerLabels.map((label, i) => headerCell(label, widths[i]))
   });
-  const dataRows = section.institutions.map((inst, i) => new TableRow({
-    children: [
-      bodyCell(String(i + 1)),
-      bodyCell(inst.name),
-      bodyCell(typeof inst.aum_bn === 'number' ? inst.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-')
-    ]
+  const dataRows = bodyText.map((cells) => new TableRow({
+    children: cells.map((text, i) => bodyCell(text, null, widths[i]))
   }));
-  return new Table({ width: { size: 100, type: WidthType.PERCENTAGE }, rows: [headerRow, ...dataRows] });
+  return new Table({ rows: [headerRow, ...dataRows] });
 }
 
 // One heading + one small table per segment that has institution-level data
