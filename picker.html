@@ -54,6 +54,12 @@
       <select id="project-alloc-type-select" onchange="onProjectAllocSelectorChange()"></select>
       <select id="project-alloc-style-select" onchange="onProjectAllocSelectorChange()"></select>
     </span>
+    <label id="export-group-label" style="font-size:0.85rem; display:none;" title="Country: each country's AUM, scorecard and top 10s together. Content type: every country's AUM tables together, then every scorecard, then every top 10 -- useful for lifting just one type of table across the whole project into a report.">Group export by:
+      <select id="export-group-select">
+        <option value="country">Country</option>
+        <option value="content">Content type (AUM / scorecard / top 10s)</option>
+      </select>
+    </label>
     <button type="button" id="export-docx-btn" class="btn-primary" style="cursor:pointer; display:none;" onclick="downloadProjectExport('docx')">Download as Word</button>
     <button type="button" id="export-pptx-btn" class="btn-primary" style="cursor:pointer; display:none;" onclick="downloadProjectExport('pptx')">Download as PowerPoint</button>
   </div>
@@ -233,12 +239,18 @@ async function buildProjectView() {
       document.getElementById('project-matrix').innerHTML = '';
       document.getElementById('export-docx-btn').style.display = 'none';
       document.getElementById('export-pptx-btn').style.display = 'none';
+      document.getElementById('export-group-label').style.display = 'none';
       document.getElementById('project-mo-details').style.display = 'none';
       return;
     }
 
     document.getElementById('export-docx-btn').style.display = '';
     document.getElementById('export-pptx-btn').style.display = '';
+    // Only meaningful once there's more than one country's content to
+    // interleave -- with a single country, "group by content type" and
+    // "group by country" produce the same output, so the choice is hidden
+    // rather than shown as a no-op decision.
+    document.getElementById('export-group-label').style.display = PROJECT_DATA.length > 1 ? '' : 'none';
     populateProjectAllocSelectors();
     populateProjectMoAssetSelectors();
     updateProjectMoVisibility();
@@ -521,10 +533,13 @@ async function downloadProjectExport(format) {
       segments: c.data.segments || []
     }));
 
+    const groupSelect = document.getElementById('export-group-select');
+    const groupBy = groupSelect ? groupSelect.value : 'country';
+
     const res = await fetch(`/api/export/${format}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ countries, enabled_dimensions: ENABLED_DIMENSIONS })
+      body: JSON.stringify({ countries, enabled_dimensions: ENABLED_DIMENSIONS, group_by: groupBy })
     });
 
     if (!res.ok) {
