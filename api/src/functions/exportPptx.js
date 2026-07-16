@@ -228,21 +228,11 @@ function addTopInstitutionsSlides(pptx, countryName, segments) {
   }
 }
 
-// Plain divider slide marking the start of a content-type block in the
-// "group by content type" layout (added 2026-07-16) -- just a title, no
-// table, since its only job is to break up "every country's AUM slide" from
-// "every country's scorecard slide" the way a Word H1 would in the docx
-// export's equivalent layout.
-function addSectionDividerSlide(pptx, title) {
-  const slide = addAtlasSlide(pptx);
-  slide.addText(title, { x: 0.4, y: 3.2, fontSize: 32, bold: true });
-}
-
 // One country's AUM slide. Factored out of addCountrySlides() (below) so
-// the same slide-building logic can run either grouped by country (the
-// original layout) or grouped by content type across every selected
-// country (added 2026-07-16 -- see addAumSlides()/addScorecardSlides() and
-// the group_by handling in the exportPptx handler).
+// each content type's slide-building logic is independently callable --
+// needed for the `include` filter (added 2026-07-16, Peter's request:
+// export e.g. only scorecards, or only top 10s, of the selected countries,
+// rather than always the full AUM+scorecard+top10 bundle).
 function addAumSlide(pptx, countryName, segments, generatedDate) {
   const aumSlide = addAtlasSlide(pptx);
   aumSlide.addText(`Atlas — ${countryName}`, { x: TITLE_X, y: 0.25, fontSize: 24, bold: true });
@@ -275,18 +265,26 @@ function addScorecardSlide(pptx, countryName, segments, enabledDimensions) {
   addScorecardDimensionIcons(scorecardSlide, matrix, scorecardTableY);
 }
 
-// One country's full slide set (AUM + scorecard + one per segment with
-// institution-level data) — shared between the single-country payload
-// (country.html) and the multi-country payload (picker.html's project
-// builder) in its default "group by country" layout, so a project export is
-// just this repeated once per selected country. See addAumSlide()/
-// addScorecardSlide()/addTopInstitutionsSlides() above for the pieces this
-// is built from, which are also reused directly by the "group by content
-// type" layout in the exportPptx handler below.
-function addCountrySlides(pptx, countryName, segments, generatedDate, enabledDimensions) {
-  addAumSlide(pptx, countryName, segments, generatedDate);
-  addScorecardSlide(pptx, countryName, segments, enabledDimensions);
-  addTopInstitutionsSlides(pptx, countryName, segments);
+// Which of the three content blocks to add for a country -- 'aum',
+// 'scorecard', 'top_institutions'. Defaults to all three (the original
+// "everything" behaviour) when not specified, so country.html's existing
+// single-country export (which never sends `include`) is unaffected.
+const ALL_CONTENT_TYPES = ['aum', 'scorecard', 'top_institutions'];
+function resolveInclude(rawInclude) {
+  const valid = Array.isArray(rawInclude) ? rawInclude.filter((k) => ALL_CONTENT_TYPES.includes(k)) : [];
+  return new Set(valid.length ? valid : ALL_CONTENT_TYPES);
+}
+
+// One country's full slide set -- whichever of the AUM slide / scorecard
+// slide / top-10-per-segment slides `include` asks for. Shared between the
+// single-country payload (country.html) and the multi-country payload
+// (picker.html's project builder), so a project export is just this
+// repeated once per selected country.
+function addCountrySlides(pptx, countryName, segments, generatedDate, enabledDimensions, include) {
+  const includeSet = include || new Set(ALL_CONTENT_TYPES);
+  if (includeSet.has('aum')) addAumSlide(pptx, countryName, segments, generatedDate);
+  if (includeSet.has('scorecard')) addScorecardSlide(pptx, countryName, segments, enabledDimensions);
+  if (includeSet.has('top_institutions')) addTopInstitutionsSlides(pptx, countryName, segments);
 }
 
 app.http('exportPptx', {
@@ -331,30 +329,15 @@ app.http('exportPptx', {
         titleSlide.addText(`Generated ${generatedDate} — ${countries.map((c) => c.country_name).join(', ')}`, { x: 0.4, y: 3.6, fontSize: 14, color: '666666' });
       }
 
-      // Two layouts for a multi-country project export, same choice as
-      // exportDocx.js: the default groups every slide by country; "content"
-      // groups by content type instead (every country's AUM slide, then
-      // every country's scorecard slide, then every country's top-10
-      // slides) -- Peter's 2026-07-16 request. A plain divider slide marks
-      // where each content-type block starts, since a deck has no heading
-      // outline the way a Word doc does. Single-country exports behave the
-      // same either way, since group_by only matters once there's more than
-      // one country's content to interleave.
-      if (isMulti && body.group_by === 'content') {
-        addSectionDividerSlide(pptx, 'AUM by segment');
-        countries.forEach((c) => addAumSlide(pptx, c.country_name, c.segments, generatedDate));
-
-        addSectionDividerSlide(pptx, 'Opportunity scorecard');
-        countries.forEach((c) => addScorecardSlide(pptx, c.country_name, c.segments, body.enabled_dimensions));
-
-        const withInstitutions = countries.filter((c) => buildTopInstitutionsSections(c.segments).length);
-        if (withInstitutions.length) {
-          addSectionDividerSlide(pptx, 'Top institutions by AUM');
-          withInstitutions.forEach((c) => addTopInstitutionsSlides(pptx, c.country_name, c.segments));
-        }
-      } else {
-        countries.forEach((c) => addCountrySlides(pptx, c.country_name, c.segments, generatedDate, body.enabled_dimensions));
-      }
+      // Which content types to include per country -- 'aum', 'scorecard',
+      // 'top_institutions', any combination, defaulting to all three.
+      // Peter's 2026-07-16 request: be able to export e.g. only scorecards,
+      // or only top 10s, of the selected countries, rather than always the
+      // full bundle. A country with nothing to show under the requested set
+      // (e.g. top_institutions-only, and this country has no
+      // institution-level data) simply contributes no slides.
+      const include = resolveInclude(body.include);
+      countries.forEach((c) => addCountrySlides(pptx, c.country_name, c.segments, generatedDate, body.enabled_dimensions, include));
 
       const buffer = await pptx.write({ outputType: 'nodebuffer' });
 

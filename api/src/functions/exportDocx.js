@@ -170,12 +170,7 @@ function buildTopInstitutionsTable(section) {
 }
 
 // The per-segment part of the "top institutions" block -- one H3 heading +
-// one small table per segment that has institution-level data. Factored out
-// of buildTopInstitutionsBlock() so the same per-segment content can sit
-// under either a per-country H2 (the original "everything for this country
-// together" layout) or a per-country H2 nested inside a single shared "Top
-// institutions by AUM" H1 (the "everything of this type together" layout,
-// added 2026-07-16 -- see buildTopInstitutionsSection() below). Segments
+// one small table per segment that has institution-level data. Segments
 // built from industry aggregates (e.g. Life/Non-life insurance) or
 // countries not yet backfilled at institution level (currently just the US)
 // are skipped, not guessed at -- see buildTopInstitutionsSections in
@@ -207,15 +202,51 @@ function buildTopInstitutionsBlock(segments) {
   return [heading, ...buildTopInstitutionsPerSegment(sections)];
 }
 
-// One country's section: heading + AUM table + scorecard table + top
-// institutions by segment. Shared by both the single-country payload
-// (country.html's per-page export) and the multi-country payload
-// (picker.html's project builder) so a project export is just this block
-// repeated once per selected country, rather than a separate document
-// layout to maintain.
-function buildCountrySection(countryName, segments, { headingLevel = HeadingLevel.HEADING_1, pageBreakBefore = false, enabledDimensions } = {}) {
-  const aumRows = buildAumRows(segments);
-  const matrix = buildScorecardMatrix(segments, enabledDimensions);
+// Which of the three content blocks a country section should include --
+// 'aum', 'scorecard', 'top_institutions'. Defaults to all three (the
+// original "everything" behaviour) when not specified, so country.html's
+// existing single-country export (which never sends `include`) is
+// unaffected. Added 2026-07-16 per Peter's request to be able to export
+// e.g. "only scorecards of the countries I select" rather than always the
+// full AUM+scorecard+top10 bundle.
+const ALL_CONTENT_TYPES = ['aum', 'scorecard', 'top_institutions'];
+function resolveInclude(rawInclude) {
+  const valid = Array.isArray(rawInclude) ? rawInclude.filter((k) => ALL_CONTENT_TYPES.includes(k)) : [];
+  return new Set(valid.length ? valid : ALL_CONTENT_TYPES);
+}
+
+// One country's section: heading + whichever of AUM table / scorecard table
+// / top-institutions-by-segment the caller asked for (see `include` above).
+// Shared by both the single-country payload (country.html's per-page
+// export) and the multi-country payload (picker.html's project builder) so
+// a project export is just this block repeated once per selected country,
+// rather than a separate document layout to maintain. Returns [] if the
+// country ends up with nothing to show under the requested `include` set
+// (e.g. `include` is top_institutions-only and this country has no
+// institution-level data) -- the caller should skip a country entirely in
+// that case rather than emit an empty heading.
+function buildCountrySection(countryName, segments, { headingLevel = HeadingLevel.HEADING_1, pageBreakBefore = false, enabledDimensions, include } = {}) {
+  const includeSet = include || new Set(ALL_CONTENT_TYPES);
+  const body = [];
+
+  if (includeSet.has('aum')) {
+    body.push(
+      new Paragraph({ text: 'AUM by segment', heading: HeadingLevel.HEADING_2, spacing: { before: 150, after: 60 } }),
+      buildAumTable(buildAumRows(segments))
+    );
+  }
+  if (includeSet.has('scorecard')) {
+    body.push(
+      new Paragraph({ text: 'Opportunity scorecard', heading: HeadingLevel.HEADING_2, spacing: { before: 200, after: 60 } }),
+      buildScorecardTable(buildScorecardMatrix(segments, enabledDimensions))
+    );
+  }
+  if (includeSet.has('top_institutions')) {
+    body.push(...buildTopInstitutionsBlock(segments));
+  }
+
+  if (!body.length) return [];
+
   const heading = new Paragraph({
     heading: headingLevel,
     children: [
@@ -223,77 +254,7 @@ function buildCountrySection(countryName, segments, { headingLevel = HeadingLeve
       new TextRun({ text: `Atlas — ${countryName}` })
     ]
   });
-  return [
-    heading,
-    new Paragraph({ text: 'AUM by segment', heading: HeadingLevel.HEADING_2, spacing: { before: 150, after: 60 } }),
-    buildAumTable(aumRows),
-    new Paragraph({ text: 'Opportunity scorecard', heading: HeadingLevel.HEADING_2, spacing: { before: 200, after: 60 } }),
-    buildScorecardTable(matrix),
-    ...buildTopInstitutionsBlock(segments)
-  ];
-}
-
-// "Group by content type" layout for a multi-country project export (added
-// 2026-07-16, Peter's request) -- an alternative to buildCountrySection()'s
-// "everything for this country together" grouping, for when what's actually
-// wanted is "every country's AUM table together, then every country's
-// scorecard together, then every country's top 10s together" (e.g. to lift
-// just the scorecard section into a different document). Each of the three
-// functions below is one top-level H1 section; a country gets its own H2
-// subheading inside it. Only used when the request explicitly asks for it
-// (body.group_by === 'content') -- buildCountrySection() stays the default.
-function sectionHeading(text, pageBreakBefore) {
-  return new Paragraph({
-    heading: HeadingLevel.HEADING_1,
-    spacing: { before: 200, after: 100 },
-    children: [
-      ...(pageBreakBefore ? [new PageBreak()] : []),
-      new TextRun({ text })
-    ]
-  });
-}
-
-function countrySubheading(countryName, isFirst) {
-  return new Paragraph({
-    heading: HeadingLevel.HEADING_2,
-    spacing: { before: isFirst ? 0 : 200, after: 60 },
-    children: [new TextRun({ text: countryName })]
-  });
-}
-
-function buildAumSection(countries, pageBreakBefore) {
-  const children = [sectionHeading('AUM by segment', pageBreakBefore)];
-  countries.forEach((c, i) => {
-    children.push(countrySubheading(c.country_name, i === 0));
-    children.push(buildAumTable(buildAumRows(c.segments)));
-  });
-  return children;
-}
-
-function buildScorecardSection(countries, enabledDimensions, pageBreakBefore) {
-  const children = [sectionHeading('Opportunity scorecard', pageBreakBefore)];
-  countries.forEach((c, i) => {
-    children.push(countrySubheading(c.country_name, i === 0));
-    children.push(buildScorecardTable(buildScorecardMatrix(c.segments, enabledDimensions)));
-  });
-  return children;
-}
-
-// Skips countries with no institution-level data entirely (no empty H2 with
-// nothing under it), same as buildTopInstitutionsBlock() does per-country.
-// "isFirst" for spacing purposes tracks the first country actually emitted,
-// not raw array position, since an earlier country may have been skipped.
-function buildTopInstitutionsSection(countries, pageBreakBefore) {
-  const perCountry = [];
-  let emitted = 0;
-  countries.forEach((c) => {
-    const sections = buildTopInstitutionsSections(c.segments);
-    if (!sections.length) return;
-    perCountry.push(countrySubheading(c.country_name, emitted === 0), ...buildTopInstitutionsPerSegment(sections));
-    emitted += 1;
-  });
-  if (!perCountry.length) return [];
-  return [sectionHeading('Top institutions by AUM', pageBreakBefore), ...perCountry];
+  return [heading, ...body];
 }
 
 app.http('exportDocx', {
@@ -336,26 +297,32 @@ app.http('exportDocx', {
         children.push(new Paragraph({ text: `Generated ${generatedDate}` }));
       }
 
-      // Two layouts for a multi-country project export: the default groups
-      // everything by country (each country's own AUM/scorecard/top-10s
-      // together); "content" groups by content type instead (every
-      // country's AUM together, then every country's scorecard, then every
-      // country's top 10s) -- Peter's 2026-07-16 request, for pulling just
-      // one type of table across a project's countries into a report.
-      // Single-country exports (country.html) are unaffected either way,
-      // since there's only one country's worth of content regardless.
-      if (isMulti && body.group_by === 'content') {
-        children.push(...buildAumSection(countries, false));
-        children.push(...buildScorecardSection(countries, body.enabled_dimensions, true));
-        children.push(...buildTopInstitutionsSection(countries, true));
-      } else {
-        countries.forEach((c, i) => {
-          children.push(...buildCountrySection(c.country_name, c.segments, {
-            headingLevel: isMulti ? HeadingLevel.HEADING_1 : HeadingLevel.HEADING_1,
-            pageBreakBefore: isMulti && i > 0,
-            enabledDimensions: body.enabled_dimensions
-          }));
+      // Which content types to include per country -- 'aum', 'scorecard',
+      // 'top_institutions', any combination, defaulting to all three.
+      // Peter's 2026-07-16 request: be able to export e.g. only scorecards,
+      // or only top 10s, of the selected countries, rather than always the
+      // full bundle. A country that ends up with nothing to show under the
+      // requested set (e.g. top_institutions-only, and this country has no
+      // institution-level data) is skipped entirely -- pageBreakBefore
+      // therefore tracks the first country actually emitted, not raw array
+      // position, so a skipped country doesn't leave a stray leading blank
+      // page.
+      const include = resolveInclude(body.include);
+      let emittedCount = 0;
+      countries.forEach((c) => {
+        const section = buildCountrySection(c.country_name, c.segments, {
+          headingLevel: HeadingLevel.HEADING_1,
+          pageBreakBefore: isMulti && emittedCount > 0,
+          enabledDimensions: body.enabled_dimensions,
+          include
         });
+        if (!section.length) return;
+        children.push(...section);
+        emittedCount += 1;
+      });
+
+      if (!emittedCount) {
+        return { status: 400, jsonBody: { error: 'None of the selected countries have data for the requested content type(s).' } };
       }
 
       children.push(new Paragraph({
