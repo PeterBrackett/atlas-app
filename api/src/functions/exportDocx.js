@@ -169,18 +169,19 @@ function buildTopInstitutionsTable(section) {
   return new Table({ rows: [headerRow, ...dataRows] });
 }
 
-// One heading + one small table per segment that has institution-level data
-// -- Peter's standard "top 10 institutions by AUM, and their combined AUM as
-// a % of the segment" report format. Segments built from industry
-// aggregates (e.g. Life/Non-life insurance) or countries not yet backfilled
-// at institution level (currently just the US) are skipped, not guessed at
-// -- see buildTopInstitutionsSections in exportHelpers.js.
-function buildTopInstitutionsBlock(segments) {
-  const sections = buildTopInstitutionsSections(segments);
-  if (!sections.length) return [];
-
-  const heading = new Paragraph({ text: 'Top institutions by AUM', heading: HeadingLevel.HEADING_2, spacing: { before: 200, after: 60 } });
-  const perSegment = sections.flatMap((section) => {
+// The per-segment part of the "top institutions" block -- one H3 heading +
+// one small table per segment that has institution-level data. Factored out
+// of buildTopInstitutionsBlock() so the same per-segment content can sit
+// under either a per-country H2 (the original "everything for this country
+// together" layout) or a per-country H2 nested inside a single shared "Top
+// institutions by AUM" H1 (the "everything of this type together" layout,
+// added 2026-07-16 -- see buildTopInstitutionsSection() below). Segments
+// built from industry aggregates (e.g. Life/Non-life insurance) or
+// countries not yet backfilled at institution level (currently just the US)
+// are skipped, not guessed at -- see buildTopInstitutionsSections in
+// exportHelpers.js.
+function buildTopInstitutionsPerSegment(sections) {
+  return sections.flatMap((section) => {
     const nText = section.n_institutions ? ` of ${section.n_institutions.toLocaleString()} identified` : '';
     return [
       new Paragraph({
@@ -191,7 +192,19 @@ function buildTopInstitutionsBlock(segments) {
       buildTopInstitutionsTable(section)
     ];
   });
-  return [heading, ...perSegment];
+}
+
+// One heading + one small table per segment that has institution-level data
+// -- Peter's standard "top 10 institutions by AUM, and their combined AUM as
+// a % of the segment" report format. Used within a per-country section (see
+// buildCountrySection() below); returns [] for a country with no
+// institution-level data at all, rather than an empty heading.
+function buildTopInstitutionsBlock(segments) {
+  const sections = buildTopInstitutionsSections(segments);
+  if (!sections.length) return [];
+
+  const heading = new Paragraph({ text: 'Top institutions by AUM', heading: HeadingLevel.HEADING_2, spacing: { before: 200, after: 60 } });
+  return [heading, ...buildTopInstitutionsPerSegment(sections)];
 }
 
 // One country's section: heading + AUM table + scorecard table + top
@@ -218,6 +231,69 @@ function buildCountrySection(countryName, segments, { headingLevel = HeadingLeve
     buildScorecardTable(matrix),
     ...buildTopInstitutionsBlock(segments)
   ];
+}
+
+// "Group by content type" layout for a multi-country project export (added
+// 2026-07-16, Peter's request) -- an alternative to buildCountrySection()'s
+// "everything for this country together" grouping, for when what's actually
+// wanted is "every country's AUM table together, then every country's
+// scorecard together, then every country's top 10s together" (e.g. to lift
+// just the scorecard section into a different document). Each of the three
+// functions below is one top-level H1 section; a country gets its own H2
+// subheading inside it. Only used when the request explicitly asks for it
+// (body.group_by === 'content') -- buildCountrySection() stays the default.
+function sectionHeading(text, pageBreakBefore) {
+  return new Paragraph({
+    heading: HeadingLevel.HEADING_1,
+    spacing: { before: 200, after: 100 },
+    children: [
+      ...(pageBreakBefore ? [new PageBreak()] : []),
+      new TextRun({ text })
+    ]
+  });
+}
+
+function countrySubheading(countryName, isFirst) {
+  return new Paragraph({
+    heading: HeadingLevel.HEADING_2,
+    spacing: { before: isFirst ? 0 : 200, after: 60 },
+    children: [new TextRun({ text: countryName })]
+  });
+}
+
+function buildAumSection(countries, pageBreakBefore) {
+  const children = [sectionHeading('AUM by segment', pageBreakBefore)];
+  countries.forEach((c, i) => {
+    children.push(countrySubheading(c.country_name, i === 0));
+    children.push(buildAumTable(buildAumRows(c.segments)));
+  });
+  return children;
+}
+
+function buildScorecardSection(countries, enabledDimensions, pageBreakBefore) {
+  const children = [sectionHeading('Opportunity scorecard', pageBreakBefore)];
+  countries.forEach((c, i) => {
+    children.push(countrySubheading(c.country_name, i === 0));
+    children.push(buildScorecardTable(buildScorecardMatrix(c.segments, enabledDimensions)));
+  });
+  return children;
+}
+
+// Skips countries with no institution-level data entirely (no empty H2 with
+// nothing under it), same as buildTopInstitutionsBlock() does per-country.
+// "isFirst" for spacing purposes tracks the first country actually emitted,
+// not raw array position, since an earlier country may have been skipped.
+function buildTopInstitutionsSection(countries, pageBreakBefore) {
+  const perCountry = [];
+  let emitted = 0;
+  countries.forEach((c) => {
+    const sections = buildTopInstitutionsSections(c.segments);
+    if (!sections.length) return;
+    perCountry.push(countrySubheading(c.country_name, emitted === 0), ...buildTopInstitutionsPerSegment(sections));
+    emitted += 1;
+  });
+  if (!perCountry.length) return [];
+  return [sectionHeading('Top institutions by AUM', pageBreakBefore), ...perCountry];
 }
 
 app.http('exportDocx', {
@@ -260,13 +336,27 @@ app.http('exportDocx', {
         children.push(new Paragraph({ text: `Generated ${generatedDate}` }));
       }
 
-      countries.forEach((c, i) => {
-        children.push(...buildCountrySection(c.country_name, c.segments, {
-          headingLevel: isMulti ? HeadingLevel.HEADING_1 : HeadingLevel.HEADING_1,
-          pageBreakBefore: isMulti && i > 0,
-          enabledDimensions: body.enabled_dimensions
-        }));
-      });
+      // Two layouts for a multi-country project export: the default groups
+      // everything by country (each country's own AUM/scorecard/top-10s
+      // together); "content" groups by content type instead (every
+      // country's AUM together, then every country's scorecard, then every
+      // country's top 10s) -- Peter's 2026-07-16 request, for pulling just
+      // one type of table across a project's countries into a report.
+      // Single-country exports (country.html) are unaffected either way,
+      // since there's only one country's worth of content regardless.
+      if (isMulti && body.group_by === 'content') {
+        children.push(...buildAumSection(countries, false));
+        children.push(...buildScorecardSection(countries, body.enabled_dimensions, true));
+        children.push(...buildTopInstitutionsSection(countries, true));
+      } else {
+        countries.forEach((c, i) => {
+          children.push(...buildCountrySection(c.country_name, c.segments, {
+            headingLevel: isMulti ? HeadingLevel.HEADING_1 : HeadingLevel.HEADING_1,
+            pageBreakBefore: isMulti && i > 0,
+            enabledDimensions: body.enabled_dimensions
+          }));
+        });
+      }
 
       children.push(new Paragraph({
         text: 'Source: Atlas. See Sources & Methodology on the site for how these figures are derived.',
