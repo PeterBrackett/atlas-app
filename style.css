@@ -270,9 +270,14 @@ h2 {
 
 /* Opportunity scorecard matrix — segments as columns, matching the shape
    of FINAL_Country_Matrix.xlsx. Wide by design, so it scrolls horizontally
-   with a sticky first (row-label) column. */
+   with a sticky first (row-label) column. -webkit-overflow-scrolling gives
+   this momentum ("flick") scrolling on iOS Safari instead of the sluggish
+   step-by-step default -- this is the one thing on the whole site that's
+   genuinely wide by design (up to 19 segment columns), so on iPad/phone
+   it's meant to be scrolled sideways with a finger, not reflowed away. */
 .matrix-wrap {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -508,4 +513,85 @@ a.nav-card .nav-card-desc {
   background: #eef1f4;
   color: var(--muted);
   cursor: help;
+}
+
+/* ---------------------------------------------------------------------
+   Responsive / touch pass (2026-07-16, Peter's request): "be able to use
+   it on iPad and phone", not a mobile-specific redesign. The site was
+   already in reasonable shape for this -- every tool-panel/grid layout
+   already uses flex-wrap or CSS grid auto-fill, so those already reflow to
+   fewer columns on a narrow screen with no changes needed. What was
+   actually missing: no @media breakpoints existed at all, so desktop-sized
+   padding, header layout and button/control tap targets were never
+   adjusted for a touch/narrow-viewport context. The scorecard/overview
+   matrices are deliberately NOT restructured here -- they're wide by
+   design (up to 19 segment columns) and stay a horizontally-scrollable
+   table with a sticky label column (see .matrix-wrap above) on every
+   screen size; that's the intended way to use them on a phone, not
+   something to redesign away.
+   --------------------------------------------------------------------- */
+
+/* Tablet and below (covers iPad portrait at 768 and iPad Pro 11" at ~834).
+   Just trims the desktop-sized whitespace that eats into limited width,
+   and lets the header wrap instead of squeezing brand + auth status onto
+   one line. */
+@media (max-width: 900px) {
+  main {
+    padding: 18px 16px 48px;
+  }
+  header.site-header {
+    padding: 16px 20px;
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
+  nav.breadcrumb {
+    padding: 10px 20px;
+  }
+}
+
+/* Phone-width (covers standard iPhones/Android phones in portrait, roughly
+   ≤480 CSS px). Bigger tap targets on every clickable control (Apple's own
+   44px minimum recommendation) and tool panels stack to a single column
+   instead of wrapping awkwardly at an in-between width. */
+@media (max-width: 480px) {
+  main {
+    padding: 14px 12px 40px;
+  }
+  header.site-header {
+    padding: 14px 16px;
+  }
+  header.site-header h1 {
+    font-size: 1.15rem;
+  }
+  .country-name-heading {
+    font-size: 1.5rem;
+  }
+  nav.breadcrumb {
+    padding: 8px 16px;
+  }
+
+  .btn-primary, .btn-toggle {
+    min-height: 44px;
+    padding: 10px 16px;
+  }
+
+  select.matrix-select {
+    min-height: 32px;
+  }
+
+  /* At this width the two-column "controls | basis" layout of a tool panel
+     has less room than either side's own min-width wants, which forces an
+     awkward partial wrap -- full-width single column instead. */
+  .tool-panel-controls, .tool-panel-basis {
+    min-width: 100%;
+  }
+
+  /* Home hub cards and summary stat cards: let them go fully single-column
+     rather than squeezing two narrow ones side by side. */
+  .nav-card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stat-card {
+    flex-basis: 100%;
+  }
 }
