@@ -43,6 +43,20 @@
 //   active in private credit, but LDI/liability-matching keeps them away
 //   from concentrated equity. Non-life insurers need more liquidity to pay
 //   claims, so score lowest alongside DC.
+// - "Public Pension Reserve Fund" (added 2026-07-16, for entities like
+//   Japan's GPIF that were previously mislabeled as "SWF"): unlike classic
+//   SWFs, these are large, publicly-mandated, professionally-managed
+//   reserve pools backing a national PAYG pension system, typically run on
+//   an explicitly diversified, low-cost, largely index-tracking mandate
+//   (GPIF's own published investment principles are the textbook case) --
+//   the opposite profile to a concentrated, direct-deal-driven SWF like
+//   ADIA or GIC. Scored here as: mostly outsourced to external managers
+//   (like GPIF, which mandates the large majority of its assets externally
+//   rather than running them in-house), comingled/pooled-index-vehicle
+//   native, slow/committee-driven governance (government-mandate boards,
+//   same reasoning as DB Pension (Govt)), and low on concentrated/
+//   differentiated strategies (explicitly diversified and index-like by
+//   mandate, closer to DC than to SWF on this dimension).
 const SEGMENT_TYPE_DEFAULT_SCORES = {
   outsourced_management: {
     'DB Pension (Corp)': 2,
@@ -63,7 +77,8 @@ const SEGMENT_TYPE_DEFAULT_SCORES = {
     'Healthcare non-profit E&F': 3,
     'Life insurance': 1,
     'Non-life insurance': 1,
-    'SWF': 1
+    'SWF': 1,
+    'Public Pension Reserve Fund': 3
   },
   comingled_vehicles: {
     'DB Pension (Corp)': 2,
@@ -84,7 +99,8 @@ const SEGMENT_TYPE_DEFAULT_SCORES = {
     'Healthcare non-profit E&F': 3,
     'Life insurance': 1,
     'Non-life insurance': 1,
-    'SWF': 1
+    'SWF': 1,
+    'Public Pension Reserve Fund': 3
   },
   investor_decision_making: {
     'DB Pension (Corp)': 2,
@@ -105,7 +121,8 @@ const SEGMENT_TYPE_DEFAULT_SCORES = {
     'Healthcare non-profit E&F': 2,
     'Life insurance': 1,
     'Non-life insurance': 1,
-    'SWF': 1
+    'SWF': 1,
+    'Public Pension Reserve Fund': 1
   },
   alignment_of_investment_thinking: {
     'DB Pension (Corp)': 2,
@@ -126,7 +143,8 @@ const SEGMENT_TYPE_DEFAULT_SCORES = {
     'Healthcare non-profit E&F': 3,
     'Life insurance': 2,
     'Non-life insurance': 1,
-    'SWF': 3
+    'SWF': 3,
+    'Public Pension Reserve Fund': 1
   }
 };
 
@@ -140,7 +158,7 @@ const SEGMENT_TYPE_ORDER = [
   'DB Pension (Endowments)', 'DC Pension (Endowments)',
   'DB Pension (Tax exempt)', 'DC Pension (Tax exempt)',
   'Endowments E&F', 'Tax exempt E&F', 'Foundations E&F', 'Healthcare non-profit E&F',
-  'Life insurance', 'Non-life insurance', 'SWF'
+  'Life insurance', 'Non-life insurance', 'SWF', 'Public Pension Reserve Fund'
 ];
 
 function segmentTypeDefaultScore(dimensionKey, segmentName) {
