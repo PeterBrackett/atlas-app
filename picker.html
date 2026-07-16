@@ -54,12 +54,12 @@
       <select id="project-alloc-type-select" onchange="onProjectAllocSelectorChange()"></select>
       <select id="project-alloc-style-select" onchange="onProjectAllocSelectorChange()"></select>
     </span>
-    <label id="export-group-label" style="font-size:0.85rem; display:none;" title="Country: each country's AUM, scorecard and top 10s together. Content type: every country's AUM tables together, then every scorecard, then every top 10 -- useful for lifting just one type of table across the whole project into a report.">Group export by:
-      <select id="export-group-select">
-        <option value="country">Country</option>
-        <option value="content">Content type (AUM / scorecard / top 10s)</option>
-      </select>
-    </label>
+    <span id="export-include-controls" style="display:none; gap:10px; align-items:center; font-size:0.85rem;" title="Choose which tables the exported file includes for the selected countries -- e.g. tick only Scorecard to get just the opportunity scorecards, with no AUM tables or top 10s.">
+      <strong>Include:</strong>
+      <label style="font-weight:400;"><input type="checkbox" id="export-include-aum" checked> AUM</label>
+      <label style="font-weight:400;"><input type="checkbox" id="export-include-scorecard" checked> Scorecard</label>
+      <label style="font-weight:400;"><input type="checkbox" id="export-include-top10" checked> Top 10s</label>
+    </span>
     <button type="button" id="export-docx-btn" class="btn-primary" style="cursor:pointer; display:none;" onclick="downloadProjectExport('docx')">Download as Word</button>
     <button type="button" id="export-pptx-btn" class="btn-primary" style="cursor:pointer; display:none;" onclick="downloadProjectExport('pptx')">Download as PowerPoint</button>
   </div>
@@ -239,18 +239,14 @@ async function buildProjectView() {
       document.getElementById('project-matrix').innerHTML = '';
       document.getElementById('export-docx-btn').style.display = 'none';
       document.getElementById('export-pptx-btn').style.display = 'none';
-      document.getElementById('export-group-label').style.display = 'none';
+      document.getElementById('export-include-controls').style.display = 'none';
       document.getElementById('project-mo-details').style.display = 'none';
       return;
     }
 
     document.getElementById('export-docx-btn').style.display = '';
     document.getElementById('export-pptx-btn').style.display = '';
-    // Only meaningful once there's more than one country's content to
-    // interleave -- with a single country, "group by content type" and
-    // "group by country" produce the same output, so the choice is hidden
-    // rather than shown as a no-op decision.
-    document.getElementById('export-group-label').style.display = PROJECT_DATA.length > 1 ? '' : 'none';
+    document.getElementById('export-include-controls').style.display = 'inline-flex';
     populateProjectAllocSelectors();
     populateProjectMoAssetSelectors();
     updateProjectMoVisibility();
@@ -515,6 +511,16 @@ async function downloadProjectExport(format) {
     alert('Build the table first.');
     return;
   }
+
+  const include = [];
+  if (document.getElementById('export-include-aum').checked) include.push('aum');
+  if (document.getElementById('export-include-scorecard').checked) include.push('scorecard');
+  if (document.getElementById('export-include-top10').checked) include.push('top_institutions');
+  if (!include.length) {
+    alert('Tick at least one of AUM, Scorecard or Top 10s to include in the export.');
+    return;
+  }
+
   const btn = document.getElementById(`export-${format}-btn`);
   const originalText = btn.textContent;
   btn.disabled = true;
@@ -533,13 +539,10 @@ async function downloadProjectExport(format) {
       segments: c.data.segments || []
     }));
 
-    const groupSelect = document.getElementById('export-group-select');
-    const groupBy = groupSelect ? groupSelect.value : 'country';
-
     const res = await fetch(`/api/export/${format}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ countries, enabled_dimensions: ENABLED_DIMENSIONS, group_by: groupBy })
+      body: JSON.stringify({ countries, enabled_dimensions: ENABLED_DIMENSIONS, include })
     });
 
     if (!res.ok) {
