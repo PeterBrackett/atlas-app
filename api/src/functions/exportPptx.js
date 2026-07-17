@@ -248,8 +248,8 @@ function addAumSlide(pptx, countryName, segments, generatedDate) {
 
 // One country's scorecard slide. Same factoring-out reasoning as
 // addAumSlide() above.
-function addScorecardSlide(pptx, countryName, segments, enabledDimensions) {
-  const matrix = buildScorecardMatrix(segments, enabledDimensions);
+function addScorecardSlide(pptx, countryName, segments, enabledDimensions, weightOverrides) {
+  const matrix = buildScorecardMatrix(segments, enabledDimensions, weightOverrides);
   const scorecardSlide = addAtlasSlide(pptx);
   scorecardSlide.addText(`Atlas — ${countryName}`, { x: TITLE_X, y: 0.25, fontSize: 24, bold: true });
   scorecardSlide.addText('Opportunity scorecard', { x: 0.4, y: 0.85, fontSize: 12, color: '666666' });
@@ -280,10 +280,10 @@ function resolveInclude(rawInclude) {
 // single-country payload (country.html) and the multi-country payload
 // (picker.html's project builder), so a project export is just this
 // repeated once per selected country.
-function addCountrySlides(pptx, countryName, segments, generatedDate, enabledDimensions, include) {
+function addCountrySlides(pptx, countryName, segments, generatedDate, enabledDimensions, include, weightOverrides) {
   const includeSet = include || new Set(ALL_CONTENT_TYPES);
   if (includeSet.has('aum')) addAumSlide(pptx, countryName, segments, generatedDate);
-  if (includeSet.has('scorecard')) addScorecardSlide(pptx, countryName, segments, enabledDimensions);
+  if (includeSet.has('scorecard')) addScorecardSlide(pptx, countryName, segments, enabledDimensions, weightOverrides);
   if (includeSet.has('top_institutions')) addTopInstitutionsSlides(pptx, countryName, segments);
 }
 
@@ -337,7 +337,11 @@ app.http('exportPptx', {
       // (e.g. top_institutions-only, and this country has no
       // institution-level data) simply contributes no slides.
       const include = resolveInclude(body.include);
-      countries.forEach((c) => addCountrySlides(pptx, c.country_name, c.segments, generatedDate, body.enabled_dimensions, include));
+      // weight_overrides -- picker.html's project builder weighting column
+      // (see exportHelpers.js's computeOverallScore() comment). Optional;
+      // country.html's single-country export never sends this, so Overall
+      // there is unaffected.
+      countries.forEach((c) => addCountrySlides(pptx, c.country_name, c.segments, generatedDate, body.enabled_dimensions, include, body.weight_overrides));
 
       const buffer = await pptx.write({ outputType: 'nodebuffer' });
 

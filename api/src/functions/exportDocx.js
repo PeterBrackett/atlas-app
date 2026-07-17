@@ -225,7 +225,7 @@ function resolveInclude(rawInclude) {
 // (e.g. `include` is top_institutions-only and this country has no
 // institution-level data) -- the caller should skip a country entirely in
 // that case rather than emit an empty heading.
-function buildCountrySection(countryName, segments, { headingLevel = HeadingLevel.HEADING_1, pageBreakBefore = false, enabledDimensions, include } = {}) {
+function buildCountrySection(countryName, segments, { headingLevel = HeadingLevel.HEADING_1, pageBreakBefore = false, enabledDimensions, include, weightOverrides } = {}) {
   const includeSet = include || new Set(ALL_CONTENT_TYPES);
   const body = [];
 
@@ -238,7 +238,7 @@ function buildCountrySection(countryName, segments, { headingLevel = HeadingLeve
   if (includeSet.has('scorecard')) {
     body.push(
       new Paragraph({ text: 'Opportunity scorecard', heading: HeadingLevel.HEADING_2, spacing: { before: 200, after: 60 } }),
-      buildScorecardTable(buildScorecardMatrix(segments, enabledDimensions))
+      buildScorecardTable(buildScorecardMatrix(segments, enabledDimensions, weightOverrides))
     );
   }
   if (includeSet.has('top_institutions')) {
@@ -314,7 +314,12 @@ app.http('exportDocx', {
           headingLevel: HeadingLevel.HEADING_1,
           pageBreakBefore: isMulti && emittedCount > 0,
           enabledDimensions: body.enabled_dimensions,
-          include
+          include,
+          // weight_overrides -- picker.html's project builder weighting
+          // column (see exportHelpers.js's computeOverallScore() comment).
+          // Optional; country.html's single-country export never sends
+          // this, so Overall there is unaffected.
+          weightOverrides: body.weight_overrides
         });
         if (!section.length) return;
         children.push(...section);
