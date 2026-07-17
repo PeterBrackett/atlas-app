@@ -360,6 +360,17 @@ let OVERVIEW_VIEW = 'overall';  // 'overall' | 'allocation'
 let OVERVIEW_ALLOC_TYPE = 'Equities';
 let OVERVIEW_ALLOC_STYLE = '';
 
+// Sentinel type value for "All assets" -- shows each segment's total AUM
+// (aum_bn) rather than one underlying asset type's allocation. Kept as a
+// magic string rather than a real asset type so it can never collide with
+// a genuine asset_type value coming out of the data (e.g. "Other/Unclassified"),
+// and so assetTypesPresent()/getAllocationValue() (shared with country.html)
+// don't need to know about it at all -- it's handled entirely in the
+// selector-population and render functions below, added per Peter's
+// 2026-07-17 request to see a country/segment's total AUM in this view,
+// not just a single underlying asset type.
+const ALL_ASSETS_VALUE = '__all_assets__';
+
 // Asset class used by the "auto-score Market opportunity" panel. Kept
 // deliberately separate from OVERVIEW_ALLOC_TYPE/STYLE (which just controls
 // what the matrix displays when "Show: Asset allocation" is picked) — the
@@ -512,13 +523,25 @@ function populateOverviewAllocSelectors() {
   const allSegs = OVERVIEW_USABLE.flatMap(c => c.data.segments || []);
   const typeSelect = document.getElementById('overview-alloc-type-select');
   const types = assetTypesPresent(allSegs);
-  typeSelect.innerHTML = types.map(t => `<option value="${t}" ${t === OVERVIEW_ALLOC_TYPE ? 'selected' : ''}>${t}</option>`).join('');
+  typeSelect.innerHTML =
+    `<option value="${ALL_ASSETS_VALUE}" ${OVERVIEW_ALLOC_TYPE === ALL_ASSETS_VALUE ? 'selected' : ''}>All assets (total AUM)</option>` +
+    types.map(t => `<option value="${t}" ${t === OVERVIEW_ALLOC_TYPE ? 'selected' : ''}>${t}</option>`).join('');
   populateOverviewStyleSelector();
 }
 
 function populateOverviewStyleSelector() {
-  const allSegs = OVERVIEW_USABLE.flatMap(c => c.data.segments || []);
   const styleSelect = document.getElementById('overview-alloc-style-select');
+  // "All assets" has no style breakdown -- it's a straight aum_bn read, not
+  // an allocation-entry lookup, so hide the style picker entirely rather
+  // than showing an empty/meaningless dropdown next to it.
+  if (OVERVIEW_ALLOC_TYPE === ALL_ASSETS_VALUE) {
+    OVERVIEW_ALLOC_STYLE = '';
+    styleSelect.innerHTML = '';
+    styleSelect.style.display = 'none';
+    return;
+  }
+  styleSelect.style.display = '';
+  const allSegs = OVERVIEW_USABLE.flatMap(c => c.data.segments || []);
   const styles = assetStylesPresent(allSegs, OVERVIEW_ALLOC_TYPE);
   styleSelect.innerHTML = `<option value="">All styles (${OVERVIEW_ALLOC_TYPE} total)</option>` +
     styles.map(s => `<option value="${s}" ${s === OVERVIEW_ALLOC_STYLE ? 'selected' : ''}>${s}</option>`).join('');
@@ -1965,6 +1988,9 @@ function renderOverviewMatrixBody(failed) {
       const seg = (c.data.segments || []).find(s => s.segment === segName);
       if (!seg) return `<td>—</td>`;
       if (OVERVIEW_VIEW === 'allocation') {
+        if (OVERVIEW_ALLOC_TYPE === ALL_ASSETS_VALUE) {
+          return `<td>${seg.aum_bn ? seg.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '—'}</td>`;
+        }
         const result = getAllocationValue(seg, OVERVIEW_ALLOC_TYPE, OVERVIEW_ALLOC_STYLE);
         return `<td>${result ? result.value_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '—'}</td>`;
       }
@@ -1983,7 +2009,9 @@ function renderOverviewMatrixBody(failed) {
     ? ` Could not load: ${failed.join(', ')} — check that their data files have been uploaded to both GitHub and SharePoint.`
     : '';
   const viewNote = OVERVIEW_VIEW === 'allocation'
-    ? `Showing ${OVERVIEW_ALLOC_STYLE ? `${OVERVIEW_ALLOC_TYPE} — ${OVERVIEW_ALLOC_STYLE}` : OVERVIEW_ALLOC_TYPE} allocation ($bn) per segment. Blank cells mean that segment has no allocation data for this selection.`
+    ? (OVERVIEW_ALLOC_TYPE === ALL_ASSETS_VALUE
+        ? `Showing total AUM ($bn) per segment. Blank cells mean that segment isn't built for that country.`
+        : `Showing ${OVERVIEW_ALLOC_STYLE ? `${OVERVIEW_ALLOC_TYPE} — ${OVERVIEW_ALLOC_STYLE}` : OVERVIEW_ALLOC_TYPE} allocation ($bn) per segment. Blank cells mean that segment has no allocation data for this selection.`)
     : `Blank cells mean that segment isn't fully scored yet — see the country page to complete it.`;
   document.getElementById('overview-hint').textContent =
     `${usable.length} of ${OVERVIEW_BUILT_COUNT} built countries loaded. ${viewNote}${failedNote}`;
