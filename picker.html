@@ -86,6 +86,18 @@
     </div>
   </details>
 
+  <details id="project-weighting-details" style="margin-bottom:16px;">
+    <summary style="cursor:pointer; font-size:0.85rem; color:var(--muted); padding:4px 0; font-weight:600;">Customize dimension weighting for this project's Overall score</summary>
+    <div style="margin-top:10px;">
+      <p class="note" style="border-top:none; padding-top:0; margin:0 0 10px; font-size:0.82rem;">
+        Overall is normally (3 &times; Market opportunity) + the sum of the other 11 dimensions, each weighted &times;1 -- matching FINAL_Country_Matrix.xlsx. A client may want a different emphasis (e.g. weighting Regulatory complexity more heavily). Changing a weight here only affects this project's on-screen Overall column and its colour banding -- it doesn't write anything back to the underlying scorecard data, and every other page in Atlas keeps using the standard weighting.
+      </p>
+      <div id="project-weighting-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:6px 16px; margin-bottom:10px;"></div>
+      <button type="button" class="btn-primary" style="cursor:pointer;" onclick="resetProjectWeights()">Reset to default weighting</button>
+      <span class="note" id="project-weighting-hint" style="border-top:none; padding-top:0; margin:0; font-size:0.78rem;"></span>
+    </div>
+  </details>
+
   <div class="matrix-wrap">
     <table class="matrix-table" id="project-matrix"></table>
   </div>
@@ -111,6 +123,15 @@ let PROJECT_ALLOC_STYLE = '';
 // exposure while scoring Market opportunity off Equities, or vice versa.
 let PROJECT_MO_ASSET_TYPE = 'Equities';
 let PROJECT_MO_ASSET_STYLE = '';
+
+// Per-dimension weight overrides for this project's Overall score, keyed by
+// dimension key -- null means "use the standard SCORECARD_DIMENSIONS weight
+// for everything" (the common case). Populated on first edit (see
+// onWeightInputChange()) with a full copy of the defaults, so touching one
+// dimension's weight doesn't silently reset the other 11 to some implicit
+// value. Purely a client-side display transform for this project view --
+// never sent to the API, never persisted, never affects any other page.
+let PROJECT_WEIGHTS = null;
 
 let CURRENT_USER = null; // set by checkAuth(), null if not signed in — gates the write action below
 
@@ -322,6 +343,62 @@ function onProjectMoSelectorChange() {
   }
 }
 
+// Renders the weighting grid: one row per SCORECARD_DIMENSIONS entry with a
+// number input pre-filled from PROJECT_WEIGHTS (or the dimension's own
+// default weight if no override is set yet). Rebuilt from scratch on every
+// render rather than diffed in place -- 12 rows, not worth the complexity.
+function renderWeightingPanel() {
+  const grid = document.getElementById('project-weighting-grid');
+  grid.innerHTML = SCORECARD_DIMENSIONS.map(dim => {
+    const value = (PROJECT_WEIGHTS && typeof PROJECT_WEIGHTS[dim.key] === 'number') ? PROJECT_WEIGHTS[dim.key] : dim.weight;
+    const isCustom = PROJECT_WEIGHTS && typeof PROJECT_WEIGHTS[dim.key] === 'number' && PROJECT_WEIGHTS[dim.key] !== dim.weight;
+    return `<label style="display:flex; align-items:center; justify-content:space-between; gap:8px; font-size:0.85rem;">
+      <span>${dim.label}${isCustom ? ' <strong>*</strong>' : ''}</span>
+      <input type="number" step="any" min="0" data-dim-key="${dim.key}"
+        value="${value}" title="Default: ${dim.weight}"
+        oninput="onWeightInputChange(this)"
+        style="width:70px; padding:3px 6px; border:1px solid var(--border); border-radius:5px;">
+    </label>`;
+  }).join('');
+  updateWeightingHint();
+}
+
+function updateWeightingHint() {
+  const hint = document.getElementById('project-weighting-hint');
+  if (!PROJECT_WEIGHTS) {
+    hint.textContent = 'Using the default weighting (Market opportunity ×3, everything else ×1).';
+    return;
+  }
+  const changed = SCORECARD_DIMENSIONS.filter(d => PROJECT_WEIGHTS[d.key] !== d.weight);
+  hint.textContent = changed.length
+    ? `Custom weighting in effect for: ${changed.map(d => d.label).join(', ')}.`
+    : 'Weights match the default, but tracked separately -- click "Reset to default weighting" to clear this.';
+}
+
+// Called on every keystroke in a weight input. Initializes PROJECT_WEIGHTS
+// from the full set of defaults the first time any field is touched, so
+// every other dimension keeps its existing weight rather than falling back
+// to some unset value. Invalid/blank input is tolerated while typing (falls
+// back to the default for scoring purposes until a valid number is entered)
+// rather than fighting the user's cursor with a forced reformat.
+function onWeightInputChange(input) {
+  const key = input.dataset.dimKey;
+  const parsed = parseFloat(input.value);
+  if (!PROJECT_WEIGHTS) {
+    PROJECT_WEIGHTS = {};
+    SCORECARD_DIMENSIONS.forEach(d => { PROJECT_WEIGHTS[d.key] = d.weight; });
+  }
+  PROJECT_WEIGHTS[key] = Number.isFinite(parsed) ? parsed : SCORECARD_DIMENSIONS.find(d => d.key === key).weight;
+  updateWeightingHint();
+  renderProjectMatrix();
+}
+
+function resetProjectWeights() {
+  PROJECT_WEIGHTS = null;
+  renderWeightingPanel();
+  renderProjectMatrix();
+}
+
 // Shows/hides the "Bulk auto-score Market opportunity" panel: only worth
 // showing once a table's been built (there's something to score), and the
 // write controls themselves only once signed in — same gating rule as
@@ -470,6 +547,13 @@ function renderProjectMatrix(failed) {
   });
   const regionNames = Object.keys(grouped).sort((a, b) => regionSortIndex(a) - regionSortIndex(b));
 
+  // Only meaningful for the 'overall' view, and only actually rescales the
+  // red/amber/green cutoffs when a custom weighting is in effect --
+  // computeOverallRange()/overallScoreClass() both fall back to the
+  // standard behaviour when PROJECT_WEIGHTS is null. Computed once here
+  // rather than per cell since it doesn't depend on the segment.
+  const overallRange = PROJECT_WEIGHTS ? computeOverallRange(ENABLED_DIMENSIONS, PROJECT_WEIGHTS) : null;
+
   const rows = regionNames.map(region => {
     const regionHeader = `<tr class="region-header"><td colspan="${columns.length + 1}">${region}</td></tr>`;
     const countryRows = grouped[region].map(c => {
@@ -484,8 +568,8 @@ function renderProjectMatrix(failed) {
           const result = getAllocationValue(seg, PROJECT_ALLOC_TYPE, PROJECT_ALLOC_STYLE);
           return `<td>${result ? result.value_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '—'}</td>`;
         }
-        const overall = computeOverallScore(seg.scorecard, ENABLED_DIMENSIONS);
-        return `<td class="${overallScoreClass(overall)}">${overall}</td>`;
+        const overall = computeOverallScore(seg.scorecard, ENABLED_DIMENSIONS, PROJECT_WEIGHTS);
+        return `<td class="${overallScoreClass(overall, overallRange)}">${overall}</td>`;
       }).join('');
       return `<tr><td class="matrix-rowlabel"><a class="country-link" href="${href}">${c.meta.name}</a></td>${cells}</tr>`;
     }).join('');
@@ -572,6 +656,7 @@ async function downloadProjectExport(format) {
 async function load() {
   await checkAuth();
   updateProjectMoVisibility();
+  renderWeightingPanel();
 
   let data;
   try {

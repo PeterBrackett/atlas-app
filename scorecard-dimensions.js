@@ -119,12 +119,20 @@ function enabledDimensionCount(enabledDimensions) {
 // which is the real completion tracker now. Disabled dimensions (per
 // enabledDimensions) are still skipped entirely -- not required, not
 // summed, same as before.
-function computeOverallScore(scorecard, enabledDimensions) {
+// weightOverrides is an optional {dimensionKey: number} map -- added
+// 2026-07-17 for the project builder's per-dimension weighting column
+// (Peter's request: clients may want to weight dimensions other than
+// Market opportunity's fixed x3). A dimension not present in the map (or
+// no map at all) keeps using its own default weight from
+// SCORECARD_DIMENSIONS, so every existing call site (country.html,
+// overview.html) is completely unaffected -- this is purely additive.
+function computeOverallScore(scorecard, enabledDimensions, weightOverrides) {
   let total = 0;
   for (const dim of SCORECARD_DIMENSIONS) {
     if (!isDimensionEnabled(dim.key, enabledDimensions)) continue;
     const v = scorecard ? scorecard[dim.key] : undefined;
-    total += (typeof v === 'number' ? v : 0) * dim.weight;
+    const w = (weightOverrides && typeof weightOverrides[dim.key] === 'number') ? weightOverrides[dim.key] : dim.weight;
+    total += (typeof v === 'number' ? v : 0) * w;
   }
   return total;
 }
@@ -149,15 +157,55 @@ function scoredDimensionCount(scorecard, enabledDimensions) {
 const OVERALL_MIN = SCORECARD_DIMENSIONS.reduce((s, d) => s + 1 * d.weight, 0);
 const OVERALL_MAX = SCORECARD_DIMENSIONS.reduce((s, d) => s + 3 * d.weight, 0);
 
+// Generalizes OVERALL_MIN/OVERALL_MAX to an arbitrary weight set and enabled-
+// dimension set -- e.g. the project builder's custom weighting column, where
+// a client might weight dimensions other than Market opportunity. Needed so
+// overallScoreClass()'s red/amber/green banding can be rescaled to still mean
+// something once the weights (and therefore the achievable score range) are
+// no longer the defaults. Same per-dimension weight resolution as
+// computeOverallScore(): weightOverrides[key] if present, else dim.weight.
+function computeOverallRange(enabledDimensions, weightOverrides) {
+  let min = 0, max = 0;
+  for (const dim of SCORECARD_DIMENSIONS) {
+    if (!isDimensionEnabled(dim.key, enabledDimensions)) continue;
+    const w = (weightOverrides && typeof weightOverrides[dim.key] === 'number') ? weightOverrides[dim.key] : dim.weight;
+    min += 1 * w;
+    max += 3 * w;
+  }
+  return { min, max };
+}
+
 // Red/amber/green banding for the Overall score, agreed with Peter
 // (2026-07-10): red at or below 22, amber 23-30, green 31 and up -- a full
 // partition of the possible range with no gap at the boundary. Shared so the
 // cross-country overview matrix and each country page's own Overall row use
 // the exact same cutoffs.
-function overallScoreClass(value) {
+//
+// `range` is optional -- {min, max} from computeOverallRange(), passed by
+// callers using a non-default weight set (e.g. the project builder's
+// weighting column) so the 22/30 cutoffs, which were only ever calibrated
+// for the default weights across all 12 dimensions, get rescaled onto
+// whatever range actually applies now. Rescaling preserves the *same
+// relative position* the original cutoffs sat at within [OVERALL_MIN,
+// OVERALL_MAX] (22 sits 28.6% of the way from 14 to 42; 30 sits 57.1% of the
+// way) rather than reusing the raw 22/30 numbers against a range they were
+// never calibrated for. Callers that don't pass `range` (country.html,
+// overview.html) get byte-for-byte the original behaviour.
+const RED_CUTOFF_FRACTION = (22 - OVERALL_MIN) / (OVERALL_MAX - OVERALL_MIN);
+const AMBER_CUTOFF_FRACTION = (30 - OVERALL_MIN) / (OVERALL_MAX - OVERALL_MIN);
+
+function overallScoreClass(value, range) {
   if (value === null || typeof value !== 'number') return 'cell-missing';
-  if (value <= 22) return 'overall-red';
-  if (value <= 30) return 'overall-amber';
+  if (!range) {
+    if (value <= 22) return 'overall-red';
+    if (value <= 30) return 'overall-amber';
+    return 'overall-green';
+  }
+  const span = range.max - range.min;
+  const redCutoff = range.min + RED_CUTOFF_FRACTION * span;
+  const amberCutoff = range.min + AMBER_CUTOFF_FRACTION * span;
+  if (value <= redCutoff) return 'overall-red';
+  if (value <= amberCutoff) return 'overall-amber';
   return 'overall-green';
 }
 
