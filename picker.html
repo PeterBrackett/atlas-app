@@ -634,7 +634,13 @@ async function downloadProjectExport(format) {
     const res = await fetch(`/api/export/${format}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ countries, enabled_dimensions: ENABLED_DIMENSIONS, include })
+      // weight_overrides: PROJECT_WEIGHTS -- this was the actual gap. The
+      // custom weighting column (see renderWeightingPanel() etc. above) only
+      // ever changed the on-screen Overall column; the export endpoints had
+      // no idea it existed until this line and the corresponding
+      // exportHelpers.js/exportDocx.js/exportPptx.js changes. null when no
+      // custom weighting is set, same as the on-screen render's PROJECT_WEIGHTS.
+      body: JSON.stringify({ countries, enabled_dimensions: ENABLED_DIMENSIONS, include, weight_overrides: PROJECT_WEIGHTS })
     });
 
     if (!res.ok) {
