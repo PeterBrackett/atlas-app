@@ -155,12 +155,16 @@ async function checkAuth() {
 
 async function fetchCountryData(code) {
   try {
-    const res = await fetch(`/api/data/${code}`);
+    // fetchWithTimeout (scorecard-dimensions.js) -- a plain fetch() here has
+    // no timeout, so a stuck request would hang "Build table" forever
+    // instead of falling through to the static file. Same fix as
+    // overview.html's fetchCountryData(), see its comment.
+    const res = await fetchWithTimeout(`/api/data/${code}`, undefined, 15000);
     if (!res.ok) throw new Error('API not ready');
     return await res.json();
   } catch (e) {
     try {
-      const res = await fetch(`data/${code}.json`);
+      const res = await fetchWithTimeout(`data/${code}.json`, undefined, 15000);
       if (!res.ok) return null;
       return await res.json();
     } catch (e2) {
@@ -247,10 +251,14 @@ async function buildProjectView() {
 
   try {
     const selected = ALL_COUNTRIES.filter(c => SELECTED_CODES.has(slugFromHref(c.href) || c.code.toLowerCase()));
-    const loaded = await Promise.all(selected.map(async meta => {
+    // mapWithConcurrency, not Promise.all firing every request at once --
+    // "Select all" then "Build table" can mean 30+ simultaneous live
+    // Graph-backed API calls, which is enough to trigger some subset
+    // hanging indefinitely (see overview.html's loadOverviewData()).
+    const loaded = await mapWithConcurrency(selected, 6, async meta => {
       const slug = slugFromHref(meta.href) || meta.code.toLowerCase();
       return { meta, slug, data: await fetchCountryData(slug) };
-    }));
+    });
 
     PROJECT_DATA = loaded.filter(c => c.data);
     const failed = loaded.filter(c => !c.data).map(c => c.meta.name);

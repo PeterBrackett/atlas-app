@@ -337,12 +337,16 @@ async function checkAuth() {
 
 async function fetchCountryData(code) {
   try {
-    const res = await fetch(`/api/data/${code}`);
+    // fetchWithTimeout (scorecard-dimensions.js) rather than a plain fetch --
+    // see its comment: with 34 built countries all fetched at once, a stuck
+    // request used to hang this whole page forever instead of falling
+    // through to the static file below.
+    const res = await fetchWithTimeout(`/api/data/${code}`, undefined, 15000);
     if (!res.ok) throw new Error('API not ready');
     return await res.json();
   } catch (e) {
     try {
-      const res = await fetch(`data/${code}.json`);
+      const res = await fetchWithTimeout(`data/${code}.json`, undefined, 15000);
       if (!res.ok) return null;
       return await res.json();
     } catch (e2) {
@@ -1941,10 +1945,16 @@ async function loadOverviewData(builtCountries) {
     return match ? match[1] : null;
   };
 
-  const countryData = await Promise.all(builtCountries.map(async c => {
+  // mapWithConcurrency (scorecard-dimensions.js), not Promise.all firing
+  // every request at once -- see its comment: 34 simultaneous live
+  // Graph-backed /api/data/{code} calls was enough to trigger some subset
+  // hanging indefinitely. 6 in flight at a time is gentle on the backend
+  // while still loading well under a second slower than firing everything
+  // at once did when it wasn't stalling.
+  const countryData = await mapWithConcurrency(builtCountries, 6, async c => {
     const slug = slugFromHref(c.href) || c.code.toLowerCase();
     return { meta: c, slug, data: await fetchCountryData(slug) };
-  }));
+  });
 
   OVERVIEW_USABLE = countryData.filter(c => c.data);
   const failed = countryData.filter(c => !c.data).map(c => c.meta.name);

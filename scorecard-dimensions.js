@@ -381,3 +381,47 @@ function assetStylesPresent(segs, assetType) {
   });
   return [...stylesSeen].sort();
 }
+
+// fetch() with a hard timeout, via AbortController -- added 2026-07-17 after
+// overview.html's "load every built country's data" step was found hanging
+// indefinitely: with 34 built countries, loadOverviewData() fired 34
+// concurrent /api/data/{code} calls (each its own live Microsoft Graph read
+// against SharePoint), and under that burst a chunk of them would just never
+// resolve -- no error, no timeout, the page waiting forever with nothing to
+// show. Plain fetch() has no timeout of its own, so a single stuck request
+// blocked that country (and, since callers await Promise.all/sequential
+// loops, sometimes the whole page) forever instead of falling through to the
+// static-file fallback. 15s default -- generous for a same-region API call,
+// short enough that a genuinely stuck request doesn't stall the page for
+// minutes.
+async function fetchWithTimeout(url, options, timeoutMs) {
+  const ms = typeof timeoutMs === 'number' ? timeoutMs : 15000;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), ms);
+  try {
+    return await fetch(url, Object.assign({}, options, { signal: controller.signal }));
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+// Runs asyncFn over items with at most `limit` in flight at once, rather
+// than firing every call simultaneously (Promise.all(items.map(...))).
+// Added alongside fetchWithTimeout() for the same reason: 34 simultaneous
+// live Graph-backed API calls appears to be enough to trigger throttling
+// (some requests hanging) that a smaller batch doesn't hit. Order of
+// results matches the order of `items`, same as Promise.all would give.
+async function mapWithConcurrency(items, limit, asyncFn) {
+  const results = new Array(items.length);
+  let nextIndex = 0;
+  async function worker() {
+    while (nextIndex < items.length) {
+      const i = nextIndex++;
+      results[i] = await asyncFn(items[i], i);
+    }
+  }
+  const workers = [];
+  for (let w = 0; w < Math.min(limit, items.length); w++) workers.push(worker());
+  await Promise.all(workers);
+  return results;
+}
