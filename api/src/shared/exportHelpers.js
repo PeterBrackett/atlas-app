@@ -49,14 +49,42 @@ function enabledDimensionCount(enabledDimensions) {
 // Mirrors atlas-site/scorecard-dimensions.js -- changed 2026-07-15 to
 // always return a real number: a missing dimension contributes 0 instead
 // of blocking the whole Overall. See that file's comment for the reasoning.
-function computeOverallScore(scorecard, enabledDimensions) {
+//
+// weightOverrides is an optional {dimensionKey: number} map -- added
+// 2026-07-17 so the Word/PowerPoint exports can reflect the project
+// builder's per-dimension weighting column (picker.html), the same way
+// atlas-site/scorecard-dimensions.js's computeOverallScore() does for the
+// on-screen table. This export-side copy was the actual gap: the export
+// functions never received the custom weights at all, so an export always
+// used the default weighting regardless of what picker.html was showing on
+// screen. A dimension missing from the map (or no map at all) keeps its own
+// default weight, so every existing caller (country.html's single-country
+// export, which has no weighting UI) is unaffected.
+function computeOverallScore(scorecard, enabledDimensions, weightOverrides) {
   let total = 0;
   for (const dim of SCORECARD_DIMENSIONS) {
     if (!isDimensionEnabled(dim.key, enabledDimensions)) continue;
     const v = scorecard ? scorecard[dim.key] : undefined;
-    total += (typeof v === 'number' ? v : 0) * dim.weight;
+    const w = (weightOverrides && typeof weightOverrides[dim.key] === 'number') ? weightOverrides[dim.key] : dim.weight;
+    total += (typeof v === 'number' ? v : 0) * w;
   }
   return total;
+}
+
+// Mirrors atlas-site/scorecard-dimensions.js's computeOverallRange() --
+// generalizes the fixed 14-42 range to an arbitrary weight set and
+// enabled-dimension set, so overallColor()'s red/amber/green banding can be
+// rescaled to match a custom weighting instead of staying calibrated for
+// the default one.
+function computeOverallRange(enabledDimensions, weightOverrides) {
+  let min = 0, max = 0;
+  for (const dim of SCORECARD_DIMENSIONS) {
+    if (!isDimensionEnabled(dim.key, enabledDimensions)) continue;
+    const w = (weightOverrides && typeof weightOverrides[dim.key] === 'number') ? weightOverrides[dim.key] : dim.weight;
+    min += 1 * w;
+    max += 3 * w;
+  }
+  return { min, max };
 }
 
 function scoredDimensionCount(scorecard, enabledDimensions) {
@@ -155,10 +183,28 @@ const MISSING_COLOR = { bg: 'FFF3B0', fg: '7A5C00' };
 
 // Overall score thresholds match style.css's comment: range 14-42,
 // <=22 red, 23-30 amber, >=31 green.
-function overallColor(value) {
+const DEFAULT_OVERALL_MIN = SCORECARD_DIMENSIONS.reduce((s, d) => s + 1 * d.weight, 0);
+const DEFAULT_OVERALL_MAX = SCORECARD_DIMENSIONS.reduce((s, d) => s + 3 * d.weight, 0);
+const RED_CUTOFF_FRACTION = (22 - DEFAULT_OVERALL_MIN) / (DEFAULT_OVERALL_MAX - DEFAULT_OVERALL_MIN);
+const AMBER_CUTOFF_FRACTION = (30 - DEFAULT_OVERALL_MIN) / (DEFAULT_OVERALL_MAX - DEFAULT_OVERALL_MIN);
+
+// `range` is optional -- {min, max} from computeOverallRange(), passed when
+// a custom weighting is in effect (see computeOverallScore() above) so the
+// 22/30 cutoffs get rescaled onto whatever range actually applies, at the
+// same relative position they sit at within the default 14-42 range.
+// Callers that don't pass `range` get byte-for-byte the original behaviour.
+function overallColor(value, range) {
   if (typeof value !== 'number') return null;
-  if (value <= 22) return { bg: 'FBE1E1', fg: 'A3291F' };
-  if (value <= 30) return { bg: 'FDEEE0', fg: '9A5A1A' };
+  if (!range) {
+    if (value <= 22) return { bg: 'FBE1E1', fg: 'A3291F' };
+    if (value <= 30) return { bg: 'FDEEE0', fg: '9A5A1A' };
+    return { bg: 'E3F2E3', fg: '1F7A34' };
+  }
+  const span = range.max - range.min;
+  const redCutoff = range.min + RED_CUTOFF_FRACTION * span;
+  const amberCutoff = range.min + AMBER_CUTOFF_FRACTION * span;
+  if (value <= redCutoff) return { bg: 'FBE1E1', fg: 'A3291F' };
+  if (value <= amberCutoff) return { bg: 'FDEEE0', fg: '9A5A1A' };
   return { bg: 'E3F2E3', fg: '1F7A34' };
 }
 
@@ -175,25 +221,35 @@ function overallColor(value) {
 // 2026-07-15 request was for exports to leave it out of the table
 // altogether, not just exclude it from the Scored/Overall calculation. So
 // disabled dimensions get no row at all here.
-function buildScorecardMatrix(segments, enabledDimensions) {
+// weightOverrides is an optional {dimensionKey: number} map -- see
+// computeOverallScore()'s comment. Affects three things: the dimension row
+// labels' "(x{weight})" suffix now reflects the effective (possibly
+// overridden) weight rather than always the default, the Overall row uses
+// the overridden weights, and Overall's colour banding rescales to match
+// via computeOverallRange().
+function buildScorecardMatrix(segments, enabledDimensions, weightOverrides) {
   const cols = (segments || []).slice().sort((a, b) => segmentSortIndex(a.segment) - segmentSortIndex(b.segment));
   const enabledCount = enabledDimensionCount(enabledDimensions);
+  const overallRange = weightOverrides ? computeOverallRange(enabledDimensions, weightOverrides) : null;
 
   const dimensionRows = SCORECARD_DIMENSIONS
     .filter((dim) => isDimensionEnabled(dim.key, enabledDimensions))
-    .map((dim) => ({
-      key: dim.key,
-      type: 'dimension',
-      label: dim.label + (dim.weight > 1 ? ` (x${dim.weight})` : ''),
-      values: cols.map((s) => {
-        const v = s.scorecard ? s.scorecard[dim.key] : undefined;
-        return typeof v === 'number' ? String(v) : '0';
-      }),
-      colors: cols.map((s) => {
-        const v = s.scorecard ? s.scorecard[dim.key] : undefined;
-        return typeof v === 'number' ? scoreColor(v) : MISSING_COLOR;
-      })
-    }));
+    .map((dim) => {
+      const effectiveWeight = (weightOverrides && typeof weightOverrides[dim.key] === 'number') ? weightOverrides[dim.key] : dim.weight;
+      return {
+        key: dim.key,
+        type: 'dimension',
+        label: dim.label + (effectiveWeight !== 1 ? ` (x${effectiveWeight})` : ''),
+        values: cols.map((s) => {
+          const v = s.scorecard ? s.scorecard[dim.key] : undefined;
+          return typeof v === 'number' ? String(v) : '0';
+        }),
+        colors: cols.map((s) => {
+          const v = s.scorecard ? s.scorecard[dim.key] : undefined;
+          return typeof v === 'number' ? scoreColor(v) : MISSING_COLOR;
+        })
+      };
+    });
 
   const scoredRow = {
     type: 'scored',
@@ -205,8 +261,8 @@ function buildScorecardMatrix(segments, enabledDimensions) {
   const overallRow = {
     type: 'overall',
     label: 'Overall',
-    values: cols.map((s) => String(computeOverallScore(s.scorecard, enabledDimensions))),
-    colors: cols.map((s) => overallColor(computeOverallScore(s.scorecard, enabledDimensions)))
+    values: cols.map((s) => String(computeOverallScore(s.scorecard, enabledDimensions, weightOverrides))),
+    colors: cols.map((s) => overallColor(computeOverallScore(s.scorecard, enabledDimensions, weightOverrides), overallRange))
   };
 
   const aumRow = {
@@ -282,6 +338,7 @@ module.exports = {
   isDimensionEnabled,
   enabledDimensionCount,
   computeOverallScore,
+  computeOverallRange,
   scoredDimensionCount,
   scoreColor,
   overallColor,
