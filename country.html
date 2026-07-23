@@ -574,7 +574,7 @@ async function downloadExport(format) {
     const res = await fetch(`/api/export/${format}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ country_name: CURRENT_COUNTRY_NAME, segments: LOADED_SEGMENTS, enabled_dimensions: ENABLED_DIMENSIONS })
+      body: JSON.stringify({ country_name: CURRENT_COUNTRY_NAME, segments: LOADED_SEGMENTS, enabled_dimensions: ENABLED_DIMENSIONS, commentary: CURRENT_COMMENTARY })
     });
 
     if (!res.ok) {
