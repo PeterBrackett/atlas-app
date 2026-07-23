@@ -4,8 +4,8 @@ const {
   HeadingLevel, WidthType, ShadingType, PageBreak, Header, AlignmentType
 } = require('docx');
 const {
-  buildAumRows, buildScorecardMatrix, buildCommentarySections, buildTopInstitutionsSections,
-  estimateColumnCharWidths, commentarySectionChartSegments, buildSegmentAllocationChart
+  buildAumRows, buildScorecardMatrix, buildCommentarySectionsFull, buildTopInstitutionsSections,
+  estimateColumnCharWidths, buildSegmentAllocationChart
 } = require('../shared/exportHelpers');
 const { getDimensionIconBuffer } = require('../shared/dimensionIcons');
 const { getAtlasLogoBuffer } = require('../shared/atlasLogo');
@@ -276,18 +276,18 @@ function buildSegmentAllocationBlock(segment) {
 
 // One heading + one subheading/paragraphs/asset-allocation-charts/sources
 // block per populated commentary section (Wealth & key pools of capital,
-// Pensions structure, Insurance, etc.) -- see buildCommentarySections() in
-// exportHelpers.js for the text-splitting and source-filtering rules.
-// Returns [] if the country has no commentary text at all yet (most
-// countries, until written), same "contribute nothing rather than an empty
-// heading" convention as buildTopInstitutionsBlock(). `segments` is needed
-// alongside `commentary` so sections with chartSegments (Insurance,
-// Foundations, Sovereign wealth funds) can look up this country's matching
-// segment(s) for their asset-allocation chart -- added 2026-07-23 alongside
-// the chart feature itself, per Peter's "everything needs to be included in
-// the outputs" (the chart was on-screen only until then).
+// Pensions structure, Insurance, etc.) -- see buildCommentarySectionsFull()
+// in exportHelpers.js for the text-splitting, source-filtering and
+// chart-segment-matching rules. A section is skipped only if it has
+// NEITHER drafted text NOR a matching chart segment -- fixed 2026-07-23
+// after a live check found Insurance and Foundations missing from an actual
+// exported file: the previous version used buildCommentarySections(), which
+// filters on text alone, so a chart-only section (real allocation data, no
+// prose written yet) was dropped along with its chart. `segments` is needed
+// alongside `commentary` so buildCommentarySectionsFull() can look up this
+// country's matching segment(s) for each section's asset-allocation chart.
 function buildCommentaryBlock(commentary, segments) {
-  const sections = buildCommentarySections(commentary);
+  const sections = buildCommentarySectionsFull(commentary, segments);
   if (!sections.length) return [];
 
   const heading = new Paragraph({ text: 'Country commentary', heading: HeadingLevel.HEADING_2, spacing: { before: 200, after: 60 } });
@@ -295,8 +295,7 @@ function buildCommentaryBlock(commentary, segments) {
     const subheading = new Paragraph({ text: section.label, heading: HeadingLevel.HEADING_3, spacing: { before: 150, after: 40 } });
     const paragraphs = section.paragraphs.map((p) => new Paragraph({ text: p, spacing: { after: 100 } }));
 
-    const chartSegments = commentarySectionChartSegments(section.key, segments);
-    const chartBlocks = chartSegments.flatMap((seg) => buildSegmentAllocationBlock(seg));
+    const chartBlocks = section.chartSegments.flatMap((seg) => buildSegmentAllocationBlock(seg));
 
     const sourcesBlock = section.sources.length ? [
       new Paragraph({ children: [new TextRun({ text: 'Sources', italics: true, size: 18 })], spacing: { before: 60, after: 20 } }),

@@ -1,8 +1,8 @@
 const { app } = require('@azure/functions');
 const PptxGenJS = require('pptxgenjs');
 const {
-  buildAumRows, buildScorecardMatrix, buildCommentarySections, buildTopInstitutionsSections,
-  estimateColumnCharWidths, commentarySectionChartSegments, buildSegmentAllocationChart
+  buildAumRows, buildScorecardMatrix, buildCommentarySectionsFull, buildTopInstitutionsSections,
+  estimateColumnCharWidths, buildSegmentAllocationChart
 } = require('../shared/exportHelpers');
 const { getDimensionIconDataUri } = require('../shared/dimensionIcons');
 const { getAtlasLogoDataUri } = require('../shared/atlasLogo');
@@ -232,15 +232,17 @@ function addTopInstitutionsSlides(pptx, countryName, segments) {
 }
 
 // One slide per populated commentary section (Wealth & key pools of
-// capital, Pensions structure) -- see buildCommentarySections() in
-// exportHelpers.js for the text-splitting/source-filtering rules. A country
-// with no commentary text yet (most countries, until written) contributes no
-// slides at all, same convention as addTopInstitutionsSlides() skipping
-// segments with no institution-level data. Body text and sources are two
-// separate addText() calls in fixed slots rather than one flowing text box,
-// since pptxgenjs doesn't auto-grow a box to fit content -- long commentary
-// may run past COMMENTARY_BODY_H and get clipped, same known limitation as
-// the scorecard table's fixed row height.
+// capital, Pensions structure, Insurance, etc.) -- see
+// buildCommentarySectionsFull() in exportHelpers.js for the text-splitting,
+// source-filtering and chart-segment-matching rules. A country with neither
+// commentary text nor a matching chart segment for a given section
+// contributes no slides for it at all, same convention as
+// addTopInstitutionsSlides() skipping segments with no institution-level
+// data. Body text and sources are two separate addText() calls in fixed
+// slots rather than one flowing text box, since pptxgenjs doesn't auto-grow
+// a box to fit content -- long commentary may run past COMMENTARY_BODY_H and
+// get clipped, same known limitation as the scorecard table's fixed row
+// height.
 const COMMENTARY_BODY_Y = 1.3;
 const COMMENTARY_BODY_H = 4.6;
 const COMMENTARY_SOURCES_Y = 6.05;
@@ -292,42 +294,51 @@ function addCommentaryChartSlides(pptx, countryName, sectionLabel, chartSegments
   });
 }
 
+// `sections` comes from buildCommentarySectionsFull(), which -- fixed
+// 2026-07-23 after a live check found Insurance and Foundations missing from
+// an actual exported deck -- keeps a section if it has EITHER drafted text
+// OR a matching chart segment, not text alone. So a section can arrive here
+// with zero paragraphs (nothing written yet) but real chartSegments; the
+// text slide is skipped in that case (nothing to put on it) while the chart
+// slide(s) still get added, matching country.html's on-screen behaviour
+// where the chart never depended on the prose existing.
 function addCommentarySlides(pptx, countryName, commentary, segments) {
-  const sections = buildCommentarySections(commentary);
+  const sections = buildCommentarySectionsFull(commentary, segments);
   sections.forEach((section) => {
-    const slide = addAtlasSlide(pptx);
-    slide.addText(`Atlas — ${countryName}`, { x: TITLE_X, y: 0.25, fontSize: 24, bold: true });
-    slide.addText(section.label, { x: 0.4, y: 0.85, fontSize: 12, color: '666666' });
+    if (section.paragraphs.length) {
+      const slide = addAtlasSlide(pptx);
+      slide.addText(`Atlas — ${countryName}`, { x: TITLE_X, y: 0.25, fontSize: 24, bold: true });
+      slide.addText(section.label, { x: 0.4, y: 0.85, fontSize: 12, color: '666666' });
 
-    const bodyRuns = section.paragraphs.map((p) => ({ text: p, options: { breakLine: true, paraSpaceAfter: 10 } }));
-    slide.addText(bodyRuns, {
-      x: 0.4, y: COMMENTARY_BODY_Y, w: SLIDE_W - 0.8, h: COMMENTARY_BODY_H,
-      fontSize: 11, valign: 'top', align: 'left', autoFit: false
-    });
-
-    if (section.sources.length) {
-      const sourceRuns = [
-        { text: 'Sources', options: { bold: true, breakLine: true, color: '666666' } },
-        ...section.sources.map((s) => ({
-          text: s.label || s.url,
-          options: {
-            breakLine: true,
-            color: '666666',
-            ...(s.url ? { hyperlink: { url: s.url } } : {})
-          }
-        }))
-      ];
-      slide.addText(sourceRuns, {
-        x: 0.4, y: COMMENTARY_SOURCES_Y, w: SLIDE_W - 0.8, h: COMMENTARY_SOURCES_H,
-        fontSize: 8, valign: 'top', align: 'left'
+      const bodyRuns = section.paragraphs.map((p) => ({ text: p, options: { breakLine: true, paraSpaceAfter: 10 } }));
+      slide.addText(bodyRuns, {
+        x: 0.4, y: COMMENTARY_BODY_Y, w: SLIDE_W - 0.8, h: COMMENTARY_BODY_H,
+        fontSize: 11, valign: 'top', align: 'left', autoFit: false
       });
+
+      if (section.sources.length) {
+        const sourceRuns = [
+          { text: 'Sources', options: { bold: true, breakLine: true, color: '666666' } },
+          ...section.sources.map((s) => ({
+            text: s.label || s.url,
+            options: {
+              breakLine: true,
+              color: '666666',
+              ...(s.url ? { hyperlink: { url: s.url } } : {})
+            }
+          }))
+        ];
+        slide.addText(sourceRuns, {
+          x: 0.4, y: COMMENTARY_SOURCES_Y, w: SLIDE_W - 0.8, h: COMMENTARY_SOURCES_H,
+          fontSize: 8, valign: 'top', align: 'left'
+        });
+      }
     }
 
     // One extra slide per matching segment -- e.g. Insurance contributes a
-    // slide right after its text slide for Life insurance, then another for
-    // Non-life insurance, if this country has both.
-    const chartSegments = commentarySectionChartSegments(section.key, segments);
-    addCommentaryChartSlides(pptx, countryName, section.label, chartSegments);
+    // slide for Life insurance, then another for Non-life insurance, if this
+    // country has both -- regardless of whether the text slide above ran.
+    addCommentaryChartSlides(pptx, countryName, section.label, section.chartSegments);
   });
 }
 
