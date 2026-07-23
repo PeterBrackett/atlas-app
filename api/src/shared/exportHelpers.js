@@ -227,10 +227,21 @@ function overallColor(value, range) {
 // overridden) weight rather than always the default, the Overall row uses
 // the overridden weights, and Overall's colour banding rescales to match
 // via computeOverallRange().
-function buildScorecardMatrix(segments, enabledDimensions, weightOverrides) {
+// `allocType`/`allocStyle` -- added 2026-07-23 after Peter noticed the
+// exported scorecard table never had an allocation row at all, unlike the
+// on-screen matrix (country.html/picker.html/overview.html), which always
+// shows AUM directly followed by an Allocation row driven by the "Allocation
+// row shows" dropdown (CURRENT_ALLOC_TYPE/CURRENT_ALLOC_STYLE on-screen).
+// Default to Equities/no-style when the caller doesn't send a selection
+// (e.g. an older cached client, or a direct API call), so this never
+// regresses to "no row" again -- it now always shows something, just not
+// necessarily whatever was on screen when the export button was clicked.
+function buildScorecardMatrix(segments, enabledDimensions, weightOverrides, allocType, allocStyle) {
   const cols = (segments || []).slice().sort((a, b) => segmentSortIndex(a.segment) - segmentSortIndex(b.segment));
   const enabledCount = enabledDimensionCount(enabledDimensions);
   const overallRange = weightOverrides ? computeOverallRange(enabledDimensions, weightOverrides) : null;
+  const resolvedAllocType = allocType || 'Equities';
+  const resolvedAllocStyle = allocStyle || '';
 
   const dimensionRows = SCORECARD_DIMENSIONS
     .filter((dim) => isDimensionEnabled(dim.key, enabledDimensions))
@@ -272,9 +283,31 @@ function buildScorecardMatrix(segments, enabledDimensions, weightOverrides) {
     colors: cols.map(() => null)
   };
 
+  // Same selection as country.html's allocLabel/allocRow, but a plain number
+  // (matching the AUM row's own style) rather than formatAllocationRange()'s
+  // full "$437.84–458.66bn (95.5% reported)" string -- every other column in
+  // this table is capped at 6 characters wide (see buildScorecardTable() in
+  // exportDocx.js/exportPptx.js), which the descriptive min-max-coverage
+  // string would blow straight through, wrapping the cell across several
+  // lines and, in the PowerPoint version, desyncing every dimension icon
+  // below it (they're positioned assuming a fixed row height -- see
+  // SCORECARD_ROW_H's comment in exportPptx.js). The fuller range/coverage
+  // detail is still available in the separate "AUM by segment" table's
+  // Equities range column; this row is just the reported figure at a glance.
+  const allocLabel = resolvedAllocStyle ? `${resolvedAllocType} — ${resolvedAllocStyle} ($bn)` : `${resolvedAllocType} ($bn)`;
+  const allocRow = {
+    type: 'allocation',
+    label: allocLabel,
+    values: cols.map((s) => {
+      const range = getAllocationRange(s, resolvedAllocType, resolvedAllocStyle);
+      return range ? range.value_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-';
+    }),
+    colors: cols.map(() => null)
+  };
+
   return {
     columnLabels: cols.map((s) => s.segment),
-    rows: [aumRow, ...dimensionRows, scoredRow, overallRow]
+    rows: [aumRow, allocRow, ...dimensionRows, scoredRow, overallRow]
   };
 }
 
