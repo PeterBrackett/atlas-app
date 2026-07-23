@@ -382,6 +382,126 @@ function assetStylesPresent(segs, assetType) {
   return [...stylesSeen].sort();
 }
 
+// ---- Segment allocation donut chart ----
+// Added 2026-07-23 per Peter's feedback that the existing "Allocation row
+// shows: [one asset type]" controls (country.html/overview.html/picker.html)
+// only ever surface one asset class at a time -- for country.html's new
+// Insurance/Foundations/Sovereign wealth funds commentary sections, he
+// wanted "something for each segment which provides a broad asset
+// allocation graphically", i.e. the whole mix in one picture. Plain
+// SVG/JS rather than a charting library, consistent with the rest of this
+// site having no build step and no dependencies beyond marked.js (loaded
+// from a CDN for markdown rendering).
+
+// Fixed palette so a given asset type always renders in the same color on
+// every chart -- matters once more than one donut is shown side by side
+// (e.g. Insurance's Life + Non-life insurance cards). Colors are drawn from
+// the site's own navy/teal palette (style.css's --navy/--accent) plus a few
+// visually distinct additions; any asset_type not in this list (there
+// shouldn't be one, given assetTypesPresent()'s preferredOrder, but a new
+// asset class could appear in source data before this list is updated)
+// falls back to a plain gray rather than erroring.
+const ASSET_TYPE_COLORS = {
+  'Equities': '#0f2540',
+  'Fixed Income': '#2f6f6f',
+  'Cash & Short-Term': '#c98a2c',
+  'Real Estate': '#8a3b2f',
+  'Alternatives': '#5b4b8a',
+  'Other/Unclassified': '#9aa5ad'
+};
+const UNREPORTED_SLICE_COLOR = '#d6dbe0';
+
+function assetTypeColor(assetType) {
+  return ASSET_TYPE_COLORS[assetType] || '#7a8a99';
+}
+
+function polarToCartesian(cx, cy, r, angleDeg) {
+  const angleRad = (angleDeg - 90) * Math.PI / 180;
+  return { x: cx + r * Math.cos(angleRad), y: cy + r * Math.sin(angleRad) };
+}
+
+// Standard "annulus wedge" path: outer arc one way, straight line in, inner
+// arc back, straight line out. `endAngle` is clamped just under startAngle+360
+// so a single 100%-share slice still draws as a wedge rather than degenerating
+// into a zero-length arc (the M...A...L...A...Z path math breaks at exactly
+// 360 degrees of sweep).
+function donutArcPath(cx, cy, rOuter, rInner, startAngle, endAngle) {
+  const clampedEnd = Math.min(endAngle, startAngle + 359.99);
+  const startOuter = polarToCartesian(cx, cy, rOuter, clampedEnd);
+  const endOuter = polarToCartesian(cx, cy, rOuter, startAngle);
+  const startInner = polarToCartesian(cx, cy, rInner, clampedEnd);
+  const endInner = polarToCartesian(cx, cy, rInner, startAngle);
+  const largeArc = clampedEnd - startAngle <= 180 ? 0 : 1;
+  return [
+    'M', startOuter.x.toFixed(2), startOuter.y.toFixed(2),
+    'A', rOuter, rOuter, 0, largeArc, 0, endOuter.x.toFixed(2), endOuter.y.toFixed(2),
+    'L', endInner.x.toFixed(2), endInner.y.toFixed(2),
+    'A', rInner, rInner, 0, largeArc, 1, startInner.x.toFixed(2), startInner.y.toFixed(2),
+    'Z'
+  ].join(' ');
+}
+
+// One segment's full asset-class mix as a donut chart (asset_type level,
+// not broken into styles -- too fine-grained for an at-a-glance chart).
+// Slices are sized against the segment's full aum_bn, not just the reported
+// allocation total -- allocationCoverageRatio() elsewhere on this page
+// already established that not every institution counted in aum_bn also
+// filed an asset-class breakdown, so a segment with e.g. 80% reporting
+// coverage gets an explicit gray "Unreported" slice for the other 20%
+// rather than silently rescaling the reported 80% up to fill the whole
+// circle, which would overstate how complete the picture actually is.
+// Returns {svg, legendHtml}; svg is '' (caller should show a fallback
+// message) if the segment has no aum_bn or no allocation data at all.
+function buildAllocationDonutSvg(segment, opts) {
+  const size = (opts && opts.size) || 120;
+  const cx = size / 2, cy = size / 2;
+  const rOuter = size / 2 - 4;
+  const rInner = rOuter * 0.55;
+
+  const aum = segment.aum_bn || 0;
+  const preferredOrder = ['Equities', 'Fixed Income', 'Cash & Short-Term', 'Real Estate', 'Alternatives', 'Other/Unclassified'];
+  const entries = (segment.allocation || [])
+    .map(a => ({ asset_type: a.asset_type, value_bn: a.value_bn || 0 }))
+    .filter(a => a.value_bn > 0)
+    .sort((a, b) => {
+      const ia = preferredOrder.indexOf(a.asset_type), ib = preferredOrder.indexOf(b.asset_type);
+      return (ia === -1 ? preferredOrder.length : ia) - (ib === -1 ? preferredOrder.length : ib);
+    });
+
+  const reportedTotal = entries.reduce((s, e) => s + e.value_bn, 0);
+  const unreported = aum > reportedTotal ? aum - reportedTotal : 0;
+
+  const slices = entries.map(e => ({ label: e.asset_type, value_bn: e.value_bn, color: assetTypeColor(e.asset_type) }));
+  if (unreported > 0.0001) slices.push({ label: 'Unreported', value_bn: unreported, color: UNREPORTED_SLICE_COLOR });
+
+  if (!aum || !slices.length) {
+    return { svg: '', legendHtml: '' };
+  }
+
+  let angle = 0;
+  const paths = slices.map(s => {
+    const pct = s.value_bn / aum;
+    const sweep = pct * 360;
+    const path = sweep >= 359.99
+      ? `<circle cx="${cx}" cy="${cy}" r="${(rOuter + rInner) / 2}" fill="none" stroke="${s.color}" stroke-width="${rOuter - rInner}" />`
+      : `<path d="${donutArcPath(cx, cy, rOuter, rInner, angle, angle + sweep)}" fill="${s.color}" />`;
+    angle += sweep;
+    return path;
+  }).join('');
+
+  const svg = `<svg viewBox="0 0 ${size} ${size}" width="${size}" height="${size}" role="img" aria-label="Asset allocation for ${segment.segment}">${paths}</svg>`;
+
+  const legendHtml = `<ul style="list-style:none; margin:0; padding:0; font-size:0.78rem;">` +
+    slices.map(s => {
+      const pct = Math.round((s.value_bn / aum) * 1000) / 10;
+      return `<li style="display:flex; align-items:center; gap:6px; margin-top:3px;">` +
+        `<span style="display:inline-block; width:10px; height:10px; border-radius:2px; background:${s.color}; flex-shrink:0;"></span>` +
+        `<span>${s.label} — ${pct}%</span></li>`;
+    }).join('') + `</ul>`;
+
+  return { svg, legendHtml };
+}
+
 // fetch() with a hard timeout, via AbortController -- added 2026-07-17 after
 // overview.html's "load every built country's data" step was found hanging
 // indefinitely: with 34 built countries, loadOverviewData() fired 34

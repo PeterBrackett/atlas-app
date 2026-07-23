@@ -268,6 +268,67 @@ h2 {
   font-size: 0.88em;
 }
 
+/* Country commentary (2026-07-23) — two fixed sections per country (Wealth &
+   key pools of capital, Pensions structure), same card look as
+   .research-notes since both render freeform markdown, but each carries its
+   own .commentary-sources list rather than one shared notes blob — Peter's
+   requirement that "everything needs to be sourced" per section, not just
+   once for the whole page. */
+.commentary-block .research-notes { margin-bottom: 10px; }
+
+.commentary-sources {
+  font-size: 0.82rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+  margin-top: 4px;
+}
+
+.commentary-sources ul {
+  margin: 6px 0 0;
+  padding-left: 1.2em;
+}
+
+.commentary-sources a {
+  color: var(--accent);
+}
+
+.commentary-edit-form {
+  margin-top: 10px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+}
+
+.commentary-edit-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 160px;
+  font-family: inherit;
+  font-size: 0.88rem;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  resize: vertical;
+}
+
+.commentary-source-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.commentary-source-row input {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 0.82rem;
+  padding: 4px 6px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+}
+
 /* Opportunity scorecard matrix — segments as columns, matching the shape
    of FINAL_Country_Matrix.xlsx. Wide by design, so it scrolls horizontally
    with a sticky first (row-label) column. -webkit-overflow-scrolling gives

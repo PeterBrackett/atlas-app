@@ -36,8 +36,7 @@
     Where the money sits and how retirement funding works in this market — see
     <a href="sources.html">Sources &amp; methodology</a> for the general approach; each section below lists its own sources.
   </p>
-  <div id="commentary-wealth" class="commentary-block"></div>
-  <div id="commentary-pensions" class="commentary-block" style="margin-top:24px;"></div>
+  <div id="commentary-sections"></div>
 
   <h2 style="margin-top:32px;">Opportunity scorecard</h2>
   <p class="note" style="margin-top:-8px; margin-bottom:16px; border-top:none; padding-top:0;" id="scorecard-hint"></p>
@@ -176,20 +175,83 @@ function onAllocationSelectorChange() {
 // same marked.parse() used for Research notes; sources are a simple list
 // (label + optional url) shown at the end of that section only -- deliberately
 // not inline footnote markers, matching Peter's "simple end list" preference.
+// Extended 2026-07-23 from the original two (Wealth, Pensions) to eight,
+// per Peter's request for standalone sections on insurance, charities,
+// foundations, family offices, sovereign wealth funds and OCIO -- same
+// framework treatment (text + end-of-section sources) for all eight, so
+// every country ends up with the same shape regardless of how many
+// sections are actually filled in yet.
+// `chartSegments` is an optional list of canonical segment names (see
+// CANONICAL_SEGMENT_ORDER in scorecard-dimensions.js) -- when present,
+// renderCommentarySection() shows a donut chart of that segment's full
+// asset-class mix (not just one asset type at a time, unlike the
+// "Allocation row shows" dropdown elsewhere on this page) for every one of
+// those segments this country actually has data for. Charities, Family
+// offices and OCIO have no matching segment in Atlas's data model today, so
+// they're text-only sections -- there's nothing to chart.
 const COMMENTARY_SECTIONS = [
   { key: 'wealth', label: 'Wealth & key pools of capital' },
-  { key: 'pensions', label: 'Pensions structure' }
+  { key: 'pensions', label: 'Pensions structure' },
+  { key: 'insurance', label: 'Insurance', chartSegments: ['Life insurance', 'Non-life insurance'] },
+  { key: 'charities', label: 'Charities' },
+  { key: 'foundations', label: 'Foundations', chartSegments: ['Foundations E&F'] },
+  { key: 'family_offices', label: 'Family offices' },
+  { key: 'sovereign_wealth_funds', label: 'Sovereign wealth funds', chartSegments: ['SWF'] },
+  { key: 'ocio', label: 'OCIO' }
 ];
 
 function escapeAttr(s) {
   return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 }
 
+// Builds one container div per COMMENTARY_SECTIONS entry into
+// #commentary-sections -- generated rather than hand-written in the HTML
+// now that there are eight of them, so adding a ninth later is a one-line
+// change to the array rather than a matching HTML edit too.
 function renderCommentary() {
-  COMMENTARY_SECTIONS.forEach(({ key, label }) => renderCommentarySection(key, label));
+  const wrap = document.getElementById('commentary-sections');
+  wrap.innerHTML = COMMENTARY_SECTIONS
+    .map(({ key }, i) => `<div id="commentary-${key}" class="commentary-block" ${i > 0 ? 'style="margin-top:24px;"' : ''}></div>`)
+    .join('');
+  COMMENTARY_SECTIONS.forEach((section) => renderCommentarySection(section));
 }
 
-function renderCommentarySection(key, label) {
+// One donut+legend card per canonical segment name in `chartSegments` that
+// this country actually has data for -- see buildAllocationDonutSvg() in
+// scorecard-dimensions.js for the chart itself. Returns '' (no "Asset
+// allocation" subheading at all) for sections with no chartSegments, and a
+// plain explanatory note (not a blank gap) for sections that do define
+// chartSegments but this country has none of them yet (e.g. UK has no SWF
+// segment).
+function renderCommentaryAllocationCharts(chartSegments) {
+  if (!chartSegments || !chartSegments.length) return '';
+
+  const matches = LOADED_SEGMENTS.filter(s => chartSegments.includes(s.segment));
+  const heading = `<div style="margin:14px 0 6px; font-size:0.82rem; font-weight:600; color:var(--navy);">Asset allocation</div>`;
+
+  if (!matches.length) {
+    return heading + `<p class="note" style="margin:0; border-top:none; padding-top:0;">No segment-level data available yet for asset allocation in this section.</p>`;
+  }
+
+  const cards = matches.map(seg => {
+    const { svg, legendHtml } = buildAllocationDonutSvg(seg);
+    const aumText = typeof seg.aum_bn === 'number' ? `$${seg.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 1 })}bn` : '';
+    return `
+      <div style="display:flex; align-items:center; gap:14px; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--card);">
+        <div>${svg}</div>
+        <div>
+          <div style="font-weight:600; font-size:0.85rem; color:var(--navy);">${seg.segment}</div>
+          <div style="font-size:0.78rem; color:var(--muted); margin-bottom:4px;">${aumText}</div>
+          ${legendHtml}
+        </div>
+      </div>`;
+  }).join('');
+
+  return heading + `<div style="display:flex; flex-wrap:wrap; gap:14px;">${cards}</div>`;
+}
+
+function renderCommentarySection(section) {
+  const { key, label, chartSegments } = section;
   const el = document.getElementById(`commentary-${key}`);
   const entry = CURRENT_COMMENTARY[key] || {};
   const text = entry.text || '';
@@ -198,6 +260,8 @@ function renderCommentarySection(key, label) {
   const bodyHtml = text.trim()
     ? marked.parse(text)
     : `<p class="note" style="margin:0; border-top:none; padding-top:0;">No commentary written yet for ${label}.</p>`;
+
+  const chartsHtml = renderCommentaryAllocationCharts(chartSegments);
 
   const sourcesHtml = sources.length
     ? `<ul>${sources.map(s => {
@@ -215,6 +279,7 @@ function renderCommentarySection(key, label) {
   el.innerHTML = `
     <h3>${label}</h3>
     <div class="research-notes">${bodyHtml}</div>
+    ${chartsHtml}
     <div class="commentary-sources"><strong>Sources</strong>${sourcesHtml}</div>
     ${editButtonHtml}
     <div id="commentary-editform-${key}" style="display:none;"></div>
@@ -301,7 +366,7 @@ async function submitCommentary(key) {
 
     CURRENT_COMMENTARY[key] = { text, sources };
     document.getElementById(`commentary-editform-${key}`).style.display = 'none';
-    renderCommentarySection(key, COMMENTARY_SECTIONS.find(s => s.key === key).label);
+    renderCommentarySection(COMMENTARY_SECTIONS.find(s => s.key === key));
   } catch (e) {
     alert('Could not reach the server to save this change.');
     if (saveBtn) { saveBtn.disabled = false; saveBtn.textContent = 'Save'; }
