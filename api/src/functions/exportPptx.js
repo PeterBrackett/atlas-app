@@ -1,6 +1,9 @@
 const { app } = require('@azure/functions');
 const PptxGenJS = require('pptxgenjs');
-const { buildAumRows, buildScorecardMatrix, buildCommentarySections, buildTopInstitutionsSections, estimateColumnCharWidths } = require('../shared/exportHelpers');
+const {
+  buildAumRows, buildScorecardMatrix, buildCommentarySections, buildTopInstitutionsSections,
+  estimateColumnCharWidths, commentarySectionChartSegments, buildSegmentAllocationChart
+} = require('../shared/exportHelpers');
 const { getDimensionIconDataUri } = require('../shared/dimensionIcons');
 const { getAtlasLogoDataUri } = require('../shared/atlasLogo');
 
@@ -243,7 +246,53 @@ const COMMENTARY_BODY_H = 4.6;
 const COMMENTARY_SOURCES_Y = 6.05;
 const COMMENTARY_SOURCES_H = 1.2;
 
-function addCommentarySlides(pptx, countryName, commentary) {
+// One native doughnut chart slide per segment matched by a section's
+// chartSegments (Insurance, Foundations, Sovereign wealth funds) -- unlike
+// the Word export (buildAllocationBarTable() in exportDocx.js, a table-based
+// stand-in), pptxgenjs has a real chart object, so this is the same visual
+// language as the on-screen donut (scorecard-dimensions.js's
+// buildAllocationDonutSvg()), not a proxy for it. Sized to leave room for a
+// title, the chart itself with its own legend, and a source caption below --
+// pptxgenjs's own legend is used here (legendPos: 'r') rather than a second
+// manual text box, since the chart object already supports one natively.
+const COMMENTARY_CHART_Y = 1.3;
+const COMMENTARY_CHART_W = 7.5;
+const COMMENTARY_CHART_H = 4.7;
+const COMMENTARY_CHART_SOURCE_Y = 6.15;
+
+function addCommentaryChartSlides(pptx, countryName, sectionLabel, chartSegments) {
+  chartSegments.forEach((seg) => {
+    const chart = buildSegmentAllocationChart(seg);
+    if (!chart) return;
+
+    const slide = addAtlasSlide(pptx);
+    slide.addText(`Atlas — ${countryName}`, { x: TITLE_X, y: 0.25, fontSize: 24, bold: true });
+    slide.addText(`${sectionLabel} — ${chart.segmentName}: asset allocation`, { x: 0.4, y: 0.85, fontSize: 12, color: '666666' });
+
+    const chartData = [{
+      name: 'Asset allocation',
+      labels: chart.slices.map((s) => s.label),
+      values: chart.slices.map((s) => s.pct)
+    }];
+    slide.addChart('doughnut', chartData, {
+      x: 0.5, y: COMMENTARY_CHART_Y, w: COMMENTARY_CHART_W, h: COMMENTARY_CHART_H,
+      chartColors: chart.slices.map((s) => s.color),
+      showLegend: true,
+      legendPos: 'r',
+      legendFontSize: 10,
+      showValue: true,
+      dataLabelFormatCode: '0.0"%"',
+      dataLabelColor: 'FFFFFF',
+      dataLabelFontSize: 9
+    });
+
+    slide.addText(`Source: ${chart.sourceText || 'not recorded for this segment'}`, {
+      x: 0.4, y: COMMENTARY_CHART_SOURCE_Y, w: SLIDE_W - 0.8, fontSize: 9, color: '666666'
+    });
+  });
+}
+
+function addCommentarySlides(pptx, countryName, commentary, segments) {
   const sections = buildCommentarySections(commentary);
   sections.forEach((section) => {
     const slide = addAtlasSlide(pptx);
@@ -273,6 +322,12 @@ function addCommentarySlides(pptx, countryName, commentary) {
         fontSize: 8, valign: 'top', align: 'left'
       });
     }
+
+    // One extra slide per matching segment -- e.g. Insurance contributes a
+    // slide right after its text slide for Life insurance, then another for
+    // Non-life insurance, if this country has both.
+    const chartSegments = commentarySectionChartSegments(section.key, segments);
+    addCommentaryChartSlides(pptx, countryName, section.label, chartSegments);
   });
 }
 
@@ -331,7 +386,7 @@ function resolveInclude(rawInclude) {
 // repeated once per selected country.
 function addCountrySlides(pptx, countryName, segments, generatedDate, enabledDimensions, include, weightOverrides, commentary) {
   const includeSet = include || new Set(ALL_CONTENT_TYPES);
-  if (includeSet.has('commentary')) addCommentarySlides(pptx, countryName, commentary);
+  if (includeSet.has('commentary')) addCommentarySlides(pptx, countryName, commentary, segments);
   if (includeSet.has('aum')) addAumSlide(pptx, countryName, segments, generatedDate);
   if (includeSet.has('scorecard')) addScorecardSlide(pptx, countryName, segments, enabledDimensions, weightOverrides);
   if (includeSet.has('top_institutions')) addTopInstitutionsSlides(pptx, countryName, segments);

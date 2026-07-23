@@ -1,9 +1,12 @@
 const { app } = require('@azure/functions');
 const {
   Document, Packer, Paragraph, TextRun, ImageRun, Table, TableRow, TableCell,
-  HeadingLevel, WidthType, ShadingType, PageBreak, Header
+  HeadingLevel, WidthType, ShadingType, PageBreak, Header, AlignmentType
 } = require('docx');
-const { buildAumRows, buildScorecardMatrix, buildCommentarySections, buildTopInstitutionsSections, estimateColumnCharWidths } = require('../shared/exportHelpers');
+const {
+  buildAumRows, buildScorecardMatrix, buildCommentarySections, buildTopInstitutionsSections,
+  estimateColumnCharWidths, commentarySectionChartSegments, buildSegmentAllocationChart
+} = require('../shared/exportHelpers');
 const { getDimensionIconBuffer } = require('../shared/dimensionIcons');
 const { getAtlasLogoBuffer } = require('../shared/atlasLogo');
 
@@ -202,13 +205,88 @@ function buildTopInstitutionsBlock(segments) {
   return [heading, ...buildTopInstitutionsPerSegment(sections)];
 }
 
-// One heading + one subheading/paragraphs/sources block per populated
-// commentary section (Wealth & key pools of capital, Pensions structure) --
-// see buildCommentarySections() in exportHelpers.js for the text-splitting
-// and source-filtering rules. Returns [] if the country has no commentary
-// text at all yet (most countries, until written), same "contribute nothing
-// rather than an empty heading" convention as buildTopInstitutionsBlock().
-function buildCommentaryBlock(commentary) {
+// Word has no native chart object the way PowerPoint does (see
+// exportPptx.js's addChart() usage) -- docx's Table/TableCell primitives are
+// the only thing available, so a segment's asset-class mix renders as a
+// single-row table whose cell widths are proportional to each slice's share
+// of the segment's full aum_bn, shaded with the same asset-type colors used
+// everywhere else (scorecard-dimensions.js's ASSET_TYPE_COLORS / this file's
+// mirror in exportHelpers.js) -- a horizontal stacked bar built out of table
+// cells, in effect. Every slice gets a minimum width (ALLOCATION_BAR_MIN_DXA)
+// so a very small slice (e.g. a 0.5% Equities sliver) still shows as a
+// visible sliver rather than vanishing at 0 width; this means the bar's
+// total width sums to slightly more than "100% worth" of dxa when there are
+// many tiny slices, a deliberate legibility trade-off over exact proportionality.
+const ALLOCATION_BAR_TOTAL_DXA = 8000; // ~5.5in
+const ALLOCATION_BAR_MIN_DXA = 200;
+const ALLOCATION_BAR_LABEL_MIN_DXA = 700; // only label a cell wide enough to hold "12.3%"
+
+function buildAllocationBarTable(chart) {
+  const n = chart.slices.length;
+  const remaining = Math.max(ALLOCATION_BAR_TOTAL_DXA - ALLOCATION_BAR_MIN_DXA * n, 0);
+  const cells = chart.slices.map((s) => {
+    const widthDxa = Math.round(ALLOCATION_BAR_MIN_DXA + (s.pct / 100) * remaining);
+    const showLabel = widthDxa >= ALLOCATION_BAR_LABEL_MIN_DXA;
+    return new TableCell({
+      width: { size: widthDxa, type: WidthType.DXA },
+      shading: { type: ShadingType.CLEAR, fill: s.color, color: 'auto' },
+      margins: { top: 40, bottom: 40, left: 20, right: 20 },
+      children: [new Paragraph({
+        alignment: AlignmentType.CENTER,
+        children: showLabel ? [new TextRun({ text: `${s.pct}%`, size: 14, color: 'FFFFFF', bold: true })] : []
+      })]
+    });
+  });
+  return new Table({ rows: [new TableRow({ children: cells })], width: { size: ALLOCATION_BAR_TOTAL_DXA, type: WidthType.DXA } });
+}
+
+// A small colored square (an actual glyph, colored via TextRun's `color` --
+// docx has no inline "background swatch" primitive) next to each slice's
+// label and percentage, wrapping onto one flowing paragraph rather than a
+// second table, since it's just a label key for the bar above it.
+function buildAllocationLegendParagraph(chart) {
+  const runs = [];
+  chart.slices.forEach((s, i) => {
+    if (i > 0) runs.push(new TextRun({ text: '     ' }));
+    runs.push(new TextRun({ text: '■ ', color: s.color }));
+    runs.push(new TextRun({ text: `${s.label} ${s.pct}%`, size: 16 }));
+  });
+  return new Paragraph({ children: runs, spacing: { before: 40, after: 20 } });
+}
+
+// One segment's chart block: subheading, bar table, legend, and its own
+// source line -- this is the segment's AUM/allocation provenance
+// (sources[].active), not one of the section's own commentary sources, same
+// distinction country.html's donut cards draw. Skips segments with nothing
+// to chart (buildSegmentAllocationChart() returns null for a zero-aum or
+// no-allocation segment) rather than emitting an empty heading.
+function buildSegmentAllocationBlock(segment) {
+  const chart = buildSegmentAllocationChart(segment);
+  if (!chart) return [];
+  return [
+    new Paragraph({ text: `${chart.segmentName} — asset allocation`, heading: HeadingLevel.HEADING_4, spacing: { before: 120, after: 30 } }),
+    buildAllocationBarTable(chart),
+    buildAllocationLegendParagraph(chart),
+    new Paragraph({
+      children: [new TextRun({ text: `Source: ${chart.sourceText || 'not recorded for this segment'}`, italics: true, size: 14, color: '5B6B7A' })],
+      spacing: { after: 100 }
+    })
+  ];
+}
+
+// One heading + one subheading/paragraphs/asset-allocation-charts/sources
+// block per populated commentary section (Wealth & key pools of capital,
+// Pensions structure, Insurance, etc.) -- see buildCommentarySections() in
+// exportHelpers.js for the text-splitting and source-filtering rules.
+// Returns [] if the country has no commentary text at all yet (most
+// countries, until written), same "contribute nothing rather than an empty
+// heading" convention as buildTopInstitutionsBlock(). `segments` is needed
+// alongside `commentary` so sections with chartSegments (Insurance,
+// Foundations, Sovereign wealth funds) can look up this country's matching
+// segment(s) for their asset-allocation chart -- added 2026-07-23 alongside
+// the chart feature itself, per Peter's "everything needs to be included in
+// the outputs" (the chart was on-screen only until then).
+function buildCommentaryBlock(commentary, segments) {
   const sections = buildCommentarySections(commentary);
   if (!sections.length) return [];
 
@@ -216,6 +294,10 @@ function buildCommentaryBlock(commentary) {
   const body = sections.flatMap((section) => {
     const subheading = new Paragraph({ text: section.label, heading: HeadingLevel.HEADING_3, spacing: { before: 150, after: 40 } });
     const paragraphs = section.paragraphs.map((p) => new Paragraph({ text: p, spacing: { after: 100 } }));
+
+    const chartSegments = commentarySectionChartSegments(section.key, segments);
+    const chartBlocks = chartSegments.flatMap((seg) => buildSegmentAllocationBlock(seg));
+
     const sourcesBlock = section.sources.length ? [
       new Paragraph({ children: [new TextRun({ text: 'Sources', italics: true, size: 18 })], spacing: { before: 60, after: 20 } }),
       ...section.sources.map((s) => new Paragraph({
@@ -228,7 +310,7 @@ function buildCommentaryBlock(commentary) {
         spacing: { after: 20 }
       }))
     ] : [];
-    return [subheading, ...paragraphs, ...sourcesBlock];
+    return [subheading, ...paragraphs, ...chartBlocks, ...sourcesBlock];
   });
   return [heading, ...body];
 }
@@ -261,7 +343,7 @@ function buildCountrySection(countryName, segments, { headingLevel = HeadingLeve
   const body = [];
 
   if (includeSet.has('commentary')) {
-    body.push(...buildCommentaryBlock(commentary));
+    body.push(...buildCommentaryBlock(commentary, segments));
   }
   if (includeSet.has('aum')) {
     body.push(
