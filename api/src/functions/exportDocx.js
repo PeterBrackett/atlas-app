@@ -3,7 +3,7 @@ const {
   Document, Packer, Paragraph, TextRun, ImageRun, Table, TableRow, TableCell,
   HeadingLevel, WidthType, ShadingType, PageBreak, Header
 } = require('docx');
-const { buildAumRows, buildScorecardMatrix, buildTopInstitutionsSections, estimateColumnCharWidths } = require('../shared/exportHelpers');
+const { buildAumRows, buildScorecardMatrix, buildCommentarySections, buildTopInstitutionsSections, estimateColumnCharWidths } = require('../shared/exportHelpers');
 const { getDimensionIconBuffer } = require('../shared/dimensionIcons');
 const { getAtlasLogoBuffer } = require('../shared/atlasLogo');
 
@@ -202,14 +202,45 @@ function buildTopInstitutionsBlock(segments) {
   return [heading, ...buildTopInstitutionsPerSegment(sections)];
 }
 
-// Which of the three content blocks a country section should include --
-// 'aum', 'scorecard', 'top_institutions'. Defaults to all three (the
-// original "everything" behaviour) when not specified, so country.html's
-// existing single-country export (which never sends `include`) is
-// unaffected. Added 2026-07-16 per Peter's request to be able to export
-// e.g. "only scorecards of the countries I select" rather than always the
-// full AUM+scorecard+top10 bundle.
-const ALL_CONTENT_TYPES = ['aum', 'scorecard', 'top_institutions'];
+// One heading + one subheading/paragraphs/sources block per populated
+// commentary section (Wealth & key pools of capital, Pensions structure) --
+// see buildCommentarySections() in exportHelpers.js for the text-splitting
+// and source-filtering rules. Returns [] if the country has no commentary
+// text at all yet (most countries, until written), same "contribute nothing
+// rather than an empty heading" convention as buildTopInstitutionsBlock().
+function buildCommentaryBlock(commentary) {
+  const sections = buildCommentarySections(commentary);
+  if (!sections.length) return [];
+
+  const heading = new Paragraph({ text: 'Country commentary', heading: HeadingLevel.HEADING_2, spacing: { before: 200, after: 60 } });
+  const body = sections.flatMap((section) => {
+    const subheading = new Paragraph({ text: section.label, heading: HeadingLevel.HEADING_3, spacing: { before: 150, after: 40 } });
+    const paragraphs = section.paragraphs.map((p) => new Paragraph({ text: p, spacing: { after: 100 } }));
+    const sourcesBlock = section.sources.length ? [
+      new Paragraph({ children: [new TextRun({ text: 'Sources', italics: true, size: 18 })], spacing: { before: 60, after: 20 } }),
+      ...section.sources.map((s) => new Paragraph({
+        // Plain "- " prefix rather than docx's bullet:{level} numbering
+        // feature -- the latter needs an explicit numbering config on the
+        // Document to render reliably, which nothing else in this file uses,
+        // so a literal dash keeps this consistent with the rest of the export
+        // rather than risking an unstyled/silently-ignored bullet.
+        text: `- ${s.label || s.url}${s.label && s.url ? ` — ${s.url}` : ''}`,
+        spacing: { after: 20 }
+      }))
+    ] : [];
+    return [subheading, ...paragraphs, ...sourcesBlock];
+  });
+  return [heading, ...body];
+}
+
+// Which of the four content blocks a country section should include --
+// 'commentary', 'aum', 'scorecard', 'top_institutions'. Defaults to all four
+// (the original "everything" behaviour, plus commentary added 2026-07-23)
+// when not specified, so country.html's existing single-country export
+// (which never sends `include`) is unaffected. `include` itself was added
+// 2026-07-16 per Peter's request to be able to export e.g. "only scorecards
+// of the countries I select" rather than always the full bundle.
+const ALL_CONTENT_TYPES = ['commentary', 'aum', 'scorecard', 'top_institutions'];
 function resolveInclude(rawInclude) {
   const valid = Array.isArray(rawInclude) ? rawInclude.filter((k) => ALL_CONTENT_TYPES.includes(k)) : [];
   return new Set(valid.length ? valid : ALL_CONTENT_TYPES);
@@ -225,10 +256,13 @@ function resolveInclude(rawInclude) {
 // (e.g. `include` is top_institutions-only and this country has no
 // institution-level data) -- the caller should skip a country entirely in
 // that case rather than emit an empty heading.
-function buildCountrySection(countryName, segments, { headingLevel = HeadingLevel.HEADING_1, pageBreakBefore = false, enabledDimensions, include, weightOverrides } = {}) {
+function buildCountrySection(countryName, segments, { headingLevel = HeadingLevel.HEADING_1, pageBreakBefore = false, enabledDimensions, include, weightOverrides, commentary } = {}) {
   const includeSet = include || new Set(ALL_CONTENT_TYPES);
   const body = [];
 
+  if (includeSet.has('commentary')) {
+    body.push(...buildCommentaryBlock(commentary));
+  }
   if (includeSet.has('aum')) {
     body.push(
       new Paragraph({ text: 'AUM by segment', heading: HeadingLevel.HEADING_2, spacing: { before: 150, after: 60 } }),
@@ -275,7 +309,7 @@ app.http('exportDocx', {
     const isMulti = Array.isArray(body.countries);
     const countries = isMulti
       ? body.countries.filter((c) => c && Array.isArray(c.segments) && c.segments.length)
-      : (Array.isArray(body.segments) && body.segments.length ? [{ country_name: body.country_name || 'Country', segments: body.segments }] : []);
+      : (Array.isArray(body.segments) && body.segments.length ? [{ country_name: body.country_name || 'Country', segments: body.segments, commentary: body.commentary }] : []);
 
     if (!countries.length) {
       return { status: 400, jsonBody: { error: 'No segments provided to export' } };
@@ -319,7 +353,8 @@ app.http('exportDocx', {
           // column (see exportHelpers.js's computeOverallScore() comment).
           // Optional; country.html's single-country export never sends
           // this, so Overall there is unaffected.
-          weightOverrides: body.weight_overrides
+          weightOverrides: body.weight_overrides,
+          commentary: c.commentary
         });
         if (!section.length) return;
         children.push(...section);

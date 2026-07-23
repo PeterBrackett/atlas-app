@@ -1,6 +1,6 @@
 const { app } = require('@azure/functions');
 const PptxGenJS = require('pptxgenjs');
-const { buildAumRows, buildScorecardMatrix, buildTopInstitutionsSections, estimateColumnCharWidths } = require('../shared/exportHelpers');
+const { buildAumRows, buildScorecardMatrix, buildCommentarySections, buildTopInstitutionsSections, estimateColumnCharWidths } = require('../shared/exportHelpers');
 const { getDimensionIconDataUri } = require('../shared/dimensionIcons');
 const { getAtlasLogoDataUri } = require('../shared/atlasLogo');
 
@@ -228,6 +228,54 @@ function addTopInstitutionsSlides(pptx, countryName, segments) {
   }
 }
 
+// One slide per populated commentary section (Wealth & key pools of
+// capital, Pensions structure) -- see buildCommentarySections() in
+// exportHelpers.js for the text-splitting/source-filtering rules. A country
+// with no commentary text yet (most countries, until written) contributes no
+// slides at all, same convention as addTopInstitutionsSlides() skipping
+// segments with no institution-level data. Body text and sources are two
+// separate addText() calls in fixed slots rather than one flowing text box,
+// since pptxgenjs doesn't auto-grow a box to fit content -- long commentary
+// may run past COMMENTARY_BODY_H and get clipped, same known limitation as
+// the scorecard table's fixed row height.
+const COMMENTARY_BODY_Y = 1.3;
+const COMMENTARY_BODY_H = 4.6;
+const COMMENTARY_SOURCES_Y = 6.05;
+const COMMENTARY_SOURCES_H = 1.2;
+
+function addCommentarySlides(pptx, countryName, commentary) {
+  const sections = buildCommentarySections(commentary);
+  sections.forEach((section) => {
+    const slide = addAtlasSlide(pptx);
+    slide.addText(`Atlas — ${countryName}`, { x: TITLE_X, y: 0.25, fontSize: 24, bold: true });
+    slide.addText(section.label, { x: 0.4, y: 0.85, fontSize: 12, color: '666666' });
+
+    const bodyRuns = section.paragraphs.map((p) => ({ text: p, options: { breakLine: true, paraSpaceAfter: 10 } }));
+    slide.addText(bodyRuns, {
+      x: 0.4, y: COMMENTARY_BODY_Y, w: SLIDE_W - 0.8, h: COMMENTARY_BODY_H,
+      fontSize: 11, valign: 'top', align: 'left', autoFit: false
+    });
+
+    if (section.sources.length) {
+      const sourceRuns = [
+        { text: 'Sources', options: { bold: true, breakLine: true, color: '666666' } },
+        ...section.sources.map((s) => ({
+          text: s.label || s.url,
+          options: {
+            breakLine: true,
+            color: '666666',
+            ...(s.url ? { hyperlink: { url: s.url } } : {})
+          }
+        }))
+      ];
+      slide.addText(sourceRuns, {
+        x: 0.4, y: COMMENTARY_SOURCES_Y, w: SLIDE_W - 0.8, h: COMMENTARY_SOURCES_H,
+        fontSize: 8, valign: 'top', align: 'left'
+      });
+    }
+  });
+}
+
 // One country's AUM slide. Factored out of addCountrySlides() (below) so
 // each content type's slide-building logic is independently callable --
 // needed for the `include` filter (added 2026-07-16, Peter's request:
@@ -265,11 +313,12 @@ function addScorecardSlide(pptx, countryName, segments, enabledDimensions, weigh
   addScorecardDimensionIcons(scorecardSlide, matrix, scorecardTableY);
 }
 
-// Which of the three content blocks to add for a country -- 'aum',
-// 'scorecard', 'top_institutions'. Defaults to all three (the original
-// "everything" behaviour) when not specified, so country.html's existing
-// single-country export (which never sends `include`) is unaffected.
-const ALL_CONTENT_TYPES = ['aum', 'scorecard', 'top_institutions'];
+// Which of the four content blocks to add for a country -- 'commentary',
+// 'aum', 'scorecard', 'top_institutions'. Defaults to all four (the original
+// "everything" behaviour, plus commentary added 2026-07-23) when not
+// specified, so country.html's existing single-country export (which never
+// sends `include`) is unaffected.
+const ALL_CONTENT_TYPES = ['commentary', 'aum', 'scorecard', 'top_institutions'];
 function resolveInclude(rawInclude) {
   const valid = Array.isArray(rawInclude) ? rawInclude.filter((k) => ALL_CONTENT_TYPES.includes(k)) : [];
   return new Set(valid.length ? valid : ALL_CONTENT_TYPES);
@@ -280,8 +329,9 @@ function resolveInclude(rawInclude) {
 // single-country payload (country.html) and the multi-country payload
 // (picker.html's project builder), so a project export is just this
 // repeated once per selected country.
-function addCountrySlides(pptx, countryName, segments, generatedDate, enabledDimensions, include, weightOverrides) {
+function addCountrySlides(pptx, countryName, segments, generatedDate, enabledDimensions, include, weightOverrides, commentary) {
   const includeSet = include || new Set(ALL_CONTENT_TYPES);
+  if (includeSet.has('commentary')) addCommentarySlides(pptx, countryName, commentary);
   if (includeSet.has('aum')) addAumSlide(pptx, countryName, segments, generatedDate);
   if (includeSet.has('scorecard')) addScorecardSlide(pptx, countryName, segments, enabledDimensions, weightOverrides);
   if (includeSet.has('top_institutions')) addTopInstitutionsSlides(pptx, countryName, segments);
@@ -305,7 +355,7 @@ app.http('exportPptx', {
     const isMulti = Array.isArray(body.countries);
     const countries = isMulti
       ? body.countries.filter((c) => c && Array.isArray(c.segments) && c.segments.length)
-      : (Array.isArray(body.segments) && body.segments.length ? [{ country_name: body.country_name || 'Country', segments: body.segments }] : []);
+      : (Array.isArray(body.segments) && body.segments.length ? [{ country_name: body.country_name || 'Country', segments: body.segments, commentary: body.commentary }] : []);
 
     if (!countries.length) {
       return { status: 400, jsonBody: { error: 'No segments provided to export' } };
@@ -341,7 +391,7 @@ app.http('exportPptx', {
       // (see exportHelpers.js's computeOverallScore() comment). Optional;
       // country.html's single-country export never sends this, so Overall
       // there is unaffected.
-      countries.forEach((c) => addCountrySlides(pptx, c.country_name, c.segments, generatedDate, body.enabled_dimensions, include, body.weight_overrides));
+      countries.forEach((c) => addCountrySlides(pptx, c.country_name, c.segments, generatedDate, body.enabled_dimensions, include, body.weight_overrides, c.commentary));
 
       const buffer = await pptx.write({ outputType: 'nodebuffer' });
 
