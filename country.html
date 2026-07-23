@@ -31,7 +31,15 @@
   <div id="institutions-link-wrap" style="margin: -12px 0 28px;"></div>
   <div id="export-wrap" style="display:flex; gap:10px; margin: -12px 0 28px; flex-wrap:wrap;"></div>
 
-  <h2>Opportunity scorecard</h2>
+  <h2>Country commentary</h2>
+  <p class="note" style="margin-top:-8px; margin-bottom:16px; border-top:none; padding-top:0;">
+    Where the money sits and how retirement funding works in this market — see
+    <a href="sources.html">Sources &amp; methodology</a> for the general approach; each section below lists its own sources.
+  </p>
+  <div id="commentary-wealth" class="commentary-block"></div>
+  <div id="commentary-pensions" class="commentary-block" style="margin-top:24px;"></div>
+
+  <h2 style="margin-top:32px;">Opportunity scorecard</h2>
   <p class="note" style="margin-top:-8px; margin-bottom:16px; border-top:none; padding-top:0;" id="scorecard-hint"></p>
   <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:12px; font-size:0.85rem;">
     <label for="alloc-type-select"><strong>Allocation row shows:</strong></label>
@@ -109,6 +117,7 @@
 
 <script>
 let CURRENT_USER = null; // set by checkAuth(), null if not signed in
+let CURRENT_COMMENTARY = {}; // {wealth: {text, sources[]}, pensions: {text, sources[]}} -- see renderCommentary()
 let COUNTRY_CODE = '';
 let CURRENT_COUNTRY_NAME = '';
 let LOADED_SEGMENTS = []; // kept in memory so scorecard edits can update the matrix without a full reload
@@ -152,6 +161,151 @@ function onAllocationSelectorChange() {
     CURRENT_ALLOC_STYLE = styleSelect.value;
   }
   renderScorecardMatrix();
+}
+
+// ---- Country commentary ----
+// Two fixed narrative sections per country -- Wealth & key pools of capital
+// (institutional vs personal wealth, how each is invested) and Pensions
+// structure (DB/DC/hybrid mix, government vs private management, delivery
+// to the end beneficiary) -- added 2026-07-23 per Peter's request for a
+// framework that's consistent country to country. Stored as
+// data.commentary.{wealth,pensions} = {text, sources[]} in {code}.json,
+// written via /api/commentary/set (setCommentary.js), same
+// read-modify-write-the-whole-file pattern and ATLAS_ALLOWED_EDITOR_EMAIL
+// gate as setScorecardBulk.js. Text is freeform markdown, rendered with the
+// same marked.parse() used for Research notes; sources are a simple list
+// (label + optional url) shown at the end of that section only -- deliberately
+// not inline footnote markers, matching Peter's "simple end list" preference.
+const COMMENTARY_SECTIONS = [
+  { key: 'wealth', label: 'Wealth & key pools of capital' },
+  { key: 'pensions', label: 'Pensions structure' }
+];
+
+function escapeAttr(s) {
+  return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+}
+
+function renderCommentary() {
+  COMMENTARY_SECTIONS.forEach(({ key, label }) => renderCommentarySection(key, label));
+}
+
+function renderCommentarySection(key, label) {
+  const el = document.getElementById(`commentary-${key}`);
+  const entry = CURRENT_COMMENTARY[key] || {};
+  const text = entry.text || '';
+  const sources = Array.isArray(entry.sources) ? entry.sources : [];
+
+  const bodyHtml = text.trim()
+    ? marked.parse(text)
+    : `<p class="note" style="margin:0; border-top:none; padding-top:0;">No commentary written yet for ${label}.</p>`;
+
+  const sourcesHtml = sources.length
+    ? `<ul>${sources.map(s => {
+        const srcLabel = escapeAttr(s.label || s.url || 'Source');
+        return s.url
+          ? `<li><a href="${escapeAttr(s.url)}" target="_blank" rel="noopener">${srcLabel}</a></li>`
+          : `<li>${srcLabel}</li>`;
+      }).join('')}</ul>`
+    : `<p style="margin:0;">No sources listed yet.</p>`;
+
+  const editButtonHtml = CURRENT_USER
+    ? `<button type="button" class="btn-toggle" style="margin-top:10px; font-size:0.8rem; padding:4px 10px;" onclick="toggleCommentaryEdit('${key}')">Edit ${label}</button>`
+    : '';
+
+  el.innerHTML = `
+    <h3>${label}</h3>
+    <div class="research-notes">${bodyHtml}</div>
+    <div class="commentary-sources"><strong>Sources</strong>${sourcesHtml}</div>
+    ${editButtonHtml}
+    <div id="commentary-editform-${key}" style="display:none;"></div>
+  `;
+}
+
+// Builds the edit form the first time it's opened for a section, seeded
+// with the currently-loaded text/sources -- re-opening after a save picks up
+// the just-saved values since CURRENT_COMMENTARY is updated in place.
+function toggleCommentaryEdit(key) {
+  const wrap = document.getElementById(`commentary-editform-${key}`);
+  const isOpen = wrap.style.display !== 'none';
+  if (isOpen) {
+    wrap.style.display = 'none';
+    wrap.innerHTML = '';
+    return;
+  }
+
+  const entry = CURRENT_COMMENTARY[key] || {};
+  const text = entry.text || '';
+  const sources = Array.isArray(entry.sources) && entry.sources.length ? entry.sources : [{ label: '', url: '' }];
+
+  wrap.innerHTML = `
+    <div class="commentary-edit-form">
+      <label style="font-size:0.82rem; font-weight:600;">Text (markdown supported)</label>
+      <textarea id="commentary-text-${key}">${text.replace(/</g, '&lt;')}</textarea>
+      <div style="margin-top:12px; font-size:0.82rem; font-weight:600;">Sources</div>
+      <div id="commentary-sourcerows-${key}">
+        ${sources.map(s => commentarySourceRowHtml(key, s)).join('')}
+      </div>
+      <button type="button" class="btn-toggle" style="margin-top:8px; font-size:0.78rem; padding:2px 8px;" onclick="addCommentarySourceRow('${key}')">+ Add source</button>
+      <div style="margin-top:12px; display:flex; gap:8px;">
+        <button type="button" class="btn-primary" style="font-size:0.82rem; padding:4px 12px;" onclick="submitCommentary('${key}')">Save</button>
+        <button type="button" class="btn-toggle" style="font-size:0.82rem; padding:4px 12px;" onclick="toggleCommentaryEdit('${key}')">Cancel</button>
+      </div>
+    </div>
+  `;
+  wrap.style.display = 'block';
+}
+
+function commentarySourceRowHtml(key, source) {
+  const label = escapeAttr(source && source.label);
+  const url = escapeAttr(source && source.url);
+  return `
+    <div class="commentary-source-row">
+      <input type="text" placeholder="Source label (e.g. ONS Wealth and Assets Survey)" value="${label}" data-role="label">
+      <input type="text" placeholder="URL (optional)" value="${url}" data-role="url">
+      <button type="button" class="btn-toggle" style="font-size:0.78rem; padding:2px 8px;" onclick="this.closest('.commentary-source-row').remove()">Remove</button>
+    </div>`;
+}
+
+function addCommentarySourceRow(key) {
+  const rowsEl = document.getElementById(`commentary-sourcerows-${key}`);
+  rowsEl.insertAdjacentHTML('beforeend', commentarySourceRowHtml(key, { label: '', url: '' }));
+}
+
+async function submitCommentary(key) {
+  const textEl = document.getElementById(`commentary-text-${key}`);
+  const text = textEl.value;
+  const rows = Array.from(document.querySelectorAll(`#commentary-sourcerows-${key} .commentary-source-row`));
+  const sources = rows
+    .map(row => ({
+      label: row.querySelector('[data-role="label"]').value.trim(),
+      url: row.querySelector('[data-role="url"]').value.trim()
+    }))
+    .filter(s => s.label || s.url);
+
+  const saveBtn = event && event.target;
+  if (saveBtn) { saveBtn.disabled = true; saveBtn.textContent = 'Saving…'; }
+
+  try {
+    const res = await fetch('/api/commentary/set', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ country: COUNTRY_CODE, section: key, text, sources })
+    });
+    const result = await res.json();
+
+    if (!res.ok) {
+      alert(`Couldn't save this section: ${result.error || 'unknown error'}`);
+      if (saveBtn) { saveBtn.disabled = false; saveBtn.textContent = 'Save'; }
+      return;
+    }
+
+    CURRENT_COMMENTARY[key] = { text, sources };
+    document.getElementById(`commentary-editform-${key}`).style.display = 'none';
+    renderCommentarySection(key, COMMENTARY_SECTIONS.find(s => s.key === key).label);
+  } catch (e) {
+    alert('Could not reach the server to save this change.');
+    if (saveBtn) { saveBtn.disabled = false; saveBtn.textContent = 'Save'; }
+  }
 }
 
 // ---- Manager market share ----
@@ -795,6 +949,8 @@ async function load() {
 
   LOADED_SEGMENTS = data.segments || [];
   ENABLED_DIMENSIONS = await loadEnabledDimensions();
+  CURRENT_COMMENTARY = data.commentary || {};
+  renderCommentary();
 
   document.getElementById('export-wrap').innerHTML = `
     <button type="button" id="export-btn-docx" class="btn-primary" onclick="downloadExport('docx')" style="cursor:pointer;">Download as Word</button>
