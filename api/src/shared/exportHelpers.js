@@ -318,27 +318,99 @@ function estimateColumnCharWidths(headerLabels, bodyRows, opts = {}) {
 // insurance), or countries not yet backfilled (currently just the US --
 // its institutions file only retains a global top 10, not a per-segment
 // roster), are skipped rather than guessed at.
-// Same two fixed sections as country.html's COMMENTARY_SECTIONS (Wealth &
-// key pools of capital, Pensions structure) -- kept in sync the same way as
-// SCORECARD_DIMENSIONS above, for the same "separate Node deployment, no
-// shared module access" reason.
 // Kept in sync with country.html's COMMENTARY_SECTIONS -- extended
 // 2026-07-23 from two to eight sections (insurance, charities, foundations,
 // family offices, sovereign wealth funds and OCIO added alongside the
-// original Wealth and Pensions structure). Labels only -- the on-screen
-// donut charts (chartSegments, buildAllocationDonutSvg() in
-// scorecard-dimensions.js) aren't part of either export yet, so this export
-// mirror doesn't need that field.
+// original Wealth and Pensions structure). `chartSegments` mirrors the same
+// field on the browser side: the canonical segment name(s) that section's
+// asset-allocation chart should cover, when this country has data for them.
+// Originally this export mirror didn't need chartSegments at all, since the
+// donut chart was on-screen only -- added 2026-07-23 alongside
+// buildSegmentAllocationChart()/commentarySectionChartSegments() below, once
+// Peter asked for "everything" (including the charts) in the exported
+// files too.
 const COMMENTARY_SECTIONS = [
   { key: 'wealth', label: 'Wealth & key pools of capital' },
   { key: 'pensions', label: 'Pensions structure' },
-  { key: 'insurance', label: 'Insurance' },
+  { key: 'insurance', label: 'Insurance', chartSegments: ['Life insurance', 'Non-life insurance'] },
   { key: 'charities', label: 'Charities' },
-  { key: 'foundations', label: 'Foundations' },
+  { key: 'foundations', label: 'Foundations', chartSegments: ['Foundations E&F'] },
   { key: 'family_offices', label: 'Family offices' },
-  { key: 'sovereign_wealth_funds', label: 'Sovereign wealth funds' },
+  { key: 'sovereign_wealth_funds', label: 'Sovereign wealth funds', chartSegments: ['SWF'] },
   { key: 'ocio', label: 'OCIO' }
 ];
+
+// Same fixed asset-type palette as scorecard-dimensions.js's
+// ASSET_TYPE_COLORS/UNREPORTED_SLICE_COLOR -- kept as a duplicate for the
+// same "separate Node deployment" reason as SCORECARD_DIMENSIONS. If the
+// palette ever changes on the site, update both.
+const ASSET_TYPE_COLORS = {
+  'Equities': '0F2540',
+  'Fixed Income': '2F6F6F',
+  'Cash & Short-Term': 'C98A2C',
+  'Real Estate': '8A3B2F',
+  'Alternatives': '5B4B8A',
+  'Other/Unclassified': '9AA5AD'
+};
+const UNREPORTED_SLICE_COLOR = 'D6DBE0';
+const ALLOCATION_PREFERRED_ORDER = ['Equities', 'Fixed Income', 'Cash & Short-Term', 'Real Estate', 'Alternatives', 'Other/Unclassified'];
+
+function assetTypeColor(assetType) {
+  return ASSET_TYPE_COLORS[assetType] || '7A8A99';
+}
+
+// Every canonical segment name in a section's chartSegments that this
+// country actually has data for -- mirrors country.html's
+// renderCommentaryAllocationCharts() matching logic exactly, so an export
+// shows a chart for precisely the same segments the on-screen page does.
+function commentarySectionChartSegments(sectionKey, segments) {
+  const section = COMMENTARY_SECTIONS.find((s) => s.key === sectionKey);
+  if (!section || !section.chartSegments) return [];
+  return (segments || []).filter((s) => section.chartSegments.includes(s.segment));
+}
+
+// One segment's full asset-class mix, ready for either export to turn into
+// its own visual -- same math as scorecard-dimensions.js's
+// buildAllocationDonutSvg() (slices sized against the segment's full
+// aum_bn, with an honest "Unreported" slice for the gap versus reported
+// allocation, rather than rescaling the reported total up to 100%), but
+// returning plain data (labels/pct/color) instead of an SVG string, since
+// docx and pptxgenjs each need to build their own visual from it (a
+// proportional table for Word, a native chart object for PowerPoint --
+// neither speaks SVG). `sourceText` is the segment's own active source
+// citation (sources[].active), the same attribution shown under each donut
+// on country.html -- added 2026-07-23 after Peter pointed out the first cut
+// of the chart had no sourcing at all.
+function buildSegmentAllocationChart(segment) {
+  const aum = segment.aum_bn || 0;
+  const entries = (segment.allocation || [])
+    .map((a) => ({ asset_type: a.asset_type, value_bn: a.value_bn || 0 }))
+    .filter((a) => a.value_bn > 0)
+    .sort((a, b) => {
+      const ia = ALLOCATION_PREFERRED_ORDER.indexOf(a.asset_type), ib = ALLOCATION_PREFERRED_ORDER.indexOf(b.asset_type);
+      return (ia === -1 ? ALLOCATION_PREFERRED_ORDER.length : ia) - (ib === -1 ? ALLOCATION_PREFERRED_ORDER.length : ib);
+    });
+
+  const reportedTotal = entries.reduce((s, e) => s + e.value_bn, 0);
+  const unreported = aum > reportedTotal ? aum - reportedTotal : 0;
+
+  const rawSlices = entries.map((e) => ({ label: e.asset_type, value_bn: e.value_bn, color: assetTypeColor(e.asset_type) }));
+  if (unreported > 0.0001) rawSlices.push({ label: 'Unreported', value_bn: unreported, color: UNREPORTED_SLICE_COLOR });
+
+  if (!aum || !rawSlices.length) return null;
+
+  const sources = segment.sources || [];
+  const active = sources.find((s) => s.active) || sources[0];
+  const citation = active ? (active.source || active.basis || '') : '';
+  const sourceText = citation ? citation + (active.as_of ? ` (as of ${active.as_of})` : '') : '';
+
+  return {
+    segmentName: segment.segment,
+    aum_bn: aum,
+    slices: rawSlices.map((s) => ({ label: s.label, pct: Math.round((s.value_bn / aum) * 1000) / 10, color: s.color })),
+    sourceText
+  };
+}
 
 // Turns a country's `commentary` object ({wealth: {text, sources[]}, pensions:
 // {text, sources[]}}) into the shape both exports render from: one entry per
@@ -396,5 +468,7 @@ module.exports = {
   buildAumRows,
   buildScorecardMatrix,
   buildCommentarySections,
+  commentarySectionChartSegments,
+  buildSegmentAllocationChart,
   buildTopInstitutionsSections
 };
