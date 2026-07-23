@@ -322,9 +322,22 @@ function estimateColumnCharWidths(headerLabels, bodyRows, opts = {}) {
 // key pools of capital, Pensions structure) -- kept in sync the same way as
 // SCORECARD_DIMENSIONS above, for the same "separate Node deployment, no
 // shared module access" reason.
+// Kept in sync with country.html's COMMENTARY_SECTIONS -- extended
+// 2026-07-23 from two to eight sections (insurance, charities, foundations,
+// family offices, sovereign wealth funds and OCIO added alongside the
+// original Wealth and Pensions structure). Labels only -- the on-screen
+// donut charts (chartSegments, buildAllocationDonutSvg() in
+// scorecard-dimensions.js) aren't part of either export yet, so this export
+// mirror doesn't need that field.
 const COMMENTARY_SECTIONS = [
   { key: 'wealth', label: 'Wealth & key pools of capital' },
-  { key: 'pensions', label: 'Pensions structure' }
+  { key: 'pensions', label: 'Pensions structure' },
+  { key: 'insurance', label: 'Insurance' },
+  { key: 'charities', label: 'Charities' },
+  { key: 'foundations', label: 'Foundations' },
+  { key: 'family_offices', label: 'Family offices' },
+  { key: 'sovereign_wealth_funds', label: 'Sovereign wealth funds' },
+  { key: 'ocio', label: 'OCIO' }
 ];
 
 // Turns a country's `commentary` object ({wealth: {text, sources[]}, pensions:
