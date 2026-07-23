@@ -440,6 +440,36 @@ function buildCommentarySections(commentary) {
     .filter(Boolean);
 }
 
+// Fixed a 2026-07-23 bug: buildCommentarySections() above only keeps a
+// section if it has drafted prose text, so Insurance and Foundations (real
+// chart data via chartSegments, but no written text yet for most countries)
+// were silently dropped from both exports entirely -- charts included --
+// even though country.html renders a section's chart regardless of whether
+// its prose exists (renderCommentarySection() always runs for all eight
+// sections; only the text and the chart each independently decide whether
+// they have anything to show). This is the export-side equivalent: a
+// section survives here if it has EITHER prose OR at least one matching
+// chart segment, so Insurance/Foundations/Sovereign wealth funds still
+// produce their asset-allocation chart even with an empty writeup, the same
+// as on screen. `segments` is this country's segment array (already passed
+// into both exports); `chartSegments` on the returned object is the actual
+// matched segment data (not just names), ready for
+// buildSegmentAllocationChart().
+function buildCommentarySectionsFull(commentary, segments) {
+  return COMMENTARY_SECTIONS
+    .map(({ key, label, chartSegments }) => {
+      const entry = commentary && commentary[key];
+      const text = entry && typeof entry.text === 'string' ? entry.text.trim() : '';
+      const paragraphs = text ? text.split(/\n{2,}/).map((p) => p.trim()).filter(Boolean) : [];
+      const sources = (entry && Array.isArray(entry.sources) ? entry.sources : []).filter((s) => s && (s.label || s.url));
+      const matchedSegments = chartSegments ? (segments || []).filter((s) => chartSegments.includes(s.segment)) : [];
+
+      if (!paragraphs.length && !matchedSegments.length) return null;
+      return { key, label, paragraphs, sources, chartSegments: matchedSegments };
+    })
+    .filter(Boolean);
+}
+
 function buildTopInstitutionsSections(segments) {
   return (segments || [])
     .filter((s) => s.concentration && Array.isArray(s.concentration.top_institutions) && s.concentration.top_institutions.length)
@@ -468,6 +498,7 @@ module.exports = {
   buildAumRows,
   buildScorecardMatrix,
   buildCommentarySections,
+  buildCommentarySectionsFull,
   commentarySectionChartSegments,
   buildSegmentAllocationChart,
   buildTopInstitutionsSections
