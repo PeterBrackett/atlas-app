@@ -318,6 +318,43 @@ function estimateColumnCharWidths(headerLabels, bodyRows, opts = {}) {
 // insurance), or countries not yet backfilled (currently just the US --
 // its institutions file only retains a global top 10, not a per-segment
 // roster), are skipped rather than guessed at.
+// Same two fixed sections as country.html's COMMENTARY_SECTIONS (Wealth &
+// key pools of capital, Pensions structure) -- kept in sync the same way as
+// SCORECARD_DIMENSIONS above, for the same "separate Node deployment, no
+// shared module access" reason.
+const COMMENTARY_SECTIONS = [
+  { key: 'wealth', label: 'Wealth & key pools of capital' },
+  { key: 'pensions', label: 'Pensions structure' }
+];
+
+// Turns a country's `commentary` object ({wealth: {text, sources[]}, pensions:
+// {text, sources[]}}) into the shape both exports render from: one entry per
+// section that actually has text, with the text split into paragraphs on
+// blank lines (the same convention the picker.html/country.html edit
+// textarea uses) and sources filtered down to ones with a label or url.
+// Added 2026-07-23 alongside the commentary feature itself, so exports show
+// the same wealth/pensions writeup as the country page rather than leaving
+// it as an on-screen-only feature. Text is treated as plain paragraphs, not
+// full markdown -- unlike the on-screen render (which uses marked.parse()),
+// neither docx nor pptxgenjs has a markdown renderer on hand, and the
+// framework's own drafted content (see uk.json) is plain prose with no
+// markdown syntax, so this is a deliberate scope limit rather than an
+// oversight: bullet/heading syntax typed into the edit textarea will show up
+// as literal characters in an exported file, not rendered formatting.
+function buildCommentarySections(commentary) {
+  if (!commentary) return [];
+  return COMMENTARY_SECTIONS
+    .map(({ key, label }) => {
+      const entry = commentary[key];
+      const text = entry && typeof entry.text === 'string' ? entry.text.trim() : '';
+      if (!text) return null;
+      const paragraphs = text.split(/\n{2,}/).map((p) => p.trim()).filter(Boolean);
+      const sources = (entry && Array.isArray(entry.sources) ? entry.sources : []).filter((s) => s && (s.label || s.url));
+      return { key, label, paragraphs, sources };
+    })
+    .filter(Boolean);
+}
+
 function buildTopInstitutionsSections(segments) {
   return (segments || [])
     .filter((s) => s.concentration && Array.isArray(s.concentration.top_institutions) && s.concentration.top_institutions.length)
@@ -345,5 +382,6 @@ module.exports = {
   estimateColumnCharWidths,
   buildAumRows,
   buildScorecardMatrix,
+  buildCommentarySections,
   buildTopInstitutionsSections
 };
