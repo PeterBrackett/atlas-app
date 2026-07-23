@@ -236,109 +236,135 @@ function addTopInstitutionsSlides(pptx, countryName, segments) {
 // buildCommentarySectionsFull() in exportHelpers.js for the text-splitting,
 // source-filtering and chart-segment-matching rules. A country with neither
 // commentary text nor a matching chart segment for a given section
-// contributes no slides for it at all, same convention as
+// contributes no slide for it at all, same convention as
 // addTopInstitutionsSlides() skipping segments with no institution-level
-// data. Body text and sources are two separate addText() calls in fixed
-// slots rather than one flowing text box, since pptxgenjs doesn't auto-grow
-// a box to fit content -- long commentary may run past COMMENTARY_BODY_H and
-// get clipped, same known limitation as the scorecard table's fixed row
-// height.
+// data.
+//
+// 2026-07-23: originally a section's chart(s) went on their own dedicated
+// slide(s) after the text slide. Peter asked for the chart size cut by 70%
+// and the segment's text kept "on the same page/slide" as its chart, so a
+// section with both now gets ONE slide: text in a left column, chart(s)
+// stacked in a narrower right column. A section with text but no
+// chartSegments (Wealth, Pensions) keeps the original full-width layout. A
+// section with chartSegments but no text yet (Insurance/Foundations for most
+// countries right now) uses the full slide width for its chart(s), laid out
+// side by side rather than stacked, since there's no text competing for the
+// space.
 const COMMENTARY_BODY_Y = 1.3;
-const COMMENTARY_BODY_H = 4.6;
-const COMMENTARY_SOURCES_Y = 6.05;
 const COMMENTARY_SOURCES_H = 1.2;
 
-// One native doughnut chart slide per segment matched by a section's
-// chartSegments (Insurance, Foundations, Sovereign wealth funds) -- unlike
-// the Word export (buildAllocationBarTable() in exportDocx.js, a table-based
-// stand-in), pptxgenjs has a real chart object, so this is the same visual
-// language as the on-screen donut (scorecard-dimensions.js's
-// buildAllocationDonutSvg()), not a proxy for it. Sized to leave room for a
-// title, the chart itself with its own legend, and a source caption below --
-// pptxgenjs's own legend is used here (legendPos: 'r') rather than a second
-// manual text box, since the chart object already supports one natively.
-const COMMENTARY_CHART_Y = 1.3;
-const COMMENTARY_CHART_W = 7.5;
-const COMMENTARY_CHART_H = 4.7;
-const COMMENTARY_CHART_SOURCE_Y = 6.15;
+// Chart size cut to 30% of the original (7.5in x 4.7in) per Peter's
+// 2026-07-23 request -- small enough that several can share a slide with the
+// section's own text. showLegend/dataLabel font sizes are cut down to match;
+// this hasn't been visually verified in an actual PowerPoint file (pptxgenjs
+// isn't installable in this sandbox -- see the exportHelpers.js/exportPptx.js
+// verification notes), so a legend this small may prove illegible in
+// practice. If so, the fix is likely dropping showLegend and relying on the
+// caption text below each chart instead -- flag it and it's a quick change.
+const CHART_W = 2.25;
+const CHART_H = 1.41;
+const CHART_CAPTION_H = 0.55;
+const CHART_GUTTER = 0.25;
 
-function addCommentaryChartSlides(pptx, countryName, sectionLabel, chartSegments) {
-  chartSegments.forEach((seg) => {
-    const chart = buildSegmentAllocationChart(seg);
-    if (!chart) return;
-
-    const slide = addAtlasSlide(pptx);
-    slide.addText(`Atlas — ${countryName}`, { x: TITLE_X, y: 0.25, fontSize: 24, bold: true });
-    slide.addText(`${sectionLabel} — ${chart.segmentName}: asset allocation`, { x: 0.4, y: 0.85, fontSize: 12, color: '666666' });
-
-    const chartData = [{
-      name: 'Asset allocation',
-      labels: chart.slices.map((s) => s.label),
-      values: chart.slices.map((s) => s.pct)
-    }];
-    slide.addChart('doughnut', chartData, {
-      x: 0.5, y: COMMENTARY_CHART_Y, w: COMMENTARY_CHART_W, h: COMMENTARY_CHART_H,
-      chartColors: chart.slices.map((s) => s.color),
-      showLegend: true,
-      legendPos: 'r',
-      legendFontSize: 10,
-      showValue: true,
-      dataLabelFormatCode: '0.0"%"',
-      dataLabelColor: 'FFFFFF',
-      dataLabelFontSize: 9
-    });
-
-    slide.addText(`Source: ${chart.sourceText || 'not recorded for this segment'}`, {
-      x: 0.4, y: COMMENTARY_CHART_SOURCE_Y, w: SLIDE_W - 0.8, fontSize: 9, color: '666666'
-    });
+// Draws one segment's chart + a small "name / source" caption underneath,
+// at a given top-left position -- shared by both the "text alongside charts"
+// and "charts only, no text" layouts below, which differ only in where they
+// place each chart, not in what a single chart+caption block looks like.
+function addOneSegmentChart(slide, chart, x, y, w) {
+  slide.addChart('doughnut', [{
+    name: 'Asset allocation',
+    labels: chart.slices.map((s) => s.label),
+    values: chart.slices.map((s) => s.pct)
+  }], {
+    x, y, w: CHART_W, h: CHART_H,
+    chartColors: chart.slices.map((s) => s.color),
+    showLegend: true,
+    legendPos: 'r',
+    legendFontSize: 6,
+    showValue: true,
+    dataLabelFormatCode: '0"%"',
+    dataLabelColor: 'FFFFFF',
+    dataLabelFontSize: 6
   });
+  slide.addText(
+    [
+      { text: chart.segmentName, options: { bold: true, breakLine: true } },
+      { text: `Source: ${chart.sourceText || 'not recorded for this segment'}` }
+    ],
+    { x, y: y + CHART_H + 0.03, w: Math.max(w, CHART_W), h: CHART_CAPTION_H, fontSize: 7, color: '666666', valign: 'top' }
+  );
+}
+
+function addCommentarySlideBody(slide, countryName, sectionLabel, section) {
+  slide.addText(`Atlas — ${countryName}`, { x: TITLE_X, y: 0.25, fontSize: 24, bold: true });
+  slide.addText(sectionLabel, { x: 0.4, y: 0.85, fontSize: 12, color: '666666' });
+
+  const hasText = section.paragraphs.length > 0;
+  const hasCharts = section.chartSegments.length > 0;
+
+  // Text column is full-width if there's nothing to share the slide with,
+  // otherwise narrowed to leave a right-hand column for the chart(s).
+  const textW = hasCharts ? 6.6 : SLIDE_W - 0.8;
+  const bodyH = section.sources.length ? 4.3 : 5.4;
+
+  if (hasText) {
+    const bodyRuns = section.paragraphs.map((p) => ({ text: p, options: { breakLine: true, paraSpaceAfter: 10 } }));
+    slide.addText(bodyRuns, {
+      x: 0.4, y: COMMENTARY_BODY_Y, w: textW, h: bodyH,
+      fontSize: 11, valign: 'top', align: 'left', autoFit: false
+    });
+
+    if (section.sources.length) {
+      const sourceRuns = [
+        { text: 'Sources', options: { bold: true, breakLine: true, color: '666666' } },
+        ...section.sources.map((s) => ({
+          text: s.label || s.url,
+          options: {
+            breakLine: true,
+            color: '666666',
+            ...(s.url ? { hyperlink: { url: s.url } } : {})
+          }
+        }))
+      ];
+      slide.addText(sourceRuns, {
+        x: 0.4, y: COMMENTARY_BODY_Y + bodyH + 0.15, w: textW, h: COMMENTARY_SOURCES_H,
+        fontSize: 8, valign: 'top', align: 'left'
+      });
+    }
+  }
+
+  if (!hasCharts) return;
+
+  const charts = section.chartSegments.map((seg) => buildSegmentAllocationChart(seg)).filter(Boolean);
+  if (hasText) {
+    // Stacked in the narrow right column, alongside the text.
+    const chartX = 7.3;
+    charts.forEach((chart, i) => {
+      const chartY = COMMENTARY_BODY_Y + i * (CHART_H + CHART_CAPTION_H + CHART_GUTTER);
+      addOneSegmentChart(slide, chart, chartX, chartY, SLIDE_W - 0.8 - chartX);
+    });
+  } else {
+    // No text on this slide -- lay charts out side by side across the full
+    // width instead of stacking them, since the space is otherwise unused.
+    charts.forEach((chart, i) => {
+      const chartX = 0.5 + i * (CHART_W + CHART_GUTTER);
+      addOneSegmentChart(slide, chart, chartX, COMMENTARY_BODY_Y, CHART_W);
+    });
+  }
 }
 
 // `sections` comes from buildCommentarySectionsFull(), which -- fixed
 // 2026-07-23 after a live check found Insurance and Foundations missing from
 // an actual exported deck -- keeps a section if it has EITHER drafted text
 // OR a matching chart segment, not text alone. So a section can arrive here
-// with zero paragraphs (nothing written yet) but real chartSegments; the
-// text slide is skipped in that case (nothing to put on it) while the chart
-// slide(s) still get added, matching country.html's on-screen behaviour
-// where the chart never depended on the prose existing.
+// with zero paragraphs (nothing written yet) but real chartSegments, or vice
+// versa -- addCommentarySlideBody() above handles both, and the combination
+// of both, on one slide.
 function addCommentarySlides(pptx, countryName, commentary, segments) {
   const sections = buildCommentarySectionsFull(commentary, segments);
   sections.forEach((section) => {
-    if (section.paragraphs.length) {
-      const slide = addAtlasSlide(pptx);
-      slide.addText(`Atlas — ${countryName}`, { x: TITLE_X, y: 0.25, fontSize: 24, bold: true });
-      slide.addText(section.label, { x: 0.4, y: 0.85, fontSize: 12, color: '666666' });
-
-      const bodyRuns = section.paragraphs.map((p) => ({ text: p, options: { breakLine: true, paraSpaceAfter: 10 } }));
-      slide.addText(bodyRuns, {
-        x: 0.4, y: COMMENTARY_BODY_Y, w: SLIDE_W - 0.8, h: COMMENTARY_BODY_H,
-        fontSize: 11, valign: 'top', align: 'left', autoFit: false
-      });
-
-      if (section.sources.length) {
-        const sourceRuns = [
-          { text: 'Sources', options: { bold: true, breakLine: true, color: '666666' } },
-          ...section.sources.map((s) => ({
-            text: s.label || s.url,
-            options: {
-              breakLine: true,
-              color: '666666',
-              ...(s.url ? { hyperlink: { url: s.url } } : {})
-            }
-          }))
-        ];
-        slide.addText(sourceRuns, {
-          x: 0.4, y: COMMENTARY_SOURCES_Y, w: SLIDE_W - 0.8, h: COMMENTARY_SOURCES_H,
-          fontSize: 8, valign: 'top', align: 'left'
-        });
-      }
-    }
-
-    // One extra slide per matching segment -- e.g. Insurance contributes a
-    // slide for Life insurance, then another for Non-life insurance, if this
-    // country has both -- regardless of whether the text slide above ran.
-    addCommentaryChartSlides(pptx, countryName, section.label, section.chartSegments);
+    const slide = addAtlasSlide(pptx);
+    addCommentarySlideBody(slide, countryName, section.label, section);
   });
 }
 
@@ -362,8 +388,8 @@ function addAumSlide(pptx, countryName, segments, generatedDate) {
 
 // One country's scorecard slide. Same factoring-out reasoning as
 // addAumSlide() above.
-function addScorecardSlide(pptx, countryName, segments, enabledDimensions, weightOverrides) {
-  const matrix = buildScorecardMatrix(segments, enabledDimensions, weightOverrides);
+function addScorecardSlide(pptx, countryName, segments, enabledDimensions, weightOverrides, allocType, allocStyle) {
+  const matrix = buildScorecardMatrix(segments, enabledDimensions, weightOverrides, allocType, allocStyle);
   const scorecardSlide = addAtlasSlide(pptx);
   scorecardSlide.addText(`Atlas — ${countryName}`, { x: TITLE_X, y: 0.25, fontSize: 24, bold: true });
   scorecardSlide.addText('Opportunity scorecard', { x: 0.4, y: 0.85, fontSize: 12, color: '666666' });
@@ -395,11 +421,11 @@ function resolveInclude(rawInclude) {
 // single-country payload (country.html) and the multi-country payload
 // (picker.html's project builder), so a project export is just this
 // repeated once per selected country.
-function addCountrySlides(pptx, countryName, segments, generatedDate, enabledDimensions, include, weightOverrides, commentary) {
+function addCountrySlides(pptx, countryName, segments, generatedDate, enabledDimensions, include, weightOverrides, commentary, allocType, allocStyle) {
   const includeSet = include || new Set(ALL_CONTENT_TYPES);
   if (includeSet.has('commentary')) addCommentarySlides(pptx, countryName, commentary, segments);
   if (includeSet.has('aum')) addAumSlide(pptx, countryName, segments, generatedDate);
-  if (includeSet.has('scorecard')) addScorecardSlide(pptx, countryName, segments, enabledDimensions, weightOverrides);
+  if (includeSet.has('scorecard')) addScorecardSlide(pptx, countryName, segments, enabledDimensions, weightOverrides, allocType, allocStyle);
   if (includeSet.has('top_institutions')) addTopInstitutionsSlides(pptx, countryName, segments);
 }
 
@@ -457,7 +483,11 @@ app.http('exportPptx', {
       // (see exportHelpers.js's computeOverallScore() comment). Optional;
       // country.html's single-country export never sends this, so Overall
       // there is unaffected.
-      countries.forEach((c) => addCountrySlides(pptx, c.country_name, c.segments, generatedDate, body.enabled_dimensions, include, body.weight_overrides, c.commentary));
+      // alloc_type/alloc_style -- 2026-07-23, matches whatever the
+      // "Allocation row shows" dropdown was set to on-screen (see the same
+      // comment in exportDocx.js). Defaults to Equities/no-style in
+      // buildScorecardMatrix() if omitted.
+      countries.forEach((c) => addCountrySlides(pptx, c.country_name, c.segments, generatedDate, body.enabled_dimensions, include, body.weight_overrides, c.commentary, body.alloc_type, body.alloc_style));
 
       const buffer = await pptx.write({ outputType: 'nodebuffer' });
 

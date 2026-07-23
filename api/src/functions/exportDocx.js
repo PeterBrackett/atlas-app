@@ -217,9 +217,13 @@ function buildTopInstitutionsBlock(segments) {
 // visible sliver rather than vanishing at 0 width; this means the bar's
 // total width sums to slightly more than "100% worth" of dxa when there are
 // many tiny slices, a deliberate legibility trade-off over exact proportionality.
-const ALLOCATION_BAR_TOTAL_DXA = 8000; // ~5.5in
-const ALLOCATION_BAR_MIN_DXA = 200;
-const ALLOCATION_BAR_LABEL_MIN_DXA = 700; // only label a cell wide enough to hold "12.3%"
+// Cut to 30% of the original width (8000 dxa, ~5.5in) per Peter's 2026-07-23
+// request to shrink the charts by 70% -- all three constants scaled down
+// together so the minimum-slice-width and label-threshold logic still holds
+// the same relative proportions at the smaller size.
+const ALLOCATION_BAR_TOTAL_DXA = 2400; // ~1.65in
+const ALLOCATION_BAR_MIN_DXA = 60;
+const ALLOCATION_BAR_LABEL_MIN_DXA = 210; // only label a cell wide enough to hold "12.3%"
 
 function buildAllocationBarTable(chart) {
   const n = chart.slices.length;
@@ -337,7 +341,7 @@ function resolveInclude(rawInclude) {
 // (e.g. `include` is top_institutions-only and this country has no
 // institution-level data) -- the caller should skip a country entirely in
 // that case rather than emit an empty heading.
-function buildCountrySection(countryName, segments, { headingLevel = HeadingLevel.HEADING_1, pageBreakBefore = false, enabledDimensions, include, weightOverrides, commentary } = {}) {
+function buildCountrySection(countryName, segments, { headingLevel = HeadingLevel.HEADING_1, pageBreakBefore = false, enabledDimensions, include, weightOverrides, commentary, allocType, allocStyle } = {}) {
   const includeSet = include || new Set(ALL_CONTENT_TYPES);
   const body = [];
 
@@ -353,7 +357,7 @@ function buildCountrySection(countryName, segments, { headingLevel = HeadingLeve
   if (includeSet.has('scorecard')) {
     body.push(
       new Paragraph({ text: 'Opportunity scorecard', heading: HeadingLevel.HEADING_2, spacing: { before: 200, after: 60 } }),
-      buildScorecardTable(buildScorecardMatrix(segments, enabledDimensions, weightOverrides))
+      buildScorecardTable(buildScorecardMatrix(segments, enabledDimensions, weightOverrides, allocType, allocStyle))
     );
   }
   if (includeSet.has('top_institutions')) {
@@ -435,7 +439,15 @@ app.http('exportDocx', {
           // Optional; country.html's single-country export never sends
           // this, so Overall there is unaffected.
           weightOverrides: body.weight_overrides,
-          commentary: c.commentary
+          commentary: c.commentary,
+          // alloc_type/alloc_style -- 2026-07-23, matches whatever the
+          // "Allocation row shows" dropdown was set to on-screen when the
+          // export was triggered (country.html's CURRENT_ALLOC_TYPE/
+          // CURRENT_ALLOC_STYLE, picker.html's PROJECT_ALLOC_TYPE/
+          // PROJECT_ALLOC_STYLE). Defaults to Equities/no-style in
+          // buildScorecardMatrix() if omitted.
+          allocType: body.alloc_type,
+          allocStyle: body.alloc_style
         });
         if (!section.length) return;
         children.push(...section);
