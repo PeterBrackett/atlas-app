@@ -223,6 +223,22 @@ function renderCommentary() {
 // plain explanatory note (not a blank gap) for sections that do define
 // chartSegments but this country has none of them yet (e.g. UK has no SWF
 // segment).
+// The donut chart shows a segment's own AUM/allocation source, not a
+// separate "commentary" source -- segments already track exactly where
+// their bottom-up figure and asset-class breakdown came from via
+// sources[]/active (see country.html's own sourcesRows() for the AUM-table
+// equivalent of this). Added 2026-07-23 after Peter noticed the first cut of
+// this chart had no attribution at all, breaking the "everything needs to be
+// sourced" requirement the whole commentary framework was built around.
+function segmentAllocationSourceText(seg) {
+  const sources = seg.sources || [];
+  const active = sources.find(s => s.active) || sources[0];
+  if (!active) return '';
+  const citation = active.source || active.basis || '';
+  if (!citation) return '';
+  return citation + (active.as_of ? ` (as of ${active.as_of})` : '');
+}
+
 function renderCommentaryAllocationCharts(chartSegments) {
   if (!chartSegments || !chartSegments.length) return '';
 
@@ -236,14 +252,21 @@ function renderCommentaryAllocationCharts(chartSegments) {
   const cards = matches.map(seg => {
     const { svg, legendHtml } = buildAllocationDonutSvg(seg);
     const aumText = typeof seg.aum_bn === 'number' ? `$${seg.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 1 })}bn` : '';
+    const sourceText = segmentAllocationSourceText(seg);
+    const sourceHtml = sourceText
+      ? `<div style="font-size:0.72rem; color:var(--muted); margin-top:6px; border-top:1px solid var(--border); padding-top:4px;">Source: ${escapeAttr(sourceText)}</div>`
+      : `<div style="font-size:0.72rem; color:var(--muted); margin-top:6px; border-top:1px solid var(--border); padding-top:4px;">Source not recorded for this segment.</div>`;
     return `
-      <div style="display:flex; align-items:center; gap:14px; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--card);">
-        <div>${svg}</div>
-        <div>
-          <div style="font-weight:600; font-size:0.85rem; color:var(--navy);">${seg.segment}</div>
-          <div style="font-size:0.78rem; color:var(--muted); margin-bottom:4px;">${aumText}</div>
-          ${legendHtml}
+      <div style="display:flex; flex-direction:column; gap:6px; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--card); max-width:340px;">
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div>${svg}</div>
+          <div>
+            <div style="font-weight:600; font-size:0.85rem; color:var(--navy);">${seg.segment}</div>
+            <div style="font-size:0.78rem; color:var(--muted); margin-bottom:4px;">${aumText}</div>
+            ${legendHtml}
+          </div>
         </div>
+        ${sourceHtml}
       </div>`;
   }).join('');
 
