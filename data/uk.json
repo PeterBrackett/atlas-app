@@ -2,37 +2,82 @@
   "country_code": "GB",
   "country_name": "United Kingdom",
   "reporting_period": "2026-06 (S&P export date)",
-  "source_note": "Currency confirmed (2026-07-10): S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). All bottom-up S&P figures across Atlas, including every UK segment except the DB Pension (Govt) override below, are USD, not local currency as previously assumed \u2014 see Sources & Methodology. This does not change any published number since every segment here is single-sourced except one: DB Pension (Govt) is a top-down override (\u00a3393.94bn, genuinely GBP, aligned to official LGPS statistics) shown instead of the raw S&P bottom-up sum ($689.63bn, confirmed USD, \u2248\u00a3514.65bn at the 2026-07-10 spot rate of 1.34 USD/GBP) \u2014 the two were previously compared as if both were GBP, which understated the true gap between them. Even in like-for-like GBP terms, the LGPS override remains materially lower than the bottom-up estimate (\u00a3393.94bn vs \u2248\u00a3514.65bn) \u2014 see Sources & Methodology for why LGPS was still judged the more reliable figure for this segment.",
+  "source_note": "Currency confirmed (2026-07-10): S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). All bottom-up S&P figures across Atlas, including every UK segment except the DB Pension (Govt) override below, are USD, not local currency as previously assumed — see Sources & Methodology. This does not change any published number since every segment here is single-sourced except one: DB Pension (Govt) is a top-down override (£393.94bn, genuinely GBP, aligned to official LGPS statistics) shown instead of the raw S&P bottom-up sum ($689.63bn, confirmed USD, ≈£514.65bn at the 2026-07-10 spot rate of 1.34 USD/GBP) — the two were previously compared as if both were GBP, which understated the true gap between them. Even in like-for-like GBP terms, the LGPS override remains materially lower than the bottom-up estimate (£393.94bn vs ≈£514.65bn) — see Sources & Methodology for why LGPS was still judged the more reliable figure for this segment.",
   "scorecard_note": "Opportunity scorecard scores carried over from the original FINAL_Country_Matrix.xlsx UK analysis (scored 2026-06-01). Regulatory complexity uses TMF Group rankings as a reference where available; all other dimensions are analyst judgment. See Sources & Methodology for the scoring convention and the Overall formula.",
   "segments": [
     {
       "segment": "Life insurance",
-      "aum_bn": 2756.978,
-      "basis": "Industry aggregate",
-      "scorecard": {
-        "market_opportunity": 2,
-        "outsourced_management": 3,
-        "pricing_impact": 2,
-        "alignment_of_investment_thinking": 2,
-        "distribution_resources_required": 1,
-        "regulatory_complexity": 1,
-        "client_servicing": 3,
-        "local_presence_required": 1,
-        "languages_required": 1,
-        "investor_decision_making": 1,
-        "comingled_vehicles": 1,
-        "consultant_reliant": 2,
-        "scored_date": "2026-06-01"
-      },
+      "aum_bn": 1579.823,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
-          "value_bn": 28.304,
-          "pct_of_segment": 1.0,
-          "styles": []
+          "value_bn": 7.882,
+          "pct_of_segment": 0.5,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 7.882
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 235.678,
+          "pct_of_segment": 14.9,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 235.678
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 5.323,
+          "pct_of_segment": 0.3,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 5.323
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 2.306,
+          "pct_of_segment": 0.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 2.306
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 3.704,
+          "pct_of_segment": 0.2,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 3.704
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 1324.93,
+          "pct_of_segment": 83.9,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 1324.93
+            }
+          ]
         }
       ],
-      "allocation_incomplete": true,
       "sources": [
         {
           "basis": "Industry aggregate",
@@ -40,6 +85,14 @@
           "as_of": "2026-06",
           "source": "Industry aggregate (see Sources & Methodology)",
           "note": "",
+          "active": false
+        },
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 1579.823,
+          "as_of": "2024-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
           "active": true
         }
       ],
@@ -48,7 +101,13 @@
           "date": "2026-06-01",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Industry aggregate."
+          "detail": "Initial segment build — Industry aggregate."
+        },
+        {
+          "date": "2026-07-14",
+          "event": "source_changed",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Switched active source to Industry aggregate (OECD Global Insurance Market Trends) (2024 data). Total investments and full 6-bucket allocation now sourced directly from OECD (previously a placeholder aggregate with only a partial Equities estimate). Superseded placeholder source retained in sources[] for history."
         }
       ]
     },
@@ -56,21 +115,7 @@
       "segment": "DB Pension (Corp)",
       "aum_bn": 1863.858869,
       "basis": "Bottom-up (S&P aggregate)",
-      "scorecard": {
-        "market_opportunity": 1,
-        "outsourced_management": 1,
-        "pricing_impact": 1,
-        "alignment_of_investment_thinking": 3,
-        "distribution_resources_required": 1,
-        "regulatory_complexity": 1,
-        "client_servicing": 2,
-        "local_presence_required": 1,
-        "languages_required": 1,
-        "investor_decision_making": 2,
-        "comingled_vehicles": 1,
-        "consultant_reliant": 3,
-        "scored_date": "2026-06-01"
-      },
+      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -195,6 +240,15 @@
           "source": "S&P Money Manager Database export (UK)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Top-down check (OECD autonomous pension funds, country total)",
+          "aum_bn": 2805.843,
+          "currency": "USD",
+          "as_of": "2024 (OECD reference year)",
+          "source": "OECD Data Explorer, 'Assets earmarked for retirement' (OECD.DAF.CM, DSD_FP@DF_PA), Pension funds (autonomous) vehicle type (native unit: USD millions, converted here to USD bn to match Atlas convention)",
+          "note": "Country-level top-down cross-check, not a segment-specific figure. CORRECTED 2026-07-16: an earlier version of this note claimed the gap was because Atlas's bottom-up figure includes book reserve and insurance-wrapped pension assets that OECD's 'autonomous pension funds' vehicle type excludes. That claim was not well supported and has been withdrawn -- S&P's Money Manager Database tracks assets already placed with professional managers (so unfunded book reserves, which have no external portfolio, structurally shouldn't appear in it), and it tracks insurance firms as a category separate from pension institutions. The real driver of variance, where known, is noted per-country below. Compares against the SUM of all DB+DC segments in United Kingdom (DB Pension (Corp), DB Pension (Govt), DC Pension (Corp), DB Pension (Union), DB Pension (Endowments), DB Pension (Tax exempt), DC Pension (Govt)): Atlas bottom-up = $2461.38bn vs OECD (autonomous funds only, 2024) = $2805.84bn, variance -12.3%. Shown here against the largest DB/DC segment (DB Pension (Corp)) as a reference point only -- do not apply this figure as this segment's own total.",
+          "active": false
         }
       ],
       "source_history": [
@@ -202,35 +256,76 @@
           "date": "2026-06-01",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P aggregate)."
+          "detail": "Initial segment build — Bottom-up (S&P aggregate)."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_added",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Added OECD autonomous pension fund total ($2805.84bn, 2024) as a non-active top-down cross-check against the combined DB+DC segments for United Kingdom (bottom-up sum $2461.38bn, variance -12.3%). Not applied -- active source and displayed aum_bn for this segment are unchanged."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_note_corrected",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Corrected the OECD top-down check note added earlier today: withdrew the claim that the variance is explained by Atlas's bottom-up figure including book reserve/insurance assets (Peter flagged that S&P MMD shouldn't capture those categories, and that's correct). Replaced with a country-specific, evidence-based explanation where one was found (Korea/NPS, Norway/KLP, Germany/Denmark/Sweden insurance-regulated occupational pension providers), or left as an open question where no clear driver was identified."
         }
       ],
       "concentration": {
         "top3_share_pct": 15.6,
         "hhi": 185,
         "n_institutions": 765,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Universities Superannuation Scheme Ltd. (USS)",
+            "aum_bn": 98.31
+          },
+          {
+            "name": "BT Group plc",
+            "aum_bn": 58.73
+          },
+          {
+            "name": "Lloyds Banking Group plc",
+            "aum_bn": 58.04
+          },
+          {
+            "name": "Pension Protection Fund (PPF)",
+            "aum_bn": 53.65
+          },
+          {
+            "name": "BP plc",
+            "aum_bn": 46.6
+          },
+          {
+            "name": "Railways Pension Trustee Company Ltd.",
+            "aum_bn": 46.34
+          },
+          {
+            "name": "Electricity Supply Pension Scheme (ESPS)",
+            "aum_bn": 44.72
+          },
+          {
+            "name": "Natwest Group plc",
+            "aum_bn": 37.22
+          },
+          {
+            "name": "Barclays Bank plc",
+            "aum_bn": 29.21
+          },
+          {
+            "name": "HSBC Bank PLC",
+            "aum_bn": 28.93
+          }
+        ],
+        "top10_share_pct": 36.3
       }
     },
     {
       "segment": "Tax exempt E&F",
       "aum_bn": 175.455117,
       "basis": "Bottom-up (S&P aggregate)",
-      "scorecard": {
-        "market_opportunity": 1,
-        "outsourced_management": 1,
-        "pricing_impact": 1,
-        "alignment_of_investment_thinking": 1,
-        "distribution_resources_required": 1,
-        "regulatory_complexity": 1,
-        "client_servicing": 2,
-        "local_presence_required": 1,
-        "languages_required": 1,
-        "investor_decision_making": 2,
-        "comingled_vehicles": 1,
-        "consultant_reliant": 3,
-        "scored_date": "2026-06-01"
-      },
+      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -339,6 +434,15 @@
           "source": "S&P Money Manager Database export (UK)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Reference only -- NOT a like-for-like top-down check (Charity Commission)",
+          "aum_bn": 323.85,
+          "currency": "USD",
+          "as_of": "2023 (Charity Commission for England and Wales sector overview)",
+          "source": "Charity Commission for England and Wales, whole-sector total assets (register-of-charities.charitycommission.gov.uk)",
+          "note": "IMPORTANT SCOPE CAVEAT: this is NOT a clean top-down check like the OECD pension or Global SWF comparisons elsewhere in Atlas. The Charity Commission figure (£255bn, 2023, converted here to ~$323.85bn at an approximate 1.27 USD/GBP rate) is total BALANCE-SHEET assets across all ~170,000 registered charities in England and Wales -- including buildings, land, equipment and program assets, not just investable AUM placed with professional asset managers. Atlas's E&F segments (Tax exempt E&F, Endowments E&F, combined bottom-up $239.13bn) are meant to represent investable AUM tracked via S&P's Money Manager Database, a much narrower concept. The two numbers happening to be roughly the same order of magnitude is not meaningful confirmation of anything -- shown here only as a loose, order-of-magnitude reference point, not a genuine top-down/bottom-up comparison. Attached to the largest UK E&F segment for convenience; it does not represent this segment specifically.",
+          "active": false
         }
       ],
       "source_history": [
@@ -346,35 +450,70 @@
           "date": "2026-06-01",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P aggregate)."
+          "detail": "Initial segment build — Bottom-up (S&P aggregate)."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_added",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Added top-down check (Reference only -- NOT a like-for-like top-down check (Charity Commission), 323.85USD) as a non-active source. Not applied."
         }
       ],
       "concentration": {
         "top3_share_pct": 25.2,
         "hhi": 306,
         "n_institutions": 541,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Church of England",
+            "aum_bn": 15.59
+          },
+          {
+            "name": "Garfield Weston Foundation",
+            "aum_bn": 10.52
+          },
+          {
+            "name": "Children's Investment Fund Foundation (UK)",
+            "aum_bn": 6.42
+          },
+          {
+            "name": "Leverhulme Trust",
+            "aum_bn": 5.45
+          },
+          {
+            "name": "Wellcome Trust",
+            "aum_bn": 5.11
+          },
+          {
+            "name": "Motability Scheme",
+            "aum_bn": 2.81
+          },
+          {
+            "name": "City Bridge Foundation",
+            "aum_bn": 2.07
+          },
+          {
+            "name": "National Trust",
+            "aum_bn": 1.96
+          },
+          {
+            "name": "Henry Smith Charity",
+            "aum_bn": 1.8
+          },
+          {
+            "name": "Esmee Fairbairn Foundation",
+            "aum_bn": 1.7
+          }
+        ],
+        "top10_share_pct": 41.5
       }
     },
     {
       "segment": "DB Pension (Govt)",
       "aum_bn": 393.94,
       "basis": "Top-down override (LGPS official)",
-      "scorecard": {
-        "market_opportunity": 1,
-        "outsourced_management": 1,
-        "pricing_impact": 1,
-        "alignment_of_investment_thinking": 1,
-        "distribution_resources_required": 1,
-        "regulatory_complexity": 1,
-        "client_servicing": 2,
-        "local_presence_required": 1,
-        "languages_required": 1,
-        "investor_decision_making": 2,
-        "comingled_vehicles": 1,
-        "consultant_reliant": 3,
-        "scored_date": "2026-06-01"
-      },
+      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -498,16 +637,16 @@
           "currency": "USD",
           "as_of": "2026-07-09",
           "source": "S&P Money Manager Database, Government category, Total DB Assets (live lookup)",
-          "note": "Refreshed 2026-07-09 after a discrepancy was flagged against a live MMD read. Supersedes the original build-time figure of $634.45bn (2026-06), which had gone stale by roughly $55bn over about a month. Equity allocation not separately available on this basis. Currency corrected 2026-07-10: this figure is USD ($689.63bn), confirmed by S&P directly -- it was previously assumed GBP and compared directly against the GBP-denominated LGPS override below, which understated the real gap between them. GBP-equivalent at the 2026-07-10 spot rate (1.34 USD/GBP) is approximately \u00a3514.65bn.",
+          "note": "Refreshed 2026-07-09 after a discrepancy was flagged against a live MMD read. Supersedes the original build-time figure of $634.45bn (2026-06), which had gone stale by roughly $55bn over about a month. Equity allocation not separately available on this basis. Currency corrected 2026-07-10: this figure is USD ($689.63bn), confirmed by S&P directly -- it was previously assumed GBP and compared directly against the GBP-denominated LGPS override below, which understated the real gap between them. GBP-equivalent at the 2026-07-10 spot rate (1.34 USD/GBP) is approximately £514.65bn.",
           "active": false
         },
         {
           "basis": "Top-down override (LGPS official)",
           "aum_bn": 393.94,
           "currency": "GBP",
-          "as_of": "unknown \u2014 LGPS publication date not independently confirmed",
+          "as_of": "unknown — LGPS publication date not independently confirmed",
           "source": "Official LGPS statistics (DLUHC/ONS)",
-          "note": "",
+          "note": "Basis label and aum_bn corrected 2026-07-17 -- this entry was mislabeled \"Bottom-up (S&P/MMD aggregate)\" and showed 634.45 (the original bottom-up figure) instead of the LGPS top-down figure of 393.94 recorded in source_history's 2026-06-01 entry.",
           "active": true
         }
       ],
@@ -516,56 +655,156 @@
           "date": "2026-06-01",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial build: LGPS official top-down figure (\u00a3393.94bn) selected as active over the raw S&P bottom-up sum (\u00a3634.45bn), judged more reliable for this segment specifically."
+          "detail": "Initial build: LGPS official top-down figure (£393.94bn) selected as active over the raw S&P bottom-up sum (£634.45bn), judged more reliable for this segment specifically."
         },
         {
           "date": "2026-07-09",
           "event": "refresh",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Bottom-up alternate figure refreshed from a live MMD lookup: \u00a3634.45bn (as of 2026-06) \u2192 \u00a3689.63bn (as of 2026-07-09). Active source (LGPS override) unchanged \u2014 this refresh only updates the comparison figure, it does not switch which number is shown on the site."
+          "detail": "Bottom-up alternate figure refreshed from a live MMD lookup: £634.45bn (as of 2026-06) → £689.63bn (as of 2026-07-09). Active source (LGPS override) unchanged — this refresh only updates the comparison figure, it does not switch which number is shown on the site."
         },
         {
           "date": "2026-07-10",
           "event": "currency_correction",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "S&P confirmed directly that Money Manager Database exports default to USD platform-wide. The bottom-up alternate figure was mislabeled GBP throughout \u2014 it is actually $689.63bn USD, not \u00a3689.63bn. Corrected in-place (currency field added, note updated); GBP-equivalent at the 2026-07-10 spot rate (1.34 USD/GBP) is approximately \u00a3514.65bn. Active source (LGPS override, genuinely GBP) unchanged \u2014 this correction does not switch which number is shown on the site, but does change the size of the gap between the two."
+          "detail": "S&P confirmed directly that Money Manager Database exports default to USD platform-wide. The bottom-up alternate figure was mislabeled GBP throughout — it is actually $689.63bn USD, not £689.63bn. Corrected in-place (currency field added, note updated); GBP-equivalent at the 2026-07-10 spot rate (1.34 USD/GBP) is approximately £514.65bn. Active source (LGPS override, genuinely GBP) unchanged — this correction does not switch which number is shown on the site, but does change the size of the gap between the two."
+        },
+        {
+          "date": "2026-07-17",
+          "event": "override_reversed",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Active source switched from the LGPS top-down override (£393.94bn) to the Bottom-up S&P/MMD aggregate ($689.630558bn, live-lookup as of 2026-07-09), then switched back to the LGPS override the same day. Also corrected the LGPS source entry, which had been mislabeled \"Bottom-up (S&P/MMD aggregate)\" with aum_bn 634.45 (the old bottom-up figure) instead of its own 393.94 top-down figure -- that correction was kept."
+        },
+        {
+          "date": "2026-07-17",
+          "event": "override_confirmed",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "LGPS override (£393.94bn) reconfirmed as the active source after independent web research: informal cross-checks found aggregate LGPS asset figures of roughly £402bn and, from Pensions UK (2024), 'more than £425bn' -- both far closer to the £393.94bn LGPS override than to the bottom-up S&P figure (£514.65bn GBP-equivalent / $689.63bn). Not added as formal sources[] entries (no precise citation/URL captured), but recorded here as the rationale for keeping the override active. Allocation breakdown is unaffected -- it was already built on the LGPS basis and needs no change."
         }
       ],
       "concentration": {
         "top3_share_pct": 20.5,
         "hhi": 261,
         "n_institutions": 107,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "ACCESS: A Collaboration of Central, Eastern and Southern Shires",
+            "aum_bn": 62.02
+          },
+          {
+            "name": "Greater Manchester Pension Fund (LGPS)",
+            "aum_bn": 40.56
+          },
+          {
+            "name": "Strathclyde Pension Fund (LGPS)",
+            "aum_bn": 39.12
+          },
+          {
+            "name": "West Midlands Pension Fund (LGPS)",
+            "aum_bn": 27.41
+          },
+          {
+            "name": "West Yorkshire Pension Fund",
+            "aum_bn": 25.1
+          },
+          {
+            "name": "Tyne & Wear Pension Fund (LGPS)",
+            "aum_bn": 16.99
+          },
+          {
+            "name": "Wales Pension Partnership (WPP)",
+            "aum_bn": 16.31
+          },
+          {
+            "name": "Lancashire County Pension Fund (LGPS)",
+            "aum_bn": 15.03
+          },
+          {
+            "name": "Essex Pension Fund (LGPS)",
+            "aum_bn": 14.44
+          },
+          {
+            "name": "Lothian Pension Fund(LGPS)",
+            "aum_bn": 14.09
+          }
+        ],
+        "top10_share_pct": 38.9
       }
     },
     {
       "segment": "Non-life insurance",
-      "aum_bn": 32.576,
-      "basis": "Industry aggregate",
-      "scorecard": {
-        "market_opportunity": 3,
-        "outsourced_management": 3,
-        "pricing_impact": 2,
-        "alignment_of_investment_thinking": 2,
-        "distribution_resources_required": 1,
-        "regulatory_complexity": 1,
-        "client_servicing": 3,
-        "local_presence_required": 1,
-        "languages_required": 1,
-        "investor_decision_making": 1,
-        "comingled_vehicles": 1,
-        "consultant_reliant": 2,
-        "scored_date": "2026-06-01"
-      },
+      "aum_bn": 15.762,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
-          "value_bn": 1.905,
-          "pct_of_segment": 5.8,
-          "styles": []
+          "value_bn": 1.578,
+          "pct_of_segment": 10.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 1.578
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 10.582,
+          "pct_of_segment": 67.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 10.582
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 1.025,
+          "pct_of_segment": 6.5,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 1.025
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 0.107,
+          "pct_of_segment": 0.7,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.107
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 0.134,
+          "pct_of_segment": 0.8,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.134
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 2.337,
+          "pct_of_segment": 14.8,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 2.337
+            }
+          ]
         }
       ],
-      "allocation_incomplete": true,
       "sources": [
         {
           "basis": "Industry aggregate",
@@ -573,6 +812,14 @@
           "as_of": "2026-06",
           "source": "Industry aggregate (see Sources & Methodology)",
           "note": "",
+          "active": false
+        },
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 15.762,
+          "as_of": "2024-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
           "active": true
         }
       ],
@@ -581,7 +828,13 @@
           "date": "2026-06-01",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Industry aggregate."
+          "detail": "Initial segment build — Industry aggregate."
+        },
+        {
+          "date": "2026-07-14",
+          "event": "source_changed",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Switched active source to Industry aggregate (OECD Global Insurance Market Trends) (2024 data). Total investments and full 6-bucket allocation now sourced directly from OECD (previously a placeholder aggregate with only a partial Equities estimate). Superseded placeholder source retained in sources[] for history."
         }
       ]
     },
@@ -589,21 +842,7 @@
       "segment": "Endowments E&F",
       "aum_bn": 63.671836,
       "basis": "Bottom-up (S&P aggregate)",
-      "scorecard": {
-        "market_opportunity": 2,
-        "outsourced_management": 1,
-        "pricing_impact": 1,
-        "alignment_of_investment_thinking": 1,
-        "distribution_resources_required": 1,
-        "regulatory_complexity": 1,
-        "client_servicing": 2,
-        "local_presence_required": 1,
-        "languages_required": 1,
-        "investor_decision_making": 2,
-        "comingled_vehicles": 1,
-        "consultant_reliant": 3,
-        "scored_date": "2026-06-01"
-      },
+      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -731,35 +970,64 @@
           "date": "2026-06-01",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P aggregate)."
+          "detail": "Initial segment build — Bottom-up (S&P aggregate)."
         }
       ],
       "concentration": {
         "top3_share_pct": 39.4,
         "hhi": 725,
         "n_institutions": 152,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "University of Cambridge",
+            "aum_bn": 14.3
+          },
+          {
+            "name": "University of Oxford",
+            "aum_bn": 9.31
+          },
+          {
+            "name": "Trinity College, Cambridge",
+            "aum_bn": 2.86
+          },
+          {
+            "name": "University of Edinburgh",
+            "aum_bn": 2.39
+          },
+          {
+            "name": "Imperial College London",
+            "aum_bn": 1.58
+          },
+          {
+            "name": "University College London",
+            "aum_bn": 1.23
+          },
+          {
+            "name": "University of Glasgow",
+            "aum_bn": 1.19
+          },
+          {
+            "name": "Christ Church, Oxford",
+            "aum_bn": 1.12
+          },
+          {
+            "name": "University of Leeds",
+            "aum_bn": 1.09
+          },
+          {
+            "name": "University of Manchester",
+            "aum_bn": 1.03
+          }
+        ],
+        "top10_share_pct": 53.7
       }
     },
     {
       "segment": "DC Pension (Corp)",
       "aum_bn": 120.268371,
       "basis": "Bottom-up (S&P aggregate)",
-      "scorecard": {
-        "market_opportunity": 1,
-        "outsourced_management": 1,
-        "pricing_impact": 1,
-        "alignment_of_investment_thinking": 1,
-        "distribution_resources_required": 1,
-        "regulatory_complexity": 1,
-        "client_servicing": 2,
-        "local_presence_required": 1,
-        "languages_required": 1,
-        "investor_decision_making": 2,
-        "comingled_vehicles": 2,
-        "consultant_reliant": 3,
-        "scored_date": "2026-06-01"
-      },
+      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -871,35 +1139,64 @@
           "date": "2026-06-01",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P aggregate)."
+          "detail": "Initial segment build — Bottom-up (S&P aggregate)."
         }
       ],
       "concentration": {
         "top3_share_pct": 74.1,
         "hhi": 2083,
         "n_institutions": 62,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "National Employment Savings Trust Corporation (NEST)",
+            "aum_bn": 62.36
+          },
+          {
+            "name": "Legal & General Resources Ltd.",
+            "aum_bn": 34.09
+          },
+          {
+            "name": "People's Pension",
+            "aum_bn": 33.22
+          },
+          {
+            "name": "Lloyds Banking Group plc",
+            "aum_bn": 8.68
+          },
+          {
+            "name": "HSBC Bank PLC",
+            "aum_bn": 8.15
+          },
+          {
+            "name": "TPT Retirement Solutions",
+            "aum_bn": 5.58
+          },
+          {
+            "name": "Universities Superannuation Scheme Ltd. (USS)",
+            "aum_bn": 4.62
+          },
+          {
+            "name": "IBM United Kingdom Limited",
+            "aum_bn": 3.45
+          },
+          {
+            "name": "Railways Pension Trustee Company Ltd.",
+            "aum_bn": 2.41
+          },
+          {
+            "name": "Associated British Foods plc",
+            "aum_bn": 1.41
+          }
+        ],
+        "top10_share_pct": 93.7
       }
     },
     {
       "segment": "DB Pension (Union)",
       "aum_bn": 36.136536,
       "basis": "Bottom-up (S&P aggregate)",
-      "scorecard": {
-        "market_opportunity": 3,
-        "outsourced_management": 1,
-        "pricing_impact": 1,
-        "alignment_of_investment_thinking": 1,
-        "distribution_resources_required": 1,
-        "regulatory_complexity": 1,
-        "client_servicing": 2,
-        "local_presence_required": 1,
-        "languages_required": 1,
-        "investor_decision_making": 2,
-        "comingled_vehicles": 1,
-        "consultant_reliant": 3,
-        "scored_date": "2026-06-01"
-      },
+      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -1015,35 +1312,56 @@
           "date": "2026-06-01",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P aggregate)."
+          "detail": "Initial segment build — Bottom-up (S&P aggregate)."
         }
       ],
       "concentration": {
         "top3_share_pct": 92.4,
         "hhi": 6493,
         "n_institutions": 8,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Coal Pension Trustees Ltd.",
+            "aum_bn": 26.03
+          },
+          {
+            "name": "Ensign Retirement Plan Trustees Limited",
+            "aum_bn": 2.81
+          },
+          {
+            "name": "Unite the Union",
+            "aum_bn": 1.27
+          },
+          {
+            "name": "Merchant Navy Ratings Pension Fund",
+            "aum_bn": 1.26
+          },
+          {
+            "name": "UNISON Ltd",
+            "aum_bn": 0.75
+          },
+          {
+            "name": "Trades Union Congress",
+            "aum_bn": 0.25
+          },
+          {
+            "name": "Public & Commercial Services Union",
+            "aum_bn": 0.2
+          },
+          {
+            "name": "British Air Line Pilots Association",
+            "aum_bn": 0.05
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "DB Pension (Endowments)",
       "aum_bn": 12.877945,
       "basis": "Bottom-up (S&P aggregate)",
-      "scorecard": {
-        "market_opportunity": 3,
-        "outsourced_management": 1,
-        "pricing_impact": 1,
-        "alignment_of_investment_thinking": 1,
-        "distribution_resources_required": 1,
-        "regulatory_complexity": 1,
-        "client_servicing": 2,
-        "local_presence_required": 1,
-        "languages_required": 1,
-        "investor_decision_making": 2,
-        "comingled_vehicles": 1,
-        "consultant_reliant": 3,
-        "scored_date": "2026-06-01"
-      },
+      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -1171,35 +1489,64 @@
           "date": "2026-06-01",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P aggregate)."
+          "detail": "Initial segment build — Bottom-up (S&P aggregate)."
         }
       ],
       "concentration": {
         "top3_share_pct": 27.7,
         "hhi": 472,
         "n_institutions": 50,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "University of Cambridge",
+            "aum_bn": 1.49
+          },
+          {
+            "name": "University of Oxford",
+            "aum_bn": 1.04
+          },
+          {
+            "name": "University of Liverpool",
+            "aum_bn": 0.81
+          },
+          {
+            "name": "University of Leeds",
+            "aum_bn": 0.72
+          },
+          {
+            "name": "University of Manchester",
+            "aum_bn": 0.57
+          },
+          {
+            "name": "University of Edinburgh",
+            "aum_bn": 0.52
+          },
+          {
+            "name": "Liverpool John Moores University",
+            "aum_bn": 0.49
+          },
+          {
+            "name": "University of Birmingham",
+            "aum_bn": 0.38
+          },
+          {
+            "name": "University of Glasgow",
+            "aum_bn": 0.35
+          },
+          {
+            "name": "University of Derby",
+            "aum_bn": 0.34
+          }
+        ],
+        "top10_share_pct": 57.8
       }
     },
     {
       "segment": "DB Pension (Tax exempt)",
       "aum_bn": 24.748343,
       "basis": "Bottom-up (S&P aggregate)",
-      "scorecard": {
-        "market_opportunity": 3,
-        "outsourced_management": 1,
-        "pricing_impact": 1,
-        "alignment_of_investment_thinking": 1,
-        "distribution_resources_required": 1,
-        "regulatory_complexity": 1,
-        "client_servicing": 2,
-        "local_presence_required": 1,
-        "languages_required": 1,
-        "investor_decision_making": 2,
-        "comingled_vehicles": 1,
-        "consultant_reliant": 3,
-        "scored_date": "2026-06-01"
-      },
+      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -1343,35 +1690,64 @@
           "date": "2026-06-01",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P aggregate)."
+          "detail": "Initial segment build — Bottom-up (S&P aggregate)."
         }
       ],
       "concentration": {
         "top3_share_pct": 37.3,
         "hhi": 895,
         "n_institutions": 138,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Church of England",
+            "aum_bn": 4.98
+          },
+          {
+            "name": "Wellcome Trust",
+            "aum_bn": 1.04
+          },
+          {
+            "name": "Lloyd's Register Foundation",
+            "aum_bn": 0.72
+          },
+          {
+            "name": "Barnardo's",
+            "aum_bn": 0.69
+          },
+          {
+            "name": "Cancer Research UK",
+            "aum_bn": 0.6
+          },
+          {
+            "name": "Action for Children",
+            "aum_bn": 0.57
+          },
+          {
+            "name": "Canal & River Trust",
+            "aum_bn": 0.55
+          },
+          {
+            "name": "Benefact Trust",
+            "aum_bn": 0.39
+          },
+          {
+            "name": "Church of Scotland",
+            "aum_bn": 0.35
+          },
+          {
+            "name": "Royal National Lifeboat Institution (RNLI)",
+            "aum_bn": 0.32
+          }
+        ],
+        "top10_share_pct": 56.5
       }
     },
     {
       "segment": "DC Pension (Govt)",
       "aum_bn": 9.554385,
       "basis": "Bottom-up (S&P aggregate)",
-      "scorecard": {
-        "market_opportunity": 3,
-        "outsourced_management": 2,
-        "pricing_impact": 1,
-        "alignment_of_investment_thinking": 1,
-        "distribution_resources_required": 1,
-        "regulatory_complexity": 1,
-        "client_servicing": 2,
-        "local_presence_required": 1,
-        "languages_required": 1,
-        "investor_decision_making": 2,
-        "comingled_vehicles": 2,
-        "consultant_reliant": 3,
-        "scored_date": "2026-06-01"
-      },
+      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -1475,16 +1851,827 @@
           "date": "2026-06-01",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P aggregate)."
+          "detail": "Initial segment build — Bottom-up (S&P aggregate)."
         }
       ],
       "concentration": {
         "top3_share_pct": 85.7,
         "hhi": 4805,
         "n_institutions": 90,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Teesside Pension Fund (LGPS)",
+            "aum_bn": 7.01
+          },
+          {
+            "name": "Teachers' Pension Scheme (TPS)",
+            "aum_bn": 1.56
+          },
+          {
+            "name": "Principal Civil Service Pension Scheme (PCSPS)",
+            "aum_bn": 0.32
+          },
+          {
+            "name": "Scottish Public Pensions Agency",
+            "aum_bn": 0.18
+          },
+          {
+            "name": "Greater Manchester Pension Fund (LGPS)",
+            "aum_bn": 0.1
+          },
+          {
+            "name": "Strathclyde Pension Fund (LGPS)",
+            "aum_bn": 0.09
+          },
+          {
+            "name": "West Yorkshire Pension Fund",
+            "aum_bn": 0.07
+          },
+          {
+            "name": "West Midlands Pension Fund (LGPS)",
+            "aum_bn": 0.06
+          },
+          {
+            "name": "Lancashire County Pension Fund (LGPS)",
+            "aum_bn": 0.06
+          },
+          {
+            "name": "Northern Ireland Local Government Officers’ Superannuation Committee (NILGOSC)",
+            "aum_bn": 0.05
+          }
+        ],
+        "top10_share_pct": 91.4
+      }
+    },
+    {
+      "segment": "DC Pension (Union)",
+      "aum_bn": 6.286025,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 5.028601,
+          "pct_of_segment": 80.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 5.028601
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 1.257424,
+          "pct_of_segment": 20.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 1.257424
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 6.286025,
+          "currency": "USD",
+          "as_of": "2026-07-17",
+          "source": "S&P Money Manager Database, Union category, Total DC Assets (Company export)",
+          "note": "Newly built 2026-07-17 -- this segment was previously missing from uk.json entirely (the original UK pilot build never covered it). Built from the same Company/AA exports as every other Atlas segment.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-17",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment newly built from the raw UK S&P Money Manager Database exports (Company file for aum_bn/concentration, AA file for allocation) -- filling a gap where this segment was entirely absent from the original UK pilot build. Category: Union."
+        }
+      ],
+      "concentration": {
+        "top3_share_pct": 100.0,
+        "hhi": 9999,
+        "n_institutions": 3,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Ensign Retirement Plan Trustees Limited",
+            "aum_bn": 6.29
+          },
+          {
+            "name": "Coal Pension Trustees Ltd.",
+            "aum_bn": 0.0
+          },
+          {
+            "name": "Merchant Navy Ratings Pension Fund",
+            "aum_bn": 0.0
+          }
+        ],
+        "top10_share_pct": 100.0
+      }
+    },
+    {
+      "segment": "DB Pension (Healthcare non-profit)",
+      "aum_bn": 0.575871,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 0.213312,
+          "pct_of_segment": 37.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.213312
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 0.077486,
+          "pct_of_segment": 13.5,
+          "styles": [
+            {
+              "asset_style": "Bonds",
+              "value_bn": 0.064457
+            },
+            {
+              "asset_style": "General Insurance",
+              "value_bn": 0.013029
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 0.009247,
+          "pct_of_segment": 1.6,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.005329
+            },
+            {
+              "asset_style": "Savings & Temporary Cash",
+              "value_bn": 0.003919
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 0.002173,
+          "pct_of_segment": 0.4,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.002173
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 0.245507,
+          "pct_of_segment": 42.6,
+          "styles": [
+            {
+              "asset_style": "Absolute Return",
+              "value_bn": 0.010297
+            },
+            {
+              "asset_style": "Derivatives",
+              "value_bn": 0.000283
+            },
+            {
+              "asset_style": "Hedge Funds",
+              "value_bn": 0.168304
+            },
+            {
+              "asset_style": "Liability-Driven",
+              "value_bn": 0.066623
+            }
+          ]
+        },
+        {
+          "asset_type": "Other Investments",
+          "value_bn": 0.009913,
+          "pct_of_segment": 1.7,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.009913
+            }
+          ]
+        },
+        {
+          "asset_type": "Asset Allocation",
+          "value_bn": 0.018232,
+          "pct_of_segment": 3.2,
+          "styles": [
+            {
+              "asset_style": "Multi-Asset",
+              "value_bn": 0.018232
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 0.575871,
+          "currency": "USD",
+          "as_of": "2026-07-17",
+          "source": "S&P Money Manager Database, Health Service Organization - nonprofit category, Total DB Assets (Company export)",
+          "note": "Newly built 2026-07-17 -- this segment was previously missing from uk.json entirely (the original UK pilot build never covered it). Built from the same Company/AA exports as every other Atlas segment.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-17",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment newly built from the raw UK S&P Money Manager Database exports (Company file for aum_bn/concentration, AA file for allocation) -- filling a gap where this segment was entirely absent from the original UK pilot build. Category: Health Service Organization - nonprofit."
+        }
+      ],
+      "concentration": {
+        "top3_share_pct": 93.4,
+        "hhi": 4322,
+        "n_institutions": 5,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Nuffield Health",
+            "aum_bn": 0.35
+          },
+          {
+            "name": "Trustees of the London Clinic Limited",
+            "aum_bn": 0.09
+          },
+          {
+            "name": "Benenden Healthcare Society Ltd.",
+            "aum_bn": 0.09
+          },
+          {
+            "name": "King Edward's VII Hospital Sister Agnes",
+            "aum_bn": 0.03
+          },
+          {
+            "name": "St. Christopher's Hospice",
+            "aum_bn": 0.01
+          }
+        ],
+        "top10_share_pct": 100.0
+      }
+    },
+    {
+      "segment": "DC Pension (Tax exempt)",
+      "aum_bn": 0.11853,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 0.01932,
+          "pct_of_segment": 16.3,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.01932
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 0.009296,
+          "pct_of_segment": 7.8,
+          "styles": [
+            {
+              "asset_style": "Bonds",
+              "value_bn": 0.008755
+            },
+            {
+              "asset_style": "Credit",
+              "value_bn": 0.000541
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 0.002061,
+          "pct_of_segment": 1.7,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.002061
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 0.00059,
+          "pct_of_segment": 0.5,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.00059
+            }
+          ]
+        },
+        {
+          "asset_type": "Other Investments",
+          "value_bn": 4.2e-05,
+          "pct_of_segment": 0.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 4.2e-05
+            }
+          ]
+        },
+        {
+          "asset_type": "Unspecified",
+          "value_bn": 0.087221,
+          "pct_of_segment": 73.6,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.087221
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 0.11853,
+          "currency": "USD",
+          "as_of": "2026-07-17",
+          "source": "S&P Money Manager Database, Tax Exempt Organization category, Total DC Assets (Company export)",
+          "note": "Newly built 2026-07-17 -- this segment was previously missing from uk.json entirely (the original UK pilot build never covered it). Built from the same Company/AA exports as every other Atlas segment.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-17",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment newly built from the raw UK S&P Money Manager Database exports (Company file for aum_bn/concentration, AA file for allocation) -- filling a gap where this segment was entirely absent from the original UK pilot build. Category: Tax Exempt Organization."
+        }
+      ],
+      "concentration": {
+        "top3_share_pct": 100.0,
+        "hhi": 10000,
+        "n_institutions": 1,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Church of England",
+            "aum_bn": 0.12
+          }
+        ],
+        "top10_share_pct": 100.0
+      }
+    },
+    {
+      "segment": "DC Pension (Endowments)",
+      "aum_bn": 0.001692,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "AVC Investments",
+          "value_bn": 0.001692,
+          "pct_of_segment": 100.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.001692
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 0.001692,
+          "currency": "USD",
+          "as_of": "2026-07-17",
+          "source": "S&P Money Manager Database, Endowment category, Total DC Assets (Company export)",
+          "note": "Newly built 2026-07-17 -- this segment was previously missing from uk.json entirely (the original UK pilot build never covered it). Built from the same Company/AA exports as every other Atlas segment.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-17",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment newly built from the raw UK S&P Money Manager Database exports (Company file for aum_bn/concentration, AA file for allocation) -- filling a gap where this segment was entirely absent from the original UK pilot build. Category: Endowment."
+        }
+      ],
+      "concentration": {
+        "top3_share_pct": 100.0,
+        "hhi": 9449,
+        "n_institutions": 2,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "University of Glasgow",
+            "aum_bn": 0.0
+          },
+          {
+            "name": "University of Oxford",
+            "aum_bn": 0.0
+          }
+        ],
+        "top10_share_pct": 100.0
+      }
+    },
+    {
+      "segment": "Foundations E&F",
+      "aum_bn": 0.294376,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 0.153129,
+          "pct_of_segment": 52.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.153129
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 0.002991,
+          "pct_of_segment": 1.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.002529
+            },
+            {
+              "asset_style": "Gilts",
+              "value_bn": 0.000462
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 0.046954,
+          "pct_of_segment": 16.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.039899
+            },
+            {
+              "asset_style": "Non-Interest Bearing",
+              "value_bn": 0.007055
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 0.00756,
+          "pct_of_segment": 2.6,
+          "styles": [
+            {
+              "asset_style": "Limited Partnerships",
+              "value_bn": 0.001655
+            },
+            {
+              "asset_style": "Absolute Return",
+              "value_bn": 5e-06
+            },
+            {
+              "asset_style": "Real Assets",
+              "value_bn": 0.0059
+            }
+          ]
+        },
+        {
+          "asset_type": "Other Investments",
+          "value_bn": 0.083742,
+          "pct_of_segment": 28.4,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.083742
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 0.294376,
+          "currency": "USD",
+          "as_of": "2026-07-17",
+          "source": "S&P Money Manager Database, Private Foundation category, Total E/F Assets/Other Assets (Company export)",
+          "note": "Newly built 2026-07-17 -- this segment was previously missing from uk.json entirely (the original UK pilot build never covered it). Built from the same Company/AA exports as every other Atlas segment.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-17",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment newly built from the raw UK S&P Money Manager Database exports (Company file for aum_bn/concentration, AA file for allocation) -- filling a gap where this segment was entirely absent from the original UK pilot build. Category: Private Foundation."
+        }
+      ],
+      "concentration": {
+        "top3_share_pct": 76.8,
+        "hhi": 2373,
+        "n_institutions": 5,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Sir James Knott Trust",
+            "aum_bn": 0.09
+          },
+          {
+            "name": "The All England Lawn Tennis & Croquet Club Limited",
+            "aum_bn": 0.09
+          },
+          {
+            "name": "Wolfson Family Charitable Trust",
+            "aum_bn": 0.05
+          },
+          {
+            "name": "Commonwealth War Graves Commission",
+            "aum_bn": 0.04
+          },
+          {
+            "name": "Sigrid Rausing Trust",
+            "aum_bn": 0.03
+          }
+        ],
+        "top10_share_pct": 100.0
+      }
+    },
+    {
+      "segment": "Healthcare non-profit E&F",
+      "aum_bn": 2.550063,
+      "basis": "Bottom-up (S&P Money Manager Database export)",
+      "scorecard": {},
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 1.465578,
+          "pct_of_segment": 57.5,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 1.465578
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 0.419341,
+          "pct_of_segment": 16.4,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.417784
+            },
+            {
+              "asset_style": "Government Bonds",
+              "value_bn": 0.00101
+            },
+            {
+              "asset_style": "Bonds",
+              "value_bn": 0.000547
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 0.227776,
+          "pct_of_segment": 8.9,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.213705
+            },
+            {
+              "asset_style": "Savings & Temporary Cash",
+              "value_bn": 0.001299
+            },
+            {
+              "asset_style": "CDs",
+              "value_bn": 0.003954
+            },
+            {
+              "asset_style": "Money Market",
+              "value_bn": 0.008819
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 0.002926,
+          "pct_of_segment": 0.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.002926
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 0.275331,
+          "pct_of_segment": 10.8,
+          "styles": [
+            {
+              "asset_style": "Private Equity",
+              "value_bn": 0.275331
+            }
+          ]
+        },
+        {
+          "asset_type": "Other Investments",
+          "value_bn": 0.147367,
+          "pct_of_segment": 5.8,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.147367
+            }
+          ]
+        },
+        {
+          "asset_type": "Unspecified",
+          "value_bn": 0.001764,
+          "pct_of_segment": 0.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.001764
+            }
+          ]
+        },
+        {
+          "asset_type": "Assets classified as held for sale",
+          "value_bn": 0.003303,
+          "pct_of_segment": 0.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.003303
+            }
+          ]
+        },
+        {
+          "asset_type": "Other Investment",
+          "value_bn": 0.006677,
+          "pct_of_segment": 0.3,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.006677
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database export)",
+          "aum_bn": 2.550063,
+          "currency": "USD",
+          "as_of": "2026-07-17",
+          "source": "S&P Money Manager Database, Health Service Organization - nonprofit category, Total E/F Assets/Other Assets (Company export)",
+          "note": "Newly built 2026-07-17 -- this segment was previously missing from uk.json entirely (the original UK pilot build never covered it). Built from the same Company/AA exports as every other Atlas segment.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-17",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment newly built from the raw UK S&P Money Manager Database exports (Company file for aum_bn/concentration, AA file for allocation) -- filling a gap where this segment was entirely absent from the original UK pilot build. Category: Health Service Organization - nonprofit."
+        }
+      ],
+      "concentration": {
+        "top3_share_pct": 91.9,
+        "hhi": 5921,
+        "n_institutions": 10,
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "LifeArc",
+            "aum_bn": 1.94
+          },
+          {
+            "name": "Moorfields Eye Hospital",
+            "aum_bn": 0.21
+          },
+          {
+            "name": "The Royal Marsden Cancer Charity",
+            "aum_bn": 0.19
+          },
+          {
+            "name": "Trustees of the London Clinic Limited",
+            "aum_bn": 0.06
+          },
+          {
+            "name": "Nuffield Health",
+            "aum_bn": 0.06
+          },
+          {
+            "name": "St. Christopher's Hospice",
+            "aum_bn": 0.03
+          },
+          {
+            "name": "NHS Fife",
+            "aum_bn": 0.02
+          },
+          {
+            "name": "King Edward's VII Hospital Sister Agnes",
+            "aum_bn": 0.02
+          },
+          {
+            "name": "Ashford & St Peter's Hospitals NHS Trust",
+            "aum_bn": 0.02
+          },
+          {
+            "name": "Benenden Healthcare Society Ltd.",
+            "aum_bn": 0.0
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     }
   ],
-  "allocation_note": "Equities figures are the originally validated per-segment totals. All other asset classes (Fixed Income, Cash & Short-Term, Real Estate, Alternatives, Other/Unclassified) and the finer style breakdown within each are estimated: derived from the real S&P Money Manager Database allocation export's relative shape for that segment's DB/DC/E&F institutions, then scaled to fill the remainder of the segment's already-validated AUM. DB vs DC vs Endowment/Foundation split uses each allocation row's own Type of Plan where available, falling back to the sponsoring institution's own DB/DC asset ratio for ambiguous plan types (mainly 'Investment Pool Funds'). Bank of England and British Business Bank (Reserve Banks category) are excluded throughout \u2014 their S&P records reflect central bank balance sheet assets, not staff pension schemes, and would otherwise distort every segment they touched by well over \u00a31 trillion. Life insurance and Non-life insurance have no S&P allocation data at all (S&P's plan-sponsor exports don't cover insurers) so only the known equity figure is shown for those two segments. See Sources & Methodology for the full writeup."
+  "allocation_note": "Equities figures are the originally validated per-segment totals. All other asset classes (Fixed Income, Cash & Short-Term, Real Estate, Alternatives, Other/Unclassified) and the finer style breakdown within each are estimated: derived from the real S&P Money Manager Database allocation export's relative shape for that segment's DB/DC/E&F institutions, then scaled to fill the remainder of the segment's already-validated AUM. DB vs DC vs Endowment/Foundation split uses each allocation row's own Type of Plan where available, falling back to the sponsoring institution's own DB/DC asset ratio for ambiguous plan types (mainly 'Investment Pool Funds'). Bank of England and British Business Bank (Reserve Banks category) are excluded throughout — their S&P records reflect central bank balance sheet assets, not staff pension schemes, and would otherwise distort every segment they touched by well over £1 trillion. Life insurance and Non-life insurance have no S&P allocation data at all (S&P's plan-sponsor exports don't cover insurers) so only the known equity figure is shown for those two segments. See Sources & Methodology for the full writeup.",
+  "commentary": {
+    "wealth": {
+      "text": "The UK's household wealth is dominated by two asset classes: property and private pension savings. ONS Wealth and Assets Survey data (the most recent full round, covering April 2020-March 2022) put median household wealth at £293,700, with the wealthiest 10% of households holding £1,200,500 or more and the wealthiest 1% accounting for around a fifth of all household wealth. Of that wealth, net property makes up the largest share (40%), followed closely by private pension wealth (35%); net financial wealth (cash, investments, ISAs) and physical wealth each account for a much smaller share (14% and 10% respectively). Because private pension wealth already sits inside institutional structures, a large slice of “personal” wealth is in practice managed by pension schemes and their appointed asset managers rather than held directly by individuals.\n\nOn the institutional side, Investment Association members managed £3.8 trillion of UK institutional client assets in 2024, of which pension funds remain the largest single client type at roughly £2 trillion (51%), though that share is falling as legacy defined benefit (DB) assets shrink — down about 12% in 2024 alone as many schemes transferred their liabilities to insurers. Insurance mandates have grown in step, now 28% of institutional AUM (up from 26% in 2023); pension and insurance clients together still account for around 79% of all UK institutional assets under management. In effect, institutional wealth is steadily migrating from traditional pension-scheme mandates toward insurers' balance sheets, via the bulk annuity/buy-out market.",
+      "sources": [
+        {
+          "label": "ONS, Household total wealth in Great Britain: April 2020 to March 2022",
+          "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/personalandhouseholdfinances/incomeandwealth/bulletins/totalwealthingreatbritain/april2020tomarch2022"
+        },
+        {
+          "label": "The Investment Association, Investment Management in the UK 2024-2025",
+          "url": "https://www.theia.org/sites/default/files/2025-10/Investment%20Management%20in%20the%20UK%202024-2025_0.pdf"
+        },
+        {
+          "label": "The Investment Association, UK pensions maintain leading position amid institutional market shifts (press release)",
+          "url": "https://www.theia.org/news/press-releases/uk-pensions-maintain-leading-position-amid-institutional-market-shifts"
+        },
+        {
+          "label": "ONS, Funded occupational pension schemes in the UK, April to September 2025",
+          "url": "https://www.ons.gov.uk/economy/investmentspensionsandtrusts/bulletins/fundedoccupationalpensionschemesintheuk/apriltoseptember2025"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "pensions": {
+      "text": "UK retirement income rests on three pillars: a state pension, workplace/occupational pensions, and personal pensions. The full new State Pension is £241.30 a week for 2026/27 (about £12,548 a year), uprated under the “triple lock” (the higher of average earnings growth, CPI inflation, or 2.5% — a 4.8% earnings-driven rise this year). It is not means-tested, but it is a floor rather than a replacement income, which is why occupational and private pension coverage does most of the work of funding retirement.\n\nSince auto-enrolment began in 2012, workplace pension participation has risen sharply: 23.3 million employees were saving into a workplace pension in 2024 (82% of all employees, 89% of those eligible), and defined contribution (DC) membership has grown roughly tenfold since 2011. DC is now the default vehicle for new saving, while defined benefit (DB) is a large but shrinking legacy back-book: the Pension Protection Fund's 2025 Purple Book counts 5,060 private sector DB schemes with 9.17 million members, but 74% of schemes are now closed to future accrual and only 22% remain open to new members or accrual. Despite closures, the DB/hybrid asset pool is still substantial — £1,120 billion in private sector schemes as of September 2025 — because liabilities run off slowly even after a scheme closes.\n\nManagement of these pools splits along both a public/private axis and a funded/unfunded one. Private sector DB schemes are trust-based, funded, and increasingly bought out by insurers as part of the pension risk transfer market; private sector DC is delivered through contract-based providers or trust-based master trusts, typically via default lifestyling funds. Public sector pensions are mostly unfunded and pay-as-you-go — the NHS, Teachers', Civil Service and Armed Forces schemes pay today's pensioners from today's tax receipts, with no real investment pool behind them. The Local Government Pension Scheme (LGPS) is the exception: a genuinely funded, invested DB scheme with over £350 billion in assets across 86 separate funds in England and Wales, currently more than fully funded.\n\nAt the point of delivery, DB members simply receive a defined, usually inflation-linked income for life, with no decision required at retirement. DC members, following the 2015 pension freedoms, choose between income drawdown (flexible, market-exposed, and able to pass on any remaining pot) and annuity purchase (a guaranteed income for life). FCA data for 2024/25 shows drawdown remains the more common choice by volume — 349,992 plans accessed via drawdown against 88,430 annuities — though annuity sales have been recovering as interest rates rose, and total withdrawals reached £70.9 billion, up 35.9% year on year.",
+      "sources": [
+        {
+          "label": "DWP, Benefit and pension rates 2026 to 2027",
+          "url": "https://www.gov.uk/government/publications/benefit-and-pension-rates-2026-to-2027"
+        },
+        {
+          "label": "DWP, Ten years of Automatic Enrolment in Workplace Pensions: statistics and analysis",
+          "url": "https://www.gov.uk/government/statistics/ten-years-of-automatic-enrolment-in-workplace-pensions/ten-years-of-automatic-enrolment-in-workplace-pensions-statistics-and-analysis"
+        },
+        {
+          "label": "ONS, Employee workplace pensions in the UK (Annual Survey of Hours and Earnings pension tables)",
+          "url": "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/workplacepensions/bulletins/annualsurveyofhoursandearningspensiontables/latest"
+        },
+        {
+          "label": "Pension Protection Fund / The Pensions Regulator, The Purple Book 2025",
+          "url": "https://www.ppf.co.uk/purple-book"
+        },
+        {
+          "label": "ONS, Funded occupational pension schemes in the UK, April to September 2025",
+          "url": "https://www.ons.gov.uk/economy/investmentspensionsandtrusts/bulletins/fundedoccupationalpensionschemesintheuk/apriltoseptember2025"
+        },
+        {
+          "label": "Institute for Government, Public sector pensions",
+          "url": "https://www.instituteforgovernment.org.uk/explainer/public-sector-pensions"
+        },
+        {
+          "label": "FCA, Retirement income market data 2024/25",
+          "url": "https://www.fca.org.uk/data/retirement-income-market-data-2024-25"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    }
+  }
 }
