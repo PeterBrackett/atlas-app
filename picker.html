@@ -643,7 +643,10 @@ async function downloadProjectExport(format) {
       // no idea it existed until this line and the corresponding
       // exportHelpers.js/exportDocx.js/exportPptx.js changes. null when no
       // custom weighting is set, same as the on-screen render's PROJECT_WEIGHTS.
-      body: JSON.stringify({ countries, enabled_dimensions: ENABLED_DIMENSIONS, include, weight_overrides: PROJECT_WEIGHTS })
+      // alloc_type/alloc_style -- 2026-07-23, matches whatever the "Show:
+      // Asset allocation" dropdowns are currently set to, so the exported
+      // scorecard's allocation row shows the same thing that's on screen.
+      body: JSON.stringify({ countries, enabled_dimensions: ENABLED_DIMENSIONS, include, weight_overrides: PROJECT_WEIGHTS, alloc_type: PROJECT_ALLOC_TYPE, alloc_style: PROJECT_ALLOC_STYLE })
     });
 
     if (!res.ok) {
