@@ -10,11 +10,13 @@ const DATA_FOLDER = 'AtlasData';
 // Same authorisation model as setScorecardBulk.js / setActiveSource.js.
 const ALLOWED_EDITOR_EMAIL = (process.env.ATLAS_ALLOWED_EDITOR_EMAIL || '').toLowerCase();
 
-// The two fixed commentary sections -- see country.html's COMMENTARY_SECTIONS
-// comment for the reasoning (Wealth & key pools of capital, Pensions
-// structure). Kept as a small fixed set rather than free-form section keys
-// so every country ends up with the same framework.
-const VALID_SECTIONS = ['wealth', 'pensions'];
+// The eight fixed commentary sections -- see country.html's
+// COMMENTARY_SECTIONS comment for the reasoning. Extended 2026-07-23 from
+// the original two (wealth, pensions) to include insurance, charities,
+// foundations, family offices, sovereign wealth funds and OCIO. Kept as a
+// small fixed set rather than free-form section keys so every country ends
+// up with the same framework.
+const VALID_SECTIONS = ['wealth', 'pensions', 'insurance', 'charities', 'foundations', 'family_offices', 'sovereign_wealth_funds', 'ocio'];
 
 let msalClient;
 function getMsalClient() {
