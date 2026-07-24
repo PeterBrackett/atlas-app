@@ -355,6 +355,31 @@ async function fetchCountryData(code) {
   }
 }
 
+// Scorecard values live in their own {code}_scores.json file, not inline on
+// each segment inside {code}.json -- see getScores.js / country.html's
+// loadScores() for the full rationale (data-refresh scripts rewriting
+// {code}.json used to be able to silently wipe scores entered on the live
+// site). A missing/unreachable scores file resolves to {} rather than
+// failing the whole country load -- a country with no scores yet should
+// still show up in the matrix, just with everything blank.
+async function fetchCountryScores(code) {
+  try {
+    const res = await fetchWithTimeout(`/api/scores/${code}`, undefined, 15000);
+    if (!res.ok) throw new Error('API not ready');
+    const data = await res.json();
+    return data.scores || {};
+  } catch (e) {
+    try {
+      const res = await fetchWithTimeout(`data/${code}_scores.json`, undefined, 15000);
+      if (!res.ok) return {};
+      const data = await res.json();
+      return data.scores || {};
+    } catch (e2) {
+      return {};
+    }
+  }
+}
+
 // Cross-country matrix state, populated once by loadOverviewData() and
 // reused by every re-render (view-mode switch, allocation type/style
 // change) so switching views never re-fetches every country's data.
@@ -1953,7 +1978,14 @@ async function loadOverviewData(builtCountries) {
   // at once did when it wasn't stalling.
   const countryData = await mapWithConcurrency(builtCountries, 6, async c => {
     const slug = slugFromHref(c.href) || c.code.toLowerCase();
-    return { meta: c, slug, data: await fetchCountryData(slug) };
+    const data = await fetchCountryData(slug);
+    if (data && data.segments) {
+      const scoresByName = await fetchCountryScores(slug);
+      data.segments.forEach(seg => {
+        seg.scorecard = scoresByName[seg.segment] || {};
+      });
+    }
+    return { meta: c, slug, data };
   });
 
   OVERVIEW_USABLE = countryData.filter(c => c.data);

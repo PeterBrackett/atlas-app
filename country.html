@@ -617,6 +617,31 @@ async function loadData(code) {
   }
 }
 
+// Scorecard values live in their own {code}_scores.json file, not inline on
+// each segment inside {code}.json -- split out 2026-07-24 so that
+// data-refresh/bug-fix scripts rewriting the main country file can never
+// wipe out scores entered on the live site (see getScores.js for the full
+// rationale). This fetches that file and returns just the {segmentName:
+// {...dims}} map; a missing file (country never scored yet) resolves to {}
+// rather than throwing, same "no data yet is fine" handling as loadData().
+async function loadScores(code) {
+  try {
+    const res = await fetch(`/api/scores/${code}`);
+    if (!res.ok) throw new Error('API not ready');
+    const data = await res.json();
+    return data.scores || {};
+  } catch (e) {
+    try {
+      const res = await fetch(`data/${code}_scores.json`);
+      if (!res.ok) return {};
+      const data = await res.json();
+      return data.scores || {};
+    } catch (e2) {
+      return {};
+    }
+  }
+}
+
 // Global toggle state for which scorecard dimensions count toward Overall
 // (see the "Dimensions included in Overall score" panel on overview.html).
 // country.html doesn't otherwise need global.json for anything, so this is
@@ -1042,6 +1067,16 @@ async function load() {
   CURRENT_COUNTRY_NAME = data.country_name || code.toUpperCase();
 
   LOADED_SEGMENTS = data.segments || [];
+
+  // Merge in scores from the separate {code}_scores.json file (see
+  // loadScores()/getScores.js) -- {code}.json itself no longer carries a
+  // `scorecard` key at all, precisely so that reloading/rebuilding it (e.g.
+  // a data-refresh script) can never touch scores.
+  const scoresByName = await loadScores(code);
+  LOADED_SEGMENTS.forEach(seg => {
+    seg.scorecard = scoresByName[seg.segment] || {};
+  });
+
   ENABLED_DIMENSIONS = await loadEnabledDimensions();
   CURRENT_COMMENTARY = data.commentary || {};
   renderCommentary();
