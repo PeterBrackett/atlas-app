@@ -60,6 +60,8 @@ function getClientPrincipal(request) {
 // SharePoint read + one write per country, not per segment) to keep this to
 // roughly one Graph round-trip per country regardless of how many segments
 // in it changed.
+// 2026-07-24: writes to {code}_scores.json, not {code}.json -- see
+// getScores.js for why scores were split into their own file.
 app.http('setScorecardGlobal', {
   methods: ['POST'],
   authLevel: 'anonymous',
@@ -112,49 +114,41 @@ app.http('setScorecardGlobal', {
     const results = {};
 
     for (const [countryCode, countryAssignments] of Object.entries(byCountry)) {
-      const fileName = `${countryCode}.json`;
-      const graphBase = `https://graph.microsoft.com/v1.0/sites/${SITE_ID}/drive/root:/${DATA_FOLDER}/${fileName}`;
+      const scoresFileName = `${countryCode}_scores.json`;
+      const scoresGraphBase = `https://graph.microsoft.com/v1.0/sites/${SITE_ID}/drive/root:/${DATA_FOLDER}/${scoresFileName}`;
 
       try {
-        const getResp = await fetch(`${graphBase}:/content`, {
+        // No need to touch {code}.json at all here -- the caller already
+        // knows which segments exist (it built `assignments` from data it
+        // already loaded), so this only ever reads/writes the scores file.
+        const scoresResp = await fetch(`${scoresGraphBase}:/content`, {
           headers: { Authorization: `Bearer ${token}` }
         });
-        if (getResp.status === 404) {
-          results[countryCode] = { success: false, error: 'No SharePoint data file found yet.' };
-          continue;
-        }
-        if (!getResp.ok) {
-          results[countryCode] = { success: false, error: `Could not read from SharePoint (status ${getResp.status})` };
-          continue;
-        }
-        const data = await getResp.json();
-        const segments = data.segments || [];
+        const scoresData = scoresResp.status === 404
+          ? { country_code: countryCode, scores: {} }
+          : (scoresResp.ok ? await scoresResp.json() : null);
 
-        const bySegName = {};
-        countryAssignments.forEach(a => { bySegName[a.segment] = a.value; });
+        if (scoresData === null) {
+          results[countryCode] = { success: false, error: `Could not read scores from SharePoint (status ${scoresResp.status})` };
+          continue;
+        }
+        if (!scoresData.scores || typeof scoresData.scores !== 'object') scoresData.scores = {};
 
         let updated = 0;
-        segments.forEach(seg => {
-          if (Object.prototype.hasOwnProperty.call(bySegName, seg.segment)) {
-            if (!seg.scorecard) seg.scorecard = {};
-            seg.scorecard[dimension] = bySegName[seg.segment];
-            seg.scorecard.scored_date = today;
-            updated += 1;
-          }
+        countryAssignments.forEach(a => {
+          if (!scoresData.scores[a.segment]) scoresData.scores[a.segment] = {};
+          scoresData.scores[a.segment][dimension] = a.value;
+          scoresData.scores[a.segment].scored_date = today;
+          updated += 1;
         });
 
-        if (updated === 0) {
-          results[countryCode] = { success: false, error: 'No matching segments found in this country file.' };
-          continue;
-        }
-
-        const putResp = await fetch(`${graphBase}:/content`, {
+        const putResp = await fetch(`${scoresGraphBase}:/content`, {
           method: 'PUT',
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify(data, null, 2)
+          body: JSON.stringify(scoresData, null, 2)
         });
 
         if (!putResp.ok) {

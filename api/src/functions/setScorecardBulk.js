@@ -60,6 +60,8 @@ function getClientPrincipal(request) {
 // that's the point of a "set all" action, not a fill-blanks-only one; a user
 // who wants a specific segment to differ can still edit that cell
 // individually afterwards, same as any other scorecard edit.
+// 2026-07-24: writes to {code}_scores.json, not {code}.json -- see
+// getScores.js for why scores were split into their own file.
 app.http('setScorecardBulk', {
   methods: ['POST'],
   authLevel: 'anonymous',
@@ -99,46 +101,65 @@ app.http('setScorecardBulk', {
       return { status: 400, jsonBody: { error: 'Invalid country identifier' } };
     }
 
-    const fileName = `${countryCode}.json`;
-    const graphBase = `https://graph.microsoft.com/v1.0/sites/${SITE_ID}/drive/root:/${DATA_FOLDER}/${fileName}`;
+    const dataFileName = `${countryCode}.json`;
+    const scoresFileName = `${countryCode}_scores.json`;
+    const dataGraphBase = `https://graph.microsoft.com/v1.0/sites/${SITE_ID}/drive/root:/${DATA_FOLDER}/${dataFileName}`;
+    const scoresGraphBase = `https://graph.microsoft.com/v1.0/sites/${SITE_ID}/drive/root:/${DATA_FOLDER}/${scoresFileName}`;
 
     try {
       const token = await getAccessToken();
 
-      const getResp = await fetch(`${graphBase}:/content`, {
+      // {code}.json is read-only here -- it's only consulted to get the
+      // list of segment names this country actually has, never written
+      // back to. Scores themselves live in and are written to
+      // {code}_scores.json exclusively (see getScores.js).
+      const dataResp = await fetch(`${dataGraphBase}:/content`, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      if (getResp.status === 404) {
+      if (dataResp.status === 404) {
         return { status: 404, jsonBody: { error: `No SharePoint data file found for '${countryCode}' yet.` } };
       }
-      if (!getResp.ok) {
-        return { status: 502, jsonBody: { error: `Could not read ${fileName} from SharePoint`, status: getResp.status } };
+      if (!dataResp.ok) {
+        return { status: 502, jsonBody: { error: `Could not read ${dataFileName} from SharePoint`, status: dataResp.status } };
       }
-      const data = await getResp.json();
+      const countryData = await dataResp.json();
 
-      const segments = data.segments || [];
+      const segments = countryData.segments || [];
       if (!segments.length) {
         return { status: 404, jsonBody: { error: 'No segments found for this country' } };
       }
 
+      const scoresResp = await fetch(`${scoresGraphBase}:/content`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      const scoresData = scoresResp.status === 404
+        ? { country_code: countryCode, scores: {} }
+        : (scoresResp.ok ? await scoresResp.json() : null);
+
+      if (scoresData === null) {
+        return { status: 502, jsonBody: { error: `Could not read ${scoresFileName} from SharePoint`, status: scoresResp.status } };
+      }
+      if (!scoresData.scores || typeof scoresData.scores !== 'object') scoresData.scores = {};
+
       const today = new Date().toISOString().slice(0, 10);
       segments.forEach(seg => {
-        if (!seg.scorecard) seg.scorecard = {};
+        const name = seg.segment;
+        if (!scoresData.scores[name]) scoresData.scores[name] = {};
         if (value === null) {
-          delete seg.scorecard[dimension];
+          delete scoresData.scores[name][dimension];
         } else {
-          seg.scorecard[dimension] = value;
-          seg.scorecard.scored_date = today;
+          scoresData.scores[name][dimension] = value;
+          scoresData.scores[name].scored_date = today;
         }
       });
 
-      const putResp = await fetch(`${graphBase}:/content`, {
+      const putResp = await fetch(`${scoresGraphBase}:/content`, {
         method: 'PUT',
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data, null, 2)
+        body: JSON.stringify(scoresData, null, 2)
       });
 
       if (!putResp.ok) {
@@ -147,7 +168,7 @@ app.http('setScorecardBulk', {
         return { status: 502, jsonBody: { error: 'Could not save changes to SharePoint', status: putResp.status } };
       }
 
-      return { status: 200, jsonBody: { success: true, segments } };
+      return { status: 200, jsonBody: { success: true, scores: scoresData.scores } };
     } catch (err) {
       context.error(err);
       return { status: 500, jsonBody: { error: 'Server error updating scorecard in bulk', detail: err.message } };
