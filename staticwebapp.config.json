@@ -1,14 +1,20 @@
 {
+  "auth": {
+    "rolesSource": "/api/GetRoles"
+  },
   "routes": [
     {
       "route": "/*",
-      "allowedRoles": ["authenticated"]
+      "allowedRoles": ["atlasreader"]
     }
   ],
   "responseOverrides": {
     "401": {
       "redirect": "/.auth/login/aad",
       "statusCode": 302
+    },
+    "403": {
+      "rewrite": "/403.html"
     }
   }
 }
