@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas — Supporting Evidence</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <img src="logo.png" alt="Atlas logo" class="brand-logo">
+    <div>
+      <h1>Atlas</h1>
+      <div class="tagline">Supporting evidence library</div>
+    </div>
+  </div>
+</header>
+<nav class="breadcrumb"><a href="index.html">&larr; Atlas home</a> &nbsp;|&nbsp; <a href="overview.html">Global overview</a> &nbsp;|&nbsp; <a href="picker.html">Project builder</a> &nbsp;|&nbsp; <a href="sources.html">Sources &amp; methodology</a></nav>
+
+<main>
+  <h1 class="country-name-heading">Supporting evidence library</h1>
+  <p class="note" style="border-top:none; padding-top:0;">
+    Cross-cutting reference material — fee benchmarks, market-structure surveys, and similar research that applies across countries or regions rather than to one segment of one country. Kept separate from each country's own data so it can be maintained on its own, then optionally attached as an appendix to a client report from the <a href="picker.html">Project builder</a>.
+  </p>
+
+  <div class="summary-bar" id="evidence-summary-bar"></div>
+
+  <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px;">
+    <label style="font-size:0.85rem;">Theme:
+      <select id="theme-filter-select" onchange="renderEvidence()">
+        <option value="">All themes</option>
+      </select>
+    </label>
+    <input type="text" id="evidence-filter-input" placeholder="Filter by title, source, region…" oninput="renderEvidence()" style="padding:6px 10px; border:1px solid var(--border); border-radius:6px; min-width:240px;">
+  </div>
+
+  <div id="evidence-list"></div>
+</main>
+
+<script>
+let ALL_ENTRIES = [];
+
+async function fetchEvidence() {
+  try {
+    const res = await fetch('/api/evidence');
+    if (!res.ok) throw new Error('API not ready');
+    return await res.json();
+  } catch (e) {
+    const res = await fetch('data/evidence_library.json');
+    return await res.json();
+  }
+}
+
+function renderFigures(figures) {
+  if (!figures || !figures.length) return '';
+  const rows = figures.map(f => `
+    <tr>
+      <td>${f.region || '—'}</td>
+      <td>${f.metric || '—'}</td>
+      <td>${typeof f.value === 'number' ? f.value : '—'}${f.unit ? ' ' + f.unit : ''}</td>
+      <td>${f.as_of || '—'}</td>
+    </tr>`).join('');
+  return `
+    <table class="matrix-table" style="margin-top:10px;">
+      <thead><tr><th>Region</th><th>Metric</th><th>Value</th><th>As of</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+}
+
+function renderEntry(entry) {
+  const scope = (entry.scope || []).join(', ') || '—';
+  const dims = (entry.related_dimensions || []).join(', ');
+  return `
+    <div class="research-notes" style="margin-bottom:16px;">
+      <h3 style="margin-top:0;">${entry.title || entry.id}</h3>
+      <p class="note" style="border-top:none; padding-top:0; margin-top:-6px;">
+        <strong>Theme:</strong> ${entry.theme || '—'} &nbsp;|&nbsp; <strong>Scope:</strong> ${scope}
+        ${dims ? ` &nbsp;|&nbsp; <strong>Relates to scorecard:</strong> ${dims}` : ''}
+      </p>
+      <p>${entry.summary || ''}</p>
+      ${renderFigures(entry.figures)}
+      ${entry.note ? `<p class="note" style="border-top:none; padding-top:6px;">${entry.note}</p>` : ''}
+      <p class="commentary-sources" style="margin-top:10px;">
+        <strong>Source:</strong> ${entry.source || '—'} (${entry.as_of || 'date unknown'})${entry.access ? ` — ${entry.access}` : ''}
+      </p>
+    </div>`;
+}
+
+function populateThemeFilter() {
+  const select = document.getElementById('theme-filter-select');
+  const themes = [...new Set(ALL_ENTRIES.map(e => e.theme).filter(Boolean))].sort();
+  select.innerHTML = `<option value="">All themes</option>` +
+    themes.map(t => `<option value="${t}">${t}</option>`).join('');
+}
+
+function renderEvidence() {
+  const themeFilter = document.getElementById('theme-filter-select').value;
+  const textFilter = document.getElementById('evidence-filter-input').value.trim().toLowerCase();
+
+  const filtered = ALL_ENTRIES.filter(e => {
+    if (themeFilter && e.theme !== themeFilter) return false;
+    if (!textFilter) return true;
+    const haystack = [e.title, e.source, e.summary, ...(e.scope || [])].join(' ').toLowerCase();
+    return haystack.includes(textFilter);
+  });
+
+  const container = document.getElementById('evidence-list');
+  if (!filtered.length) {
+    container.innerHTML = `<p class="note">No entries match. ${ALL_ENTRIES.length === 0 ? 'Add entries to evidence_library.json in the AtlasData SharePoint folder to populate this page.' : ''}</p>`;
+    return;
+  }
+
+  const grouped = {};
+  filtered.forEach(e => {
+    const theme = e.theme || 'Uncategorized';
+    if (!grouped[theme]) grouped[theme] = [];
+    grouped[theme].push(e);
+  });
+
+  container.innerHTML = Object.keys(grouped).sort().map(theme => `
+    <h2 style="color:var(--navy); font-size:1.05rem; margin:20px 0 10px;">${theme}</h2>
+    ${grouped[theme].map(renderEntry).join('')}
+  `).join('');
+}
+
+async function load() {
+  const data = await fetchEvidence();
+  ALL_ENTRIES = data.entries || [];
+
+  document.getElementById('evidence-summary-bar').innerHTML = `
+    <div class="stat-card"><div class="value">${ALL_ENTRIES.length}</div><div class="label">Evidence entries</div></div>
+    <div class="stat-card"><div class="value">${[...new Set(ALL_ENTRIES.map(e => e.theme).filter(Boolean))].length}</div><div class="label">Themes</div></div>
+  `;
+
+  populateThemeFilter();
+  renderEvidence();
+}
+
+load();
+</script>
+</body>
+</html>

@@ -22,7 +22,7 @@
   </div>
   <div id="auth-status" style="font-size:0.82rem; color:#b9c6d3;"></div>
 </header>
-<nav class="breadcrumb"><a href="index.html">&larr; Atlas home</a> &nbsp;|&nbsp; <a href="overview.html">Global overview</a> &nbsp;|&nbsp; <a href="sources.html">Sources &amp; methodology</a></nav>
+<nav class="breadcrumb"><a href="index.html">&larr; Atlas home</a> &nbsp;|&nbsp; <a href="overview.html">Global overview</a> &nbsp;|&nbsp; <a href="sources.html">Sources &amp; methodology</a> &nbsp;|&nbsp; <a href="evidence.html">Supporting evidence</a></nav>
 
 <main>
   <h1 class="country-name-heading">Project builder</h1>
@@ -99,6 +99,17 @@
     </div>
   </details>
 
+  <details id="project-evidence-details" style="margin-bottom:16px;">
+    <summary style="cursor:pointer; font-size:0.85rem; color:var(--muted); padding:4px 0; font-weight:600;">Attach supporting evidence to this export</summary>
+    <div style="margin-top:10px;">
+      <p class="note" style="border-top:none; padding-top:0; margin:0 0 10px; font-size:0.82rem;">
+        Cross-cutting reference material (fee benchmarks, market-structure surveys — see the <a href="evidence.html">supporting evidence library</a>) that applies across countries rather than to one segment of one country. Tick any entries relevant to this project and they'll be added as an appendix to the exported Word/PowerPoint file — nothing here affects the country tables above or any country's own data.
+      </p>
+      <div id="project-evidence-checklist" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:4px 16px; margin-bottom:6px;"></div>
+      <span class="note" id="project-evidence-hint" style="border-top:none; padding-top:0; margin:0; font-size:0.78rem;"></span>
+    </div>
+  </details>
+
   <div class="matrix-wrap">
     <table class="matrix-table" id="project-matrix"></table>
   </div>
@@ -135,6 +146,71 @@ let PROJECT_MO_ASSET_STYLE = '';
 let PROJECT_WEIGHTS = null;
 
 let CURRENT_USER = null; // set by checkAuth(), null if not signed in — gates the write action below
+
+// Cross-cutting supporting evidence (evidence_library.json, see evidence.html)
+// -- a separate, non-country-specific reference library that a project can
+// optionally attach as an export appendix. ALL_EVIDENCE is the full list
+// loaded once at page load; SELECTED_EVIDENCE_IDS is which of those the user
+// ticked for *this* export. Neither ever touches PROJECT_DATA or any
+// country's own data -- purely additive at export time (see
+// downloadProjectExport()'s `evidence` field below).
+let ALL_EVIDENCE = [];
+let SELECTED_EVIDENCE_IDS = new Set();
+
+async function fetchEvidenceLibrary() {
+  try {
+    const res = await fetchWithTimeout('/api/evidence', undefined, 15000);
+    if (!res.ok) throw new Error('API not ready');
+    return await res.json();
+  } catch (e) {
+    try {
+      const res = await fetchWithTimeout('data/evidence_library.json', undefined, 15000);
+      if (!res.ok) return { entries: [] };
+      return await res.json();
+    } catch (e2) {
+      return { entries: [] };
+    }
+  }
+}
+
+function renderEvidenceChecklist() {
+  const container = document.getElementById('project-evidence-checklist');
+  if (!ALL_EVIDENCE.length) {
+    container.innerHTML = '';
+    document.getElementById('project-evidence-hint').textContent = 'No entries in the supporting evidence library yet — see evidence.html.';
+    return;
+  }
+  const grouped = {};
+  ALL_EVIDENCE.forEach(e => {
+    const theme = e.theme || 'Uncategorized';
+    if (!grouped[theme]) grouped[theme] = [];
+    grouped[theme].push(e);
+  });
+  container.innerHTML = Object.keys(grouped).sort().map(theme => {
+    const header = `<div style="grid-column:1/-1; padding:8px 2px 2px; font-weight:700; color:var(--navy); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.04em;">${theme}</div>`;
+    const items = grouped[theme].map(e => {
+      const checked = SELECTED_EVIDENCE_IDS.has(e.id) ? 'checked' : '';
+      return `<label style="display:flex; align-items:center; gap:6px; font-size:0.88rem; cursor:pointer;" title="${(e.summary || '').replace(/"/g, '&quot;')}">
+        <input type="checkbox" data-evidence-id="${e.id}" ${checked} onchange="onEvidenceCheckboxChange(this)">
+        ${e.title || e.id}
+      </label>`;
+    }).join('');
+    return header + items;
+  }).join('');
+  updateEvidenceSelectionHint();
+}
+
+function onEvidenceCheckboxChange(input) {
+  const id = input.dataset.evidenceId;
+  if (input.checked) SELECTED_EVIDENCE_IDS.add(id);
+  else SELECTED_EVIDENCE_IDS.delete(id);
+  updateEvidenceSelectionHint();
+}
+
+function updateEvidenceSelectionHint() {
+  document.getElementById('project-evidence-hint').textContent =
+    `${SELECTED_EVIDENCE_IDS.size} of ${ALL_EVIDENCE.length} entries selected for this export.`;
+}
 
 async function checkAuth() {
   try {
@@ -634,6 +710,13 @@ async function downloadProjectExport(format) {
       commentary: c.data.commentary || {}
     }));
 
+    // evidence -- the supporting-evidence entries ticked above, sent as
+    // full objects (not just IDs) so exportDocx.js/exportPptx.js don't need
+    // their own SharePoint fetch just to render an appendix. Empty array
+    // when nothing's selected, which both export functions treat as "no
+    // appendix" -- purely additive, no effect on existing exports.
+    const evidence = ALL_EVIDENCE.filter(e => SELECTED_EVIDENCE_IDS.has(e.id));
+
     const res = await fetch(`/api/export/${format}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -646,7 +729,7 @@ async function downloadProjectExport(format) {
       // alloc_type/alloc_style -- 2026-07-23, matches whatever the "Show:
       // Asset allocation" dropdowns are currently set to, so the exported
       // scorecard's allocation row shows the same thing that's on screen.
-      body: JSON.stringify({ countries, enabled_dimensions: ENABLED_DIMENSIONS, include, weight_overrides: PROJECT_WEIGHTS, alloc_type: PROJECT_ALLOC_TYPE, alloc_style: PROJECT_ALLOC_STYLE })
+      body: JSON.stringify({ countries, enabled_dimensions: ENABLED_DIMENSIONS, include, weight_overrides: PROJECT_WEIGHTS, alloc_type: PROJECT_ALLOC_TYPE, alloc_style: PROJECT_ALLOC_STYLE, evidence })
     });
 
     if (!res.ok) {
@@ -696,6 +779,10 @@ async function load() {
   `;
 
   renderCountryChecklist();
+
+  const evidenceData = await fetchEvidenceLibrary();
+  ALL_EVIDENCE = evidenceData.entries || [];
+  renderEvidenceChecklist();
 }
 
 load();
