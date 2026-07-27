@@ -376,6 +376,67 @@ function buildCountrySection(countryName, segments, { headingLevel = HeadingLeve
   return [heading, ...body];
 }
 
+// Optional appendix built from picker.html's "Attach supporting evidence"
+// picker (see evidence.html / evidence_library.json) -- cross-cutting
+// reference material like fee-benchmark surveys that applies across
+// countries/regions rather than to one segment of one country, so it can't
+// live inside buildCountrySection() above. `evidence` is the array of full
+// entry objects the client already has (picker.html sends them directly,
+// see downloadProjectExport() there) -- this function does no fetching of
+// its own, just formatting. Returns [] for an empty/missing array, so a
+// request that never sends `evidence` (e.g. country.html's single-country
+// export) is completely unaffected -- purely additive.
+function buildEvidenceAppendix(evidence) {
+  if (!Array.isArray(evidence) || !evidence.length) return [];
+
+  const heading = new Paragraph({
+    heading: HeadingLevel.HEADING_1,
+    children: [new PageBreak(), new TextRun({ text: 'Appendix — Supporting Evidence' })]
+  });
+  const intro = new Paragraph({
+    text: 'Cross-cutting reference material (fee benchmarks, market-structure surveys) that applies across countries or regions, attached to this export separately from the country data above.',
+    spacing: { after: 150 }
+  });
+
+  const body = evidence.flatMap((e) => {
+    const subheading = new Paragraph({ text: e.title || e.id || 'Untitled entry', heading: HeadingLevel.HEADING_2, spacing: { before: 200, after: 40 } });
+    const metaLine = new Paragraph({
+      children: [new TextRun({
+        text: `${e.theme ? `Theme: ${e.theme}` : ''}${e.scope && e.scope.length ? `  |  Scope: ${e.scope.join(', ')}` : ''}`,
+        italics: true, size: 18
+      })],
+      spacing: { after: 60 }
+    });
+    const summary = e.summary ? [new Paragraph({ text: e.summary, spacing: { after: 80 } })] : [];
+
+    const figureRows = Array.isArray(e.figures) && e.figures.length ? [
+      new Paragraph({ children: [new TextRun({ text: 'Figures', italics: true, size: 18 })], spacing: { before: 40, after: 20 } }),
+      new Table({
+        width: { size: 100, type: WidthType.PERCENTAGE },
+        rows: [
+          new TableRow({ children: [headerCell('Region'), headerCell('Metric'), headerCell('Value'), headerCell('As of')] }),
+          ...e.figures.map((f) => new TableRow({ children: [
+            bodyCell(f.region || '-'),
+            bodyCell(f.metric || '-'),
+            bodyCell(`${typeof f.value === 'number' ? f.value : '-'}${f.unit ? ' ' + f.unit : ''}`),
+            bodyCell(f.as_of || '-')
+          ] }))
+        ]
+      })
+    ] : [];
+
+    const note = e.note ? [new Paragraph({ children: [new TextRun({ text: e.note, italics: true, size: 18 })], spacing: { before: 60, after: 20 } })] : [];
+    const sourceLine = new Paragraph({
+      children: [new TextRun({ text: `Source: ${e.source || 'unknown'} (${e.as_of || 'date unknown'})${e.access ? ` — ${e.access}` : ''}`, size: 16 })],
+      spacing: { before: 40, after: 100 }
+    });
+
+    return [subheading, metaLine, ...summary, ...figureRows, ...note, sourceLine];
+  });
+
+  return [heading, intro, ...body];
+}
+
 app.http('exportDocx', {
   methods: ['POST'],
   authLevel: 'anonymous',
@@ -457,6 +518,12 @@ app.http('exportDocx', {
       if (!emittedCount) {
         return { status: 400, jsonBody: { error: 'None of the selected countries have data for the requested content type(s).' } };
       }
+
+      // Supporting-evidence appendix -- see buildEvidenceAppendix() above.
+      // body.evidence is only ever populated by picker.html's "Attach
+      // supporting evidence" picker; country.html's single-country export
+      // never sends it, so this is a no-op there.
+      children.push(...buildEvidenceAppendix(body.evidence));
 
       children.push(new Paragraph({
         text: 'Source: Atlas. See Sources & Methodology on the site for how these figures are derived.',

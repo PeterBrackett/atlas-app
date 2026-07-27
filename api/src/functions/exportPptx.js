@@ -429,6 +429,51 @@ function addCountrySlides(pptx, countryName, segments, generatedDate, enabledDim
   if (includeSet.has('top_institutions')) addTopInstitutionsSlides(pptx, countryName, segments);
 }
 
+// Optional appendix slides built from picker.html's "Attach supporting
+// evidence" picker (see evidence.html / evidence_library.json) -- one slide
+// per entry, since evidence text (summary + figures + note + source) tends
+// to run long and a shared multi-entry slide would risk overflow. `evidence`
+// is the array of full entry objects the client already has (picker.html
+// sends them directly); this function does no fetching of its own. A
+// missing/empty array adds no slides -- purely additive, no effect on
+// country.html's single-country export, which never sends this field.
+function addEvidenceSlides(pptx, evidence) {
+  if (!Array.isArray(evidence) || !evidence.length) return;
+
+  const introSlide = addAtlasSlide(pptx);
+  introSlide.addText('Appendix — Supporting Evidence', { x: TITLE_X, y: 0.25, fontSize: 28, bold: true });
+  introSlide.addText('Cross-cutting reference material (fee benchmarks, market-structure surveys) that applies across countries or regions, attached to this export separately from the country data above.', {
+    x: 0.4, y: 1.2, w: SLIDE_W - 0.8, h: 1.2, fontSize: 14, color: '666666', valign: 'top'
+  });
+
+  evidence.forEach((e) => {
+    const slide = addAtlasSlide(pptx);
+    slide.addText(e.title || e.id || 'Untitled entry', { x: TITLE_X, y: 0.25, fontSize: 22, bold: true });
+    const metaText = `${e.theme ? `Theme: ${e.theme}` : ''}${e.scope && e.scope.length ? `  |  Scope: ${e.scope.join(', ')}` : ''}`;
+    slide.addText(metaText, { x: 0.4, y: 0.85, fontSize: 11, color: '666666' });
+
+    const bodyRuns = [];
+    if (e.summary) bodyRuns.push({ text: e.summary, options: { breakLine: true, paraSpaceAfter: 8 } });
+    if (Array.isArray(e.figures) && e.figures.length) {
+      bodyRuns.push({ text: 'Figures', options: { bold: true, breakLine: true, paraSpaceAfter: 2 } });
+      e.figures.forEach((f) => {
+        const valueText = `${typeof f.value === 'number' ? f.value : '-'}${f.unit ? ' ' + f.unit : ''}`;
+        bodyRuns.push({ text: `${f.region || '-'} — ${f.metric || '-'}: ${valueText}${f.as_of ? ` (${f.as_of})` : ''}`, options: { breakLine: true, paraSpaceAfter: 2 } });
+      });
+    }
+    if (e.note) bodyRuns.push({ text: e.note, options: { italic: true, breakLine: true, paraSpaceAfter: 8, color: '444444' } });
+
+    slide.addText(bodyRuns, {
+      x: 0.4, y: 1.3, w: SLIDE_W - 0.8, h: 5.2,
+      fontSize: 12, valign: 'top', align: 'left', autoFit: false
+    });
+
+    slide.addText(`Source: ${e.source || 'unknown'} (${e.as_of || 'date unknown'})${e.access ? ` — ${e.access}` : ''}`, {
+      x: 0.4, y: 6.7, w: SLIDE_W - 0.8, fontSize: 9, color: '666666'
+    });
+  });
+}
+
 app.http('exportPptx', {
   methods: ['POST'],
   authLevel: 'anonymous',
@@ -488,6 +533,12 @@ app.http('exportPptx', {
       // comment in exportDocx.js). Defaults to Equities/no-style in
       // buildScorecardMatrix() if omitted.
       countries.forEach((c) => addCountrySlides(pptx, c.country_name, c.segments, generatedDate, body.enabled_dimensions, include, body.weight_overrides, c.commentary, body.alloc_type, body.alloc_style));
+
+      // Supporting-evidence appendix slides -- see addEvidenceSlides() above.
+      // body.evidence is only ever populated by picker.html's "Attach
+      // supporting evidence" picker; country.html's single-country export
+      // never sends it, so this is a no-op there.
+      addEvidenceSlides(pptx, body.evidence);
 
       const buffer = await pptx.write({ outputType: 'nodebuffer' });
 
