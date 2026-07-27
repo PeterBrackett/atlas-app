@@ -1,0 +1,44 @@
+{
+  "schema_note": "Cross-cutting supporting evidence -- fee benchmarks, market-structure surveys, and similar reference material that applies across countries or regions rather than to one segment of one country's data file. Deliberately kept separate from the per-country {code}.json files (segments/sources[]/scorecard) so it can be maintained and cited independently of any single market, then optionally attached to a client report as an appendix via picker.html's 'Attach supporting evidence' picker. Does not feed scoring automatically -- see individual entries' related_dimensions for where a figure could inform analyst judgment on a scorecard dimension. Added 2026-07-27, per Peter's request to gather this kind of material in a separate area rather than forcing it onto individual countries.",
+  "entries": [
+    {
+      "id": "mercer-fee-survey-2026",
+      "title": "Mercer Global Asset Manager Fee Survey",
+      "theme": "Fees & pricing",
+      "scope": ["Global", "Canada", "United Kingdom", "Europe", "Asia", "Emerging Markets"],
+      "related_dimensions": ["pricing_impact"],
+      "source": "Mercer, Global Asset Manager Fee Survey (5th+ edition)",
+      "as_of": "2025",
+      "access": "Historically complimentary at Mercer Global Investment Forums; current editions also accessible via free MercerInsight Community registration ('MercerInsight Trends')",
+      "summary": "Country/region median investment management fee benchmarks, blended across asset classes: Canada ~0.30%, UK ~0.40%, Europe ~0.50%, Asia ~0.75%, Emerging Markets ~0.89%.",
+      "figures": [
+        { "region": "Canada", "metric": "Median blended manager fee", "value": 0.30, "unit": "%" },
+        { "region": "United Kingdom", "metric": "Median blended manager fee", "value": 0.40, "unit": "%" },
+        { "region": "Europe", "metric": "Median blended manager fee", "value": 0.50, "unit": "%" },
+        { "region": "Asia", "metric": "Median blended manager fee", "value": 0.75, "unit": "%" },
+        { "region": "Emerging Markets", "metric": "Median blended manager fee", "value": 0.89, "unit": "%" }
+      ],
+      "note": "All-asset-class blended averages, not broken out by specific strategy or mandate size. Country/region granularity is this survey's key strength relative to bfinance's IMF Series (see below) -- but the two use different methodologies (survey responses vs. real quoted fees) and shouldn't be treated as directly reconcilable line items.",
+      "added": { "date": "2026-07-27", "by": "secondary-source-research" }
+    },
+    {
+      "id": "bfinance-imf-series-2026",
+      "title": "bfinance Investment Management Fees series (\"IMF Series\")",
+      "theme": "Fees & pricing",
+      "scope": ["Global"],
+      "related_dimensions": ["pricing_impact"],
+      "source": "bfinance, \"Pricing Pressure in the Turbulent Twenties\" (2026 edition; biennial IMF Series, prior editions 2019, 2021-22, 2023-24)",
+      "as_of": "2026-06",
+      "access": "Free download via email-gated landing page (bfinance website)",
+      "summary": "Real quoted-mandate fee benchmarks by specific strategy and mandate size, with quartile ranges and multi-year trend lines. No country axis -- fees are pooled globally, not broken out by client domicile.",
+      "figures": [
+        { "region": "Global", "metric": "EM equity pooled funds ($100m allocation), median fee", "value": 69, "unit": "bps", "as_of": "2021-22" },
+        { "region": "Global", "metric": "EM equity pooled funds ($100m allocation), median fee", "value": 60, "unit": "bps", "as_of": "2025-26" },
+        { "region": "Europe", "metric": "High yield credit SMA ($100m allocation), median fee", "value": 34, "unit": "bps", "as_of": "2020-22" },
+        { "region": "Europe", "metric": "High yield credit SMA ($100m allocation), median fee", "value": 30, "unit": "bps", "as_of": "2025-26" }
+      ],
+      "note": "Based on real quoted mandate fees, not survey responses -- a different and complementary methodology to Mercer's country-benchmark survey above. Has no country/region granularity, so cannot substitute for Mercer's figures; best read alongside Mercer, not instead of it. A November 2024 bfinance poll of 300+ investors found roughly 40%+ believed like-for-like private equity fees had fallen, despite little stated-term compression showing in bfinance's own PE figures -- a perception-vs-data gap worth flagging if PE fee compression comes up with a client.",
+      "added": { "date": "2026-07-27", "by": "secondary-source-research" }
+    }
+  ]
+}
