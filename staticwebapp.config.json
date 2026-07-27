@@ -1,11 +1,8 @@
 {
-  "auth": {
-    "rolesSource": "/api/GetRoles"
-  },
   "routes": [
     {
       "route": "/*",
-      "allowedRoles": ["atlasreader"]
+      "allowedRoles": ["authenticated"]
     }
   ],
   "responseOverrides": {
