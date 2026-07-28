@@ -2,15 +2,14 @@
   "country_code": "DK",
   "country_name": "Denmark",
   "reporting_period": "2026-07 (S&P export date)",
-  "source_note": "Currency confirmed (2026-07-10): S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). These figures are USD, not DKK as previously assumed here. Danmarks Nationalbank's central-bank balance sheet (S&P Category 'Reserve Banks', ~DKK 100.7bn) is excluded throughout, same convention as UK's Bank of England exclusion \u2014 its own separate staff pension record (S&P Category 'Corporation', DKK 0.649bn, Defined Benefit) is kept. S&P's 'Tax Exempt Organization' category is mapped mechanically onto the 'Tax exempt E&F' segment, matching the same category-to-segment rule used for the UK \u2014 note three of the four institutions in that category are literally named '...Foundation' (Danish National Research Foundation, LEGO Foundation, Lundbeck Foundation), so 'Foundations E&F' is a defensible alternative mapping if you'd rather classify by name than by S&P's own category label; flagging as a judgement call rather than deciding silently. DB Pension (Govt) is a single institution \u2014 Pensionskassen Magistre & Psykologer (AkademikerPension), an academic professional pension fund that S&P tags 'Government' \u2014 worth checking whether that's the right bucket for it versus DB Pension (Corp) or a professional-association-specific read. 42 institutions tracked (43 in the export, minus Danmarks Nationalbank's Reserve Banks record), DKK 757.96bn tracked; no independent check yet on how exhaustive that is against Denmark's actual institutional universe.",
-  "scorecard_note": "Not yet scored \u2014 none of the 12 opportunity-scorecard dimensions have been filled in for any Denmark segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
-  "allocation_note": "Built bottom-up directly from the real plan-level allocation lines in dk_institutions_latest.json (no scaling or equity-anchoring, same real-bottom-up approach as Ireland \u2014 Denmark has no legacy workbook figure to reconcile against). Raw asset_type values mapped onto the standard six buckets (Equities, Fixed Income, Cash & Short-Term, Real Estate, Alternatives, Other/Unclassified); 'Loans' folded into Fixed Income, everything else non-standard (Other Investments, Investments in Subsidiaries/Associates/Affiliated Companies, Mission Related Investments, International Monetary Fund, and several inconsistently-capitalised 'Other Invesment(s)' variants) folded into Other/Unclassified. Same 5%-of-asset-type materiality threshold as UK/Ireland for style breakdowns. Plan-level lines with an explicit Defined Benefit or Defined Contribution plan type are assigned directly to that segment; ambiguous plan types (mainly 'Investment Pool Funds', plus a handful of 'Hybrid DB/DC Plan' lines) are split across an institution's actual segments in proportion to its own DB/DC/E&F asset split \u2014 excluding any segment that already has its own explicitly-typed plan, to avoid double counting (this mattered for one small case: Lundbeck Foundation has both a large general Investment Pool and a separate small standalone Defined Benefit Plan). Coverage is 94\u2013100% of segment AUM for every segment except DB Pension (Govt) at 94.4%; the small remainder in each case is plan-level lines with a missing dollar-amount field.",
+  "source_note": "Currency confirmed (2026-07-10): S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). These figures are USD, not DKK as previously assumed here. Danmarks Nationalbank's central-bank balance sheet (S&P Category 'Reserve Banks', ~DKK 100.7bn) is excluded throughout, same convention as UK's Bank of England exclusion — its own separate staff pension record (S&P Category 'Corporation', DKK 0.649bn, Defined Benefit) is kept. S&P's 'Tax Exempt Organization' category is mapped mechanically onto the 'Tax exempt E&F' segment, matching the same category-to-segment rule used for the UK — note three of the four institutions in that category are literally named '...Foundation' (Danish National Research Foundation, LEGO Foundation, Lundbeck Foundation), so 'Foundations E&F' is a defensible alternative mapping if you'd rather classify by name than by S&P's own category label; flagging as a judgement call rather than deciding silently. DB Pension (Govt) is a single institution — Pensionskassen Magistre & Psykologer (AkademikerPension), an academic professional pension fund that S&P tags 'Government' — worth checking whether that's the right bucket for it versus DB Pension (Corp) or a professional-association-specific read. 42 institutions tracked (43 in the export, minus Danmarks Nationalbank's Reserve Banks record), DKK 757.96bn tracked; no independent check yet on how exhaustive that is against Denmark's actual institutional universe.",
+  "scorecard_note": "Not yet scored — none of the 12 opportunity-scorecard dimensions have been filled in for any Denmark segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
+  "allocation_note": "Built bottom-up directly from the real plan-level allocation lines in dk_institutions_latest.json (no scaling or equity-anchoring, same real-bottom-up approach as Ireland — Denmark has no legacy workbook figure to reconcile against). Raw asset_type values mapped onto the standard six buckets (Equities, Fixed Income, Cash & Short-Term, Real Estate, Alternatives, Other/Unclassified); 'Loans' folded into Fixed Income, everything else non-standard (Other Investments, Investments in Subsidiaries/Associates/Affiliated Companies, Mission Related Investments, International Monetary Fund, and several inconsistently-capitalised 'Other Invesment(s)' variants) folded into Other/Unclassified. Same 5%-of-asset-type materiality threshold as UK/Ireland for style breakdowns. Plan-level lines with an explicit Defined Benefit or Defined Contribution plan type are assigned directly to that segment; ambiguous plan types (mainly 'Investment Pool Funds', plus a handful of 'Hybrid DB/DC Plan' lines) are split across an institution's actual segments in proportion to its own DB/DC/E&F asset split — excluding any segment that already has its own explicitly-typed plan, to avoid double counting (this mattered for one small case: Lundbeck Foundation has both a large general Investment Pool and a separate small standalone Defined Benefit Plan). Coverage is 94–100% of segment AUM for every segment except DB Pension (Govt) at 94.4%; the small remainder in each case is plan-level lines with a missing dollar-amount field.",
   "segments": [
     {
       "segment": "DB Pension (Corp)",
       "aum_bn": 432.66241,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Fixed Income",
@@ -103,6 +102,24 @@
           "source": "S&P Money Manager Database export (Denmark)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Top-down check (OECD autonomous pension funds, country total)",
+          "aum_bn": 144.465,
+          "currency": "USD",
+          "as_of": "2024 (OECD reference year)",
+          "source": "OECD Data Explorer, 'Assets earmarked for retirement' (OECD.DAF.CM, DSD_FP@DF_PA), Pension funds (autonomous) vehicle type (native unit: USD millions, converted here to USD bn to match Atlas convention)",
+          "note": "Country-level top-down cross-check, not a segment-specific figure. CORRECTED 2026-07-16: an earlier version of this note claimed the gap was because Atlas's bottom-up figure includes book reserve and insurance-wrapped pension assets that OECD's 'autonomous pension funds' vehicle type excludes. That claim was not well supported and has been withdrawn -- S&P's Money Manager Database tracks assets already placed with professional managers (so unfunded book reserves, which have no external portfolio, structurally shouldn't appear in it), and it tracks insurance firms as a category separate from pension institutions. The real driver of variance, where known, is noted per-country below. Compares against the SUM of all DB+DC segments in Denmark (DB Pension (Corp), DC Pension (Corp), DB Pension (Govt), DC Pension (Union), DB Pension (Tax exempt)): Atlas bottom-up = $742.87bn vs OECD (autonomous funds only, 2024) = $144.47bn, variance +414.2%. Specific flag for Denmark: much of the Danish labour-market pension system (ATP, PFA, Industriens Pension and similar) is run through providers licensed as insurance companies or life-insurance-style pension funds. If Atlas's bottom-up figure counts these by function (pension) while OECD's autonomous-funds series excludes them as insurance contracts, that would explain a meaningful part of the gap -- not yet confirmed institution-by-institution. Shown here against the largest DB/DC segment (DB Pension (Corp)) as a reference point only -- do not apply this figure as this segment's own total.",
+          "active": false
+        },
+        {
+          "basis": "Top-down check (IPE Top 1000 Pension Funds Europe 2025, country total)",
+          "aum_bn": 690.82,
+          "currency": "EUR",
+          "as_of": "2024-12-31 to 2025-08-04 (IPE Top 1000 Pension Funds, 2025 edition)",
+          "source": "IPE, 'Top 1000 Pension Funds' (2025 edition) -- 25 named Denmark entities summed",
+          "note": "IPE 'Top 1000 Pension Funds' (2025 edition) reports 25 named pension entities for Denmark, summing to EUR690.82bn (2024-12-31 to 2025-08-04, mixed reporting dates across entities). This is a whole-country total across every pension fund IPE identifies -- spanning defined benefit and defined contribution, corporate and government/public-sector schemes combined -- not broken out the way Atlas segments this market. Shown here as a reference against DB Pension (Corp) + DB Pension (Govt) combined (Atlas bottom-up = $456.81bn across 2 segment(s)), not any single segment alone; the two figures are also in different currencies (EUR vs Atlas's USD), so this is a directional comparison only, not a precise variance calculation. Note also that this total includes commercial pension/life insurers (PFA Pension EUR111.0bn, Danica EUR73.7bn) that Atlas's own segmentation would likely classify under Life insurance rather than a Pension segment if reclassified institution-by-institution (not done in this pass).",
+          "active": false
         }
       ],
       "source_history": [
@@ -110,21 +127,81 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_added",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Added OECD autonomous pension fund total ($144.47bn, 2024) as a non-active top-down cross-check against the combined DB+DC segments for Denmark (bottom-up sum $742.87bn, variance +414.2%). Not applied -- active source and displayed aum_bn for this segment are unchanged."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_note_corrected",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Corrected the OECD top-down check note added earlier today: withdrew the claim that the variance is explained by Atlas's bottom-up figure including book reserve/insurance assets (Peter flagged that S&P MMD shouldn't capture those categories, and that's correct). Replaced with a country-specific, evidence-based explanation where one was found (Korea/NPS, Norway/KLP, Germany/Denmark/Sweden insurance-regulated occupational pension providers), or left as an open question where no clear driver was identified."
+        },
+        {
+          "date": "2026-07-28",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added via new research: 'IPE Top 1000 Pension Funds country total' (EUR690.82bn across 25 entities) -- see scope caveat in note. Cross-checked against S&P MMD-derived segment totals; not previously available in DK commentary/sources."
         }
       ],
       "concentration": {
         "top3_share_pct": 71.8,
         "hhi": 1965,
         "n_institutions": 24,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "PFA Pension",
+            "aum_bn": 123.94
+          },
+          {
+            "name": "Arbejdsmarkedets Tillaegspension (ATP)",
+            "aum_bn": 119.09
+          },
+          {
+            "name": "Pensionskassernes Administration A/S (PKA)",
+            "aum_bn": 67.56
+          },
+          {
+            "name": "Lærernes Pension",
+            "aum_bn": 27.43
+          },
+          {
+            "name": "PenSam",
+            "aum_bn": 27.28
+          },
+          {
+            "name": "AP Pension Livsforsikringsaktieselskab",
+            "aum_bn": 26.01
+          },
+          {
+            "name": "Sampension",
+            "aum_bn": 21.06
+          },
+          {
+            "name": "TDC Group",
+            "aum_bn": 5.13
+          },
+          {
+            "name": "Pensionskassen Jordbrugsakademikere & Dyrlæger (PJD)",
+            "aum_bn": 2.85
+          },
+          {
+            "name": "ISP Pension",
+            "aum_bn": 2.81
+          }
+        ],
+        "top10_share_pct": 98.0
       }
     },
     {
       "segment": "DC Pension (Corp)",
       "aum_bn": 247.214778,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -220,21 +297,55 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 74.6,
         "hhi": 2154,
         "n_institutions": 9,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Danica Pension",
+            "aum_bn": 83.08
+          },
+          {
+            "name": "PensionDanmark A/S",
+            "aum_bn": 54.17
+          },
+          {
+            "name": "Velliv, Pension & Livsforsikring A/S",
+            "aum_bn": 47.12
+          },
+          {
+            "name": "P+, Pensionskassen for Akademikere",
+            "aum_bn": 21.73
+          },
+          {
+            "name": "Lægernes Pensionskasse",
+            "aum_bn": 18.81
+          },
+          {
+            "name": "Pædagogernes Pensionskasse (PBU)",
+            "aum_bn": 15.58
+          },
+          {
+            "name": "Lønmodtagernes Dyrtidsfond (LD)",
+            "aum_bn": 6.42
+          },
+          {
+            "name": "Norli Pension Livsforsikring A/S",
+            "aum_bn": 0.31
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "DB Pension (Govt)",
       "aum_bn": 24.146213,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -278,6 +389,15 @@
           "source": "S&P Money Manager Database export (Denmark)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Top-down check (IPE Top 1000 Pension Funds Europe 2025, country total)",
+          "aum_bn": 690.82,
+          "currency": "EUR",
+          "as_of": "2024-12-31 to 2025-08-04 (IPE Top 1000 Pension Funds, 2025 edition)",
+          "source": "IPE, 'Top 1000 Pension Funds' (2025 edition) -- 25 named Denmark entities summed",
+          "note": "IPE 'Top 1000 Pension Funds' (2025 edition) reports 25 named pension entities for Denmark, summing to EUR690.82bn (2024-12-31 to 2025-08-04, mixed reporting dates across entities). This is a whole-country total across every pension fund IPE identifies -- spanning defined benefit and defined contribution, corporate and government/public-sector schemes combined -- not broken out the way Atlas segments this market. Shown here as a reference against DB Pension (Corp) + DB Pension (Govt) combined (Atlas bottom-up = $456.81bn across 2 segment(s)), not any single segment alone; the two figures are also in different currencies (EUR vs Atlas's USD), so this is a directional comparison only, not a precise variance calculation. Note also that this total includes commercial pension/life insurers (PFA Pension EUR111.0bn, Danica EUR73.7bn) that Atlas's own segmentation would likely classify under Life insurance rather than a Pension segment if reclassified institution-by-institution (not done in this pass).",
+          "active": false
         }
       ],
       "source_history": [
@@ -285,7 +405,13 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-28",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added via new research: 'IPE Top 1000 Pension Funds country total' (EUR690.82bn across 25 entities) -- see scope caveat in note. Cross-checked against S&P MMD-derived segment totals; not previously available in DK commentary/sources."
         }
       ],
       "allocation_incomplete": true,
@@ -293,14 +419,20 @@
         "top3_share_pct": 100.0,
         "hhi": 10000,
         "n_institutions": 1,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Pensionskassen Magistre & Psykologer (AkademikerPension)",
+            "aum_bn": 24.15
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "DC Pension (Union)",
       "aum_bn": 38.797857,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -385,21 +517,27 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 10000,
         "n_institutions": 1,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Industriens Pension",
+            "aum_bn": 38.8
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "DB Pension (Tax exempt)",
       "aum_bn": 0.050049,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Other/Unclassified",
@@ -465,21 +603,27 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 10000,
         "n_institutions": 1,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Lundbeck Foundation",
+            "aum_bn": 5.31
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "Endowments E&F",
       "aum_bn": 1.339893,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Fixed Income",
@@ -549,21 +693,39 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 92.5,
         "hhi": 4335,
         "n_institutions": 4,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Københavns Universitet",
+            "aum_bn": 0.83
+          },
+          {
+            "name": "Danmarks Tekniske Universite",
+            "aum_bn": 0.23
+          },
+          {
+            "name": "Aarhus University",
+            "aum_bn": 0.18
+          },
+          {
+            "name": "Aalborg University",
+            "aum_bn": 0.1
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "Tax exempt E&F",
       "aum_bn": 13.751854,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -660,6 +822,15 @@
           "source": "S&P Money Manager Database export (Denmark)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Reference only -- single foundation group, not whole-sector (Novo Holdings A/S)",
+          "aum_bn": 694,
+          "currency": "DKK",
+          "as_of": "2025-12",
+          "source": "Novo Holdings A/S, reported assets (manages the Novo Nordisk Foundation's assets, including its controlling stake in Novo Nordisk)",
+          "note": "IMPORTANT SCOPE CAVEAT: Novo Holdings A/S, which manages the Novo Nordisk Foundation's assets (including its controlling stake in Novo Nordisk), reported assets of DKK694bn (~$109bn) at end-2025 -- a single foundation's holdings, not a whole-sector total, against this segment's own bottom-up figure of just $13.75bn. The gap is large in part because Danish industrial foundations of this kind (erhvervsdrivende fond) hold their wealth in controlling equity stakes in specific operating companies rather than a diversified, professionally-managed investment portfolio of the kind that appears in institutional databases like S&P's Money Manager Database -- so the gap reflects a structural difference in how this capital is held, not a data error. Attached to Tax exempt E&F as the closest-matching segment; Denmark's other major industrial foundations (A.P. Moller Foundation and similar, discussed in this market's own commentary) are not included in either figure.",
+          "active": false
         }
       ],
       "source_history": [
@@ -667,7 +838,13 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-24",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added: \"Novo Holdings A/S (Novo Nordisk Foundation) assets\" (694bn DKK) -- see scope caveat in note."
         }
       ],
       "concentration": {
@@ -676,6 +853,329 @@
         "n_institutions": 4,
         "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
       }
+    },
+    {
+      "segment": "Life insurance",
+      "aum_bn": 243.289,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 19.718,
+          "pct_of_segment": 8.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 19.718
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 57.936,
+          "pct_of_segment": 23.8,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 57.936
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 4.031,
+          "pct_of_segment": 1.7,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 4.031
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 0.902,
+          "pct_of_segment": 0.4,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.902
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 16.76,
+          "pct_of_segment": 6.9,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 16.76
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 143.941,
+          "pct_of_segment": 59.2,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 143.941
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 243.289,
+          "as_of": "2024-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-14",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2024 data). Scorecard not yet scored -- dimensions to be filled in manually."
+        }
+      ]
+    },
+    {
+      "segment": "Non-life insurance",
+      "aum_bn": 21.387,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 0.823,
+          "pct_of_segment": 3.8,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.823
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 11.496,
+          "pct_of_segment": 53.8,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 11.496
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 0.935,
+          "pct_of_segment": 4.4,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.935
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 0.105,
+          "pct_of_segment": 0.5,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.105
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 0.045,
+          "pct_of_segment": 0.2,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.045
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 7.983,
+          "pct_of_segment": 37.3,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 7.983
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 21.387,
+          "as_of": "2024-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-14",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2024 data). Scorecard not yet scored -- dimensions to be filled in manually."
+        }
+      ]
+    },
+    {
+      "segment": "Family Offices (SFO)",
+      "aum_bn": 19.5,
+      "basis": "Bottom-up (S&P Money Manager Database, SFO-tagged, named reporters only) -- partial, coverage-limited, directional guesstimate",
+      "allocation": [],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database, SFO-tagged, named reporters only)",
+          "aum_bn": 19.5,
+          "as_of": "2026-07 (S&P Family Office module export)",
+          "source": "S&P Money Manager Database, Family Office module, filtered to Company Type = 'SFO' (single family office)",
+          "note": "Built 2026-07-23 as part of a global rollout of the Family Offices (SFO) segment, following the same methodology validated on the UK (Peter flagged that S&P's 'family office' data looked more like misclassified wealth managers than real family offices, and a full download confirmed it). S&P's Family Office module tags every firm as SFO (single family office), MFO (multi-family office) or FOSP (family office service provider); MFO and FOSP are dominated by private-bank wealth-management divisions and service providers rather than genuine family offices, so this segment is restricted to SFO-tagged firms only (7 identified for Denmark). Of those, 2 carry a numeric AUM figure, and 1 of those were excluded because the figure contradicts S&P's own size-range bucket for the same firm (Nine United Denmark A/S). The aum_bn above ($19.5bn) is the sum of the 1 remaining, internally-consistent named reporter -- it is NOT an estimate of the true Denmark single-family-office population, which is almost certainly larger, since family offices are notoriously private and under-reported by design (Peter has explicitly accepted this as a directional guesstimate rather than a comprehensive figure). No asset-class breakdown exists in the source data at all, so allocation is left empty and the chart will show as 100% 'Unreported' by design, not a bug.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-23",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "New segment added as part of a global rollout following the UK pilot (Peter questioned whether S&P's Family Office data was genuinely family offices or misclassified wealth managers -- confirmed the latter for MFO/FOSP). Restricted to SFO-tagged firms only, further excluding any numeric figure that contradicts its own stated size-range bucket. Resulting aum_bn ($19.5bn across 1 firms) is a partial, named-reporters-only total, explicitly accepted by Peter as a directional guesstimate rather than a population estimate -- see sources[].note for full methodology."
+        }
+      ],
+      "concentration": {
+        "top3_share_pct": 100.0,
+        "hhi": 10000,
+        "n_institutions": 1,
+        "basis": "The 1 SFO-tagged Denmark firm with an internally-consistent numeric AUM figure in the S&P Money Manager Database Family Office module export (see segment sources[].note) -- NOT the full 7 SFO-tagged firms identified for Denmark, only the subset that report a usable figure.",
+        "top_institutions": [
+          {
+            "name": "Kirk Kapital A/S",
+            "aum_bn": 19.5
+          }
+        ],
+        "top10_share_pct": 100.0
+      }
     }
-  ]
+  ],
+  "commentary": {
+    "wealth": {
+      "text": "Denmark's defining wealth feature, discussed in full under Pensions and Foundations below, is institutional rather than personal: an unusually large, mandatorily-funded pension system and a small number of enormous industrial foundations that between them own a meaningful share of the country's largest listed companies. Statistics Denmark (in collaboration with Danmarks Nationalbank) has published detailed household net-wealth-and-liabilities statistics since 2014, broken down by asset type, socioeconomic status and percentile, but a single clean current aggregate comparable to the UK's or Germany's household wealth surveys was not identified with confidence in available reporting.\n\nWhat is well documented is the institutional scale: Danmarks Nationalbank reported that pension wealth held in Danish pension companies rose by DKK 317 billion in 2024 to reach DKK 4,351 billion — equivalent to roughly 144% of Danish GDP, among the highest funded-pension-to-GDP ratios in the world. Denmark's three largest listed companies by market value — Novo Nordisk, A.P. Møller-Maersk and Carlsberg — are all foundation-owned, an institutional-ownership structure that gives Denmark a genuinely distinctive institutional capital base relative to its Nordic and European peers.",
+      "sources": [
+        {
+          "label": "Danmarks Nationalbank, Pension wealth of Danes increased by more than kr. 300 billion in 2024",
+          "url": "https://www.nationalbanken.dk/en/news-and-knowledge/data-and-statistics/insurance-and-pension/20250131-pension-wealth-of-danes-increased-by-more-than-kr-300-billion-in-2024"
+        },
+        {
+          "label": "Statistics Denmark, Wealth and liabilities",
+          "url": "https://www.dst.dk/en/Statistik/emner/arbejde-og-indkomst/formue/formue-og-gaeld"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "pensions": {
+      "text": "Denmark combines a modest state pension floor with one of the largest mandatorily-funded occupational and labour-market pension systems in the world — one of the deepest, most consistently-funded institutional markets in Europe relative to population. ATP (Arbejdsmarkedets Tillægspension, the Danish Labour Market Supplementary Pension) is a statutory, fully-funded, defined-contribution scheme covering almost every wage earner and most social-benefit recipients, financed two-thirds by employers and one-third by employees; together with the basic state pension, ATP provides the entirety of retirement income for 35% of Danish pensioners, and three out of every four kroner paid out in Danish pensions come from the state pension and ATP combined. On top of this sits a large, largely occupational and labour-market-negotiated pension fund sector — commercial and mutual pension insurers, and sector-wide labour-market pension funds negotiated through collective bargaining — that has made Denmark's total funded pension wealth (DKK 4,351bn, roughly 144% of GDP as of 2024) one of the largest relative to GDP anywhere in the world.\n\nThe identifiable institutional base reflects this scale and structure closely. DB Pension (Corp), the largest segment at $432.7bn, is led by PFA Pension ($123.9bn, Denmark's largest commercial pension provider), ATP itself ($119.1bn), PKA ($67.6bn, the pension administrator for several public-sector professional groups), Lærernes Pension (teachers, $27.4bn), PenSam ($27.3bn) and AP Pension ($26.0bn) — a well-identified shortlist of the largest institutional relationships in the Danish market. DC Pension (Corp), at $247.2bn, is led by Danica Pension ($83.1bn, Danske Bank's pension arm), PensionDanmark ($54.2bn, the main labour-market pension fund for skilled and unskilled private-sector workers), Velliv ($47.1bn), P+ (academics, $21.7bn), Lægernes Pensionskasse (doctors, $18.8bn) and Pædagogernes Pensionskasse (pre-school teachers, $15.6bn). DC Pension (Union), at $38.8bn, is dominated by Industriens Pension, the sector-wide fund for Danish industrial and manufacturing workers, while DB Pension (Govt) at $24.1bn is entirely AkademikerPension (formerly Pensionskassen for Magistre & Psykologer).",
+      "sources": [
+        {
+          "label": "ATP, ATP's role in the Danish pension system",
+          "url": "https://www.atp.dk/en/atps-role-in-the-danish-pension-system"
+        },
+        {
+          "label": "OECD, Pensions at a Glance 2023: Denmark country profile",
+          "url": "https://www.oecd.org/content/dam/oecd/en/publications/support-materials/2023/12/pensions-at-a-glance-2023_4757bf20/country-profiles/Denmark.pdf"
+        },
+        {
+          "label": "Danmarks Nationalbank, Pension wealth of Danes increased by more than kr. 300 billion in 2024",
+          "url": "https://www.nationalbanken.dk/en/news-and-knowledge/data-and-statistics/insurance-and-pension/20250131-pension-wealth-of-danes-increased-by-more-than-kr-300-billion-in-2024"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "insurance": {
+      "text": "Forsikring & Pension (Insurance & Pension Denmark, F&P) is the Danish trade body for both insurers and pension providers — a reflection of how tightly integrated Denmark's insurance and pensions industries are, since most Danish pension provision runs through insurance-company-style pension providers rather than trust-based pension funds in the UK sense (see Pensions above). F&P reported that the combined insurance and pension sector paid DKK 18.3 billion in tax to the Danish treasury in 2024, but a single, separately-reported total-assets figure for insurance alone (as distinct from the combined pension-and-insurance wealth figure already discussed under Wealth and Pensions) was not identified with confidence.\n\nOECD-sourced figures for the sector show Life insurance at $243.3bn and Non-life insurance at $21.4bn. Given how much of what would elsewhere be called \"insurance-based pension saving\" is captured in the pension figures above (several of the largest Danish \"pension\" institutions, including PFA, Danica and Velliv, are legally structured as life insurers), the boundary between insurance and pensions in the Danish market is somewhat blurred by local structure rather than a clean functional split — worth bearing in mind when scoping a relationship with any of these institutions, since the same counterparty may sit across both categories.",
+      "sources": [
+        {
+          "label": "European Pensions, Danish insurance and pension sectors paid DKK 18.3bn to treasury in 2024",
+          "url": "https://www.europeanpensions.net/ep/Danish-insurance-and-pension-sectors-paid-DKK-18-3bn-to-treasury-in-2024-I-P-Denmark.php"
+        },
+        {
+          "label": "F&P (Insurance & Pension Denmark), About us",
+          "url": "https://fogp.dk/en/about-us/"
+        },
+        {
+          "label": "OECD, Asset allocation of insurance companies dataset (data-explorer.oecd.org)",
+          "url": "https://data-explorer.oecd.org/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "charities": {
+      "text": "Denmark has no single national charity regulator comparable to England and Wales' Charity Commission, and Danish civil society is dominated institutionally not by conventional grant-making charities but by the industrial foundation (erhvervsdrivende fond) structure discussed under Foundations below, which blends corporate ownership with charitable purpose in a way that has no close UK equivalent. Conventional fundraising associations and smaller charitable foundations do exist, but no single, comprehensive, centrally-published aggregate financial figure covering the whole sector was identified.\n\nThis is a market where the far better-documented industrial foundations covered below represent the more realistic and significant institutional relationship, rather than the broader charity sector.",
+      "sources": [],
+      "last_updated": "2026-07-23"
+    },
+    "foundations": {
+      "text": "Denmark's foundation sector is, in institutional terms, one of the most significant in the world relative to the country's size, built around the erhvervsdrivende fond (industrial or enterprise foundation) — a structure in which a charitable foundation holds a controlling stake in an operating company, using the resulting dividends to fund grant-making while insulating the company from short-term ownership pressure. Industrial foundations control roughly a quarter of Denmark's 100 largest corporations, and Denmark's three largest listed companies by market value — Novo Nordisk, A.P. Møller-Maersk and Carlsberg — are all foundation-controlled, making this one of the most distinctive and significant institutional-ownership structures anywhere in Europe.\n\nThe Novo Nordisk Foundation is the standout example, and among the largest charitable foundations in the world by any measure: Novo Holdings A/S, which manages the Foundation's assets (including its controlling stake in Novo Nordisk, the maker of Ozempic and Wegovy), reported assets of DKK 694 billion (around $109 billion) at the end of 2025. The A.P. Møller Foundation, the controlling shareholder of shipping and logistics group A.P. Møller-Mærsk, distributed DKK 1.437 billion in grants in 2022 alone, focused on maritime, cultural and educational causes. Institutions of this kind hold their wealth in controlling equity stakes in specific operating companies rather than a diversified, professionally-managed investment portfolio, which is worth understanding before approaching them: the relationship opportunity here looks more like corporate and strategic engagement than a conventional asset-allocation mandate.",
+      "sources": [
+        {
+          "label": "Philantropia, Novo Nordisk Fonden: The largest foundation in the world you've probably never heard of",
+          "url": "https://philantropia.org/novo-nordisk-fonden/"
+        },
+        {
+          "label": "InvestInDK, Industrial Foundations - Powering Science and Innovation in Denmark",
+          "url": "https://investindk.com/insights/industrial-foundations-powering-science-and-innovation-in-denmark"
+        },
+        {
+          "label": "CBS Research Portal, The Danish Industrial Foundations",
+          "url": "https://research.cbs.dk/en/publications/the-danish-industrial-foundations/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "family_offices": {
+      "text": "The identifiable single-family-office base for Denmark is small and concentrated: of 7 firms tagged as single-family offices, only 1 reports a usable, internally-consistent AUM figure — Kirk Kapital A/S ($19.5bn), an investment vehicle linked to the Kirk Kristiansen family, the founders of the LEGO Group. The family's main global family office, KIRKBI (headquartered in Billund with additional offices in Copenhagen and Baar, Switzerland), separately manages more than $16bn in family assets across real estate, equities and fixed income, and is one of Denmark's most active private investors by deal count — though it is reported as a distinct entity from Kirk Kapital A/S in available data, so the two figures should not be added together without further verification. Nine United Denmark A/S also appears in underlying data sources but was excluded on data-quality grounds (its reported figure contradicted its own stated size range).\n\nAs in every market, this remains a floor built from named reporters only, not an estimate of the true Danish single-family-office population, which is almost certainly larger once Denmark's other prominent industrial families are accounted for.",
+      "sources": [
+        {
+          "label": "Dakota, Top 10 Family Offices in Denmark: 2025 Guide",
+          "url": "https://www.dakota.com/resources/blog/top-10-family-offices-in-denmark-2025-guide"
+        },
+        {
+          "label": "And Simple, From LEGO to clean energy: How KIRKBI manages family legacy",
+          "url": "https://andsimple.co/profiles/kirkbi-family-office"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "sovereign_wealth_funds": {
+      "text": "Denmark has no sovereign wealth fund. Unlike Norway, Denmark has not built a resource-revenue fund from its own North Sea oil and gas production (which has historically been much smaller in scale than Norway's), and there is no equivalent Danish state investment vehicle of the kind seen in the UK (National Wealth Fund), Germany (KENFO) or France (CDC/Bpifrance) discussed elsewhere in this market review. Denmark's institutional capital is instead concentrated in its pension system and industrial foundations, both discussed above, which represent the more realistic institutional relationships in this market.",
+      "sources": [],
+      "last_updated": "2026-07-23"
+    },
+    "ocio": {
+      "text": "No dedicated, regularly-published fiduciary management/OCIO market survey specific to Denmark was identified. Danish pension provision runs overwhelmingly through large, in-house-managed commercial and labour-market pension providers (PFA, ATP, Danica, PensionDanmark and the sector funds discussed under Pensions above), most of which manage assets through substantial in-house investment teams rather than delegating to an external fiduciary manager or OCIO provider — a structural feature that likely explains why Denmark, like Sweden, has not developed a visible, separately-tracked OCIO market of the kind seen in the UK.\n\nGlobally, Cerulli estimates the OCIO/fiduciary management industry grew to more than $3.3 trillion in assets by the end of 2024, projecting growth to $5.6 trillion by the end of the decade — but Denmark's own share of that global pool isn't separately reported. For managers, the more productive route into this market is direct engagement with the large pension providers named under Pensions above rather than a UK-style fiduciary-manager channel.",
+      "sources": [
+        {
+          "label": "Cerulli Associates, Nearly $1.3 Trillion Expected to Flow into OCIO Industry Through 2029",
+          "url": "https://www.cerulli.com/press-releases/nearly-1.3-trillion-expected-to-flow-into-ocio-industry-through-2029"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    }
+  }
 }

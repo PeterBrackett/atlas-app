@@ -3,14 +3,13 @@
   "country_name": "Austria",
   "reporting_period": "2026-07 (S&P export date)",
   "source_note": "Currency confirmation is still an open item, as with other countries -- figures are inferred from context rather than stated explicitly by the source data; see the pending cross-country currency question in Sources & Methodology. Category mapping and plan-type routing reused the established rule set from prior builds; no unresolved judgement calls for this country. Categories/institutions excluded from all pension segments (Reserve Banks and similar non-pension pools, or institutions with no DB/DC/E&F breakdown reported): Reserve Banks ($159.03bn). 34 institutions tracked, $55.2bn tracked across all segments.",
-  "scorecard_note": "Not yet scored \u2014 none of the 12 opportunity-scorecard dimensions have been filled in for any Austria segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
+  "scorecard_note": "Not yet scored — none of the 12 opportunity-scorecard dimensions have been filled in for any Austria segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
   "allocation_note": "Built the same real-bottom-up way as every other country: summed actual plan-level AA lines into the six standard buckets, with ambiguous plan types (Investment Pool Funds, Hybrid DB/DC Plan, Other Retirement Fund) ratio-split across each institution's actual segments using the two-pass double-count-avoidance logic, and explicitly-named pools (Sovereign Wealth Fund, Endowment Fund, Foundation Fund Or Investment Pool, Other Tax-exempt Fund) routed directly. Same 5%-of-asset-type materiality threshold for style breakdowns.",
   "segments": [
     {
       "segment": "DB Pension (Corp)",
       "aum_bn": 40.369869,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -115,6 +114,24 @@
           "source": "S&P Money Manager Database export (Austria)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Top-down check (OECD autonomous pension funds, country total)",
+          "aum_bn": 29.846,
+          "currency": "USD",
+          "as_of": "2024 (OECD reference year)",
+          "source": "OECD Data Explorer, 'Assets earmarked for retirement' (OECD.DAF.CM, DSD_FP@DF_PA), Pension funds (autonomous) vehicle type (native unit: USD millions, converted here to USD bn to match Atlas convention)",
+          "note": "Country-level top-down cross-check, not a segment-specific figure. CORRECTED 2026-07-16: an earlier version of this note claimed the gap was because Atlas's bottom-up figure includes book reserve and insurance-wrapped pension assets that OECD's 'autonomous pension funds' vehicle type excludes. That claim was not well supported and has been withdrawn -- S&P's Money Manager Database tracks assets already placed with professional managers (so unfunded book reserves, which have no external portfolio, structurally shouldn't appear in it), and it tracks insurance firms as a category separate from pension institutions. The real driver of variance, where known, is noted per-country below. Compares against the SUM of all DB+DC segments in Austria (DB Pension (Corp), DC Pension (Corp), DB Pension (Govt)): Atlas bottom-up = $49.38bn vs OECD (autonomous funds only, 2024) = $29.85bn, variance +65.5%. Shown here against the largest DB/DC segment (DB Pension (Corp)) as a reference point only -- do not apply this figure as this segment's own total.",
+          "active": false
+        },
+        {
+          "basis": "Top-down check (IPE Top 1000 Pension Funds Europe 2025, country total)",
+          "aum_bn": 47.79,
+          "currency": "EUR",
+          "as_of": "2024-12-31 to 2024-12-31 (IPE Top 1000 Pension Funds, 2025 edition)",
+          "source": "IPE, 'Top 1000 Pension Funds' (2025 edition) -- 8 named Austria entities summed",
+          "note": "IPE 'Top 1000 Pension Funds' (2025 edition) reports 8 named pension entities for Austria, summing to EUR47.79bn (2024-12-31 to 2024-12-31, mixed reporting dates across entities). This is a whole-country total across every pension fund IPE identifies -- spanning defined benefit and defined contribution, corporate and government/public-sector schemes combined -- not broken out the way Atlas segments this market. Shown here as a reference against DB Pension (Corp) + DB Pension (Govt) combined (Atlas bottom-up = $41.51bn across 2 segment(s)), not any single segment alone; the two figures are also in different currencies (EUR vs Atlas's USD), so this is a directional comparison only, not a precise variance calculation.",
+          "active": false
         }
       ],
       "source_history": [
@@ -122,7 +139,25 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_added",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Added OECD autonomous pension fund total ($29.85bn, 2024) as a non-active top-down cross-check against the combined DB+DC segments for Austria (bottom-up sum $49.38bn, variance +65.5%). Not applied -- active source and displayed aum_bn for this segment are unchanged."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_note_corrected",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Corrected the OECD top-down check note added earlier today: withdrew the claim that the variance is explained by Atlas's bottom-up figure including book reserve/insurance assets (Peter flagged that S&P MMD shouldn't capture those categories, and that's correct). Replaced with a country-specific, evidence-based explanation where one was found (Korea/NPS, Norway/KLP, Germany/Denmark/Sweden insurance-regulated occupational pension providers), or left as an open question where no clear driver was identified."
+        },
+        {
+          "date": "2026-07-28",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added via new research: 'IPE Top 1000 Pension Funds country total' (EUR47.79bn across 8 entities) -- see scope caveat in note. Cross-checked against S&P MMD-derived segment totals; not previously available in AT commentary/sources."
         }
       ],
       "allocation_incomplete": true,
@@ -130,14 +165,56 @@
         "top3_share_pct": 68.5,
         "hhi": 1973,
         "n_institutions": 21,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Valida Vorsorge Management",
+            "aum_bn": 14.02
+          },
+          {
+            "name": "APK Gruppe",
+            "aum_bn": 4.19
+          },
+          {
+            "name": "Allianz Vorsorgekasse AG",
+            "aum_bn": 2.9
+          },
+          {
+            "name": "Bonus Pensionskassen AG",
+            "aum_bn": 1.73
+          },
+          {
+            "name": "Bundespensionskasse AG",
+            "aum_bn": 1.44
+          },
+          {
+            "name": "Allianz Pensionskasse AG",
+            "aum_bn": 1.28
+          },
+          {
+            "name": "Niederösterreichische Vorsorgekasse",
+            "aum_bn": 0.97
+          },
+          {
+            "name": "OSRAM Licht AG",
+            "aum_bn": 0.69
+          },
+          {
+            "name": "OMV Aktiengesllschaft",
+            "aum_bn": 0.66
+          },
+          {
+            "name": "Andritz AG",
+            "aum_bn": 0.44
+          }
+        ],
+        "top10_share_pct": 91.6
       }
     },
     {
       "segment": "DC Pension (Corp)",
       "aum_bn": 7.87209,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -207,21 +284,27 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 10000,
         "n_institutions": 1,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "VBV Group",
+            "aum_bn": 17.33
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "SWF",
       "aum_bn": 4.5938,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Fixed Income",
@@ -273,6 +356,15 @@
           "source": "S&P Money Manager Database export (Austria)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Top-down check (Global SWF ranking)",
+          "aum_bn": 31.0,
+          "currency": "USD",
+          "as_of": "2026 (Global SWF ranking, last updated July 2026)",
+          "source": "Global SWF Ranking (globalswf.com/ranking, last updated July 2026), 'SWF'-type entities only",
+          "note": "Country-level top-down cross-check. Atlas bottom-up = $4.59bn vs Global SWF (SWF-type only) = $31.00bn, variance -85.2%. Only SWF-type entity Global SWF tracks for Austria is OBAG (Oesterreichische Beteiligungs AG, the state holding company for stakes in OMV, Post, Telekom Austria etc.), at $31bn -- well above Atlas's $4.59bn. Unclear whether Atlas's Austria SWF segment is meant to represent OBAG specifically or something narrower; worth checking the segment's own build methodology before treating this as a meaningful top-down check.",
+          "active": false
         }
       ],
       "source_history": [
@@ -280,7 +372,13 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_added",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Added Global SWF ranking figure ($31.00bn) as a non-active top-down cross-check against the SWF segment (bottom-up $4.59bn). Not applied -- active source and displayed aum_bn are unchanged."
         }
       ],
       "allocation_incomplete": true,
@@ -288,14 +386,20 @@
         "top3_share_pct": 100.0,
         "hhi": 10000,
         "n_institutions": 1,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "OPEC Fund for International Development (OFID)",
+            "aum_bn": 4.59
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "DB Pension (Govt)",
       "aum_bn": 1.138594,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -365,6 +469,15 @@
           "source": "S&P Money Manager Database export (Austria)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Top-down check (IPE Top 1000 Pension Funds Europe 2025, country total)",
+          "aum_bn": 47.79,
+          "currency": "EUR",
+          "as_of": "2024-12-31 to 2024-12-31 (IPE Top 1000 Pension Funds, 2025 edition)",
+          "source": "IPE, 'Top 1000 Pension Funds' (2025 edition) -- 8 named Austria entities summed",
+          "note": "IPE 'Top 1000 Pension Funds' (2025 edition) reports 8 named pension entities for Austria, summing to EUR47.79bn (2024-12-31 to 2024-12-31, mixed reporting dates across entities). This is a whole-country total across every pension fund IPE identifies -- spanning defined benefit and defined contribution, corporate and government/public-sector schemes combined -- not broken out the way Atlas segments this market. Shown here as a reference against DB Pension (Corp) + DB Pension (Govt) combined (Atlas bottom-up = $41.51bn across 2 segment(s)), not any single segment alone; the two figures are also in different currencies (EUR vs Atlas's USD), so this is a directional comparison only, not a precise variance calculation.",
+          "active": false
         }
       ],
       "source_history": [
@@ -372,21 +485,41 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-28",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added via new research: 'IPE Top 1000 Pension Funds country total' (EUR47.79bn across 8 entities) -- see scope caveat in note. Cross-checked against S&P MMD-derived segment totals; not previously available in AT commentary/sources."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 4832,
         "n_institutions": 3,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Sozialversicherungsanstalt der gewerblichen Wirtschaft",
+            "aum_bn": 0.73
+          },
+          {
+            "name": "Pensionsversicherungsanstalt",
+            "aum_bn": 0.29
+          },
+          {
+            "name": "Versicherungsanstalt für Eisenbahnen und Bergbau",
+            "aum_bn": 0.12
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "Tax exempt E&F",
       "aum_bn": 0.799269,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Alternatives",
@@ -468,21 +601,31 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 7444,
         "n_institutions": 2,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Humans Helping Other Humans",
+            "aum_bn": 0.68
+          },
+          {
+            "name": "Celovec Foundation for Slovene-Austrian Affairs",
+            "aum_bn": 0.12
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "Endowments E&F",
       "aum_bn": 0.467951,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Cash & Short-Term",
@@ -552,15 +695,308 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 83.4,
         "hhi": 2937,
         "n_institutions": 5,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Universitat Wien",
+            "aum_bn": 0.19
+          },
+          {
+            "name": "Technische Universität Graz",
+            "aum_bn": 0.15
+          },
+          {
+            "name": "Montanuniversität Leoben",
+            "aum_bn": 0.05
+          },
+          {
+            "name": "Paris-Loudron-Universität Salzburg",
+            "aum_bn": 0.04
+          },
+          {
+            "name": "Donau-Universität Krems",
+            "aum_bn": 0.04
+          }
+        ],
+        "top10_share_pct": 100.0
       }
+    },
+    {
+      "segment": "Life insurance",
+      "aum_bn": 8.995,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 0.102,
+          "pct_of_segment": 1.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.102
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 2.305,
+          "pct_of_segment": 25.6,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 2.305
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 0.101,
+          "pct_of_segment": 1.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.101
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 0.015,
+          "pct_of_segment": 0.2,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.015
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 0.048,
+          "pct_of_segment": 0.5,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.048
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 6.426,
+          "pct_of_segment": 71.4,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 6.426
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 8.995,
+          "as_of": "2024-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-14",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2024 data). Scorecard not yet scored -- dimensions to be filled in manually."
+        }
+      ]
+    },
+    {
+      "segment": "Non-life insurance",
+      "aum_bn": 17.647,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 11.054,
+          "pct_of_segment": 62.6,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 11.054
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 1.961,
+          "pct_of_segment": 11.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 1.961
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 1.752,
+          "pct_of_segment": 9.9,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 1.752
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 0.714,
+          "pct_of_segment": 4.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.714
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 0.022,
+          "pct_of_segment": 0.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.022
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 2.142,
+          "pct_of_segment": 12.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 2.142
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 17.647,
+          "as_of": "2024-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-14",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2024 data). Scorecard not yet scored -- dimensions to be filled in manually."
+        }
+      ]
     }
-  ]
+  ],
+  "commentary": {
+    "wealth": {
+      "text": "The Oesterreichische Nationalbank's (OeNB) Household Finance and Consumption Survey found that Austria's wealthiest 10% of households held slightly more than 50% of total net wealth in 2023, while the bottom 50% accounted for only around 4% — a narrower top-decile share than Germany's 70% but a thinner base for the least wealthy half, and a gap that the OeNB notes has not widened further over the past decade. Households were unusually active investors in 2024: of roughly €34 billion in funds not spent on consumption, a record 79% went into financial investments rather than being held as cash or spent — the highest share on record, a positive signal for managers of retail and private-wealth products.\n\nOn the institutional side, Austria's wealth is heavily channelled through a distinctive private vehicle — the Privatstiftung (private foundation), covered in full under Foundations and Family offices below — used by essentially every wealthy Austrian family and controlling 80 of the country's 100 largest companies. This structural preference for Privatstiftung over either conventional family offices or grant-making foundations in the English sense is the single most important thing to understand about how Austrian private wealth is actually held, and explains why the identifiable Family Offices and Foundations E&F segments are thin or absent for Austria despite genuine, substantial underlying wealth — the real opportunity in this market runs through advisers to the Privatstiftung structure rather than through conventional institutional channels.",
+      "sources": [
+        {
+          "label": "OeNB, VOL.AT - Analysis Shows: Wealth is So Unequally Distributed in Austria",
+          "url": "https://www.vol.at/analysis-shows-wealth-is-so-unequally-distributed-in-austria/9851315"
+        },
+        {
+          "label": "Oesterreichische Nationalbank, Household Finance and Consumption Survey",
+          "url": "https://www.oenb.at/en/Monetary-Policy/Surveys/Household-Finance-and-Consumption-Survey.html"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "pensions": {
+      "text": "Austria's pension system rests on a dominant state pay-as-you-go pillar (gesetzliche Pensionsversicherung, financed by current workers' contributions) topped up by two genuinely funded second-pillar vehicles. Pensionskassen (pension funds) provide supplementary occupational pensions, primarily employer-financed, and cover roughly 25% of Austrian employees; industry figures put total Austrian Pensionskassen assets at around €26.77 billion. Running alongside this is Abfertigung NEU (\"new severance pay\"), a distinctively Austrian system introduced in 2003 under which employers pay 1.53% of gross wages into a Vorsorgekasse (occupational savings fund) for every employee — described by Austria's own pension-fund association as the only genuinely nationwide system of funded retirement provision in the country, since Pensionskasse membership itself is not universal.\n\nThe identifiable segment data shows DB Pension (Corp) as the largest identified pool at $40.4bn, led by Valida Vorsorge Management ($14.0bn, one of Austria's largest Pensionskassen groups), APK Gruppe ($4.2bn), Allianz Vorsorgekasse ($2.9bn), Bonus Pensionskassen ($1.7bn), Bundespensionskasse (the fund for federal government employees, $1.4bn) and Allianz Pensionskasse ($1.3bn) — a clear, well-identified shortlist of the largest institutional relationships in this market. DC Pension (Corp), at $7.9bn, and DB Pension (Govt), at just $1.1bn, are considerably smaller.",
+      "sources": [
+        {
+          "label": "WKO, Die 3 Säulen des Pensionssystems",
+          "url": "https://www.wko.at/bank-versicherung/vorsorgeverband/pensionskassen/aufbau/die-drei-saeulen-des-pensionssystems"
+        },
+        {
+          "label": "WKO, Pensionskassen und Betriebliche Vorsorgekassen wachsen weiter",
+          "url": "https://www.wko.at/oe/bank-versicherung/vorsorgeverband/pensionskassen/news/pensionskassen-und-vorsorgekassen-wachsen-weiter"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "insurance": {
+      "text": "No single, current, comprehensive total-assets figure for the Austrian insurance sector as a whole from its own industry association (VVO, Versicherungsverband Österreich) was identified with confidence in available research.\n\nThe identifiable OECD-sourced segment figures show Life insurance at $9.0bn and Non-life insurance at $17.6bn, a combined $26.6bn — a small figure for a country of Austria's economic size, and, as with Belgium, an unusual pattern with Non-life exceeding Life. Given how much of Austria's institutional and private wealth runs through the Pensionskassen/Vorsorgekasse system (see Pensions above) and the Privatstiftung structure (see Foundations and Family offices below) rather than life-insurance-based savings, this smaller insurance segment likely reflects Austria's institutional structure fairly accurately rather than a data gap — worth treating as a useful caveat when comparing Austria's insurance opportunity against other European markets.",
+      "sources": [
+        {
+          "label": "OECD, Asset allocation of insurance companies dataset (data-explorer.oecd.org)",
+          "url": "https://data-explorer.oecd.org/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "charities": {
+      "text": "Austria has no single national charity regulator comparable to England and Wales' Charity Commission. Conventional Austrian charities typically take the form of a Verein (association), while wealthy Austrians overwhelmingly channel philanthropic and family wealth through the Privatstiftung (private foundation) structure instead, discussed in full below — meaning Austria's charity landscape in the conventional sense is comparatively modest next to its private-foundation sector, which is where the real institutional opportunity in Austrian philanthropic capital lies.",
+      "sources": [],
+      "last_updated": "2026-07-23"
+    },
+    "foundations": {
+      "text": "Austria's Privatstiftung (private foundation) is one of the most distinctive wealth-holding vehicles in Europe, and the single most important fact about Austrian institutional wealth generally. Introduced by the Austrian Private Foundations Act of 1993 — explicitly designed to keep Austrian family wealth onshore rather than migrating to neighbouring Liechtenstein's foundation regime — there are now more than 3,000 Privatstiftungen in Austria, with an estimated combined wealth of around €70 billion (64% held through operating companies, 24% through real estate). Virtually every wealthy Austrian family has established one, and Privatstiftungen collectively control 80 of Austria's 100 largest companies, with an estimated 400,000 jobs indirectly dependent on them — a scale of influence over the corporate economy with few parallels in Europe, though the closest comparison is Denmark's industrial foundations.\n\nConventional institutional plan-sponsor classifications, built around professionally-managed institutional asset owners, do not capture Privatstiftungen, whose wealth is typically concentrated in controlling stakes in operating companies and real estate rather than a diversified, professionally-managed investment portfolio — so no dedicated segment or asset-allocation chart is shown here, and none would meaningfully represent how this capital is actually held. This is best approached as a distinct relationship-building opportunity through the private banks, family offices and legal advisers who serve the Privatstiftung ecosystem.",
+      "sources": [
+        {
+          "label": "IFC Review, The Austrian Private Foundation",
+          "url": "https://www.ifcreview.com/articles/2024/april/the-austrian-private-foundation/"
+        },
+        {
+          "label": "IFC Review, The Austrian Private Foundation - An Update (2025)",
+          "url": "https://www.ifcreview.com/2025/05/the-austrian-private-foundation-an-update/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "family_offices": {
+      "text": "No usable, internally-consistent single-family-office figures were identified for Austria: 8 SFO-tagged firms appear in underlying data, but none carry a reliable figure. This is unlikely to be simply a data gap — it very plausibly reflects genuine market structure. As discussed under Foundations above, essentially every wealthy Austrian family holds its wealth through a Privatstiftung rather than a conventional single-family office, so Austria's true \"family capital\" opportunity is best understood through the Privatstiftung figures above rather than through this segment, which shows no usable floor total at all for the country — a market where the real opportunity requires understanding the Privatstiftung structure specifically rather than a conventional family-office approach.",
+      "sources": [],
+      "last_updated": "2026-07-23"
+    },
+    "sovereign_wealth_funds": {
+      "text": "Austria's identifiable SWF segment, as it appears in underlying data, shows a single institution: the OPEC Fund for International Development (OFID), at $4.6bn. This is worth flagging clearly rather than taking at face value: OFID is not an Austrian sovereign wealth fund at all. It is an intergovernmental development finance institution established in 1976 by the member states of OPEC (Organization of the Petroleum Exporting Countries) — currently 12 countries — to provide financial support for the socioeconomic development of other developing nations. OFID happens to be headquartered in Vienna (it signed an amended headquarters agreement with the Austrian government in 2019 and inaugurated an extended Vienna headquarters in 2024), which is almost certainly why underlying data attributes it to Austria — but its capital comes from OPEC member governments (chiefly Gulf and other oil-exporting states), not the Austrian state, and its funds have nothing to do with Austrian sovereign wealth. Austria itself has no sovereign wealth fund of its own, and this segment should be read as a data-classification artefact (headquarters location standing in for country of ownership) rather than evidence of a genuine Austrian SWF — a caveat worth bearing firmly in mind before treating this as a genuine prospect.",
+      "sources": [
+        {
+          "label": "OPEC Fund for International Development, official site",
+          "url": "https://opecfund.org/"
+        },
+        {
+          "label": "OPEC Fund for International Development, The OPEC Fund signs amended headquarters agreement with Austrian Ministry",
+          "url": "https://opecfund.org/media-center/press-releases/2019/the-opec-fund-signs-amended-headquarters-agreement-with-austrian-ministry"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "ocio": {
+      "text": "No dedicated, regularly-published fiduciary management/OCIO market survey specific to Austria was identified. Austria's Pensionskassen and Vorsorgekassen (discussed under Pensions above) are themselves specialised, regulated institutional asset managers rather than clients of an external OCIO, and much of Austria's largest private wealth runs through Privatstiftungen (discussed under Foundations above), which are typically advised by banks, family-office-style advisers or the founding family itself rather than an independent fiduciary manager in the UK sense.\n\nGlobally, Cerulli estimates the OCIO/fiduciary management industry grew to more than $3.3 trillion in assets by the end of 2024, projecting growth to $5.6 trillion by the end of the decade — but Austria's own share of that global pool isn't separately reported. The realistic route to delegated investment relationships in Austria runs through the pension institutions named above, or through the private-wealth advisers serving the Privatstiftung ecosystem.",
+      "sources": [
+        {
+          "label": "Cerulli Associates, Nearly $1.3 Trillion Expected to Flow into OCIO Industry Through 2029",
+          "url": "https://www.cerulli.com/press-releases/nearly-1.3-trillion-expected-to-flow-into-ocio-industry-through-2029"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    }
+  }
 }

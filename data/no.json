@@ -2,15 +2,14 @@
   "country_code": "NO",
   "country_name": "Norway",
   "reporting_period": "2026-07 (S&P export date)",
-  "source_note": "Currency confirmed (2026-07-10): S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). These figures are USD, not NOK as previously assumed here. No Reserve Banks record appeared in this export (Norges Bank itself isn't a separate line; it manages the Government Pension Fund Global operationally but GPFG is the legal entity reported here). Unlike Ireland and Sweden, no reclassification judgement call was needed for the SWF segment: S&P's own export already carries a dedicated 'Sovereign Wealth Funds' category, covering three institutions \u2014 Norway Government Pension Fund Global (NOK 1,956.6bn, the well-known 'Oil Fund'), Folketrygdfondet (NOK 39.6bn, manages the smaller domestic Government Pension Fund Norway), and Norfund (NOK 4.3bn, Norway's development finance institution) \u2014 mapped directly and mechanically to the SWF segment. Together they're NOK 2,000.5bn, about 93% of everything tracked for Norway, which is a real and accurate reflection of how dominant GPFG is in the Norwegian institutional landscape, not a data artefact. 74 institutions tracked, NOK 2,142.40bn tracked; no independent check yet on how exhaustive that is against Norway's actual institutional universe beyond the SWF entities and the tracked pension/tax-exempt sector.",
-  "scorecard_note": "Not yet scored \u2014 none of the 12 opportunity-scorecard dimensions have been filled in for any Norway segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
-  "allocation_note": "Built bottom-up directly from the real plan-level allocation lines in no_institutions_latest.json, same real-bottom-up approach as the other recently-built countries (no scaling or equity-anchoring). Raw asset_type values mapped onto the standard six buckets; 'Loans' folded into Fixed Income, everything else non-standard folded into Other/Unclassified. Same 5%-of-asset-type materiality threshold for style breakdowns. The SWF segment's allocation is a clean, fully-covered (100%) breakdown built directly from GPFG's own reported lines \u2014 69.2% Equities, 27.2% Fixed Income, 1.8% Real Estate \u2014 which lines up closely with GPFG's publicly known target allocation, a good sign of data quality for this segment specifically. Coverage elsewhere: DB Pension (Govt) 97.7%, DB Pension (Corp) 90.2%, Tax exempt E&F 75.2%. Two very small segments \u2014 DB Pension (Tax exempt) at NOK 42.5m and DC Pension (Tax exempt) at NOK 8.1m, together under 0.003% of the country total \u2014 have 0% allocation coverage; their plan-level rows in the export simply have no reported dollar breakdown, immaterial at this scale.",
+  "source_note": "Currency confirmed (2026-07-10): S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). These figures are USD, not NOK as previously assumed here. No Reserve Banks record appeared in this export (Norges Bank itself isn't a separate line; it manages the Government Pension Fund Global operationally but GPFG is the legal entity reported here). Unlike Ireland and Sweden, no reclassification judgement call was needed for the SWF segment: S&P's own export already carries a dedicated 'Sovereign Wealth Funds' category, covering three institutions — Norway Government Pension Fund Global (NOK 1,956.6bn, the well-known 'Oil Fund'), Folketrygdfondet (NOK 39.6bn, manages the smaller domestic Government Pension Fund Norway), and Norfund (NOK 4.3bn, Norway's development finance institution) — mapped directly and mechanically to the SWF segment. Together they're NOK 2,000.5bn, about 93% of everything tracked for Norway, which is a real and accurate reflection of how dominant GPFG is in the Norwegian institutional landscape, not a data artefact. 74 institutions tracked, NOK 2,142.40bn tracked; no independent check yet on how exhaustive that is against Norway's actual institutional universe beyond the SWF entities and the tracked pension/tax-exempt sector.",
+  "scorecard_note": "Not yet scored — none of the 12 opportunity-scorecard dimensions have been filled in for any Norway segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
+  "allocation_note": "Built bottom-up directly from the real plan-level allocation lines in no_institutions_latest.json, same real-bottom-up approach as the other recently-built countries (no scaling or equity-anchoring). Raw asset_type values mapped onto the standard six buckets; 'Loans' folded into Fixed Income, everything else non-standard folded into Other/Unclassified. Same 5%-of-asset-type materiality threshold for style breakdowns. The SWF segment's allocation is a clean, fully-covered (100%) breakdown built directly from GPFG's own reported lines — 69.2% Equities, 27.2% Fixed Income, 1.8% Real Estate — which lines up closely with GPFG's publicly known target allocation, a good sign of data quality for this segment specifically. Coverage elsewhere: DB Pension (Govt) 97.7%, DB Pension (Corp) 90.2%, Tax exempt E&F 75.2%. Two very small segments — DB Pension (Tax exempt) at NOK 42.5m and DC Pension (Tax exempt) at NOK 8.1m, together under 0.003% of the country total — have 0% allocation coverage; their plan-level rows in the export simply have no reported dollar breakdown, immaterial at this scale.",
   "segments": [
     {
       "segment": "DB Pension (Corp)",
       "aum_bn": 18.507328,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -115,6 +114,15 @@
           "source": "S&P Money Manager Database export (Norway)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Top-down check (IPE Top 1000 Pension Funds Europe 2025, country total)",
+          "aum_bn": 163.27,
+          "currency": "EUR",
+          "as_of": "2024-12-31 to 2025-06-30 (IPE Top 1000 Pension Funds, 2025 edition)",
+          "source": "IPE, 'Top 1000 Pension Funds' (2025 edition) -- 13 named Norway entities summed",
+          "note": "IPE 'Top 1000 Pension Funds' (2025 edition) reports 13 named pension entities for Norway, summing to EUR163.27bn (2024-12-31 to 2025-06-30, mixed reporting dates across entities). This is a whole-country total across every pension fund IPE identifies -- spanning defined benefit and defined contribution, corporate and government/public-sector schemes combined -- not broken out the way Atlas segments this market. Shown here as a reference against DB Pension (Corp) + DB Pension (Govt) combined (Atlas bottom-up = $140.29bn across 2 segment(s)), not any single segment alone; the two figures are also in different currencies (EUR vs Atlas's USD), so this is a directional comparison only, not a precise variance calculation. Excludes Norway Government Pension Fund Global (EUR1657.45bn) from this total -- already tracked separately in Atlas's own SWF segment for Norway and not a pension scheme in Atlas's segmentation; see the SWF segment for that cross-check instead.",
+          "active": false
         }
       ],
       "source_history": [
@@ -122,7 +130,13 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-28",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added via new research: 'IPE Top 1000 Pension Funds country total' (EUR163.27bn across 13 entities) -- see scope caveat in note. Cross-checked against S&P MMD-derived segment totals; not previously available in NO commentary/sources."
         }
       ],
       "allocation_incomplete": true,
@@ -130,14 +144,56 @@
         "top3_share_pct": 47.6,
         "hhi": 1223,
         "n_institutions": 34,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Equinor",
+            "aum_bn": 5.52
+          },
+          {
+            "name": "Tine SA",
+            "aum_bn": 1.69
+          },
+          {
+            "name": "Norsk Hydro ASA",
+            "aum_bn": 1.6
+          },
+          {
+            "name": "Yara International ASA",
+            "aum_bn": 1.07
+          },
+          {
+            "name": "DNV GL Group",
+            "aum_bn": 1.01
+          },
+          {
+            "name": "Telenor ASA",
+            "aum_bn": 0.95
+          },
+          {
+            "name": "Avinor Group",
+            "aum_bn": 0.9
+          },
+          {
+            "name": "Nordea Bank Norge ASA",
+            "aum_bn": 0.63
+          },
+          {
+            "name": "Norges Bank",
+            "aum_bn": 0.59
+          },
+          {
+            "name": "A/S Norske Shell",
+            "aum_bn": 0.58
+          }
+        ],
+        "top10_share_pct": 78.5
       }
     },
     {
       "segment": "DB Pension (Govt)",
       "aum_bn": 121.778372,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Fixed Income",
@@ -230,6 +286,24 @@
           "source": "S&P Money Manager Database export (Norway)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Top-down check (OECD autonomous pension funds, country total)",
+          "aum_bn": 46.191,
+          "currency": "USD",
+          "as_of": "2024 (OECD reference year)",
+          "source": "OECD Data Explorer, 'Assets earmarked for retirement' (OECD.DAF.CM, DSD_FP@DF_PA), Pension funds (autonomous) vehicle type (native unit: USD millions, converted here to USD bn to match Atlas convention)",
+          "note": "Country-level top-down cross-check, not a segment-specific figure. CORRECTED 2026-07-16: an earlier version of this note claimed the gap was because Atlas's bottom-up figure includes book reserve and insurance-wrapped pension assets that OECD's 'autonomous pension funds' vehicle type excludes. That claim was not well supported and has been withdrawn -- S&P's Money Manager Database tracks assets already placed with professional managers (so unfunded book reserves, which have no external portfolio, structurally shouldn't appear in it), and it tracks insurance firms as a category separate from pension institutions. The real driver of variance, where known, is noted per-country below. Compares against the SUM of all DB+DC segments in Norway (DB Pension (Corp), DB Pension (Govt), DB Pension (Tax exempt), DC Pension (Tax exempt)): Atlas bottom-up = $140.34bn vs OECD (autonomous funds only, 2024) = $46.19bn, variance +203.8%. Specific flag for Norway: the $121.8bn 'DB Pension (Govt)' figure is close in magnitude to KLP, Norway's largest public-sector occupational pension provider (~NOK 1.15tn / ~$105-110bn AUM at end-2024). KLP is legally structured as a life insurance company under Norwegian law, so OECD's vehicle-type split would likely count its assets under 'pension insurance contracts', not 'autonomous pension funds' -- even though it is functionally an occupational pension scheme. This is a plausible driver of the gap, distinct from Norway's much larger sovereign wealth fund (GPFG, ~$1.7tn+), which is not part of either figure here. Shown here against the largest DB/DC segment (DB Pension (Govt)) as a reference point only -- do not apply this figure as this segment's own total.",
+          "active": false
+        },
+        {
+          "basis": "Top-down check (IPE Top 1000 Pension Funds Europe 2025, country total)",
+          "aum_bn": 163.27,
+          "currency": "EUR",
+          "as_of": "2024-12-31 to 2025-06-30 (IPE Top 1000 Pension Funds, 2025 edition)",
+          "source": "IPE, 'Top 1000 Pension Funds' (2025 edition) -- 13 named Norway entities summed",
+          "note": "IPE 'Top 1000 Pension Funds' (2025 edition) reports 13 named pension entities for Norway, summing to EUR163.27bn (2024-12-31 to 2025-06-30, mixed reporting dates across entities). This is a whole-country total across every pension fund IPE identifies -- spanning defined benefit and defined contribution, corporate and government/public-sector schemes combined -- not broken out the way Atlas segments this market. Shown here as a reference against DB Pension (Corp) + DB Pension (Govt) combined (Atlas bottom-up = $140.29bn across 2 segment(s)), not any single segment alone; the two figures are also in different currencies (EUR vs Atlas's USD), so this is a directional comparison only, not a precise variance calculation. Excludes Norway Government Pension Fund Global (EUR1657.45bn) from this total -- already tracked separately in Atlas's own SWF segment for Norway and not a pension scheme in Atlas's segmentation; see the SWF segment for that cross-check instead.",
+          "active": false
         }
       ],
       "source_history": [
@@ -237,7 +311,25 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_added",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Added OECD autonomous pension fund total ($46.19bn, 2024) as a non-active top-down cross-check against the combined DB+DC segments for Norway (bottom-up sum $140.34bn, variance +203.8%). Not applied -- active source and displayed aum_bn for this segment are unchanged."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_note_corrected",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Corrected the OECD top-down check note added earlier today: withdrew the claim that the variance is explained by Atlas's bottom-up figure including book reserve/insurance assets (Peter flagged that S&P MMD shouldn't capture those categories, and that's correct). Replaced with a country-specific, evidence-based explanation where one was found (Korea/NPS, Norway/KLP, Germany/Denmark/Sweden insurance-regulated occupational pension providers), or left as an open question where no clear driver was identified."
+        },
+        {
+          "date": "2026-07-28",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added via new research: 'IPE Top 1000 Pension Funds country total' (EUR163.27bn across 13 entities) -- see scope caveat in note. Cross-checked against S&P MMD-derived segment totals; not previously available in NO commentary/sources."
         }
       ],
       "allocation_incomplete": true,
@@ -245,14 +337,56 @@
         "top3_share_pct": 87.1,
         "hhi": 5218,
         "n_institutions": 25,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Kommunal Landspensjonskasse gjensidig forsikringsselskap",
+            "aum_bn": 86.47
+          },
+          {
+            "name": "Oslo Pensjonsforsikring",
+            "aum_bn": 14.68
+          },
+          {
+            "name": "Pensjonskassen for Helseforetakene i Hovedstadsområdet (PKH)",
+            "aum_bn": 4.87
+          },
+          {
+            "name": "Bergen Kommune",
+            "aum_bn": 3.0
+          },
+          {
+            "name": "Trondheim Kommunale Pensjonskasse",
+            "aum_bn": 2.22
+          },
+          {
+            "name": "Statens Pensjonskasse",
+            "aum_bn": 1.59
+          },
+          {
+            "name": "Buskerud Fylkeskommune",
+            "aum_bn": 1.03
+          },
+          {
+            "name": "Drammen Kommune",
+            "aum_bn": 0.99
+          },
+          {
+            "name": "Kristiansand Kommune",
+            "aum_bn": 0.84
+          },
+          {
+            "name": "Tromsø Kommune",
+            "aum_bn": 0.72
+          }
+        ],
+        "top10_share_pct": 95.6
       }
     },
     {
       "segment": "DB Pension (Tax exempt)",
       "aum_bn": 0.042477,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [],
       "sources": [
         {
@@ -269,7 +403,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true,
@@ -277,14 +411,36 @@
         "top3_share_pct": 93.3,
         "hhi": 3495,
         "n_institutions": 5,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "KreftForeningen",
+            "aum_bn": 0.15
+          },
+          {
+            "name": "Redd Barna",
+            "aum_bn": 0.11
+          },
+          {
+            "name": "Kirkens Nødhjelp",
+            "aum_bn": 0.05
+          },
+          {
+            "name": "Norsk Folkehjelp",
+            "aum_bn": 0.05
+          },
+          {
+            "name": "Human-Etisk Forbund",
+            "aum_bn": 0.02
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "DC Pension (Tax exempt)",
       "aum_bn": 0.008139,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [],
       "sources": [
         {
@@ -301,7 +457,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true,
@@ -309,14 +465,20 @@
         "top3_share_pct": 100.0,
         "hhi": 10000,
         "n_institutions": 1,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Stiftelsen Norsk Luftambulanse",
+            "aum_bn": 0.02
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "Tax exempt E&F",
       "aum_bn": 1.552368,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Cash & Short-Term",
@@ -379,6 +541,15 @@
           "source": "S&P Money Manager Database export (Norway)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Reference only -- whole Norwegian foundation sector estimate, not institutional-only (2021 foundation accounts)",
+          "aum_bn": 220,
+          "currency": "NOK",
+          "as_of": "2021 (Norwegian foundation accounts, equity capital measure; broader estimates range NOK200-300bn)",
+          "source": "Norwegian foundation sector accounts (stiftelser), aggregate equity capital, as summarised in available research on the Foundation Register (Stiftelsesregisteret)",
+          "note": "IMPORTANT SCOPE CAVEAT: per 2021 accounts, the equity capital of Norwegian foundations (stiftelser) stood at around NOK220bn (~EUR20bn), with broader estimates of total foundation assets running as high as NOK200-300bn depending on definition -- a range, not a precise figure, covering Norway's roughly 6,000-7,600 registered foundations, against this segment's own bottom-up total of just $1.55bn built from S&P Money Manager Database reporters. The gap reflects how few Norwegian foundations are large and professionally-structured enough to appear as institutional asset owners in databases like S&P's, consistent with the pattern seen across the other Nordic markets reviewed.",
+          "active": false
         }
       ],
       "source_history": [
@@ -386,7 +557,13 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-24",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added: \"Norwegian foundation sector equity capital\" (220bn NOK) -- see scope caveat in note."
         }
       ],
       "allocation_incomplete": true,
@@ -401,7 +578,6 @@
       "segment": "SWF",
       "aum_bn": 2000.514855,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -490,6 +666,24 @@
           "source": "S&P Money Manager Database export (Norway)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Top-down check (Global SWF ranking)",
+          "aum_bn": 2056.0,
+          "currency": "USD",
+          "as_of": "2026 (Global SWF ranking, last updated July 2026)",
+          "source": "Global SWF Ranking (globalswf.com/ranking, last updated July 2026), 'SWF'-type entities only",
+          "note": "Country-level top-down cross-check. Atlas bottom-up = $2000.51bn vs Global SWF (SWF-type only) = $2056.00bn, variance -2.7%. NBIM (Norway's Government Pension Fund Global / 'oil fund'), Global SWF's largest tracked SWF globally at $2,056bn, is a close match to Atlas's $2,000.51bn (~3% variance). Norway also has a smaller SWF-type entity, FTF ($43bn), not included here.",
+          "active": false
+        },
+        {
+          "basis": "Top-down check (IPE Top 1000 Pension Funds Europe 2025, GPFG entry)",
+          "aum_bn": 1657.45,
+          "currency": "EUR",
+          "as_of": "2025-06-30 (IPE Top 1000 Pension Funds, 2025 edition)",
+          "source": "IPE, 'Top 1000 Pension Funds' (2025 edition) -- Norway Government Pension Fund Global entry",
+          "note": "IPE 'Top 1000 Pension Funds' (2025 edition) reports Norway Government Pension Fund Global (GPFG) at EUR1657.45bn as of 2025-06-30 -- a clean, well-scoped cross-check against this segment specifically (unlike the DB Pension entries' country-wide pension total, which excludes GPFG precisely because it belongs here instead). Against Atlas's own $2000.51bn (different currency, EUR vs USD -- directional comparison only), this is a reasonably close corroboration by comparative standards.",
+          "active": false
         }
       ],
       "source_history": [
@@ -497,15 +691,370 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_added",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Added Global SWF ranking figure ($2056.00bn) as a non-active top-down cross-check against the SWF segment (bottom-up $2000.51bn). Not applied -- active source and displayed aum_bn are unchanged."
+        },
+        {
+          "date": "2026-07-28",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added via new research: 'IPE-reported GPFG total' (EUR1657.45bn) -- clean cross-check against this segment, see note."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 9570,
         "n_institutions": 3,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Norway Government Pension Fund Global",
+            "aum_bn": 1956.6
+          },
+          {
+            "name": "Folketrygdfondet",
+            "aum_bn": 39.57
+          },
+          {
+            "name": "Norfund",
+            "aum_bn": 4.35
+          }
+        ],
+        "top10_share_pct": 100.0
+      }
+    },
+    {
+      "segment": "Life insurance",
+      "aum_bn": 218.316,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 16.867,
+          "pct_of_segment": 7.7,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 16.867
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 78.472,
+          "pct_of_segment": 35.9,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 78.472
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 0.39,
+          "pct_of_segment": 0.2,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.39
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 13.76,
+          "pct_of_segment": 6.3,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 13.76
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 108.827,
+          "pct_of_segment": 49.8,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 108.827
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 218.316,
+          "as_of": "2024-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
+          "active": true
+        },
+        {
+          "basis": "Reference only -- dated (2020), combined life+non-life total, not segment-specific (IMF FSA)",
+          "aum_bn": 1700,
+          "currency": "NOK",
+          "as_of": "2020 (IMF Financial Sector Assessment)",
+          "source": "IMF Financial Sector Assessment (Norway, 2020), Norwegian insurers' total balance-sheet assets",
+          "note": "IMPORTANT SCOPE CAVEAT: this IMF Financial Sector Assessment figure (NOK1,700bn, slightly under 50% of GDP at the time) is from 2020 and is now several years stale -- it is a combined life+non-life industry total, not segment-specific, so cannot be compared directly against either segment's own bottom-up total alone. Shown here as a directional cross-check only, as already framed in this segment's own commentary: Atlas bottom-up across Life and Non-life insurance combined = $237.90bn (2026 data) vs NOK1,700bn / roughly $160-170bn at 2020-era conversion, broadly consistent in order of magnitude once the multi-year gap and currency conversion are allowed for, but this should not be treated as a precise, current comparison given how dated the external benchmark is. Identical entry attached to both Life insurance and Non-life insurance for this reason.",
+          "active": false
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-14",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2024 data). Scorecard not yet scored -- dimensions to be filled in manually."
+        },
+        {
+          "date": "2026-07-24",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added: \"IMF FSA 2020 combined insurance total\" (1,700bn NOK) -- dated, directional cross-check only, see note."
+        }
+      ]
+    },
+    {
+      "segment": "Non-life insurance",
+      "aum_bn": 19.587,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 1.582,
+          "pct_of_segment": 8.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 1.582
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 11.62,
+          "pct_of_segment": 59.3,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 11.62
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 1.058,
+          "pct_of_segment": 5.4,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 1.058
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 1.084,
+          "pct_of_segment": 5.5,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 1.084
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 4.243,
+          "pct_of_segment": 21.7,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 4.243
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 19.587,
+          "as_of": "2024-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
+          "active": true
+        },
+        {
+          "basis": "Reference only -- dated (2020), combined life+non-life total, not segment-specific (IMF FSA)",
+          "aum_bn": 1700,
+          "currency": "NOK",
+          "as_of": "2020 (IMF Financial Sector Assessment)",
+          "source": "IMF Financial Sector Assessment (Norway, 2020), Norwegian insurers' total balance-sheet assets",
+          "note": "IMPORTANT SCOPE CAVEAT: this IMF Financial Sector Assessment figure (NOK1,700bn, slightly under 50% of GDP at the time) is from 2020 and is now several years stale -- it is a combined life+non-life industry total, not segment-specific, so cannot be compared directly against either segment's own bottom-up total alone. Shown here as a directional cross-check only, as already framed in this segment's own commentary: Atlas bottom-up across Life and Non-life insurance combined = $237.90bn (2026 data) vs NOK1,700bn / roughly $160-170bn at 2020-era conversion, broadly consistent in order of magnitude once the multi-year gap and currency conversion are allowed for, but this should not be treated as a precise, current comparison given how dated the external benchmark is. Identical entry attached to both Life insurance and Non-life insurance for this reason.",
+          "active": false
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-14",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2024 data). Scorecard not yet scored -- dimensions to be filled in manually."
+        },
+        {
+          "date": "2026-07-24",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added: \"IMF FSA 2020 combined insurance total\" (1,700bn NOK) -- dated, directional cross-check only, see note."
+        }
+      ]
+    },
+    {
+      "segment": "Family Offices (SFO)",
+      "aum_bn": 0.0382,
+      "basis": "Bottom-up (S&P Money Manager Database, SFO-tagged, named reporters only) -- partial, coverage-limited, directional guesstimate",
+      "allocation": [],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database, SFO-tagged, named reporters only)",
+          "aum_bn": 0.0382,
+          "as_of": "2026-07 (S&P Family Office module export)",
+          "source": "S&P Money Manager Database, Family Office module, filtered to Company Type = 'SFO' (single family office)",
+          "note": "Built 2026-07-23 as part of a global rollout of the Family Offices (SFO) segment, following the same methodology validated on the UK (Peter flagged that S&P's 'family office' data looked more like misclassified wealth managers than real family offices, and a full download confirmed it). S&P's Family Office module tags every firm as SFO (single family office), MFO (multi-family office) or FOSP (family office service provider); MFO and FOSP are dominated by private-bank wealth-management divisions and service providers rather than genuine family offices, so this segment is restricted to SFO-tagged firms only (16 identified for Norway). Of those, 3 carry a numeric AUM figure, and 2 of those were excluded because the figure contradicts S&P's own size-range bucket for the same firm (Canica AS, O.N. Sunde AS). The aum_bn above ($0.0382bn) is the sum of the 1 remaining, internally-consistent named reporter -- it is NOT an estimate of the true Norway single-family-office population, which is almost certainly larger, since family offices are notoriously private and under-reported by design (Peter has explicitly accepted this as a directional guesstimate rather than a comprehensive figure). No asset-class breakdown exists in the source data at all, so allocation is left empty and the chart will show as 100% 'Unreported' by design, not a bug.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-23",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "New segment added as part of a global rollout following the UK pilot (Peter questioned whether S&P's Family Office data was genuinely family offices or misclassified wealth managers -- confirmed the latter for MFO/FOSP). Restricted to SFO-tagged firms only, further excluding any numeric figure that contradicts its own stated size-range bucket. Resulting aum_bn ($0.0382bn across 1 firms) is a partial, named-reporters-only total, explicitly accepted by Peter as a directional guesstimate rather than a population estimate -- see sources[].note for full methodology."
+        }
+      ],
+      "concentration": {
+        "top3_share_pct": 100.0,
+        "hhi": 10000,
+        "n_institutions": 1,
+        "basis": "The 1 SFO-tagged Norway firm with an internally-consistent numeric AUM figure in the S&P Money Manager Database Family Office module export (see segment sources[].note) -- NOT the full 16 SFO-tagged firms identified for Norway, only the subset that report a usable figure.",
+        "top_institutions": [
+          {
+            "name": "Kistefos A.S.",
+            "aum_bn": 0.0382
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     }
-  ]
+  ],
+  "commentary": {
+    "wealth": {
+      "text": "Norwegian household wealth has grown quickly on the back of rising asset prices: Statistics Norway (SSB) reported household net financial assets of NOK 3,200 billion by the end of 2024, up from NOK 2,799 billion a year earlier, as total financial assets rose to NOK 8,178 billion against NOK 4,979 billion in liabilities. The net-financial-assets-to-disposable-income ratio rose from 84% in 2019 to 126% in 2024 — a rapid five-year climb. Wealth is meaningfully concentrated at the top: median household net worth per adult is around NOK 1.5 million, anchored by high homeownership and substantial private-pension balances, but the top 1% threshold sits above NOK 33 million and the top 0.1% above NOK 108 million.\n\nNorway's institutional wealth is dominated overwhelmingly by one thing: the Government Pension Fund Global (GPFG, widely known as \"Oljefondet,\" the Oil Fund), the world's largest sovereign wealth fund, covered in full under Sovereign wealth funds below. At NOK 21,268 billion (around $2.2 trillion) at the end of 2025, the GPFG alone is worth more than six times Norway's entire household net financial wealth — an extraordinary concentration of national capital in a single, state-owned investment vehicle, and one of the single most important institutional relationships available anywhere in global asset management.",
+      "sources": [
+        {
+          "label": "SSB (Statistics Norway), Financial Accounts for Households in 2024",
+          "url": "https://www.ssb.no/en/nasjonalregnskap-og-konjunkturer/finansregnskap/artikler/financial-accounts-for-households-in-2024"
+        },
+        {
+          "label": "Norges Bank Investment Management, Annual report 2025",
+          "url": "https://www.nbim.no/en/news-and-insights/reports/2025/annual-report-2025/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "pensions": {
+      "text": "Norway runs a modest, universal state pension (Folketrygden) topped up, since 2006, by a mandatory occupational pension (Obligatorisk Tjenestepensjon, OTP) that every Norwegian employer must provide — a minimum 2% of salary since 2006, extended to apply from the very first krone of income (rather than only above a threshold) since 2022. Public-sector employees are covered separately through large, well-funded institutional providers rather than OTP.\n\nThe identifiable institutional base shows DB Pension (Govt) as the dominant pool at $121.8bn, led overwhelmingly by KLP (Kommunal Landspensjonskasse, $86.5bn) — a mutual insurance company that is Norway's largest pension provider, covering municipal and county employees, health trusts and public-sector firms, and one of the most significant institutional relationships in the Norwegian market — followed by Oslo Pensjonsforsikring ($14.7bn, the City of Oslo's own pension fund), PKH (a Oslo-area healthcare-sector pension fund, $4.9bn), Bergen Kommune ($3.0bn), Trondheim Kommunale Pensjonskasse ($2.2bn) and Statens Pensjonskasse (SPK, the Norwegian Public Service Pension Fund for central-government employees, $1.6bn — a figure that likely understates SPK's true scale given its role as the main scheme for all state employees). DB Pension (Corp), at a much smaller $18.5bn, is led by Equinor's own corporate pension fund, alongside Tine, Norsk Hydro, Yara International, DNV GL and Telenor.",
+      "sources": [
+        {
+          "label": "Wikipedia, Kommunal Landspensjonskasse (background, KLP asset figures)",
+          "url": "https://en.wikipedia.org/wiki/Kommunal_Landspensjonskasse"
+        },
+        {
+          "label": "Sterk Law Firm, Norwegian Mandatory Occupational Pension OTP",
+          "url": "https://www.lawyernorway.no/articles/norwegian-mandatory-occupational-pension-scheme-(otp)-employer-guide"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "insurance": {
+      "text": "A comprehensive, up-to-date total-assets figure for Norway's insurance sector specifically (as distinct from GPFG or the pension segments above) proved hard to pin down: the most complete figure identified was an IMF Financial Sector Assessment from 2020, putting Norwegian insurers' total balance-sheet assets at around NOK 1,700 billion — slightly under 50% of GDP at the time — a figure now several years stale. Finance Norway (Finans Norge), the industry association, represents around 250 financial-sector companies (spanning banks and insurers) with roughly 50,000 employees combined, but a current, insurance-specific total-assets figure from the association itself was not identified with confidence.\n\nOECD-sourced figures for the sector show Life insurance at $218.3bn and Non-life insurance at $19.6bn, a combined $237.9bn — broadly consistent in order of magnitude with the dated IMF figure once currency conversion is allowed for, though this should be treated as a directional cross-check rather than a precise, current comparison given how old the external benchmark is.",
+      "sources": [
+        {
+          "label": "IMF, Norway: Financial Sector Assessment Program Technical Note - Insurance Sector Oversight (2020)",
+          "url": "https://www.elibrary.imf.org/view/IMF002/29262-9781513553153/29262-9781513553153/29262-9781513553153_A001.xml"
+        },
+        {
+          "label": "OECD, Asset allocation of insurance companies dataset (data-explorer.oecd.org)",
+          "url": "https://data-explorer.oecd.org/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "charities": {
+      "text": "Norway has no single national charity regulator comparable to England and Wales' Charity Commission. Norwegian civil-society organisations are mostly structured as foreninger (associations) or stiftelser (foundations, covered separately below), and while Norway does maintain a public Foundation Register (Stiftelsesregisteret) run by the Foundation Authority, no equivalent central register or aggregate financial reporting exists for the broader association-based charity sector.\n\nThis population is best approached qualitatively for now; the better-measured foundation sector is covered separately below.",
+      "sources": [],
+      "last_updated": "2026-07-23"
+    },
+    "foundations": {
+      "text": "Norway has an estimated 6,000-7,600 registered foundations (stiftelser), regulated under the Foundation Law of 2001 and overseen by the Lotteri- og stiftelsestilsynet (Gaming and Foundation Authority), with compulsory registration on the public Foundation Register. Around 802 are business foundations (næringsdrivende stiftelser, a smaller-scale Norwegian relative of Denmark's industrial foundations), with the remainder established as non-profit, purpose-driven foundations. According to 2021 accounts, the equity capital of Norwegian foundations stood at around NOK 220 billion (about €20 billion), though broader estimates of the total assets foundations possess and control run as high as NOK 200-300 billion depending on definition — a real range rather than a precise figure. Oslo Economics has separately estimated that Norwegian foundations' annual contribution to society is worth more than NOK 58 billion — a substantial and likely under-penetrated pool for institutional managers.",
+      "sources": [
+        {
+          "label": "Oslo Economics, Norwegian foundations' annual value contribution is estimated to over 58 billion NOK",
+          "url": "https://osloeconomics.no/en/norwegian-foundations-annual-value-contribution-is-estimated-to-over-58-billion-nok/"
+        },
+        {
+          "label": "Lottstift (Gaming and Foundation Authority), Norwegian foundations",
+          "url": "https://lottstift.no/en/foundations-in-norway/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "family_offices": {
+      "text": "The identifiable single-family-office base for Norway is thin relative to the country's real private wealth: of 16 firms tagged as single-family offices, only 1 reports a usable, internally-consistent AUM figure — Kistefos A.S. ($38.2 million) — while two others, Canica AS (the investment company of retail billionaire Stein Erik Hagen) and O.N. Sunde AS, were excluded on data-quality grounds (their reported figures contradicted their own stated size ranges).\n\nThis significantly understates Norway's real family office landscape. Norway is home to several substantial, well-documented single family offices built on shipping and industrial wealth: Awilhelmsen (the Wilhelmsen shipping family's investment arm, active across cruise, real estate, shipping and offshore, and industrial investments since 1939), Ferd (the Andresen family's investment company, active in private equity, real estate and capital markets), and Smedvig (reporting AUM of around $2.2 billion), among others — a clear indication that the true addressable market for managers targeting Norwegian family capital is considerably larger than named-reporter data alone would suggest, and best pursued through direct relationship-building with these known institutions.",
+      "sources": [
+        {
+          "label": "Dakota, Top 10 Family Offices in Norway: 2025 Insights",
+          "url": "https://www.dakota.com/resources/blog/top-10-family-offices-in-norway-2025-insights"
+        },
+        {
+          "label": "Oslo Family Office, Supporting owner families",
+          "url": "https://www.oslofamilyoffice.com/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "sovereign_wealth_funds": {
+      "text": "Norway operates the world's largest and most closely-watched sovereign wealth fund: the Government Pension Fund Global (GPFG, universally known as \"Oljefondet,\" the Oil Fund), managed by Norges Bank Investment Management (NBIM) on behalf of the Norwegian state. Built from decades of North Sea oil and gas revenue and explicitly designed to convert a depleting natural resource into a permanent financial endowment for future generations, the GPFG is, without qualification, the world's largest sovereign wealth fund. At the end of 2025 it was valued at NOK 21,268 billion (around $2.2 trillion), after a 15.1% return during the year, invested across 68 countries and 41 currencies in a portfolio of 71.3% listed equities, 26.5% fixed income, 1.7% real estate and 0.4% unlisted renewable energy infrastructure.\n\nThe identifiable sovereign capital base for Norway totals $2,000.5bn, made up of the GPFG itself ($1,956.6bn), Folketrygdfondet ($39.6bn, a separate, domestically-focused fund managing the smaller Government Pension Fund Norway) and Norfund ($4.4bn, Norway's development finance institution investing in developing-country businesses). This figure for the GPFG sits somewhat below NBIM's own year-end 2025 valuation, most likely reflecting a different snapshot date and exchange-rate conversion — the scale involved is large enough that even a small timing difference moves the absolute figure by tens of billions of dollars, worth bearing in mind when using either figure for precise sizing.",
+      "sources": [
+        {
+          "label": "Norges Bank Investment Management, Annual report 2025",
+          "url": "https://www.nbim.no/en/news-and-insights/reports/2025/annual-report-2025/"
+        },
+        {
+          "label": "Chief Investment Officer, Norway's Sovereign Wealth Fund Returned 15.1% in 2025",
+          "url": "https://www.ai-cio.com/news/norways-sovereign-wealth-fund-returned-15-1-in-2025/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "ocio": {
+      "text": "No dedicated, regularly-published fiduciary management/OCIO market survey specific to Norway was identified. The country's largest institutional asset pool by far, the GPFG, is managed entirely in-house by Norges Bank Investment Management rather than through any external OCIO or fiduciary arrangement, and Norway's largest pension providers (KLP and the municipal pension funds discussed under Pensions above) similarly manage assets predominantly through in-house investment teams.\n\nGlobally, Cerulli estimates the OCIO/fiduciary management industry grew to more than $3.3 trillion in assets by the end of 2024, projecting growth to $5.6 trillion by the end of the decade — but Norway's own share of that global pool isn't separately reported, and the structure of Norway's largest asset pools (a single enormous in-house-managed sovereign fund, plus a handful of large in-house-managed pension mutuals) suggests limited underlying demand for external OCIO delegation in the first place. The realistic opportunity for external managers in Norway lies in direct asset-management mandates rather than a UK-style fiduciary-manager channel.",
+      "sources": [
+        {
+          "label": "Cerulli Associates, Nearly $1.3 Trillion Expected to Flow into OCIO Industry Through 2029",
+          "url": "https://www.cerulli.com/press-releases/nearly-1.3-trillion-expected-to-flow-into-ocio-industry-through-2029"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    }
+  }
 }

@@ -3,14 +3,13 @@
   "country_name": "Finland",
   "reporting_period": "2026-07 (S&P export date)",
   "source_note": "Currency confirmed (2026-07-10): S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). These figures are USD. Category mapping and plan-type routing reused the established rule set from prior builds; no unresolved judgement calls for this country. Categories/institutions excluded from all pension segments (Reserve Banks and similar non-pension pools, or institutions with no DB/DC/E&F breakdown reported): Reserve Banks ($95.32bn); Government ($2.27bn). 48 institutions tracked, $312.8bn tracked across all segments.",
-  "scorecard_note": "Not yet scored \u2014 none of the 12 opportunity-scorecard dimensions have been filled in for any Finland segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
+  "scorecard_note": "Not yet scored — none of the 12 opportunity-scorecard dimensions have been filled in for any Finland segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
   "allocation_note": "Built the same real-bottom-up way as every other country: summed actual plan-level AA lines into the six standard buckets, with ambiguous plan types (Investment Pool Funds, Hybrid DB/DC Plan, Other Retirement Fund) ratio-split across each institution's actual segments using the two-pass double-count-avoidance logic, and explicitly-named pools (Sovereign Wealth Fund, Endowment Fund, Foundation Fund Or Investment Pool, Other Tax-exempt Fund) routed directly. Same 5%-of-asset-type materiality threshold for style breakdowns.",
   "segments": [
     {
       "segment": "DB Pension (Corp)",
       "aum_bn": 196.816781,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -131,6 +130,24 @@
           "source": "S&P Money Manager Database export (Finland)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Top-down check (OECD autonomous pension funds, country total)",
+          "aum_bn": 168.023,
+          "currency": "USD",
+          "as_of": "2024 (OECD reference year)",
+          "source": "OECD Data Explorer, 'Assets earmarked for retirement' (OECD.DAF.CM, DSD_FP@DF_PA), Pension funds (autonomous) vehicle type (native unit: USD millions, converted here to USD bn to match Atlas convention)",
+          "note": "Country-level top-down cross-check, not a segment-specific figure. CORRECTED 2026-07-16: an earlier version of this note claimed the gap was because Atlas's bottom-up figure includes book reserve and insurance-wrapped pension assets that OECD's 'autonomous pension funds' vehicle type excludes. That claim was not well supported and has been withdrawn -- S&P's Money Manager Database tracks assets already placed with professional managers (so unfunded book reserves, which have no external portfolio, structurally shouldn't appear in it), and it tracks insurance firms as a category separate from pension institutions. The real driver of variance, where known, is noted per-country below. Compares against the SUM of all DB+DC segments in Finland (DB Pension (Corp), DB Pension (Govt), DB Pension (Tax exempt), DC Pension (Corp), DB Pension (Union)): Atlas bottom-up = $307.83bn vs OECD (autonomous funds only, 2024) = $168.02bn, variance +83.2%. Shown here against the largest DB/DC segment (DB Pension (Corp)) as a reference point only -- do not apply this figure as this segment's own total.",
+          "active": false
+        },
+        {
+          "basis": "Top-down check (IPE Top 1000 Pension Funds Europe 2025, country total)",
+          "aum_bn": 268.93,
+          "currency": "EUR",
+          "as_of": "2024-12-31 to 2025-06-30 (IPE Top 1000 Pension Funds, 2025 edition)",
+          "source": "IPE, 'Top 1000 Pension Funds' (2025 edition) -- 18 named Finland entities summed",
+          "note": "IPE 'Top 1000 Pension Funds' (2025 edition) reports 18 named pension entities for Finland, summing to EUR268.93bn (2024-12-31 to 2025-06-30, mixed reporting dates across entities). This is a whole-country total across every pension fund IPE identifies -- spanning defined benefit and defined contribution, corporate and government/public-sector schemes combined -- not broken out the way Atlas segments this market. Shown here as a reference against DB Pension (Corp) + DB Pension (Govt) combined (Atlas bottom-up = $305.07bn across 2 segment(s)), not any single segment alone; the two figures are also in different currencies (EUR vs Atlas's USD), so this is a directional comparison only, not a precise variance calculation.",
+          "active": false
         }
       ],
       "source_history": [
@@ -138,7 +155,25 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_added",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Added OECD autonomous pension fund total ($168.02bn, 2024) as a non-active top-down cross-check against the combined DB+DC segments for Finland (bottom-up sum $307.83bn, variance +83.2%). Not applied -- active source and displayed aum_bn for this segment are unchanged."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_note_corrected",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Corrected the OECD top-down check note added earlier today: withdrew the claim that the variance is explained by Atlas's bottom-up figure including book reserve/insurance assets (Peter flagged that S&P MMD shouldn't capture those categories, and that's correct). Replaced with a country-specific, evidence-based explanation where one was found (Korea/NPS, Norway/KLP, Germany/Denmark/Sweden insurance-regulated occupational pension providers), or left as an open question where no clear driver was identified."
+        },
+        {
+          "date": "2026-07-28",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added via new research: 'IPE Top 1000 Pension Funds country total' (EUR268.93bn across 18 entities) -- see scope caveat in note. Cross-checked against S&P MMD-derived segment totals; not previously available in FI commentary/sources."
         }
       ],
       "allocation_incomplete": true,
@@ -146,14 +181,56 @@
         "top3_share_pct": 91.3,
         "hhi": 2988,
         "n_institutions": 32,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Varma Mutual Pension Insurance Company",
+            "aum_bn": 75.36
+          },
+          {
+            "name": "Ilmarinen",
+            "aum_bn": 66.56
+          },
+          {
+            "name": "Ömsesidiga Arbetspensionsförsäkringsbolaget Elo",
+            "aum_bn": 37.82
+          },
+          {
+            "name": "Veritas Pensionforsakring",
+            "aum_bn": 4.87
+          },
+          {
+            "name": "Nokia Corporation",
+            "aum_bn": 2.18
+          },
+          {
+            "name": "Nordea Bank Abp",
+            "aum_bn": 1.56
+          },
+          {
+            "name": "Merimieselakekassa",
+            "aum_bn": 1.52
+          },
+          {
+            "name": "KONE Corporation",
+            "aum_bn": 0.82
+          },
+          {
+            "name": "Nordea Bank Finland plc",
+            "aum_bn": 0.65
+          },
+          {
+            "name": "Stora Enso Oyj",
+            "aum_bn": 0.65
+          }
+        ],
+        "top10_share_pct": 97.4
       }
     },
     {
       "segment": "DB Pension (Govt)",
       "aum_bn": 108.251387,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -238,6 +315,15 @@
           "source": "S&P Money Manager Database export (Finland)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Top-down check (IPE Top 1000 Pension Funds Europe 2025, country total)",
+          "aum_bn": 268.93,
+          "currency": "EUR",
+          "as_of": "2024-12-31 to 2025-06-30 (IPE Top 1000 Pension Funds, 2025 edition)",
+          "source": "IPE, 'Top 1000 Pension Funds' (2025 edition) -- 18 named Finland entities summed",
+          "note": "IPE 'Top 1000 Pension Funds' (2025 edition) reports 18 named pension entities for Finland, summing to EUR268.93bn (2024-12-31 to 2025-06-30, mixed reporting dates across entities). This is a whole-country total across every pension fund IPE identifies -- spanning defined benefit and defined contribution, corporate and government/public-sector schemes combined -- not broken out the way Atlas segments this market. Shown here as a reference against DB Pension (Corp) + DB Pension (Govt) combined (Atlas bottom-up = $305.07bn across 2 segment(s)), not any single segment alone; the two figures are also in different currencies (EUR vs Atlas's USD), so this is a directional comparison only, not a precise variance calculation.",
+          "active": false
         }
       ],
       "source_history": [
@@ -245,21 +331,49 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-28",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added via new research: 'IPE Top 1000 Pension Funds country total' (EUR268.93bn across 18 entities) -- see scope caveat in note. Cross-checked against S&P MMD-derived segment totals; not previously available in FI commentary/sources."
         }
       ],
       "concentration": {
         "top3_share_pct": 99.4,
         "hhi": 5468,
         "n_institutions": 4,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Keva",
+            "aum_bn": 74.72
+          },
+          {
+            "name": "Valtion Elakerahasto",
+            "aum_bn": 28.36
+          },
+          {
+            "name": "Kela- Social Insurance Institution",
+            "aum_bn": 4.48
+          },
+          {
+            "name": "Finnish Financial Stability Authority",
+            "aum_bn": 2.27
+          },
+          {
+            "name": "Ålands landskapsregering",
+            "aum_bn": 0.69
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "Endowments E&F",
       "aum_bn": 2.214089,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Other/Unclassified",
@@ -314,6 +428,15 @@
           "source": "S&P Money Manager Database export (Finland)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Reference only -- whole Finnish foundation sector total, not institutional-only (Saatiot ja rahastot ry)",
+          "aum_bn": 20,
+          "currency": "EUR",
+          "as_of": "unknown -- Association of Finnish Foundations headline sector total (combined assets exceeding EUR20bn)",
+          "source": "Saatiot ja rahastot ry (Association of Finnish Foundations), combined foundation sector assets",
+          "note": "IMPORTANT SCOPE CAVEAT: Finland has around 2,700 registered foundations (saatiot) with combined assets exceeding EUR20bn per Saatiot ja rahastot ry (the Association of Finnish Foundations), a whole-sector total in which the 100 largest foundations account for more than 80% of the total -- against this market's own identifiable institutional base of Endowments E&F ($2.21bn) plus Tax exempt E&F ($1.88bn), combined $4.10bn -- neither segment individually, nor the two combined, is a like-for-like match for the saatiot population, as already noted in this market's own commentary. The gap reflects how few Finnish foundations are large and professionally-structured enough to appear as institutional asset owners in S&P's Money Manager Database. Identical entry attached to both Endowments E&F and Tax exempt E&F for this reason.",
+          "active": false
         }
       ],
       "source_history": [
@@ -321,21 +444,33 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-24",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added: \"Association of Finnish Foundations sector total\" (20bn EUR) -- see scope caveat in note."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 10000,
         "n_institutions": 1,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "University of Helsinki",
+            "aum_bn": 2.21
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "DB Pension (Tax exempt)",
       "aum_bn": 2.113453,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [],
       "sources": [
         {
@@ -352,7 +487,7 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true,
@@ -367,7 +502,6 @@
       "segment": "Tax exempt E&F",
       "aum_bn": 1.884154,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -452,6 +586,15 @@
           "source": "S&P Money Manager Database export (Finland)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Reference only -- whole Finnish foundation sector total, not institutional-only (Saatiot ja rahastot ry)",
+          "aum_bn": 20,
+          "currency": "EUR",
+          "as_of": "unknown -- Association of Finnish Foundations headline sector total (combined assets exceeding EUR20bn)",
+          "source": "Saatiot ja rahastot ry (Association of Finnish Foundations), combined foundation sector assets",
+          "note": "IMPORTANT SCOPE CAVEAT: Finland has around 2,700 registered foundations (saatiot) with combined assets exceeding EUR20bn per Saatiot ja rahastot ry (the Association of Finnish Foundations), a whole-sector total in which the 100 largest foundations account for more than 80% of the total -- against this market's own identifiable institutional base of Endowments E&F ($2.21bn) plus Tax exempt E&F ($1.88bn), combined $4.10bn -- neither segment individually, nor the two combined, is a like-for-like match for the saatiot population, as already noted in this market's own commentary. The gap reflects how few Finnish foundations are large and professionally-structured enough to appear as institutional asset owners in S&P's Money Manager Database. Identical entry attached to both Endowments E&F and Tax exempt E&F for this reason.",
+          "active": false
         }
       ],
       "source_history": [
@@ -459,21 +602,53 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-24",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added: \"Association of Finnish Foundations sector total\" (20bn EUR) -- see scope caveat in note."
         }
       ],
       "concentration": {
         "top3_share_pct": 95.2,
         "hhi": 6027,
         "n_institutions": 5,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Evangelical Lutheran Church of Finland",
+            "aum_bn": 2.11
+          },
+          {
+            "name": "Sigrid Juselius Stiftelse",
+            "aum_bn": 1.44
+          },
+          {
+            "name": "Suomen Kulttuurirahasto",
+            "aum_bn": 0.22
+          },
+          {
+            "name": "Nordic Environment Finance Corporation",
+            "aum_bn": 0.13
+          },
+          {
+            "name": "Yrjö Jahnsson Foundation",
+            "aum_bn": 0.07
+          },
+          {
+            "name": "Stiftelsen för Åbo Akademi",
+            "aum_bn": 0.02
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "SWF",
       "aum_bn": 0.878732,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -574,6 +749,15 @@
           "source": "S&P Money Manager Database export (Finland)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Top-down check (Global SWF ranking)",
+          "aum_bn": 7.0,
+          "currency": "USD",
+          "as_of": "2026 (Global SWF ranking, last updated July 2026)",
+          "source": "Global SWF Ranking (globalswf.com/ranking, last updated July 2026), 'SWF'-type entities only",
+          "note": "Country-level top-down cross-check. Atlas bottom-up = $0.88bn vs Global SWF (SWF-type only) = $7.00bn, variance -87.4%. Solidium (Finland's state holding company), Global SWF's only Finnish SWF-type entry, is $7bn -- notably larger than Atlas's $0.88bn. Worth checking whether Atlas's Finland SWF segment is tracking a narrower or different entity.",
+          "active": false
         }
       ],
       "source_history": [
@@ -581,21 +765,33 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_added",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Added Global SWF ranking figure ($7.00bn) as a non-active top-down cross-check against the SWF segment (bottom-up $0.88bn). Not applied -- active source and displayed aum_bn are unchanged."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 10000,
         "n_institutions": 1,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Suomen Itsenäisyyden Juhlarahasto Sitra",
+            "aum_bn": 0.88
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "DC Pension (Corp)",
       "aum_bn": 0.357025,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [],
       "sources": [
         {
@@ -612,7 +808,7 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true,
@@ -627,7 +823,6 @@
       "segment": "DB Pension (Union)",
       "aum_bn": 0.288272,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -678,15 +873,319 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 10000,
         "n_institutions": 1,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Mela",
+            "aum_bn": 0.29
+          }
+        ],
+        "top10_share_pct": 100.0
+      }
+    },
+    {
+      "segment": "Life insurance",
+      "aum_bn": 75.427,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 1.241,
+          "pct_of_segment": 1.6,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 1.241
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 9.745,
+          "pct_of_segment": 12.9,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 9.745
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 2.308,
+          "pct_of_segment": 3.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 2.308
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 0.931,
+          "pct_of_segment": 1.2,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.931
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 61.202,
+          "pct_of_segment": 81.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 61.202
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 75.427,
+          "as_of": "2024-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-14",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2024 data). Scorecard not yet scored -- dimensions to be filled in manually."
+        }
+      ]
+    },
+    {
+      "segment": "Non-life insurance",
+      "aum_bn": 15.212,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 2.668,
+          "pct_of_segment": 17.5,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 2.668
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 4.627,
+          "pct_of_segment": 30.4,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 4.627
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 0.862,
+          "pct_of_segment": 5.7,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.862
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 0.828,
+          "pct_of_segment": 5.4,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.828
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 6.226,
+          "pct_of_segment": 40.9,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 6.226
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 15.212,
+          "as_of": "2024-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-14",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2024 data). Scorecard not yet scored -- dimensions to be filled in manually."
+        }
+      ]
+    },
+    {
+      "segment": "Family Offices (SFO)",
+      "aum_bn": 1.073,
+      "basis": "Bottom-up (S&P Money Manager Database, SFO-tagged, named reporters only) -- partial, coverage-limited, directional guesstimate",
+      "allocation": [],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database, SFO-tagged, named reporters only)",
+          "aum_bn": 1.073,
+          "as_of": "2026-07 (S&P Family Office module export)",
+          "source": "S&P Money Manager Database, Family Office module, filtered to Company Type = 'SFO' (single family office)",
+          "note": "Built 2026-07-23 as part of a global rollout of the Family Offices (SFO) segment, following the same methodology validated on the UK (Peter flagged that S&P's 'family office' data looked more like misclassified wealth managers than real family offices, and a full download confirmed it). S&P's Family Office module tags every firm as SFO (single family office), MFO (multi-family office) or FOSP (family office service provider); MFO and FOSP are dominated by private-bank wealth-management divisions and service providers rather than genuine family offices, so this segment is restricted to SFO-tagged firms only (10 identified for Finland). Of those, 2 carry a numeric AUM figure. The aum_bn above ($1.073bn) is the sum of the 2 remaining, internally-consistent named reporters -- it is NOT an estimate of the true Finland single-family-office population, which is almost certainly larger, since family offices are notoriously private and under-reported by design (Peter has explicitly accepted this as a directional guesstimate rather than a comprehensive figure). No asset-class breakdown exists in the source data at all, so allocation is left empty and the chart will show as 100% 'Unreported' by design, not a bug.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-23",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "New segment added as part of a global rollout following the UK pilot (Peter questioned whether S&P's Family Office data was genuinely family offices or misclassified wealth managers -- confirmed the latter for MFO/FOSP). Restricted to SFO-tagged firms only, further excluding any numeric figure that contradicts its own stated size-range bucket. Resulting aum_bn ($1.073bn across 2 firms) is a partial, named-reporters-only total, explicitly accepted by Peter as a directional guesstimate rather than a population estimate -- see sources[].note for full methodology."
+        }
+      ],
+      "concentration": {
+        "top3_share_pct": 100.0,
+        "hhi": 5023,
+        "n_institutions": 2,
+        "basis": "The 2 SFO-tagged Finland firms with an internally-consistent numeric AUM figure in the S&P Money Manager Database Family Office module export (see segment sources[].note) -- NOT the full 10 SFO-tagged firms identified for Finland, only the subset that report a usable figure.",
+        "top_institutions": [
+          {
+            "name": "Ahlstrom Capital Oy",
+            "aum_bn": 0.573
+          },
+          {
+            "name": "Hartwall Capital Ltd",
+            "aum_bn": 0.5
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     }
-  ]
+  ],
+  "commentary": {
+    "wealth": {
+      "text": "Finnish household wealth shows the same average-versus-median gap seen throughout the Nordics. Statistics Finland reported median household net wealth of €96,000 in 2023 against a mean of €228,700 — a large gap driven by a relatively small number of very wealthy households. A quarter of households held net wealth above €272,100, while a quarter held under €8,100; the wealthiest tenth of households owned 52% of Finland's total net wealth in 2023, a record high. Household financial assets have risen to around €294 billion against household debt of around €173 billion, though borrowers with a housing loan carried debt averaging 213% of disposable income in 2024.\n\nOn the institutional side, Finland's earnings-related pension system (TyEL, see Pensions below) is the dominant institutional pool, run through a small number of competing mutual pension insurance companies rather than a single national scheme. The identifiable institutional base shows combined pension assets of roughly $308bn and a further $90.6bn across Life and Non-life insurance (see Insurance below) — substantial institutional wealth for a country of Finland's size, reflecting the TyEL system's decades of accumulated (if only partial) funding, and a concentrated, well-identified set of institutional relationships for managers targeting the Finnish market.",
+      "sources": [
+        {
+          "label": "Statistics Finland, One-half of households had a net wealth of over EUR 96,000 in 2023",
+          "url": "https://stat.fi/en/publication/cm1hek7m45vlf07vxdwvayu3c"
+        },
+        {
+          "label": "Helsinki Times, Finland's wealth gap hits record high as richest 10% own majority",
+          "url": "https://www.helsinkitimes.fi/finland/finland-news/domestic/26283-finland-s-wealth-gap-hits-record-high-as-richest-10-own-majority.html"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "pensions": {
+      "text": "Finland's earnings-related pension system (TyEL, Työeläkelaki) is compulsory for all workers but distinctively structured: rather than a single state scheme or trust-based occupational funds, it is delivered through a small number of competing, mutually-owned pension insurance companies, each individually liable for the pre-funded portion of the pensions it manages but mutually responsible, alongside the others, for financing the pay-as-you-go portion. The system is deliberately only partially funded — the pre-funded share of TyEL contributions is kept small by design, though the required return on the funded portion is set low enough that any excess investment return gets retained to gradually strengthen the funding buffer over time.\n\nThe private-sector TyEL market is dominated by four providers: in 2023, premium income of €17.3 billion split between Ilmarinen (37.2%), Varma (36.2%), Elo (22.9%) and Veritas (3.7%) — a clear, well-identified shortlist of the key institutional relationships in this market. The identifiable DB Pension (Corp) base, at $196.8bn, reflects the same four names by assets under management: Varma ($75.4bn), Ilmarinen ($66.6bn), Elo ($37.8bn) and Veritas ($4.9bn) — a slightly different ranking by assets than by premium income, consistent with differing historical funding levels and investment returns across the four providers. Public-sector employees are covered separately through Keva ($74.7bn, Finland's largest single pension provider and the main scheme for municipal and state employees) and Valtion Eläkerahasto (VER, the State Pension Fund, a smaller $28.4bn buffer fund for central-government pensions).",
+      "sources": [
+        {
+          "label": "European Pensions, Finnish earnings-related pension providers' premium income totals €27bn in 2023",
+          "url": "https://www.europeanpensions.net/ep/Finnish-earnings-related-pension-providers-premium-income-totals-27bn-in-2023.php"
+        },
+        {
+          "label": "Intereconomics, The Finnish Pension System and Its Future Challenges",
+          "url": "https://www.intereconomics.eu/contents/year/2020/number/2/article/the-finnish-pension-system-and-its-future-challenges.html"
+        },
+        {
+          "label": "Finanssiala, Pension insurance",
+          "url": "https://www.finanssialalle.fi/en/topic/pension-insurance/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "insurance": {
+      "text": "Finanssiala (Finance Finland), the industry association for the Finnish financial sector, publishes annual financial-services statistics covering banking, insurance and fund management, but a single clean total-assets figure specifically isolating insurance-company balance sheets (as distinct from the TyEL pension insurers already discussed under Pensions, several of which are legally structured similarly to life insurers) was not identified with confidence from public sources.\n\nOECD-sourced figures for the sector show Life insurance at $75.4bn and Non-life insurance at $15.2bn, a combined $90.6bn — notably smaller than Finland's pension segments, consistent with a market where earnings-related pension saving (delivered through the TyEL system's own dedicated mutual pension insurance companies) does most of the work that a separate life-insurance industry performs elsewhere — meaning TyEL providers, rather than a standalone insurance industry, are the natural first point of contact for managers targeting this market.",
+      "sources": [
+        {
+          "label": "Finanssiala, Publications and statistics",
+          "url": "https://www.finanssiala.fi/en/topics/publications-and-statistics/"
+        },
+        {
+          "label": "OECD, Asset allocation of insurance companies dataset (data-explorer.oecd.org)",
+          "url": "https://data-explorer.oecd.org/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "charities": {
+      "text": "Finland has no single national charity regulator comparable to England and Wales' Charity Commission. Fundraising by charitable organisations requires a permit from the Finnish Police (Poliisihallitus) rather than registration with a dedicated charity authority, and Finland's better-organised, better-measured philanthropic institutions are its foundations (säätiöt), covered separately below, rather than a broad charity-association sector with its own aggregate reporting.\n\nThis population is best approached qualitatively for now; the foundation sector covered below is the more realistic and better-documented opportunity.",
+      "sources": [],
+      "last_updated": "2026-07-23"
+    },
+    "foundations": {
+      "text": "Finland has around 2,700 registered foundations (säätiöt) with combined assets exceeding €20 billion, and — reflecting a pattern seen across several Nordic countries — that wealth is highly concentrated: the 100 largest foundations account for more than 80% of the total balance-sheet sum across the whole population, meaning a manageable shortlist of large, professionally-run institutions represents the great majority of this market's opportunity. Säätiöt ja rahastot ry (the Association of Finnish Foundations), which includes all the most significant grant-making foundations among its 250 members, reported that its members funded Finnish science, art and citizen activities with €594 million in 2024 (up from €295m for science, €76m for art and €145m for other social development among members in 2022).\n\nThe identifiable institutional base for Finland instead shows a separate Endowments E&F ($2.2bn) and Tax exempt E&F ($1.9bn) figure, neither of which is a like-for-like match for the säätiöt population described above — the foundation association network above is the more direct route to this market's largest institutions.",
+      "sources": [
+        {
+          "label": "Säätiöt ja rahastot ry (Association of Finnish Foundations), Meistä (About us)",
+          "url": "https://saatiotrahastot.fi/meista/"
+        },
+        {
+          "label": "Säätiöt ja rahastot ry, Tietoa säätiöstä (Information about foundations)",
+          "url": "https://saatiotrahastot.fi/tietoa-saatiosta/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "family_offices": {
+      "text": "The identifiable single-family-office base for Finland is small: of 10 firms tagged as single-family offices, 2 report a usable, internally-consistent AUM figure, for a combined $1.07bn — Ahlstrom Capital Oy ($0.57bn, the investment vehicle of the Ahlström family, one of Finland's oldest industrial dynasties, historically rooted in forestry and paper) and Hartwall Capital Ltd ($0.50bn, linked to the Hartwall family, founders of Finland's best-known brewing and beverage group).\n\nAs in every market, this remains a floor built from 2 named reporters out of 10 identified, not an estimate of the true Finnish single-family-office population, which is likely somewhat larger given how private most family holding structures of this kind tend to be.",
+      "sources": [],
+      "last_updated": "2026-07-23"
+    },
+    "sovereign_wealth_funds": {
+      "text": "Finland's sovereign-fund-adjacent institution, at $0.88bn, is unusual: rather than a natural-resource fund (Finland has no comparable resource wealth to Norway) or a policy bank (like the UK's National Wealth Fund or Germany's KENFO), it is Sitra (Suomen itsenäisyyden juhlarahasto, the Finnish Innovation Fund), one of the oldest institutions of its kind in the world. Sitra was established in 1967 by the Bank of Finland and the Finnish Parliament to mark the 50th anniversary of Finnish independence. Its endowment was dramatically expanded in the early 1990s when the state recapitalised it with Nokia Corporation shares as part of recession-recovery measures — a stake that grew the fund from roughly 100 million Finnish marks to over 2 billion marks by the mid-1990s on the back of Nokia's rise, and which valued the endowment at €771 million by 2017 (closely matching the figure captured here).\n\nSitra operates directly under the supervision of the Finnish Parliament rather than the sitting government, is not funded from the state budget, and instead finances its own operations entirely from investment returns on its endowment (averaging around €30 million a year). It was originally a direct funder of Finnish R&D and international expansion (financing early work on xylitol and Kone's internationalisation, among others), but has not made new direct company investments since 2014, having shifted its focus to acting as a future-oriented think tank and research body on topics like sustainability and societal renewal. Like the other \"closest analogue\" institutions discussed elsewhere in this market review, Sitra doesn't fit the classic natural-resource SWF definition — but unlike most of those analogues, it is a genuine, self-sustaining permanent endowment rather than a government-funded policy vehicle.",
+      "sources": [
+        {
+          "label": "Sitra, Finnish Innovation Fund (official site)",
+          "url": "https://www.sitra.fi/en/"
+        },
+        {
+          "label": "UNC Institute for the Environment, Sitra: Finland's Engine for Sustainable Renewal",
+          "url": "https://ie.unc.edu/cleantech-story/sitra-finlands-engine-for-sustainable-renewal/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "ocio": {
+      "text": "No dedicated, regularly-published fiduciary management/OCIO market survey specific to Finland was identified. Finland's dominant institutional model — earnings-related pension assets managed in-house by a small number of large, competing mutual pension insurance companies (Varma, Ilmarinen, Elo and Veritas, discussed under Pensions above) — leaves comparatively little structural room for an independent OCIO/fiduciary management industry of the kind that has developed in the UK, since these institutions are themselves the asset managers rather than clients of one.\n\nGlobally, Cerulli estimates the OCIO/fiduciary management industry grew to more than $3.3 trillion in assets by the end of 2024, projecting growth to $5.6 trillion by the end of the decade — but Finland's own share of that global pool isn't separately reported. The realistic route to institutional relationships in Finland runs through the TyEL providers themselves rather than a UK-style fiduciary-manager channel.",
+      "sources": [
+        {
+          "label": "Cerulli Associates, Nearly $1.3 Trillion Expected to Flow into OCIO Industry Through 2029",
+          "url": "https://www.cerulli.com/press-releases/nearly-1.3-trillion-expected-to-flow-into-ocio-industry-through-2029"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    }
+  }
 }

@@ -3,14 +3,13 @@
   "country_name": "Belgium",
   "reporting_period": "2026-07 (S&P export date)",
   "source_note": "Currency confirmed: S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). These figures are USD. Category mapping and plan-type routing reused the established rule set from prior builds; no unresolved judgement calls for this country. Categories/institutions excluded from all pension segments (Reserve Banks and similar non-pension pools, or institutions with no DB/DC/E&F breakdown reported): none material. 42 institutions tracked, $42.9bn tracked across all segments.",
-  "scorecard_note": "Not yet scored \u2014 none of the 12 opportunity-scorecard dimensions have been filled in for any Belgium segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
+  "scorecard_note": "Not yet scored — none of the 12 opportunity-scorecard dimensions have been filled in for any Belgium segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
   "allocation_note": "Built the same real-bottom-up way as every other country: summed actual plan-level AA lines into the six standard buckets, with ambiguous plan types (Investment Pool Funds, Hybrid DB/DC Plan, Other Retirement Fund) ratio-split across each institution's actual segments using the two-pass double-count-avoidance logic, and explicitly-named pools (Sovereign Wealth Fund, Endowment Fund, Foundation Fund Or Investment Pool, Other Tax-exempt Fund) routed directly. Same 5%-of-asset-type materiality threshold for style breakdowns.",
   "segments": [
     {
       "segment": "DB Pension (Corp)",
       "aum_bn": 28.846103,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Fixed Income",
@@ -131,6 +130,24 @@
           "source": "S&P Money Manager Database export (Belgium)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Top-down check (OECD autonomous pension funds, country total)",
+          "aum_bn": 50.851,
+          "currency": "USD",
+          "as_of": "2024 (OECD reference year)",
+          "source": "OECD Data Explorer, 'Assets earmarked for retirement' (OECD.DAF.CM, DSD_FP@DF_PA), Pension funds (autonomous) vehicle type (native unit: USD millions, converted here to USD bn to match Atlas convention)",
+          "note": "Country-level top-down cross-check, not a segment-specific figure. CORRECTED 2026-07-16: an earlier version of this note claimed the gap was because Atlas's bottom-up figure includes book reserve and insurance-wrapped pension assets that OECD's 'autonomous pension funds' vehicle type excludes. That claim was not well supported and has been withdrawn -- S&P's Money Manager Database tracks assets already placed with professional managers (so unfunded book reserves, which have no external portfolio, structurally shouldn't appear in it), and it tracks insurance firms as a category separate from pension institutions. The real driver of variance, where known, is noted per-country below. Compares against the SUM of all DB+DC segments in Belgium (DB Pension (Corp), DC Pension (Corp), DB Pension (Govt)): Atlas bottom-up = $29.16bn vs OECD (autonomous funds only, 2024) = $50.85bn, variance -42.7%. Shown here against the largest DB/DC segment (DB Pension (Corp)) as a reference point only -- do not apply this figure as this segment's own total.",
+          "active": false
+        },
+        {
+          "basis": "Top-down check (IPE Top 1000 Pension Funds Europe 2025, country total)",
+          "aum_bn": 36.51,
+          "currency": "EUR",
+          "as_of": "2024-12-31 to 2025-06-30 (IPE Top 1000 Pension Funds, 2025 edition)",
+          "source": "IPE, 'Top 1000 Pension Funds' (2025 edition) -- 31 named Belgium entities summed",
+          "note": "IPE 'Top 1000 Pension Funds' (2025 edition) reports 31 named pension entities for Belgium, summing to EUR36.51bn (2024-12-31 to 2025-06-30, mixed reporting dates across entities). This is a whole-country total across every pension fund IPE identifies -- spanning defined benefit and defined contribution, corporate and government/public-sector schemes combined -- not broken out the way Atlas segments this market. Shown here as a reference against DB Pension (Corp) + DB Pension (Govt) combined (Atlas bottom-up = $28.98bn across 2 segment(s)), not any single segment alone; the two figures are also in different currencies (EUR vs Atlas's USD), so this is a directional comparison only, not a precise variance calculation.",
+          "active": false
         }
       ],
       "source_history": [
@@ -138,7 +155,25 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_added",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Added OECD autonomous pension fund total ($50.85bn, 2024) as a non-active top-down cross-check against the combined DB+DC segments for Belgium (bottom-up sum $29.16bn, variance -42.7%). Not applied -- active source and displayed aum_bn for this segment are unchanged."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_note_corrected",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Corrected the OECD top-down check note added earlier today: withdrew the claim that the variance is explained by Atlas's bottom-up figure including book reserve/insurance assets (Peter flagged that S&P MMD shouldn't capture those categories, and that's correct). Replaced with a country-specific, evidence-based explanation where one was found (Korea/NPS, Norway/KLP, Germany/Denmark/Sweden insurance-regulated occupational pension providers), or left as an open question where no clear driver was identified."
+        },
+        {
+          "date": "2026-07-28",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added via new research: 'IPE Top 1000 Pension Funds country total' (EUR36.51bn across 31 entities) -- see scope caveat in note. Cross-checked against S&P MMD-derived segment totals; not previously available in BE commentary/sources."
         }
       ],
       "allocation_incomplete": true,
@@ -146,14 +181,56 @@
         "top3_share_pct": 33.3,
         "hhi": 629,
         "n_institutions": 35,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Anheuser-Busch InBev NV",
+            "aum_bn": 3.85
+          },
+          {
+            "name": "KBC Group NV",
+            "aum_bn": 2.98
+          },
+          {
+            "name": "ExxonMobil Petroleum & Chemical BVBA",
+            "aum_bn": 2.82
+          },
+          {
+            "name": "Amonis OFP",
+            "aum_bn": 2.1
+          },
+          {
+            "name": "Pensioenfonds Metaal OFP",
+            "aum_bn": 1.8
+          },
+          {
+            "name": "Fluvius System Operator cvba",
+            "aum_bn": 1.69
+          },
+          {
+            "name": "Proximus SA",
+            "aum_bn": 1.29
+          },
+          {
+            "name": "Groupe Bruxelles Lambert SA",
+            "aum_bn": 1.18
+          },
+          {
+            "name": "Pensioenfonds UZ Gent OFP",
+            "aum_bn": 1.17
+          },
+          {
+            "name": "Etex Group SA",
+            "aum_bn": 0.99
+          }
+        ],
+        "top10_share_pct": 68.4
       }
     },
     {
       "segment": "SWF",
       "aum_bn": 10.588697,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -197,6 +274,15 @@
           "source": "S&P Money Manager Database export (Belgium)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Top-down check (Global SWF ranking)",
+          "aum_bn": 12.0,
+          "currency": "USD",
+          "as_of": "2026 (Global SWF ranking, last updated July 2026)",
+          "source": "Global SWF Ranking (globalswf.com/ranking, last updated July 2026), 'SWF'-type entities only",
+          "note": "Country-level top-down cross-check. Atlas bottom-up = $10.59bn vs Global SWF (SWF-type only) = $12.00bn, variance -11.8%. SFPIM (Belgium's federal holding and investment company), Global SWF's only Belgian SWF-type entry at $12bn, is a close match to Atlas's $10.59bn.",
+          "active": false
         }
       ],
       "source_history": [
@@ -204,21 +290,33 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_added",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Added Global SWF ranking figure ($12.00bn) as a non-active top-down cross-check against the SWF segment (bottom-up $10.59bn). Not applied -- active source and displayed aum_bn are unchanged."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 10000,
         "n_institutions": 1,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "SFPI-FPIM",
+            "aum_bn": 10.59
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "Endowments E&F",
       "aum_bn": 2.458313,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Cash & Short-Term",
@@ -258,21 +356,27 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 10000,
         "n_institutions": 1,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Katholieke Universiteit Leuven",
+            "aum_bn": 2.46
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "Tax exempt E&F",
       "aum_bn": 0.711803,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -323,21 +427,35 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 9265,
         "n_institutions": 3,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "King Baudouin Foundation",
+            "aum_bn": 0.68
+          },
+          {
+            "name": "Belgisch Olympisch en Interfederaal Comité (BOIC)",
+            "aum_bn": 0.02
+          },
+          {
+            "name": "Antwerp ZOO Society",
+            "aum_bn": 0.0
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "DC Pension (Corp)",
       "aum_bn": 0.179892,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [],
       "sources": [
         {
@@ -354,7 +472,7 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true
@@ -363,7 +481,6 @@
       "segment": "DB Pension (Govt)",
       "aum_bn": 0.136249,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [],
       "sources": [
         {
@@ -373,6 +490,15 @@
           "source": "S&P Money Manager Database export (Belgium)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Top-down check (IPE Top 1000 Pension Funds Europe 2025, country total)",
+          "aum_bn": 36.51,
+          "currency": "EUR",
+          "as_of": "2024-12-31 to 2025-06-30 (IPE Top 1000 Pension Funds, 2025 edition)",
+          "source": "IPE, 'Top 1000 Pension Funds' (2025 edition) -- 31 named Belgium entities summed",
+          "note": "IPE 'Top 1000 Pension Funds' (2025 edition) reports 31 named pension entities for Belgium, summing to EUR36.51bn (2024-12-31 to 2025-06-30, mixed reporting dates across entities). This is a whole-country total across every pension fund IPE identifies -- spanning defined benefit and defined contribution, corporate and government/public-sector schemes combined -- not broken out the way Atlas segments this market. Shown here as a reference against DB Pension (Corp) + DB Pension (Govt) combined (Atlas bottom-up = $28.98bn across 2 segment(s)), not any single segment alone; the two figures are also in different currencies (EUR vs Atlas's USD), so this is a directional comparison only, not a precise variance calculation.",
+          "active": false
         }
       ],
       "source_history": [
@@ -380,7 +506,13 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-28",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added via new research: 'IPE Top 1000 Pension Funds country total' (EUR36.51bn across 31 entities) -- see scope caveat in note. Cross-checked against S&P MMD-derived segment totals; not previously available in BE commentary/sources."
         }
       ],
       "allocation_incomplete": true,
@@ -388,8 +520,302 @@
         "top3_share_pct": 100.0,
         "hhi": 10000,
         "n_institutions": 1,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "European Parliament",
+            "aum_bn": 0.14
+          }
+        ],
+        "top10_share_pct": 100.0
       }
+    },
+    {
+      "segment": "Life insurance",
+      "aum_bn": 11.845,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 1.045,
+          "pct_of_segment": 8.8,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 1.045
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 7.751,
+          "pct_of_segment": 65.4,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 7.751
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 0.281,
+          "pct_of_segment": 2.4,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.281
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 0.206,
+          "pct_of_segment": 1.7,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.206
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 0.016,
+          "pct_of_segment": 0.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.016
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 2.547,
+          "pct_of_segment": 21.5,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 2.547
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 11.845,
+          "as_of": "2024-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-14",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2024 data). Scorecard not yet scored -- dimensions to be filled in manually."
+        }
+      ]
+    },
+    {
+      "segment": "Non-life insurance",
+      "aum_bn": 20.631,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 1.248,
+          "pct_of_segment": 6.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 1.248
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 13.915,
+          "pct_of_segment": 67.4,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 13.915
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 1.946,
+          "pct_of_segment": 9.4,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 1.946
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 0.094,
+          "pct_of_segment": 0.5,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.094
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 0.145,
+          "pct_of_segment": 0.7,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.145
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 3.282,
+          "pct_of_segment": 15.9,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 3.282
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 20.631,
+          "as_of": "2024-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-14",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2024 data). Scorecard not yet scored -- dimensions to be filled in manually."
+        }
+      ]
     }
-  ]
+  ],
+  "commentary": {
+    "wealth": {
+      "text": "The National Bank of Belgium's Household Finance and Consumption Survey found median household net wealth of €291,641 in Belgium at the end of 2024, well above the euro-area median of €152,480 — Belgian households are, on this measure, close to twice as wealthy as the euro-area typical household. Average wealth was around €555,000. Wealth is concentrated, but slightly less so than the euro-area average: the wealthiest 10% of Belgian households held 54.9% of net wealth (against the least wealthy 50% holding just 8.3%), giving a Gini coefficient of 68% — high, but below the euro area's 72%. Real estate makes up 59% of Belgian households' assets, reflecting a strong homeownership and property-investment culture.\n\nOn the institutional side, Belgium's insurance sector is a major source of household savings (see Insurance below, including its distinctive branch 21/branch 23 guaranteed-rate and unit-linked life products), while its funded occupational pension pillar remains comparatively modest — the identifiable segment data shows DB Pension (Corp) at $28.8bn against very small DC Pension (Corp) ($0.18bn) and DB Pension (Govt) ($0.14bn) figures, reflecting Belgium's continued reliance on its state PAYG pillar for the bulk of retirement provision, and a market where the insurance channel is the larger near-term opportunity.",
+      "sources": [
+        {
+          "label": "National Bank of Belgium, Press release - Distribution of household net wealth 2024-Q4",
+          "url": "https://www.nbb.be/en/statistical-updates/press-release-distribution-household-net-wealth-2024-iv"
+        },
+        {
+          "label": "VRT NWS, With fortunes averaging 555,000 euro, households in Belgium are richer than in most other EU countries",
+          "url": "https://www.vrt.be/vrtnws/en/2024/11/25/with-fortunes-averaging-555-000-euro-families-in-belgium-are-ric/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "pensions": {
+      "text": "Belgium runs a three-pillar system broadly similar in structure to its neighbours, but with a state-dominated first pillar that still does most of the work. The first pillar, pension légale (legal pension), is a state PAYG scheme financed through social security contributions on employees' salaries. The second pillar, pension complémentaire (complementary pension), is employer-provided and genuinely funded (financed by capitalisation), delivered either through a group insurance contract with an insurer or through an OFP (organisme de financement des pensions, a dedicated pension financing institution) — the state actively encourages this pillar through tax and social-contribution reductions, and pension institutions face minimum guaranteed-return requirements depending on the type of plan. A voluntary third pillar of tax-advantaged individual pension and long-term savings sits on top.\n\nThe identifiable segment data shows Belgium's funded occupational pillar is still comparatively modest in scale: DB Pension (Corp), the largest segment at $28.8bn, is led by dedicated corporate schemes for Anheuser-Busch InBev ($3.9bn), KBC Group ($3.0bn) and ExxonMobil's Belgian operations ($2.8bn), alongside sectoral OFPs including Amonis (a fund for liberal professions such as doctors and pharmacists, $2.1bn), Pensioenfonds Metaal (the metal sector, $1.8bn) and Fluvius (the Flemish utility network operator, $1.7bn) — a well-identified shortlist of the largest institutional relationships in this market. DC Pension (Corp) and DB Pension (Govt) remain very small by comparison, at $0.18bn and $0.14bn respectively.",
+      "sources": [
+        {
+          "label": "FSMA, Quels sont les trois piliers de pension en Belgique?",
+          "url": "https://www.fsma.be/fr/quels-sont-les-trois-piliers-de-pension-en-belgique"
+        },
+        {
+          "label": "CMS, Comprehensive Overview of Pensions in Belgium",
+          "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-pensions/belgium"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "insurance": {
+      "text": "Assuralia (the Belgian insurance association) reported total premiums of €35.1 billion in 2024, up 8.4% on the prior year, with life premiums (€18.4bn) narrowly ahead of non-life (€16.7bn), a 52.4% life share. Life business is built substantially around two distinctive product branches: branch 21 (individual guaranteed-rate life insurance, a major and long-standing Belgian household savings vehicle, up 10.8% to €7.1bn in premiums in 2024) and branch 23 (unit-linked products, which surged 34.5% to €3.8bn on favourable equity markets).\n\nThe identifiable OECD-sourced segment figures — Life insurance $11.8bn and Non-life insurance $20.6bn — look notably small relative to Belgium's well-documented branch 21/23 life savings culture and premium volumes described above, and the unusual pattern of Non-life exceeding Life in these figures (the reverse of most European markets) suggests this segment may understate Belgium's true domestic life-insurance investment assets specifically. Worth treating as a caveat for sizing purposes: the branch 21/23 life savings market is likely a considerably larger opportunity than the identifiable figures alone suggest, and Assuralia's own membership is the more direct route to it.",
+      "sources": [
+        {
+          "label": "Becobra, Assuralia annual report 2025 - First reading of the figures",
+          "url": "https://becobra.be/en/assuralia-annual-report-2025-first-reading-of-the-figures/"
+        },
+        {
+          "label": "OECD, Asset allocation of insurance companies dataset (data-explorer.oecd.org)",
+          "url": "https://data-explorer.oecd.org/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "charities": {
+      "text": "Belgium has no single national charity regulator comparable to England and Wales' Charity Commission. Belgian nonprofits mostly take the ASBL/VZW (association sans but lucratif / vereniging zonder winstoogmerk, non-profit association) legal form, with charitable foundations (fondations d'utilité publique/stichtingen van openbaar nut) covered separately below; no comprehensive, centrally-published aggregate financial figure for the broader ASBL/VZW association population was identified in available research. This population is best approached qualitatively for now; the King Baudouin Foundation, covered below, is the far better-documented and more significant institutional relationship in this market.",
+      "sources": [],
+      "last_updated": "2026-07-23"
+    },
+    "foundations": {
+      "text": "Belgium's flagship philanthropic institution, the King Baudouin Foundation (KBF), is by some distance the largest public-utility foundation in the country. Established in 1976 to mark the 25th anniversary of King Baudouin's reign, KBF's 2024 annual accounts reported total assets of approximately €1.67 billion and equity of €1.60 billion, on operating income of €246.4 million; its 2025 operating budget was €220.3 million, funding more than 200 project calls a year and support for close to 5,000 organisations and individuals across health, poverty, culture, democracy, climate, education and international philanthropy.\n\nConventional institutional plan-sponsor classifications do not identify a matching population of Belgian foundation institutions comparable in scale to KBF, so no dedicated segment or asset-allocation chart is shown here — in any case, KBF's scale and its public-utility structure would not be well represented by that kind of classification, and it is best approached directly as a named institutional relationship.",
+      "sources": [
+        {
+          "label": "King Baudouin Foundation, Get to know the King Baudouin Foundation",
+          "url": "https://kbs-frb.be/en/about-us"
+        },
+        {
+          "label": "Philanthropy.org, King Baudouin Foundation Belgium (financial data)",
+          "url": "https://philanthropy.org/foundation/22002/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "family_offices": {
+      "text": "No usable, internally-consistent single-family-office figures were identified for Belgium: 9 SFO-tagged firms appear in underlying data, but none carry a reliable figure. This significantly understates Belgium's real family-capital landscape. The AB InBev founding families (Van Damme, de Spoelberch and de Mévius) are collectively estimated to hold around €49.4 billion, Belgium's largest family fortune by a wide margin, though they run no single consolidated family office — the de Spoelberch and de Mévius families instead jointly operate the investment company Verlinvest, while the Spoelberch family separately co-invests with other wealthy families through Cogepa. The Colruyt family's investment vehicle, Korys, is estimated to manage around $4.5 billion, and the late Albert Frère's business empire (around €6.2bn) remains a significant, if now more dispersed, pool of Belgian family capital. None of these appear with a usable figure in available named-reporter data, meaning this segment represents a genuinely open relationship-building opportunity rather than a market that is already well covered.",
+      "sources": [
+        {
+          "label": "Percapita.be, The Most Economically Influential Families in Belgium",
+          "url": "https://www.percapita.be/post/the-most-economically-influential-families-in-belgium-wealth-holdings-and-the"
+        },
+        {
+          "label": "familyofficehub.io, Van Damme, De Spoelberch, De Mevius: Is there a Single Family Office?",
+          "url": "https://familyofficehub.io/europe-hnwi-single-family-offices/van-damme-de-spoelberch-de-mevius-is-there-a-single-family-office/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "sovereign_wealth_funds": {
+      "text": "Belgium's identifiable SWF segment ($10.6bn) is SFPI-FPIM (Société Fédérale de Participations et d'Investissement / Federale Participatie- en Investeringsmaatschappij), formally identified by Global SWF and the Sovereign Wealth Fund Institute as the Belgian sovereign wealth fund. Created in 2006 from the merger of Belgium's former Federal Participation Company and Federal Investment Company, SFPI-FPIM centrally manages the federal government's shareholdings while also pursuing its own investment policy on behalf of the Belgian economy — investing in companies (from SMEs to scale-ups) with strategic or social value, historically concentrated in life sciences, finance and aviation, and more recently expanding into energy, transport and impact investing. External reporting puts SFPI-FPIM's assets under management at around €14 billion on behalf of the federal state, somewhat above the identifiable $10.6bn segment figure here, likely reflecting timing and currency-conversion differences.",
+      "sources": [
+        {
+          "label": "SFPIM, About us",
+          "url": "https://sfpim.be/en/about/"
+        },
+        {
+          "label": "Global SWF, SFPIM (Belgium) Fund Profile",
+          "url": "https://globalswf.com/fund/SFPI"
+        },
+        {
+          "label": "FPS Finance, The Federal Holding and Investment Company",
+          "url": "https://finance.belgium.be/en/about_fps/institutions_dependent_upon_fps_finance/the_federal_holding_and_investment_company"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "ocio": {
+      "text": "No dedicated, regularly-published fiduciary management/OCIO market survey specific to Belgium was identified. Belgium's funded occupational pension pillar (discussed under Pensions above) is comparatively modest in scale, and many of the largest pools identified — dedicated single-employer schemes for AB InBev, KBC and ExxonMobil, and sectoral OFPs such as Amonis and Pensioenfonds Metaal — appear to be run through group insurance contracts or dedicated pension-financing institutions rather than delegated to an independent external fiduciary manager in the UK sense.\n\nGlobally, Cerulli estimates the OCIO/fiduciary management industry grew to more than $3.3 trillion in assets by the end of 2024, projecting growth to $5.6 trillion by the end of the decade — but Belgium's own share of that global pool isn't separately reported. The realistic route to delegated investment relationships in Belgium runs through the pension and insurance institutions named above.",
+      "sources": [
+        {
+          "label": "Cerulli Associates, Nearly $1.3 Trillion Expected to Flow into OCIO Industry Through 2029",
+          "url": "https://www.cerulli.com/press-releases/nearly-1.3-trillion-expected-to-flow-into-ocio-industry-through-2029"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    }
+  }
 }

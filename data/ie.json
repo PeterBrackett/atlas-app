@@ -2,15 +2,14 @@
   "country_code": "IE",
   "country_name": "Ireland",
   "reporting_period": "2026-07 (S&P export date)",
-  "source_note": "Currency confirmed (2026-07-10): S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). These figures are USD, not EUR as had been assumed. Segment AUM below is a bottom-up sum of the 43 raw institution records in ie_institutions_latest.json (results (5)-(8).xls), classified against Atlas's entity_type/sub_type fields rather than a raw S&P Category column (Ireland's export didn't carry that field the way the UK one did, so this mapping is less granular than UK's 19-segment split). Two things flagged for review rather than silently decided: (1) National Treasury Management Agency is recorded with entity_type 'Other', but one of its plans is explicitly typed 'Sovereign Wealth Fund' in the underlying export (matches reality \u2014 NTMA manages the Ireland Strategic Investment Fund) \u2014 classified here as SWF rather than left in an Other/unclassified bucket. (2) Eight commercial state bodies (An Post, Bord Na Mona, Coillte, Dublin Port Company, EirGrid, ESB, Ervia, Irish Aviation Authority \u2014 EUR 6.358bn combined) are currently sitting in DB Pension (Corp) because their sub_type wasn't marked 'Public Sector' the way Coras Iompair Eireann and Courts Service of Ireland were. Whether Ireland's semi-state sector should count as Govt or Corp for this matrix is a judgement call, not something to auto-decide \u2014 move them to DB Pension (Govt) if that's the right call. No DC pension entities appeared in this export at all (all 34 pension records are DB). Coverage note: 43 institutions, EUR 62.501bn tracked, no independent check yet on how exhaustive that is against Ireland's actual DB/E&F/SWF universe.",
-  "scorecard_note": "Not yet scored \u2014 none of the 12 opportunity-scorecard dimensions have been filled in for any Ireland segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
-  "allocation_note": "Built bottom-up directly from the real plan-level allocation lines in ie_institutions_latest.json (no scaling or equity-anchoring, unlike the UK page \u2014 Ireland has no legacy workbook figure to reconcile against, so this is a literal sum of reported institution allocations). Raw asset_type values were mapped onto the standard six buckets (Equities, Fixed Income, Cash & Short-Term, Real Estate, Alternatives, Other/Unclassified); \"Loans\" folded into Fixed Income, everything else non-standard (Other Investments, Asset Allocation, Investment Funds, Property/PE/Infrastructure, Reinsurance, Unspecified) folded into Other/Unclassified \u2014 that bucket is unusually large for several segments (57% of SWF, 50% of DB Pension (Govt)) because NTMA and the two public-sector schemes report a lot of their allocation that way rather than by conventional asset class. Same 5%-of-asset-type materiality threshold as UK: a style only gets its own line if it clears 5% of that asset type's segment value, otherwise it's folded into that type's Other/Unspecified line. Coverage varies by segment \u2014 most are 94\u2013100% of the segment's AUM, but Endowments E&F (Dublin City University) only has allocation data for about 13% of its AUM, so treat that one figure as partial, not representative.",
+  "source_note": "Currency confirmed (2026-07-10): S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). These figures are USD, not EUR as had been assumed. Segment AUM below is a bottom-up sum of the 43 raw institution records in ie_institutions_latest.json (results (5)-(8).xls), classified against Atlas's entity_type/sub_type fields rather than a raw S&P Category column (Ireland's export didn't carry that field the way the UK one did, so this mapping is less granular than UK's 19-segment split). Two things flagged for review rather than silently decided: (1) National Treasury Management Agency is recorded with entity_type 'Other', but one of its plans is explicitly typed 'Sovereign Wealth Fund' in the underlying export (matches reality — NTMA manages the Ireland Strategic Investment Fund) — classified here as SWF rather than left in an Other/unclassified bucket. (2) Eight commercial state bodies (An Post, Bord Na Mona, Coillte, Dublin Port Company, EirGrid, ESB, Ervia, Irish Aviation Authority — EUR 6.358bn combined) are currently sitting in DB Pension (Corp) because their sub_type wasn't marked 'Public Sector' the way Coras Iompair Eireann and Courts Service of Ireland were. Whether Ireland's semi-state sector should count as Govt or Corp for this matrix is a judgement call, not something to auto-decide — move them to DB Pension (Govt) if that's the right call. No DC pension entities appeared in this export at all (all 34 pension records are DB). Coverage note: 43 institutions, EUR 62.501bn tracked, no independent check yet on how exhaustive that is against Ireland's actual DB/E&F/SWF universe.",
+  "scorecard_note": "Not yet scored — none of the 12 opportunity-scorecard dimensions have been filled in for any Ireland segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
+  "allocation_note": "Built bottom-up directly from the real plan-level allocation lines in ie_institutions_latest.json (no scaling or equity-anchoring, unlike the UK page — Ireland has no legacy workbook figure to reconcile against, so this is a literal sum of reported institution allocations). Raw asset_type values were mapped onto the standard six buckets (Equities, Fixed Income, Cash & Short-Term, Real Estate, Alternatives, Other/Unclassified); \"Loans\" folded into Fixed Income, everything else non-standard (Other Investments, Asset Allocation, Investment Funds, Property/PE/Infrastructure, Reinsurance, Unspecified) folded into Other/Unclassified — that bucket is unusually large for several segments (57% of SWF, 50% of DB Pension (Govt)) because NTMA and the two public-sector schemes report a lot of their allocation that way rather than by conventional asset class. Same 5%-of-asset-type materiality threshold as UK: a style only gets its own line if it clears 5% of that asset type's segment value, otherwise it's folded into that type's Other/Unspecified line. Coverage varies by segment — most are 94–100% of the segment's AUM, but Endowments E&F (Dublin City University) only has allocation data for about 13% of its AUM, so treat that one figure as partial, not representative.",
   "segments": [
     {
       "segment": "SWF",
       "aum_bn": 18.916,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Other/Unclassified",
@@ -89,6 +88,15 @@
           "source": "S&P Money Manager Database export (Ireland)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Top-down check (Global SWF ranking)",
+          "aum_bn": 39.0,
+          "currency": "USD",
+          "as_of": "2026 (Global SWF ranking, last updated July 2026)",
+          "source": "Global SWF Ranking (globalswf.com/ranking, last updated July 2026), 'SWF'-type entities only",
+          "note": "Country-level top-down cross-check. Atlas bottom-up = $18.92bn vs Global SWF (SWF-type only) = $39.00bn, variance -51.5%. Global SWF's combined ISIF+FIF figure (Ireland Strategic Investment Fund + Future Ireland Fund, $39bn) is roughly double Atlas's $18.92bn. The Future Ireland Fund only began being funded from 2024, so if Atlas's bottom-up figure predates its full ramp-up, or only captures ISIF, that would explain most of the gap.",
+          "active": false
         }
       ],
       "source_history": [
@@ -96,7 +104,13 @@
           "date": "2026-07-08",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_added",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Added Global SWF ranking figure ($39.00bn) as a non-active top-down cross-check against the SWF segment (bottom-up $18.92bn). Not applied -- active source and displayed aum_bn are unchanged."
         }
       ],
       "concentration": {
@@ -110,7 +124,6 @@
       "segment": "DB Pension (Corp)",
       "aum_bn": 33.855,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Fixed Income",
@@ -220,6 +233,24 @@
           "source": "S&P Money Manager Database export (Ireland)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Top-down check (OECD autonomous pension funds, country total)",
+          "aum_bn": 133.701,
+          "currency": "USD",
+          "as_of": "2024 (OECD reference year)",
+          "source": "OECD Data Explorer, 'Assets earmarked for retirement' (OECD.DAF.CM, DSD_FP@DF_PA), Pension funds (autonomous) vehicle type (native unit: USD millions, converted here to USD bn to match Atlas convention)",
+          "note": "Country-level top-down cross-check, not a segment-specific figure. CORRECTED 2026-07-16: an earlier version of this note claimed the gap was because Atlas's bottom-up figure includes book reserve and insurance-wrapped pension assets that OECD's 'autonomous pension funds' vehicle type excludes. That claim was not well supported and has been withdrawn -- S&P's Money Manager Database tracks assets already placed with professional managers (so unfunded book reserves, which have no external portfolio, structurally shouldn't appear in it), and it tracks insurance firms as a category separate from pension institutions. The real driver of variance, where known, is noted per-country below. Compares against the SUM of all DB+DC segments in Ireland (DB Pension (Corp), DB Pension (Govt), DB Pension (Union)): Atlas bottom-up = $42.61bn vs OECD (autonomous funds only, 2024) = $133.70bn, variance -68.1%. Shown here against the largest DB/DC segment (DB Pension (Corp)) as a reference point only -- do not apply this figure as this segment's own total.",
+          "active": false
+        },
+        {
+          "basis": "Top-down check (IPE Top 1000 Pension Funds Europe 2025, country total)",
+          "aum_bn": 45.72,
+          "currency": "EUR",
+          "as_of": "2023-12-31 to 2025-06-30 (IPE Top 1000 Pension Funds, 2025 edition)",
+          "source": "IPE, 'Top 1000 Pension Funds' (2025 edition) -- 27 named Ireland entities summed",
+          "note": "IPE 'Top 1000 Pension Funds' (2025 edition) reports 27 named pension entities for Ireland, summing to EUR45.72bn (2023-12-31 to 2025-06-30, mixed reporting dates across entities). This is a whole-country total across every pension fund IPE identifies -- spanning defined benefit and defined contribution, corporate and government/public-sector schemes combined -- not broken out the way Atlas segments this market. Shown here as a reference against DB Pension (Corp) + DB Pension (Govt) combined (Atlas bottom-up = $39.32bn across 2 segment(s)), not any single segment alone; the two figures are also in different currencies (EUR vs Atlas's USD), so this is a directional comparison only, not a precise variance calculation.",
+          "active": false
         }
       ],
       "source_history": [
@@ -227,7 +258,25 @@
           "date": "2026-07-08",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_added",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Added OECD autonomous pension fund total ($133.70bn, 2024) as a non-active top-down cross-check against the combined DB+DC segments for Ireland (bottom-up sum $42.61bn, variance -68.1%). Not applied -- active source and displayed aum_bn for this segment are unchanged."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_note_corrected",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Corrected the OECD top-down check note added earlier today: withdrew the claim that the variance is explained by Atlas's bottom-up figure including book reserve/insurance assets (Peter flagged that S&P MMD shouldn't capture those categories, and that's correct). Replaced with a country-specific, evidence-based explanation where one was found (Korea/NPS, Norway/KLP, Germany/Denmark/Sweden insurance-regulated occupational pension providers), or left as an open question where no clear driver was identified."
+        },
+        {
+          "date": "2026-07-28",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added via new research: 'IPE Top 1000 Pension Funds country total' (EUR45.72bn across 27 entities) -- see scope caveat in note. Cross-checked against S&P MMD-derived segment totals; not previously available in IE commentary/sources."
         }
       ],
       "concentration": {
@@ -241,7 +290,6 @@
       "segment": "DB Pension (Govt)",
       "aum_bn": 5.47,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Other/Unclassified",
@@ -308,6 +356,15 @@
           "source": "S&P Money Manager Database export (Ireland)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Top-down check (IPE Top 1000 Pension Funds Europe 2025, country total)",
+          "aum_bn": 45.72,
+          "currency": "EUR",
+          "as_of": "2023-12-31 to 2025-06-30 (IPE Top 1000 Pension Funds, 2025 edition)",
+          "source": "IPE, 'Top 1000 Pension Funds' (2025 edition) -- 27 named Ireland entities summed",
+          "note": "IPE 'Top 1000 Pension Funds' (2025 edition) reports 27 named pension entities for Ireland, summing to EUR45.72bn (2023-12-31 to 2025-06-30, mixed reporting dates across entities). This is a whole-country total across every pension fund IPE identifies -- spanning defined benefit and defined contribution, corporate and government/public-sector schemes combined -- not broken out the way Atlas segments this market. Shown here as a reference against DB Pension (Corp) + DB Pension (Govt) combined (Atlas bottom-up = $39.32bn across 2 segment(s)), not any single segment alone; the two figures are also in different currencies (EUR vs Atlas's USD), so this is a directional comparison only, not a precise variance calculation.",
+          "active": false
         }
       ],
       "source_history": [
@@ -315,7 +372,13 @@
           "date": "2026-07-08",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-28",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added via new research: 'IPE Top 1000 Pension Funds country total' (EUR45.72bn across 27 entities) -- see scope caveat in note. Cross-checked against S&P MMD-derived segment totals; not previously available in IE commentary/sources."
         }
       ],
       "concentration": {
@@ -329,7 +392,6 @@
       "segment": "DB Pension (Union)",
       "aum_bn": 3.286,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -422,7 +484,7 @@
           "date": "2026-07-08",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
@@ -436,7 +498,6 @@
       "segment": "Endowments E&F",
       "aum_bn": 0.677,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Cash & Short-Term",
@@ -466,7 +527,7 @@
           "date": "2026-07-08",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
@@ -480,7 +541,6 @@
       "segment": "Foundations E&F",
       "aum_bn": 0.297,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Cash & Short-Term",
@@ -558,15 +618,359 @@
           "date": "2026-07-08",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 78.0,
         "hhi": 2364,
         "n_institutions": 7,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Community Foundation for Ireland",
+            "aum_bn": 0.1
+          },
+          {
+            "name": "Concern Worldwide",
+            "aum_bn": 0.08
+          },
+          {
+            "name": "National University of Ireland Maynooth",
+            "aum_bn": 0.05
+          },
+          {
+            "name": "Dublin Institute of Technology Foundation",
+            "aum_bn": 0.04
+          },
+          {
+            "name": "Goal",
+            "aum_bn": 0.01
+          },
+          {
+            "name": "Irish Cancer Society",
+            "aum_bn": 0.01
+          },
+          {
+            "name": "Housing Association for Integrated Living Ltd.",
+            "aum_bn": 0.0
+          }
+        ],
+        "top10_share_pct": 100.0
       }
+    },
+    {
+      "segment": "Life insurance",
+      "aum_bn": 353.342,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 3.345,
+          "pct_of_segment": 0.9,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 3.345
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 16.91,
+          "pct_of_segment": 4.8,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 16.91
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 3.384,
+          "pct_of_segment": 1.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 3.384
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 0.033,
+          "pct_of_segment": 0.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.033
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 0.122,
+          "pct_of_segment": 0.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.122
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 329.549,
+          "pct_of_segment": 93.3,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 329.549
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 353.342,
+          "as_of": "2024-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
+          "active": true
+        },
+        {
+          "basis": "Reference only -- total sector liabilities (not assets), dated end-2022 (Insurance Ireland)",
+          "aum_bn": 438,
+          "currency": "EUR",
+          "as_of": "2022-12",
+          "source": "Insurance Ireland, total insurance/reinsurance sector liabilities",
+          "note": "IMPORTANT SCOPE CAVEAT: Insurance Ireland reported total insurance/reinsurance sector liabilities of EUR438bn as of end-2022 -- a liabilities measure, not assets, and dated relative to the identifiable OECD-sourced combined Life and Non-life insurance total of $385.94bn (2026 data), though the two are of a broadly similar order of magnitude (EUR438bn is roughly $470bn at approximate conversion). As this segment's own commentary already explains, Ireland's insurance statistics are materially inflated by its role as the second-largest writer of cross-border life insurance business in the EU (after Luxembourg), so a large share of the identifiable OECD figure -- and of this Insurance Ireland total -- reflects cross-border business written from Ireland into other European markets rather than genuinely domestic Irish savings. Unlike the large scope gaps seen in France, Italy and Spain's insurance markets, this is a reasonably close cross-check once the liabilities-vs-assets and timing differences are allowed for. Identical entry attached to both Life insurance and Non-life insurance for this reason.",
+          "active": false
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-14",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2024 data). Scorecard not yet scored -- dimensions to be filled in manually."
+        },
+        {
+          "date": "2026-07-24",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added: \"Insurance Ireland total sector liabilities\" (438bn EUR, end-2022) -- directional cross-check, see note."
+        }
+      ]
+    },
+    {
+      "segment": "Non-life insurance",
+      "aum_bn": 32.6,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 0.373,
+          "pct_of_segment": 1.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.373
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 22.26,
+          "pct_of_segment": 68.3,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 22.26
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 5.14,
+          "pct_of_segment": 15.8,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 5.14
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 0.117,
+          "pct_of_segment": 0.4,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.117
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 0.406,
+          "pct_of_segment": 1.2,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.406
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 4.304,
+          "pct_of_segment": 13.2,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 4.304
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 32.6,
+          "as_of": "2024-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
+          "active": true
+        },
+        {
+          "basis": "Reference only -- total sector liabilities (not assets), dated end-2022 (Insurance Ireland)",
+          "aum_bn": 438,
+          "currency": "EUR",
+          "as_of": "2022-12",
+          "source": "Insurance Ireland, total insurance/reinsurance sector liabilities",
+          "note": "IMPORTANT SCOPE CAVEAT: Insurance Ireland reported total insurance/reinsurance sector liabilities of EUR438bn as of end-2022 -- a liabilities measure, not assets, and dated relative to the identifiable OECD-sourced combined Life and Non-life insurance total of $385.94bn (2026 data), though the two are of a broadly similar order of magnitude (EUR438bn is roughly $470bn at approximate conversion). As this segment's own commentary already explains, Ireland's insurance statistics are materially inflated by its role as the second-largest writer of cross-border life insurance business in the EU (after Luxembourg), so a large share of the identifiable OECD figure -- and of this Insurance Ireland total -- reflects cross-border business written from Ireland into other European markets rather than genuinely domestic Irish savings. Unlike the large scope gaps seen in France, Italy and Spain's insurance markets, this is a reasonably close cross-check once the liabilities-vs-assets and timing differences are allowed for. Identical entry attached to both Life insurance and Non-life insurance for this reason.",
+          "active": false
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-14",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2024 data). Scorecard not yet scored -- dimensions to be filled in manually."
+        },
+        {
+          "date": "2026-07-24",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added: \"Insurance Ireland total sector liabilities\" (438bn EUR, end-2022) -- directional cross-check, see note."
+        }
+      ]
     }
-  ]
+  ],
+  "commentary": {
+    "wealth": {
+      "text": "Ireland's Central Statistics Office (CSO) Household Finance and Consumption Survey found median household net wealth of €256,900 in 2023, up 29% (€58,500) on 2020's €198,400 — a rapid increase driven substantially by property values. A household needed net wealth of about €1,024,000 to be in the top 10% in 2023, while the bottom 10% held less than €2,400 (up from just €1,300 in 2020). The Gini coefficient for net wealth was 0.66 in 2023, unchanged from 2020, and well above the 0.41 Gini for gross household income — wealth, as in most markets, is distributed far less evenly than income. The gap between owning and renting is especially stark in Ireland: owner-occupiers had median net wealth of €391,600 against just €10,200 for renters, a 57-fold difference.\n\nOn the institutional side, Ireland's position as a major international hub for cross-border life insurance and fund domicile business (discussed under Insurance below) means the identifiable segment figures reflect substantial international as well as domestic activity — a genuine interpretive nuance worth keeping in mind when comparing Ireland's segment totals against more purely domestic markets, and one that also signals Ireland's importance as a distribution and domicile centre in its own right.",
+      "sources": [
+        {
+          "label": "CSO (Central Statistics Office), Household Finance and Consumption Survey 2023: Wealth Inequality",
+          "url": "https://www.cso.ie/en/releasesandpublications/ep/p-hfcs/householdfinanceandconsumptionsurvey2023/wealthinequality/"
+        },
+        {
+          "label": "Irish Times, One in 10 Irish households have net wealth of more than €1m",
+          "url": "https://www.irishtimes.com/business/2025/06/11/wealthiest-10-of-irish-households-have-net-wealth-in-excess-of-1m/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "pensions": {
+      "text": "Ireland's pension system is undergoing its most significant change in decades. Historically, private pension provision in Ireland has been voluntary rather than mandatory — employees could join an employer's occupational scheme, a Personal Retirement Savings Account (PRSA), or nothing at all — leaving a meaningful share of the workforce without any private pension coverage at all. That changed on 1 January 2026, when My Future Fund, Ireland's new mandatory Auto-Enrolment Retirement Savings Scheme, came into effect. My Future Fund automatically enrols employees aged 23-60 earning more than €20,000 a year who are not already contributing to a qualifying workplace scheme, administered by the newly-created National Automatic Enrolment Retirement Savings Authority (NAERSA, with management costs capped at 0.5% of assets). Contribution rates start low and rise over a decade — 1.5% of gross pay in years 1-3, 3% in years 4-6, 4.5% in years 7-9, and 6% from year 10 onwards — with matching employer and State contributions layered on top, up to a salary cap of €80,000.\n\nThe identifiable segment data reflects Ireland's historically voluntary, employer-led system: DB Pension (Corp) is the largest identified pool at $33.9bn, followed by DB Pension (Govt) at $5.5bn and DB Pension (Union) at $3.3bn — modest totals relative to Ireland's economy, and a clear illustration of exactly the coverage gap My Future Fund is designed to close. As the new scheme builds up assets over the coming years, this segment mix — and the scale of the opportunity for managers — should be expected to shift meaningfully upward.",
+      "sources": [
+        {
+          "label": "L&E Global, Ireland: Impending Introduction of Mandatory Pension Auto-Enrolment in Ireland",
+          "url": "https://leglobal.law/2025/11/25/ireland-impending-introduction-of-mandatory-pension-auto-enrolment-in-ireland/"
+        },
+        {
+          "label": "Sage Advice Ireland, My Future Fund: What Irish employers need to know about workplace pensions",
+          "url": "https://www.sage.com/en-ie/blog/auto-enrolment-and-pensions/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "insurance": {
+      "text": "Ireland is the second-largest writer of cross-border life insurance business in the EU after Luxembourg — international insurers base themselves in Ireland specifically to sell life insurance products into other EU markets, chiefly Italy, the UK, Germany and France — which materially inflates Ireland's insurance statistics relative to its own domestic market size. Insurance Ireland reported gross written premiums of €31 billion in 2023 for Irish-based insurers, and total insurance/reinsurance sector liabilities of €438 billion as of end-2022; between 2018 and 2023 the sector's premium volumes roughly doubled (up 99%, from €16.2bn to €32.1bn) and assets grew 34% (from €51.3bn to €68.6bn) on one measure of the domestically-regulated market specifically.\n\nThe identifiable OECD-sourced segment figures — Life insurance $353.3bn and Non-life insurance $32.6bn — sit well above some of these narrower domestic-market figures, consistent with the fact that a large share of what shows up as \"Irish\" insurance activity is actually cross-border business written from Ireland into other European countries rather than genuinely domestic Irish savings. This segment is best read as reflecting Ireland's role as an international insurance and funds hub as much as (or more than) its own domestic insurance market — itself a distinct opportunity for managers with cross-border distribution ambitions.",
+      "sources": [
+        {
+          "label": "Insurance Ireland, Resilience & Revitalisation: Shaping the Future of Insurance",
+          "url": "https://insuranceireland.eu/wp-content/uploads/2025/09/Resilience-Revitalisation-Milliman-Insurance-Ireland-Report.pdf"
+        },
+        {
+          "label": "OECD, Asset allocation of insurance companies dataset (data-explorer.oecd.org)",
+          "url": "https://data-explorer.oecd.org/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "charities": {
+      "text": "Unlike several other European markets, Ireland does have a dedicated national charity regulator, the Charities Regulator, broadly comparable in role to England and Wales' Charity Commission. At year-end 2024, 11,445 charities were listed on its register (127 newly registered, 199 deregistered during the year). The most recent comprehensive income data available covers 2022, when aggregate charity income had risen 23.7% since 2019; the large majority of charities (60%, excluding schools) report annual income below €250,000, reflecting a sector with a long tail of small organisations beneath a smaller number of much larger ones — the latter representing the more realistic institutional relationships, since the Charities Regulator's own reporting focuses on income and governance rather than investment portfolios and no aggregate balance-sheet figure is published.",
+      "sources": [
+        {
+          "label": "Charities Regulator, Ireland's Registered Charities 2019 to 2022 Report",
+          "url": "https://www.charitiesregulator.ie/media/zz2ni3qv/annual-report-comparison-19-22-final.pdf"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "foundations": {
+      "text": "Ireland's foundation sector is small by European standards. Philea (the pan-European philanthropy network) counted 165 foundation entities in Ireland: one community foundation, four corporate foundations, 23 family foundations, 32 independent operating foundations, 76 charitable trusts, 8 philanthropic intermediaries and 6 payroll-giving schemes, with combined annual expenditure estimated at around €80 million. The largest and best-known is Community Foundation Ireland, which marked its 25th anniversary in 2025 having channelled more than €160 million in grants from over €200 million in total donations since its founding in 2000 — with over 60% of that giving received in just the last five years, suggesting a sector still in relatively early, fast-growing stages and one worth watching for future institutional development.\n\nThe identifiable Foundations E&F segment for Ireland is small, at $0.30bn, consistent with the modest scale of the sector described above; conventional institutional plan-sponsor classifications capture only a small number of institutions large and professionally-managed enough to appear as identifiable asset owners.",
+      "sources": [
+        {
+          "label": "Philea, Sectoral data on the Irish philanthropy sector: The state of play",
+          "url": "https://philea.eu/opinions/sectoral-data-on-the-irish-philanthropy-sector-the-state-of-play/"
+        },
+        {
+          "label": "Community Foundation Ireland, Philanthropic hub celebrates 25 years",
+          "url": "https://www.rte.ie/news/ireland/2025/1204/1547177-community-foundation-ireland/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "family_offices": {
+      "text": "No usable, internally-consistent single-family-office figure was identified for Ireland: 4 SFO-tagged firms appear in underlying data, but none carry a figure that can be relied on, so there is no floor total to show here — a different situation from markets with zero identified firms (like Iceland), but the practical result for sizing purposes is the same. This almost certainly understates Ireland's real single-family-office landscape; Ireland has a number of prominent wealthy entrepreneurial families with significant private investment vehicles, representing a genuinely open opportunity best pursued through direct relationship-building rather than existing named-reporter data.",
+      "sources": [],
+      "last_updated": "2026-07-23"
+    },
+    "sovereign_wealth_funds": {
+      "text": "Ireland's identifiable SWF segment ($18.9bn) is the Ireland Strategic Investment Fund (ISIF), managed by the National Treasury Management Agency (NTMA) and one of the relatively few funds formally recognised internationally as a sovereign wealth fund, holding membership of the International Forum of Sovereign Wealth Funds (IFSWF) — putting Ireland alongside France (via Bpifrance) among the markets whose SWF segment includes a genuinely internationally-recognised sovereign fund.\n\nISIF has an unusual history and an explicit \"double bottom line\" mandate — targeting both an economic return and a measurable positive impact on employment and economic activity in Ireland — that sets it apart from a classic reserve-accumulation SWF like Norway's GPFG. It was created in December 2014 from the assets of the former National Pensions Reserve Fund (NPRF), which had itself been established in 2001 to help pre-fund future social welfare and public-service pension costs — but which is remembered at least as much for what happened during Ireland's financial crisis: in 2011, around €10 billion of NPRF assets were drawn down by the Government to help recapitalise Ireland's struggling banks, a stark illustration of how a reserve fund's assets can end up serving whatever the state's most urgent need happens to be, rather than the original purpose for which they were set aside. External reporting puts ISIF's assets under management at around $28 billion by mid-2025, somewhat above the identifiable $18.9bn segment figure here, likely reflecting a different snapshot date and currency conversion; since inception, ISIF has committed a cumulative €8.8 billion to investments in Ireland, directly and through investment partners — a fund with an explicit mandate to co-invest alongside external managers.",
+      "sources": [
+        {
+          "label": "NTMA, Ireland Strategic Investment Fund (Annual Report 2024 extract)",
+          "url": "https://www.ntma.ie/annualreport2024/documents/Ireland-Strategic-Investment-Fund.pdf"
+        },
+        {
+          "label": "IFSWF, Ireland Strategic Investment Fund member profile",
+          "url": "https://www.ifswf.org/member-profiles/ireland-strategic-investment-fund-isif"
+        },
+        {
+          "label": "Wikipedia, Ireland Strategic Investment Fund (NPRF background)",
+          "url": "https://en.wikipedia.org/wiki/Ireland_Strategic_Investment_Fund"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "ocio": {
+      "text": "No dedicated, regularly-published fiduciary management/OCIO market survey specific to Ireland was identified. Ireland's historically voluntary, employer-led occupational pension system (discussed under Pensions above) is now entering a period of significant change with the launch of My Future Fund, and it remains to be seen whether the new scheme's assets will be run in-house by NAERSA, delegated to external managers, or some blend of the two — a genuinely live question worth monitoring, since it could open a meaningful new delegated-mandate channel.\n\nGlobally, Cerulli estimates the OCIO/fiduciary management industry grew to more than $3.3 trillion in assets by the end of 2024, projecting growth to $5.6 trillion by the end of the decade — but Ireland's own share of that global pool isn't separately reported.",
+      "sources": [
+        {
+          "label": "Cerulli Associates, Nearly $1.3 Trillion Expected to Flow into OCIO Industry Through 2029",
+          "url": "https://www.cerulli.com/press-releases/nearly-1.3-trillion-expected-to-flow-into-ocio-industry-through-2029"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    }
+  }
 }

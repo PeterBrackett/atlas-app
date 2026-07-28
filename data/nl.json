@@ -2,15 +2,14 @@
   "country_code": "NL",
   "country_name": "Netherlands",
   "reporting_period": "2026-07 (S&P export date)",
-  "source_note": "Currency confirmed (2026-07-10): S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). These figures are USD, not EUR as previously assumed here. De Nederlandsche Bank (Bank of the Netherlands, S&P Category 'Reserve Banks', ~EUR 265.9bn) is excluded throughout, same convention as the other central-bank exclusions (UK, Denmark). DB Pension (Govt) is dominated by just two institutions \u2014 Stichting Pensioenfonds ABP (EUR 588.2bn, civil service & education) and Pensioenfonds Zorg en Welzijn / PFZW (EUR 277.5bn, healthcare & welfare) \u2014 together EUR 865.7bn, nearly all of the segment and about 47% of everything tracked for the Netherlands. Unlike Sweden's AP-fonden, these genuinely are large sectoral government-employee pension funds (not sovereign investment vehicles), so no reclassification flag is needed, but it's worth knowing the segment is effectively two institutions rather than a broad base. DB Pension (Union) is similarly concentrated in a small number of large Dutch sectoral pension funds (PMT, bpfBOUW, PME, Pensioenfonds Vervoer, etc.) \u2014 a distinctive feature of the Dutch pension system, where collectively-bargained sector funds are tagged 'Union' by S&P rather than 'Corporation'. A new S&P category not seen in prior countries \u2014 'Health Service Organization - nonprofit' (two Dutch academic medical centres) \u2014 was mapped to the taxonomy's dedicated Healthcare non-profit E&F segment. 212 institutions tracked (213 in the export, minus the Reserve Banks record), EUR 1,841.33bn tracked; no independent check yet on how exhaustive that is against the Netherlands' actual institutional universe.",
-  "scorecard_note": "Not yet scored \u2014 none of the 12 opportunity-scorecard dimensions have been filled in for any Netherlands segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
-  "allocation_note": "Built bottom-up directly from the real plan-level allocation lines in nl_institutions_latest.json, same real-bottom-up approach as Ireland, Denmark, Sweden, and Switzerland (no scaling or equity-anchoring). Raw asset_type values mapped onto the standard six buckets; 'Loans' folded into Fixed Income, everything else non-standard folded into Other/Unclassified. Same 5%-of-asset-type materiality threshold for style breakdowns. Plan-level lines with an explicit Defined Benefit or Defined Contribution plan type are assigned directly to that segment; ambiguous plan types are split across an institution's actual segments in proportion to its own DB/DC/E&F asset split, excluding any segment already covered by its own explicitly-typed plan. Coverage is lower here than in prior countries for three segments \u2014 DB Pension (Union) at 76.9%, Tax exempt E&F at 75.2%, and DC Pension (Corp) at 82.9% \u2014 reflecting more plan-level rows in the Dutch export with no reported dollar breakdown; the other five segments are 96-100% covered.",
+  "source_note": "Currency confirmed (2026-07-10): S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). These figures are USD, not EUR as previously assumed here. De Nederlandsche Bank (Bank of the Netherlands, S&P Category 'Reserve Banks', ~EUR 265.9bn) is excluded throughout, same convention as the other central-bank exclusions (UK, Denmark). DB Pension (Govt) is dominated by just two institutions — Stichting Pensioenfonds ABP (EUR 588.2bn, civil service & education) and Pensioenfonds Zorg en Welzijn / PFZW (EUR 277.5bn, healthcare & welfare) — together EUR 865.7bn, nearly all of the segment and about 47% of everything tracked for the Netherlands. Unlike Sweden's AP-fonden, these genuinely are large sectoral government-employee pension funds (not sovereign investment vehicles), so no reclassification flag is needed, but it's worth knowing the segment is effectively two institutions rather than a broad base. DB Pension (Union) is similarly concentrated in a small number of large Dutch sectoral pension funds (PMT, bpfBOUW, PME, Pensioenfonds Vervoer, etc.) — a distinctive feature of the Dutch pension system, where collectively-bargained sector funds are tagged 'Union' by S&P rather than 'Corporation'. A new S&P category not seen in prior countries — 'Health Service Organization - nonprofit' (two Dutch academic medical centres) — was mapped to the taxonomy's dedicated Healthcare non-profit E&F segment. 212 institutions tracked (213 in the export, minus the Reserve Banks record), EUR 1,841.33bn tracked; no independent check yet on how exhaustive that is against the Netherlands' actual institutional universe.",
+  "scorecard_note": "Not yet scored — none of the 12 opportunity-scorecard dimensions have been filled in for any Netherlands segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
+  "allocation_note": "Built bottom-up directly from the real plan-level allocation lines in nl_institutions_latest.json, same real-bottom-up approach as Ireland, Denmark, Sweden, and Switzerland (no scaling or equity-anchoring). Raw asset_type values mapped onto the standard six buckets; 'Loans' folded into Fixed Income, everything else non-standard folded into Other/Unclassified. Same 5%-of-asset-type materiality threshold for style breakdowns. Plan-level lines with an explicit Defined Benefit or Defined Contribution plan type are assigned directly to that segment; ambiguous plan types are split across an institution's actual segments in proportion to its own DB/DC/E&F asset split, excluding any segment already covered by its own explicitly-typed plan. Coverage is lower here than in prior countries for three segments — DB Pension (Union) at 76.9%, Tax exempt E&F at 75.2%, and DC Pension (Corp) at 82.9% — reflecting more plan-level rows in the Dutch export with no reported dollar breakdown; the other five segments are 96-100% covered.",
   "segments": [
     {
       "segment": "DB Pension (Corp)",
       "aum_bn": 460.857202,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Fixed Income",
@@ -123,6 +122,15 @@
           "source": "S&P Money Manager Database export (Netherlands)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Top-down check (IPE Top 1000 Pension Funds Europe 2025, country total)",
+          "aum_bn": 1608.82,
+          "currency": "EUR",
+          "as_of": "2024-12-31 to 2025-07-04 (IPE Top 1000 Pension Funds, 2025 edition)",
+          "source": "IPE, 'Top 1000 Pension Funds' (2025 edition) -- 172 named Netherlands entities summed",
+          "note": "IPE 'Top 1000 Pension Funds' (2025 edition) reports 172 named pension entities for Netherlands, summing to EUR1608.82bn (2024-12-31 to 2025-07-04, mixed reporting dates across entities). This is a whole-country total across every pension fund IPE identifies -- spanning defined benefit and defined contribution, corporate and government/public-sector schemes combined -- not broken out the way Atlas segments this market. Shown here as a reference against DB Pension (Corp) + DB Pension (Govt) combined (Atlas bottom-up = $1326.55bn across 2 segment(s)), not any single segment alone; the two figures are also in different currencies (EUR vs Atlas's USD), so this is a directional comparison only, not a precise variance calculation.",
+          "active": false
         }
       ],
       "source_history": [
@@ -130,7 +138,13 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-28",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added via new research: 'IPE Top 1000 Pension Funds country total' (EUR1608.82bn across 172 entities) -- see scope caveat in note. Cross-checked against S&P MMD-derived segment totals; not previously available in NL commentary/sources."
         }
       ],
       "allocation_incomplete": true,
@@ -138,14 +152,56 @@
         "top3_share_pct": 24.9,
         "hhi": 440,
         "n_institutions": 118,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Pensioenfonds PGB",
+            "aum_bn": 41.55
+          },
+          {
+            "name": "Pensioenfonds Detailhandel",
+            "aum_bn": 41.28
+          },
+          {
+            "name": "ABN AMRO Bank NV",
+            "aum_bn": 31.77
+          },
+          {
+            "name": "ING Groep NV",
+            "aum_bn": 27.63
+          },
+          {
+            "name": "KLM Royal Dutch Airlines",
+            "aum_bn": 27.12
+          },
+          {
+            "name": "Shell Nederland",
+            "aum_bn": 24.52
+          },
+          {
+            "name": "Koninklijke Philips N.V.",
+            "aum_bn": 19.55
+          },
+          {
+            "name": "Achmea",
+            "aum_bn": 11.94
+          },
+          {
+            "name": "Tata Steel Europe",
+            "aum_bn": 11.86
+          },
+          {
+            "name": "Stap Algemeen Pensioenfonds",
+            "aum_bn": 9.94
+          }
+        ],
+        "top10_share_pct": 71.4
       }
     },
     {
       "segment": "DC Pension (Corp)",
       "aum_bn": 13.387975,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -261,7 +317,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true,
@@ -269,14 +325,24 @@
         "top3_share_pct": 46.7,
         "hhi": 1109,
         "n_institutions": 24,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "ARCADIS U.S., Inc.",
+            "aum_bn": 2.26
+          },
+          {
+            "name": "Core Laboratories NV",
+            "aum_bn": 0.17
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "DB Pension (Govt)",
       "aum_bn": 865.690321,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Fixed Income",
@@ -382,6 +448,24 @@
           "source": "S&P Money Manager Database export (Netherlands)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Top-down check (OECD autonomous pension funds, country total)",
+          "aum_bn": 1759.646,
+          "currency": "USD",
+          "as_of": "2024 (OECD reference year)",
+          "source": "OECD Data Explorer, 'Assets earmarked for retirement' (OECD.DAF.CM, DSD_FP@DF_PA), Pension funds (autonomous) vehicle type (native unit: USD millions, converted here to USD bn to match Atlas convention)",
+          "note": "Country-level top-down cross-check, not a segment-specific figure. CORRECTED 2026-07-16: an earlier version of this note claimed the gap was because Atlas's bottom-up figure includes book reserve and insurance-wrapped pension assets that OECD's 'autonomous pension funds' vehicle type excludes. That claim was not well supported and has been withdrawn -- S&P's Money Manager Database tracks assets already placed with professional managers (so unfunded book reserves, which have no external portfolio, structurally shouldn't appear in it), and it tracks insurance firms as a category separate from pension institutions. The real driver of variance, where known, is noted per-country below. Compares against the SUM of all DB+DC segments in Netherlands (DB Pension (Corp), DC Pension (Corp), DB Pension (Govt), DB Pension (Union), DC Pension (Union)): Atlas bottom-up = $1824.85bn vs OECD (autonomous funds only, 2024) = $1759.65bn, variance +3.7%. Shown here against the largest DB/DC segment (DB Pension (Govt)) as a reference point only -- do not apply this figure as this segment's own total.",
+          "active": false
+        },
+        {
+          "basis": "Top-down check (IPE Top 1000 Pension Funds Europe 2025, country total)",
+          "aum_bn": 1608.82,
+          "currency": "EUR",
+          "as_of": "2024-12-31 to 2025-07-04 (IPE Top 1000 Pension Funds, 2025 edition)",
+          "source": "IPE, 'Top 1000 Pension Funds' (2025 edition) -- 172 named Netherlands entities summed",
+          "note": "IPE 'Top 1000 Pension Funds' (2025 edition) reports 172 named pension entities for Netherlands, summing to EUR1608.82bn (2024-12-31 to 2025-07-04, mixed reporting dates across entities). This is a whole-country total across every pension fund IPE identifies -- spanning defined benefit and defined contribution, corporate and government/public-sector schemes combined -- not broken out the way Atlas segments this market. Shown here as a reference against DB Pension (Corp) + DB Pension (Govt) combined (Atlas bottom-up = $1326.55bn across 2 segment(s)), not any single segment alone; the two figures are also in different currencies (EUR vs Atlas's USD), so this is a directional comparison only, not a precise variance calculation.",
+          "active": false
         }
       ],
       "source_history": [
@@ -389,21 +473,49 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_added",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Added OECD autonomous pension fund total ($1759.65bn, 2024) as a non-active top-down cross-check against the combined DB+DC segments for Netherlands (bottom-up sum $1824.85bn, variance +3.7%). Not applied -- active source and displayed aum_bn for this segment are unchanged."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_note_corrected",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Corrected the OECD top-down check note added earlier today: withdrew the claim that the variance is explained by Atlas's bottom-up figure including book reserve/insurance assets (Peter flagged that S&P MMD shouldn't capture those categories, and that's correct). Replaced with a country-specific, evidence-based explanation where one was found (Korea/NPS, Norway/KLP, Germany/Denmark/Sweden insurance-regulated occupational pension providers), or left as an open question where no clear driver was identified."
+        },
+        {
+          "date": "2026-07-28",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added via new research: 'IPE Top 1000 Pension Funds country total' (EUR1608.82bn across 172 entities) -- see scope caveat in note. Cross-checked against S&P MMD-derived segment totals; not previously available in NL commentary/sources."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 5644,
         "n_institutions": 2,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Stichting Pensioenfonds ABP",
+            "aum_bn": 588.24
+          },
+          {
+            "name": "Pensioenfonds Zorg en Welzijn (PFZW)",
+            "aum_bn": 277.46
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "DB Pension (Union)",
       "aum_bn": 482.336069,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Fixed Income",
@@ -519,7 +631,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true,
@@ -527,14 +639,56 @@
         "top3_share_pct": 49.6,
         "hhi": 1020,
         "n_institutions": 38,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Pensioenfonds Metaal en Techniek (PMT)",
+            "aum_bn": 95.46
+          },
+          {
+            "name": "BPF Bouwnijverheid (bpfBOUW)",
+            "aum_bn": 83.56
+          },
+          {
+            "name": "Pensioenfonds van de Metalektro (PME)",
+            "aum_bn": 60.26
+          },
+          {
+            "name": "Pensioenfonds Vervoer",
+            "aum_bn": 39.4
+          },
+          {
+            "name": "Pensioenfonds Rail & Openbaar Vervoer",
+            "aum_bn": 27.81
+          },
+          {
+            "name": "Stichting Pensioenfonds voor de Woningcorporaties (SPW)",
+            "aum_bn": 16.9
+          },
+          {
+            "name": "Pensioenfonds Horeca en Catering",
+            "aum_bn": 16.14
+          },
+          {
+            "name": "Stichting Pensioenfonds Medisch Specialisten (SPMS)",
+            "aum_bn": 15.62
+          },
+          {
+            "name": "Stichting Pensioenfonds voor Huisartsen (SPH)",
+            "aum_bn": 12.16
+          },
+          {
+            "name": "BPF Schilders",
+            "aum_bn": 10.77
+          }
+        ],
+        "top10_share_pct": 82.2
       }
     },
     {
       "segment": "DC Pension (Union)",
       "aum_bn": 2.579066,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Fixed Income",
@@ -650,7 +804,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
@@ -664,7 +818,6 @@
       "segment": "Endowments E&F",
       "aum_bn": 2.881737,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Cash & Short-Term",
@@ -726,21 +879,63 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 40.9,
         "hhi": 1126,
         "n_institutions": 10,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Technische Universiteit Delft",
+            "aum_bn": 0.43
+          },
+          {
+            "name": "Rijksuniversiteit Groningen",
+            "aum_bn": 0.39
+          },
+          {
+            "name": "Wageningen University & Research Center",
+            "aum_bn": 0.36
+          },
+          {
+            "name": "Universiteit Leiden",
+            "aum_bn": 0.35
+          },
+          {
+            "name": "Universiteit van Amsterdam",
+            "aum_bn": 0.33
+          },
+          {
+            "name": "Universiteit Maastricht",
+            "aum_bn": 0.32
+          },
+          {
+            "name": "VU University",
+            "aum_bn": 0.25
+          },
+          {
+            "name": "Erasmus Universiteit Rotterdam",
+            "aum_bn": 0.18
+          },
+          {
+            "name": "Technische Universiteit Eindhoven",
+            "aum_bn": 0.14
+          },
+          {
+            "name": "Radboud University Nijmegen",
+            "aum_bn": 0.13
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "Tax exempt E&F",
       "aum_bn": 13.20132,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -848,7 +1043,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true,
@@ -863,7 +1058,6 @@
       "segment": "Healthcare non-profit E&F",
       "aum_bn": 0.39772,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Cash & Short-Term",
@@ -914,7 +1108,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
@@ -923,6 +1117,357 @@
         "n_institutions": 2,
         "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
       }
+    },
+    {
+      "segment": "Life insurance",
+      "aum_bn": 360.377,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 21.636,
+          "pct_of_segment": 6.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 21.636
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 186.001,
+          "pct_of_segment": 51.6,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 186.001
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 8.599,
+          "pct_of_segment": 2.4,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 8.599
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 3.675,
+          "pct_of_segment": 1.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 3.675
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 3.235,
+          "pct_of_segment": 0.9,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 3.235
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 137.231,
+          "pct_of_segment": 38.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 137.231
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 360.377,
+          "as_of": "2024-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-14",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2024 data). Scorecard not yet scored -- dimensions to be filled in manually."
+        }
+      ]
+    },
+    {
+      "segment": "Non-life insurance",
+      "aum_bn": 65.598,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 10.876,
+          "pct_of_segment": 16.6,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 10.876
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 32.69,
+          "pct_of_segment": 49.8,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 32.69
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 4.413,
+          "pct_of_segment": 6.7,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 4.413
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 0.122,
+          "pct_of_segment": 0.2,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.122
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 0.386,
+          "pct_of_segment": 0.6,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.386
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 17.111,
+          "pct_of_segment": 26.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 17.111
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 65.598,
+          "as_of": "2024-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
+          "active": true
+        },
+        {
+          "basis": "Reference only -- partial figure from insurer SFCR filings, not whole-market (Dutch non-life insurers)",
+          "aum_bn": 30,
+          "currency": "EUR",
+          "as_of": "2024 (Solvency and Financial Condition Reports)",
+          "source": "Dutch non-life insurers' 2024 Solvency and Financial Condition Reports (SFCRs), aggregate reported investment assets",
+          "note": "IMPORTANT SCOPE CAVEAT: this EUR30bn figure is drawn from 2024 Dutch non-life insurers' solvency and financial condition reports (SFCRs) and reflects only the investment assets reported by insurers filing under this regime -- it is a PARTIAL market figure, not a comprehensive whole-market total, and should not be read as a full top-down check against this segment's own $65.60bn bottom-up figure. Shown as a directional reference point only.",
+          "active": false
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-14",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2024 data). Scorecard not yet scored -- dimensions to be filled in manually."
+        },
+        {
+          "date": "2026-07-24",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added: \"Dutch non-life insurer SFCR partial total\" (30bn EUR) -- explicitly partial, see scope caveat in note."
+        }
+      ]
+    },
+    {
+      "segment": "Family Offices (SFO)",
+      "aum_bn": 24.5,
+      "basis": "Bottom-up (S&P Money Manager Database, SFO-tagged, named reporters only) -- partial, coverage-limited, directional guesstimate",
+      "allocation": [],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database, SFO-tagged, named reporters only)",
+          "aum_bn": 24.5,
+          "as_of": "2026-07 (S&P Family Office module export)",
+          "source": "S&P Money Manager Database, Family Office module, filtered to Company Type = 'SFO' (single family office)",
+          "note": "Built 2026-07-23 as part of a global rollout of the Family Offices (SFO) segment, following the same methodology validated on the UK (Peter flagged that S&P's 'family office' data looked more like misclassified wealth managers than real family offices, and a full download confirmed it). S&P's Family Office module tags every firm as SFO (single family office), MFO (multi-family office) or FOSP (family office service provider); MFO and FOSP are dominated by private-bank wealth-management divisions and service providers rather than genuine family offices, so this segment is restricted to SFO-tagged firms only (22 identified for Netherlands). Of those, 2 carry a numeric AUM figure. The aum_bn above ($24.5bn) is the sum of the 2 remaining, internally-consistent named reporters -- it is NOT an estimate of the true Netherlands single-family-office population, which is almost certainly larger, since family offices are notoriously private and under-reported by design (Peter has explicitly accepted this as a directional guesstimate rather than a comprehensive figure). No asset-class breakdown exists in the source data at all, so allocation is left empty and the chart will show as 100% 'Unreported' by design, not a bug.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-23",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "New segment added as part of a global rollout following the UK pilot (Peter questioned whether S&P's Family Office data was genuinely family offices or misclassified wealth managers -- confirmed the latter for MFO/FOSP). Restricted to SFO-tagged firms only, further excluding any numeric figure that contradicts its own stated size-range bucket. Resulting aum_bn ($24.5bn across 2 firms) is a partial, named-reporters-only total, explicitly accepted by Peter as a directional guesstimate rather than a population estimate -- see sources[].note for full methodology."
+        }
+      ],
+      "concentration": {
+        "top3_share_pct": 100.0,
+        "hhi": 8850,
+        "n_institutions": 2,
+        "basis": "The 2 SFO-tagged Netherlands firms with an internally-consistent numeric AUM figure in the S&P Money Manager Database Family Office module export (see segment sources[].note) -- NOT the full 22 SFO-tagged firms identified for Netherlands, only the subset that report a usable figure.",
+        "top_institutions": [
+          {
+            "name": "Anthos Asset Management B.V.",
+            "aum_bn": 23.0
+          },
+          {
+            "name": "Van Herk Groep",
+            "aum_bn": 1.5
+          }
+        ],
+        "top10_share_pct": 100.0
+      }
     }
-  ]
+  ],
+  "commentary": {
+    "wealth": {
+      "text": "Dutch household wealth is highly concentrated at the top even though the Netherlands is a comparatively equal society by income. CBS (Statistics Netherlands) reported that on 1 January 2024, 5.5% of households held assets of €1 million or more, with the median millionaire household holding €1.6 million — dominated by business interests and business assets (40%) and owner-occupied housing (a further quarter). Non-millionaire households look very different: home-ownership accounts for more than three-quarters of their wealth, and the median non-millionaire household holds around €110,000. Taking the population as a whole, CBS puts the wealthiest 10% of households at close to €1.5 trillion in combined wealth — 56% of all household wealth in the country.\n\nOn the institutional side, the Netherlands is best known for its pension system rather than its fund-management industry: Dutch pension funds collectively manage well over €1.5 trillion, among the largest funded pension pools relative to GDP anywhere in the world, and the identifiable institutional base below reflects that scale directly — DB Pension (Govt), DB Pension (Union) and DB Pension (Corp) alone sum to more than $1.8 trillion. The Netherlands is also the country where fiduciary management (OCIO) as a distinct discipline was pioneered, discussed further below, and is now mid-way through the largest pension reform in its history — the Wet toekomst pensioenen (Wtp) — which is discussed in full under Pensions and represents a significant near-term opportunity for managers positioned to support the transition.",
+      "sources": [
+        {
+          "label": "CBS, The Netherlands has more millionaires than ever",
+          "url": "https://www.cbs.nl/en-gb/news/2025/41/the-netherlands-has-more-millionaires-than-ever"
+        },
+        {
+          "label": "CBS, 56 percent of wealth in the hands of 10 percent of households",
+          "url": "https://www.cbs.nl/en-gb/news/2025/03/56-percent-of-wealth-in-the-hands-of-10-percent-of-households"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "pensions": {
+      "text": "The Netherlands runs one of the world's most heavily funded occupational pension systems, consistently ranked at or near the top of global pension-system indices, and is in the middle of the largest reform of that system in its history — a genuine window of opportunity for managers able to support schemes through the transition. The Wet toekomst pensioenen (Wtp, Future of Pensions Act) requires virtually every Dutch pension scheme to move from defined benefit to a form of defined contribution, converting flat-rate rather than age-related contributions and, unusually by international standards, transitioning existing accrued DB assets into the new DC framework rather than only changing the basis for future accrual. Around €1.2-1.3 trillion of accrued pension benefits are affected; most of the 83 largest schemes were expected to complete the transition by 2027, with a final deadline of 1 January 2028 for the remainder, including ABP (the civil-service and education scheme, and comfortably the country's largest fund), which pushed its own transition back to 2027.\n\nThe identifiable institutional base shows the scale involved directly. DB Pension (Govt) is the largest pool at $865.7bn, almost entirely made up of two giant sectoral funds: Stichting Pensioenfonds ABP ($588.2bn, for government and education-sector employees) and Pensioenfonds Zorg en Welzijn (PFZW, $277.5bn, for healthcare and social-work employees) — both among the largest pension funds in the world by any measure, and among the most significant institutional relationships available anywhere in Europe. DB Pension (Union) totals $482.3bn, spread across sector-wide, collectively-bargained bedrijfstakpensioenfondsen including Pensioenfonds Metaal en Techniek (PMT, $95.5bn), BPF Bouwnijverheid (bpfBOUW, $83.6bn), Pensioenfonds van de Metalektro (PME, $60.3bn) and several further sector funds for transport, rail and housing associations. DB Pension (Corp) ($460.9bn) includes both dedicated company schemes (ABN AMRO, ING, KLM, Shell Nederland) and larger multi-employer funds such as Pensioenfonds PGB and Pensioenfonds Detailhandel. DC assets, at $13.4bn (DC Pension (Corp)) and $2.6bn (DC Pension (Union)), are still tiny relative to this DB base for now — but that balance is exactly what the Wtp transition is in the process of rewriting, and represents the single largest structural opportunity in this market over the next several years.",
+      "sources": [
+        {
+          "label": "IPE, What you need to know about the Dutch DC pension reform",
+          "url": "https://www.ipe.com/analysis/what-you-need-to-know-about-the-dutch-dc-pension-reform/10127945.article"
+        },
+        {
+          "label": "IPE, ABP postpones DC transition to 2027",
+          "url": "https://www.ipe.com/abp-postpones-dc-transition-to-2027/10067743.article"
+        },
+        {
+          "label": "FIAP, The Netherlands: Senate passes law requiring DB-to-DC transition by 2028",
+          "url": "https://www.fiapinternacional.org/en/the-netherlands-the-senate-passed-a-law-requiring-defined-benefit-pension-plans-to-transition-to-defined-contribution-pension-plans-by-january-1-2028/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "insurance": {
+      "text": "The Verbond van Verzekeraars (Dutch Association of Insurers) represents insurers covering more than 95% of the Dutch insurance market by gross premium income, though a single, up-to-date, whole-of-market total-assets figure covering life, non-life and health insurers together was not identified in public reporting at the same level of detail the UK or Germany associations publish. Sector-level supervisory data does exist for parts of the market — for example, the non-life insurers covered in 2024 solvency and financial condition reports held around €30 billion in investments between them (predominantly government bonds, corporate bonds and collective investment vehicles), with average solvency coverage ratios of 155%, comfortably above regulatory minimums.\n\nOECD-sourced figures for the sector show Life insurance at $360.4bn and Non-life insurance at $65.6bn — a combined $426.0bn that is dramatically smaller than the UK's or Germany's insurance segments, consistent with the Netherlands' institutional savings running mainly through its very large pension system (see Pensions above) rather than through insurance-based long-term savings products. This is a structural difference from both the UK and Germany worth keeping in mind when benchmarking Dutch insurers against UK or German peers: the pension channel, not insurance, is where the bulk of Dutch institutional opportunity sits.",
+      "sources": [
+        {
+          "label": "Verbond van Verzekeraars (Dutch Association of Insurers), organisational overview",
+          "url": "https://www.lobbyfacts.eu/datacard/verbond-van-verzekeraars---dutch-association-of-insurers?rid=22015185370-53&sid=119574"
+        },
+        {
+          "label": "Milliman, Analysing 2024 solvency and financial condition reports (SFCR) of non-life insurers in the Netherlands",
+          "url": "https://www.milliman.com/en/insight/2024-sfcr-non-life-netherlands"
+        },
+        {
+          "label": "OECD, Asset allocation of insurance companies dataset (data-explorer.oecd.org)",
+          "url": "https://data-explorer.oecd.org/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "charities": {
+      "text": "The Netherlands' fundraising charity sector is overseen by the CBF (Centraal Bureau Fondsenwerving, the Netherlands Fundraising Regulator), which has monitored charitable fundraising since 1925 and currently oversees roughly €4.7 billion in donations across its recognised charities; the 200 largest Dutch charities alone received a record €464 million in legacies in 2023, up 23% on 2022. Separately, ANBI (algemeen nut beogende instelling) status — which brings tax benefits for donors and the organisation — is held by a large population of charitable bodies, though the number reporting centrally to the tax authority has fallen sharply since 2012 reforms removed the obligation to report for organisations no longer facing inheritance tax on gifts, making a single current, comprehensive count difficult to state with confidence.\n\nThe CBF and tax-authority data available cover donations and legacies rather than institutional investment assets, so this population is best approached qualitatively for now; the better-measured vermogensfondsen (endowed foundation) population is covered separately below and represents the more realistic institutional-mandate opportunity.",
+      "sources": [
+        {
+          "label": "CBF (Centraal Bureau Fondsenwerving), Netherlands Fundraising Regulator overview",
+          "url": "https://goededoelennederland.nl/downloads/over-de-sector/GDN-An-Introduction-to-the-Philanthropy-Sector.pdf"
+        },
+        {
+          "label": "ERNOP, Giving in Europe country report: Netherlands",
+          "url": "https://ernop.eu/wp-content/uploads/2017/10/Giving-in-Europe-country-report-Netherlands.pdf"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "foundations": {
+      "text": "FIN (Vereniging van Fondsen in Nederland), the Dutch association for grant-making foundations, counts more than 330 proprietary funds (vermogensfondsen) among its members — foundations that give from their own endowed capital rather than raising funds from the public, the closest Dutch equivalent to a UK grant-making trust. Combined capital across these foundations runs into the tens of billions of euros, though FIN does not appear to publish a single, precise, regularly-updated aggregate total-assets figure in the way the UK's ACF or Germany's Bundesverband Deutscher Stiftungen do, making this a directionally useful but imprecise figure for sizing the opportunity.\n\nThe identifiable institutional base captures other, distinct pools of Dutch tax-exempt institutional capital ($13.2bn Tax exempt E&F, $2.9bn Endowments E&F) that are not a like-for-like match for the vermogensfondsen population described above — the real foundation opportunity is best pursued directly through FIN's member network rather than sized from institutional asset-manager data alone.",
+      "sources": [
+        {
+          "label": "FIN (Vereniging van Fondsen in Nederland), homepage and overview",
+          "url": "https://fondseninnederland.nl/over-fin"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "family_offices": {
+      "text": "The identifiable single-family-office base for the Netherlands is small but well-known by name: of 22 firms tagged as single-family offices, 2 report a usable, internally-consistent AUM figure, for a combined $24.5bn. The larger of the two, Anthos Asset Management B.V. ($23.0bn), is the investment manager for the Brenninkmeijer family — the founders of C&A, one of Europe's largest privately-held retail groups — and is among the best-known single-family investment offices in continental Europe. Van Herk Groep ($1.5bn), a Rotterdam-based family holding company with shipping and logistics roots, is the second identified reporter.\n\nAs in every market, care is needed distinguishing genuine single-family offices from adjacent categories such as private-bank wealth-management divisions and third-party service providers, which are often conflated with true family offices in less careful data — the figures above are restricted to single-family offices specifically. The $24.5bn total is best read as a floor built from 2 named reporters out of 22 identified single-family offices, not an estimate of the true Dutch single-family-office population, which is almost certainly considerably larger.",
+      "sources": [],
+      "last_updated": "2026-07-23"
+    },
+    "sovereign_wealth_funds": {
+      "text": "The Netherlands has no sovereign wealth fund, and no distinct SWF exists in the country to target for mandate purposes. The closest thing to a state investment vehicle is the Nationaal Groeifonds (National Growth Fund), a €20 billion fund launched in September 2020 to finance research, development and innovation and infrastructure projects intended to strengthen the Netherlands' long-term earning capacity — allocating funds in discrete rounds (a further €4-5bn awarded to specific projects in 2022-23) rather than accumulating and investing a permanent pool of capital. Like the UK's National Wealth Fund and Germany's KENFO, the Nationaal Groeifonds is a policy-delivery vehicle funded by government borrowing and earmarked for specific domestic projects, not a fund accumulating fiscal surpluses or resource revenue for future generations — worth understanding for what it is (a project co-financier) rather than approaching it as a conventional sovereign LP.",
+      "sources": [
+        {
+          "label": "Nationaal Groeifonds, The National Growth Fund (official overview)",
+          "url": "https://www.nationaalgroeifonds.nl/english/the-national-growth-fund"
+        },
+        {
+          "label": "Global Trade Alert, Netherlands: EUR 20 billion National Growth Fund launched",
+          "url": "https://globaltradealert.org/state-act/62818-netherlands-eur-20-billion-national-growth-fund-launched-to-support-research-and-development"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "ocio": {
+      "text": "The Netherlands is where fiduciary management (OCIO) as a distinct discipline was pioneered, alongside the UK, in the early 2000s, and Dutch pension funds adopted it faster and more completely than almost anywhere else: more than 75% of Dutch pension fund assets were already being run on a fiduciary-management basis by the first quarter of 2009 — making this one of the most mature and receptive OCIO markets in the world. The market today is concentrated among a small number of large, pension-fund-linked managers rather than the independent consultants that dominate the UK market: MN (around €175bn in fiduciary assets, serving the large metal-sector schemes PME and PMT among others, and structured as a non-profit rather than a commercial provider), PGGM (fiduciary manager to PFZW, the country's second-largest pension fund), Achmea Investment Management (which has recently overtaken MN into the market's top three), and TKP (a Groningen-based manager running tens of billions of euros for a large number of smaller pension-fund clients).\n\nThe Wet toekomst pensioenen transition described under Pensions above is currently the single biggest driver of activity in this market: pension funds moving to the new DC framework are re-examining their fiduciary arrangements as part of the broader transition, and several high-profile fiduciary mandates have changed hands as a result (Achmea IM and BlackRock both won mandates in the 2024 round, for example) — a live and active mandate market worth tracking closely over the next several years as the Wtp transition plays out.",
+      "sources": [
+        {
+          "label": "IPE, The rise of fiduciary mandates",
+          "url": "https://www.ipe.com/the-rise-of-fiduciary-mandates/19337.article"
+        },
+        {
+          "label": "IPE, 2024: Achmea IM and BlackRock win Dutch fiduciary mandates",
+          "url": "https://www.ipe.com/analysis/2024-achmea-im-and-blackrock-win-dutch-fiduciary-mandates/10128173.article"
+        },
+        {
+          "label": "IPE, Why Mn Services is putting on weight",
+          "url": "https://www.ipe.com/why-mn-services-is-putting-on-weight/25276.article"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    }
+  }
 }

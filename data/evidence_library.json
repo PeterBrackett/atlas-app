@@ -39,6 +39,36 @@
       ],
       "note": "Based on real quoted mandate fees, not survey responses -- a different and complementary methodology to Mercer's country-benchmark survey above. Has no country/region granularity, so cannot substitute for Mercer's figures; best read alongside Mercer, not instead of it. A November 2024 bfinance poll of 300+ investors found roughly 40%+ believed like-for-like private equity fees had fallen, despite little stated-term compression showing in bfinance's own PE figures -- a perception-vs-data gap worth flagging if PE fee compression comes up with a client.",
       "added": { "date": "2026-07-27", "by": "secondary-source-research" }
+    },
+    {
+      "id": "ipe-top1000-asset-allocation-2025",
+      "title": "IPE Top 1000 Pension Funds -- Asset Allocation (largest disclosed funds, by country)",
+      "theme": "Asset allocation",
+      "scope": ["United Kingdom", "Netherlands", "Denmark", "Switzerland", "Sweden", "Germany", "France", "Finland", "Norway", "Italy", "Austria"],
+      "related_dimensions": ["alignment_of_investment_thinking"],
+      "source": "IPE, 'Top 1000 Pension Funds' (2025 edition), Asset Allocation tab",
+      "as_of": "2023-12 to 2025-07 (mixed reporting dates across entities, mostly 2024-12 or 2025)",
+      "access": "Provided directly by Peter (IPE Top 1000 dataset export)",
+      "summary": "AUM-weighted blended asset allocation (equity / fixed income & credit / real estate / alternatives / cash) across the largest pension funds in each country that disclose a breakdown. UK: 28.8/45.8/5.2/23.9/4.0. Netherlands: 28.9/44.6/10.9/20.8/0.7. Denmark: 40.0/35.7/7.8/13.8/2.2. Switzerland: 26.2/42.1/19.8/9.4/9.0. Sweden: 55.0/25.3/11.2/20.5/-. Germany: 59.5/34.9/9.7/8.0/1.3. France: 25.1/60.0/9.9/13.8/2.4. Finland: 49.5/26.8/8.8/27.3/4.6. Norway: 69.2/28.2/2.4/0.1/-. Italy: 25.5/42.1/17.7/7.3/7.4. Austria: 29.1/37.9/5.7/20.9/2.1 (all % of AUM, in equity/fixed income/real estate/alternatives/cash order).",
+      "figures": [
+        { "region": "United Kingdom", "metric": "Equity (AUM-weighted, n=24)", "value": 28.8, "unit": "%" },
+        { "region": "United Kingdom", "metric": "Fixed income & credit (AUM-weighted, n=24)", "value": 45.8, "unit": "%" },
+        { "region": "United Kingdom", "metric": "Alternatives (AUM-weighted, n=24)", "value": 23.9, "unit": "%" },
+        { "region": "Netherlands", "metric": "Equity (AUM-weighted, n=16)", "value": 28.9, "unit": "%" },
+        { "region": "Netherlands", "metric": "Fixed income & credit (AUM-weighted, n=16)", "value": 44.6, "unit": "%" },
+        { "region": "Denmark", "metric": "Equity (AUM-weighted, n=14)", "value": 40.0, "unit": "%" },
+        { "region": "Switzerland", "metric": "Equity (AUM-weighted, n=10)", "value": 26.2, "unit": "%" },
+        { "region": "Switzerland", "metric": "Real estate (AUM-weighted, n=10)", "value": 19.8, "unit": "%" },
+        { "region": "Sweden", "metric": "Equity (AUM-weighted, n=9)", "value": 55.0, "unit": "%" },
+        { "region": "Germany", "metric": "Equity (AUM-weighted, n=8)", "value": 59.5, "unit": "%" },
+        { "region": "France", "metric": "Fixed income & credit (AUM-weighted, n=5)", "value": 60.0, "unit": "%" },
+        { "region": "Finland", "metric": "Alternatives (AUM-weighted, n=5)", "value": 27.3, "unit": "%" },
+        { "region": "Norway", "metric": "Equity (AUM-weighted, n=3)", "value": 69.2, "unit": "%" },
+        { "region": "Italy", "metric": "Real estate (AUM-weighted, n=2)", "value": 17.7, "unit": "%" },
+        { "region": "Austria", "metric": "Alternatives (AUM-weighted, n=2)", "value": 20.9, "unit": "%" }
+      ],
+      "note": "IMPORTANT SAMPLE CAVEAT: only 100 of IPE's 1,305 ranked entities disclose an asset allocation breakdown at all, and disclosure skews heavily toward the largest few funds per country -- UK's n=24 is the best-covered market; Germany, Norway, Italy and Austria have 2-8 entries each; Belgium, Ireland, Iceland and Spain have none. This is NOT representative of each country's broader pension-fund population the way Atlas's own S&P MMD-derived segment allocation data is -- it reflects how the largest, most disclosure-willing funds are positioned, which is a genuinely different (and generally more return-seeking / less liability-driven-hedging) population than the full market. Treat as directional colour on mega-fund positioning, not a cross-check figure to reconcile against any segment's own allocation[] data. Cross-checked against S&P MMD coverage per Peter's request; deliberately kept out of segment-level sources[] given the small, skewed samples.",
+      "added": { "date": "2026-07-28", "by": "secondary-source-research" }
     }
   ]
 }

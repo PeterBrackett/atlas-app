@@ -2,15 +2,14 @@
   "country_code": "CH",
   "country_name": "Switzerland",
   "reporting_period": "2026-07 (S&P export date)",
-  "source_note": "Currency confirmed (2026-07-10): S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). These figures are USD, not CHF as previously assumed here. No Reserve Banks / central-bank record appeared in this export (unlike UK/Denmark), so no exclusion was needed. DB Pension (Govt) is large (CHF 466.7bn, 39% of everything tracked) but unlike Sweden's AP-fonden situation, this is a genuinely diversified list of 46 separate government-category institutions \u2014 Swiss Confederation and cantonal/municipal pension funds (PUBLICA, BVK Zurich, Kantonale Pensionskasse Graub\u00fcnden, dozens of Kanton/Stadt schemes) plus state-owned enterprises SBB and Swiss Post \u2014 not a small number of outsized funds, so no equivalent reclassification flag is needed here. S&P's two 'Private Foundation' institutions (Egon Bettwiesen Foundation, Z Zurich Foundation) were mapped to Foundations E&F, same convention as Sweden; the 52 'Tax Exempt Organization' institutions (a very broad set \u2014 everything from FIFA to Caritas to small Swiss charities) were mapped mechanically to Tax exempt E&F. 291 institutions tracked, CHF 1,197.28bn tracked; no independent check yet on how exhaustive that is against Switzerland's actual institutional universe (this is by far the largest of the smaller pilot countries so far).",
-  "scorecard_note": "Not yet scored \u2014 none of the 12 opportunity-scorecard dimensions have been filled in for any Switzerland segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
-  "allocation_note": "Built bottom-up directly from the real plan-level allocation lines in ch_institutions_latest.json, same real-bottom-up approach as Ireland, Denmark, and Sweden (no scaling or equity-anchoring). Raw asset_type values mapped onto the standard six buckets; 'Loans' folded into Fixed Income, everything else non-standard folded into Other/Unclassified. Same 5%-of-asset-type materiality threshold for style breakdowns. Plan-level lines with an explicit Defined Benefit or Defined Contribution plan type are assigned directly to that segment; ambiguous plan types are split across an institution's actual segments in proportion to its own DB/DC/E&F asset split, excluding any segment already covered by its own explicitly-typed plan. Coverage is 94-100% across every segment, the cleanest of the four countries built with this real-bottom-up method so far \u2014 no segment fell below 94%.",
+  "source_note": "Currency confirmed (2026-07-10): S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). These figures are USD, not CHF as previously assumed here. No Reserve Banks / central-bank record appeared in this export (unlike UK/Denmark), so no exclusion was needed. DB Pension (Govt) is large (CHF 466.7bn, 39% of everything tracked) but unlike Sweden's AP-fonden situation, this is a genuinely diversified list of 46 separate government-category institutions — Swiss Confederation and cantonal/municipal pension funds (PUBLICA, BVK Zurich, Kantonale Pensionskasse Graubünden, dozens of Kanton/Stadt schemes) plus state-owned enterprises SBB and Swiss Post — not a small number of outsized funds, so no equivalent reclassification flag is needed here. S&P's two 'Private Foundation' institutions (Egon Bettwiesen Foundation, Z Zurich Foundation) were mapped to Foundations E&F, same convention as Sweden; the 52 'Tax Exempt Organization' institutions (a very broad set — everything from FIFA to Caritas to small Swiss charities) were mapped mechanically to Tax exempt E&F. 291 institutions tracked, CHF 1,197.28bn tracked; no independent check yet on how exhaustive that is against Switzerland's actual institutional universe (this is by far the largest of the smaller pilot countries so far).",
+  "scorecard_note": "Not yet scored — none of the 12 opportunity-scorecard dimensions have been filled in for any Switzerland segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
+  "allocation_note": "Built bottom-up directly from the real plan-level allocation lines in ch_institutions_latest.json, same real-bottom-up approach as Ireland, Denmark, and Sweden (no scaling or equity-anchoring). Raw asset_type values mapped onto the standard six buckets; 'Loans' folded into Fixed Income, everything else non-standard folded into Other/Unclassified. Same 5%-of-asset-type materiality threshold for style breakdowns. Plan-level lines with an explicit Defined Benefit or Defined Contribution plan type are assigned directly to that segment; ambiguous plan types are split across an institution's actual segments in proportion to its own DB/DC/E&F asset split, excluding any segment already covered by its own explicitly-typed plan. Coverage is 94-100% across every segment, the cleanest of the four countries built with this real-bottom-up method so far — no segment fell below 94%.",
   "segments": [
     {
       "segment": "DB Pension (Corp)",
       "aum_bn": 597.648991,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -119,6 +118,24 @@
           "source": "S&P Money Manager Database export (Switzerland)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Top-down check (OECD autonomous pension funds, country total)",
+          "aum_bn": 1352.525,
+          "currency": "USD",
+          "as_of": "2024 (OECD reference year)",
+          "source": "OECD Data Explorer, 'Assets earmarked for retirement' (OECD.DAF.CM, DSD_FP@DF_PA), Pension funds (autonomous) vehicle type (native unit: USD millions, converted here to USD bn to match Atlas convention)",
+          "note": "Country-level top-down cross-check, not a segment-specific figure. CORRECTED 2026-07-16: an earlier version of this note claimed the gap was because Atlas's bottom-up figure includes book reserve and insurance-wrapped pension assets that OECD's 'autonomous pension funds' vehicle type excludes. That claim was not well supported and has been withdrawn -- S&P's Money Manager Database tracks assets already placed with professional managers (so unfunded book reserves, which have no external portfolio, structurally shouldn't appear in it), and it tracks insurance firms as a category separate from pension institutions. The real driver of variance, where known, is noted per-country below. Compares against the SUM of all DB+DC segments in Switzerland (DB Pension (Corp), DC Pension (Corp), DB Pension (Govt), DC Pension (Govt), DB Pension (Union), DC Pension (Union), DB Pension (Tax exempt)): Atlas bottom-up = $1173.70bn vs OECD (autonomous funds only, 2024) = $1352.53bn, variance -13.2%. Shown here against the largest DB/DC segment (DB Pension (Corp)) as a reference point only -- do not apply this figure as this segment's own total.",
+          "active": false
+        },
+        {
+          "basis": "Top-down check (IPE Top 1000 Pension Funds Europe 2025, country total)",
+          "aum_bn": 987.36,
+          "currency": "EUR",
+          "as_of": "2023-12-31 to 2025-07-10 (IPE Top 1000 Pension Funds, 2025 edition)",
+          "source": "IPE, 'Top 1000 Pension Funds' (2025 edition) -- 146 named Switzerland entities summed",
+          "note": "IPE 'Top 1000 Pension Funds' (2025 edition) reports 146 named pension entities for Switzerland, summing to EUR987.36bn (2023-12-31 to 2025-07-10, mixed reporting dates across entities). This is a whole-country total across every pension fund IPE identifies -- spanning defined benefit and defined contribution, corporate and government/public-sector schemes combined -- not broken out the way Atlas segments this market. Shown here as a reference against DB Pension (Corp) + DB Pension (Govt) combined (Atlas bottom-up = $1064.37bn across 2 segment(s)), not any single segment alone; the two figures are also in different currencies (EUR vs Atlas's USD), so this is a directional comparison only, not a precise variance calculation. Note also that this total includes Compenswiss/Swiss Federal Social Security Funds (EUR51.4bn), which manages Switzerland's AHV/IV/EO social security reserves -- a quasi-sovereign vehicle with no exact equivalent among Atlas's Switzerland segments (Switzerland has no SWF segment).",
+          "active": false
         }
       ],
       "source_history": [
@@ -126,7 +143,25 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_added",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Added OECD autonomous pension fund total ($1352.53bn, 2024) as a non-active top-down cross-check against the combined DB+DC segments for Switzerland (bottom-up sum $1173.70bn, variance -13.2%). Not applied -- active source and displayed aum_bn for this segment are unchanged."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_note_corrected",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Corrected the OECD top-down check note added earlier today: withdrew the claim that the variance is explained by Atlas's bottom-up figure including book reserve/insurance assets (Peter flagged that S&P MMD shouldn't capture those categories, and that's correct). Replaced with a country-specific, evidence-based explanation where one was found (Korea/NPS, Norway/KLP, Germany/Denmark/Sweden insurance-regulated occupational pension providers), or left as an open question where no clear driver was identified."
+        },
+        {
+          "date": "2026-07-28",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added via new research: 'IPE Top 1000 Pension Funds country total' (EUR987.36bn across 146 entities) -- see scope caveat in note. Cross-checked against S&P MMD-derived segment totals; not previously available in CH commentary/sources."
         }
       ],
       "allocation_incomplete": true,
@@ -134,14 +169,56 @@
         "top3_share_pct": 23.2,
         "hhi": 313,
         "n_institutions": 173,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "UBS AG",
+            "aum_bn": 68.22
+          },
+          {
+            "name": "ASGA Pensionkasse",
+            "aum_bn": 36.53
+          },
+          {
+            "name": "Migros",
+            "aum_bn": 33.9
+          },
+          {
+            "name": "Stiftung Auffangeinrichtung BVG",
+            "aum_bn": 30.92
+          },
+          {
+            "name": "Roche Group AG",
+            "aum_bn": 20.84
+          },
+          {
+            "name": "Swisscom AG",
+            "aum_bn": 15.13
+          },
+          {
+            "name": "Profond Vorsorgeeinrichtung",
+            "aum_bn": 14.4
+          },
+          {
+            "name": "GastroSocial",
+            "aum_bn": 13.2
+          },
+          {
+            "name": "PKG Pensionskasse",
+            "aum_bn": 11.85
+          },
+          {
+            "name": "Personalvorsorgestiftung der Ärzte und Tierärzte",
+            "aum_bn": 11.26
+          }
+        ],
+        "top10_share_pct": 44.1
       }
     },
     {
       "segment": "DC Pension (Corp)",
       "aum_bn": 69.480294,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -265,7 +342,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true,
@@ -273,14 +350,56 @@
         "top3_share_pct": 76.1,
         "hhi": 2236,
         "n_institutions": 13,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Vita Sammelstiftung",
+            "aum_bn": 23.4
+          },
+          {
+            "name": "Coop Group",
+            "aum_bn": 15.18
+          },
+          {
+            "name": "PKE Vorsorgestiftung Energie",
+            "aum_bn": 14.32
+          },
+          {
+            "name": "Proparis Vorsorge Gewerbe Schweiz",
+            "aum_bn": 8.65
+          },
+          {
+            "name": "Symova Sammelstiftung",
+            "aum_bn": 4.35
+          },
+          {
+            "name": "PREVAS AG & GEWOS AG",
+            "aum_bn": 0.41
+          },
+          {
+            "name": "OC Oerlikon Balzers AG",
+            "aum_bn": 0.18
+          },
+          {
+            "name": "Fondation de Prévoyance Pact",
+            "aum_bn": 0.18
+          },
+          {
+            "name": "MATISA Matériel Industriel SA",
+            "aum_bn": 0.15
+          },
+          {
+            "name": "Pensionskasse Freelance",
+            "aum_bn": 0.12
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "DB Pension (Govt)",
       "aum_bn": 466.722132,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -405,6 +524,15 @@
           "source": "S&P Money Manager Database export (Switzerland)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Top-down check (IPE Top 1000 Pension Funds Europe 2025, country total)",
+          "aum_bn": 987.36,
+          "currency": "EUR",
+          "as_of": "2023-12-31 to 2025-07-10 (IPE Top 1000 Pension Funds, 2025 edition)",
+          "source": "IPE, 'Top 1000 Pension Funds' (2025 edition) -- 146 named Switzerland entities summed",
+          "note": "IPE 'Top 1000 Pension Funds' (2025 edition) reports 146 named pension entities for Switzerland, summing to EUR987.36bn (2023-12-31 to 2025-07-10, mixed reporting dates across entities). This is a whole-country total across every pension fund IPE identifies -- spanning defined benefit and defined contribution, corporate and government/public-sector schemes combined -- not broken out the way Atlas segments this market. Shown here as a reference against DB Pension (Corp) + DB Pension (Govt) combined (Atlas bottom-up = $1064.37bn across 2 segment(s)), not any single segment alone; the two figures are also in different currencies (EUR vs Atlas's USD), so this is a directional comparison only, not a precise variance calculation. Note also that this total includes Compenswiss/Swiss Federal Social Security Funds (EUR51.4bn), which manages Switzerland's AHV/IV/EO social security reserves -- a quasi-sovereign vehicle with no exact equivalent among Atlas's Switzerland segments (Switzerland has no SWF segment).",
+          "active": false
         }
       ],
       "source_history": [
@@ -412,21 +540,69 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-28",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added via new research: 'IPE Top 1000 Pension Funds country total' (EUR987.36bn across 146 entities) -- see scope caveat in note. Cross-checked against S&P MMD-derived segment totals; not previously available in CH commentary/sources."
         }
       ],
       "concentration": {
         "top3_share_pct": 34.0,
         "hhi": 648,
         "n_institutions": 42,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Swiss Federal Social Security Funds",
+            "aum_bn": 56.77
+          },
+          {
+            "name": "BVK Personalvorsorge des Kantons Zürich",
+            "aum_bn": 51.47
+          },
+          {
+            "name": "PUBLICA",
+            "aum_bn": 50.27
+          },
+          {
+            "name": "Kantonale Pensionskasse Graubünden",
+            "aum_bn": 44.94
+          },
+          {
+            "name": "Schweizerische Bundesbahnen (SBB)",
+            "aum_bn": 21.77
+          },
+          {
+            "name": "Swiss Post",
+            "aum_bn": 20.22
+          },
+          {
+            "name": "Kanton Bern",
+            "aum_bn": 19.99
+          },
+          {
+            "name": "CPEG-Caisse de prévoyance de l'Etat de Genève",
+            "aum_bn": 19.16
+          },
+          {
+            "name": "Kanton Basel-Stadt",
+            "aum_bn": 18.77
+          },
+          {
+            "name": "Stadt Zürich",
+            "aum_bn": 18.3
+          }
+        ],
+        "top10_share_pct": 68.9
       }
     },
     {
       "segment": "DC Pension (Govt)",
       "aum_bn": 31.491309,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -526,21 +702,39 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 92.2,
         "hhi": 3160,
         "n_institutions": 4,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Kanton Basel-Landschaft",
+            "aum_bn": 13.72
+          },
+          {
+            "name": "Caisse de Prevoyance de I'Etat du Valais CPVAL/PKWAL",
+            "aum_bn": 8.65
+          },
+          {
+            "name": "Zuger Pensionskasse",
+            "aum_bn": 6.66
+          },
+          {
+            "name": "ProPublic",
+            "aum_bn": 2.47
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "DB Pension (Union)",
       "aum_bn": 2.37819,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -629,21 +823,31 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 4363,
         "n_institutions": 3,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "pharmaSuisse",
+            "aum_bn": 1.41
+          },
+          {
+            "name": "Pensionskasse PERKOS",
+            "aum_bn": 0.43
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "DC Pension (Union)",
       "aum_bn": 2.051787,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -716,7 +920,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
@@ -730,7 +934,6 @@
       "segment": "DB Pension (Tax exempt)",
       "aum_bn": 3.922448,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -850,21 +1053,43 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 83.0,
         "hhi": 3832,
         "n_institutions": 5,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "International Olympic Committee",
+            "aum_bn": 5.89
+          },
+          {
+            "name": "Fédération Internationale de Football Association (FIFA)",
+            "aum_bn": 5.06
+          },
+          {
+            "name": "International Committee of the Red Cross (ICRC)",
+            "aum_bn": 3.24
+          },
+          {
+            "name": "International Federation of Red Cross & Red Crescent Societies",
+            "aum_bn": 0.93
+          },
+          {
+            "name": "Romisch-Katholische Kirche im Aargau",
+            "aum_bn": 0.59
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "Endowments E&F",
       "aum_bn": 2.449133,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Fixed Income",
@@ -968,7 +1193,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true,
@@ -976,14 +1201,28 @@
         "top3_share_pct": 100.0,
         "hhi": 4852,
         "n_institutions": 3,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Université de Genève",
+            "aum_bn": 0.78
+          },
+          {
+            "name": "Universität Basel",
+            "aum_bn": 0.54
+          },
+          {
+            "name": "Università della Svizzera Italiana",
+            "aum_bn": 0.04
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "Tax exempt E&F",
       "aum_bn": 21.050227,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Fixed Income",
@@ -1095,7 +1334,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
@@ -1109,7 +1348,6 @@
       "segment": "Foundations E&F",
       "aum_bn": 0.083539,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Cash & Short-Term",
@@ -1161,6 +1399,15 @@
           "source": "S&P Money Manager Database export (Switzerland)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Reference only -- whole Swiss foundation sector estimate, not institutional-only (Swiss Foundation Report 2025)",
+          "aum_bn": 130,
+          "currency": "CHF",
+          "as_of": "2025 (Swiss Foundation Report 2025, range CHF100-160bn)",
+          "source": "Swiss Foundation Report 2025 (CEPS/SwissFoundations), total Swiss foundation sector asset estimate",
+          "note": "IMPORTANT SCOPE CAVEAT: the Swiss Foundation Report 2025's estimate of CHF100-160bn total Swiss foundation sector assets (midpoint CHF130bn shown) covers the full Swiss charitable foundation sector (over 13,000 foundations), against this segment's own bottom-up total of just $0.08bn built from S&P Money Manager Database reporters -- the starkest gap identified across the European markets reviewed in this research pass, as already noted in this segment's own commentary. The vast majority of Swiss foundations are small and privately managed with no institutional footprint, so the gap reflects database under-coverage rather than a data error.",
+          "active": false
         }
       ],
       "source_history": [
@@ -1168,15 +1415,458 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-24",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added: \"Swiss Foundation Report 2025 sector total\" (130bn CHF, midpoint of CHF100-160bn range) -- see scope caveat in note."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 9350,
         "n_institutions": 2,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "The Global Fund to Fight AIDS, Tuberculosis & Malaria",
+            "aum_bn": 5.24
+          },
+          {
+            "name": "Jacobs Foundation",
+            "aum_bn": 1.71
+          },
+          {
+            "name": "Armee du Salut Suisse - Autriche - Hongrie",
+            "aum_bn": 0.37
+          },
+          {
+            "name": "Rega",
+            "aum_bn": 0.29
+          },
+          {
+            "name": "SUISA-Stiftung für Musik",
+            "aum_bn": 0.22
+          },
+          {
+            "name": "Stiftung Mercator-Schweiz",
+            "aum_bn": 0.14
+          },
+          {
+            "name": "Pro Infirmis",
+            "aum_bn": 0.13
+          },
+          {
+            "name": "Limmat Stiftung",
+            "aum_bn": 0.13
+          },
+          {
+            "name": "Swiss Solidarity",
+            "aum_bn": 0.13
+          },
+          {
+            "name": "Stiftung Klimarappen",
+            "aum_bn": 0.11
+          }
+        ],
+        "top10_share_pct": 90.5
+      }
+    },
+    {
+      "segment": "Life insurance",
+      "aum_bn": 306.916,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 11.924,
+          "pct_of_segment": 3.9,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 11.924
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 176.397,
+          "pct_of_segment": 57.5,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 176.397
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 8.679,
+          "pct_of_segment": 2.8,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 8.679
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 42.654,
+          "pct_of_segment": 13.9,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 42.654
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 4.322,
+          "pct_of_segment": 1.4,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 4.322
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 62.94,
+          "pct_of_segment": 20.5,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 62.94
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 306.916,
+          "as_of": "2024-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
+          "active": true
+        },
+        {
+          "basis": "Reference only -- combined life+non-life total, not segment-specific (SIA/SVV)",
+          "aum_bn": 497.6,
+          "currency": "CHF",
+          "as_of": "unknown -- SIA/SVV headline Swiss insurance industry capital investment assets figure",
+          "source": "Swiss Insurance Association (SIA/SVV), Swiss insurance industry capital investment assets",
+          "note": "IMPORTANT SCOPE CAVEAT: this is the Swiss Insurance Association's (SIA/SVV) combined life+non-life capital investment assets total, not a life-only or non-life-only figure -- it cannot be compared directly against this segment's own bottom-up total alone. Shown here as a confirming cross-check: Atlas bottom-up across both segments combined = $484.87bn vs SVV's CHF497.6bn (~$560bn at approximate conversion), which lines up reasonably closely given the two currencies have traded close to parity in recent years -- consistent with how this segment's own commentary already frames the comparison. Identical entry attached to both Life insurance and Non-life insurance for this reason.",
+          "active": false
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-14",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2024 data). Scorecard not yet scored -- dimensions to be filled in manually."
+        },
+        {
+          "date": "2026-07-24",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added: \"SIA/SVV combined life+non-life total\" (497.6bn CHF) -- confirming cross-check, see scope caveat in note."
+        }
+      ]
+    },
+    {
+      "segment": "Non-life insurance",
+      "aum_bn": 177.952,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 8.231,
+          "pct_of_segment": 4.6,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 8.231
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 73.15,
+          "pct_of_segment": 41.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 73.15
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 10.061,
+          "pct_of_segment": 5.7,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 10.061
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 8.003,
+          "pct_of_segment": 4.5,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 8.003
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 3.839,
+          "pct_of_segment": 2.2,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 3.839
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 74.668,
+          "pct_of_segment": 42.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 74.668
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 177.952,
+          "as_of": "2024-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
+          "active": true
+        },
+        {
+          "basis": "Reference only -- combined life+non-life total, not segment-specific (SIA/SVV)",
+          "aum_bn": 497.6,
+          "currency": "CHF",
+          "as_of": "unknown -- SIA/SVV headline Swiss insurance industry capital investment assets figure",
+          "source": "Swiss Insurance Association (SIA/SVV), Swiss insurance industry capital investment assets",
+          "note": "IMPORTANT SCOPE CAVEAT: this is the Swiss Insurance Association's (SIA/SVV) combined life+non-life capital investment assets total, not a life-only or non-life-only figure -- it cannot be compared directly against this segment's own bottom-up total alone. Shown here as a confirming cross-check: Atlas bottom-up across both segments combined = $484.87bn vs SVV's CHF497.6bn (~$560bn at approximate conversion), which lines up reasonably closely given the two currencies have traded close to parity in recent years -- consistent with how this segment's own commentary already frames the comparison. Identical entry attached to both Life insurance and Non-life insurance for this reason.",
+          "active": false
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-14",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2024 data). Scorecard not yet scored -- dimensions to be filled in manually."
+        },
+        {
+          "date": "2026-07-24",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added: \"SIA/SVV combined life+non-life total\" (497.6bn CHF) -- confirming cross-check, see scope caveat in note."
+        }
+      ]
+    },
+    {
+      "segment": "Family Offices (SFO)",
+      "aum_bn": 37.7,
+      "basis": "Bottom-up (S&P Money Manager Database, SFO-tagged, named reporters only) -- partial, coverage-limited, directional guesstimate",
+      "allocation": [],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database, SFO-tagged, named reporters only)",
+          "aum_bn": 37.7,
+          "as_of": "2026-07 (S&P Family Office module export)",
+          "source": "S&P Money Manager Database, Family Office module, filtered to Company Type = 'SFO' (single family office)",
+          "note": "Built 2026-07-23 as part of a global rollout of the Family Offices (SFO) segment, following the same methodology validated on the UK (Peter flagged that S&P's 'family office' data looked more like misclassified wealth managers than real family offices, and a full download confirmed it). S&P's Family Office module tags every firm as SFO (single family office), MFO (multi-family office) or FOSP (family office service provider); MFO and FOSP are dominated by private-bank wealth-management divisions and service providers rather than genuine family offices, so this segment is restricted to SFO-tagged firms only (60 identified for Switzerland). Of those, 6 carry a numeric AUM figure, and 1 of those were excluded because the figure contradicts S&P's own size-range bucket for the same firm (B-Flexion). The aum_bn above ($37.7bn) is the sum of the 5 remaining, internally-consistent named reporters -- it is NOT an estimate of the true Switzerland single-family-office population, which is almost certainly larger, since family offices are notoriously private and under-reported by design (Peter has explicitly accepted this as a directional guesstimate rather than a comprehensive figure). No asset-class breakdown exists in the source data at all, so allocation is left empty and the chart will show as 100% 'Unreported' by design, not a bug.",
+          "active": true
+        },
+        {
+          "basis": "Reference only -- broad industry estimate, not named-reporter based",
+          "aum_bn": 785,
+          "currency": "CHF",
+          "as_of": "estimate -- commonly cited Swiss single-family-office industry total",
+          "source": "Swiss wealth-management/family-office industry commentary, single-family-office asset estimate (CHF785bn)",
+          "note": "IMPORTANT SCOPE CAVEAT: the commonly cited CHF785bn Swiss single-family-office industry estimate captures the full Swiss SFO population, against this segment's own bottom-up total of $37.70bn built from S&P Money Manager Database SFO-tagged named reporters only -- as already noted in this segment's own commentary, Atlas's bottom-up figure captures under 5% of Switzerland's true single-family-office capital, the largest gap identified across the markets reviewed in this research pass. Family offices are notoriously private and under-reported by design, so the gap reflects coverage limitations rather than a data error.",
+          "active": false
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-23",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "New segment added as part of a global rollout following the UK pilot (Peter questioned whether S&P's Family Office data was genuinely family offices or misclassified wealth managers -- confirmed the latter for MFO/FOSP). Restricted to SFO-tagged firms only, further excluding any numeric figure that contradicts its own stated size-range bucket. Resulting aum_bn ($37.7bn across 5 firms) is a partial, named-reporters-only total, explicitly accepted by Peter as a directional guesstimate rather than a population estimate -- see sources[].note for full methodology."
+        },
+        {
+          "date": "2026-07-24",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added: \"Swiss SFO industry estimate\" (785bn CHF) -- see scope caveat in note."
+        }
+      ],
+      "concentration": {
+        "top3_share_pct": 71.6,
+        "hhi": 2356,
+        "n_institutions": 5,
+        "basis": "The 5 SFO-tagged Switzerland firms with an internally-consistent numeric AUM figure in the S&P Money Manager Database Family Office module export (see segment sources[].note) -- NOT the full 60 SFO-tagged firms identified for Switzerland, only the subset that report a usable figure.",
+        "top_institutions": [
+          {
+            "name": "L'Arche Holding S.A.",
+            "aum_bn": 13.7
+          },
+          {
+            "name": "Spectrum Value Management Ltd.",
+            "aum_bn": 7.2
+          },
+          {
+            "name": "Muller Milch Management AG",
+            "aum_bn": 6.1
+          },
+          {
+            "name": "Kirkbi A.G.",
+            "aum_bn": 6.0
+          },
+          {
+            "name": "Ledunfly S.A.",
+            "aum_bn": 4.7
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     }
-  ]
+  ],
+  "commentary": {
+    "wealth": {
+      "text": "Switzerland's wealth statistics show one of the starkest gaps anywhere between the average and the typical household. UBS's Global Wealth Report 2025 put Switzerland's mean wealth per adult at $910,382 (roughly CHF 734,000) — the highest of any country in the world, a position Switzerland has held for years. Median wealth per adult, however, was just $145,555, only good enough for eighth place globally (behind Luxembourg, Belgium and Australia among others) — a sign that Switzerland's famous average wealth is heavily skewed upward by a relatively small, very wealthy population rather than reflecting a uniformly rich middle, and that the real opportunity in this market is concentrated among a narrower band of very wealthy individuals and institutions.\n\nOn the institutional side, Switzerland's defining feature — discussed in full under Pensions — is the sheer scale of its funded occupational pension system (BVG/LPP), unusual among European neighbours for being genuinely pre-funded rather than pay-as-you-go. Total Swiss social insurance capital (spanning both the funded 2nd-pillar occupational system and reserves held for the state 1st pillar) was reported at CHF 1,265 billion; the identifiable, professionally-managed institutional base sums to roughly $1.17 trillion on a narrower basis. Switzerland's insurance sector adds a further $484.9bn (Life plus Non-life, see Insurance below), and the country is also one of the world's leading single-family-office hubs, discussed under Family offices.",
+      "sources": [
+        {
+          "label": "UBS, Global Wealth Report 2025",
+          "url": "https://www.ubs.com/global/en/media/display-page-ndp/en-20250618-gwr-2025.html"
+        },
+        {
+          "label": "iamexpat.ch, Switzerland tops 2026 UBS Wealth Report with $910K per adult",
+          "url": "https://www.iamexpat.ch/expat-info/swiss-news/switzerland-tops-2026-ubs-wealth-report"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "pensions": {
+      "text": "Switzerland runs a genuine three-pillar system, but its defining feature — unusual among European neighbours — is that the second pillar is properly funded rather than pay-as-you-go, making it one of the deepest genuinely-invested pension markets in Europe. The first pillar, AHV/AVS (Alters- und Hinterlassenenversicherung), is a state PAYG scheme providing a basic income floor. The second pillar, BVG/LPP (occupational pension), is mandatory for employees earning above CHF 22,680 a year (2025 threshold) and requires employers and employees to build a genuinely invested individual retirement account, subject to a legally-set minimum interest rate (1.25% for 2026, unchanged since 2024) and a minimum conversion rate (6.8% in 2026) that determines how accumulated capital converts into a pension at retirement — a hybrid model that sits somewhere between classic DB and DC, since individual accounts are invested collectively by a Pensionskasse but carry regulatory guarantees that blur the classic DB/DC distinction used elsewhere. A voluntary, tax-advantaged third pillar (Säule 3a/Pilier 3a) sits on top for individual retirement saving.\n\nThe funded second pillar's overall health is closely watched: pension funds without a state guarantee reported an average coverage ratio of 117.1% at the end of 2025, up from 114.7% at the end of 2024, and average investment returns of 3.76% in 2024 and 4.33% in 2025 — a materially healthier funding picture than the UK's or Germany's DB legacy books, reflecting decades of consistent, mandatory pre-funding, and a genuinely stable, well-capitalised client base for managers.\n\nThe identifiable institutional base shows this scale directly. DB Pension (Corp) is the largest pool at $597.6bn, spanning both dedicated single-employer pension funds (UBS AG's own fund, Roche, Migros, Swisscom) and large multi-employer collective foundations (ASGA Pensionkasse, and Stiftung Auffangeinrichtung BVG, the mandatory nationwide safety-net fund for employers without their own scheme). DB Pension (Govt) totals $466.7bn, led by the Swiss Federal Social Security Funds, BVK (the canton of Zurich's pension fund), PUBLICA (the federal government's own pension fund), a large Graubünden cantonal fund, and public-sector employers including Swiss Federal Railways (SBB) and Swiss Post. DC-style assets remain much smaller for now (DC Pension (Corp) $69.5bn, DC Pension (Govt) $31.5bn), representing a growth segment as Swiss occupational provision continues to evolve.",
+      "sources": [
+        {
+          "label": "Invexa, Mandatory BVG contribution in 2025",
+          "url": "https://invexa.ch/en/pension/compulsory-bvg-contribution/"
+        },
+        {
+          "label": "Fidav SA, Swiss pension funds (LPP/BVG / 2nd pillar): performance, solidity and what businesses and workers need to know in 2026",
+          "url": "https://www.fidav.ch/en/blog/swiss-pension-funds-lpp-2026/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "insurance": {
+      "text": "The Swiss Insurance Association (SIA/SVV) reports that Swiss private insurers invested CHF 526 billion in capital markets in 2024, with CHF 497.6 billion in capital investment assets on their balance sheets and roughly CHF 512 billion in underwriting reserves — making insurers a major institutional investor in the Swiss economy in their own right. That domestic total lines up closely with OECD-sourced figures for the sector: Life insurance at $306.9bn and Non-life insurance at $178.0bn, a combined $484.9bn, a good cross-check against SIA's own CHF figure given the two currencies have traded close to parity.\n\nSwitzerland's insurance market is also home to two of the world's largest reinsurance groups (Swiss Re and, historically, several major primary insurers with global reach such as Zurich Insurance Group), giving the sector an international weight well beyond what the domestic balance-sheet totals alone suggest, and a natural entry point for managers with global reinsurance-adjacent capability.",
+      "sources": [
+        {
+          "label": "SIA/SVV, Balance sheet and income statement for the 2024 insurance market",
+          "url": "https://www.svv.ch/en/balance-sheet-and-income-statement-2024-insurance-market"
+        },
+        {
+          "label": "OECD, Asset allocation of insurance companies dataset (data-explorer.oecd.org)",
+          "url": "https://data-explorer.oecd.org/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "charities": {
+      "text": "Switzerland's charitable-giving sector is overseen not by a single regulator but by ZEWO, an independent certifying foundation that has awarded a donation quality seal since 1940 (under its current name since 1990). The Zewo seal is held by several hundred organisations at any time (roughly 500, based on available counts) and is estimated to influence around CHF 2.25 billion of Swiss charitable donations each year, covering 21 standards spanning ethics, governance, efficient use of funds, and transparent accounting and fundraising practices.\n\nZEWO's role is about donor trust and fundraising conduct rather than publishing sector-wide investment-asset statistics, so this population is best approached qualitatively for now. The much better-measured Swiss foundation sector, covered separately below, represents the more realistic institutional-mandate opportunity.",
+      "sources": [
+        {
+          "label": "Zewo, Your donation in good hands (official overview)",
+          "url": "https://zewo.ch/en/"
+        },
+        {
+          "label": "Zewo, The 21 Zewo Standards",
+          "url": "https://zewo.ch/en/the-21-zewo-standards/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "foundations": {
+      "text": "Switzerland has one of the highest concentrations of charitable foundations per capita anywhere in the world — around six times more foundations per capita than the United States or Germany. The Swiss Foundation Report 2025 (its sixteenth edition, jointly published by the Center for Philanthropy Studies at the University of Basel, SwissFoundations and the Centre for Foundation Law at the University of Zurich) counted 13,984 charitable foundations active at the end of 2025, with around 325 newly established and 253 dissolved during the year. Total foundation assets are estimated at roughly CHF 160 billion (estimates vary between about CHF 100-160bn depending on definition and source), and the report's newer analysis suggests Swiss grant-making foundations distribute around CHF 6 billion a year for public benefit in total — roughly twice the figure previously assumed — of which foundations under direct federal supervision alone account for CHF 4.6 billion. This is a very large and still under-penetrated opportunity for institutional managers.\n\nThe identifiable, professionally-managed institutional base is extremely small next to that population — $0.08bn from a single reporting institution — the starkest gap identified across the European markets reviewed here, reflecting a pattern seen elsewhere: institutional asset-manager reporting only captures foundations large and professionalised enough to appear as identifiable asset owners, a tiny fraction of Switzerland's very large, very fragmented foundation population. For managers, this points toward a substantial, largely untapped market best pursued directly through the foundation associations named above rather than sized from institutional data alone.",
+      "sources": [
+        {
+          "label": "Fundraiso, Swiss grant-making foundations distribute around CHF 6 billion annually",
+          "url": "https://www.fundraiso.com/en/blog/swiss-grant-making-foundations-distribute-around-chf-6-billion-annually-for-the-benefit-of-society-twice-as-much-as-previously-assumed"
+        },
+        {
+          "label": "SWI swissinfo.ch, Swiss charitable foundations continue to flourish",
+          "url": "https://www.swissinfo.ch/eng/society/philanthropy_swiss-charitable-foundations-continue-to-flourish/44129800"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "family_offices": {
+      "text": "Switzerland, and Geneva and Zurich specifically, is one of the world's leading family office hubs, alongside London, New York and Singapore. According to FamilyOfficeHub.io's database (as of June 2026), Switzerland hosts 91 documented single family offices and 187 multi-family offices, with Zurich now home to more multi-family offices than any other city in Europe and Geneva the leading hub for international and French-speaking families specifically. Together, five cantons — Zurich, Zug, Schwyz, Geneva and Vaud — account for 82% of all participating single family offices identified. Swiss single family offices alone are estimated to oversee CHF 785 billion in combined assets, equivalent to more than 90% of Switzerland's GDP and roughly 30% higher than two years earlier — one of the largest and fastest-growing family office markets in the world.\n\nThe identifiable, named-reporter base captures only a small slice of that: of 60 firms tagged as single-family offices in Switzerland, 5 report a usable, internally-consistent AUM figure, for a combined $37.7bn — led by L'Arche Holding S.A. ($13.7bn), Spectrum Value Management Ltd. ($7.2bn), Muller Milch Management AG ($6.1bn), Kirkbi A.G. ($6.0bn, the Kirk Kristiansen family's holding company behind the LEGO Group) and Ledunfly S.A. ($4.7bn). Against the CHF 785bn external estimate above, this $37.7bn captures under 5% of Switzerland's true single-family-office capital — the largest gap identified across the markets reviewed here, and a clear illustration of how far a named-reporters-only floor sits below the real scale of this notoriously private asset-owner type. For managers, this points to a very substantial, largely relationship-driven opportunity that will not be found through public disclosure alone.",
+      "sources": [
+        {
+          "label": "finews.com, Swiss Single Family Offices: New Study Reveals Surprising Insights",
+          "url": "https://www.finews.com/news/english-news/72492-single-family-offices-schweiz-studie-2026-nachfolge-venture-capital-wealth-mangement-785-milliarden-2"
+        },
+        {
+          "label": "familyofficehub.io, Family Offices in Switzerland: The Complete Guide",
+          "url": "https://familyofficehub.io/blog/family-offices-in-switzerland-the-complete-guide-2026/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "sovereign_wealth_funds": {
+      "text": "Switzerland has no sovereign wealth fund, and no distinct SWF exists in the country to target for mandate purposes. The closest institution in scale is the Swiss National Bank (SNB) itself, whose balance sheet totalled around CHF 800-845 billion in early 2025, of which roughly CHF 710-720 billion was foreign currency reserves (mainly foreign-currency bonds and equities) plus around CHF 134 billion in gold holdings (1,040 tonnes) as of early 2026. The SNB's sheer size leads to informal comparisons with sovereign wealth funds, and its reserves are actively invested across global bond and equity markets — but it is a central bank managing monetary policy and currency stability, not a state investment vehicle accumulating fiscal surpluses or resource revenue for future generations, so it does not meet even the loose definition of a SWF used elsewhere in this analysis, consistent with how central banks are treated across comparable markets (the Bank of England, for instance) — worth noting since the SNB is not a realistic target for conventional sovereign-fund business development despite its scale.",
+      "sources": [
+        {
+          "label": "Swiss National Bank, Why does the SNB hold billions worth of assets and how does it manage these assets?",
+          "url": "https://www.snb.ch/en/snb-explained/investment-policy"
+        },
+        {
+          "label": "Swiss National Bank, 118th Annual Report 2025",
+          "url": "https://www.snb.ch/public/asset/en/www-snb-ch/publications/communication/annual-report/annrep_2025_komplett/publications0_en/annrep_2025_komplett.en.pdf"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "ocio": {
+      "text": "Switzerland's version of pooled or delegated institutional investment runs mainly through Anlagestiftungen (investment foundations) rather than the UK-style independent fiduciary manager. These are collective vehicles that let smaller and medium-sized Pensionskassen delegate investment implementation — and, for some providers, much of the surrounding administration too — while the pension fund's own board of trustees retains strategic responsibility. Swiss Life's Anlagestiftung alone provides collective investment and administration services to more than 400 pension funds; the Zurich Anlagestiftung is the largest bank-independent investment foundation in the country; and newer entrants such as AGAST (established by Allianz Global Investors) show the model is still attracting new providers and remains open to new entrants.\n\nGlobally, Cerulli estimates the OCIO/fiduciary management industry grew to more than $3.3 trillion in assets by the end of 2024, projecting growth to $5.6 trillion by the end of the decade — but, as with Germany and France, no dedicated Switzerland-specific OCIO market survey was identified, and the Anlagestiftung model's structure (a collective legal vehicle rather than a discretionary mandate to a single manager) makes direct comparison with the UK's fiduciary management market difficult in any case. For managers, the practical entry point into this market is via an Anlagestiftung structure rather than a UK-style direct fiduciary mandate.",
+      "sources": [
+        {
+          "label": "Swiss Life Asset Managers, Anlagestiftung (Investment Foundation)",
+          "url": "https://ch.swisslife-am.com/en/home/investment-foundation.html"
+        },
+        {
+          "label": "Cerulli Associates, Nearly $1.3 Trillion Expected to Flow into OCIO Industry Through 2029",
+          "url": "https://www.cerulli.com/press-releases/nearly-1.3-trillion-expected-to-flow-into-ocio-industry-through-2029"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    }
+  }
 }

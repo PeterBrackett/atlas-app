@@ -9,7 +9,6 @@
       "segment": "Life insurance",
       "aum_bn": 1579.823,
       "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -94,6 +93,15 @@
           "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
           "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
           "active": true
+        },
+        {
+          "basis": "Reference only -- combined life+non-life total, not segment-specific (ABI)",
+          "aum_bn": 1900,
+          "currency": "GBP",
+          "as_of": "unknown -- ABI's current headline UK insurance & long-term savings industry investment figure",
+          "source": "Association of British Insurers (ABI), UK insurance and long-term savings industry investment figure ('more than £1.9 trillion')",
+          "note": "IMPORTANT SCOPE CAVEAT: this is the ABI's combined total across BOTH life insurance and non-life/general insurance, not a life-only or non-life-only figure -- it cannot be compared directly against this segment's own bottom-up total. Shown here for reference because life insurance is 'by far the larger pool' of the two per the same ABI-sourced commentary, but the split between life and non-life within this £1.9tn is not independently confirmed. Identical entry attached to both Life insurance and Non-life insurance for this reason.",
+          "active": false
         }
       ],
       "source_history": [
@@ -108,6 +116,12 @@
           "event": "source_changed",
           "by": "peter.brackett@institutionaladviser.co.uk",
           "detail": "Switched active source to Industry aggregate (OECD Global Insurance Market Trends) (2024 data). Total investments and full 6-bucket allocation now sourced directly from OECD (previously a placeholder aggregate with only a partial Equities estimate). Superseded placeholder source retained in sources[] for history."
+        },
+        {
+          "date": "2026-07-24",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added: \"ABI combined life+non-life total\" (1,900bn GBP) -- see scope caveat in note."
         }
       ]
     },
@@ -115,7 +129,6 @@
       "segment": "DB Pension (Corp)",
       "aum_bn": 1863.858869,
       "basis": "Bottom-up (S&P aggregate)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -249,6 +262,24 @@
           "source": "OECD Data Explorer, 'Assets earmarked for retirement' (OECD.DAF.CM, DSD_FP@DF_PA), Pension funds (autonomous) vehicle type (native unit: USD millions, converted here to USD bn to match Atlas convention)",
           "note": "Country-level top-down cross-check, not a segment-specific figure. CORRECTED 2026-07-16: an earlier version of this note claimed the gap was because Atlas's bottom-up figure includes book reserve and insurance-wrapped pension assets that OECD's 'autonomous pension funds' vehicle type excludes. That claim was not well supported and has been withdrawn -- S&P's Money Manager Database tracks assets already placed with professional managers (so unfunded book reserves, which have no external portfolio, structurally shouldn't appear in it), and it tracks insurance firms as a category separate from pension institutions. The real driver of variance, where known, is noted per-country below. Compares against the SUM of all DB+DC segments in United Kingdom (DB Pension (Corp), DB Pension (Govt), DC Pension (Corp), DB Pension (Union), DB Pension (Endowments), DB Pension (Tax exempt), DC Pension (Govt)): Atlas bottom-up = $2461.38bn vs OECD (autonomous funds only, 2024) = $2805.84bn, variance -12.3%. Shown here against the largest DB/DC segment (DB Pension (Corp)) as a reference point only -- do not apply this figure as this segment's own total.",
           "active": false
+        },
+        {
+          "basis": "Top-down check (PPF Purple Book, private sector DB schemes only)",
+          "aum_bn": 1120,
+          "currency": "GBP",
+          "as_of": "2025-09 (Pension Protection Fund Purple Book 2025)",
+          "source": "Pension Protection Fund (PPF), Purple Book 2025 -- private sector defined benefit scheme assets",
+          "note": "Country-level top-down cross-check, not a segment-specific figure -- same treatment as the OECD autonomous-pension-funds entry above. The PPF's £1,120bn covers PPF-eligible PRIVATE SECTOR DB schemes only (5,060 schemes, 9.17 million members as of the 2025 Purple Book), a narrower population than the OECD check above (which includes DC) but broader than any single Atlas segment -- it should be compared against the sum of DB Pension (Corp), DB Pension (Union), DB Pension (Healthcare non-profit), DB Pension (Endowments) and DB Pension (Tax exempt) combined (Atlas bottom-up = $1938.20bn across those five segments), not this segment alone. Note the currency mismatch (Atlas bottom-up in USD, PPF figure in GBP) means this is a directional comparison only, not a precise variance calculation. Shown here against the largest of the five segments as a reference point only.",
+          "active": false
+        },
+        {
+          "basis": "Top-down check (IPE Top 1000 Pension Funds Europe 2025, country total)",
+          "aum_bn": 1959.63,
+          "currency": "EUR",
+          "as_of": "2021-03-31 to 2025-08-27 (IPE Top 1000 Pension Funds, 2025 edition)",
+          "source": "IPE, 'Top 1000 Pension Funds' (2025 edition) -- 364 named United Kingdom entities summed",
+          "note": "IPE 'Top 1000 Pension Funds' (2025 edition) reports 364 named pension entities for United Kingdom, summing to EUR1959.63bn (2021-03-31 to 2025-08-27, mixed reporting dates across entities). This is a whole-country total across every pension fund IPE identifies -- spanning defined benefit and defined contribution, corporate and government/public-sector schemes combined -- not broken out the way Atlas segments this market. Shown here as a reference against DB Pension (Corp) + DB Pension (Govt) combined (Atlas bottom-up = $2257.80bn across 2 segment(s)), not any single segment alone; the two figures are also in different currencies (EUR vs Atlas's USD), so this is a directional comparison only, not a precise variance calculation. Note also that this total includes Rothesay Life (EUR85.4bn) and Pension Insurance Corporation (EUR61.4bn) -- both pension-buyout insurers that took on bulk annuity liabilities from corporate DB schemes, which Atlas's own segmentation would likely classify under Life insurance rather than a Pension segment if reclassified institution-by-institution (not done in this pass).",
+          "active": false
         }
       ],
       "source_history": [
@@ -269,6 +300,18 @@
           "event": "top_down_check_note_corrected",
           "by": "peter.brackett@institutionaladviser.co.uk",
           "detail": "Corrected the OECD top-down check note added earlier today: withdrew the claim that the variance is explained by Atlas's bottom-up figure including book reserve/insurance assets (Peter flagged that S&P MMD shouldn't capture those categories, and that's correct). Replaced with a country-specific, evidence-based explanation where one was found (Korea/NPS, Norway/KLP, Germany/Denmark/Sweden insurance-regulated occupational pension providers), or left as an open question where no clear driver was identified."
+        },
+        {
+          "date": "2026-07-24",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added: \"PPF Purple Book private-sector DB total\" (1,120bn GBP) -- see scope caveat in note."
+        },
+        {
+          "date": "2026-07-28",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added via new research: 'IPE Top 1000 Pension Funds country total' (EUR1959.63bn across 364 entities) -- see scope caveat in note. Cross-checked against S&P MMD-derived segment totals; not previously available in UK commentary/sources."
         }
       ],
       "concentration": {
@@ -325,7 +368,6 @@
       "segment": "Tax exempt E&F",
       "aum_bn": 175.455117,
       "basis": "Bottom-up (S&P aggregate)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -513,7 +555,6 @@
       "segment": "DB Pension (Govt)",
       "aum_bn": 393.94,
       "basis": "Top-down override (LGPS official)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -648,6 +689,15 @@
           "source": "Official LGPS statistics (DLUHC/ONS)",
           "note": "Basis label and aum_bn corrected 2026-07-17 -- this entry was mislabeled \"Bottom-up (S&P/MMD aggregate)\" and showed 634.45 (the original bottom-up figure) instead of the LGPS top-down figure of 393.94 recorded in source_history's 2026-06-01 entry.",
           "active": true
+        },
+        {
+          "basis": "Top-down check (IPE Top 1000 Pension Funds Europe 2025, country total)",
+          "aum_bn": 1959.63,
+          "currency": "EUR",
+          "as_of": "2021-03-31 to 2025-08-27 (IPE Top 1000 Pension Funds, 2025 edition)",
+          "source": "IPE, 'Top 1000 Pension Funds' (2025 edition) -- 364 named United Kingdom entities summed",
+          "note": "IPE 'Top 1000 Pension Funds' (2025 edition) reports 364 named pension entities for United Kingdom, summing to EUR1959.63bn (2021-03-31 to 2025-08-27, mixed reporting dates across entities). This is a whole-country total across every pension fund IPE identifies -- spanning defined benefit and defined contribution, corporate and government/public-sector schemes combined -- not broken out the way Atlas segments this market. Shown here as a reference against DB Pension (Corp) + DB Pension (Govt) combined (Atlas bottom-up = $2257.80bn across 2 segment(s)), not any single segment alone; the two figures are also in different currencies (EUR vs Atlas's USD), so this is a directional comparison only, not a precise variance calculation. Note also that this total includes Rothesay Life (EUR85.4bn) and Pension Insurance Corporation (EUR61.4bn) -- both pension-buyout insurers that took on bulk annuity liabilities from corporate DB schemes, which Atlas's own segmentation would likely classify under Life insurance rather than a Pension segment if reclassified institution-by-institution (not done in this pass).",
+          "active": false
         }
       ],
       "source_history": [
@@ -680,6 +730,12 @@
           "event": "override_confirmed",
           "by": "peter.brackett@institutionaladviser.co.uk",
           "detail": "LGPS override (£393.94bn) reconfirmed as the active source after independent web research: informal cross-checks found aggregate LGPS asset figures of roughly £402bn and, from Pensions UK (2024), 'more than £425bn' -- both far closer to the £393.94bn LGPS override than to the bottom-up S&P figure (£514.65bn GBP-equivalent / $689.63bn). Not added as formal sources[] entries (no precise citation/URL captured), but recorded here as the rationale for keeping the override active. Allocation breakdown is unaffected -- it was already built on the LGPS basis and needs no change."
+        },
+        {
+          "date": "2026-07-28",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added via new research: 'IPE Top 1000 Pension Funds country total' (EUR1959.63bn across 364 entities) -- see scope caveat in note. Cross-checked against S&P MMD-derived segment totals; not previously available in UK commentary/sources."
         }
       ],
       "concentration": {
@@ -736,7 +792,6 @@
       "segment": "Non-life insurance",
       "aum_bn": 15.762,
       "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -821,6 +876,15 @@
           "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
           "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
           "active": true
+        },
+        {
+          "basis": "Reference only -- combined life+non-life total, not segment-specific (ABI)",
+          "aum_bn": 1900,
+          "currency": "GBP",
+          "as_of": "unknown -- ABI's current headline UK insurance & long-term savings industry investment figure",
+          "source": "Association of British Insurers (ABI), UK insurance and long-term savings industry investment figure ('more than £1.9 trillion')",
+          "note": "IMPORTANT SCOPE CAVEAT: this is the ABI's combined total across BOTH life insurance and non-life/general insurance, not a life-only or non-life-only figure -- it cannot be compared directly against this segment's own bottom-up total. Shown here for reference because life insurance is 'by far the larger pool' of the two per the same ABI-sourced commentary, but the split between life and non-life within this £1.9tn is not independently confirmed. Identical entry attached to both Life insurance and Non-life insurance for this reason.",
+          "active": false
         }
       ],
       "source_history": [
@@ -835,6 +899,12 @@
           "event": "source_changed",
           "by": "peter.brackett@institutionaladviser.co.uk",
           "detail": "Switched active source to Industry aggregate (OECD Global Insurance Market Trends) (2024 data). Total investments and full 6-bucket allocation now sourced directly from OECD (previously a placeholder aggregate with only a partial Equities estimate). Superseded placeholder source retained in sources[] for history."
+        },
+        {
+          "date": "2026-07-24",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added: \"ABI combined life+non-life total\" (1,900bn GBP) -- see scope caveat in note."
         }
       ]
     },
@@ -842,7 +912,6 @@
       "segment": "Endowments E&F",
       "aum_bn": 63.671836,
       "basis": "Bottom-up (S&P aggregate)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -1027,7 +1096,6 @@
       "segment": "DC Pension (Corp)",
       "aum_bn": 120.268371,
       "basis": "Bottom-up (S&P aggregate)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -1196,7 +1264,6 @@
       "segment": "DB Pension (Union)",
       "aum_bn": 36.136536,
       "basis": "Bottom-up (S&P aggregate)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -1361,7 +1428,6 @@
       "segment": "DB Pension (Endowments)",
       "aum_bn": 12.877945,
       "basis": "Bottom-up (S&P aggregate)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -1546,7 +1612,6 @@
       "segment": "DB Pension (Tax exempt)",
       "aum_bn": 24.748343,
       "basis": "Bottom-up (S&P aggregate)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -1747,7 +1812,6 @@
       "segment": "DC Pension (Govt)",
       "aum_bn": 9.554385,
       "basis": "Bottom-up (S&P aggregate)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -1908,7 +1972,6 @@
       "segment": "DC Pension (Union)",
       "aum_bn": 6.286025,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -1978,7 +2041,6 @@
       "segment": "DB Pension (Healthcare non-profit)",
       "aum_bn": 0.575871,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -2131,7 +2193,6 @@
       "segment": "DC Pension (Tax exempt)",
       "aum_bn": 0.11853,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -2241,7 +2302,6 @@
       "segment": "DC Pension (Endowments)",
       "aum_bn": 0.001692,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "AVC Investments",
@@ -2296,7 +2356,6 @@
       "segment": "Foundations E&F",
       "aum_bn": 0.294376,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -2379,6 +2438,15 @@
           "source": "S&P Money Manager Database, Private Foundation category, Total E/F Assets/Other Assets (Company export)",
           "note": "Newly built 2026-07-17 -- this segment was previously missing from uk.json entirely (the original UK pilot build never covered it). Built from the same Company/AA exports as every other Atlas segment.",
           "active": true
+        },
+        {
+          "basis": "Reference only -- top-200 member subset, not whole-sector (ACF)",
+          "aum_bn": 75,
+          "currency": "GBP",
+          "as_of": "2022-23 (Association of Charitable Foundations, Foundations in Focus 2025 report)",
+          "source": "Association of Charitable Foundations (ACF), 'Foundations in Focus 2025' -- largest 200 ACF member foundations, combined assets",
+          "note": "IMPORTANT SCOPE CAVEAT: this is the Association of Charitable Foundations' (ACF) total for its 200 largest MEMBER foundations only (not the whole UK foundation sector, and ACF membership itself is voluntary), against this segment's own bottom-up total of just $0.29bn built from S&P's Money Manager Database Private Foundation category. The two are not remotely comparable in scope -- S&P's MMD only captures a small number of foundations large and professionally-structured enough to appear as institutional asset owners in its data, while ACF's £75bn reflects the UK's largest grant-making foundations broadly (Wellcome Trust, Garfield Weston Foundation, Esmée Fairbairn Foundation and similar). The gap illustrates how little of the true UK foundation sector this segment's bottom-up figure captures, not a data error.",
+          "active": false
         }
       ],
       "source_history": [
@@ -2387,6 +2455,12 @@
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
           "detail": "Segment newly built from the raw UK S&P Money Manager Database exports (Company file for aum_bn/concentration, AA file for allocation) -- filling a gap where this segment was entirely absent from the original UK pilot build. Category: Private Foundation."
+        },
+        {
+          "date": "2026-07-24",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added: \"ACF top-200 member foundations\" (75bn GBP) -- see scope caveat in note."
         }
       ],
       "concentration": {
@@ -2423,7 +2497,6 @@
       "segment": "Healthcare non-profit E&F",
       "aum_bn": 2.550063,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -2613,12 +2686,100 @@
         ],
         "top10_share_pct": 100.0
       }
+    },
+    {
+      "segment": "Family Offices (SFO)",
+      "aum_bn": 84.32,
+      "basis": "Bottom-up (S&P Money Manager Database, SFO-tagged, named reporters only) -- partial, coverage-limited",
+      "allocation": [],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database, SFO-tagged, named reporters only)",
+          "aum_bn": 84.32,
+          "as_of": "2026-07 (S&P Family Office module export)",
+          "source": "S&P Money Manager Database, Family Office module, filtered to Company Type = 'SFO' (single family office)",
+          "note": "IMPORTANT SCOPE CAVEAT, added 2026-07-23: S&P's Family Office module tags every firm as SFO (single family office), MFO (multi-family office) or FOSP (family office service provider). Peter flagged that the MFO/FOSP tags looked wrong on inspection, and a full download confirmed it -- MFO and FOSP are dominated by private-bank wealth-management divisions and service providers (e.g. Barclays Wealth & Investment Management, Citi Private Bank (UK), BNY Mellon Wealth Management (London), and equivalents for Julius Baer/Pictet/Deutsche Bank/Credit Suisse across other countries), not genuine family offices, so this segment deliberately uses SFO-tagged firms only (98 identified in the UK). Of those 98, only 16 carry a numeric AUM figure at all, and 3 of those 16 (Grosvenor Estate, CQS Management Ltd Family Office, Hartley Investment Trust Ltd) were excluded because their stated figure was wildly inconsistent with S&P's own size-range bucket for the same firm (e.g. Grosvenor Estate shows $5.9mm against a stated '$1B-10B' bucket) -- a further data-quality flag in the source, not a judgement call about the firm itself. The aum_bn above is the sum of the 13 remaining, internally-consistent named reporters; it is NOT an estimate of total UK single-family-office capital, which industry research (see the Family offices commentary text) puts at roughly 299 UK SFOs -- this figure captures perhaps a tenth of that population by count and an unknown, likely much smaller, share by capital, since the largest/most private single-family offices are exactly the ones least likely to report a figure to S&P. Treat this segment as illustrative of the reporting single-family-office population only, not as a country total.",
+          "active": true
+        },
+        {
+          "basis": "Reference only -- London-only, broader family-office definition (Dakota Marketplace)",
+          "aum_bn": 200,
+          "currency": "USD",
+          "as_of": "2025 (Dakota Marketplace)",
+          "source": "Dakota Marketplace, London single-family-office tracking (203 SFOs identified in London, ~299 across the whole UK)",
+          "note": "IMPORTANT SCOPE CAVEAT: Dakota's $200bn+ figure covers London-based single family offices only (a subset of the roughly 299 SFOs Dakota records UK-wide), including large founder-linked offices such as INEOS Group (~$30bn) and Alta Advisers (~$20bn) that are absent from this segment's own bottom-up total. This segment's $84.32bn bottom-up figure is built from only 13 SFO-tagged firms in S&P's Money Manager Database that carry a usable, internally-consistent AUM figure, out of 98 SFO-tagged UK firms identified in total -- so the true UK single-family-office population (and its assets) is almost certainly a large multiple of what either figure alone captures. Not a like-for-like top-down check, but a useful order-of-magnitude reference point.",
+          "active": false
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-23",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "New segment added after Peter questioned whether S&P's Family Office module 'family offices' were genuinely family offices or misclassified wealth managers. Investigation confirmed the concern: restricted to SFO-tagged firms only (excluding MFO/FOSP, which are mostly bank wealth-management arms and service providers), and further excluded 3 of 16 numeric entries whose reported figure contradicted their own stated size-range bucket. Resulting aum_bn (£/$84.32bn across 13 firms) is a partial, named-reporters-only total, not a population estimate -- see sources[].note for full methodology. No allocation/asset-class breakdown exists in the source data at all, so allocation is left empty and the on-screen/export chart will show as 100% 'Unreported' by design, not a bug."
+        },
+        {
+          "date": "2026-07-24",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added: \"Dakota Marketplace London SFO total\" (200bn USD) -- see scope caveat in note."
+        }
+      ],
+      "concentration": {
+        "top3_share_pct": 57.2,
+        "hhi": 1544,
+        "n_institutions": 13,
+        "basis": "The 13 SFO-tagged UK firms with an internally-consistent numeric AUM figure in the S&P Money Manager Database Family Office module export (see segment sources[].note) -- NOT the full 98 SFO-tagged firms identified for the UK, only the subset that report a usable figure.",
+        "top_institutions": [
+          {
+            "name": "Bregal Investments LLP",
+            "aum_bn": 17.0
+          },
+          {
+            "name": "Mittal Investments UK Ltd",
+            "aum_bn": 16.2
+          },
+          {
+            "name": "LK Advisers Ltd",
+            "aum_bn": 15.0
+          },
+          {
+            "name": "Curzon Square Limited",
+            "aum_bn": 14.4
+          },
+          {
+            "name": "Stockdale Street Ltd",
+            "aum_bn": 8.4
+          },
+          {
+            "name": "Howard de Walden Estates Holdings Ltd",
+            "aum_bn": 4.8235
+          },
+          {
+            "name": "Man Capital LLP",
+            "aum_bn": 3.4
+          },
+          {
+            "name": "Ivy Advisory Ltd",
+            "aum_bn": 2.6
+          },
+          {
+            "name": "IPGL Ltd",
+            "aum_bn": 1.1
+          },
+          {
+            "name": "Alder Investment Management Ltd.",
+            "aum_bn": 0.719
+          }
+        ],
+        "top10_share_pct": 99.2
+      }
     }
   ],
   "allocation_note": "Equities figures are the originally validated per-segment totals. All other asset classes (Fixed Income, Cash & Short-Term, Real Estate, Alternatives, Other/Unclassified) and the finer style breakdown within each are estimated: derived from the real S&P Money Manager Database allocation export's relative shape for that segment's DB/DC/E&F institutions, then scaled to fill the remainder of the segment's already-validated AUM. DB vs DC vs Endowment/Foundation split uses each allocation row's own Type of Plan where available, falling back to the sponsoring institution's own DB/DC asset ratio for ambiguous plan types (mainly 'Investment Pool Funds'). Bank of England and British Business Bank (Reserve Banks category) are excluded throughout — their S&P records reflect central bank balance sheet assets, not staff pension schemes, and would otherwise distort every segment they touched by well over £1 trillion. Life insurance and Non-life insurance have no S&P allocation data at all (S&P's plan-sponsor exports don't cover insurers) so only the known equity figure is shown for those two segments. See Sources & Methodology for the full writeup.",
   "commentary": {
     "wealth": {
-      "text": "The UK's household wealth is dominated by two asset classes: property and private pension savings. ONS Wealth and Assets Survey data (the most recent full round, covering April 2020-March 2022) put median household wealth at £293,700, with the wealthiest 10% of households holding £1,200,500 or more and the wealthiest 1% accounting for around a fifth of all household wealth. Of that wealth, net property makes up the largest share (40%), followed closely by private pension wealth (35%); net financial wealth (cash, investments, ISAs) and physical wealth each account for a much smaller share (14% and 10% respectively). Because private pension wealth already sits inside institutional structures, a large slice of “personal” wealth is in practice managed by pension schemes and their appointed asset managers rather than held directly by individuals.\n\nOn the institutional side, Investment Association members managed £3.8 trillion of UK institutional client assets in 2024, of which pension funds remain the largest single client type at roughly £2 trillion (51%), though that share is falling as legacy defined benefit (DB) assets shrink — down about 12% in 2024 alone as many schemes transferred their liabilities to insurers. Insurance mandates have grown in step, now 28% of institutional AUM (up from 26% in 2023); pension and insurance clients together still account for around 79% of all UK institutional assets under management. In effect, institutional wealth is steadily migrating from traditional pension-scheme mandates toward insurers' balance sheets, via the bulk annuity/buy-out market.",
+      "text": "The UK's household wealth is dominated by two asset classes: property and private pension savings. ONS Wealth and Assets Survey data (the most recent full round, covering April 2020-March 2022) put median household wealth at £293,700, with the wealthiest 10% of households holding £1,200,500 or more and the wealthiest 1% accounting for around a fifth of all household wealth. Of that wealth, net property makes up the largest share (40%), followed closely by private pension wealth (35%); net financial wealth (cash, investments, ISAs) and physical wealth each account for a much smaller share (14% and 10% respectively). Because private pension wealth already sits inside institutional structures, a large slice of \"personal\" wealth is in practice managed by pension schemes and their appointed asset managers rather than held directly by individuals — a meaningful point for any manager assessing UK distribution routes, since the institutional and wholesale channel reaches far more of this wealth than direct retail relationships do.\n\nOn the institutional side, Investment Association members managed £3.8 trillion of UK institutional client assets in 2024, of which pension funds remain the largest single client type at roughly £2 trillion (51%), though that share is falling as legacy defined benefit (DB) assets shrink — down about 12% in 2024 alone as many schemes transferred their liabilities to insurers. Insurance mandates have grown in step, now 28% of institutional AUM (up from 26% in 2023); pension and insurance clients together still account for around 79% of all UK institutional assets under management. In effect, institutional wealth is steadily migrating from traditional pension-scheme mandates toward insurers' balance sheets via the bulk annuity/buy-out market — a structural shift that favours managers with strong insurance-client capability (matching-adjustment-eligible credit, private markets, long-duration fixed income) over those built primarily around traditional pension-fund mandates.",
       "sources": [
         {
           "label": "ONS, Household total wealth in Great Britain: April 2020 to March 2022",
@@ -2640,7 +2801,7 @@
       "last_updated": "2026-07-23"
     },
     "pensions": {
-      "text": "UK retirement income rests on three pillars: a state pension, workplace/occupational pensions, and personal pensions. The full new State Pension is £241.30 a week for 2026/27 (about £12,548 a year), uprated under the “triple lock” (the higher of average earnings growth, CPI inflation, or 2.5% — a 4.8% earnings-driven rise this year). It is not means-tested, but it is a floor rather than a replacement income, which is why occupational and private pension coverage does most of the work of funding retirement.\n\nSince auto-enrolment began in 2012, workplace pension participation has risen sharply: 23.3 million employees were saving into a workplace pension in 2024 (82% of all employees, 89% of those eligible), and defined contribution (DC) membership has grown roughly tenfold since 2011. DC is now the default vehicle for new saving, while defined benefit (DB) is a large but shrinking legacy back-book: the Pension Protection Fund's 2025 Purple Book counts 5,060 private sector DB schemes with 9.17 million members, but 74% of schemes are now closed to future accrual and only 22% remain open to new members or accrual. Despite closures, the DB/hybrid asset pool is still substantial — £1,120 billion in private sector schemes as of September 2025 — because liabilities run off slowly even after a scheme closes.\n\nManagement of these pools splits along both a public/private axis and a funded/unfunded one. Private sector DB schemes are trust-based, funded, and increasingly bought out by insurers as part of the pension risk transfer market; private sector DC is delivered through contract-based providers or trust-based master trusts, typically via default lifestyling funds. Public sector pensions are mostly unfunded and pay-as-you-go — the NHS, Teachers', Civil Service and Armed Forces schemes pay today's pensioners from today's tax receipts, with no real investment pool behind them. The Local Government Pension Scheme (LGPS) is the exception: a genuinely funded, invested DB scheme with over £350 billion in assets across 86 separate funds in England and Wales, currently more than fully funded.\n\nAt the point of delivery, DB members simply receive a defined, usually inflation-linked income for life, with no decision required at retirement. DC members, following the 2015 pension freedoms, choose between income drawdown (flexible, market-exposed, and able to pass on any remaining pot) and annuity purchase (a guaranteed income for life). FCA data for 2024/25 shows drawdown remains the more common choice by volume — 349,992 plans accessed via drawdown against 88,430 annuities — though annuity sales have been recovering as interest rates rose, and total withdrawals reached £70.9 billion, up 35.9% year on year.",
+      "text": "UK retirement income rests on three pillars: a state pension, workplace/occupational pensions, and personal pensions. The full new State Pension is £241.30 a week for 2026/27 (about £12,548 a year), uprated under the \"triple lock\" (the higher of average earnings growth, CPI inflation, or 2.5% — a 4.8% earnings-driven rise this year). It is not means-tested, but it is a floor rather than a replacement income, which is why occupational and private pension coverage does most of the work of funding retirement — and why the funded, professionally-managed pools described below represent the real addressable market for external managers, rather than the state pension itself.\n\nSince auto-enrolment began in 2012, workplace pension participation has risen sharply: 23.3 million employees were saving into a workplace pension in 2024 (82% of all employees, 89% of those eligible), and defined contribution (DC) membership has grown roughly tenfold since 2011. DC is now the default vehicle for new saving and the clearest growth opportunity in the market, while defined benefit (DB) is a large but shrinking legacy back-book: the Pension Protection Fund's 2025 Purple Book counts 5,060 private sector DB schemes with 9.17 million members, but 74% of schemes are now closed to future accrual and only 22% remain open to new members or accrual. Despite closures, the DB/hybrid asset pool is still substantial — £1,120 billion in private sector schemes as of September 2025 — because liabilities run off slowly even after a scheme closes, giving managers with de-risking, LDI and buy-in-adjacent capability a durable runway even as the pool matures toward eventual insurer buy-out.\n\nManagement of these pools splits along both a public/private axis and a funded/unfunded one. Private sector DB schemes are trust-based, funded, and increasingly bought out by insurers as part of the pension risk transfer market; private sector DC is delivered through contract-based providers or trust-based master trusts, typically via default lifestyling funds — a channel increasingly concentrated among a small number of large master trusts, making them a priority relationship for managers seeking DC distribution at scale. Public sector pensions are mostly unfunded and pay-as-you-go — the NHS, Teachers', Civil Service and Armed Forces schemes pay today's pensioners from today's tax receipts, with no real investment pool behind them, and therefore no institutional mandate opportunity. The Local Government Pension Scheme (LGPS) is the exception: a genuinely funded, invested DB scheme with over £350 billion in assets across 86 separate funds in England and Wales, currently more than fully funded and consolidating into a smaller number of asset pools — a trend worth tracking closely, since it concentrates mandate decisions among fewer, larger buyers.\n\nAt the point of delivery, DB members simply receive a defined, usually inflation-linked income for life, with no decision required at retirement. DC members, following the 2015 pension freedoms, choose between income drawdown (flexible, market-exposed, and able to pass on any remaining pot) and annuity purchase (a guaranteed income for life). FCA data for 2024/25 shows drawdown remains the more common choice by volume — 349,992 plans accessed via drawdown against 88,430 annuities — though annuity sales have been recovering as interest rates rose, and total withdrawals reached £70.9 billion, up 35.9% year on year, a trend that continues to favour both decumulation-focused fund ranges and, for annuity providers, insurers' own balance-sheet investment capability.",
       "sources": [
         {
           "label": "DWP, Benefit and pension rates 2026 to 2027",
@@ -2669,6 +2830,110 @@
         {
           "label": "FCA, Retirement income market data 2024/25",
           "url": "https://www.fca.org.uk/data/retirement-income-market-data-2024-25"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "insurance": {
+      "text": "The UK's insurance and long-term savings industry manages investments of more than £1.9 trillion, split structurally between life insurance (annuity, pension buy-out and protection liabilities, mostly long-duration and matched against bonds and other fixed-income assets) and non-life/general insurance (property, motor and casualty business with much shorter liability horizons and correspondingly shorter-duration portfolios). The Association of British Insurers (ABI) represents over 200 member companies writing around 90% of UK domestic insurance business. Life insurance is by far the larger pool (OECD data puts UK life insurers' investment assets at roughly £1.58 trillion against non-life's £15.8 billion), reflecting how much of the industry's balance sheet is built around long-dated annuity and pension-risk-transfer liabilities rather than short-tail general insurance — and therefore where most of the addressable institutional mandate opportunity in UK insurance sits.\n\nRegulation has been a significant recent driver of where that capital goes, and is directly relevant to any manager targeting insurer mandates. The post-Brexit \"Solvency UK\" reforms — the Bank of England/PRA's 2023-24 overhaul of Solvency II — cut the risk margin by roughly 65% for life insurers and 30% for general insurers, and from June 2024 broadened Matching Adjustment eligibility, both explicitly designed to free up insurer balance sheets for long-term, less liquid investment. The industry's own response has been a pledge, reaffirmed for 2026-28, to invest £100 billion in UK productive assets over the decade; ABI members had already deployed £10.9 billion into real estate, utilities and transport by the end of 2024 — a clear signal of demand for managers with private markets, infrastructure and real asset capability suited to Matching Adjustment portfolios. Insurers are also the natural counterparty in the growing pension risk transfer market, absorbing corporate defined benefit liabilities and assets via buy-in and buy-out transactions — a trend visible in the shrinking DB share of UK institutional AUM discussed under Wealth above, and a structural reason why life insurance AUM, and insurer-facing mandate demand, should keep growing relative to occupational DB pensions over time.",
+      "sources": [
+        {
+          "label": "ABI, From pledge to progress: £10.9 billion invested in UK productive assets",
+          "url": "https://www.abi.org.uk/news/news-articles/2025/7/10.9-billion-invested-in-uk-productive-assets/"
+        },
+        {
+          "label": "Bank of England / PRA, Review of Solvency II: Adapting to the UK insurance market (CP12/23)",
+          "url": "https://www.bankofengland.co.uk/prudential-regulation/publication/2023/june/review-of-solvency-ii-adapting-to-the-uk-insurance-market"
+        },
+        {
+          "label": "PwC, PRA finalises new Solvency UK framework",
+          "url": "https://www.pwc.co.uk/financial-services/assets/pdf/pra-finalises-new-solvency-uk-framework.pdf"
+        },
+        {
+          "label": "OECD, Asset allocation of insurance companies dataset (data-explorer.oecd.org)",
+          "url": "https://data-explorer.oecd.org/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "charities": {
+      "text": "England and Wales' charity sector is large and growing: the Charity Commission's live sector overview recorded 185,375 charities on the register (171,588 main charities plus 13,787 linked charities), backed by 921,568 trustees and 6.5 million volunteers. Charities with income above £500,000 — the threshold above which the Commission's detailed financial data is drawn — reported combined income and endowments of £98.76 billion, of which £5.77 billion came from investments; those charities collectively held £193.24 billion in long-term investments and recorded £7.17 billion of investment gains in the latest reporting year. The wider NCVO UK Civil Society Almanac, using slightly earlier (2021/22) data across the whole sector regardless of size, put total sector income at £69.1 billion and total assets at £139.2 billion, of which £110.9 billion was investment assets — the gap between the two sources reflects both the different reference years and NCVO's broader population of smaller charities.\n\nFor a manager assessing this market, it helps to understand how most large UK charities actually invest, since charitable assets sit outside conventional pension or insurance mandate structures: permanent endowments run on a total-return basis (spending a sustainable percentage of a smoothed asset value rather than income alone), common investment funds pooling smaller charities' assets with an appointed manager (a natural entry point for managers without the scale to win mandates from the largest institutions directly), and, for the largest institutions (Wellcome Trust, the Church of England's investment funds, major grant-making foundations), in-house or outsourced institutional-grade multi-asset portfolios similar in structure to endowment or foundation investing elsewhere in this market.",
+      "sources": [
+        {
+          "label": "Charity Commission for England and Wales, Sector overview",
+          "url": "https://register-of-charities.charitycommission.gov.uk/en/sector-data/sector-overview"
+        },
+        {
+          "label": "NCVO, UK Civil Society Almanac 2024",
+          "url": "https://www.ncvo.org.uk/news-and-insights/news-index/uk-civil-society-almanac-2024/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "foundations": {
+      "text": "UK charitable foundations' grant-making reached a record £8.24 billion in 2023-24, according to the Association of Charitable Foundations' (ACF) Foundations in Focus 2025 report, growing more than 6% in real terms even as inflation averaged 5.7% over the period — evidence that many foundations chose to increase payout rather than preserve capital in real terms. The largest 200 ACF member foundations held roughly £75 billion in assets and distributed £4.32 billion in grants in 2022-23, giving a sense of how concentrated the sector is: a relatively small number of large, professionally-run foundations (Wellcome Trust, Garfield Weston Foundation, Esmée Fairbairn Foundation and similar) account for the bulk of both assets and giving, alongside thousands of smaller family and community foundations — meaning a realistic go-to-market for this segment concentrates on a well-identified shortlist of large, sophisticated allocators rather than a long tail of small mandates.\n\nThe more striking finding in the 2025 report is the widening gap between demand and asset growth: application volumes to many foundations rose 50-400% year-on-year, partly attributed to AI tools lowering the barrier to applying, while the assets of the largest 300 foundations grew just 6% in nominal terms — effectively flat once inflation is stripped out. That combination has pushed a growing number of foundations toward genuine total-return spending from reserves, rather than income-only distribution, to keep pace with need — a dynamic likely to increase demand for managers who can demonstrate strong real returns and a credible total-return investment approach. The allocation profile shown above reflects this professionally-managed, endowment-style population, and is the natural reference point for managers benchmarking a foundation-facing product against how this segment already invests.",
+      "sources": [
+        {
+          "label": "Association of Charitable Foundations, Foundations in Focus 2025 (research hub)",
+          "url": "https://acf.org.uk/acf/ACF/Research-and-resources/Research%20content/Research.aspx"
+        },
+        {
+          "label": "3rd Sector Mission Control, Foundations in Focus 2025: What the Latest Data Tells Us About UK Grant-Making",
+          "url": "https://www.3rdsectormissioncontrol.co.uk/foundations-in-focus-2025-what-the-latest-data-tells-us-about-uk-grant-making/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "family_offices": {
+      "text": "London is one of the world's leading family office hubs, drawing on the same concentration of legal, tax, banking and investment infrastructure that supports the wider UK asset management industry. Dakota Marketplace tracks 203 single family offices in London alone (out of roughly 299 recorded across the UK as a whole) with combined assets under management exceeding $200 billion, ranging from large founder-linked offices such as INEOS Group (~$30bn) and Alta Advisers (~$20bn) down to a long tail of smaller single-family structures. The UK family office services market — advisory, administrative and investment-management services sold to family offices rather than the assets they hold — was valued at around $5.5 billion in 2025 and is projected to grow at roughly 6.7% a year through the mid-2030s, reflecting continued growth in UK-based private wealth and increasingly complex intergenerational transfer needs: a genuine and growing opportunity for managers able to build direct relationships with this segment.\n\nSizing the true single-family-office opportunity requires some care, since the wider \"family office\" label is often used loosely. S&P's Money Manager Database has a dedicated Family Office module, but its \"MFO\" (multi-family office) and \"FOSP\" (family office service provider) tags turn out, on inspection, to be dominated by private-bank wealth-management divisions and third-party service providers — Barclays Wealth & Investment Management and Citi Private Bank (UK) both appear as \"MFO,\" for instance — rather than genuine family offices, and are best treated as a distinct, adjacent opportunity (wealth management and administration services) rather than direct family-office competitors or prospects. Narrowing to firms tagged \"SFO\" (single family office) specifically, only 13 of the 98 identified UK SFOs carry a usable, internally-consistent AUM figure; the resulting £/$84 billion total should be read as a floor built from named, identifiable reporters — a solid starting shortlist of known relationships — rather than an estimate of the true UK single-family-office population, since genuinely private, well-established single-family offices are structurally the least likely to disclose a figure at all, meaning the real addressable pool is almost certainly a large multiple of what's captured here. Anecdotally, London family offices are currently allocating heavily toward private equity, private credit and real assets, with direct deals and co-investment activity increasing among the largest, most institutionally-run offices — a clear signal of where product and origination capability is most likely to resonate with this audience.",
+      "sources": [
+        {
+          "label": "Dakota, UK Family Office Market: Summary, Takeaways & Playbook",
+          "url": "https://www.dakota.com/reports-blog/uk-family-office-market-summary-takeaways-playbook"
+        },
+        {
+          "label": "Dakota, Top 10 Family Offices in London: 2026 Guide",
+          "url": "https://www.dakota.com/resources/blog/top-10-family-offices-in-london-2026-guide"
+        },
+        {
+          "label": "IMARC Group, UK Family Offices Market Size, Share 2025-2033",
+          "url": "https://www.imarcgroup.com/uk-family-offices-market"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "sovereign_wealth_funds": {
+      "text": "The UK has no sovereign wealth fund in the conventional sense — no pool of assets built from natural-resource revenues or fiscal surpluses and invested on behalf of future generations, of the kind Norway's Government Pension Fund Global represents — so there is no domestic SWF mandate opportunity of that classic type for managers to target in the UK market.\n\nThe closest analogue is the National Wealth Fund (NWF), created in October 2024 by rebranding and expanding the UK Infrastructure Bank (originally established in 2021, given statutory footing by the UK Infrastructure Bank Act 2023). The NWF is being capitalised with £27.8 billion in total — £22 billion of existing UKIB capital plus a further £5.8 billion committed over the current parliament — to invest in infrastructure and industrial projects supporting green growth and economic transformation, aiming to catalyse additional private-sector investment alongside its own capital, which makes it a genuine and growing co-investment counterparty for managers active in UK infrastructure and green-growth strategies. The Institute for Government is explicit that, despite its name, the NWF is not a sovereign wealth fund: it is financed through government borrowing and taxation rather than resource revenue or accumulated surplus, making it better described as a state investment or \"policy bank\" — a government-owned institution investing to deliver specific policy objectives — than as a true SWF. For business-development purposes, it is best approached as a policy-aligned co-investor rather than a conventional sovereign LP.",
+      "sources": [
+        {
+          "label": "Institute for Government, National Wealth Fund (explainer)",
+          "url": "https://www.instituteforgovernment.org.uk/explainer/national-wealth-fund"
+        },
+        {
+          "label": "National Wealth Fund, UK Infrastructure Bank becomes the National Wealth Fund",
+          "url": "https://www.nationalwealthfund.org.uk/news/uk-infrastructure-bank-becomes-national-wealth-fund"
+        },
+        {
+          "label": "GOV.UK, About us - National Wealth Fund",
+          "url": "https://www.gov.uk/government/organisations/national-wealth-fund/about"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "ocio": {
+      "text": "The UK's fiduciary management (outsourced CIO) market held broadly flat total assets under management of £241 billion in 2025, against £242 billion in 2024, according to Isio's annual Fiduciary Management Survey — but that stable headline figure masks a significant shift in structure that matters for anyone targeting this channel. Large, full-delegation OCIO arrangements now account for 53% of total fiduciary assets, over half, for the first time; and the total number of mandates fell 4% to 832 (from 865), the first decline in the market since 2008. The driver is the accelerating \"endgame\" phase of UK defined benefit pension scheme de-risking: insurance buy-in transactions among schemes using fiduciary managers more than doubled year-on-year (13 to 30), and almost half of all mandate reductions in the survey were directly linked to schemes completing an insurance transaction and exiting the fiduciary market altogether. Even so, partial-mandate assets (schemes retaining some in-house or advisory control alongside a fiduciary manager) grew 4% to £68 billion, suggesting continued appetite for the model among schemes not yet at the point of full risk transfer — a segment worth targeting even as the full-delegation end of the market matures toward eventual insurer buy-out.\n\nRegulation has shaped how mandates are won and retained since 2019: the Competition and Markets Authority's Investment Consultancy and Fiduciary Management Market Investigation Order 2019 requires trustees to run a competitive tender before appointing a fiduciary manager to 20% or more of scheme assets, and the DWP has since replicated the substance of that requirement in pensions legislation (effective October 2022), transferring day-to-day monitoring to the Pensions Regulator — meaning new mandate wins in this market are, by design, competitively tendered rather than relationship-driven, which managers should factor into how they resource UK OCIO business development. OCIO is best understood as a delivery model that cuts across the wider pension market rather than a distinct pool of assets in its own right — corporate and other DB pension assets under fiduciary management are already reflected within the broader DB pension figures discussed under Pensions above, so the £241bn fiduciary AUM figure should be read as a subset of, not additive to, that wider pool.",
+      "sources": [
+        {
+          "label": "Isio, Fiduciary Management Survey 2025",
+          "url": "https://www.isio.com/insights/isio-fiduciary-management-survey-2025/"
+        },
+        {
+          "label": "Isio, Fiduciary mandate numbers decline as endgame focus intensifies",
+          "url": "https://www.isio.com/news/fiduciary-mandate-numbers-decline-as-endgame-focus-intensifies/"
+        },
+        {
+          "label": "Norton Rose Fulbright, UK Pensions briefing: New Investment Consultancy and Fiduciary Management requirements from the CMA",
+          "url": "https://www.nortonrosefulbright.com/en/knowledge/publications/768b80df/uk-pensions-briefing-new-investment-consultancy-and-fiduciary-management-requirements-from-the-cma"
         }
       ],
       "last_updated": "2026-07-23"

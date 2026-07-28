@@ -2,15 +2,14 @@
   "country_code": "SE",
   "country_name": "Sweden",
   "reporting_period": "2026-07 (S&P export date)",
-  "source_note": "Currency confirmed (2026-07-10): S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). These figures are USD, not SEK as previously assumed here. The Central Bank of Sweden (Riksbank, S&P Category 'Reserve Banks', ~SEK 111.0bn) is excluded throughout, same convention as UK's Bank of England / Denmark's Nationalbank exclusion. Worth your particular attention: five of Sweden's national AP-fonden buffer pension funds (AP2, AP3, AP4, AP6, AP7) are tagged 'Government' by S&P and sit in DB Pension (Govt) / DC Pension (Govt) here by that category's mechanical default \u2014 but combined they're roughly SEK 326bn, well over half of everything tracked for Sweden. These are state-owned national pension reserve/buffer funds rather than a conventional government-employee pension scheme, and are sometimes discussed alongside sovereign wealth funds given their scale and mandate \u2014 similar in spirit to the NTMA judgement call flagged for Ireland. Left in DB/DC Pension (Govt) by default since that's what S&P's own category says, but this is very much a call worth revisiting given how much of the total it represents; reclassifying some or all of them to SWF would substantially reshape Sweden's segment mix. S&P's 'Private Foundation' category (one institution, IngaBritt och Arne Lundbergs Forskningsstiftelse) was mapped to Foundations E&F rather than Tax exempt E&F, since S&P's own label distinguishes it from the four 'Tax Exempt Organization' institutions (two of which \u2014 Nobel Foundation and Stiftelse Sveriges Sj\u00f6manshus \u2014 are also literally named 'Foundation'/'Stiftelse' in Swedish; flagging the same name-vs-category ambiguity noted for Denmark). Vastra Gotalandsregionen (a regional government body reporting E&F-style assets rather than a DB/DC pension split) was folded into Tax exempt E&F as the closest existing bucket, since Government doesn't have its own E&F segment in the taxonomy. 77 institutions tracked (78 in the export, minus the Riksbank), SEK 526.61bn tracked; no independent check yet on how exhaustive that is against Sweden's actual institutional universe.",
-  "scorecard_note": "Not yet scored \u2014 none of the 12 opportunity-scorecard dimensions have been filled in for any Sweden segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
-  "allocation_note": "Built bottom-up directly from the real plan-level allocation lines in se_institutions_latest.json, same real-bottom-up approach as Ireland and Denmark (no scaling or equity-anchoring \u2014 Sweden has no legacy workbook figure to reconcile against). Raw asset_type values mapped onto the standard six buckets; 'Loans' folded into Fixed Income, everything else non-standard folded into Other/Unclassified. Same 5%-of-asset-type materiality threshold as other countries for style breakdowns. Plan-level lines with an explicit Defined Benefit or Defined Contribution plan type are assigned directly to that segment; ambiguous plan types are split across an institution's actual segments in proportion to its own DB/DC/E&F asset split, excluding any segment already covered by its own explicitly-typed plan (same fix applied for Denmark's Lundbeck case). Coverage is 96-100% for most segments; two exceptions worth flagging: Tax exempt E&F is only 51.5% covered (several of its five institutions have plan-level lines with no reported dollar breakdown), and DC Pension (Corp) \u2014 a single, very small institution (Perstorp Holding AB, SEK 28.6m) \u2014 has 0% allocation coverage because its only DC plan-level row in the export has no asset-type or dollar-amount data at all. Also worth a look: DC Pension (Govt)'s allocation is 87.8% 'Alternatives / Derivatives', driven almost entirely by Sjunde AP-fonden (AP7)'s default fund \u2014 that doesn't match AP7's publicly-known equity-heavy strategy, so treat that particular breakdown as a data-labelling quirk in the source export worth double-checking rather than a confirmed shift in positioning.",
+  "source_note": "Currency confirmed (2026-07-10): S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). These figures are USD, not SEK as previously assumed here. The Central Bank of Sweden (Riksbank, S&P Category 'Reserve Banks', ~SEK 111.0bn) is excluded throughout, same convention as UK's Bank of England / Denmark's Nationalbank exclusion. Worth your particular attention: five of Sweden's national AP-fonden buffer pension funds (AP2, AP3, AP4, AP6, AP7) are tagged 'Government' by S&P and sit in DB Pension (Govt) / DC Pension (Govt) here by that category's mechanical default — but combined they're roughly SEK 326bn, well over half of everything tracked for Sweden. These are state-owned national pension reserve/buffer funds rather than a conventional government-employee pension scheme, and are sometimes discussed alongside sovereign wealth funds given their scale and mandate — similar in spirit to the NTMA judgement call flagged for Ireland. Left in DB/DC Pension (Govt) by default since that's what S&P's own category says, but this is very much a call worth revisiting given how much of the total it represents; reclassifying some or all of them to SWF would substantially reshape Sweden's segment mix. S&P's 'Private Foundation' category (one institution, IngaBritt och Arne Lundbergs Forskningsstiftelse) was mapped to Foundations E&F rather than Tax exempt E&F, since S&P's own label distinguishes it from the four 'Tax Exempt Organization' institutions (two of which — Nobel Foundation and Stiftelse Sveriges Sjömanshus — are also literally named 'Foundation'/'Stiftelse' in Swedish; flagging the same name-vs-category ambiguity noted for Denmark). Vastra Gotalandsregionen (a regional government body reporting E&F-style assets rather than a DB/DC pension split) was folded into Tax exempt E&F as the closest existing bucket, since Government doesn't have its own E&F segment in the taxonomy. 77 institutions tracked (78 in the export, minus the Riksbank), SEK 526.61bn tracked; no independent check yet on how exhaustive that is against Sweden's actual institutional universe.",
+  "scorecard_note": "Not yet scored — none of the 12 opportunity-scorecard dimensions have been filled in for any Sweden segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
+  "allocation_note": "Built bottom-up directly from the real plan-level allocation lines in se_institutions_latest.json, same real-bottom-up approach as Ireland and Denmark (no scaling or equity-anchoring — Sweden has no legacy workbook figure to reconcile against). Raw asset_type values mapped onto the standard six buckets; 'Loans' folded into Fixed Income, everything else non-standard folded into Other/Unclassified. Same 5%-of-asset-type materiality threshold as other countries for style breakdowns. Plan-level lines with an explicit Defined Benefit or Defined Contribution plan type are assigned directly to that segment; ambiguous plan types are split across an institution's actual segments in proportion to its own DB/DC/E&F asset split, excluding any segment already covered by its own explicitly-typed plan (same fix applied for Denmark's Lundbeck case). Coverage is 96-100% for most segments; two exceptions worth flagging: Tax exempt E&F is only 51.5% covered (several of its five institutions have plan-level lines with no reported dollar breakdown), and DC Pension (Corp) — a single, very small institution (Perstorp Holding AB, SEK 28.6m) — has 0% allocation coverage because its only DC plan-level row in the export has no asset-type or dollar-amount data at all. Also worth a look: DC Pension (Govt)'s allocation is 87.8% 'Alternatives / Derivatives', driven almost entirely by Sjunde AP-fonden (AP7)'s default fund — that doesn't match AP7's publicly-known equity-heavy strategy, so treat that particular breakdown as a data-labelling quirk in the source export worth double-checking rather than a confirmed shift in positioning.",
   "segments": [
     {
       "segment": "DB Pension (Corp)",
       "aum_bn": 184.280839,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Fixed Income",
@@ -111,6 +110,15 @@
           "source": "S&P Money Manager Database export (Sweden)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Top-down check (IPE Top 1000 Pension Funds Europe 2025, country total)",
+          "aum_bn": 625.77,
+          "currency": "EUR",
+          "as_of": "2024-10-31 to 2025-06-30 (IPE Top 1000 Pension Funds, 2025 edition)",
+          "source": "IPE, 'Top 1000 Pension Funds' (2025 edition) -- 34 named Sweden entities summed",
+          "note": "IPE 'Top 1000 Pension Funds' (2025 edition) reports 34 named pension entities for Sweden, summing to EUR625.77bn (2024-10-31 to 2025-06-30, mixed reporting dates across entities). This is a whole-country total across every pension fund IPE identifies -- spanning defined benefit and defined contribution, corporate and government/public-sector schemes combined -- not broken out the way Atlas segments this market. Shown here as a reference against DB Pension (Corp) + DB Pension (Govt) combined (Atlas bottom-up = $369.38bn across 2 segment(s)), not any single segment alone; the two figures are also in different currencies (EUR vs Atlas's USD), so this is a directional comparison only, not a precise variance calculation. Note also that this total includes large occupational pension insurers (Alecta EUR114.6bn, AMF EUR74.0bn) that Atlas's own segmentation would likely classify under Life insurance rather than a Pension segment if reclassified institution-by-institution (not done in this pass).",
+          "active": false
         }
       ],
       "source_history": [
@@ -118,7 +126,13 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-28",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added via new research: 'IPE Top 1000 Pension Funds country total' (EUR625.77bn across 34 entities) -- see scope caveat in note. Cross-checked against S&P MMD-derived segment totals; not previously available in SE commentary/sources."
         }
       ],
       "allocation_incomplete": true,
@@ -126,14 +140,56 @@
         "top3_share_pct": 76.3,
         "hhi": 3351,
         "n_institutions": 54,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Alecta Pensionsförsäkring",
+            "aum_bn": 100.32
+          },
+          {
+            "name": "KPA Pensionsförsäkring AB",
+            "aum_bn": 34.56
+          },
+          {
+            "name": "Skandinaviska Enskilda Banken AB (SEB)",
+            "aum_bn": 5.65
+          },
+          {
+            "name": "Svenska Handelsbanken AB",
+            "aum_bn": 4.55
+          },
+          {
+            "name": "Ericsson",
+            "aum_bn": 3.18
+          },
+          {
+            "name": "Telia Company AB",
+            "aum_bn": 3.09
+          },
+          {
+            "name": "Sparinstitutens Pensionskassa (SPK)",
+            "aum_bn": 3.03
+          },
+          {
+            "name": "Swedbank AB",
+            "aum_bn": 2.26
+          },
+          {
+            "name": "AB Volvo",
+            "aum_bn": 2.2
+          },
+          {
+            "name": "SAS AB",
+            "aum_bn": 2.08
+          }
+        ],
+        "top10_share_pct": 87.4
       }
     },
     {
       "segment": "DC Pension (Corp)",
       "aum_bn": 0.028644,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [],
       "sources": [
         {
@@ -150,7 +206,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true,
@@ -165,7 +221,6 @@
       "segment": "DB Pension (Govt)",
       "aum_bn": 185.095146,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -251,6 +306,24 @@
           "source": "S&P Money Manager Database export (Sweden)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Top-down check (OECD autonomous pension funds, country total)",
+          "aum_bn": 44.299,
+          "currency": "USD",
+          "as_of": "2024 (OECD reference year)",
+          "source": "OECD Data Explorer, 'Assets earmarked for retirement' (OECD.DAF.CM, DSD_FP@DF_PA), Pension funds (autonomous) vehicle type (native unit: USD millions, converted here to USD bn to match Atlas convention)",
+          "note": "Country-level top-down cross-check, not a segment-specific figure. CORRECTED 2026-07-16: an earlier version of this note claimed the gap was because Atlas's bottom-up figure includes book reserve and insurance-wrapped pension assets that OECD's 'autonomous pension funds' vehicle type excludes. That claim was not well supported and has been withdrawn -- S&P's Money Manager Database tracks assets already placed with professional managers (so unfunded book reserves, which have no external portfolio, structurally shouldn't appear in it), and it tracks insurance firms as a category separate from pension institutions. The real driver of variance, where known, is noted per-country below. Compares against the SUM of all DB+DC segments in Sweden (DB Pension (Corp), DC Pension (Corp), DB Pension (Govt), DC Pension (Govt), DB Pension (Tax exempt)): Atlas bottom-up = $518.98bn vs OECD (autonomous funds only, 2024) = $44.30bn, variance +1071.5%. Specific flag for Sweden: a large share of Swedish occupational pensions (ITP, SAF-LO and similar collectively-bargained schemes) are administered through providers such as Alecta, AMF and SPP, which are legally licensed as insurance companies. If Atlas's bottom-up figure counts these by function (pension) while OECD's autonomous-funds series excludes them as insurance contracts, that would explain a meaningful part of the gap -- not yet confirmed institution-by-institution. Shown here against the largest DB/DC segment (DB Pension (Govt)) as a reference point only -- do not apply this figure as this segment's own total.",
+          "active": false
+        },
+        {
+          "basis": "Top-down check (IPE Top 1000 Pension Funds Europe 2025, country total)",
+          "aum_bn": 625.77,
+          "currency": "EUR",
+          "as_of": "2024-10-31 to 2025-06-30 (IPE Top 1000 Pension Funds, 2025 edition)",
+          "source": "IPE, 'Top 1000 Pension Funds' (2025 edition) -- 34 named Sweden entities summed",
+          "note": "IPE 'Top 1000 Pension Funds' (2025 edition) reports 34 named pension entities for Sweden, summing to EUR625.77bn (2024-10-31 to 2025-06-30, mixed reporting dates across entities). This is a whole-country total across every pension fund IPE identifies -- spanning defined benefit and defined contribution, corporate and government/public-sector schemes combined -- not broken out the way Atlas segments this market. Shown here as a reference against DB Pension (Corp) + DB Pension (Govt) combined (Atlas bottom-up = $369.38bn across 2 segment(s)), not any single segment alone; the two figures are also in different currencies (EUR vs Atlas's USD), so this is a directional comparison only, not a precise variance calculation. Note also that this total includes large occupational pension insurers (Alecta EUR114.6bn, AMF EUR74.0bn) that Atlas's own segmentation would likely classify under Life insurance rather than a Pension segment if reclassified institution-by-institution (not done in this pass).",
+          "active": false
         }
       ],
       "source_history": [
@@ -258,21 +331,81 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_added",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Added OECD autonomous pension fund total ($44.30bn, 2024) as a non-active top-down cross-check against the combined DB+DC segments for Sweden (bottom-up sum $518.98bn, variance +1071.5%). Not applied -- active source and displayed aum_bn for this segment are unchanged."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_note_corrected",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Corrected the OECD top-down check note added earlier today: withdrew the claim that the variance is explained by Atlas's bottom-up figure including book reserve/insurance assets (Peter flagged that S&P MMD shouldn't capture those categories, and that's correct). Replaced with a country-specific, evidence-based explanation where one was found (Korea/NPS, Norway/KLP, Germany/Denmark/Sweden insurance-regulated occupational pension providers), or left as an open question where no clear driver was identified."
+        },
+        {
+          "date": "2026-07-28",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added via new research: 'IPE Top 1000 Pension Funds country total' (EUR625.77bn across 34 entities) -- see scope caveat in note. Cross-checked against S&P MMD-derived segment totals; not previously available in SE commentary/sources."
         }
       ],
       "concentration": {
         "top3_share_pct": 84.9,
         "hhi": 2513,
         "n_institutions": 13,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Fjärde AP-fonden (AP4)",
+            "aum_bn": 56.8
+          },
+          {
+            "name": "Tredje AP-fonden (AP3)",
+            "aum_bn": 54.08
+          },
+          {
+            "name": "Andra AP-fonden (AP2)",
+            "aum_bn": 46.31
+          },
+          {
+            "name": "Sjätte AP-fonden (AP6)",
+            "aum_bn": 7.71
+          },
+          {
+            "name": "Vastra Gotalandsregionen",
+            "aum_bn": 2.8
+          },
+          {
+            "name": "Landstinget i Jönköpings län",
+            "aum_bn": 1.06
+          },
+          {
+            "name": "Landstinget i Uppsala län",
+            "aum_bn": 0.96
+          },
+          {
+            "name": "Region Västmanland",
+            "aum_bn": 0.8
+          },
+          {
+            "name": "Region Orebro lan",
+            "aum_bn": 0.59
+          },
+          {
+            "name": "Landstinget i Kalmar län",
+            "aum_bn": 0.37
+          }
+        ],
+        "top10_share_pct": 99.5
       }
     },
     {
       "segment": "DC Pension (Govt)",
       "aum_bn": 147.03922,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Alternatives",
@@ -334,21 +467,27 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 7902,
         "n_institutions": 2,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Kåpan Pensioner",
+            "aum_bn": 17.51
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "DB Pension (Tax exempt)",
       "aum_bn": 2.537942,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -399,21 +538,27 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 10000,
         "n_institutions": 1,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Svenska Kyrkan",
+            "aum_bn": 4.56
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "Endowments E&F",
       "aum_bn": 1.028241,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Cash & Short-Term",
@@ -453,21 +598,31 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 5324,
         "n_institutions": 2,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Lund University",
+            "aum_bn": 0.64
+          },
+          {
+            "name": "Göteborgs Universitet",
+            "aum_bn": 0.38
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "Tax exempt E&F",
       "aum_bn": 6.420176,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Fixed Income",
@@ -575,7 +730,7 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "allocation_incomplete": true,
@@ -590,7 +745,6 @@
       "segment": "Foundations E&F",
       "aum_bn": 0.180584,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -656,6 +810,15 @@
           "source": "S&P Money Manager Database export (Sweden)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Reference only -- single foundation group, not whole-sector (Wallenberg Foundations)",
+          "aum_bn": 370,
+          "currency": "SEK",
+          "as_of": "2025-12",
+          "source": "Wallenberg Foundations, combined assets (foundation group controlled by the Wallenberg family, via Investor AB)",
+          "note": "IMPORTANT SCOPE CAVEAT: the Wallenberg Foundations' SEK370bn (~$35bn at approximate conversion) combined assets at end-2025 is a single foundation group's holdings (built through century-long controlling stakes in major Swedish industrial companies via Investor AB), not a whole-sector total, against this segment's own bottom-up figure of just $0.18bn built from S&P Money Manager Database reporters. One academic estimate has separately put the combined assets of ALL Swedish foundations at around EUR31bn -- smaller than the Wallenberg Foundations alone, suggesting that estimate is dated or more narrowly defined, and reinforcing that any single aggregate figure for the Swedish foundation population should be read with caution. Shown here as an order-of-magnitude reference point using the better-documented Wallenberg figure, not a precise sector-wide top-down check.",
+          "active": false
         }
       ],
       "source_history": [
@@ -663,15 +826,383 @@
           "date": "2026-07-09",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-24",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added: \"Wallenberg Foundations combined assets\" (370bn SEK) -- see scope caveat in note."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 10000,
         "n_institutions": 1,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Sida",
+            "aum_bn": 0.76
+          },
+          {
+            "name": "Nobel Foundation",
+            "aum_bn": 0.45
+          },
+          {
+            "name": "IngaBritt och Arne Lundbergs Forskningsstiftelse",
+            "aum_bn": 0.18
+          },
+          {
+            "name": "Greenpeace Nordic",
+            "aum_bn": 0.05
+          },
+          {
+            "name": "Stiftelse Sveriges Sjömanshus",
+            "aum_bn": 0.03
+          }
+        ],
+        "top10_share_pct": 100.0
+      }
+    },
+    {
+      "segment": "Life insurance",
+      "aum_bn": 661.178,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 172.574,
+          "pct_of_segment": 26.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 172.574
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 125.156,
+          "pct_of_segment": 18.9,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 125.156
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 15.345,
+          "pct_of_segment": 2.3,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 15.345
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 5.474,
+          "pct_of_segment": 0.8,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 5.474
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 342.63,
+          "pct_of_segment": 51.8,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 342.63
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 661.178,
+          "as_of": "2023-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
+          "active": true
+        },
+        {
+          "basis": "Reference only -- combined life+occupational pension company total, not segment-specific (Svensk Forsakring/SCB)",
+          "aum_bn": 7125,
+          "currency": "SEK",
+          "as_of": "2024-12 (Svensk Forsakring / Statistics Sweden)",
+          "source": "Svensk Forsakring (Swedish Insurance) and Statistics Sweden (SCB), combined life insurance and occupational pension company assets",
+          "note": "IMPORTANT SCOPE CAVEAT: this is Svensk Forsakring (Swedish Insurance) and SCB's combined total for Swedish LIFE INSURANCE AND OCCUPATIONAL PENSION COMPANIES together (SEK7,125bn at end-2024), a broader population than a pure life+non-life insurance total since it includes occupational pension insurers whose assets may also appear in this market's pension segments -- it cannot be compared directly against this segment's own bottom-up total alone. Shown here as a confirming cross-check, as already framed in this segment's own commentary: Atlas bottom-up across Life and Non-life insurance combined = $744.48bn vs SEK7,125bn (~$678bn at approximate conversion), a reasonably close match given the definitional overlap with pension-insurance business. Identical entry attached to both Life insurance and Non-life insurance for this reason.",
+          "active": false
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-14",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2023 data). Scorecard not yet scored -- dimensions to be filled in manually."
+        },
+        {
+          "date": "2026-07-24",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added: \"Svensk Forsakring/SCB combined life+occupational pension total\" (7,125bn SEK) -- confirming cross-check, see scope caveat in note."
+        }
+      ]
+    },
+    {
+      "segment": "Non-life insurance",
+      "aum_bn": 83.302,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 23.986,
+          "pct_of_segment": 28.8,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 23.986
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 30.409,
+          "pct_of_segment": 36.5,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 30.409
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 3.334,
+          "pct_of_segment": 4.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 3.334
+            }
+          ]
+        },
+        {
+          "asset_type": "Real Estate",
+          "value_bn": 2.586,
+          "pct_of_segment": 3.1,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 2.586
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 22.988,
+          "pct_of_segment": 27.6,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 22.988
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 83.302,
+          "as_of": "2023-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
+          "active": true
+        },
+        {
+          "basis": "Reference only -- combined life+occupational pension company total, not segment-specific (Svensk Forsakring/SCB)",
+          "aum_bn": 7125,
+          "currency": "SEK",
+          "as_of": "2024-12 (Svensk Forsakring / Statistics Sweden)",
+          "source": "Svensk Forsakring (Swedish Insurance) and Statistics Sweden (SCB), combined life insurance and occupational pension company assets",
+          "note": "IMPORTANT SCOPE CAVEAT: this is Svensk Forsakring (Swedish Insurance) and SCB's combined total for Swedish LIFE INSURANCE AND OCCUPATIONAL PENSION COMPANIES together (SEK7,125bn at end-2024), a broader population than a pure life+non-life insurance total since it includes occupational pension insurers whose assets may also appear in this market's pension segments -- it cannot be compared directly against this segment's own bottom-up total alone. Shown here as a confirming cross-check, as already framed in this segment's own commentary: Atlas bottom-up across Life and Non-life insurance combined = $744.48bn vs SEK7,125bn (~$678bn at approximate conversion), a reasonably close match given the definitional overlap with pension-insurance business. Identical entry attached to both Life insurance and Non-life insurance for this reason.",
+          "active": false
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-14",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2023 data). Scorecard not yet scored -- dimensions to be filled in manually."
+        },
+        {
+          "date": "2026-07-24",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added: \"Svensk Forsakring/SCB combined life+occupational pension total\" (7,125bn SEK) -- confirming cross-check, see scope caveat in note."
+        }
+      ]
+    },
+    {
+      "segment": "Family Offices (SFO)",
+      "aum_bn": 97.584,
+      "basis": "Bottom-up (S&P Money Manager Database, SFO-tagged, named reporters only) -- partial, coverage-limited, directional guesstimate",
+      "allocation": [],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database, SFO-tagged, named reporters only)",
+          "aum_bn": 97.584,
+          "as_of": "2026-07 (S&P Family Office module export)",
+          "source": "S&P Money Manager Database, Family Office module, filtered to Company Type = 'SFO' (single family office)",
+          "note": "Built 2026-07-23 as part of a global rollout of the Family Offices (SFO) segment, following the same methodology validated on the UK (Peter flagged that S&P's 'family office' data looked more like misclassified wealth managers than real family offices, and a full download confirmed it). S&P's Family Office module tags every firm as SFO (single family office), MFO (multi-family office) or FOSP (family office service provider); MFO and FOSP are dominated by private-bank wealth-management divisions and service providers rather than genuine family offices, so this segment is restricted to SFO-tagged firms only (13 identified for Sweden). Of those, 5 carry a numeric AUM figure. The aum_bn above ($97.584bn) is the sum of the 5 remaining, internally-consistent named reporters -- it is NOT an estimate of the true Sweden single-family-office population, which is almost certainly larger, since family offices are notoriously private and under-reported by design (Peter has explicitly accepted this as a directional guesstimate rather than a comprehensive figure). No asset-class breakdown exists in the source data at all, so allocation is left empty and the chart will show as 100% 'Unreported' by design, not a bug.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-23",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "New segment added as part of a global rollout following the UK pilot (Peter questioned whether S&P's Family Office data was genuinely family offices or misclassified wealth managers -- confirmed the latter for MFO/FOSP). Restricted to SFO-tagged firms only, further excluding any numeric figure that contradicts its own stated size-range bucket. Resulting aum_bn ($97.584bn across 5 firms) is a partial, named-reporters-only total, explicitly accepted by Peter as a directional guesstimate rather than a population estimate -- see sources[].note for full methodology."
+        }
+      ],
+      "concentration": {
+        "top3_share_pct": 97.3,
+        "hhi": 6236,
+        "n_institutions": 5,
+        "basis": "The 5 SFO-tagged Sweden firms with an internally-consistent numeric AUM figure in the S&P Money Manager Database Family Office module export (see segment sources[].note) -- NOT the full 13 SFO-tagged firms identified for Sweden, only the subset that report a usable figure.",
+        "top_institutions": [
+          {
+            "name": "Carl Bennet AB",
+            "aum_bn": 74.984
+          },
+          {
+            "name": "Ramsbury Invest AB",
+            "aum_bn": 17.5
+          },
+          {
+            "name": "Tham Invest AB",
+            "aum_bn": 2.5
+          },
+          {
+            "name": "Djursholm Investment Group AB",
+            "aum_bn": 1.5
+          },
+          {
+            "name": "Lars Wingefors AB",
+            "aum_bn": 1.1
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     }
-  ]
+  ],
+  "commentary": {
+    "wealth": {
+      "text": "Sweden's national wealth has grown dramatically faster than incomes over the past four decades. Statistics Sweden (SCB) reported total national wealth of SEK 40,170 billion at the end of 2024 (an all-time high, equivalent to roughly SEK 2,615,093 per capita), of which households hold about 69%, the public sector 21%, and the corporate and non-profit sectors the remainder. Households' total wealth has grown from just over twice annual income in the 1980s to nearly seven times annual income in 2024 — a striking illustration of how much of Sweden's wealth growth has come from rising asset values (property and financial markets) rather than from earnings growth. Households' financial net wealth alone stood at SEK 15,380 billion in early 2024, equivalent to 246% of GDP.\n\nOn the institutional side, Sweden's distinguishing feature — discussed in full under Pensions — is its heavily pre-funded, multi-pillar state pension system, built around the AP buffer funds and a large mandatory individual-account premium pension. The identifiable institutional base shows combined pension assets of roughly $519bn and a further $744.5bn across Life and Non-life insurance (see Insurance below) — a very large, professionally-managed institutional pool for a country of Sweden's population size, reflecting decades of consistent, mandatory funding rather than a pay-as-you-go model, and a genuinely deep market for managers with strong Nordic institutional relationships.",
+      "sources": [
+        {
+          "label": "SCB (Statistics Sweden), Sweden's wealth reached all-time high at the end of 2024",
+          "url": "https://www.scb.se/en/finding-statistics/statistics-by-subject-area/national-accounts/ovrigt/national-accounts-other/pong/statistical-news/national-wealth-2024"
+        },
+        {
+          "label": "SCB (Statistics Sweden), Households' financial net wealth increased",
+          "url": "https://www.scb.se/en/finding-statistics/statistics-by-subject-area/national-accounts/financial-accounts/financial-accounts-quarterly-and-annual/pong/statistical-news/financial-accounts-first-quarter-20242/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "pensions": {
+      "text": "Sweden's state pension system is one of the more thoroughly pre-funded in Europe, built on an income-pension/premium-pension split rather than the single PAYG or single-funded models seen elsewhere. The bulk of contributions (16 percentage points of pensionable income) fund the income pension, a notional (PAYG-financed but individually tracked) scheme backed by a buffer of AP funds — AP1, AP2, AP3 and AP4 (the \"buffer funds,\" each independently managed but pooling risk collectively) plus AP6 (a smaller fund dedicated to unlisted Swedish assets). A further 2.5 percentage points funds the premium pension (Premiepension/PPM), a genuinely individual-account defined-contribution scheme in which each saver chooses up to five funds from an approved marketplace or defaults into AP7 Såfa, the state's own life-cycle default fund — used by close to six million Swedes, the large majority of the working population, making AP7 Såfa one of the largest default DC arrangements anywhere in the world and a significant distribution channel for fund managers on its approved marketplace.\n\nThe identifiable institutional base reflects this structure closely. DB Pension (Govt), at $185.1bn, is dominated by the AP buffer funds themselves — AP4 ($56.8bn), AP3 ($54.1bn), AP2 ($46.3bn) and AP6 ($7.7bn) — alongside a number of regional/county government pension liabilities, and represents some of the most significant institutional mandates in the Nordic region. DC Pension (Govt), at $147.0bn, captures the funded, individual-account premium-pension system, including Kåpan Pensioner (the supplementary DC scheme for central-government employees). DB Pension (Corp), at $184.3bn, is led by Alecta ($100.3bn, Sweden's largest occupational pension insurer, a mutual company owned by its policyholders) and KPA Pensionsförsäkring ($34.6bn, the main occupational pension insurer for the municipal and regional government sector), alongside dedicated corporate schemes for SEB, Handelsbanken, Ericsson, Telia and Swedbank.",
+      "sources": [
+        {
+          "label": "AP7, AP7 Såfa (official overview)",
+          "url": "https://www.ap7.se/english/ap7-safa/"
+        },
+        {
+          "label": "The Local Sweden, How to decipher Sweden's orange pension envelope",
+          "url": "https://www.thelocal.se/20200217/explained-how-to-decipher-your-orange-pensions-envelope-in-sweden"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "insurance": {
+      "text": "Svensk Försäkring (Swedish Insurance) and SCB report that Swedish life insurance and occupational pension companies together held SEK 7,125 billion in assets at the end of 2024, up 13.5% on 2023; life insurance companies alone held SEK 3,881 billion as of June 2024. The market is concentrated among a handful of large mutual and cooperative providers: Alecta, Skandia, AMF and Folksam together accounted for 54% of total life and occupational pension company assets at the end of 2023 (Alecta's own scale is already visible in the DB Pension (Corp) segment above) — a useful shortlist of the key relationships in this market.\n\nOECD-sourced figures for the sector — Life insurance $661.2bn and Non-life insurance $83.3bn — line up reasonably closely with Svensk Försäkring's own domestic total (SEK 7,125bn converts to a broadly similar order of magnitude), a useful cross-check given the definitional mismatches seen in some other European insurance markets.",
+      "sources": [
+        {
+          "label": "Svensk Försäkring, Swedish Insurance Market Q4 2024",
+          "url": "https://www.svenskforsakring.se/contentassets/fe0cd650fd5947a783f943f113977067/swedish-insurance-market-2024q4.pdf/"
+        },
+        {
+          "label": "SCB (Statistics Sweden), Nearly a 14 percent increase in the assets of life insurance and occupational pension companies",
+          "url": "https://www.scb.se/en/finding-statistics/statistics-by-subject-area/financial-markets/insurance/swedish-insurance-companies-annual-financial-data2/pong/statistical-news/insurance-companies-annual-reporting-2024/"
+        },
+        {
+          "label": "OECD, Asset allocation of insurance companies dataset (data-explorer.oecd.org)",
+          "url": "https://data-explorer.oecd.org/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "charities": {
+      "text": "Sweden has no single national charity regulator comparable to England and Wales' Charity Commission. Swedish civil-society organisations mostly take the form of ideell förening (non-profit association) or stiftelse (foundation, covered separately below); foundations register with their county administrative board (länsstyrelse) rather than a central charity register, and there is no single publicly-available aggregate balance sheet across the whole non-profit association population.\n\nThis population is best approached qualitatively for now; the better-measured, more institutional foundation sector is covered separately below and represents the more realistic mandate opportunity.",
+      "sources": [],
+      "last_updated": "2026-07-23"
+    },
+    "foundations": {
+      "text": "Sweden's foundation (stiftelse) population is large — more than 20,000 foundations and funds were recorded in a 2020 civil-society count — but dominated in asset terms by a small number of very large industrial family foundations. The best-known example is the Wallenberg Foundations, a group of foundations controlled by the Wallenberg family that, at the end of 2025, held combined assets of approximately SEK 370 billion, built through more than a century of controlling stakes in major Swedish industrial companies via the listed holding company Investor AB (whose own market capitalisation exceeds $100 billion) — interests spanning Atlas Copco, SEB, Ericsson, AstraZeneca and Saab, among others, and one of the most significant single institutional relationships available anywhere in the Nordic region. Notably, one academic estimate has put the combined assets of all Swedish foundations at around €31 billion — a figure smaller than the Wallenberg Foundations alone, which suggests that estimate is either dated or defined more narrowly than the sector as a whole; any single aggregate figure for the full Swedish foundation population should be read with some caution.\n\nThe identifiable, professionally-managed institutional base for Sweden is small ($0.18bn) relative to even a conservative reading of the sector's true scale, consistent with the pattern seen across the Nordic markets: institutional asset-manager reporting only captures a small number of institutions that appear as professionally-managed asset owners, so the real opportunity is concentrated among a handful of very large, well-identified foundations like Wallenberg rather than the sector's long tail.",
+      "sources": [
+        {
+          "label": "Wallenberg.com, The ecosystem",
+          "url": "https://www.wallenberg.com/en/ecosystem"
+        },
+        {
+          "label": "Wallenberg Investments AB, Ownership and holdings",
+          "url": "https://wallenberginvestments.com/en/holdings"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "family_offices": {
+      "text": "Sweden has an estimated 19 single family offices, concentrated mainly in Stockholm with Gothenburg as a secondary hub, within a broader Nordic region where family offices collectively manage over $720 billion in identifiable assets. Sweden's best-known family capital, the Wallenberg family's holdings, is structured through foundations and a listed holding company (Investor AB) rather than a conventional private single-family office, so it sits under Foundations above rather than in this segment.\n\nThe identifiable single-family-office base for Sweden is, by contrast, comparatively large and well-populated relative to most other European markets: of 13 firms tagged as single-family offices, all 5 with a numeric figure proved internally consistent, for a combined $97.6bn — led by Carl Bennet AB ($75.0bn, the industrial holding company of Swedish billionaire Carl Bennet, with interests spanning healthcare, life sciences and manufacturing), Ramsbury Invest AB ($17.5bn), Tham Invest AB ($2.5bn), Djursholm Investment Group AB ($1.5bn) and Lars Wingefors AB ($1.1bn, the holding vehicle of the Embracer Group video-games founder). As in every market, this remains a floor built from named reporters rather than a full population estimate — but Sweden is one of relatively few markets where the named-reporter total is dominated by a single very large, unambiguous industrial family holding company rather than a long tail of smaller entities, making Carl Bennet AB a particularly clear relationship target.",
+      "sources": [
+        {
+          "label": "Altss, Top 10 Largest Family Offices in the Nordics (2025)",
+          "url": "https://altss.com/blog/top-10-largest-family-offices-in-the-nordics-2025"
+        },
+        {
+          "label": "Impact Loop, Family offices: Meet 65 Swedish dynasties open to new impact investments",
+          "url": "https://www.impactloop.com/artikel/family-offices-meet-65-swedish-dynasties-open-to-new-impact-investments"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "sovereign_wealth_funds": {
+      "text": "Sweden has no sovereign wealth fund of the natural-resource-revenue kind (unlike Norway, its Nordic neighbour). Sweden's closest analogues are the AP buffer funds discussed under Pensions above — AP1 through AP4 and AP6 — but these are pension reserve/buffer funds explicitly earmarked to help smooth the state income-pension system's future cash flows, not a fund accumulating general fiscal surpluses or resource revenue for future generations in the way Norway's Government Pension Fund Global does. They are best approached as major pension institutions in their own right (see Pensions above) rather than as sovereign-fund-style prospects.",
+      "sources": [],
+      "last_updated": "2026-07-23"
+    },
+    "ocio": {
+      "text": "No dedicated, regularly-published fiduciary management/OCIO market survey specific to Sweden was identified, and outsourced-CIO delegation does not appear to be a widely used or separately-tracked category in the Swedish institutional market the way it is in the UK. Sweden's large occupational pension insurers (Alecta, KPA, and others discussed under Insurance above) manage assets largely in-house or through their own asset-management arms rather than delegating to independent fiduciary managers, and the AP buffer funds are themselves independently governed, professionally-staffed asset owners rather than clients of an external OCIO.\n\nGlobally, Cerulli estimates the OCIO/fiduciary management industry grew to more than $3.3 trillion in assets by the end of 2024, projecting growth to $5.6 trillion by the end of the decade — but Sweden's own share of that global pool isn't separately reported, and the country's institutional landscape (large, well-resourced in-house pension insurers and buffer funds) may simply have less structural need for external OCIO delegation than markets with a longer tail of smaller pension schemes, such as the UK. For managers, the more realistic near-term opportunity in Sweden lies in direct asset-management mandates with these institutions rather than a UK-style fiduciary-manager channel.",
+      "sources": [
+        {
+          "label": "Cerulli Associates, Nearly $1.3 Trillion Expected to Flow into OCIO Industry Through 2029",
+          "url": "https://www.cerulli.com/press-releases/nearly-1.3-trillion-expected-to-flow-into-ocio-industry-through-2029"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    }
+  }
 }

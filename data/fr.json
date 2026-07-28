@@ -10,7 +10,6 @@
       "segment": "SWF",
       "aum_bn": 330.916234,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Fixed Income",
@@ -54,6 +53,15 @@
           "source": "S&P Money Manager Database export (France)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Top-down check (Global SWF ranking)",
+          "aum_bn": 60.0,
+          "currency": "USD",
+          "as_of": "2026 (Global SWF ranking, last updated July 2026)",
+          "source": "Global SWF Ranking (globalswf.com/ranking, last updated July 2026), 'SWF'-type entities only",
+          "note": "Country-level top-down cross-check. Atlas bottom-up = $330.92bn vs Global SWF (SWF-type only) = $60.00bn, variance +451.5%. Bpifrance, Global SWF's only French SWF-type entry, is $60bn -- far below Atlas's $330.92bn, and no other French entity appears in Global SWF's SWF-type list at a scale that would close this gap. This is the largest unexplained mismatch found in this exercise: Atlas's French 'SWF' figure does not match any single Global SWF-tracked French sovereign entity. Worth checking Atlas's own segment build/basis for France specifically -- possible it is counting something broader (e.g. Caisse des Depots et Consignations balance sheet or its Fonds d'Epargne) that Global SWF does not classify as an SWF at all.",
+          "active": false
         }
       ],
       "source_history": [
@@ -62,6 +70,12 @@
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
           "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_added",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Added Global SWF ranking figure ($60.00bn) as a non-active top-down cross-check against the SWF segment (bottom-up $330.92bn). Not applied -- active source and displayed aum_bn are unchanged."
         }
       ],
       "allocation_incomplete": true,
@@ -87,7 +101,6 @@
       "segment": "DB Pension (Corp)",
       "aum_bn": 94.81975,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Fixed Income",
@@ -212,6 +225,15 @@
           "source": "S&P Money Manager Database export (France)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Top-down check (IPE Top 1000 Pension Funds Europe 2025, country total)",
+          "aum_bn": 463.18,
+          "currency": "EUR",
+          "as_of": "2023-12-31 to 2025-07-31 (IPE Top 1000 Pension Funds, 2025 edition)",
+          "source": "IPE, 'Top 1000 Pension Funds' (2025 edition) -- 53 named France entities summed",
+          "note": "IPE 'Top 1000 Pension Funds' (2025 edition) reports 53 named pension entities for France, summing to EUR463.18bn (2023-12-31 to 2025-07-31, mixed reporting dates across entities). This is a whole-country total across every pension fund IPE identifies -- spanning defined benefit and defined contribution, corporate and government/public-sector schemes combined -- not broken out the way Atlas segments this market. Shown here as a reference against DB Pension (Corp) + DB Pension (Govt) combined (Atlas bottom-up = $287.79bn across 2 segment(s)), not any single segment alone; the two figures are also in different currencies (EUR vs Atlas's USD), so this is a directional comparison only, not a precise variance calculation.",
+          "active": false
         }
       ],
       "source_history": [
@@ -220,6 +242,12 @@
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
           "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-28",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added via new research: 'IPE Top 1000 Pension Funds country total' (EUR463.18bn across 53 entities) -- see scope caveat in note. Cross-checked against S&P MMD-derived segment totals; not previously available in FR commentary/sources."
         }
       ],
       "allocation_incomplete": true,
@@ -277,7 +305,6 @@
       "segment": "DB Pension (Govt)",
       "aum_bn": 192.97,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Other/Unclassified",
@@ -378,6 +405,24 @@
           "source": "S&P Money Manager Database export (France)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Top-down check (OECD autonomous pension funds, country total)",
+          "aum_bn": 267.528,
+          "currency": "USD",
+          "as_of": "2024 (OECD reference year)",
+          "source": "OECD Data Explorer, 'Assets earmarked for retirement' (OECD.DAF.CM, DSD_FP@DF_PA), Pension funds (autonomous) vehicle type (native unit: USD millions, converted here to USD bn to match Atlas convention)",
+          "note": "Country-level top-down cross-check, not a segment-specific figure. CORRECTED 2026-07-16: an earlier version of this note claimed the gap was because Atlas's bottom-up figure includes book reserve and insurance-wrapped pension assets that OECD's 'autonomous pension funds' vehicle type excludes. That claim was not well supported and has been withdrawn -- S&P's Money Manager Database tracks assets already placed with professional managers (so unfunded book reserves, which have no external portfolio, structurally shouldn't appear in it), and it tracks insurance firms as a category separate from pension institutions. The real driver of variance, where known, is noted per-country below. Compares against the SUM of all DB+DC segments in France (DB Pension (Corp), DB Pension (Govt), DC Pension (Govt), DB Pension (Union), DC Pension (Corp)): Atlas bottom-up = $338.80bn vs OECD (autonomous funds only, 2024) = $267.53bn, variance +26.6%. Shown here against the largest DB/DC segment (DB Pension (Govt)) as a reference point only -- do not apply this figure as this segment's own total.",
+          "active": false
+        },
+        {
+          "basis": "Top-down check (IPE Top 1000 Pension Funds Europe 2025, country total)",
+          "aum_bn": 463.18,
+          "currency": "EUR",
+          "as_of": "2023-12-31 to 2025-07-31 (IPE Top 1000 Pension Funds, 2025 edition)",
+          "source": "IPE, 'Top 1000 Pension Funds' (2025 edition) -- 53 named France entities summed",
+          "note": "IPE 'Top 1000 Pension Funds' (2025 edition) reports 53 named pension entities for France, summing to EUR463.18bn (2023-12-31 to 2025-07-31, mixed reporting dates across entities). This is a whole-country total across every pension fund IPE identifies -- spanning defined benefit and defined contribution, corporate and government/public-sector schemes combined -- not broken out the way Atlas segments this market. Shown here as a reference against DB Pension (Corp) + DB Pension (Govt) combined (Atlas bottom-up = $287.79bn across 2 segment(s)), not any single segment alone; the two figures are also in different currencies (EUR vs Atlas's USD), so this is a directional comparison only, not a precise variance calculation.",
+          "active": false
         }
       ],
       "source_history": [
@@ -392,6 +437,24 @@
           "event": "data_correction",
           "by": "peter.brackett@institutionaladviser.co.uk",
           "detail": "aum_bn corrected from 91.879391 to 192.97 bn. Institution-level total (all 10 of 10 institutions listed) sums to 192.970; allocation-derived total is 177.297 -- both roughly double the recorded aum_bn of 91.879. Corrected to the institution-level figure."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_added",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Added OECD autonomous pension fund total ($267.53bn, 2024) as a non-active top-down cross-check against the combined DB+DC segments for France (bottom-up sum $338.80bn, variance +26.6%). Not applied -- active source and displayed aum_bn for this segment are unchanged."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_note_corrected",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Corrected the OECD top-down check note added earlier today: withdrew the claim that the variance is explained by Atlas's bottom-up figure including book reserve/insurance assets (Peter flagged that S&P MMD shouldn't capture those categories, and that's correct). Replaced with a country-specific, evidence-based explanation where one was found (Korea/NPS, Norway/KLP, Germany/Denmark/Sweden insurance-regulated occupational pension providers), or left as an open question where no clear driver was identified."
+        },
+        {
+          "date": "2026-07-28",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added via new research: 'IPE Top 1000 Pension Funds country total' (EUR463.18bn across 53 entities) -- see scope caveat in note. Cross-checked against S&P MMD-derived segment totals; not previously available in FR commentary/sources."
         }
       ],
       "concentration": {
@@ -448,7 +511,6 @@
       "segment": "DC Pension (Govt)",
       "aum_bn": 34.272156,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Fixed Income",
@@ -570,7 +632,6 @@
       "segment": "DB Pension (Union)",
       "aum_bn": 15.382392,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Other/Unclassified",
@@ -695,7 +756,6 @@
       "segment": "Tax exempt E&F",
       "aum_bn": 3.608785,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -834,7 +894,6 @@
       "segment": "DC Pension (Corp)",
       "aum_bn": 1.356237,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -972,7 +1031,6 @@
       "segment": "Foundations E&F",
       "aum_bn": 0.927051,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -1030,7 +1088,6 @@
       "segment": "Healthcare non-profit E&F",
       "aum_bn": 0.422887,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Fixed Income",
@@ -1099,7 +1156,6 @@
       "segment": "Endowments E&F",
       "aum_bn": 0.407499,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [],
       "sources": [
         {
@@ -1138,7 +1194,6 @@
       "segment": "Life insurance",
       "aum_bn": 862.945,
       "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -1215,6 +1270,15 @@
           "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
           "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
           "active": true
+        },
+        {
+          "basis": "Reference only -- full French life+mixed-contract industry total (France Assureurs)",
+          "aum_bn": 2331,
+          "currency": "EUR",
+          "as_of": "unknown -- France Assureurs headline life+mixed insurance investment figure",
+          "source": "France Assureurs, French life and mixed-contract insurance investment total",
+          "note": "IMPORTANT SCOPE CAVEAT: France Assureurs' life+mixed-contract investment total (~EUR2,331bn, ~$2,517bn at approximate conversion) captures the full French life insurance industry, including unit-linked and euro-denominated contract assets managed through insurers' own general accounts and unit-linked vehicles -- a materially broader base than the OECD 'Asset allocation of insurance companies' figure already logged on this segment ($862.95bn). Atlas bottom-up (S&P Money Manager Database) = $862.95bn vs France Assureurs = ~$2,517bn, a large scope gap consistent with this segment's own commentary, which already frames this as a genuine under-capture of the true French life insurance asset base rather than a data error.",
+          "active": false
         }
       ],
       "source_history": [
@@ -1223,6 +1287,12 @@
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
           "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2024 data). Scorecard not yet scored -- dimensions to be filled in manually."
+        },
+        {
+          "date": "2026-07-24",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added: \"France Assureurs life+mixed total\" (2,331bn EUR) -- large scope gap vs OECD figure, see note."
         }
       ]
     },
@@ -1230,7 +1300,6 @@
       "segment": "Non-life insurance",
       "aum_bn": 281.084,
       "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -1307,6 +1376,15 @@
           "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
           "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
           "active": true
+        },
+        {
+          "basis": "Reference only -- confirming cross-check (France Assureurs)",
+          "aum_bn": 288,
+          "currency": "EUR",
+          "as_of": "unknown -- France Assureurs headline non-life insurance investment figure",
+          "source": "France Assureurs, French non-life insurance investment total",
+          "note": "France Assureurs' non-life insurance investment total (~EUR288bn, ~$311bn at approximate conversion) roughly matches the OECD 'Asset allocation of insurance companies' figure already logged on this segment ($281.08bn) -- a reasonably close cross-check, unlike the large gap seen on the Life insurance segment above. Country-level industry source, treated as a confirming reference rather than a replacement for the OECD figure.",
+          "active": false
         }
       ],
       "source_history": [
@@ -1315,8 +1393,181 @@
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
           "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2024 data). Scorecard not yet scored -- dimensions to be filled in manually."
+        },
+        {
+          "date": "2026-07-24",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added: \"France Assureurs non-life total\" (288bn EUR) -- confirming cross-check, see note."
         }
       ]
+    },
+    {
+      "segment": "Family Offices (SFO)",
+      "aum_bn": 36.7,
+      "basis": "Bottom-up (S&P Money Manager Database, SFO-tagged, named reporters only) -- partial, coverage-limited, directional guesstimate",
+      "allocation": [],
+      "sources": [
+        {
+          "basis": "Bottom-up (S&P Money Manager Database, SFO-tagged, named reporters only)",
+          "aum_bn": 36.7,
+          "as_of": "2026-07 (S&P Family Office module export)",
+          "source": "S&P Money Manager Database, Family Office module, filtered to Company Type = 'SFO' (single family office)",
+          "note": "Built 2026-07-23 as part of a global rollout of the Family Offices (SFO) segment, following the same methodology validated on the UK (Peter flagged that S&P's 'family office' data looked more like misclassified wealth managers than real family offices, and a full download confirmed it). S&P's Family Office module tags every firm as SFO (single family office), MFO (multi-family office) or FOSP (family office service provider); MFO and FOSP are dominated by private-bank wealth-management divisions and service providers rather than genuine family offices, so this segment is restricted to SFO-tagged firms only (18 identified for France). Of those, 3 carry a numeric AUM figure, and 1 of those were excluded because the figure contradicts S&P's own size-range bucket for the same firm (Financiere Agache). The aum_bn above ($36.7bn) is the sum of the 2 remaining, internally-consistent named reporters -- it is NOT an estimate of the true France single-family-office population, which is almost certainly larger, since family offices are notoriously private and under-reported by design (Peter has explicitly accepted this as a directional guesstimate rather than a comprehensive figure). No asset-class breakdown exists in the source data at all, so allocation is left empty and the chart will show as 100% 'Unreported' by design, not a bug.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-23",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "New segment added as part of a global rollout following the UK pilot (Peter questioned whether S&P's Family Office data was genuinely family offices or misclassified wealth managers -- confirmed the latter for MFO/FOSP). Restricted to SFO-tagged firms only, further excluding any numeric figure that contradicts its own stated size-range bucket. Resulting aum_bn ($36.7bn across 2 firms) is a partial, named-reporters-only total, explicitly accepted by Peter as a directional guesstimate rather than a population estimate -- see sources[].note for full methodology."
+        }
+      ],
+      "concentration": {
+        "top3_share_pct": 100.0,
+        "hhi": 9731,
+        "n_institutions": 2,
+        "basis": "The 2 SFO-tagged France firms with an internally-consistent numeric AUM figure in the S&P Money Manager Database Family Office module export (see segment sources[].note) -- NOT the full 18 SFO-tagged firms identified for France, only the subset that report a usable figure.",
+        "top_institutions": [
+          {
+            "name": "Groupe Artemis S.A.",
+            "aum_bn": 36.2
+          },
+          {
+            "name": "Eximium S.A.S.",
+            "aum_bn": 0.5
+          }
+        ],
+        "top10_share_pct": 100.0
+      }
     }
-  ]
+  ],
+  "commentary": {
+    "wealth": {
+      "text": "France's household wealth is large in aggregate but somewhat less concentrated than Germany's. INSEE's 2023-2024 Enquête Patrimoine (Household Wealth Survey, fieldwork June 2023-January 2024) found half of French households hold gross wealth exceeding €205,000, while the wealthiest 10% hold net wealth above €750,400. Concentration is real but less extreme than in Germany: the wealthiest 10% of households hold 48% of total wealth and the wealthiest 5% hold 34%, giving a Gini index for gross wealth of 0.652 — high, and wealth inequality is significantly more pronounced than income inequality, but noticeably lower than Germany's 0.724 net-wealth Gini. As in most developed markets, wealth inequality in France runs well ahead of income inequality.\n\nOn the institutional side, AFG (the French asset management association) reported the industry managing €5,033 billion by early 2025, up 8.7% year-on-year, of which French-domiciled funds accounted for €2,717 billion (+8.6%) and foreign-domiciled funds managed by French groups a further €1,247 billion (+14%) — a large and growing pool, though the headline spans retail and institutional business and overseas-domiciled vehicles alike, so it isn't a clean read on domestic institutional AUM specifically. A structural feature that runs through France's institutional landscape, discussed further under Pensions and Sovereign wealth funds, is the scale and breadth of Caisse des Dépôts et Consignations (CDC) — a 200-year-old public financial institution that manages public pension reserves, funds public investment, and holds strategic equity stakes, all at once, in a way that has no single UK or German equivalent, and represents one of the most significant single institutional relationships available in the French market.",
+      "sources": [
+        {
+          "label": "INSEE, Les montants de patrimoine détenus par les ménages en 2024 (Insee Focus 371)",
+          "url": "https://www.insee.fr/fr/statistiques/8672665"
+        },
+        {
+          "label": "INSEE, Distribution du patrimoine des ménages",
+          "url": "https://www.insee.fr/fr/statistiques/2388851"
+        },
+        {
+          "label": "AFG, Asset management in France surpasses the €5 trillion in assets",
+          "url": "https://www.afg.asso.fr/en/blog/2025/03/27/asset-management-in-france-2025/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "pensions": {
+      "text": "France's pension system is much more heavily pay-as-you-go (répartition) than the UK's or Germany's, with a comparatively small funded/reserve pillar — a structural feature that shapes where the real institutional mandate opportunity in French pensions sits. The mainstream private-sector régime général channels contributions through CNAV (Caisse Nationale d'Assurance Vieillesse) on a PAYG basis, topped up by AGIRC-ARRCO, a single mandatory points-based complementary scheme (created by merging the separate executive/AGIRC and general/ARRCO schemes in 2019) that is also PAYG rather than funded. Public-sector employees have their own separate PAYG regimes — SRE for state civil servants, CNRACL for local-government and hospital employees — and the self-employed and liberal professions run further separate regimes again.\n\nThe 2023 pension reform, phased in from September 2023 to 2030, raised the minimum retirement age from 62 to 64 in three-month annual increments and increased the contribution period required for a full pension from 42 to 43 years, aimed at closing a projected system deficit by 2030 rather than restructuring the PAYG model itself. France does carry one dedicated reserve vehicle, the Fonds de Réserve pour les Retraites (FRR), created in 2001 to help pre-fund future PAYG shortfalls — but a 2010 reform redirected most of FRR's assets toward helping finance CADES, the state's social-security debt repayment vehicle, through 2024, so it has functioned more as a debt-amortisation buffer than a growing, invested reserve fund of the kind the UK or Norway would recognise, and is not a realistic target for external manager mandates in its current form.\n\nThe identifiable institutional base reflects this PAYG-dominant structure clearly: DB Pension (Govt) is the largest pool at $193.0bn, DB Pension (Corp) is $94.8bn, DC Pension (Govt) is $34.3bn, and DB Pension (Union) is $15.4bn — but DC Pension (Corp), at just $1.4bn, is a rounding error by comparison. That near-absence of funded private-sector DC provision reflects France's PAYG-first system rather than a measurement gap: unlike UK auto-enrolment or German Pensionskasse-style occupational schemes, there is no broad-based funded private pension pillar in France today — meaning the near-term opportunity for managers lies mainly around the public-sector reserve pools and CDC-linked mandates rather than a UK-style DC savings market, though French policymakers have periodically discussed encouraging more funded private retirement saving (via the PER individual retirement product introduced in 2019), a space worth watching for future growth.",
+      "sources": [
+        {
+          "label": "Intereconomics, The 2023 France Pension Reform",
+          "url": "https://www.intereconomics.eu/contents/year/2023/number/3/article/the-2023-france-pension-reform.html"
+        },
+        {
+          "label": "Ius Laboris, France reforms pension system",
+          "url": "https://iuslaboris.com/insights/france-reforms-pension-system/"
+        },
+        {
+          "label": "OECD/IOPS, IOPS Country Profile: France 2023",
+          "url": "https://www.oecd.org/content/dam/iops/en/country-profiles/France-IOPS-Country-Profile-2023.pdf"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "insurance": {
+      "text": "France Assureurs (the French Insurance Federation, formerly FFSA) reports total insurance company investments of €2,619 billion at the end of 2024 — equivalent to around 90% of French GDP — of which life and mixed insurers hold 89% (split roughly 66% general-account/euro-fund business and 23% unit-linked commitments) and non-life insurers hold the remaining 11%. Unit-linked mathematical provisions alone reached €584.6 billion in 2024, up 10.0% on the year, reflecting a continued shift of French assurance-vie savings away from guaranteed euro-fund products toward market-linked ones — a meaningful and growing opportunity for managers with unit-linked fund capability distributed through French insurer platforms.\n\nOECD-sourced figures for the sector, used consistently across markets for global comparability, are considerably smaller than France Assureurs' domestic total: Life insurance shows $862.9bn and Non-life $281.1bn on this basis. The non-life figure is broadly in the right order of magnitude against France Assureurs' own ~11% share of €2,619bn (roughly €288bn, or about $311bn), but the life figure is not — it sits at roughly a third of the ~€2,331bn (~$2,517bn) implied by France Assureurs' 89% share. This is a genuine, large scope gap rather than a rounding difference, most likely reflecting a definitional difference between the OECD's insurer investment-asset dataset (a globally consistent basis, useful for cross-country comparison) and France Assureurs' own broader domestic placements total; for sizing the true addressable French life-insurance opportunity, France Assureurs' own figure is the more reliable guide, with the OECD figure better used as an internationally comparable reference point.",
+      "sources": [
+        {
+          "label": "France Assureurs, Les placements de l'assurance en 2024",
+          "url": "https://www.franceassureurs.fr/nos-chiffres-cles/financement-de-leconomie/etude-statistique-placements-assurance-2024/"
+        },
+        {
+          "label": "France Assureurs, L'assurance vie en unités de compte en 2024",
+          "url": "https://www.franceassureurs.fr/nos-chiffres-cles/assurance-vie/lassurance-vie-en-unites-de-compte-en-2024/"
+        },
+        {
+          "label": "Banque de France, Financial assets of insurance corporations - France - 2024-Q4",
+          "url": "https://www.banque-france.fr/en/statistics/savings/financial-assets-insurance-corporations-france-2024-q4"
+        },
+        {
+          "label": "OECD, Asset allocation of insurance companies dataset (data-explorer.oecd.org)",
+          "url": "https://data-explorer.oecd.org/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "charities": {
+      "text": "France's nonprofit sector runs overwhelmingly through the association loi 1901, a light-touch legal form created in 1901 rather than a dedicated charity structure. Estimates put the number of active associations at around 1.1 million (including roughly 1,971 associations reconnues d'utilité publique, a smaller category with enhanced legal recognition), with more than 21 million members and 1.8 million employees across the sector — the great majority formed for sport (24%), culture (19%) or leisure and social activities (18%) rather than grant-making or endowed philanthropy. There is no single national charity regulator comparable to England and Wales' Charity Commission; France Générosités (the fundraising-association umbrella body) and the Centre Français des Fonds et Fondations (CFF) are the closest sector-wide bodies, but each covers a narrower subset — fundraising charities and grant-making foundations respectively — rather than the 1.1 million-strong association population as a whole.\n\nBecause no regulator publishes a comprehensive sector-wide balance sheet across all 1.1 million associations, this population is best approached qualitatively for now, with the better-measured foundation and endowment-fund segment covered separately below representing the more realistic institutional-mandate opportunity.",
+      "sources": [
+        {
+          "label": "Council on Foundations, Nonprofit Law in France",
+          "url": "https://cof.org/content/nonprofit-law-france"
+        },
+        {
+          "label": "Cividata, The Largest Non-Profit Organisations of France",
+          "url": "https://cividata.org/en/france/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "foundations": {
+      "text": "France's foundation and endowment-fund population is tracked far more precisely than its broader association sector, through the Fondation de France/Centre Français des Fonds et Fondations (CFF) annual Baromètre de la philanthropie. The 2025 edition counted 6,040 foundations and endowment funds (fonds de dotation) active in France, up 3% on 2024 and up 59% over the preceding decade, contributing a combined €18.4 billion to public-interest causes in 2025. The fonds de dotation vehicle, created in 2008 as a lighter-weight alternative to the traditional fondation reconnue d'utilité publique, has been the main driver of that decade of growth, giving France a philanthropic vehicle roughly analogous in spirit to a UK grant-making trust but with a simpler, faster set-up process — and a fast-growing population worth tracking for new institutional relationships.\n\nThe identifiable, professionally-managed institutional base is far smaller than this CFF-tracked population — a single reporting institution, holding $0.93bn — which is the expected pattern rather than a measurement problem: institutional asset-manager reporting only captures foundations large and professionalised enough to appear as identifiable asset owners, a small fraction of France's much larger and more fragmented 6,040-strong foundation and endowment-fund population, most of which are smaller or manage assets in ways not visible through conventional institutional channels. The real opportunity for managers is therefore concentrated among a relatively small number of large, sophisticated foundations rather than the sector's long tail.",
+      "sources": [
+        {
+          "label": "France générosités, Baromètre de la philanthropie 2025",
+          "url": "https://www.francegenerosites.org/ressources/barometre-de-la-philanthropie-2025-avril-2025/"
+        },
+        {
+          "label": "Carenews, Fondations et fonds de dotation : la philanthropie française poursuit sa croissance en 2025",
+          "url": "https://www.carenews.com/carenews-info/news/6040-fondations-et-fonds-de-dotation-en-activite-en-france-en-2025"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "family_offices": {
+      "text": "France ranks among Europe's three largest markets for ultra-high-net-worth individuals, alongside the UK and Germany, out of a European UHNW population estimated at around 111,540 individuals in 2024. Private equity dominates French family office allocation in 2025, with active players such as Turenne Capital, Meeschaert Capital Partners and Amboise Partners deploying growth capital into French mid-sized companies and co-investing alongside larger private equity managers — a clear signal of where product and co-investment capability is likely to resonate with this audience.\n\nThe identifiable, named-reporter base for France is small and concentrated: of 18 firms tagged as single-family offices, only 2 report a usable, internally-consistent AUM figure — Groupe Artemis S.A. ($36.2bn, the holding company of the Pinault family, whose interests span Kering and a wide luxury and art portfolio) and Eximium S.A.S. ($0.5bn) — for a combined $36.7bn. Notably, Financière Agache, the holding vehicle of the Arnault family (LVMH), also appears in underlying data sources but was excluded from this total on data-quality grounds (its reported figure contradicted its own stated size range) — a reminder that even prominent, well-known families are inconsistently disclosed, and that the true addressable market sits well above what any named-reporter total can show. As in every market, this figure is a floor built from named reporters only, not an estimate of true French single-family-office capital, which is almost certainly much larger given how private France's largest family holding structures generally are.",
+      "sources": [
+        {
+          "label": "Dakota / industry UHNW estimates, Europe ultra-high-net-worth population 2024",
+          "url": "https://www.dakota.com/reports-blog/uk-family-office-market-summary-takeaways-playbook"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "sovereign_wealth_funds": {
+      "text": "France's position on sovereign wealth funds is more nuanced than the UK's (no SWF at all) or Germany's (a single earmarked-liability fund, KENFO, that isn't really one). The identifiable sovereign-linked capital base for France ($330.9bn) blends two very different institutions: Caisse des Dépôts et Consignations (CDC, $306.9bn) and Bpifrance Participations ($24.0bn).\n\nCDC, created in 1816, is often called \"the investment arm of the French state,\" but it is best understood as a large, diversified public financial group rather than a classic sovereign wealth fund: it manages reserves for several public pension schemes, funds public investment and social housing, and holds strategic equity stakes in French companies, all under one roof, a remit far broader (and much older) than the natural-resource-revenue funds the SWF label usually describes — and one of the largest and most influential institutional relationships available anywhere in the French market. Bpifrance, jointly owned by the French State and CDC (49.18% each), is a closer fit to the classic SWF definition: it is formally classified by the International Forum of Sovereign Wealth Funds (IFSWF) as a Sovereign Development Fund, and its international agreements — inherited from the former CDC International Capital — connect it directly with major global SWFs including China's CIC, Korea's KIC, Qatar's QIA and the UAE's Mubadala. So unlike the UK or Germany, France does have an internationally-recognised sovereign fund in Bpifrance — it is simply the smaller of the two institutions identified here, with CDC representing the larger, broader opportunity.",
+      "sources": [
+        {
+          "label": "IFSWF, BPI 2025 assessment",
+          "url": "https://ifswf.org/assessment/bpi-2025"
+        },
+        {
+          "label": "Global SWF, Bpifrance (France) Fund Profile",
+          "url": "https://globalswf.com/fund/BPI-FRA"
+        },
+        {
+          "label": "Wikipedia, Caisse des dépôts et consignations (background/overview)",
+          "url": "https://en.wikipedia.org/wiki/Caisse_des_d%C3%A9p%C3%B4ts_et_consignations"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "ocio": {
+      "text": "France has no dedicated, regularly-published fiduciary management/OCIO market survey comparable to the UK's Isio series, and outsourced-CIO delegation is not a widely used or clearly labelled category in the French institutional market the way it is in the UK. Institutional delegation in France runs instead through mandats de gestion (discretionary management mandates) and collective vehicles managed by AFG-member asset managers, or, for public and quasi-public institutions, through CDC's own broader asset-management role described under Sovereign wealth funds above — structurally different from the UK's fiduciary-manager model, and worth understanding before pitching a UK-style OCIO proposition into the French market.\n\nGlobally, Cerulli estimates the OCIO/fiduciary management industry grew to more than $3.3 trillion in assets by the end of 2024 (from just over $1 trillion in 2015), projecting growth to $5.6 trillion by the end of the decade — but France's own share of that global pool isn't separately broken out in available research. Given France's PAYG-dominant pension system (see Pensions above), the pool of funded institutional assets that would typically drive OCIO/fiduciary demand elsewhere is structurally smaller in France than in the UK or Germany, which likely also explains why a distinct French OCIO market has not developed the same visibility — the more productive near-term opportunity is direct discretionary mandates and CDC-linked relationships rather than a UK-style fiduciary-manager channel.",
+      "sources": [
+        {
+          "label": "Cerulli Associates, Nearly $1.3 Trillion Expected to Flow into OCIO Industry Through 2029",
+          "url": "https://www.cerulli.com/press-releases/nearly-1.3-trillion-expected-to-flow-into-ocio-industry-through-2029"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    }
+  }
 }

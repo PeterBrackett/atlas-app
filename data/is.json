@@ -3,14 +3,13 @@
   "country_name": "Iceland",
   "reporting_period": "2026-07 (S&P export date)",
   "source_note": "Currency confirmed (2026-07-10): S&P stated directly that the Money Manager Database defaults to USD platform-wide for exported asset values (a local-currency view exists only in the Firm Profile screen, not in exports). These figures are USD. Category mapping and plan-type routing reused the established rule set from prior builds; no unresolved judgement calls for this country. Categories/institutions excluded from all pension segments (Reserve Banks and similar non-pension pools, or institutions with no DB/DC/E&F breakdown reported): Reserve Banks ($7.29bn). 20 institutions tracked, $59.7bn tracked across all segments.",
-  "scorecard_note": "Not yet scored \u2014 none of the 12 opportunity-scorecard dimensions have been filled in for any Iceland segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
+  "scorecard_note": "Not yet scored — none of the 12 opportunity-scorecard dimensions have been filled in for any Iceland segment. Sign in and use the matrix below to start scoring; see Sources & Methodology for the scoring convention and Overall formula.",
   "allocation_note": "Built the same real-bottom-up way as every other country: summed actual plan-level AA lines into the six standard buckets, with ambiguous plan types (Investment Pool Funds, Hybrid DB/DC Plan, Other Retirement Fund) ratio-split across each institution's actual segments using the two-pass double-count-avoidance logic, and explicitly-named pools (Sovereign Wealth Fund, Endowment Fund, Foundation Fund Or Investment Pool, Other Tax-exempt Fund) routed directly. Same 5%-of-asset-type materiality threshold for style breakdowns.",
   "segments": [
     {
       "segment": "DB Pension (Corp)",
       "aum_bn": 32.117481,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Fixed Income",
@@ -123,6 +122,24 @@
           "source": "S&P Money Manager Database export (Iceland)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Top-down check (OECD autonomous pension funds, country total)",
+          "aum_bn": 59.71,
+          "currency": "USD",
+          "as_of": "2024 (OECD reference year)",
+          "source": "OECD Data Explorer, 'Assets earmarked for retirement' (OECD.DAF.CM, DSD_FP@DF_PA), Pension funds (autonomous) vehicle type (native unit: USD millions, converted here to USD bn to match Atlas convention)",
+          "note": "Country-level top-down cross-check, not a segment-specific figure. CORRECTED 2026-07-16: an earlier version of this note claimed the gap was because Atlas's bottom-up figure includes book reserve and insurance-wrapped pension assets that OECD's 'autonomous pension funds' vehicle type excludes. That claim was not well supported and has been withdrawn -- S&P's Money Manager Database tracks assets already placed with professional managers (so unfunded book reserves, which have no external portfolio, structurally shouldn't appear in it), and it tracks insurance firms as a category separate from pension institutions. The real driver of variance, where known, is noted per-country below. Compares against the SUM of all DB+DC segments in Iceland (DB Pension (Corp), DB Pension (Govt), DB Pension (Union)): Atlas bottom-up = $59.69bn vs OECD (autonomous funds only, 2024) = $59.71bn, variance -0.0%. Shown here against the largest DB/DC segment (DB Pension (Corp)) as a reference point only -- do not apply this figure as this segment's own total.",
+          "active": false
+        },
+        {
+          "basis": "Top-down check (IPE Top 1000 Pension Funds Europe 2025, country total)",
+          "aum_bn": 60.81,
+          "currency": "EUR",
+          "as_of": "2024-12-31 to 2024-12-31 (IPE Top 1000 Pension Funds, 2025 edition)",
+          "source": "IPE, 'Top 1000 Pension Funds' (2025 edition) -- 28 named Iceland entities summed",
+          "note": "IPE 'Top 1000 Pension Funds' (2025 edition) reports 28 named pension entities for Iceland, summing to EUR60.81bn (2024-12-31 to 2024-12-31, mixed reporting dates across entities). This is a whole-country total across every pension fund IPE identifies -- spanning defined benefit and defined contribution, corporate and government/public-sector schemes combined -- not broken out the way Atlas segments this market. Shown here as a reference against DB Pension (Corp) + DB Pension (Govt) combined (Atlas bottom-up = $49.01bn across 2 segment(s)), not any single segment alone; the two figures are also in different currencies (EUR vs Atlas's USD), so this is a directional comparison only, not a precise variance calculation.",
+          "active": false
         }
       ],
       "source_history": [
@@ -130,21 +147,81 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_added",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Added OECD autonomous pension fund total ($59.71bn, 2024) as a non-active top-down cross-check against the combined DB+DC segments for Iceland (bottom-up sum $59.69bn, variance -0.0%). Not applied -- active source and displayed aum_bn for this segment are unchanged."
+        },
+        {
+          "date": "2026-07-16",
+          "event": "top_down_check_note_corrected",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Corrected the OECD top-down check note added earlier today: withdrew the claim that the variance is explained by Atlas's bottom-up figure including book reserve/insurance assets (Peter flagged that S&P MMD shouldn't capture those categories, and that's correct). Replaced with a country-specific, evidence-based explanation where one was found (Korea/NPS, Norway/KLP, Germany/Denmark/Sweden insurance-regulated occupational pension providers), or left as an open question where no clear driver was identified."
+        },
+        {
+          "date": "2026-07-28",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added via new research: 'IPE Top 1000 Pension Funds country total' (EUR60.81bn across 28 entities) -- see scope caveat in note. Cross-checked against S&P MMD-derived segment totals; not previously available in IS commentary/sources."
         }
       ],
       "concentration": {
         "top3_share_pct": 50.5,
         "hhi": 1203,
         "n_institutions": 15,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Gildi Lifeyrissjodur",
+            "aum_bn": 6.39
+          },
+          {
+            "name": "Birta lifeyrissjodur",
+            "aum_bn": 5.42
+          },
+          {
+            "name": "Frjálsi lífeyrissjóðurinn",
+            "aum_bn": 4.4
+          },
+          {
+            "name": "Almenni lifeyrissjodur",
+            "aum_bn": 3.06
+          },
+          {
+            "name": "Stapi Lífeyrissjóður",
+            "aum_bn": 2.71
+          },
+          {
+            "name": "Festa lífeyrissjoour",
+            "aum_bn": 2.54
+          },
+          {
+            "name": "Sofnunarsjodur lifeyrisrettinda",
+            "aum_bn": 2.26
+          },
+          {
+            "name": "Íslenski lífeyrissjóðurinn",
+            "aum_bn": 1.6
+          },
+          {
+            "name": "Lífeyrissjóður verkfræðinga",
+            "aum_bn": 1.53
+          },
+          {
+            "name": "Lífeyrissjóður bankamanna",
+            "aum_bn": 0.91
+          }
+        ],
+        "top10_share_pct": 96.0
       }
     },
     {
       "segment": "DB Pension (Govt)",
       "aum_bn": 16.896545,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -227,6 +304,15 @@
           "source": "S&P Money Manager Database export (Iceland)",
           "note": "",
           "active": true
+        },
+        {
+          "basis": "Top-down check (IPE Top 1000 Pension Funds Europe 2025, country total)",
+          "aum_bn": 60.81,
+          "currency": "EUR",
+          "as_of": "2024-12-31 to 2024-12-31 (IPE Top 1000 Pension Funds, 2025 edition)",
+          "source": "IPE, 'Top 1000 Pension Funds' (2025 edition) -- 28 named Iceland entities summed",
+          "note": "IPE 'Top 1000 Pension Funds' (2025 edition) reports 28 named pension entities for Iceland, summing to EUR60.81bn (2024-12-31 to 2024-12-31, mixed reporting dates across entities). This is a whole-country total across every pension fund IPE identifies -- spanning defined benefit and defined contribution, corporate and government/public-sector schemes combined -- not broken out the way Atlas segments this market. Shown here as a reference against DB Pension (Corp) + DB Pension (Govt) combined (Atlas bottom-up = $49.01bn across 2 segment(s)), not any single segment alone; the two figures are also in different currencies (EUR vs Atlas's USD), so this is a directional comparison only, not a precise variance calculation.",
+          "active": false
         }
       ],
       "source_history": [
@@ -234,21 +320,37 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
+        },
+        {
+          "date": "2026-07-28",
+          "event": "added",
+          "by": "secondary-source-research",
+          "detail": "New reference source added via new research: 'IPE Top 1000 Pension Funds country total' (EUR60.81bn across 28 entities) -- see scope caveat in note. Cross-checked against S&P MMD-derived segment totals; not previously available in IS commentary/sources."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 6040,
         "n_institutions": 2,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Lífeyrissjóður starfsmanna ríkisins",
+            "aum_bn": 12.3
+          },
+          {
+            "name": "Brú lífeyrissjóður starfsmanna sveitarfélaga",
+            "aum_bn": 4.6
+          }
+        ],
+        "top10_share_pct": 100.0
       }
     },
     {
       "segment": "DB Pension (Union)",
       "aum_bn": 10.678962,
       "basis": "Bottom-up (S&P Money Manager Database export)",
-      "scorecard": {},
       "allocation": [
         {
           "asset_type": "Equities",
@@ -299,15 +401,252 @@
           "date": "2026-07-10",
           "event": "created",
           "by": "peter.brackett@institutionaladviser.co.uk",
-          "detail": "Initial segment build \u2014 Bottom-up (S&P Money Manager Database export)."
+          "detail": "Initial segment build — Bottom-up (S&P Money Manager Database export)."
         }
       ],
       "concentration": {
         "top3_share_pct": 100.0,
         "hhi": 10000,
         "n_institutions": 1,
-        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)"
+        "basis": "Institution-level AUM from the S&P Money Manager Database Company export (same ground-truth source used for segment totals)",
+        "top_institutions": [
+          {
+            "name": "Lífeyrissjodur verzlunarmanna",
+            "aum_bn": 10.68
+          }
+        ],
+        "top10_share_pct": 100.0
       }
+    },
+    {
+      "segment": "Life insurance",
+      "aum_bn": 0.141,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 0.001,
+          "pct_of_segment": 0.8,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.001
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 0.077,
+          "pct_of_segment": 54.7,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.077
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 0.008,
+          "pct_of_segment": 5.4,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.008
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 0.001,
+          "pct_of_segment": 0.4,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.001
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 0.054,
+          "pct_of_segment": 38.7,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.054
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 0.141,
+          "as_of": "2024-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-14",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2024 data). Scorecard not yet scored -- dimensions to be filled in manually."
+        }
+      ]
+    },
+    {
+      "segment": "Non-life insurance",
+      "aum_bn": 1.419,
+      "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+      "allocation": [
+        {
+          "asset_type": "Equities",
+          "value_bn": 0.497,
+          "pct_of_segment": 35.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.497
+            }
+          ]
+        },
+        {
+          "asset_type": "Fixed Income",
+          "value_bn": 0.681,
+          "pct_of_segment": 48.0,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.681
+            }
+          ]
+        },
+        {
+          "asset_type": "Cash & Short-Term",
+          "value_bn": 0.039,
+          "pct_of_segment": 2.8,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.039
+            }
+          ]
+        },
+        {
+          "asset_type": "Alternatives",
+          "value_bn": 0.034,
+          "pct_of_segment": 2.4,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.034
+            }
+          ]
+        },
+        {
+          "asset_type": "Other/Unclassified",
+          "value_bn": 0.168,
+          "pct_of_segment": 11.8,
+          "styles": [
+            {
+              "asset_style": "Unspecified",
+              "value_bn": 0.168
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "basis": "Industry aggregate (OECD Global Insurance Market Trends)",
+          "aum_bn": 1.419,
+          "as_of": "2024-12",
+          "source": "OECD 'Asset allocation of insurance companies' dataset (OECD.DAF.CM:DSD_INS@DF_ASSET_ALLOC), data-explorer.oecd.org",
+          "note": "All undertakings, direct business (excludes reinsurance). Mutual funds/CIS and assets backing unit-linked contracts have no look-through breakdown in the source and are folded into Other/Unclassified rather than estimated.",
+          "active": true
+        }
+      ],
+      "source_history": [
+        {
+          "date": "2026-07-14",
+          "event": "created",
+          "by": "peter.brackett@institutionaladviser.co.uk",
+          "detail": "Segment created from Industry aggregate (OECD Global Insurance Market Trends) (2024 data). Scorecard not yet scored -- dimensions to be filled in manually."
+        }
+      ]
     }
-  ]
+  ],
+  "commentary": {
+    "wealth": {
+      "text": "Statistics Iceland (Hagstofa) reported total household net worth of ISK 9,461 billion at the end of 2024, up from ISK 8,868 billion in 2023, as total assets (ISK 12,714bn, of which ISK 9,897bn was real estate) grew faster than total liabilities (ISK 3,252bn). At the individual level, average assets were ISK 55.5 million against a median of ISK 28.1 million — again illustrating how far a relatively small number of wealthy individuals pull the average above the typical person's actual position, a pattern seen throughout the Nordic countries. Wealth concentration at the very top is stark: in 2022, the wealthiest 0.1% of Icelanders (242 families) received 28% of all capital income in the country, and the top 1% received 46%.\n\nOn the institutional side, Iceland's defining feature — discussed in full under Pensions — is a mandatory occupational pension system that is, by some measures, the largest in the world relative to GDP, even larger than Denmark's or the Netherlands'. The identifiable institutional base shows combined pension assets of around $59.7bn for a country of only about 384,000 people — an extraordinary concentration of funded retirement savings per capita, and a highly concentrated, well-funded market worth understanding on its own terms despite its small absolute scale.",
+      "sources": [
+        {
+          "label": "Statistics Iceland, Liabilities, assets and net worth 2024",
+          "url": "https://www.statice.is/publications/news-archive/quality-of-life/liabilities-and-assets-2024-15935/"
+        },
+        {
+          "label": "Iceland Review, Richest 0.1 Percent Gets Richer",
+          "url": "https://www.icelandreview.com/news/economy/richest-0-1-percent-gets-richer/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "pensions": {
+      "text": "Iceland's mandatory occupational pension system (lífeyrissjóðir) is, on some measures, the largest funded pension system in the world relative to the size of its economy. Contributions have been broadly mandatory since 1974 (the funds themselves became general practice in 1969), currently set at a minimum of 15.5% of wages between ages 16 and 70 (4% from the employee, 11.5% from the employer) — a materially higher mandatory contribution rate than most of Iceland's Nordic neighbours. By end-2022, total pension fund sector assets stood at around 176% of Icelandic GDP; on a broader Pillar II plus III measure as of end-2021, combined funded pension assets reached 219% of GDP, ahead of Denmark (211%) and the Netherlands (210%) — the two next-highest countries in the world by this measure.\n\nThe identifiable institutional base reflects a fragmented but well-funded system: DB Pension (Corp), at $32.1bn, is spread across a number of private-sector funds including Gildi Lífeyrissjóður ($6.4bn), Birta Lífeyrissjóður ($5.4bn), Frjálsi Lífeyrissjóðurinn ($4.4bn), Almenni Lífeyrissjóður ($3.1bn), Stapi Lífeyrissjóður ($2.7bn) and Festa Lífeyrissjóður ($2.5bn). DB Pension (Govt), at $16.9bn, is led by Lífeyrissjóður starfsmanna ríkisins (LSR, the State Employees' Pension Fund, $12.3bn) and Brú (the municipal employees' pension fund, $4.6bn). DB Pension (Union), at $10.7bn, is entirely Lífeyrissjóður verzlunarmanna (LIVE, the commerce and office workers' pension fund) — reflecting how much of Icelandic pension provision still runs through sector- and union-negotiated funds rather than a small number of large national providers, meaning a manager seeking scale in this market needs relationships across several separate institutions rather than one or two dominant ones.",
+      "sources": [
+        {
+          "label": "IMF, Iceland: Financial Sector Assessment Program - Technical Note on Pension Fund Regulation and Supervision (2023)",
+          "url": "https://www.elibrary.imf.org/view/journals/002/2023/282/article-A001-en.xml"
+        },
+        {
+          "label": "Lífeyrismál.is, Assets of the Pension funds in Iceland",
+          "url": "https://www.lifeyrismal.is/en/qa/assets-of-the-pension-funds-in-iceland"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "insurance": {
+      "text": "Iceland's insurance market is small in absolute terms, reflecting the country's small population (around 384,000): OECD-sourced figures for the sector show Life insurance at just $0.14bn and Non-life insurance at $1.42bn. No separate Icelandic insurance-association total-assets figure of comparable detail to larger European markets was identified in available research, but given the scale involved, this is unlikely to represent a materially significant opportunity relative to Iceland's pension system — Iceland's institutional wealth is overwhelmingly concentrated in its pension funds, described above, rather than in insurance-based savings products.",
+      "sources": [
+        {
+          "label": "OECD, Asset allocation of insurance companies dataset (data-explorer.oecd.org)",
+          "url": "https://data-explorer.oecd.org/"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    },
+    "charities": {
+      "text": "No comprehensive, sector-wide statistics on Iceland's charity or nonprofit sector were identified in available research, consistent with Iceland's small population and the correspondingly limited international research coverage of its civil-society sector. Individual Icelandic charitable and nonprofit organisations exist (some, like Samhjálp, dating back decades), but no central regulator or aggregate financial reporting comparable to England and Wales' Charity Commission was found — this is a market best approached directly rather than sized from a single top-down statistic.",
+      "sources": [],
+      "last_updated": "2026-07-23"
+    },
+    "foundations": {
+      "text": "No comprehensive statistics on Iceland's foundation sector specifically — comparable to the detailed foundation-sector reporting available for Sweden, Denmark, Norway or Finland — were identified in available research. This most likely reflects the sheer scale difference (Iceland's population is a small fraction of its Nordic neighbours') rather than an absence of Icelandic foundations altogether, but it means this segment is best approached directly with individual institutions rather than sized from a single aggregate figure.",
+      "sources": [],
+      "last_updated": "2026-07-23"
+    },
+    "family_offices": {
+      "text": "No single-family offices were identified for Iceland in the underlying institutional data reviewed. This most likely reflects Iceland's very small population (around 384,000) rather than a genuine absence of wealthy Icelandic families or business dynasties — Iceland does have a documented, if short, list of billionaires and prominent wealthy families — but this segment is best approached as an open, unmapped opportunity in the Icelandic market rather than sized from existing data, which does not currently capture it.",
+      "sources": [],
+      "last_updated": "2026-07-23"
+    },
+    "sovereign_wealth_funds": {
+      "text": "Iceland has no sovereign wealth fund. Unlike Norway, Iceland has no significant natural-resource revenue of the kind that funds a classic SWF (its economy rests more on fisheries, aluminium smelting, and tourism), and no equivalent state investment or policy-delivery vehicle comparable to the UK's National Wealth Fund, Germany's KENFO, France's CDC/Bpifrance or Finland's Sitra was identified for Iceland in available research.",
+      "sources": [],
+      "last_updated": "2026-07-23"
+    },
+    "ocio": {
+      "text": "No dedicated fiduciary management/OCIO market survey or activity specific to Iceland was identified. Iceland's pension funds (lífeyrissjóðir, discussed under Pensions above) are independently governed and, given their number relative to the country's small population, are likely to vary considerably in how much investment management they perform in-house versus delegate externally — but no sector-wide data on this was found, meaning direct engagement with individual pension funds is the realistic route into this market rather than a UK-style fiduciary channel.",
+      "sources": [
+        {
+          "label": "Cerulli Associates, Nearly $1.3 Trillion Expected to Flow into OCIO Industry Through 2029",
+          "url": "https://www.cerulli.com/press-releases/nearly-1.3-trillion-expected-to-flow-into-ocio-industry-through-2029"
+        }
+      ],
+      "last_updated": "2026-07-23"
+    }
+  }
 }
