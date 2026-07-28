@@ -19,6 +19,7 @@
       <div class="tagline">Supporting evidence library</div>
     </div>
   </div>
+  <div id="auth-status" style="font-size:0.82rem; color:#b9c6d3;"></div>
 </header>
 <nav class="breadcrumb"><a href="index.html">&larr; Atlas home</a> &nbsp;|&nbsp; <a href="overview.html">Global overview</a> &nbsp;|&nbsp; <a href="picker.html">Project builder</a> &nbsp;|&nbsp; <a href="sources.html">Sources &amp; methodology</a></nav>
 
@@ -37,13 +38,39 @@
       </select>
     </label>
     <input type="text" id="evidence-filter-input" placeholder="Filter by title, source, region…" oninput="renderEvidence()" style="padding:6px 10px; border:1px solid var(--border); border-radius:6px; min-width:240px;">
+    <button type="button" class="btn-primary" id="add-evidence-btn" style="cursor:pointer; display:none;" onclick="toggleEvidenceForm()">+ Add new entry</button>
   </div>
+
+  <div id="evidence-addform" style="display:none; margin-bottom:20px;"></div>
 
   <div id="evidence-list"></div>
 </main>
 
 <script>
 let ALL_ENTRIES = [];
+let CURRENT_USER = null; // set by checkAuth(), null if not signed in — gates the add/edit/delete controls below
+
+async function checkAuth() {
+  try {
+    const res = await fetch('/.auth/me');
+    const payload = await res.json();
+    const principal = payload && payload.clientPrincipal;
+    const user = principal ? (principal.userDetails || 'signed in') : null;
+    CURRENT_USER = user;
+    const el = document.getElementById('auth-status');
+    if (user) {
+      el.innerHTML = `Signed in as ${user} &nbsp;|&nbsp; <a href="/.auth/logout?post_logout_redirect_uri=${encodeURIComponent(window.location.href)}" style="color:#b9c6d3;">Log out</a>`;
+    } else {
+      el.innerHTML = `<a href="/.auth/login/aad?post_login_redirect_uri=${encodeURIComponent(window.location.href)}" style="color:#b9c6d3;">Log in to edit</a>`;
+    }
+  } catch (e) {
+    CURRENT_USER = null;
+  }
+}
+
+function escapeAttr(s) {
+  return String(s || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+}
 
 async function fetchEvidence() {
   try {
@@ -75,6 +102,11 @@ function renderFigures(figures) {
 function renderEntry(entry) {
   const scope = (entry.scope || []).join(', ') || '—';
   const dims = (entry.related_dimensions || []).join(', ');
+  const editControls = CURRENT_USER ? `
+      <div style="margin-top:10px; display:flex; gap:8px;">
+        <button type="button" class="btn-toggle" style="font-size:0.8rem; padding:4px 10px;" onclick='toggleEvidenceForm(${JSON.stringify(entry.id)})'>Edit</button>
+        <button type="button" class="btn-toggle" style="font-size:0.8rem; padding:4px 10px;" onclick='deleteEvidenceEntry(${JSON.stringify(entry.id)}, ${JSON.stringify(entry.title || entry.id)})'>Delete</button>
+      </div>` : '';
   return `
     <div class="research-notes" style="margin-bottom:16px;">
       <h3 style="margin-top:0;">${entry.title || entry.id}</h3>
@@ -88,6 +120,8 @@ function renderEntry(entry) {
       <p class="commentary-sources" style="margin-top:10px;">
         <strong>Source:</strong> ${entry.source || '—'} (${entry.as_of || 'date unknown'})${entry.access ? ` — ${entry.access}` : ''}
       </p>
+      <div id="evidence-editform-${entry.id}" style="display:none;"></div>
+      ${editControls}
     </div>`;
 }
 
@@ -128,7 +162,169 @@ function renderEvidence() {
   `).join('');
 }
 
+// ---- Add / edit / delete ----
+// One form builder handles both "+ Add new entry" (no id, targets
+// #evidence-addform) and "Edit" on an existing card (id set, targets that
+// card's own #evidence-editform-<id> slot) -- same shape either way, just a
+// different mount point and whether fields start blank or pre-filled.
+function evidenceFormHtml(entry) {
+  const e = entry || {};
+  const figures = Array.isArray(e.figures) && e.figures.length ? e.figures : [{ region: '', metric: '', value: '', unit: '', as_of: '' }];
+  const idAttr = e.id ? `data-editing-id="${escapeAttr(e.id)}"` : '';
+  return `
+    <div class="commentary-edit-form" ${idAttr}>
+      <label style="font-size:0.82rem; font-weight:600;">Title</label>
+      <input type="text" class="ev-title" value="${escapeAttr(e.title)}" style="width:100%; padding:6px 8px; border:1px solid var(--border); border-radius:6px; margin-bottom:8px;">
+      <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:8px;">
+        <label style="font-size:0.82rem;">Theme<br><input type="text" class="ev-theme" value="${escapeAttr(e.theme)}" style="padding:6px 8px; border:1px solid var(--border); border-radius:6px;"></label>
+        <label style="font-size:0.82rem;">Scope (comma-separated)<br><input type="text" class="ev-scope" value="${escapeAttr((e.scope || []).join(', '))}" style="padding:6px 8px; border:1px solid var(--border); border-radius:6px; min-width:220px;"></label>
+        <label style="font-size:0.82rem;">Relates to scorecard dimension(s)<br><input type="text" class="ev-dims" value="${escapeAttr((e.related_dimensions || []).join(', '))}" style="padding:6px 8px; border:1px solid var(--border); border-radius:6px; min-width:220px;"></label>
+      </div>
+      <label style="font-size:0.82rem; font-weight:600;">Summary</label>
+      <textarea class="ev-summary" style="min-height:60px;">${(e.summary || '').replace(/</g, '&lt;')}</textarea>
+      <div style="margin-top:8px; font-size:0.82rem; font-weight:600;">Figures</div>
+      <div class="ev-figurerows">
+        ${figures.map(evidenceFigureRowHtml).join('')}
+      </div>
+      <button type="button" class="btn-toggle" style="margin-top:4px; font-size:0.78rem; padding:2px 8px;" onclick="addEvidenceFigureRow(this)">+ Add figure</button>
+      <div style="margin-top:8px; font-size:0.82rem; font-weight:600;">Note (caveats, methodology, how it relates to other entries)</div>
+      <textarea class="ev-note" style="min-height:50px;">${(e.note || '').replace(/</g, '&lt;')}</textarea>
+      <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:8px;">
+        <label style="font-size:0.82rem;">Source<br><input type="text" class="ev-source" value="${escapeAttr(e.source)}" style="padding:6px 8px; border:1px solid var(--border); border-radius:6px; min-width:260px;"></label>
+        <label style="font-size:0.82rem;">As of<br><input type="text" class="ev-asof" value="${escapeAttr(e.as_of)}" style="padding:6px 8px; border:1px solid var(--border); border-radius:6px;"></label>
+        <label style="font-size:0.82rem;">Access (how to obtain it)<br><input type="text" class="ev-access" value="${escapeAttr(e.access)}" style="padding:6px 8px; border:1px solid var(--border); border-radius:6px; min-width:220px;"></label>
+      </div>
+      <div style="margin-top:12px; display:flex; gap:8px;">
+        <button type="button" class="btn-primary" style="font-size:0.82rem; padding:4px 12px;" onclick="submitEvidenceForm(this)">Save</button>
+        <button type="button" class="btn-toggle" style="font-size:0.82rem; padding:4px 12px;" onclick="toggleEvidenceForm('${e.id || ''}')">Cancel</button>
+      </div>
+    </div>`;
+}
+
+function evidenceFigureRowHtml(f) {
+  const region = escapeAttr(f && f.region);
+  const metric = escapeAttr(f && f.metric);
+  const value = (f && (typeof f.value === 'number' || typeof f.value === 'string')) ? f.value : '';
+  const unit = escapeAttr(f && f.unit);
+  const asOf = escapeAttr(f && f.as_of);
+  return `
+    <div class="commentary-source-row" style="flex-wrap:wrap;">
+      <input type="text" placeholder="Region" value="${region}" data-role="region" style="max-width:140px;">
+      <input type="text" placeholder="Metric" value="${metric}" data-role="metric" style="max-width:220px;">
+      <input type="text" placeholder="Value" value="${escapeAttr(value)}" data-role="value" style="max-width:90px;">
+      <input type="text" placeholder="Unit" value="${unit}" data-role="unit" style="max-width:80px;">
+      <input type="text" placeholder="As of" value="${asOf}" data-role="as_of" style="max-width:100px;">
+      <button type="button" class="btn-toggle" style="font-size:0.78rem; padding:2px 8px;" onclick="this.closest('.commentary-source-row').remove()">Remove</button>
+    </div>`;
+}
+
+function addEvidenceFigureRow(btn) {
+  const rowsEl = btn.previousElementSibling;
+  rowsEl.insertAdjacentHTML('beforeend', evidenceFigureRowHtml({}));
+}
+
+// id === '' or omitted => the top "+ Add new entry" form; otherwise the
+// Edit form nested inside that entry's own card. Only one form is ever open
+// at a time isn't enforced -- simpler to let each toggle independently,
+// same as country.html's per-section commentary edit forms.
+function toggleEvidenceForm(id) {
+  const wrap = id ? document.getElementById(`evidence-editform-${id}`) : document.getElementById('evidence-addform');
+  if (!wrap) return;
+  const isOpen = wrap.style.display === 'block';
+  if (isOpen) {
+    wrap.style.display = 'none';
+    wrap.innerHTML = '';
+    return;
+  }
+  const entry = id ? ALL_ENTRIES.find(e => e.id === id) : null;
+  wrap.innerHTML = evidenceFormHtml(entry);
+  wrap.style.display = 'block';
+}
+
+async function submitEvidenceForm(saveBtn) {
+  const form = saveBtn.closest('.commentary-edit-form');
+  const id = form.dataset.editingId || undefined;
+
+  const figures = Array.from(form.querySelectorAll('.ev-figurerows .commentary-source-row')).map(row => ({
+    region: row.querySelector('[data-role="region"]').value.trim(),
+    metric: row.querySelector('[data-role="metric"]').value.trim(),
+    value: row.querySelector('[data-role="value"]').value.trim(),
+    unit: row.querySelector('[data-role="unit"]').value.trim(),
+    as_of: row.querySelector('[data-role="as_of"]').value.trim()
+  }));
+
+  const payload = {
+    id,
+    title: form.querySelector('.ev-title').value.trim(),
+    theme: form.querySelector('.ev-theme').value.trim(),
+    scope: form.querySelector('.ev-scope').value,
+    related_dimensions: form.querySelector('.ev-dims').value,
+    summary: form.querySelector('.ev-summary').value,
+    figures,
+    note: form.querySelector('.ev-note').value,
+    source: form.querySelector('.ev-source').value.trim(),
+    as_of: form.querySelector('.ev-asof').value.trim(),
+    access: form.querySelector('.ev-access').value.trim()
+  };
+
+  if (!payload.title) {
+    alert('Title is required.');
+    return;
+  }
+
+  saveBtn.disabled = true;
+  const originalText = saveBtn.textContent;
+  saveBtn.textContent = 'Saving…';
+
+  try {
+    const res = await fetch('/api/evidence/set', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const result = await res.json();
+    if (!res.ok) {
+      alert(`Couldn't save this entry: ${result.error || 'unknown error'}`);
+      saveBtn.disabled = false;
+      saveBtn.textContent = originalText;
+      return;
+    }
+    ALL_ENTRIES = result.entries || [];
+    populateThemeFilter();
+    renderEvidence();
+    document.getElementById('evidence-addform').style.display = 'none';
+    document.getElementById('evidence-addform').innerHTML = '';
+  } catch (e) {
+    alert('Could not reach the server to save this change.');
+    saveBtn.disabled = false;
+    saveBtn.textContent = originalText;
+  }
+}
+
+async function deleteEvidenceEntry(id, title) {
+  if (!confirm(`Delete "${title}"? This can't be undone.`)) return;
+  try {
+    const res = await fetch('/api/evidence/set', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ delete: true, id })
+    });
+    const result = await res.json();
+    if (!res.ok) {
+      alert(`Couldn't delete this entry: ${result.error || 'unknown error'}`);
+      return;
+    }
+    ALL_ENTRIES = result.entries || [];
+    populateThemeFilter();
+    renderEvidence();
+  } catch (e) {
+    alert('Could not reach the server to delete this entry.');
+  }
+}
+
 async function load() {
+  await checkAuth();
+
   const data = await fetchEvidence();
   ALL_ENTRIES = data.entries || [];
 
@@ -136,6 +332,8 @@ async function load() {
     <div class="stat-card"><div class="value">${ALL_ENTRIES.length}</div><div class="label">Evidence entries</div></div>
     <div class="stat-card"><div class="value">${[...new Set(ALL_ENTRIES.map(e => e.theme).filter(Boolean))].length}</div><div class="label">Themes</div></div>
   `;
+
+  document.getElementById('add-evidence-btn').style.display = CURRENT_USER ? 'inline-block' : 'none';
 
   populateThemeFilter();
   renderEvidence();
