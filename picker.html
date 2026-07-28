@@ -250,6 +250,33 @@ async function fetchCountryData(code) {
   }
 }
 
+// Scorecard values live in their own {code}_scores.json file, not inline on
+// each segment inside {code}.json -- see country.html's loadScores()
+// comment (split 2026-07-24 so data-refresh scripts rewriting {code}.json
+// can never wipe out scores entered on the live site). This was missing
+// here entirely: buildProjectView() below used to read seg.scorecard
+// straight off the raw fetchCountryData() payload, which no longer carries
+// a scorecard key at all post-split -- every segment silently scored as
+// unset. Same fetch-and-merge pattern as overview.html/scorecard.html's
+// loadOverviewData().
+async function fetchCountryScores(code) {
+  try {
+    const res = await fetchWithTimeout(`/api/scores/${code}`, undefined, 15000);
+    if (!res.ok) throw new Error('API not ready');
+    const data = await res.json();
+    return data.scores || {};
+  } catch (e) {
+    try {
+      const res = await fetchWithTimeout(`data/${code}_scores.json`, undefined, 15000);
+      if (!res.ok) return {};
+      const data = await res.json();
+      return data.scores || {};
+    } catch (e2) {
+      return {};
+    }
+  }
+}
+
 // Same href-derived slug logic as overview.html's overview matrix — the ISO
 // `code` field doesn't always match the data-file slug (e.g. GB vs uk).
 function slugFromHref(href) {
@@ -334,7 +361,17 @@ async function buildProjectView() {
     // hanging indefinitely (see overview.html's loadOverviewData()).
     const loaded = await mapWithConcurrency(selected, 6, async meta => {
       const slug = slugFromHref(meta.href) || meta.code.toLowerCase();
-      return { meta, slug, data: await fetchCountryData(slug) };
+      const data = await fetchCountryData(slug);
+      // Merge in the separate scores file -- see fetchCountryScores() above.
+      // Without this, every segment's scorecard reads as {} (unscored),
+      // since {code}.json itself carries no scorecard data since the split.
+      if (data && data.segments) {
+        const scoresByName = await fetchCountryScores(slug);
+        data.segments.forEach(seg => {
+          seg.scorecard = scoresByName[seg.segment] || {};
+        });
+      }
+      return { meta, slug, data };
     });
 
     PROJECT_DATA = loaded.filter(c => c.data);
