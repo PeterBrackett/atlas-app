@@ -432,17 +432,54 @@ function buildSegmentAllocationChart(segment) {
 
   if (!aum || !rawSlices.length) return null;
 
-  const sources = segment.sources || [];
-  const active = sources.find((s) => s.active) || sources[0];
-  const citation = active ? (active.source || active.basis || '') : '';
-  const sourceText = citation ? citation + (active.as_of ? ` (as of ${active.as_of})` : '') : '';
-
   return {
     segmentName: segment.segment,
     aum_bn: aum,
     slices: rawSlices.map((s) => ({ label: s.label, pct: Math.round((s.value_bn / aum) * 1000) / 10, color: s.color })),
-    sourceText
+    sourceText: segmentSourceCitation(segment)
   };
+}
+
+// A segment's own active-source citation ("Basis" column / donut-chart
+// attribution), extracted as its own function 2026-07-29 so it can be reused
+// both by buildSegmentAllocationChart() above (its chart caption used to
+// print this inline) and by buildCountrySourcesData() below (which now
+// consolidates every segment's citation onto one end-of-country Sources
+// page/slide instead of leaving it scattered across chart captions and the
+// AUM table) -- see country.html's segmentAllocationSourceText() for the
+// on-screen equivalent. Returns '' for a segment with no sources at all.
+function segmentSourceCitation(segment) {
+  const sources = segment.sources || [];
+  const active = sources.find((s) => s.active) || sources[0];
+  if (!active) return '';
+  const citation = active.source || active.basis || '';
+  return citation ? citation + (active.as_of ? ` (as of ${active.as_of})` : '') : '';
+}
+
+// Every source reference a country's export currently scatters across the
+// document/deck -- each commentary section's own citations, plus each
+// segment's AUM/allocation citation (the same one shown in the AUM table's
+// "Basis" column and under each allocation chart) -- gathered into one place
+// so both exports can render a single consolidated "Sources" page/slide at
+// the end of that country's content instead of interrupting the text and
+// charts with citation lists (Peter's 2026-07-29 "sources bleed into the
+// text" feedback). `commentarySections` is buildCommentarySectionsFull()'s
+// output; `segments` is the country's full segment list (same one
+// buildAumRows() sorts from), so every segment gets a citation line even if
+// it has no chart. Empty groups (no sources at all) are omitted so the
+// caller can skip the whole page/slide when there's nothing to show.
+function buildCountrySourcesData(commentarySections, segments) {
+  const commentaryGroups = (commentarySections || [])
+    .filter((s) => s.sources && s.sources.length)
+    .map((s) => ({ sectionLabel: s.label, sources: s.sources }));
+
+  const segmentSources = (segments || [])
+    .slice()
+    .sort((a, b) => (b.aum_bn || 0) - (a.aum_bn || 0))
+    .map((s) => ({ segmentName: s.segment, citation: segmentSourceCitation(s) }))
+    .filter((s) => s.citation);
+
+  return { commentaryGroups, segmentSources };
 }
 
 // Turns a country's `commentary` object ({wealth: {text, sources[]}, pensions:
@@ -488,7 +525,17 @@ function buildCommentarySections(commentary) {
 // into both exports); `chartSegments` on the returned object is the actual
 // matched segment data (not just names), ready for
 // buildSegmentAllocationChart().
-function buildCommentarySectionsFull(commentary, segments) {
+// `developments` -- added 2026-07-29 alongside the two-column commentary
+// layout (see country.html's renderCommentaryDevelopmentsBox()) -- is the
+// optional {sectionKey: [{id, date, headline, summary, source, url}]} map
+// from {code}_developments.json, sent by the client the same way commentary
+// already is (country.html/picker.html read it separately from the main
+// country file, same split-file reasoning as scores). A section now also
+// survives if it has developments logged, even with no prose and no chart --
+// matches the on-screen page, where every section shows *something* in all
+// three of its text/chart/developments slots rather than only appearing when
+// text or a chart happens to exist.
+function buildCommentarySectionsFull(commentary, segments, developments) {
   return COMMENTARY_SECTIONS
     .map(({ key, label, chartSegments }) => {
       const entry = commentary && commentary[key];
@@ -496,9 +543,12 @@ function buildCommentarySectionsFull(commentary, segments) {
       const paragraphs = text ? text.split(/\n{2,}/).map((p) => p.trim()).filter(Boolean) : [];
       const sources = (entry && Array.isArray(entry.sources) ? entry.sources : []).filter((s) => s && (s.label || s.url));
       const matchedSegments = chartSegments ? (segments || []).filter((s) => chartSegments.includes(s.segment)) : [];
+      const devItems = (developments && Array.isArray(developments[key]) ? developments[key] : [])
+        .slice()
+        .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 
-      if (!paragraphs.length && !matchedSegments.length) return null;
-      return { key, label, paragraphs, sources, chartSegments: matchedSegments };
+      if (!paragraphs.length && !matchedSegments.length && !devItems.length) return null;
+      return { key, label, paragraphs, sources, chartSegments: matchedSegments, hasChartSlot: !!chartSegments, developments: devItems };
     })
     .filter(Boolean);
 }
@@ -534,5 +584,7 @@ module.exports = {
   buildCommentarySectionsFull,
   commentarySectionChartSegments,
   buildSegmentAllocationChart,
+  segmentSourceCitation,
+  buildCountrySourcesData,
   buildTopInstitutionsSections
 };
