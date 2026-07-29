@@ -277,6 +277,28 @@ async function fetchCountryScores(code) {
   }
 }
 
+// Same fetch-and-merge pattern as fetchCountryScores() above, for the
+// {code}_developments.json file (see getDevelopments.js) -- added 2026-07-29
+// so project exports can include each section's "Recent developments" box,
+// same as country.html's own single-country export.
+async function fetchCountryDevelopments(code) {
+  try {
+    const res = await fetchWithTimeout(`/api/developments/${code}`, undefined, 15000);
+    if (!res.ok) throw new Error('API not ready');
+    const data = await res.json();
+    return data.developments || {};
+  } catch (e) {
+    try {
+      const res = await fetchWithTimeout(`data/${code}_developments.json`, undefined, 15000);
+      if (!res.ok) return {};
+      const data = await res.json();
+      return data.developments || {};
+    } catch (e2) {
+      return {};
+    }
+  }
+}
+
 // Same href-derived slug logic as overview.html's overview matrix — the ISO
 // `code` field doesn't always match the data-file slug (e.g. GB vs uk).
 function slugFromHref(href) {
@@ -370,6 +392,11 @@ async function buildProjectView() {
         data.segments.forEach(seg => {
           seg.scorecard = scoresByName[seg.segment] || {};
         });
+        // Recent developments, same split-file reasoning as scores -- merged
+        // onto data.developments so downloadProjectExport() can send it
+        // straight through to the export endpoints (see country.html's
+        // parallel CURRENT_DEVELOPMENTS wiring).
+        data.developments = await fetchCountryDevelopments(slug);
       }
       return { meta, slug, data };
     });
@@ -744,7 +771,8 @@ async function downloadProjectExport(format) {
     const countries = ordered.map(c => ({
       country_name: c.data.country_name || c.meta.name,
       segments: c.data.segments || [],
-      commentary: c.data.commentary || {}
+      commentary: c.data.commentary || {},
+      developments: c.data.developments || {}
     }));
 
     // evidence -- the supporting-evidence entries ticked above, sent as

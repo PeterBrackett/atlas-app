@@ -871,7 +871,7 @@ async function downloadExport(format) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        country_name: CURRENT_COUNTRY_NAME, segments: LOADED_SEGMENTS, enabled_dimensions: ENABLED_DIMENSIONS, commentary: CURRENT_COMMENTARY,
+        country_name: CURRENT_COUNTRY_NAME, segments: LOADED_SEGMENTS, enabled_dimensions: ENABLED_DIMENSIONS, commentary: CURRENT_COMMENTARY, developments: CURRENT_DEVELOPMENTS,
         // Matches whatever the "Allocation row shows" dropdown is currently
         // set to, so the exported scorecard's allocation row (added
         // 2026-07-23) shows the same thing that's on screen right now.
