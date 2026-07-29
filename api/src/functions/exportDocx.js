@@ -1,11 +1,11 @@
 const { app } = require('@azure/functions');
 const {
   Document, Packer, Paragraph, TextRun, ImageRun, Table, TableRow, TableCell,
-  HeadingLevel, WidthType, ShadingType, PageBreak, Header, AlignmentType
+  HeadingLevel, WidthType, ShadingType, PageBreak, Header, AlignmentType, BorderStyle
 } = require('docx');
 const {
   buildAumRows, buildScorecardMatrix, buildCommentarySectionsFull, buildTopInstitutionsSections,
-  estimateColumnCharWidths, buildSegmentAllocationChart
+  estimateColumnCharWidths, buildSegmentAllocationChart, buildCountrySourcesData
 } = require('../shared/exportHelpers');
 const { getDimensionIconBuffer } = require('../shared/dimensionIcons');
 const { getAtlasLogoBuffer } = require('../shared/atlasLogo');
@@ -258,64 +258,156 @@ function buildAllocationLegendParagraph(chart) {
   return new Paragraph({ children: runs, spacing: { before: 40, after: 20 } });
 }
 
-// One segment's chart block: subheading, bar table, legend, and its own
-// source line -- this is the segment's AUM/allocation provenance
-// (sources[].active), not one of the section's own commentary sources, same
-// distinction country.html's donut cards draw. Skips segments with nothing
-// to chart (buildSegmentAllocationChart() returns null for a zero-aum or
-// no-allocation segment) rather than emitting an empty heading.
-function buildSegmentAllocationBlock(segment) {
+// One segment's chart visual: subheading, bar table, legend -- no source
+// line, unlike the original version of this function. Sources used to be
+// printed inline right under each chart, which was part of Peter's
+// 2026-07-29 "sources bleed into the text" feedback; every segment's
+// citation is now gathered once via buildCountrySourcesData() and printed on
+// a single consolidated Sources page at the end of the country's content
+// instead (see buildCountrySourcesPage() below). Skips segments with
+// nothing to chart (buildSegmentAllocationChart() returns null for a
+// zero-aum or no-allocation segment) rather than emitting an empty heading.
+function buildSegmentAllocationVisual(segment) {
   const chart = buildSegmentAllocationChart(segment);
   if (!chart) return [];
   return [
-    new Paragraph({ text: `${chart.segmentName} — asset allocation`, heading: HeadingLevel.HEADING_4, spacing: { before: 120, after: 30 } }),
+    new Paragraph({ children: [new TextRun({ text: chart.segmentName, bold: true, size: 16 })], spacing: { before: 60, after: 20 } }),
     buildAllocationBarTable(chart),
-    buildAllocationLegendParagraph(chart),
-    new Paragraph({
-      children: [new TextRun({ text: `Source: ${chart.sourceText || 'not recorded for this segment'}`, italics: true, size: 14, color: '5B6B7A' })],
-      spacing: { after: 100 }
-    })
+    buildAllocationLegendParagraph(chart)
   ];
 }
 
-// One heading + one subheading/paragraphs/asset-allocation-charts/sources
-// block per populated commentary section (Wealth & key pools of capital,
-// Pensions structure, Insurance, etc.) -- see buildCommentarySectionsFull()
-// in exportHelpers.js for the text-splitting, source-filtering and
-// chart-segment-matching rules. A section is skipped only if it has
-// NEITHER drafted text NOR a matching chart segment -- fixed 2026-07-23
-// after a live check found Insurance and Foundations missing from an actual
-// exported file: the previous version used buildCommentarySections(), which
-// filters on text alone, so a chart-only section (real allocation data, no
-// prose written yet) was dropped along with its chart. `segments` is needed
-// alongside `commentary` so buildCommentarySectionsFull() can look up this
-// country's matching segment(s) for each section's asset-allocation chart.
-function buildCommentaryBlock(commentary, segments) {
-  const sections = buildCommentarySectionsFull(commentary, segments);
+const PLACEHOLDER_RUN_OPTS = { italics: true, size: 15, color: '5B6B7A' };
+
+// Right-hand "Asset allocation" box content for one commentary section --
+// mirrors country.html's renderCommentaryAllocationBox() exactly: a plain
+// placeholder note when this section has no chart slot at all (Wealth,
+// Pensions, Charities, OCIO), a different placeholder when it has a slot but
+// this country has no matching segment data yet, or one visual per matching
+// segment when there's something to chart. Consistent per-section frame
+// regardless of content, per Peter's "all 8 sections, placeholder if none"
+// request.
+function buildAllocationBoxContent(section) {
+  if (!section.hasChartSlot) {
+    return [new Paragraph({ children: [new TextRun({ text: 'Not available for this section.', ...PLACEHOLDER_RUN_OPTS })] })];
+  }
+  if (!section.chartSegments.length) {
+    return [new Paragraph({ children: [new TextRun({ text: 'No segment-level data available yet for asset allocation in this section.', ...PLACEHOLDER_RUN_OPTS })] })];
+  }
+  return section.chartSegments.flatMap((seg) => buildSegmentAllocationVisual(seg));
+}
+
+// Right-hand "Recent developments" box content -- short, dated, sourced
+// items from {code}_developments.json (see getDevelopments.js), the
+// export-side counterpart to country.html's renderCommentaryDevelopmentsBox().
+// Each item's own source line stays inline here (unlike commentary/segment
+// sources) since it's a single short citation directly under a 1-2 sentence
+// item, not a list interrupting a longer block of prose -- not the kind of
+// "bleeding into text" Peter flagged.
+function buildDevelopmentsBoxContent(items) {
+  if (!items.length) {
+    return [new Paragraph({ children: [new TextRun({ text: 'No recent developments logged yet.', ...PLACEHOLDER_RUN_OPTS })] })];
+  }
+  return items.flatMap((d) => {
+    const headlineRuns = [
+      ...(d.date ? [new TextRun({ text: `${d.date} — `, bold: true, size: 15 })] : []),
+      new TextRun({ text: d.headline || '', size: 15 })
+    ];
+    const paras = [new Paragraph({ children: headlineRuns, spacing: { before: 60, after: 10 } })];
+    if (d.summary) paras.push(new Paragraph({ children: [new TextRun({ text: d.summary, size: 14 })], spacing: { after: 10 } }));
+    const srcLabel = d.source || (d.url ? 'Source' : '');
+    if (srcLabel) paras.push(new Paragraph({ children: [new TextRun({ text: `Source: ${srcLabel}${d.url ? ` — ${d.url}` : ''}`, italics: true, size: 13, color: '5B6B7A' })], spacing: { after: 40 } }));
+    return paras;
+  });
+}
+
+// No visible grid lines on the two-column layout table itself -- it's here
+// purely to place the allocation/developments boxes to the right of the
+// text, not to look like a data table the way buildAumTable()/
+// buildScorecardTable() do.
+const NO_BORDER = { style: BorderStyle.NONE, size: 0, color: 'FFFFFF' };
+const NO_BORDERS = { top: NO_BORDER, bottom: NO_BORDER, left: NO_BORDER, right: NO_BORDER, insideHorizontal: NO_BORDER, insideVertical: NO_BORDER };
+const COMMENTARY_LEFT_COL_DXA = 5500;
+const COMMENTARY_RIGHT_COL_DXA = 3500;
+
+// One heading + one two-column layout (text left; asset allocation and
+// recent developments stacked right) per populated commentary section
+// (Wealth & key pools of capital, Pensions structure, Insurance, etc.) --
+// see buildCommentarySectionsFull() in exportHelpers.js for the
+// text-splitting/source-filtering/chart-matching/developments rules. A
+// section is skipped only if it has NEITHER drafted text, NOR a matching
+// chart segment, NOR any developments logged. Rebuilt 2026-07-29 from a flat
+// vertical stack into this two-column table layout, mirroring the same
+// change made to country.html's on-screen rendering -- `sections` is now
+// passed in pre-built (buildCommentarySectionsFull() output) rather than
+// computed here, since the caller (buildCountrySection()) also needs it to
+// build the end-of-country Sources page.
+function buildCommentaryBlock(sections) {
   if (!sections.length) return [];
 
   const heading = new Paragraph({ text: 'Country commentary', heading: HeadingLevel.HEADING_2, spacing: { before: 200, after: 60 } });
   const body = sections.flatMap((section) => {
     const subheading = new Paragraph({ text: section.label, heading: HeadingLevel.HEADING_3, spacing: { before: 150, after: 40 } });
-    const paragraphs = section.paragraphs.map((p) => new Paragraph({ text: p, spacing: { after: 100 } }));
 
-    const chartBlocks = section.chartSegments.flatMap((seg) => buildSegmentAllocationBlock(seg));
+    const leftChildren = section.paragraphs.length
+      ? section.paragraphs.map((p) => new Paragraph({ text: p, spacing: { after: 100 } }))
+      : [new Paragraph({ children: [new TextRun({ text: `No commentary written yet for ${section.label}.`, ...PLACEHOLDER_RUN_OPTS })] })];
 
-    const sourcesBlock = section.sources.length ? [
-      new Paragraph({ children: [new TextRun({ text: 'Sources', italics: true, size: 18 })], spacing: { before: 60, after: 20 } }),
-      ...section.sources.map((s) => new Paragraph({
-        // Plain "- " prefix rather than docx's bullet:{level} numbering
-        // feature -- the latter needs an explicit numbering config on the
-        // Document to render reliably, which nothing else in this file uses,
-        // so a literal dash keeps this consistent with the rest of the export
-        // rather than risking an unstyled/silently-ignored bullet.
-        text: `- ${s.label || s.url}${s.label && s.url ? ` — ${s.url}` : ''}`,
-        spacing: { after: 20 }
-      }))
-    ] : [];
-    return [subheading, ...paragraphs, ...chartBlocks, ...sourcesBlock];
+    const rightChildren = [
+      new Paragraph({ children: [new TextRun({ text: 'Asset allocation', bold: true, size: 16, color: '0F2540' })], spacing: { after: 40 } }),
+      ...buildAllocationBoxContent(section),
+      new Paragraph({ text: '', spacing: { before: 80 } }),
+      new Paragraph({ children: [new TextRun({ text: 'Recent developments', bold: true, size: 16, color: '0F2540' })], spacing: { after: 40 } }),
+      ...buildDevelopmentsBoxContent(section.developments)
+    ];
+
+    const layoutTable = new Table({
+      borders: NO_BORDERS,
+      columnWidths: [COMMENTARY_LEFT_COL_DXA, COMMENTARY_RIGHT_COL_DXA],
+      rows: [new TableRow({
+        children: [
+          new TableCell({ width: { size: COMMENTARY_LEFT_COL_DXA, type: WidthType.DXA }, margins: { right: 120 }, children: leftChildren }),
+          new TableCell({ width: { size: COMMENTARY_RIGHT_COL_DXA, type: WidthType.DXA }, margins: { left: 120 }, children: rightChildren })
+        ]
+      })]
+    });
+
+    return [subheading, layoutTable, new Paragraph({ text: '', spacing: { after: 120 } })];
   });
   return [heading, ...body];
+}
+
+// Consolidated end-of-country Sources page -- every commentary section's own
+// citations, plus every segment's AUM/allocation citation, gathered by
+// buildCountrySourcesData() (exportHelpers.js) and printed once here instead
+// of interrupting the text and charts above with citation lists. Added
+// 2026-07-29 per Peter's feedback. Returns [] when there's nothing to show
+// (e.g. a fresh country with no sources logged anywhere yet), so callers
+// don't need to check emptiness themselves.
+function buildCountrySourcesPage(sourcesData) {
+  const { commentaryGroups, segmentSources } = sourcesData;
+  if (!commentaryGroups.length && !segmentSources.length) return [];
+
+  const blocks = [new Paragraph({ text: 'Sources', heading: HeadingLevel.HEADING_2, spacing: { before: 220, after: 60 } })];
+
+  if (commentaryGroups.length) {
+    blocks.push(new Paragraph({ text: 'Commentary', heading: HeadingLevel.HEADING_3, spacing: { before: 100, after: 30 } }));
+    commentaryGroups.forEach((g) => {
+      blocks.push(new Paragraph({ children: [new TextRun({ text: g.sectionLabel, bold: true, size: 17 })], spacing: { before: 80, after: 20 } }));
+      g.sources.forEach((s) => {
+        blocks.push(new Paragraph({ text: `- ${s.label || s.url}${s.label && s.url ? ` — ${s.url}` : ''}`, spacing: { after: 15 } }));
+      });
+    });
+  }
+
+  if (segmentSources.length) {
+    blocks.push(new Paragraph({ text: 'Segment data (AUM & asset allocation)', heading: HeadingLevel.HEADING_3, spacing: { before: 140, after: 30 } }));
+    segmentSources.forEach((s) => {
+      blocks.push(new Paragraph({ text: `${s.segmentName}: ${s.citation}`, spacing: { after: 15 } }));
+    });
+  }
+
+  return blocks;
 }
 
 // Which of the four content blocks a country section should include --
@@ -341,12 +433,21 @@ function resolveInclude(rawInclude) {
 // (e.g. `include` is top_institutions-only and this country has no
 // institution-level data) -- the caller should skip a country entirely in
 // that case rather than emit an empty heading.
-function buildCountrySection(countryName, segments, { headingLevel = HeadingLevel.HEADING_1, pageBreakBefore = false, enabledDimensions, include, weightOverrides, commentary, allocType, allocStyle } = {}) {
+function buildCountrySection(countryName, segments, { headingLevel = HeadingLevel.HEADING_1, pageBreakBefore = false, enabledDimensions, include, weightOverrides, commentary, developments, allocType, allocStyle } = {}) {
   const includeSet = include || new Set(ALL_CONTENT_TYPES);
   const body = [];
 
+  // Built once here (rather than inside buildCommentaryBlock()) since the
+  // end-of-country Sources page below also needs each section's citations --
+  // computed even when 'commentary' isn't included, so a commentary-only
+  // export still gets... actually only computed when needed, to avoid doing
+  // work for content that was never asked for.
+  const commentarySections = includeSet.has('commentary')
+    ? buildCommentarySectionsFull(commentary, segments, developments)
+    : [];
+
   if (includeSet.has('commentary')) {
-    body.push(...buildCommentaryBlock(commentary, segments));
+    body.push(...buildCommentaryBlock(commentarySections));
   }
   if (includeSet.has('aum')) {
     body.push(
@@ -362,6 +463,15 @@ function buildCountrySection(countryName, segments, { headingLevel = HeadingLeve
   }
   if (includeSet.has('top_institutions')) {
     body.push(...buildTopInstitutionsBlock(segments));
+  }
+
+  // Consolidated Sources page -- only when commentary and/or AUM were
+  // actually included, since those are the two content types that used to
+  // carry inline citations; a scorecard/top-10-only export has nothing to
+  // consolidate. See buildCountrySourcesPage()/buildCountrySourcesData().
+  if (includeSet.has('commentary') || includeSet.has('aum')) {
+    const sourcesData = buildCountrySourcesData(commentarySections, segments);
+    body.push(...buildCountrySourcesPage(sourcesData));
   }
 
   if (!body.length) return [];
@@ -455,7 +565,7 @@ app.http('exportDocx', {
     const isMulti = Array.isArray(body.countries);
     const countries = isMulti
       ? body.countries.filter((c) => c && Array.isArray(c.segments) && c.segments.length)
-      : (Array.isArray(body.segments) && body.segments.length ? [{ country_name: body.country_name || 'Country', segments: body.segments, commentary: body.commentary }] : []);
+      : (Array.isArray(body.segments) && body.segments.length ? [{ country_name: body.country_name || 'Country', segments: body.segments, commentary: body.commentary, developments: body.developments }] : []);
 
     if (!countries.length) {
       return { status: 400, jsonBody: { error: 'No segments provided to export' } };
@@ -501,6 +611,7 @@ app.http('exportDocx', {
           // this, so Overall there is unaffected.
           weightOverrides: body.weight_overrides,
           commentary: c.commentary,
+          developments: c.developments,
           // alloc_type/alloc_style -- 2026-07-23, matches whatever the
           // "Allocation row shows" dropdown was set to on-screen when the
           // export was triggered (country.html's CURRENT_ALLOC_TYPE/

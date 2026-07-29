@@ -2,7 +2,7 @@ const { app } = require('@azure/functions');
 const PptxGenJS = require('pptxgenjs');
 const {
   buildAumRows, buildScorecardMatrix, buildCommentarySectionsFull, buildTopInstitutionsSections,
-  estimateColumnCharWidths, buildSegmentAllocationChart
+  estimateColumnCharWidths, buildSegmentAllocationChart, buildCountrySourcesData
 } = require('../shared/exportHelpers');
 const { getDimensionIconDataUri } = require('../shared/dimensionIcons');
 const { getAtlasLogoDataUri } = require('../shared/atlasLogo');
@@ -251,7 +251,6 @@ function addTopInstitutionsSlides(pptx, countryName, segments) {
 // side by side rather than stacked, since there's no text competing for the
 // space.
 const COMMENTARY_BODY_Y = 1.3;
-const COMMENTARY_SOURCES_H = 1.2;
 
 // Chart size cut to 30% of the original (7.5in x 4.7in) per Peter's
 // 2026-07-23 request -- small enough that several can share a slide with the
@@ -266,10 +265,11 @@ const CHART_H = 1.41;
 const CHART_CAPTION_H = 0.55;
 const CHART_GUTTER = 0.25;
 
-// Draws one segment's chart + a small "name / source" caption underneath,
-// at a given top-left position -- shared by both the "text alongside charts"
-// and "charts only, no text" layouts below, which differ only in where they
-// place each chart, not in what a single chart+caption block looks like.
+// Draws one segment's chart + a small name caption underneath, at a given
+// top-left position. No source line in the caption any more -- Peter's
+// 2026-07-29 "sources bleed into the text" feedback moved every segment's
+// citation onto one consolidated end-of-country Sources slide instead (see
+// addCountrySourcesSlides() below), the same change made to the Word export.
 function addOneSegmentChart(slide, chart, x, y, w) {
   slide.addChart('doughnut', [{
     name: 'Asset allocation',
@@ -286,86 +286,154 @@ function addOneSegmentChart(slide, chart, x, y, w) {
     dataLabelColor: 'FFFFFF',
     dataLabelFontSize: 6
   });
-  slide.addText(
-    [
-      { text: chart.segmentName, options: { bold: true, breakLine: true } },
-      { text: `Source: ${chart.sourceText || 'not recorded for this segment'}` }
-    ],
-    { x, y: y + CHART_H + 0.03, w: Math.max(w, CHART_W), h: CHART_CAPTION_H, fontSize: 7, color: '666666', valign: 'top' }
-  );
+  slide.addText(chart.segmentName, {
+    x, y: y + CHART_H + 0.03, w: Math.max(w, CHART_W), h: CHART_CAPTION_H,
+    fontSize: 7, bold: true, color: '666666', valign: 'top'
+  });
 }
 
+const PLACEHOLDER_TEXT_OPTS = { italic: true, fontSize: 9, color: '888888' };
+
+// Right column layout constants -- always present now (2026-07-29), not just
+// when a section happens to have chart data, mirroring country.html's
+// consistent per-section frame (text left, allocation top-right, recent
+// developments bottom-right, placeholders where there's nothing to show).
+const RIGHT_COL_X = 7.3;
+const RIGHT_COL_W = SLIDE_W - 0.8 - RIGHT_COL_X;
+const RIGHT_HEADING_H = 0.22;
+
+// One section's full slide: text (or a placeholder) on the left, "Asset
+// allocation" and "Recent developments" boxes stacked on the right -- every
+// section gets this same frame now, not just ones with chart data, matching
+// the on-screen redesign. This hasn't been visually verified in an actual
+// PowerPoint file (pptxgenjs isn't installable in this sandbox -- same
+// caveat as the original 2026-07-23 chart-sizing comment above), so the
+// vertical budget between the allocation box and the developments box below
+// it is an estimate; if a section with two charts and several developments
+// items overflows the slide in practice, tightening CHART_H/dropping to
+// fewer visible developments items is the likely fix.
 function addCommentarySlideBody(slide, countryName, sectionLabel, section) {
   slide.addText(`Atlas — ${countryName}`, { x: TITLE_X, y: 0.25, fontSize: 24, bold: true });
   slide.addText(sectionLabel, { x: 0.4, y: 0.85, fontSize: 12, color: '666666' });
 
-  const hasText = section.paragraphs.length > 0;
-  const hasCharts = section.chartSegments.length > 0;
+  const textW = 6.6;
+  const bodyH = 5.6;
 
-  // Text column is full-width if there's nothing to share the slide with,
-  // otherwise narrowed to leave a right-hand column for the chart(s).
-  const textW = hasCharts ? 6.6 : SLIDE_W - 0.8;
-  const bodyH = section.sources.length ? 4.3 : 5.4;
-
-  if (hasText) {
+  if (section.paragraphs.length) {
     const bodyRuns = section.paragraphs.map((p) => ({ text: p, options: { breakLine: true, paraSpaceAfter: 10 } }));
     slide.addText(bodyRuns, {
       x: 0.4, y: COMMENTARY_BODY_Y, w: textW, h: bodyH,
       fontSize: 11, valign: 'top', align: 'left', autoFit: false
     });
-
-    if (section.sources.length) {
-      const sourceRuns = [
-        { text: 'Sources', options: { bold: true, breakLine: true, color: '666666' } },
-        ...section.sources.map((s) => ({
-          text: s.label || s.url,
-          options: {
-            breakLine: true,
-            color: '666666',
-            ...(s.url ? { hyperlink: { url: s.url } } : {})
-          }
-        }))
-      ];
-      slide.addText(sourceRuns, {
-        x: 0.4, y: COMMENTARY_BODY_Y + bodyH + 0.15, w: textW, h: COMMENTARY_SOURCES_H,
-        fontSize: 8, valign: 'top', align: 'left'
-      });
-    }
+  } else {
+    slide.addText(`No commentary written yet for ${sectionLabel}.`, {
+      x: 0.4, y: COMMENTARY_BODY_Y, w: textW, h: 0.4, valign: 'top', ...PLACEHOLDER_TEXT_OPTS
+    });
   }
 
-  if (!hasCharts) return;
-
+  // -- Asset allocation box (top-right) --
+  slide.addText('Asset allocation', { x: RIGHT_COL_X, y: COMMENTARY_BODY_Y, w: RIGHT_COL_W, h: RIGHT_HEADING_H, fontSize: 11, bold: true, color: '0F2540' });
+  const allocContentY = COMMENTARY_BODY_Y + RIGHT_HEADING_H + 0.05;
   const charts = section.chartSegments.map((seg) => buildSegmentAllocationChart(seg)).filter(Boolean);
-  if (hasText) {
-    // Stacked in the narrow right column, alongside the text.
-    const chartX = 7.3;
-    charts.forEach((chart, i) => {
-      const chartY = COMMENTARY_BODY_Y + i * (CHART_H + CHART_CAPTION_H + CHART_GUTTER);
-      addOneSegmentChart(slide, chart, chartX, chartY, SLIDE_W - 0.8 - chartX);
-    });
+
+  let allocBlockH;
+  if (!section.hasChartSlot) {
+    slide.addText('Not available for this section.', { x: RIGHT_COL_X, y: allocContentY, w: RIGHT_COL_W, h: 0.35, valign: 'top', ...PLACEHOLDER_TEXT_OPTS });
+    allocBlockH = 0.4;
+  } else if (!charts.length) {
+    slide.addText('No segment-level data available yet.', { x: RIGHT_COL_X, y: allocContentY, w: RIGHT_COL_W, h: 0.35, valign: 'top', ...PLACEHOLDER_TEXT_OPTS });
+    allocBlockH = 0.4;
   } else {
-    // No text on this slide -- lay charts out side by side across the full
-    // width instead of stacking them, since the space is otherwise unused.
     charts.forEach((chart, i) => {
-      const chartX = 0.5 + i * (CHART_W + CHART_GUTTER);
-      addOneSegmentChart(slide, chart, chartX, COMMENTARY_BODY_Y, CHART_W);
+      const chartY = allocContentY + i * (CHART_H + CHART_CAPTION_H + CHART_GUTTER);
+      addOneSegmentChart(slide, chart, RIGHT_COL_X, chartY, RIGHT_COL_W);
     });
+    allocBlockH = charts.length * (CHART_H + CHART_CAPTION_H + CHART_GUTTER);
+  }
+
+  // -- Recent developments box (bottom-right) --
+  const devHeadingY = allocContentY + allocBlockH + 0.15;
+  slide.addText('Recent developments', { x: RIGHT_COL_X, y: devHeadingY, w: RIGHT_COL_W, h: RIGHT_HEADING_H, fontSize: 11, bold: true, color: '0F2540' });
+  const devContentY = devHeadingY + RIGHT_HEADING_H + 0.05;
+  const devContentH = Math.max(0.3, (COMMENTARY_BODY_Y + bodyH) - devContentY);
+
+  if (!section.developments.length) {
+    slide.addText('No recent developments logged yet.', { x: RIGHT_COL_X, y: devContentY, w: RIGHT_COL_W, h: 0.35, valign: 'top', ...PLACEHOLDER_TEXT_OPTS });
+  } else {
+    const devRuns = [];
+    section.developments.forEach((d) => {
+      devRuns.push({ text: `${d.date ? `${d.date} — ` : ''}${d.headline || ''}`, options: { bold: true, breakLine: true, fontSize: 8, paraSpaceAfter: 1 } });
+      if (d.summary) devRuns.push({ text: d.summary, options: { breakLine: true, fontSize: 7, paraSpaceAfter: 1 } });
+      const srcLabel = d.source || (d.url ? 'Source' : '');
+      if (srcLabel) devRuns.push({ text: `Source: ${srcLabel}`, options: { breakLine: true, italic: true, fontSize: 6, color: '888888', paraSpaceAfter: 6 } });
+    });
+    slide.addText(devRuns, { x: RIGHT_COL_X, y: devContentY, w: RIGHT_COL_W, h: devContentH, valign: 'top', align: 'left', autoFit: false });
   }
 }
 
-// `sections` comes from buildCommentarySectionsFull(), which -- fixed
-// 2026-07-23 after a live check found Insurance and Foundations missing from
-// an actual exported deck -- keeps a section if it has EITHER drafted text
-// OR a matching chart segment, not text alone. So a section can arrive here
-// with zero paragraphs (nothing written yet) but real chartSegments, or vice
-// versa -- addCommentarySlideBody() above handles both, and the combination
-// of both, on one slide.
-function addCommentarySlides(pptx, countryName, commentary, segments) {
-  const sections = buildCommentarySectionsFull(commentary, segments);
+// `sections` comes from buildCommentarySectionsFull(), which now keeps a
+// section if it has drafted text, a matching chart segment, OR developments
+// logged -- see that function's comment in exportHelpers.js. `developments`
+// is the optional {sectionKey: [...]} map from {code}_developments.json,
+// sent by the client the same way `commentary` already is.
+function addCommentarySlides(pptx, countryName, commentary, segments, developments) {
+  const sections = buildCommentarySectionsFull(commentary, segments, developments);
   sections.forEach((section) => {
     const slide = addAtlasSlide(pptx);
     addCommentarySlideBody(slide, countryName, section.label, section);
   });
+  return sections;
+}
+
+// Consolidated end-of-country Sources slide(s) -- every commentary section's
+// own citations, plus every segment's AUM/allocation citation, gathered by
+// buildCountrySourcesData() (exportHelpers.js) instead of being scattered
+// across each commentary slide and chart caption. Added 2026-07-29 per
+// Peter's feedback, mirroring the Word export's buildCountrySourcesPage().
+// Paginates across multiple slides if the combined list runs long, since
+// pptxgenjs doesn't auto-paginate a single text box the way Word flows text
+// across pages.
+const SOURCES_LINES_PER_SLIDE = 26;
+
+function buildSourcesLines(sourcesData) {
+  const lines = [];
+  const { commentaryGroups, segmentSources } = sourcesData;
+  if (commentaryGroups.length) {
+    lines.push({ text: 'Commentary', section: true });
+    commentaryGroups.forEach((g) => {
+      lines.push({ text: g.sectionLabel, group: true });
+      g.sources.forEach((s) => lines.push({ text: `- ${s.label || s.url}${s.label && s.url ? ` — ${s.url}` : ''}` }));
+    });
+  }
+  if (segmentSources.length) {
+    lines.push({ text: 'Segment data (AUM & asset allocation)', section: true });
+    segmentSources.forEach((s) => lines.push({ text: `${s.segmentName}: ${s.citation}` }));
+  }
+  return lines;
+}
+
+function addCountrySourcesSlides(pptx, countryName, commentarySections, segments) {
+  const sourcesData = buildCountrySourcesData(commentarySections, segments);
+  const lines = buildSourcesLines(sourcesData);
+  if (!lines.length) return;
+
+  for (let i = 0; i < lines.length; i += SOURCES_LINES_PER_SLIDE) {
+    const group = lines.slice(i, i + SOURCES_LINES_PER_SLIDE);
+    const slide = addAtlasSlide(pptx);
+    slide.addText(`Atlas — ${countryName}`, { x: TITLE_X, y: 0.25, fontSize: 24, bold: true });
+    slide.addText('Sources', { x: 0.4, y: 0.85, fontSize: 12, color: '666666' });
+    const runs = group.map((l) => ({
+      text: l.text,
+      options: {
+        breakLine: true,
+        bold: !!(l.section || l.group),
+        fontSize: l.section ? 12 : 9,
+        color: l.section ? '0F2540' : (l.group ? '333333' : '555555'),
+        paraSpaceAfter: l.section ? 6 : (l.group ? 3 : 1)
+      }
+    }));
+    slide.addText(runs, { x: 0.4, y: 1.3, w: SLIDE_W - 0.8, h: 5.7, valign: 'top', align: 'left', autoFit: false });
+  }
 }
 
 // One country's AUM slide. Factored out of addCountrySlides() (below) so
@@ -421,12 +489,19 @@ function resolveInclude(rawInclude) {
 // single-country payload (country.html) and the multi-country payload
 // (picker.html's project builder), so a project export is just this
 // repeated once per selected country.
-function addCountrySlides(pptx, countryName, segments, generatedDate, enabledDimensions, include, weightOverrides, commentary, allocType, allocStyle) {
+function addCountrySlides(pptx, countryName, segments, generatedDate, enabledDimensions, include, weightOverrides, commentary, developments, allocType, allocStyle) {
   const includeSet = include || new Set(ALL_CONTENT_TYPES);
-  if (includeSet.has('commentary')) addCommentarySlides(pptx, countryName, commentary, segments);
+  let commentarySections = [];
+  if (includeSet.has('commentary')) commentarySections = addCommentarySlides(pptx, countryName, commentary, segments, developments);
   if (includeSet.has('aum')) addAumSlide(pptx, countryName, segments, generatedDate);
   if (includeSet.has('scorecard')) addScorecardSlide(pptx, countryName, segments, enabledDimensions, weightOverrides, allocType, allocStyle);
   if (includeSet.has('top_institutions')) addTopInstitutionsSlides(pptx, countryName, segments);
+
+  // Consolidated Sources slide(s) -- only when commentary and/or AUM were
+  // included, same reasoning as the Word export's buildCountrySection().
+  if (includeSet.has('commentary') || includeSet.has('aum')) {
+    addCountrySourcesSlides(pptx, countryName, commentarySections, segments);
+  }
 }
 
 // Optional appendix slides built from picker.html's "Attach supporting
@@ -492,7 +567,7 @@ app.http('exportPptx', {
     const isMulti = Array.isArray(body.countries);
     const countries = isMulti
       ? body.countries.filter((c) => c && Array.isArray(c.segments) && c.segments.length)
-      : (Array.isArray(body.segments) && body.segments.length ? [{ country_name: body.country_name || 'Country', segments: body.segments, commentary: body.commentary }] : []);
+      : (Array.isArray(body.segments) && body.segments.length ? [{ country_name: body.country_name || 'Country', segments: body.segments, commentary: body.commentary, developments: body.developments }] : []);
 
     if (!countries.length) {
       return { status: 400, jsonBody: { error: 'No segments provided to export' } };
@@ -532,7 +607,7 @@ app.http('exportPptx', {
       // "Allocation row shows" dropdown was set to on-screen (see the same
       // comment in exportDocx.js). Defaults to Equities/no-style in
       // buildScorecardMatrix() if omitted.
-      countries.forEach((c) => addCountrySlides(pptx, c.country_name, c.segments, generatedDate, body.enabled_dimensions, include, body.weight_overrides, c.commentary, body.alloc_type, body.alloc_style));
+      countries.forEach((c) => addCountrySlides(pptx, c.country_name, c.segments, generatedDate, body.enabled_dimensions, include, body.weight_overrides, c.commentary, c.developments, body.alloc_type, body.alloc_style));
 
       // Supporting-evidence appendix slides -- see addEvidenceSlides() above.
       // body.evidence is only ever populated by picker.html's "Attach
