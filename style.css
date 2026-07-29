@@ -329,6 +329,48 @@ h2 {
   border-radius: 5px;
 }
 
+/* Standard per-section layout (2026-07-29): text on the left, asset
+   allocation and recent developments stacked on the right -- Peter's
+   request for one consistent frame per section instead of a long block of
+   text with a small chart wrapped underneath it. Collapses to a single
+   column at the same 900px breakpoint the rest of the page already uses, so
+   the side boxes fall below the text on narrower screens rather than
+   squeezing sideways. */
+.commentary-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.commentary-side-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.commentary-side-box {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  padding: 12px 14px;
+}
+
+.commentary-side-box-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 900px) {
+  .commentary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Opportunity scorecard matrix — segments as columns, matching the shape
    of FINAL_Country_Matrix.xlsx. Wide by design, so it scrolls horizontally
    with a sticky first (row-label) column. -webkit-overflow-scrolling gives
