@@ -117,6 +117,7 @@
 <script>
 let CURRENT_USER = null; // set by checkAuth(), null if not signed in
 let CURRENT_COMMENTARY = {}; // {wealth: {text, sources[]}, pensions: {text, sources[]}} -- see renderCommentary()
+let CURRENT_DEVELOPMENTS = {}; // {wealth: [{id, date, headline, summary, source, url}], ...} -- see loadDevelopments()/renderCommentaryDevelopmentsBox()
 let COUNTRY_CODE = '';
 let CURRENT_COUNTRY_NAME = '';
 let LOADED_SEGMENTS = []; // kept in memory so scorecard edits can update the matrix without a full reload
@@ -239,38 +240,184 @@ function segmentAllocationSourceText(seg) {
   return citation + (active.as_of ? ` (as of ${active.as_of})` : '');
 }
 
-function renderCommentaryAllocationCharts(chartSegments) {
-  if (!chartSegments || !chartSegments.length) return '';
-
-  const matches = LOADED_SEGMENTS.filter(s => chartSegments.includes(s.segment));
-  const heading = `<div style="margin:14px 0 6px; font-size:0.82rem; font-weight:600; color:var(--navy);">Asset allocation</div>`;
-
-  if (!matches.length) {
-    return heading + `<p class="note" style="margin:0; border-top:none; padding-top:0;">No segment-level data available yet for asset allocation in this section.</p>`;
+// Returns just the inner content of the top-right "Asset allocation" box --
+// one mini donut+legend card per canonical segment name this country has
+// data for, or a plain placeholder note when there's nothing to chart (no
+// chartSegments defined for this section at all, or none of the ones
+// defined have data yet). The box itself (title, border) is provided by the
+// caller (renderCommentarySection) so every section gets the same frame
+// regardless of whether there's a chart inside it -- Peter's request for a
+// consistent per-page layout rather than sections silently shrinking when a
+// chart isn't available.
+function renderCommentaryAllocationBox(chartSegments) {
+  if (!chartSegments || !chartSegments.length) {
+    return `<p class="note" style="margin:0; border-top:none; padding-top:0;">Not available for this section.</p>`;
   }
 
-  const cards = matches.map(seg => {
+  const matches = LOADED_SEGMENTS.filter(s => chartSegments.includes(s.segment));
+  if (!matches.length) {
+    return `<p class="note" style="margin:0; border-top:none; padding-top:0;">No segment-level data available yet for asset allocation in this section.</p>`;
+  }
+
+  return matches.map(seg => {
     const { svg, legendHtml } = buildAllocationDonutSvg(seg);
     const aumText = typeof seg.aum_bn === 'number' ? `$${seg.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 1 })}bn` : '';
     const sourceText = segmentAllocationSourceText(seg);
     const sourceHtml = sourceText
-      ? `<div style="font-size:0.72rem; color:var(--muted); margin-top:6px; border-top:1px solid var(--border); padding-top:4px;">Source: ${escapeAttr(sourceText)}</div>`
-      : `<div style="font-size:0.72rem; color:var(--muted); margin-top:6px; border-top:1px solid var(--border); padding-top:4px;">Source not recorded for this segment.</div>`;
+      ? `<div style="font-size:0.7rem; color:var(--muted); margin-top:6px; border-top:1px solid var(--border); padding-top:4px;">Source: ${escapeAttr(sourceText)}</div>`
+      : `<div style="font-size:0.7rem; color:var(--muted); margin-top:6px; border-top:1px solid var(--border); padding-top:4px;">Source not recorded for this segment.</div>`;
     return `
-      <div style="display:flex; flex-direction:column; gap:6px; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--card); max-width:340px;">
-        <div style="display:flex; align-items:center; gap:14px;">
+      <div style="display:flex; flex-direction:column; gap:6px; padding:0 0 10px;">
+        <div style="display:flex; align-items:center; gap:12px;">
           <div>${svg}</div>
           <div>
-            <div style="font-weight:600; font-size:0.85rem; color:var(--navy);">${seg.segment}</div>
-            <div style="font-size:0.78rem; color:var(--muted); margin-bottom:4px;">${aumText}</div>
+            <div style="font-weight:600; font-size:0.83rem; color:var(--navy);">${seg.segment}</div>
+            <div style="font-size:0.76rem; color:var(--muted); margin-bottom:4px;">${aumText}</div>
             ${legendHtml}
           </div>
         </div>
         ${sourceHtml}
       </div>`;
-  }).join('');
+  }).join('<hr style="border:none; border-top:1px solid var(--border); margin:0 0 10px;">');
+}
 
-  return heading + `<div style="display:flex; flex-wrap:wrap; gap:14px;">${cards}</div>`;
+// ---- Recent developments (bottom-right box) ----
+// Short, dated, sourced items -- mandate wins/losses, regulatory changes,
+// M&A -- tagged to the same 8 commentary section keys, one array per key in
+// {code}_developments.json (see getDevelopments.js/setDevelopments.js). Kept
+// in its own file rather than inline in {code}.json for the same reason
+// scores were split out (see loadScores()'s comment): this content gets
+// refreshed independently (a periodic research pass, or a manual add) and
+// shouldn't be at risk from a data-refresh script rewriting the main file.
+// Added 2026-07-29 alongside the two-column commentary layout, as the
+// "what's actually new" counterpart to the mostly-static text and charts.
+function developmentsForSection(key) {
+  const list = CURRENT_DEVELOPMENTS[key];
+  return Array.isArray(list) ? list.slice().sort((a, b) => (b.date || '').localeCompare(a.date || '')) : [];
+}
+
+function renderCommentaryDevelopmentsBox(key, label) {
+  const items = developmentsForSection(key);
+
+  const itemsHtml = items.length
+    ? items.map(d => {
+        const dateHtml = d.date ? `<span style="font-weight:600; color:var(--navy);">${escapeAttr(d.date)}</span> — ` : '';
+        const headlineHtml = escapeAttr(d.headline || '');
+        const summaryHtml = d.summary ? `<div style="margin-top:2px;">${escapeAttr(d.summary)}</div>` : '';
+        const srcLabel = escapeAttr(d.source || (d.url ? 'Source' : ''));
+        const sourceHtml = srcLabel
+          ? `<div style="font-size:0.72rem; color:var(--muted); margin-top:3px;">${d.url ? `<a href="${escapeAttr(d.url)}" target="_blank" rel="noopener">${srcLabel}</a>` : srcLabel}</div>`
+          : '';
+        const editHtml = CURRENT_USER
+          ? `<div style="margin-top:4px;">
+               <button type="button" class="btn-toggle" style="font-size:0.7rem; padding:1px 6px;" onclick="toggleDevelopmentEdit('${key}','${d.id}')">Edit</button>
+               <button type="button" class="btn-toggle" style="font-size:0.7rem; padding:1px 6px;" onclick="deleteDevelopment('${key}','${d.id}','${escapeAttr(d.headline).replace(/'/g, "\\'")}')">Delete</button>
+             </div>`
+          : '';
+        return `
+          <div style="padding:8px 0; border-top:1px solid var(--border); font-size:0.8rem;">
+            <div>${dateHtml}${headlineHtml}</div>
+            ${summaryHtml}
+            ${sourceHtml}
+            <div id="development-editform-${key}-${d.id}" style="display:none;"></div>
+            ${editHtml}
+          </div>`;
+      }).join('')
+    : `<p class="note" style="margin:0; border-top:none; padding-top:0;">No recent developments logged yet for ${label}.</p>`;
+
+  const addButtonHtml = CURRENT_USER
+    ? `<button type="button" class="btn-toggle" style="margin-top:8px; font-size:0.75rem; padding:3px 9px;" onclick="toggleDevelopmentEdit('${key}', null)">+ Add development</button>
+       <div id="development-editform-${key}-new" style="display:none;"></div>`
+    : '';
+
+  return itemsHtml + addButtonHtml;
+}
+
+function developmentFormHtml(key, entry) {
+  const e = entry || { id: '', date: '', headline: '', summary: '', source: '', url: '' };
+  return `
+    <div class="commentary-edit-form" style="margin-top:6px; padding:10px 12px;">
+      <label style="font-size:0.76rem; font-weight:600;">Date</label>
+      <input type="text" id="dev-date-${key}-${e.id || 'new'}" value="${escapeAttr(e.date)}" placeholder="YYYY-MM" style="width:100%; box-sizing:border-box; font-size:0.8rem; padding:4px 6px; border:1px solid var(--border); border-radius:5px; margin-bottom:6px;">
+      <label style="font-size:0.76rem; font-weight:600;">Headline</label>
+      <input type="text" id="dev-headline-${key}-${e.id || 'new'}" value="${escapeAttr(e.headline)}" style="width:100%; box-sizing:border-box; font-size:0.8rem; padding:4px 6px; border:1px solid var(--border); border-radius:5px; margin-bottom:6px;">
+      <label style="font-size:0.76rem; font-weight:600;">Summary (optional)</label>
+      <textarea id="dev-summary-${key}-${e.id || 'new'}" style="width:100%; box-sizing:border-box; min-height:50px; font-size:0.8rem; padding:4px 6px; border:1px solid var(--border); border-radius:5px; margin-bottom:6px;">${e.summary || ''}</textarea>
+      <label style="font-size:0.76rem; font-weight:600;">Source label</label>
+      <input type="text" id="dev-source-${key}-${e.id || 'new'}" value="${escapeAttr(e.source)}" style="width:100%; box-sizing:border-box; font-size:0.8rem; padding:4px 6px; border:1px solid var(--border); border-radius:5px; margin-bottom:6px;">
+      <label style="font-size:0.76rem; font-weight:600;">URL (optional)</label>
+      <input type="text" id="dev-url-${key}-${e.id || 'new'}" value="${escapeAttr(e.url)}" style="width:100%; box-sizing:border-box; font-size:0.8rem; padding:4px 6px; border:1px solid var(--border); border-radius:5px; margin-bottom:8px;">
+      <button type="button" class="btn-primary" style="font-size:0.78rem; padding:3px 10px;" onclick="submitDevelopment('${key}','${e.id || ''}')">Save</button>
+      <button type="button" class="btn-toggle" style="font-size:0.78rem; padding:3px 10px;" onclick="toggleDevelopmentEdit('${key}','${e.id || ''}')">Cancel</button>
+    </div>`;
+}
+
+function toggleDevelopmentEdit(key, id) {
+  const formId = `development-editform-${key}-${id || 'new'}`;
+  const wrap = document.getElementById(formId);
+  if (!wrap) return;
+  const isOpen = wrap.style.display !== 'none';
+  if (isOpen) {
+    wrap.style.display = 'none';
+    wrap.innerHTML = '';
+    return;
+  }
+  const entry = id ? developmentsForSection(key).find(d => d.id === id) : null;
+  wrap.innerHTML = developmentFormHtml(key, entry);
+  wrap.style.display = 'block';
+}
+
+async function submitDevelopment(key, id) {
+  const suffix = id || 'new';
+  const date = document.getElementById(`dev-date-${key}-${suffix}`).value.trim();
+  const headline = document.getElementById(`dev-headline-${key}-${suffix}`).value.trim();
+  const summary = document.getElementById(`dev-summary-${key}-${suffix}`).value.trim();
+  const source = document.getElementById(`dev-source-${key}-${suffix}`).value.trim();
+  const url = document.getElementById(`dev-url-${key}-${suffix}`).value.trim();
+
+  if (!headline) { alert('A headline is required.'); return; }
+
+  const saveBtn = event && event.target;
+  if (saveBtn) { saveBtn.disabled = true; saveBtn.textContent = 'Saving…'; }
+
+  try {
+    const res = await fetch('/api/developments/set', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ country: COUNTRY_CODE, section: key, id: id || undefined, date, headline, summary, source, url })
+    });
+    const result = await res.json();
+    if (!res.ok) {
+      alert(`Couldn't save this development: ${result.error || 'unknown error'}`);
+      if (saveBtn) { saveBtn.disabled = false; saveBtn.textContent = 'Save'; }
+      return;
+    }
+    CURRENT_DEVELOPMENTS = result.developments || CURRENT_DEVELOPMENTS;
+    renderCommentarySection(COMMENTARY_SECTIONS.find(s => s.key === key));
+  } catch (e) {
+    alert('Could not reach the server to save this development.');
+    if (saveBtn) { saveBtn.disabled = false; saveBtn.textContent = 'Save'; }
+  }
+}
+
+async function deleteDevelopment(key, id, headline) {
+  if (!confirm(`Delete "${headline}"?`)) return;
+  try {
+    const res = await fetch('/api/developments/set', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ country: COUNTRY_CODE, section: key, id, delete: true })
+    });
+    const result = await res.json();
+    if (!res.ok) {
+      alert(`Couldn't delete: ${result.error || 'unknown error'}`);
+      return;
+    }
+    CURRENT_DEVELOPMENTS = result.developments || CURRENT_DEVELOPMENTS;
+    renderCommentarySection(COMMENTARY_SECTIONS.find(s => s.key === key));
+  } catch (e) {
+    alert('Could not reach the server to delete this development.');
+  }
 }
 
 function renderCommentarySection(section) {
@@ -284,7 +431,8 @@ function renderCommentarySection(section) {
     ? marked.parse(text)
     : `<p class="note" style="margin:0; border-top:none; padding-top:0;">No commentary written yet for ${label}.</p>`;
 
-  const chartsHtml = renderCommentaryAllocationCharts(chartSegments);
+  const allocationBoxHtml = renderCommentaryAllocationBox(chartSegments);
+  const developmentsBoxHtml = renderCommentaryDevelopmentsBox(key, label);
 
   const sourcesHtml = sources.length
     ? `<ul>${sources.map(s => {
@@ -301,11 +449,24 @@ function renderCommentarySection(section) {
 
   el.innerHTML = `
     <h3>${label}</h3>
-    <div class="research-notes">${bodyHtml}</div>
-    ${chartsHtml}
-    <div class="commentary-sources"><strong>Sources</strong>${sourcesHtml}</div>
-    ${editButtonHtml}
-    <div id="commentary-editform-${key}" style="display:none;"></div>
+    <div class="commentary-grid">
+      <div class="commentary-text-col">
+        <div class="research-notes">${bodyHtml}</div>
+        <div class="commentary-sources"><strong>Sources</strong>${sourcesHtml}</div>
+        ${editButtonHtml}
+        <div id="commentary-editform-${key}" style="display:none;"></div>
+      </div>
+      <div class="commentary-side-col">
+        <div class="commentary-side-box">
+          <div class="commentary-side-box-title">Asset allocation</div>
+          ${allocationBoxHtml}
+        </div>
+        <div class="commentary-side-box">
+          <div class="commentary-side-box-title">Recent developments</div>
+          ${developmentsBoxHtml}
+        </div>
+      </div>
+    </div>
   `;
 }
 
@@ -636,6 +797,28 @@ async function loadScores(code) {
       if (!res.ok) return {};
       const data = await res.json();
       return data.scores || {};
+    } catch (e2) {
+      return {};
+    }
+  }
+}
+
+// Recent developments live in their own {code}_developments.json file, same
+// split-file reasoning as loadScores() above -- see getDevelopments.js. A
+// missing file (no developments logged yet) resolves to {} rather than
+// throwing.
+async function loadDevelopments(code) {
+  try {
+    const res = await fetch(`/api/developments/${code}`);
+    if (!res.ok) throw new Error('API not ready');
+    const data = await res.json();
+    return data.developments || {};
+  } catch (e) {
+    try {
+      const res = await fetch(`data/${code}_developments.json`);
+      if (!res.ok) return {};
+      const data = await res.json();
+      return data.developments || {};
     } catch (e2) {
       return {};
     }
@@ -1079,6 +1262,7 @@ async function load() {
 
   ENABLED_DIMENSIONS = await loadEnabledDimensions();
   CURRENT_COMMENTARY = data.commentary || {};
+  CURRENT_DEVELOPMENTS = await loadDevelopments(code);
   renderCommentary();
 
   document.getElementById('export-wrap').innerHTML = `
