@@ -1,0 +1,126 @@
+{
+  "schema_note": "Short, dated, sourced 'recent developments' items shown in the bottom-right box of each commentary section on country.html -- see getDevelopments.js/setDevelopments.js. One array per commentary section key. This is a pilot for the UK, added 2026-07-29 alongside the new two-column commentary layout, before deciding on a full 33-country rollout or refresh cadence.",
+  "country_code": "uk",
+  "developments": {
+    "wealth": [
+      {
+        "id": "cash-isa-allowance-cut-to-12000-from-2027",
+        "date": "2026",
+        "headline": "Cash ISA allowance to be cut to £12,000 from April 2027",
+        "summary": "Stocks & Shares and Innovative Finance ISA limits stay at £20,000; only the cash allowance is reduced, an explicit government push to tilt retail savings toward market investment.",
+        "source": "GOV.UK, ISA reform 2027 factsheet",
+        "url": "https://www.gov.uk/government/publications/fiscal-events-2026-factsheets/isa-reform-2027-anti-circumvention-rules-factsheet"
+      },
+      {
+        "id": "savers-rebalancing-isa-pension-mix-2026",
+        "date": "2026",
+        "headline": "Savers increasingly treating ISAs and pensions as complementary, not competing",
+        "summary": "With pension savings now inside the inheritance tax net, retirement planners report a shift toward holding both wrappers deliberately -- pensions for tax-efficient growth, ISAs for accessible income -- rather than defaulting to one over the other.",
+        "source": "Kalkine, \"UK ISAs vs Pensions 2026\"",
+        "url": "https://kalkine.co.uk/education/retirement-planning/uk-isas-vs-pensions-2026-why-retirement-savers-are-rebalancing-their-wealth-strategy-as-tax-changes-interest-rates-and-inflation-reshape-retirement-planning"
+      }
+    ],
+    "pensions": [
+      {
+        "id": "db-surplus-release-consultation-opens",
+        "date": "2026-06",
+        "headline": "DWP opens consultation on DB surplus release conditions",
+        "summary": "Around four in five DB schemes are now in surplus, with an aggregate surplus estimated at roughly £160bn. The consultation on draft regulations (open until 2 September 2026) follows the Pension Schemes Act 2026 (royal assent April 2026), which eased the path to releasing that surplus to employers; rules are expected in force from April 2027. Builds directly on the Chancellor's Mansion House 'megafund' agenda.",
+        "source": "GOV.UK / Pensions Age",
+        "url": "https://www.gov.uk/government/news/billions-in-pension-surpluses-to-be-unlocked"
+      },
+      {
+        "id": "lgps-pooling-deadline-passes-incomplete",
+        "date": "2026-03",
+        "headline": "LGPS pooling deadline passes with several pools still incomplete",
+        "summary": "The 31 March 2026 deadline was meant to consolidate £274bn of assets from 86 administering authorities into six FCA-authorised pools. Government has since relaxed some FCA-authorisation requirements after the deadline slipped; Wales Pension Partnership and Northern LGPS still lack FCA authorisation. LGPS Central alone now oversees roughly £100bn after adding six new partner funds (Gloucestershire, Hampshire, Norfolk, Oxfordshire, Suffolk, Wiltshire).",
+        "source": "IPE / Pensions Expert",
+        "url": "https://www.ipe.com/analysis/lgps-reshuffle-cuts-pools-from-eight-to-six-but-consolidation-pressure-persists/10134328.article"
+      }
+    ],
+    "insurance": [
+      {
+        "id": "bulk-annuity-market-record-year-2026",
+        "date": "2026",
+        "headline": "Bulk annuity market on track for another record year",
+        "summary": "LCP forecasts £40-55bn of buy-ins in 2026, up from £38bn in 2025; WTW sees total risk transfer (buy-ins, buyouts and longevity swaps combined) exceeding £70bn. Buyout has cemented itself as the default DB scheme endgame ahead of run-on.",
+        "source": "Professional Pensions / Pensions Expert / IPE",
+        "url": "https://www.professionalpensions.com/news/4523742/volumes-reach-record-55bn-2026-lcp"
+      },
+      {
+        "id": "bulk-annuity-insurer-ma-wave-2026",
+        "date": "2026-04",
+        "headline": "M&A wave reshapes the bulk annuity insurer landscape",
+        "summary": "Athora's acquisition of Pension Insurance Corporation cleared regulatory approval on 6 March 2026; Brookfield Wealth Solutions completed its acquisition of Just Group on 1 April 2026; JAB's acquisition of Utmost is expected to follow later in the year. Consolidates specialist bulk annuity balance sheets into fewer, larger, increasingly private-capital-backed owners.",
+        "source": "IPE / Pensions Expert",
+        "url": "https://www.ipe.com/news/buyout-boom-cements-insurance-as-top-endgame-for-uk-db-pension-funds/10133571.article"
+      }
+    ],
+    "charities": [
+      {
+        "id": "womens-forever-fund-launch-2026",
+        "date": "2026",
+        "headline": "Women's Resource Centre launches UK's first women's-charity endowment fund",
+        "summary": "The Women's Forever Fund aims to secure £350m over six years, invested ethically as a permanent endowment, to unlock over £20m of grantmaking for women's charities over that period.",
+        "source": "Civil Society",
+        "url": "https://www.civilsociety.co.uk/news/foundations-pledge-50m-from-endowments-for-impact-investing-scheme.html"
+      }
+    ],
+    "foundations": [
+      {
+        "id": "endowments-investing-challenge-2026",
+        "date": "2026",
+        "headline": "Six foundations launch the 2026 Endowments Investing Challenge",
+        "summary": "Joseph Rowntree Foundation, Vivensa Foundation and Children's Society Foundation are among six foundations committing up to £50m combined to invest endowment capital for social and environmental impact, advised by a panel of 18-25 year-olds (the Future Generations Panel).",
+        "source": "Funders Collaborative Hub",
+        "url": "https://www.funderscollaborativehub.org.uk/collaborations/endowments-investing-challenge-eic-2026"
+      },
+      {
+        "id": "uk-foundations-84bn-mostly-unscreened",
+        "date": "2026",
+        "headline": "UK's largest 300 endowed foundations hold £84bn, mostly unscreened for impact",
+        "summary": "The bulk of this capital remains invested in mainstream capital markets without regard to the social or environmental goals of the foundations that hold it -- a persistent gap between mission and investment policy that's increasingly being raised with trustees.",
+        "source": "Third Sector",
+        "url": "https://www.thirdsector.co.uk/foundations-investment-challenge-breaks-new-ground-uk-philanthropy/finance/article/1931189"
+      }
+    ],
+    "family_offices": [
+      {
+        "id": "uk-family-office-footprint-widening-2026",
+        "date": "2026",
+        "headline": "UK family office footprint keeps widening despite London cost pressures",
+        "summary": "London remains a leading family-office hub, but rising costs are pushing some newer offices toward multi-jurisdiction structures. The UK market was valued at roughly $5.2bn in 2024 and is projected to grow at a 6.7% CAGR to around $9.9bn by 2034, with a growing share of offices moving into impact investing.",
+        "source": "Wealthbriefing / Expert Market Research",
+        "url": "https://www.wealthbriefing.com/html/article.php/analysis:-family-offices-in-motion--london's-challenges,-widening-office-footprint-"
+      }
+    ],
+    "sovereign_wealth_funds": [
+      {
+        "id": "national-wealth-fund-5-8bn-commitment-2026",
+        "date": "2026-01",
+        "headline": "National Wealth Fund commits £5.8bn across ten strategic sectors",
+        "summary": "Part of its stated ambition to catalyse more than £100bn of total investment into UK companies, infrastructure and supply chains and support over 200,000 jobs. The £5.8bn spans ten sectors including hydrogen and carbon capture.",
+        "source": "Fuel Cells Works / National Wealth Fund",
+        "url": "https://fuelcellsworks.com/2026/01/28/green-investment/uk-national-wealth-fund-confirms-5-8bn-7-99bn-commitment-across-10-strategic-sectors-including-hydrogen-and-carbon-captur"
+      },
+      {
+        "id": "national-wealth-fund-co-investment-deals-2026",
+        "date": "2026",
+        "headline": "National Wealth Fund signs a run of large co-investment deals",
+        "summary": "Recent commitments include up to £500m with Lloyds Banking Group for university estate decarbonisation, £200m to Associated British Ports' infrastructure programme, and a £500m battery storage platform (Eelpower Energy) alongside Equitix and Aware Super -- illustrating the Fund's growing role as a co-investment partner for institutional capital.",
+        "source": "National Wealth Fund news",
+        "url": "https://www.nationalwealthfund.org.uk/news-and-publications/news/"
+      }
+    ],
+    "ocio": [
+      {
+        "id": "global-ocio-assets-3-3-trillion",
+        "date": "2026",
+        "headline": "Global OCIO assets near $3.3tn, forecast to reach $5.6tn by 2029 (global figure, not UK-specific)",
+        "summary": "Cited here as backdrop rather than a UK data point -- no UK-specific OCIO market sizing was found in this pass. Relevant as more UK family offices and smaller institutions look to outsource CIO functions rather than build in-house teams; worth revisiting once UK-specific figures surface.",
+        "source": "Landytech / industry reports",
+        "url": "https://www.landytech.com/blog/family-office-trends"
+      }
+    ]
+  }
+}
