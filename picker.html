@@ -607,6 +607,7 @@ function onCheckboxChange(input) {
   if (input.checked) SELECTED_CODES.add(code);
   else SELECTED_CODES.delete(code);
   updateSelectionCount();
+  refreshScorecardDisplayIfVisible();
 }
 
 function setAllChecked(checked) {
@@ -619,11 +620,27 @@ function setAllChecked(checked) {
     else SELECTED_CODES.delete(code);
   });
   renderCountryChecklist();
+  refreshScorecardDisplayIfVisible();
 }
 
 function updateSelectionCount() {
   document.getElementById('selection-count').textContent =
     `${SELECTED_CODES.size} of ${ALL_COUNTRIES.length} selected`;
+}
+
+// Re-renders the "Show scorecard" table live as tick-boxes change, so it
+// always reflects only the currently-selected countries (2026-07-30, Peter's
+// request) without needing a fresh fetch -- OVERVIEW_USABLE already has
+// every built country's data once loaded (Factor autoscore's bulk tools
+// still need the full set regardless of this project's selection), this
+// just re-filters what's already in memory. Guarded on OVERVIEW_LOADED so a
+// checkbox click before the background fetch has finished doesn't render a
+// premature "could not be loaded" state, and on the section actually being
+// open so there's no wasted work while it's collapsed.
+function refreshScorecardDisplayIfVisible() {
+  if (!OVERVIEW_LOADED) return;
+  const section = document.getElementById('scorecard-matrix-section');
+  if (section && section.style.display !== 'none') renderOverviewMatrixBody();
 }
 
 async function buildProjectView() {
@@ -1164,6 +1181,12 @@ async function downloadProjectExport(format) {
 // change) so switching views never re-fetches every country's data.
 let OVERVIEW_USABLE = [];       // [{ meta, data }] for countries that loaded
 let OVERVIEW_BUILT_COUNT = 0;
+// Set once loadOverviewData() has fetched at least one round of country
+// data -- lets onCheckboxChange()/setAllChecked() safely re-render the
+// scorecard table as soon as the tick-boxes change (see
+// refreshScorecardDisplayIfVisible() below) without doing so prematurely
+// while OVERVIEW_USABLE is still just empty-because-not-fetched-yet.
+let OVERVIEW_LOADED = false;
 let OVERVIEW_VIEW = 'overall';  // 'overall' | 'allocation'
 let OVERVIEW_ALLOC_TYPE = 'Equities';
 let OVERVIEW_ALLOC_STYLE = '';
@@ -2744,6 +2767,7 @@ async function loadOverviewData(builtCountries) {
   if (!builtCountries.length) {
     table.innerHTML = '';
     document.getElementById('overview-hint').textContent = 'No countries built out yet.';
+    OVERVIEW_LOADED = true;
     return;
   }
 
@@ -2777,7 +2801,12 @@ async function loadOverviewData(builtCountries) {
   });
 
   OVERVIEW_USABLE = countryData.filter(c => c.data);
-  const failed = countryData.filter(c => !c.data).map(c => c.meta.name);
+  // Keeps slug alongside name so renderOverviewMatrixBody() can tell whether
+  // a failed fetch is actually one of the currently-selected countries
+  // before mentioning it -- a failure for a country that isn't even ticked
+  // isn't this view's problem to surface.
+  const failed = countryData.filter(c => !c.data).map(c => ({ slug: c.slug, name: c.meta.name }));
+  OVERVIEW_LOADED = true;
 
   if (!OVERVIEW_USABLE.length) {
     table.innerHTML = '';
@@ -2801,7 +2830,26 @@ async function loadOverviewData(builtCountries) {
 // each one — the point raised that prompted building this view).
 function renderOverviewMatrixBody(failed) {
   const table = document.getElementById('overview-matrix');
-  const usable = OVERVIEW_USABLE;
+  // Narrowed to just the countries currently ticked in the country selector
+  // below (2026-07-30, Peter's request: "only the selected countries to be
+  // shown in Show scorecard and Build output"). OVERVIEW_USABLE itself still
+  // covers every built country -- Factor autoscore's bulk tools deliberately
+  // keep operating on the full set regardless of this project's selection --
+  // this is purely a display-layer filter.
+  const usable = OVERVIEW_USABLE.filter(c => SELECTED_CODES.has(c.slug));
+
+  if (!SELECTED_CODES.size) {
+    table.innerHTML = '';
+    document.getElementById('overview-hint').textContent = 'Select at least one country below to see it here.';
+    return;
+  }
+  if (!usable.length) {
+    table.innerHTML = '';
+    document.getElementById('overview-hint').textContent = OVERVIEW_LOADED
+      ? 'None of the selected countries could be loaded.'
+      : 'Loading the selected countries’ scorecard data…';
+    return;
+  }
 
   // Only show segment columns that actually appear in at least one built
   // country, in canonical order, so the table doesn't carry 19 columns of
@@ -2835,8 +2883,14 @@ function renderOverviewMatrixBody(failed) {
     <tbody>${rows}</tbody>
   `;
 
-  const failedNote = (failed && failed.length)
-    ? ` Could not load: ${failed.join(', ')} — check that their data files have been uploaded to both GitHub and SharePoint.`
+  // Only surface a load failure here if it's actually one of the selected
+  // countries -- a country that failed to fetch but isn't ticked isn't this
+  // view's problem to report. `failed` is only ever passed on the initial
+  // load (undefined on live re-renders triggered by ticking a checkbox), so
+  // this note naturally clears itself as soon as the selection changes.
+  const failedSelected = (failed || []).filter(f => SELECTED_CODES.has(f.slug));
+  const failedNote = failedSelected.length
+    ? ` Could not load: ${failedSelected.map(f => f.name).join(', ')} — check that their data files have been uploaded to both GitHub and SharePoint.`
     : '';
   const viewNote = OVERVIEW_VIEW === 'allocation'
     ? (OVERVIEW_ALLOC_TYPE === ALL_ASSETS_VALUE
@@ -2844,7 +2898,7 @@ function renderOverviewMatrixBody(failed) {
         : `Showing ${OVERVIEW_ALLOC_STYLE ? `${OVERVIEW_ALLOC_TYPE} — ${OVERVIEW_ALLOC_STYLE}` : OVERVIEW_ALLOC_TYPE} allocation ($bn) per segment. Blank cells mean that segment has no allocation data for this selection.`)
     : `Blank cells mean that segment isn't fully scored yet — see the country page to complete it.`;
   document.getElementById('overview-hint').textContent =
-    `${usable.length} of ${OVERVIEW_BUILT_COUNT} built countries loaded. ${viewNote}${failedNote}`;
+    `${usable.length} of ${SELECTED_CODES.size} selected countr${SELECTED_CODES.size === 1 ? 'y' : 'ies'} shown. ${viewNote}${failedNote}`;
 }
 
 
