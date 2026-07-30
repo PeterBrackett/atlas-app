@@ -21,6 +21,20 @@ const VALID_DIMENSIONS = [
   'consultant_reliant'
 ];
 
+// 2026-07-30: clients can now define their own additional scorecard factors
+// (see setCustomDimensions.js / global.json's custom_dimensions field). A
+// custom factor's key is always generated client-side as `custom_` plus a
+// slug, so rather than each write endpoint fetching global.json just to
+// check a key against the live custom_dimensions list (extra round-trip on
+// every score save), a key is accepted here if it either matches the fixed
+// 12 above OR looks like a custom key. isDimensionEnabled()/weight edits for
+// a key that was never actually created are harmless no-ops downstream, same
+// as they'd be for any other key.
+const CUSTOM_DIMENSION_KEY_RE = /^custom_[a-z0-9_]{1,50}$/;
+function isValidDimensionKey(key) {
+  return VALID_DIMENSIONS.includes(key) || CUSTOM_DIMENSION_KEY_RE.test(key);
+}
+
 let msalClient;
 function getMsalClient() {
   if (!msalClient) {
@@ -90,7 +104,7 @@ app.http('setEnabledDimensions', {
       return { status: 400, jsonBody: { error: 'enabled_dimensions object is required' } };
     }
     for (const key of Object.keys(enabled_dimensions)) {
-      if (!VALID_DIMENSIONS.includes(key)) {
+      if (!isValidDimensionKey(key)) {
         return { status: 400, jsonBody: { error: `Unknown scorecard dimension: ${key}` } };
       }
       if (typeof enabled_dimensions[key] !== 'boolean') {

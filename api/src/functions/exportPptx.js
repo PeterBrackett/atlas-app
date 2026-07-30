@@ -456,8 +456,8 @@ function addAumSlide(pptx, countryName, segments, generatedDate) {
 
 // One country's scorecard slide. Same factoring-out reasoning as
 // addAumSlide() above.
-function addScorecardSlide(pptx, countryName, segments, enabledDimensions, weightOverrides, allocType, allocStyle) {
-  const matrix = buildScorecardMatrix(segments, enabledDimensions, weightOverrides, allocType, allocStyle);
+function addScorecardSlide(pptx, countryName, segments, enabledDimensions, weightOverrides, allocType, allocStyle, customDimensions) {
+  const matrix = buildScorecardMatrix(segments, enabledDimensions, weightOverrides, allocType, allocStyle, customDimensions);
   const scorecardSlide = addAtlasSlide(pptx);
   scorecardSlide.addText(`Atlas — ${countryName}`, { x: TITLE_X, y: 0.25, fontSize: 24, bold: true });
   scorecardSlide.addText('Opportunity scorecard', { x: 0.4, y: 0.85, fontSize: 12, color: '666666' });
@@ -489,12 +489,12 @@ function resolveInclude(rawInclude) {
 // single-country payload (country.html) and the multi-country payload
 // (picker.html's project builder), so a project export is just this
 // repeated once per selected country.
-function addCountrySlides(pptx, countryName, segments, generatedDate, enabledDimensions, include, weightOverrides, commentary, developments, allocType, allocStyle) {
+function addCountrySlides(pptx, countryName, segments, generatedDate, enabledDimensions, include, weightOverrides, commentary, developments, allocType, allocStyle, customDimensions) {
   const includeSet = include || new Set(ALL_CONTENT_TYPES);
   let commentarySections = [];
   if (includeSet.has('commentary')) commentarySections = addCommentarySlides(pptx, countryName, commentary, segments, developments);
   if (includeSet.has('aum')) addAumSlide(pptx, countryName, segments, generatedDate);
-  if (includeSet.has('scorecard')) addScorecardSlide(pptx, countryName, segments, enabledDimensions, weightOverrides, allocType, allocStyle);
+  if (includeSet.has('scorecard')) addScorecardSlide(pptx, countryName, segments, enabledDimensions, weightOverrides, allocType, allocStyle, customDimensions);
   if (includeSet.has('top_institutions')) addTopInstitutionsSlides(pptx, countryName, segments);
 
   // Consolidated Sources slide(s) -- only when commentary and/or AUM were
@@ -607,7 +607,9 @@ app.http('exportPptx', {
       // "Allocation row shows" dropdown was set to on-screen (see the same
       // comment in exportDocx.js). Defaults to Equities/no-style in
       // buildScorecardMatrix() if omitted.
-      countries.forEach((c) => addCountrySlides(pptx, c.country_name, c.segments, generatedDate, body.enabled_dimensions, include, body.weight_overrides, c.commentary, c.developments, body.alloc_type, body.alloc_style));
+      // custom_dimensions -- client-defined additional scorecard factors
+      // (see exportHelpers.js's resolveDimensions() comment). Optional.
+      countries.forEach((c) => addCountrySlides(pptx, c.country_name, c.segments, generatedDate, body.enabled_dimensions, include, body.weight_overrides, c.commentary, c.developments, body.alloc_type, body.alloc_style, body.custom_dimensions));
 
       // Supporting-evidence appendix slides -- see addEvidenceSlides() above.
       // body.evidence is only ever populated by picker.html's "Attach

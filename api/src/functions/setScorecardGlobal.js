@@ -19,6 +19,16 @@ const VALID_DIMENSIONS = [
   'consultant_reliant'
 ];
 
+// See setEnabledDimensions.js's comment -- accept client-defined custom
+// factor keys (always `custom_` prefixed) alongside the fixed 12. In
+// practice no on-screen tool posts a custom key here today (the bulk
+// autoscore tools each hardcode one of the fixed 12), but relaxing this
+// keeps the five write endpoints consistent and future-proof.
+const CUSTOM_DIMENSION_KEY_RE = /^custom_[a-z0-9_]{1,50}$/;
+function isValidDimensionKey(key) {
+  return VALID_DIMENSIONS.includes(key) || CUSTOM_DIMENSION_KEY_RE.test(key);
+}
+
 let msalClient;
 function getMsalClient() {
   if (!msalClient) {
@@ -85,7 +95,7 @@ app.http('setScorecardGlobal', {
     }
 
     const { dimension, assignments } = body || {};
-    if (!dimension || !VALID_DIMENSIONS.includes(dimension)) {
+    if (!dimension || !isValidDimensionKey(dimension)) {
       return { status: 400, jsonBody: { error: `Unknown scorecard dimension: ${dimension}` } };
     }
     if (!Array.isArray(assignments) || !assignments.length) {

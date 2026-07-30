@@ -20,6 +20,14 @@ const VALID_DIMENSIONS = [
   'consultant_reliant'
 ];
 
+// See setEnabledDimensions.js's comment -- client-defined custom factors use
+// a `custom_` prefixed key, accepted here alongside the fixed 12 so a pushed
+// weighting for a custom factor isn't rejected.
+const CUSTOM_DIMENSION_KEY_RE = /^custom_[a-z0-9_]{1,50}$/;
+function isValidDimensionKey(key) {
+  return VALID_DIMENSIONS.includes(key) || CUSTOM_DIMENSION_KEY_RE.test(key);
+}
+
 let msalClient;
 function getMsalClient() {
   if (!msalClient) {
@@ -91,7 +99,7 @@ app.http('setDimensionWeights', {
       return { status: 400, jsonBody: { error: 'dimension_weights object is required' } };
     }
     for (const key of Object.keys(dimension_weights)) {
-      if (!VALID_DIMENSIONS.includes(key)) {
+      if (!isValidDimensionKey(key)) {
         return { status: 400, jsonBody: { error: `Unknown scorecard dimension: ${key}` } };
       }
       if (typeof dimension_weights[key] !== 'number' || !Number.isFinite(dimension_weights[key])) {

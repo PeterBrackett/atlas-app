@@ -19,6 +19,13 @@ const VALID_DIMENSIONS = [
   'consultant_reliant'
 ];
 
+// See setEnabledDimensions.js's comment -- accept client-defined custom
+// factor keys (always `custom_` prefixed) alongside the fixed 12.
+const CUSTOM_DIMENSION_KEY_RE = /^custom_[a-z0-9_]{1,50}$/;
+function isValidDimensionKey(key) {
+  return VALID_DIMENSIONS.includes(key) || CUSTOM_DIMENSION_KEY_RE.test(key);
+}
+
 let msalClient;
 function getMsalClient() {
   if (!msalClient) {
@@ -88,7 +95,7 @@ app.http('setScorecardBulk', {
     if (!country || !dimension) {
       return { status: 400, jsonBody: { error: 'country and dimension are required' } };
     }
-    if (!VALID_DIMENSIONS.includes(dimension)) {
+    if (!isValidDimensionKey(dimension)) {
       return { status: 400, jsonBody: { error: `Unknown scorecard dimension: ${dimension}` } };
     }
     // value is either a score of 1-3, or null to clear every segment's dimension back to "not yet scored".
