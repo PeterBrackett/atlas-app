@@ -4,6 +4,16 @@
 // Node deployment (api_location) with no access to atlas-site's files at
 // build time. If the 12 dimensions, weights, or canonical segment order
 // ever change, update both files -- this one and atlas-site/scorecard-dimensions.js.
+//
+// Unlike the client-side copy, this file's own .weight values never get
+// mutated by a "pushed" global weighting (see applyGlobalDimensionWeights()
+// in scorecard-dimensions.js) -- there's no live global.json fetch here to
+// react to. Instead, country.html/picker.html always send an explicit,
+// fully-resolved weight_overrides object in every export request (built
+// client-side from whatever SCORECARD_DIMENSIONS' current, possibly-pushed,
+// weights are, merged with any session-local override on top), so
+// buildScorecardMatrix()'s weightOverrides parameter is the one and only
+// place a pushed weighting reaches an export -- not this constant.
 const SCORECARD_DIMENSIONS = [
   { key: 'market_opportunity', label: 'Market opportunity', weight: 3 },
   { key: 'outsourced_management', label: 'Outsourced management', weight: 1 },
@@ -34,6 +44,23 @@ function segmentSortIndex(segmentName) {
   return i === -1 ? CANONICAL_SEGMENT_ORDER.length : i;
 }
 
+// Client-defined custom scorecard factors (global.json's custom_dimensions
+// field -- see setCustomDimensions.js) are threaded through as an explicit
+// `customDimensions` argument to every function below, rather than being
+// pushed onto the module-level SCORECARD_DIMENSIONS constant the way
+// applyCustomDimensions() mutates the client-side copy in
+// scorecard-dimensions.js. That mutate-in-place trick is safe there because
+// each browser tab has its own JS heap, but this file runs inside an Azure
+// Functions process that can serve several concurrent export requests (from
+// different clients, with different custom factors) against the same warm
+// module instance -- mutating a shared array per-request would let one
+// request's custom factors leak into another's export. resolveDimensions()
+// instead builds a fresh, request-scoped array on every call, leaving the
+// shared constant untouched.
+function resolveDimensions(customDimensions) {
+  return (customDimensions && customDimensions.length) ? SCORECARD_DIMENSIONS.concat(customDimensions) : SCORECARD_DIMENSIONS;
+}
+
 // Kept in sync with the same functions in scorecard-dimensions.js (see the
 // comment there for the reasoning) -- enabledDimensions is an optional
 // {dimensionKey: boolean} map sourced from global.json's enabled_dimensions
@@ -42,8 +69,8 @@ function isDimensionEnabled(dimKey, enabledDimensions) {
   return !enabledDimensions || enabledDimensions[dimKey] !== false;
 }
 
-function enabledDimensionCount(enabledDimensions) {
-  return SCORECARD_DIMENSIONS.filter((d) => isDimensionEnabled(d.key, enabledDimensions)).length;
+function enabledDimensionCount(enabledDimensions, customDimensions) {
+  return resolveDimensions(customDimensions).filter((d) => isDimensionEnabled(d.key, enabledDimensions)).length;
 }
 
 // Mirrors atlas-site/scorecard-dimensions.js -- changed 2026-07-15 to
@@ -60,9 +87,9 @@ function enabledDimensionCount(enabledDimensions) {
 // screen. A dimension missing from the map (or no map at all) keeps its own
 // default weight, so every existing caller (country.html's single-country
 // export, which has no weighting UI) is unaffected.
-function computeOverallScore(scorecard, enabledDimensions, weightOverrides) {
+function computeOverallScore(scorecard, enabledDimensions, weightOverrides, customDimensions) {
   let total = 0;
-  for (const dim of SCORECARD_DIMENSIONS) {
+  for (const dim of resolveDimensions(customDimensions)) {
     if (!isDimensionEnabled(dim.key, enabledDimensions)) continue;
     const v = scorecard ? scorecard[dim.key] : undefined;
     const w = (weightOverrides && typeof weightOverrides[dim.key] === 'number') ? weightOverrides[dim.key] : dim.weight;
@@ -76,9 +103,9 @@ function computeOverallScore(scorecard, enabledDimensions, weightOverrides) {
 // enabled-dimension set, so overallColor()'s red/amber/green banding can be
 // rescaled to match a custom weighting instead of staying calibrated for
 // the default one.
-function computeOverallRange(enabledDimensions, weightOverrides) {
+function computeOverallRange(enabledDimensions, weightOverrides, customDimensions) {
   let min = 0, max = 0;
-  for (const dim of SCORECARD_DIMENSIONS) {
+  for (const dim of resolveDimensions(customDimensions)) {
     if (!isDimensionEnabled(dim.key, enabledDimensions)) continue;
     const w = (weightOverrides && typeof weightOverrides[dim.key] === 'number') ? weightOverrides[dim.key] : dim.weight;
     min += 1 * w;
@@ -87,9 +114,9 @@ function computeOverallRange(enabledDimensions, weightOverrides) {
   return { min, max };
 }
 
-function scoredDimensionCount(scorecard, enabledDimensions) {
+function scoredDimensionCount(scorecard, enabledDimensions, customDimensions) {
   if (!scorecard) return 0;
-  return SCORECARD_DIMENSIONS.filter((d) => isDimensionEnabled(d.key, enabledDimensions) && typeof scorecard[d.key] === 'number').length;
+  return resolveDimensions(customDimensions).filter((d) => isDimensionEnabled(d.key, enabledDimensions) && typeof scorecard[d.key] === 'number').length;
 }
 
 // Finds a segment's total Equities allocation figure, if present, matching
@@ -236,14 +263,23 @@ function overallColor(value, range) {
 // (e.g. an older cached client, or a direct API call), so this never
 // regresses to "no row" again -- it now always shows something, just not
 // necessarily whatever was on screen when the export button was clicked.
-function buildScorecardMatrix(segments, enabledDimensions, weightOverrides, allocType, allocStyle) {
+function buildScorecardMatrix(segments, enabledDimensions, weightOverrides, allocType, allocStyle, customDimensions) {
   const cols = (segments || []).slice().sort((a, b) => segmentSortIndex(a.segment) - segmentSortIndex(b.segment));
-  const enabledCount = enabledDimensionCount(enabledDimensions);
-  const overallRange = weightOverrides ? computeOverallRange(enabledDimensions, weightOverrides) : null;
+  const enabledCount = enabledDimensionCount(enabledDimensions, customDimensions);
+  // Recompute the Overall range (rather than relying on the fixed 22/30
+  // cutoffs baked into overallColor()'s no-range branch) whenever either a
+  // weighting override OR any custom dimension is in play -- a custom
+  // factor shifts the achievable Overall range even at its default weight,
+  // so the fixed cutoffs (calibrated only for the original 12 dimensions)
+  // would otherwise miscolor every Overall cell once a custom factor exists,
+  // not just ones with an explicit weight override.
+  const overallRange = (weightOverrides || (customDimensions && customDimensions.length))
+    ? computeOverallRange(enabledDimensions, weightOverrides, customDimensions)
+    : null;
   const resolvedAllocType = allocType || 'Equities';
   const resolvedAllocStyle = allocStyle || '';
 
-  const dimensionRows = SCORECARD_DIMENSIONS
+  const dimensionRows = resolveDimensions(customDimensions)
     .filter((dim) => isDimensionEnabled(dim.key, enabledDimensions))
     .map((dim) => {
       const effectiveWeight = (weightOverrides && typeof weightOverrides[dim.key] === 'number') ? weightOverrides[dim.key] : dim.weight;
@@ -265,15 +301,15 @@ function buildScorecardMatrix(segments, enabledDimensions, weightOverrides, allo
   const scoredRow = {
     type: 'scored',
     label: 'Scored',
-    values: cols.map((s) => `${scoredDimensionCount(s.scorecard, enabledDimensions)}/${enabledCount}`),
+    values: cols.map((s) => `${scoredDimensionCount(s.scorecard, enabledDimensions, customDimensions)}/${enabledCount}`),
     colors: cols.map(() => null)
   };
 
   const overallRow = {
     type: 'overall',
     label: 'Overall',
-    values: cols.map((s) => String(computeOverallScore(s.scorecard, enabledDimensions, weightOverrides))),
-    colors: cols.map((s) => overallColor(computeOverallScore(s.scorecard, enabledDimensions, weightOverrides), overallRange))
+    values: cols.map((s) => String(computeOverallScore(s.scorecard, enabledDimensions, weightOverrides, customDimensions))),
+    colors: cols.map((s) => overallColor(computeOverallScore(s.scorecard, enabledDimensions, weightOverrides, customDimensions), overallRange))
   };
 
   const aumRow = {
