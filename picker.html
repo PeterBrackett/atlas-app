@@ -2789,7 +2789,7 @@ function renderCustomDimensionsPanel() {
     ? customDims.map(d => `
       <div style="display:flex; align-items:center; gap:8px; font-size:0.86rem;">
         <span style="flex:1;">${d.label} <span style="color:#8a97a3; font-size:0.78rem;">(default weight ${d.weight})</span></span>
-        <button type="button" class="btn-toggle" style="font-size:0.78rem; padding:2px 10px; cursor:pointer;" onclick="removeCustomDimensionAndSave('${d.key}', ${JSON.stringify(d.label)})">Remove</button>
+        <button type="button" class="btn-toggle" style="font-size:0.78rem; padding:2px 10px; cursor:pointer;" onclick='removeCustomDimensionAndSave(${JSON.stringify(d.key)}, ${JSON.stringify(d.label)})'>Remove</button>
       </div>`).join('')
     : '<span class="note" style="border-top:none; padding:0; font-size:0.8rem;">No custom factors added yet.</span>';
 }
