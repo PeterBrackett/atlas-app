@@ -107,6 +107,47 @@ function enabledDimensionCount(enabledDimensions) {
   return SCORECARD_DIMENSIONS.filter(d => isDimensionEnabled(d.key, enabledDimensions)).length;
 }
 
+// Mutates SCORECARD_DIMENSIONS' own `.weight` fields in place from
+// global.json's dimension_weights map (see setDimensionWeights.js) -- added
+// 2026-07-30 for weighting.html's "Push to scorecard" button, so a client's
+// preferred weighting (explored live via that page's sliders) can become the
+// standard weighting every page uses, not just a per-session override.
+// Deliberately mutates the shared constant rather than threading a new
+// parameter through every call site: SCORECARD_DIMENSIONS is one shared
+// array reference used throughout country.html/scorecard.html/picker.html/
+// map.html/weighting.html, so every computeOverallScore()/
+// computeOverallRange() call that doesn't pass its own weightOverrides
+// already reads dim.weight straight off this array -- updating it here once,
+// right after global.json loads, is enough for the pushed weighting to take
+// effect everywhere with no other code changes. A dimension key missing from
+// dimensionWeights (or no map at all, e.g. before anything's ever been
+// pushed) keeps whatever weight it already had, so this is a no-op until
+// something's actually been pushed.
+function applyGlobalDimensionWeights(dimensionWeights) {
+  if (!dimensionWeights) return;
+  SCORECARD_DIMENSIONS.forEach(dim => {
+    if (typeof dimensionWeights[dim.key] === 'number') dim.weight = dimensionWeights[dim.key];
+  });
+}
+
+// A full 12-key {dimensionKey: weight} snapshot of SCORECARD_DIMENSIONS'
+// current weights (i.e. the pushed global weighting, if any, already applied
+// via applyGlobalDimensionWeights() above), optionally overlaid with a
+// session-local override on top (e.g. picker.html's PROJECT_WEIGHTS). Used
+// when building an export payload -- country.html/picker.html always send
+// this as `weight_overrides` rather than only sending a session override (or
+// nothing), since exportHelpers.js's own SCORECARD_DIMENSIONS copy has no way
+// to know about a weighting pushed from weighting.html (see that file's
+// comment). Sending the full resolved set works out identical to sending
+// nothing at all when nothing's ever been pushed and no session override is
+// active, since every value just equals each dimension's original default.
+function currentEffectiveWeights(sessionOverride) {
+  const weights = {};
+  SCORECARD_DIMENSIONS.forEach(dim => { weights[dim.key] = dim.weight; });
+  if (sessionOverride) Object.assign(weights, sessionOverride);
+  return weights;
+}
+
 // Overall score for a segment. Changed 2026-07-15 (Peter's request) from
 // "null if any ENABLED dimension hasn't been scored yet" to always
 // returning a real number: a missing dimension now contributes 0 to the

@@ -829,17 +829,23 @@ async function loadDevelopments(code) {
 // (see the "Dimensions included in Overall score" panel on overview.html).
 // country.html doesn't otherwise need global.json for anything, so this is
 // its own small fetch rather than piggybacking on loadData().
+// Also applies any pushed dimension_weights (see applyGlobalDimensionWeights()
+// in scorecard-dimensions.js / weighting.html's "Push to scorecard" button)
+// as a side effect, since it's already fetching the same global.json this
+// function needs enabled_dimensions from -- no separate fetch needed.
 async function loadEnabledDimensions() {
   try {
     const res = await fetch('/api/data/global');
     if (!res.ok) throw new Error('API not ready');
     const data = await res.json();
+    applyGlobalDimensionWeights(data.dimension_weights);
     return data.enabled_dimensions || null;
   } catch (e) {
     try {
       const res = await fetch('data/global.json');
       if (!res.ok) return null;
       const data = await res.json();
+      applyGlobalDimensionWeights(data.dimension_weights);
       return data.enabled_dimensions || null;
     } catch (e2) {
       return null;
@@ -872,6 +878,12 @@ async function downloadExport(format) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         country_name: CURRENT_COUNTRY_NAME, segments: LOADED_SEGMENTS, enabled_dimensions: ENABLED_DIMENSIONS, commentary: CURRENT_COMMENTARY, developments: CURRENT_DEVELOPMENTS,
+        // currentEffectiveWeights() (scorecard-dimensions.js) -- so a
+        // weighting pushed from weighting.html's "Push to scorecard" button
+        // reaches this export too, not just the on-screen matrix. country.html
+        // has no session-local weighting UI of its own, so this is always
+        // just the resolved global defaults.
+        weight_overrides: currentEffectiveWeights(),
         // Matches whatever the "Allocation row shows" dropdown is currently
         // set to, so the exported scorecard's allocation row (added
         // 2026-07-23) shows the same thing that's on screen right now.

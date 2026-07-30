@@ -2050,6 +2050,13 @@ async function load() {
   }
 
   GLOBAL_DATA = data;
+  // Applies any weighting pushed from weighting.html's "Push to scorecard"
+  // button (see applyGlobalDimensionWeights()'s comment) -- mutates
+  // SCORECARD_DIMENSIONS' own .weight fields in place, so every
+  // computeOverallScore()/computeOverallRange() call below (and the "x3"
+  // etc. suffix on each dimension row label) already reflects it with no
+  // further changes needed on this page.
+  applyGlobalDimensionWeights(data.dimension_weights);
   renderMarketOpportunityBasis(data.market_opportunity_basis);
   renderRegulatoryComplexityBasis(data.regulatory_complexity_basis);
   renderDistributionResourcesBasis(data.distribution_resources_basis);

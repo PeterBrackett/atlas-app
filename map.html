@@ -218,7 +218,15 @@ async function ensureScoreCache() {
   let enabledDimensions = null;
   try {
     const res = await fetchWithTimeout('/api/data/global', undefined, 15000);
-    if (res.ok) enabledDimensions = (await res.json()).enabled_dimensions || null;
+    if (res.ok) {
+      const globalData = await res.json();
+      enabledDimensions = globalData.enabled_dimensions || null;
+      // Applies any weighting pushed from weighting.html's "Push to
+      // scorecard" button (see that function's comment in
+      // scorecard-dimensions.js) before this page's own weightedOverallForCountry()
+      // computes anything with it.
+      applyGlobalDimensionWeights(globalData.dimension_weights);
+    }
   } catch (e) { /* fall back to null -- every dimension counts */ }
 
   const built = COUNTRIES.filter(c => c.status === 'built' && c.href);

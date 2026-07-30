@@ -785,16 +785,18 @@ async function downloadProjectExport(format) {
     const res = await fetch(`/api/export/${format}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      // weight_overrides: PROJECT_WEIGHTS -- this was the actual gap. The
-      // custom weighting column (see renderWeightingPanel() etc. above) only
-      // ever changed the on-screen Overall column; the export endpoints had
-      // no idea it existed until this line and the corresponding
-      // exportHelpers.js/exportDocx.js/exportPptx.js changes. null when no
-      // custom weighting is set, same as the on-screen render's PROJECT_WEIGHTS.
+      // weight_overrides: currentEffectiveWeights(PROJECT_WEIGHTS) --
+      // resolves to SCORECARD_DIMENSIONS' current weights (i.e. any pushed
+      // global weighting already applied via applyGlobalDimensionWeights())
+      // with this project's own session-local override, if any, layered on
+      // top -- see that function's comment (scorecard-dimensions.js). Always
+      // a full 12-key object now, not just PROJECT_WEIGHTS or null, since
+      // exportHelpers.js's own SCORECARD_DIMENSIONS copy has no way to know
+      // about a pushed weighting on its own.
       // alloc_type/alloc_style -- 2026-07-23, matches whatever the "Show:
       // Asset allocation" dropdowns are currently set to, so the exported
       // scorecard's allocation row shows the same thing that's on screen.
-      body: JSON.stringify({ countries, enabled_dimensions: ENABLED_DIMENSIONS, include, weight_overrides: PROJECT_WEIGHTS, alloc_type: PROJECT_ALLOC_TYPE, alloc_style: PROJECT_ALLOC_STYLE, evidence })
+      body: JSON.stringify({ countries, enabled_dimensions: ENABLED_DIMENSIONS, include, weight_overrides: currentEffectiveWeights(PROJECT_WEIGHTS), alloc_type: PROJECT_ALLOC_TYPE, alloc_style: PROJECT_ALLOC_STYLE, evidence })
     });
 
     if (!res.ok) {
@@ -824,7 +826,6 @@ async function downloadProjectExport(format) {
 async function load() {
   await checkAuth();
   updateProjectMoVisibility();
-  renderWeightingPanel();
 
   let data;
   try {
@@ -838,6 +839,13 @@ async function load() {
 
   ALL_COUNTRIES = (data.countries || []).filter(c => c.status === 'built');
   ENABLED_DIMENSIONS = data.enabled_dimensions || null;
+  // Applies any weighting pushed from weighting.html's "Push to scorecard"
+  // button (see that function's comment in scorecard-dimensions.js) --
+  // deliberately done before renderWeightingPanel() below, so the panel's
+  // prefilled number inputs (and their "Default: N" tooltips) reflect the
+  // pushed defaults, not the original hardcoded ones.
+  applyGlobalDimensionWeights(data.dimension_weights);
+  renderWeightingPanel();
 
   document.getElementById('picker-summary-bar').innerHTML = `
     <div class="stat-card"><div class="value">${ALL_COUNTRIES.length}</div><div class="label">Countries available to pick from</div></div>

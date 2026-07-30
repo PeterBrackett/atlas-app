@@ -10,6 +10,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <script src="scorecard-dimensions.js"></script>
+<script src="segment-type-defaults.js"></script>
 </head>
 <body>
 <header class="site-header">
@@ -31,11 +32,14 @@
 
   <div id="weighting-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:10px 20px; margin:20px 0;"></div>
   <button type="button" class="btn-primary" style="cursor:pointer;" onclick="resetWeights()">Reset to default weighting</button>
+  <button type="button" class="btn-primary" id="push-weights-btn" style="cursor:pointer; display:none; margin-left:8px;" onclick="pushWeightsToScorecard()">Push this weighting to the scorecard, site-wide</button>
   <span class="note" id="weighting-hint" style="border-top:none; padding-top:0; margin:0 0 0 10px; font-size:0.8rem; display:inline-block;"></span>
 
   <div style="display:flex; align-items:center; flex-wrap:wrap; gap:10px; margin:28px 0 10px;">
-    <label for="filter-input"><strong>Filter:</strong></label>
-    <input type="text" id="filter-input" placeholder="Country or segment name…" oninput="renderBars()" style="padding:5px 8px; border:1px solid var(--border); border-radius:5px; font-size:0.88rem; min-width:220px;">
+    <label for="filter-country-select"><strong>Country:</strong></label>
+    <select id="filter-country-select" onchange="renderBars()"><option value="">All countries</option></select>
+    <label for="filter-segment-select"><strong>Segment:</strong></label>
+    <select id="filter-segment-select" onchange="renderBars()"><option value="">All segments</option></select>
     <label for="topn-select"><strong>Show:</strong></label>
     <select id="topn-select" onchange="renderBars()">
       <option value="25">Top 25</option>
@@ -67,6 +71,17 @@ async function checkAuth() {
   } else {
     el.innerHTML = `<a href="/.auth/login/aad?post_login_redirect_uri=${encodeURIComponent(window.location.href)}" style="color:#b9c6d3;">Log in</a>`;
   }
+  updatePushButtonVisibility();
+}
+
+// "Push to scorecard" is a site-wide, persisted write (same authority as
+// setEnabledDimensions.js's toggle panel), so only shown once we know who's
+// signed in -- same gate the edit UIs elsewhere on the site use, not a real
+// security boundary (the API itself re-checks ALLOWED_EDITOR_EMAIL) but
+// enough to keep the button from inviting a signed-out visitor to try.
+function updatePushButtonVisibility() {
+  const btn = document.getElementById('push-weights-btn');
+  if (btn) btn.style.display = CURRENT_USER ? 'inline-block' : 'none';
 }
 
 // Same try-API-then-static-file fallback shape used throughout the site
@@ -168,6 +183,65 @@ function resetWeights() {
   renderBars();
 }
 
+// Turns the sliders' current session-local weighting into the site's actual
+// persisted default (global.json's dimension_weights, via
+// setDimensionWeights.js) -- from then on every page that calls
+// applyGlobalDimensionWeights() on load (country.html, scorecard.html,
+// picker.html, map.html, this page) starts from these values instead of the
+// original hardcoded weights, until someone pushes again. This is
+// deliberately the same "global and persisted, not a personal filter" model
+// as the enabled-dimensions toggle panel, so it gets the same confirm()
+// gate spelling out the blast radius before writing anything.
+async function pushWeightsToScorecard() {
+  if (!CURRENT_USER) return;
+  const w = currentWeights();
+  const changed = SCORECARD_DIMENSIONS.filter(d => w[d.key] !== d.weight);
+  if (!changed.length) {
+    alert('Move at least one slider away from the current default before pushing a weighting.');
+    return;
+  }
+
+  const summary = changed.map(d => `${d.label}: ${d.weight} → ${w[d.key]}`).join('\n');
+  const ok = confirm(
+    `This replaces the site-wide default dimension weighting -- used on every country page, ` +
+    `the scorecard, the project builder, the world map and every export -- until it's changed again:\n\n${summary}` +
+    `\n\nPush this weighting?`
+  );
+  if (!ok) return;
+
+  const btn = document.getElementById('push-weights-btn');
+  btn.disabled = true;
+  const originalText = btn.textContent;
+  btn.textContent = 'Pushing…';
+
+  try {
+    const res = await fetch('/api/global/set-dimension-weights', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ dimension_weights: { ...w } })
+    });
+    const result = await res.json();
+    if (!res.ok) throw new Error(result.error || `Request failed (${res.status})`);
+
+    // SCORECARD_DIMENSIONS' own .weight values now equal what the sliders
+    // already showed, so "custom" reverts to "this is the default" --
+    // resetting WEIGHTS to null (rather than leaving the same numbers marked
+    // custom) reflects that honestly.
+    applyGlobalDimensionWeights(result.dimension_weights);
+    if (GLOBAL_DATA) GLOBAL_DATA.dimension_weights = result.dimension_weights;
+    WEIGHTS = null;
+    renderWeightingGrid();
+    renderBars();
+    document.getElementById('weighting-hint').textContent =
+      `Pushed as the new site-wide default weighting (by ${result.updated_by || 'you'}, ${result.updated_date || 'just now'}). Every page and export uses this until it's changed again.`;
+  } catch (e) {
+    alert(`Couldn't push this weighting: ${e.message}`);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+}
+
 // One row per (country, segment) pair, across every built country -- built
 // once on load and re-ranked/re-coloured on every slider move, rather than
 // re-fetched. computeOverallScore()/computeOverallRange() are pure
@@ -175,21 +249,140 @@ function resetWeights() {
 // drag is cheap even across several hundred segments.
 let ALL_ROWS = [];
 
-async function loadAllRows() {
-  const noteEl = document.getElementById('loading-note');
-  noteEl.textContent = 'Loading every built country’s scorecard data…';
+// This page's own {dimensionKey: boolean} enabled-dimensions set and the raw
+// global.json payload, both populated once in load() -- kept so renderBars()
+// can honour the site's actual enabled/disabled toggle (previously hardcoded
+// to null here, ignoring it) and so the drill-down panel can surface the
+// relevant *_basis field (see dimensionBasisNoteForSegment() below).
+let ENABLED_DIMENSIONS = null;
+let GLOBAL_DATA = null;
 
-  let countries = [];
+// Which (country, segment) rows currently have their drill-down panel open,
+// keyed by "countryName::segmentName" -- a Set survives renderBars()
+// re-running on every slider drag/filter change, so an expanded row stays
+// expanded as the numbers underneath it update live.
+let EXPANDED_ROWS = new Set();
+
+function rowKey(r) {
+  return `${r.countryName}::${r.segmentName}`;
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function toggleRow(key) {
+  if (EXPANDED_ROWS.has(key)) EXPANDED_ROWS.delete(key);
+  else EXPANDED_ROWS.add(key);
+  renderBars();
+}
+
+// Surfaces the one basis note Peter's own question was actually about:
+// market_opportunity (the ×3-weighted dimension) is frequently bulk-scored
+// off a single chosen asset class's allocation size (see scorecard.html's
+// "Auto-score Market opportunity from an allocation" tool), which defaults
+// to Equities -- so a segment that's strong in a different asset class (or
+// weak in Equities specifically) can look artificially unattractive here,
+// and vice versa. Only market_opportunity gets a fully-worded note (it's the
+// heaviest-weighted dimension and the one behind Peter's own "why is DC
+// doing well" question); the other 11 *_basis fields get a generic
+// last-bulk-run mention rather than trying to describe every threshold
+// field's own units.
+const OTHER_BASIS_FIELDS = [
+  { key: 'regulatory_complexity_basis', label: 'Regulatory complexity' },
+  { key: 'distribution_resources_basis', label: 'Distribution resources required' },
+  { key: 'languages_required_basis', label: 'Languages required' },
+  { key: 'local_presence_required_basis', label: 'Local presence required' },
+  { key: 'client_servicing_basis', label: 'Client servicing' },
+  { key: 'consultant_reliant_basis', label: 'Consultant reliant' },
+  { key: 'pricing_impact_basis', label: 'Pricing impact' },
+  { key: 'outsourced_management_basis', label: 'Outsourced management' },
+  { key: 'comingled_vehicles_basis', label: 'Comingled vehicles' },
+  { key: 'investor_decision_making_basis', label: 'Investor decision-making' },
+  { key: 'alignment_of_investment_thinking_basis', label: 'Alignment of investment thinking' }
+];
+
+function dimensionBasisNoteForSegment() {
+  if (!GLOBAL_DATA) return '';
+  const notes = [];
+  const mo = GLOBAL_DATA.market_opportunity_basis;
+  if (mo) {
+    const cls = mo.asset_style ? `${mo.asset_type} — ${mo.asset_style}` : mo.asset_type;
+    notes.push(
+      `<strong>Market opportunity</strong> (×3 weight, the heaviest dimension here) was last bulk-scored across every ` +
+      `country from <strong>${cls}</strong> allocation size alone (threshold $${mo.threshold_bn}bn / optimal $${mo.optimal_bn}bn) -- ` +
+      `a segment that's strong in a different asset class won't show that strength in this number.`
+    );
+  } else {
+    notes.push('<strong>Market opportunity</strong> (×3 weight) has not been bulk auto-scored -- these are manually entered per segment.');
+  }
+  const otherRun = OTHER_BASIS_FIELDS.filter(f => !!GLOBAL_DATA[f.key]);
+  if (otherRun.length) {
+    notes.push(`Also last bulk-scored from a single rule applied to every country: ${otherRun.map(f => f.label).join(', ')} -- see the Scorecard page's auto-scoring tools for exactly what each was based on.`);
+  }
+  return notes.join(' ');
+}
+
+// One segment's full drill-down: all 12 dimensions' {score, weight,
+// contribution}, plus a flag on any of the four segment-type-heuristic
+// dimensions whose current value is still exactly the generic starting-point
+// default for that segment name (segment-type-defaults.js) rather than a
+// judgment call made for this specific segment.
+const SEGMENT_TYPE_HEURISTIC_KEYS = ['outsourced_management', 'comingled_vehicles', 'investor_decision_making', 'alignment_of_investment_thinking'];
+
+function buildDrilldownHtml(r, w) {
+  const rowsHtml = SCORECARD_DIMENSIONS.map(dim => {
+    if (!isDimensionEnabled(dim.key, ENABLED_DIMENSIONS)) return '';
+    const score = r.scorecard ? r.scorecard[dim.key] : undefined;
+    const hasScore = typeof score === 'number';
+    const weight = w[dim.key];
+    const contribution = hasScore ? score * weight : 0;
+    const isHeuristicDefault = SEGMENT_TYPE_HEURISTIC_KEYS.includes(dim.key) && hasScore &&
+      typeof segmentTypeDefaultScore === 'function' &&
+      segmentTypeDefaultScore(dim.key, r.segmentName) === score;
+    return `<tr>
+      <td style="padding:3px 10px 3px 0; white-space:nowrap;">${dim.label}${dim.key === 'market_opportunity' ? ' <span class="badge" style="font-size:0.65rem; background:var(--navy); color:#fff;">heaviest</span>' : ''}</td>
+      <td style="padding:3px 10px; text-align:center;">${hasScore ? score : '<span style="color:#a3291f;">—</span>'}</td>
+      <td style="padding:3px 10px; text-align:center;">${weight}</td>
+      <td style="padding:3px 10px; text-align:center; font-weight:600;">${contribution}</td>
+      <td style="padding:3px 0; font-size:0.72rem; color:#7a8a99;">${isHeuristicDefault ? 'Untouched segment-type default, not a judgment call for this specific segment.' : ''}</td>
+    </tr>`;
+  }).join('');
+
+  const basisNote = dimensionBasisNoteForSegment();
+
+  return `
+    <div style="padding:10px 16px; margin:0 0 8px 0; background:var(--bg); border-radius:6px; font-size:0.82rem;">
+      <table style="width:100%; border-collapse:collapse;">
+        <thead><tr style="text-align:left; font-size:0.72rem; color:#7a8a99;">
+          <th style="padding:0 10px 4px 0;">Dimension</th><th style="padding:0 10px 4px;">Score</th><th style="padding:0 10px 4px;">Weight</th><th style="padding:0 10px 4px;">Contribution</th><th></th>
+        </tr></thead>
+        <tbody>${rowsHtml}</tbody>
+      </table>
+      ${basisNote ? `<p class="note" style="border-top:none; padding-top:8px; margin:8px 0 0; font-size:0.76rem;">${basisNote}</p>` : ''}
+    </div>`;
+}
+
+// Single global.json fetch shared by load() -- countries, enabled_dimensions
+// and dimension_weights all come from the same payload, so this used to be
+// fetched twice (once here, once implicitly via applyGlobalDimensionWeights'
+// caller) before being consolidated into one call.
+async function fetchGlobalData() {
   try {
     const res = await fetchWithTimeout('/api/data/global', undefined, 15000);
     if (!res.ok) throw new Error('API not ready');
-    countries = (await res.json()).countries || [];
+    return await res.json();
   } catch (e) {
     const res = await fetch('data/global.json');
-    countries = (await res.json()).countries || [];
+    return await res.json();
   }
+}
 
-  const built = countries.filter(c => c.status === 'built' && c.href);
+async function loadAllRows(countries) {
+  const noteEl = document.getElementById('loading-note');
+  noteEl.textContent = 'Loading every built country’s scorecard data…';
+
+  const built = (countries || []).filter(c => c.status === 'built' && c.href);
   const rows = [];
 
   await mapWithConcurrency(built, 6, async c => {
@@ -200,7 +393,11 @@ async function loadAllRows() {
       const scoresByName = await fetchCountryScoresWithFallback(slug);
       data.segments.forEach(seg => {
         const scorecard = scoresByName[seg.segment] || {};
-        if (scoredDimensionCount(scorecard, null) === 0) return; // nothing scored yet -- leave it out rather than showing a false zero
+        // Same enabled-dimensions set the rest of the site uses (rather than
+        // hardcoding "every dimension counts"), so a segment with only a
+        // disabled dimension unscored doesn't get excluded here while still
+        // showing up as complete everywhere else.
+        if (scoredDimensionCount(scorecard, ENABLED_DIMENSIONS) === 0) return; // nothing scored yet -- leave it out rather than showing a false zero
         rows.push({
           countryName: data.country_name || c.name,
           href: c.href,
@@ -219,6 +416,25 @@ async function loadAllRows() {
   return rows;
 }
 
+// Populates the two filter dropdowns from whatever's actually in ALL_ROWS
+// (rather than a hardcoded list), once, right after the big fetch finishes
+// -- so a country/segment only shows up as a filter option if it actually
+// has at least one scored segment to show. Segment names are sorted by
+// segmentSortIndex() (scorecard-dimensions.js), matching the canonical
+// order used everywhere else on the site rather than object/fetch order.
+function populateFilterDropdowns() {
+  const countryNames = [...new Set(ALL_ROWS.map(r => r.countryName))].sort((a, b) => a.localeCompare(b));
+  const segmentNames = [...new Set(ALL_ROWS.map(r => r.segmentName))].sort((a, b) => segmentSortIndex(a) - segmentSortIndex(b));
+
+  const countrySelect = document.getElementById('filter-country-select');
+  countrySelect.innerHTML = '<option value="">All countries</option>' +
+    countryNames.map(n => `<option value="${n}">${n}</option>`).join('');
+
+  const segmentSelect = document.getElementById('filter-segment-select');
+  segmentSelect.innerHTML = '<option value="">All segments</option>' +
+    segmentNames.map(n => `<option value="${n}">${n}</option>`).join('');
+}
+
 function overallBarColor(cls) {
   if (cls === 'overall-red') return '#a3291f';
   if (cls === 'overall-amber') return '#9a5a1a';
@@ -228,13 +444,14 @@ function overallBarColor(cls) {
 
 function renderBars() {
   const w = currentWeights();
-  const range = computeOverallRange(null, w);
-  const filterText = document.getElementById('filter-input').value.trim().toLowerCase();
+  const range = computeOverallRange(ENABLED_DIMENSIONS, w);
+  const filterCountry = document.getElementById('filter-country-select').value;
+  const filterSegment = document.getElementById('filter-segment-select').value;
   const topnRaw = document.getElementById('topn-select').value;
 
   let scored = ALL_ROWS
-    .filter(r => !filterText || r.countryName.toLowerCase().includes(filterText) || r.segmentName.toLowerCase().includes(filterText))
-    .map(r => ({ ...r, overall: computeOverallScore(r.scorecard, null, w) }))
+    .filter(r => (!filterCountry || r.countryName === filterCountry) && (!filterSegment || r.segmentName === filterSegment))
+    .map(r => ({ ...r, overall: computeOverallScore(r.scorecard, ENABLED_DIMENSIONS, w) }))
     .sort((a, b) => b.overall - a.overall);
 
   const totalMatching = scored.length;
@@ -246,28 +463,54 @@ function renderBars() {
     chart.innerHTML = `<p class="note" style="border-top:none; padding-top:0;">No scored segments match this filter.</p>`;
   } else {
     chart.innerHTML = scored.map(r => {
+      const key = rowKey(r);
+      const expanded = EXPANDED_ROWS.has(key);
       const pct = Math.max(2, Math.min(100, (r.overall / maxOverall) * 100));
       const cls = overallScoreClass(r.overall, range);
       const color = overallBarColor(cls);
       return `
-        <a href="${r.href}" style="display:flex; align-items:center; gap:10px; text-decoration:none; color:inherit;" title="Open ${r.countryName}">
-          <div style="width:230px; flex-shrink:0; font-size:0.8rem; text-align:right; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${r.countryName} — ${r.segmentName}</div>
-          <div style="flex:1; background:var(--bg); border-radius:4px; overflow:hidden; height:18px;">
-            <div style="width:${pct}%; height:100%; background:${color};"></div>
+        <div>
+          <div class="weighting-row-header" data-row-key="${escapeHtml(key)}" style="display:flex; align-items:center; gap:10px; cursor:pointer;" title="Click to see why this segment scores this way">
+            <div style="width:18px; flex-shrink:0; text-align:center; color:#7a8a99;">${expanded ? '▾' : '▸'}</div>
+            <div style="width:220px; flex-shrink:0; font-size:0.8rem; text-align:right; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${r.countryName} — ${r.segmentName}</div>
+            <div style="flex:1; background:var(--bg); border-radius:4px; overflow:hidden; height:18px;">
+              <div style="width:${pct}%; height:100%; background:${color};"></div>
+            </div>
+            <div style="width:40px; flex-shrink:0; font-size:0.8rem; font-weight:600; color:${color};">${r.overall}</div>
+            <a href="${r.href}" style="font-size:0.72rem; color:var(--navy); flex-shrink:0;" title="Open ${r.countryName}">Open &rarr;</a>
           </div>
-          <div style="width:40px; flex-shrink:0; font-size:0.8rem; font-weight:600; color:${color};">${r.overall}</div>
-        </a>`;
+          ${expanded ? buildDrilldownHtml(r, w) : ''}
+        </div>`;
     }).join('');
   }
 
   document.getElementById('bar-chart-hint').textContent =
-    `Showing ${scored.length} of ${totalMatching} matching segment${totalMatching === 1 ? '' : 's'} across ${new Set(ALL_ROWS.map(r => r.countryName)).size} built countries. Click a bar to open that country's page.`;
+    `Showing ${scored.length} of ${totalMatching} matching segment${totalMatching === 1 ? '' : 's'} across ${new Set(ALL_ROWS.map(r => r.countryName)).size} built countries. Click a row to see why it scores this way, or "Open" for that country's page.`;
 }
+
+// Delegated once, on the container rather than per-row, since bar-chart's
+// innerHTML gets fully replaced on every renderBars() call -- an inline
+// onclick would work too, but this avoids re-escaping the row key into a JS
+// string literal (country/segment names could contain an apostrophe) and
+// avoids re-attaching hundreds of listeners on every slider drag. Clicks on
+// the "Open" link are left alone so navigation still works normally.
+document.getElementById('bar-chart').addEventListener('click', (e) => {
+  if (e.target.closest('a')) return;
+  const header = e.target.closest('.weighting-row-header');
+  if (header) toggleRow(header.dataset.rowKey);
+});
 
 async function load() {
   await checkAuth();
+  GLOBAL_DATA = await fetchGlobalData();
+  ENABLED_DIMENSIONS = GLOBAL_DATA.enabled_dimensions || null;
+  // Applies any weighting already pushed from a previous visit's "Push to
+  // scorecard" click before the sliders render, mirroring the same ordering
+  // fix applied to picker.html's renderWeightingPanel().
+  applyGlobalDimensionWeights(GLOBAL_DATA.dimension_weights);
   renderWeightingGrid();
-  ALL_ROWS = await loadAllRows();
+  ALL_ROWS = await loadAllRows(GLOBAL_DATA.countries || []);
+  populateFilterDropdowns();
   renderBars();
 }
 load();
