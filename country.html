@@ -23,7 +23,7 @@
   </div>
   <div id="auth-status" style="font-size:0.82rem; color:#b9c6d3;"></div>
 </header>
-<nav class="breadcrumb"><a href="index.html">&larr; Atlas home</a> &nbsp;|&nbsp; <a href="overview.html">Global overview</a> &nbsp;|&nbsp; <a href="map.html">World map</a> &nbsp;|&nbsp; <a href="scorecard.html">Opportunity scorecard</a> &nbsp;|&nbsp; <a href="picker.html">Project builder</a> &nbsp;|&nbsp; <a href="weighting.html">Weighting</a> &nbsp;|&nbsp; <a href="sources.html">Sources &amp; methodology</a> &nbsp;|&nbsp; <a href="evidence.html">Supporting evidence</a></nav>
+<nav class="breadcrumb"><a href="index.html">&larr; Atlas home</a> &nbsp;|&nbsp; <a href="overview.html">Global overview</a> &nbsp;|&nbsp; <a href="map.html">World map</a> &nbsp;|&nbsp; <a href="picker.html">Project builder</a> &nbsp;|&nbsp; <a href="sources.html">Sources &amp; methodology</a> &nbsp;|&nbsp; <a href="evidence.html">Supporting evidence</a></nav>
 
 <main>
   <h1 id="country-name-heading" class="country-name-heading"></h1>
@@ -826,13 +826,14 @@ async function loadDevelopments(code) {
 }
 
 // Global toggle state for which scorecard dimensions count toward Overall
-// (see the "Dimensions included in Overall score" panel on overview.html).
+// (see the "Dimensions" panel at the top of picker.html's Project builder).
 // country.html doesn't otherwise need global.json for anything, so this is
 // its own small fetch rather than piggybacking on loadData().
 // Also applies any pushed dimension_weights (see applyGlobalDimensionWeights()
-// in scorecard-dimensions.js / weighting.html's "Push to scorecard" button)
-// as a side effect, since it's already fetching the same global.json this
-// function needs enabled_dimensions from -- no separate fetch needed.
+// in scorecard-dimensions.js / Project builder's "Push this weighting to the
+// scorecard" button) as a side effect, since it's already fetching the same
+// global.json this function needs enabled_dimensions from -- no separate
+// fetch needed.
 async function loadEnabledDimensions() {
   try {
     const res = await fetch('/api/data/global');
@@ -879,8 +880,9 @@ async function downloadExport(format) {
       body: JSON.stringify({
         country_name: CURRENT_COUNTRY_NAME, segments: LOADED_SEGMENTS, enabled_dimensions: ENABLED_DIMENSIONS, commentary: CURRENT_COMMENTARY, developments: CURRENT_DEVELOPMENTS,
         // currentEffectiveWeights() (scorecard-dimensions.js) -- so a
-        // weighting pushed from weighting.html's "Push to scorecard" button
-        // reaches this export too, not just the on-screen matrix. country.html
+        // weighting pushed from Project builder's "Push this weighting to
+        // the scorecard" button reaches this export too, not just the
+        // on-screen matrix. country.html
         // has no session-local weighting UI of its own, so this is always
         // just the resolved global defaults.
         weight_overrides: currentEffectiveWeights(),

@@ -28,7 +28,7 @@
   </div>
   <div id="auth-status" style="font-size:0.82rem; color:#b9c6d3;"></div>
 </header>
-<nav class="breadcrumb"><a href="index.html">&larr; Atlas home</a> &nbsp;|&nbsp; <a href="overview.html">Global overview</a> &nbsp;|&nbsp; <a href="scorecard.html">Opportunity scorecard</a> &nbsp;|&nbsp; <a href="picker.html">Project builder</a> &nbsp;|&nbsp; <a href="weighting.html">Weighting</a> &nbsp;|&nbsp; <a href="sources.html">Sources &amp; methodology</a> &nbsp;|&nbsp; <a href="evidence.html">Supporting evidence</a></nav>
+<nav class="breadcrumb"><a href="index.html">&larr; Atlas home</a> &nbsp;|&nbsp; <a href="overview.html">Global overview</a> &nbsp;|&nbsp; <a href="picker.html">Project builder</a> &nbsp;|&nbsp; <a href="sources.html">Sources &amp; methodology</a> &nbsp;|&nbsp; <a href="evidence.html">Supporting evidence</a></nav>
 
 <main>
   <div class="summary-bar" id="summary-bar"></div>
@@ -221,8 +221,8 @@ async function ensureScoreCache() {
     if (res.ok) {
       const globalData = await res.json();
       enabledDimensions = globalData.enabled_dimensions || null;
-      // Applies any weighting pushed from weighting.html's "Push to
-      // scorecard" button (see that function's comment in
+      // Applies any weighting pushed from Project builder's "Push this
+      // weighting to the scorecard" button (see that function's comment in
       // scorecard-dimensions.js) before this page's own weightedOverallForCountry()
       // computes anything with it.
       applyGlobalDimensionWeights(globalData.dimension_weights);

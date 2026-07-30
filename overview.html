@@ -22,12 +22,12 @@
   </div>
   <div id="auth-status" style="font-size:0.82rem; color:#b9c6d3;"></div>
 </header>
-<nav class="breadcrumb"><a href="index.html">&larr; Atlas home</a> &nbsp;|&nbsp; <a href="map.html">World map</a> &nbsp;|&nbsp; <a href="scorecard.html">Opportunity scorecard</a> &nbsp;|&nbsp; <a href="picker.html">Project builder</a> &nbsp;|&nbsp; <a href="weighting.html">Weighting</a> &nbsp;|&nbsp; <a href="sources.html">Sources &amp; methodology</a> &nbsp;|&nbsp; <a href="evidence.html">Supporting evidence</a></nav>
+<nav class="breadcrumb"><a href="index.html">&larr; Atlas home</a> &nbsp;|&nbsp; <a href="map.html">World map</a> &nbsp;|&nbsp; <a href="picker.html">Project builder</a> &nbsp;|&nbsp; <a href="sources.html">Sources &amp; methodology</a> &nbsp;|&nbsp; <a href="evidence.html">Supporting evidence</a></nav>
 
 <main>
   <div class="summary-bar" id="summary-bar"></div>
 
-  <p class="note" style="border-top:none; padding-top:0;">Looking for the opportunity scorecard (Overall by segment / asset allocation across every country) or the bulk auto-scoring tools? Those moved to their own page — <a href="scorecard.html">open the scorecard</a>. This page now covers just the region and country summary below, and loads a single global summary rather than every country's full data, so it stays fast.</p>
+  <p class="note" style="border-top:none; padding-top:0;">Looking for the opportunity scorecard (Overall by segment / asset allocation across every country) or the bulk auto-scoring tools? Those now live at the top of <a href="picker.html">Project builder</a>, alongside the country picker. This page still just covers the region and country summary below, and loads a single global summary rather than every country's full data, so it stays fast.</p>
 
   <h2 style="margin-top:32px;">By region</h2>
   <table>
@@ -60,7 +60,7 @@
 
 
 <script>
-let CURRENT_USER = null; // set by checkAuth(), null if not signed in -- no signed-in-only actions live on this page anymore (see scorecard.html), kept just for the header's sign-in status display
+let CURRENT_USER = null; // set by checkAuth(), null if not signed in -- no signed-in-only actions live on this page anymore (see picker.html's Project builder), kept just for the header's sign-in status display
 
 async function checkAuth() {
   try {

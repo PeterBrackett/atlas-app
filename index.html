@@ -9,6 +9,15 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script src="scorecard-dimensions.js"></script>
+<!-- D3 (cdnjs) draws the map; topojson-client (jsdelivr) decodes the world
+     boundary file into plain GeoJSON -- same map component as map.html,
+     embedded directly on the homepage (2026-07-30, Peter's request) rather
+     than requiring a click-through. map.html itself is kept as a standalone
+     page too (still linked from every other page's breadcrumb) for anyone
+     who wants just the map full-page. -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
 </head>
 <body>
 <header class="site-header">
@@ -22,67 +31,341 @@
 </header>
 
 <main>
-  <div class="summary-bar" id="summary-bar"></div>
-
+  <!-- Single guided entry point into the scorecard -> project builder flow
+       (2026-07-30) -- replaces the old "Open the scoring site" link, which
+       pointed at the same place the "Opportunity scorecard" nav card did. -->
   <div style="margin-bottom:20px;">
-    <a class="btn-primary" href="scorecard.html">Open the scoring site &rarr;</a>
+    <a class="btn-primary" href="picker.html" style="font-size:1rem; padding:10px 22px;">Project builder</a>
   </div>
 
-  <div class="nav-card-grid">
-    <a class="nav-card" href="overview.html">
-      <div class="nav-card-title">Global overview &rarr;</div>
-      <div class="nav-card-desc">Region and country summary — institutions tracked and total AUM at a glance. Loads instantly.</div>
-    </a>
-    <a class="nav-card" href="map.html">
-      <div class="nav-card-title">World map &rarr;</div>
-      <div class="nav-card-desc">A colour-coded world heatmap — by total AUM by default, or switch to the Overall opportunity score. Click a country to open its page.</div>
-    </a>
-    <a class="nav-card" href="scorecard.html">
-      <div class="nav-card-title">Opportunity scorecard &rarr;</div>
-      <div class="nav-card-desc">Every built country's opportunity scorecard and AUM by segment, side by side, plus the bulk auto-scoring tools. Loads every country's data, so it can take a moment.</div>
-    </a>
-    <a class="nav-card" href="picker.html">
-      <div class="nav-card-title">Project builder &rarr;</div>
-      <div class="nav-card-desc">Pick just the countries in scope for a specific project, view them together, and export a combined Word or PowerPoint file.</div>
-    </a>
-    <a class="nav-card" href="weighting.html">
-      <div class="nav-card-title">Weighting &rarr;</div>
-      <div class="nav-card-desc">Slide each dimension's weight live and watch every built country's segments re-rank — built for talking through a client's own priorities in the room.</div>
-    </a>
-    <a class="nav-card" href="sources.html">
-      <div class="nav-card-title">Sources &amp; methodology &rarr;</div>
-      <div class="nav-card-desc">Where the data comes from, how countries are segmented, and how the opportunity scorecard is built and scored.</div>
-    </a>
-    <a class="nav-card" href="evidence.html">
-      <div class="nav-card-title">Supporting evidence &rarr;</div>
-      <div class="nav-card-desc">Cross-cutting reference material — fee benchmarks and market-structure surveys — that applies across countries rather than to one segment of one country.</div>
-    </a>
+  <div class="summary-bar" id="summary-bar"></div>
+
+  <div style="display:flex; align-items:center; flex-wrap:wrap; gap:10px; margin:20px 0 10px;">
+    <label for="colorby-select"><strong>Colour by:</strong></label>
+    <select id="colorby-select" onchange="onColorByChange()">
+      <option value="aum">Total AUM</option>
+      <option value="score">Overall opportunity score</option>
+    </select>
+    <span class="note" id="map-loading-note" style="border:none; padding:0; margin:0; font-style:italic;"></span>
+  </div>
+
+  <div id="map-outer" style="position:relative; border:1px solid var(--border); border-radius:8px; background:var(--card); padding:12px;">
+    <svg id="world-svg" viewBox="0 0 960 500" style="width:100%; height:auto; display:block;"></svg>
+  </div>
+
+  <div id="map-legend" style="margin-top:12px;"></div>
+
+  <div class="research-notes" id="map-info-panel" style="margin-top:16px;">
+    <p class="note" style="border:none; padding:0; margin:0;">Hover a country to see its figure here. Click a built country to open its page.</p>
+  </div>
+
+  <p class="note">Countries without an Atlas page yet show with no colour. A handful of small territories may not be resolved separately by the underlying map at this resolution (e.g. Hong Kong can render as part of mainland China) -- their data still exists on their own Atlas country page even where the map can't shade them individually.</p>
+
+  <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin:24px 0;">
+    <a class="btn-primary" href="overview.html">Global overview</a>
+    <a class="btn-primary" href="sources.html">Sources &amp; methodology</a>
+    <a class="btn-primary" href="evidence.html">Supporting evidence</a>
   </div>
 
   <p class="note">Looking for a specific country's manager market share, AUM breakdown, or individual institutions? Open it from the <a href="overview.html">global overview</a>'s country table — institution-level browsing lives inside each country's page rather than as its own top-level section.</p>
 </main>
 
 <script>
-async function load() {
-  let data;
+// ---- World map (mirrors map.html's own script -- see that file for the
+// fuller commentary on each piece; kept here as a second copy rather than a
+// shared include since this site has no build step to dedupe two <script>
+// blocks across files). ----
+
+// ISO 3166-1 numeric -> the alpha-2 code Atlas's own data uses (global.json's
+// `code` field). Covers Atlas's current built countries plus a broader set of
+// likely-next additions -- extend this table first if a newly-built country
+// never lights up on the map.
+const NUMERIC_TO_ALPHA2 = {
+  '826': 'GB', '276': 'DE', '250': 'FR', '528': 'NL', '756': 'CH', '380': 'IT', '724': 'ES',
+  '752': 'SE', '578': 'NO', '208': 'DK', '246': 'FI', '352': 'IS', '372': 'IE', '056': 'BE',
+  '040': 'AT', '620': 'PT', '616': 'PL', '442': 'LU', '300': 'GR', '203': 'CZ', '348': 'HU',
+  '642': 'RO', '643': 'RU', '792': 'TR', '376': 'IL', '804': 'UA',
+  '840': 'US', '124': 'CA', '076': 'BR', '484': 'MX', '032': 'AR', '152': 'CL', '604': 'PE',
+  '170': 'CO', '858': 'UY', '600': 'PY', '068': 'BO', '218': 'EC', '862': 'VE', '188': 'CR', '591': 'PA',
+  '392': 'JP', '410': 'KR', '156': 'CN', '344': 'HK', '702': 'SG', '458': 'MY', '764': 'TH',
+  '360': 'ID', '608': 'PH', '704': 'VN', '158': 'TW', '036': 'AU', '554': 'NZ', '356': 'IN',
+  '586': 'PK', '050': 'BD',
+  '682': 'SA', '784': 'AE', '634': 'QA', '512': 'OM', '414': 'KW', '048': 'BH', '400': 'JO',
+  '422': 'LB', '818': 'EG',
+  '710': 'ZA', '072': 'BW', '566': 'NG', '404': 'KE', '504': 'MA', '288': 'GH'
+};
+
+const WORLD_TOPOJSON_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json';
+const NO_DATA_FILL = '#e2e6ea';
+const HOVER_STROKE = '#0F2540';
+
+let COLOR_MODE = 'aum';
+let COUNTRIES = [];              // raw global.json list
+let COUNTRY_BY_CODE = new Map(); // alpha-2 -> country row
+let SCORE_CACHE = null;          // null until computed; then {code: overallValue}
+let PATH_SELECTION = null;       // d3 selection of <path> elements once drawn
+
+async function loadGlobalCountries() {
   try {
-    const res = await fetch('/api/data/global');
+    const res = await fetchWithTimeout('/api/data/global', undefined, 15000);
     if (!res.ok) throw new Error('API not ready');
-    data = await res.json();
+    const data = await res.json();
+    return data.countries || [];
   } catch (e) {
     const res = await fetch('data/global.json');
-    data = await res.json();
+    const data = await res.json();
+    return data.countries || [];
   }
+}
 
-  const countries = data.countries || [];
-  const built = countries.filter(c => c.status === 'built').length;
-  const totalInstitutions = countries.reduce((s, c) => s + (c.institutions_tracked || 0), 0);
+async function fetchCountryDataWithFallback(slug) {
+  try {
+    const res = await fetchWithTimeout(`/api/data/${slug}`, undefined, 15000);
+    if (!res.ok) throw new Error('API not ready');
+    return await res.json();
+  } catch (e) {
+    try {
+      const res = await fetchWithTimeout(`data/${slug}.json`, undefined, 15000);
+      if (!res.ok) return null;
+      return await res.json();
+    } catch (e2) {
+      return null;
+    }
+  }
+}
 
+async function fetchCountryScoresWithFallback(slug) {
+  try {
+    const res = await fetchWithTimeout(`/api/scores/${slug}`, undefined, 15000);
+    if (!res.ok) throw new Error('API not ready');
+    const data = await res.json();
+    return data.scores || {};
+  } catch (e) {
+    try {
+      const res = await fetchWithTimeout(`data/${slug}_scores.json`, undefined, 15000);
+      if (!res.ok) return {};
+      const data = await res.json();
+      return data.scores || {};
+    } catch (e2) {
+      return {};
+    }
+  }
+}
+
+async function loadWorldFeatures() {
+  const res = await fetch(WORLD_TOPOJSON_URL);
+  const topology = await res.json();
+  const collection = topojson.feature(topology, topology.objects.countries);
+  return collection.features;
+}
+
+function slugFromHref(href) {
+  const match = /[?&]c=([^&]+)/.exec(href || '');
+  return match ? match[1] : null;
+}
+
+function formatUsdFromThousands(v) {
+  if (typeof v !== 'number') return '—';
+  if (v >= 1e9) return `$${(v / 1e9).toFixed(2)}tn`;
+  if (v >= 1e6) return `$${(v / 1e6).toFixed(1)}bn`;
+  return `$${(v / 1e3).toFixed(1)}m`;
+}
+
+function weightedOverallForCountry(segments, enabledDimensions) {
+  let weightedSum = 0;
+  let weightTotal = 0;
+  (segments || []).forEach(seg => {
+    if (scoredDimensionCount(seg.scorecard, enabledDimensions) === 0) return;
+    const aum = typeof seg.aum_bn === 'number' ? seg.aum_bn : 0;
+    weightedSum += computeOverallScore(seg.scorecard, enabledDimensions) * aum;
+    weightTotal += aum;
+  });
+  return weightTotal > 0 ? weightedSum / weightTotal : null;
+}
+
+async function ensureScoreCache() {
+  if (SCORE_CACHE !== null) return;
+
+  const noteEl = document.getElementById('map-loading-note');
+  noteEl.textContent = 'Loading scorecard data for every built country…';
+
+  let enabledDimensions = null;
+  try {
+    const res = await fetchWithTimeout('/api/data/global', undefined, 15000);
+    if (res.ok) {
+      const globalData = await res.json();
+      enabledDimensions = globalData.enabled_dimensions || null;
+      // Applies any weighting pushed from the Project builder page's "Push
+      // this weighting to the scorecard" button before this page's own
+      // weightedOverallForCountry() computes anything with it.
+      applyGlobalDimensionWeights(globalData.dimension_weights);
+    }
+  } catch (e) { /* fall back to null -- every dimension counts */ }
+
+  const built = COUNTRIES.filter(c => c.status === 'built' && c.href);
+  const cache = {};
+
+  await mapWithConcurrency(built, 6, async c => {
+    const slug = slugFromHref(c.href) || c.code.toLowerCase();
+    try {
+      const data = await fetchCountryDataWithFallback(slug);
+      if (!data || !data.segments) { cache[c.code] = null; return; }
+      const segments = data.segments;
+
+      const scoresByName = await fetchCountryScoresWithFallback(slug);
+      segments.forEach(seg => { seg.scorecard = scoresByName[seg.segment] || {}; });
+
+      cache[c.code] = weightedOverallForCountry(segments, enabledDimensions);
+    } catch (e) {
+      cache[c.code] = null;
+    }
+  });
+
+  SCORE_CACHE = cache;
+  noteEl.textContent = '';
+}
+
+function valueForCountry(code) {
+  const country = COUNTRY_BY_CODE.get(code);
+  if (!country) return null;
+  if (COLOR_MODE === 'aum') {
+    const raw = country.total_ps_assets_thousands;
+    return typeof raw === 'number' && raw > 0 ? { raw, display: formatUsdFromThousands(raw) } : null;
+  }
+  const raw = SCORE_CACHE ? SCORE_CACHE[code] : null;
+  return typeof raw === 'number' ? { raw, display: raw.toFixed(1) } : null;
+}
+
+function buildColorScale() {
+  if (COLOR_MODE === 'aum') {
+    const raws = COUNTRIES
+      .map(c => c.total_ps_assets_thousands)
+      .filter(v => typeof v === 'number' && v > 0)
+      .map(v => Math.log10(v));
+    const domain = raws.length ? [Math.min(...raws), Math.max(...raws)] : [0, 1];
+    return { scale: d3.scaleSequential(domain, d3.interpolateBlues), transform: v => Math.log10(v) };
+  }
+  const range = computeOverallRange(null);
+  return { scale: d3.scaleSequential([range.min, range.max], d3.interpolateRdYlGn), transform: v => v };
+}
+
+function applyColors() {
+  if (!PATH_SELECTION) return;
+  const { scale, transform } = buildColorScale();
+
+  PATH_SELECTION.each(function (d) {
+    const alpha2 = NUMERIC_TO_ALPHA2[String(d.id)];
+    const value = alpha2 ? valueForCountry(alpha2) : null;
+    const country = alpha2 ? COUNTRY_BY_CODE.get(alpha2) : null;
+    const clickable = !!(country && country.status === 'built' && country.href && value);
+    const fill = value ? scale(transform(value.raw)) : NO_DATA_FILL;
+    d3.select(this)
+      .attr('fill', fill)
+      .attr('data-clickable', clickable ? '1' : '0')
+      .style('cursor', clickable ? 'pointer' : 'default');
+  });
+
+  buildLegend(scale, transform);
+}
+
+function buildLegend(scale, transform) {
+  const el = document.getElementById('map-legend');
+  const domain = scale.domain();
+  const stops = 8;
+  const gradientStops = Array.from({ length: stops + 1 }, (_, i) => {
+    const t = domain[0] + (i / stops) * (domain[1] - domain[0]);
+    return scale(t);
+  });
+  const gradientCss = `linear-gradient(to right, ${gradientStops.join(', ')})`;
+
+  const minLabel = COLOR_MODE === 'aum' ? formatUsdFromThousands(Math.pow(10, domain[0])) : domain[0].toFixed(0);
+  const maxLabel = COLOR_MODE === 'aum' ? formatUsdFromThousands(Math.pow(10, domain[1])) : domain[1].toFixed(0);
+  const title = COLOR_MODE === 'aum' ? 'Total AUM (pension &amp; savings assets)' : 'Overall opportunity score (AUM-weighted across scored segments)';
+
+  el.innerHTML = `
+    <div style="font-size:0.8rem; font-weight:600; color:var(--navy); margin-bottom:4px;">${title}</div>
+    <div style="height:14px; border-radius:4px; background:${gradientCss}; border:1px solid var(--border);"></div>
+    <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--muted); margin-top:2px;">
+      <span>${minLabel}</span><span>${maxLabel}</span>
+    </div>
+  `;
+}
+
+function renderInfoPanel(alpha2) {
+  const panel = document.getElementById('map-info-panel');
+  const country = alpha2 ? COUNTRY_BY_CODE.get(alpha2) : null;
+  if (!country) {
+    panel.innerHTML = `<p class="note" style="border:none; padding:0; margin:0;">No Atlas data for this territory yet.</p>`;
+    return;
+  }
+  const value = valueForCountry(alpha2);
+  const metricLabel = COLOR_MODE === 'aum' ? 'Total AUM' : 'Overall opportunity score';
+  const valueText = value ? value.display : 'Not yet available';
+  const linkHtml = country.status === 'built' && country.href
+    ? `<a href="${country.href}">Open ${country.name} &rarr;</a>`
+    : `<span class="status-pill">Not built yet</span>`;
+  panel.innerHTML = `
+    <div style="font-weight:600; color:var(--navy); font-size:0.95rem;">${country.name}</div>
+    <div style="font-size:0.85rem; margin:4px 0;">${metricLabel}: <strong>${valueText}</strong></div>
+    <div style="font-size:0.85rem;">${linkHtml}</div>
+  `;
+}
+
+function renderBaseMap(features) {
+  const svg = d3.select('#world-svg');
+  const width = 960, height = 500;
+  const featureCollection = { type: 'FeatureCollection', features };
+  const projection = d3.geoNaturalEarth1().fitSize([width, height], featureCollection);
+  const pathGen = d3.geoPath(projection);
+
+  PATH_SELECTION = svg.selectAll('path')
+    .data(features)
+    .enter()
+    .append('path')
+    .attr('d', pathGen)
+    .attr('fill', NO_DATA_FILL)
+    .attr('stroke', '#ffffff')
+    .attr('stroke-width', 0.5)
+    .on('mouseenter', function (event, d) {
+      d3.select(this).attr('stroke', HOVER_STROKE).attr('stroke-width', 1.2).raise();
+      renderInfoPanel(NUMERIC_TO_ALPHA2[String(d.id)]);
+    })
+    .on('mouseleave', function () {
+      d3.select(this).attr('stroke', '#ffffff').attr('stroke-width', 0.5);
+    })
+    .on('click', function (event, d) {
+      const alpha2 = NUMERIC_TO_ALPHA2[String(d.id)];
+      const country = alpha2 ? COUNTRY_BY_CODE.get(alpha2) : null;
+      if (country && country.status === 'built' && country.href && valueForCountry(alpha2)) {
+        window.location.href = country.href;
+      }
+    });
+}
+
+async function onColorByChange() {
+  const mode = document.getElementById('colorby-select').value;
+  if (mode === 'score') await ensureScoreCache();
+  COLOR_MODE = mode;
+  applyColors();
+}
+
+async function load() {
+  COUNTRIES = await loadGlobalCountries();
+  COUNTRY_BY_CODE = new Map(COUNTRIES.filter(c => c.code).map(c => [c.code, c]));
+
+  // Just the two stats Peter wanted above the map -- "Country pages built"
+  // dropped (2026-07-30), since the map itself already shows which
+  // countries are built (colour vs. no-colour) without needing a duplicate
+  // count in a stat box.
+  const totalInstitutions = COUNTRIES.reduce((s, c) => s + (c.institutions_tracked || 0), 0);
   document.getElementById('summary-bar').innerHTML = `
-    <div class="stat-card"><div class="value">${countries.length}</div><div class="label">Countries in scope</div></div>
-    <div class="stat-card"><div class="value">${built}</div><div class="label">Country pages built</div></div>
+    <div class="stat-card"><div class="value">${COUNTRIES.length}</div><div class="label">Countries in scope</div></div>
     <div class="stat-card"><div class="value">${totalInstitutions.toLocaleString()}</div><div class="label">Institutions tracked</div></div>
   `;
+
+  const features = await loadWorldFeatures();
+  renderBaseMap(features);
+  applyColors();
 }
 load();
 </script>

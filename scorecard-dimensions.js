@@ -109,14 +109,15 @@ function enabledDimensionCount(enabledDimensions) {
 
 // Mutates SCORECARD_DIMENSIONS' own `.weight` fields in place from
 // global.json's dimension_weights map (see setDimensionWeights.js) -- added
-// 2026-07-30 for weighting.html's "Push to scorecard" button, so a client's
-// preferred weighting (explored live via that page's sliders) can become the
-// standard weighting every page uses, not just a per-session override.
+// 2026-07-30 for the "Push this weighting to the scorecard" button at the top
+// of picker.html's Project builder page, so a client's preferred weighting
+// (explored live via that page's sliders) can become the standard weighting
+// every page uses, not just a per-session override.
 // Deliberately mutates the shared constant rather than threading a new
 // parameter through every call site: SCORECARD_DIMENSIONS is one shared
-// array reference used throughout country.html/scorecard.html/picker.html/
-// map.html/weighting.html, so every computeOverallScore()/
-// computeOverallRange() call that doesn't pass its own weightOverrides
+// array reference used throughout country.html/picker.html/map.html, so
+// every computeOverallScore()/computeOverallRange() call that doesn't pass
+// its own weightOverrides
 // already reads dim.weight straight off this array -- updating it here once,
 // right after global.json loads, is enough for the pushed weighting to take
 // effect everywhere with no other code changes. A dimension key missing from
@@ -137,8 +138,8 @@ function applyGlobalDimensionWeights(dimensionWeights) {
 // when building an export payload -- country.html/picker.html always send
 // this as `weight_overrides` rather than only sending a session override (or
 // nothing), since exportHelpers.js's own SCORECARD_DIMENSIONS copy has no way
-// to know about a weighting pushed from weighting.html (see that file's
-// comment). Sending the full resolved set works out identical to sending
+// to know about a weighting pushed from picker.html's Project builder page
+// (see that page's comment). Sending the full resolved set works out identical to sending
 // nothing at all when nothing's ever been pushed and no session override is
 // active, since every value just equals each dimension's original default.
 function currentEffectiveWeights(sessionOverride) {
