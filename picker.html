@@ -338,6 +338,37 @@
     </div>
   </div>
 
+  <!-- Full-factor popup (2026-07-30, Peter's request) -- the bottom-line
+       table above only shows each segment's Overall score; this shows every
+       one of the 12 factors behind it, one selected country at a time, with
+       Prev/Next to step through the rest. Opens automatically the first time
+       "Show scorecard" reveals the section each visit, and can also be
+       reopened per-row via each country's "Factors" link in the table above. -->
+  <div id="factor-popup-overlay" style="display:none; position:fixed; inset:0; background:rgba(15,37,64,0.55); z-index:1000; align-items:center; justify-content:center; padding:20px;" onclick="if (event.target === this) closeFactorPopup()">
+    <div style="background:#fff; border-radius:10px; max-width:min(1100px, 96vw); max-height:90vh; width:100%; display:flex; flex-direction:column; box-shadow:0 12px 40px rgba(0,0,0,0.25);">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 20px; border-bottom:1px solid var(--border);">
+        <div>
+          <div style="font-weight:700; color:var(--navy); font-size:1.05rem;" id="factor-popup-country-name"></div>
+          <div class="note" style="border:none; padding:0; margin:2px 0 0; font-size:0.78rem;" id="factor-popup-position"></div>
+        </div>
+        <div style="display:flex; align-items:center; gap:14px; flex-shrink:0;">
+          <a id="factor-popup-open-link" href="#">Open country page &rarr;</a>
+          <button type="button" class="btn-toggle" style="cursor:pointer;" onclick="closeFactorPopup()">Close &times;</button>
+        </div>
+      </div>
+      <div style="overflow:auto; padding:16px 20px; flex:1;">
+        <div class="matrix-wrap">
+          <table class="matrix-table" id="factor-popup-table"></table>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:12px 20px; border-top:1px solid var(--border);">
+        <button type="button" class="btn-primary" style="cursor:pointer;" onclick="factorPopupPrev()">&larr; Previous</button>
+        <span class="note" id="factor-popup-hint" style="border:none; padding:0; margin:0; font-size:0.78rem;"></span>
+        <button type="button" class="btn-primary" style="cursor:pointer;" onclick="factorPopupNext()">Next &rarr;</button>
+      </div>
+    </div>
+  </div>
+
   <p class="note" id="project-hint" style="margin-top:-4px;"></p>
 
   <details id="project-mo-details" style="margin-bottom:16px; display:none;">
@@ -2860,7 +2891,7 @@ function renderOverviewMatrixBody(failed) {
 
   const headerCells = columns.map(seg => `<th>${seg}</th>`).join('');
 
-  const rows = usable.map(c => {
+  const rows = usable.map((c, idx) => {
     const href = c.meta.href || `country.html?c=${c.meta.code.toLowerCase()}`;
     const cells = columns.map(segName => {
       const seg = (c.data.segments || []).find(s => s.segment === segName);
@@ -2875,7 +2906,12 @@ function renderOverviewMatrixBody(failed) {
       const overall = computeOverallScore(seg.scorecard, GLOBAL_DATA && GLOBAL_DATA.enabled_dimensions);
       return `<td class="${overallScoreClass(overall)}">${overall}</td>`;
     }).join('');
-    return `<tr><td class="matrix-rowlabel"><a class="country-link" href="${href}">${c.meta.name}</a></td>${cells}</tr>`;
+    // "Factors" link opens the full 12-factor popup at this row's country --
+    // idx matches factorPopupCountries()'s own filter/order exactly, since
+    // both read OVERVIEW_USABLE filtered by SELECTED_CODES the same way.
+    return `<tr><td class="matrix-rowlabel"><a class="country-link" href="${href}">${c.meta.name}</a> ` +
+      `<button type="button" onclick="openFactorPopup(${idx})" style="border:none; background:none; color:var(--accent); cursor:pointer; font-size:0.72rem; text-decoration:underline; padding:0;" title="See every factor behind this country's Overall score">Factors</button>` +
+      `</td>${cells}</tr>`;
   }).join('');
 
   table.innerHTML = `
@@ -2901,7 +2937,113 @@ function renderOverviewMatrixBody(failed) {
     `${usable.length} of ${SELECTED_CODES.size} selected countr${SELECTED_CODES.size === 1 ? 'y' : 'ies'} shown. ${viewNote}${failedNote}`;
 }
 
+// ---- Full-factor popup (2026-07-30, Peter's request) ----
+// The bottom-line table above only ever shows each segment's Overall score;
+// Peter wanted to see all 12 factors behind it without leaving this page.
+// Rather than a second full matrix bolted onto the page, this is a single
+// popup, one country at a time, with Prev/Next to step through the rest of
+// the current selection -- same country list/order as the bottom-line table
+// (OVERVIEW_USABLE filtered down to SELECTED_CODES), so "row 3's Factors
+// link" and "the 3rd country in the popup" always agree.
+let FACTOR_POPUP_INDEX = 0;
 
+function factorPopupCountries() {
+  return OVERVIEW_USABLE.filter(c => SELECTED_CODES.has(c.slug));
+}
+
+function openFactorPopup(startIndex) {
+  const countries = factorPopupCountries();
+  if (!countries.length) return; // nothing selected/loaded yet -- silently a no-op, same spirit as buildProjectView()'s own guard
+  FACTOR_POPUP_INDEX = Math.max(0, Math.min(startIndex || 0, countries.length - 1));
+  document.getElementById('factor-popup-overlay').style.display = 'flex';
+  renderFactorPopup();
+}
+
+function closeFactorPopup() {
+  document.getElementById('factor-popup-overlay').style.display = 'none';
+}
+
+function factorPopupPrev() {
+  const countries = factorPopupCountries();
+  if (!countries.length) return;
+  FACTOR_POPUP_INDEX = (FACTOR_POPUP_INDEX - 1 + countries.length) % countries.length;
+  renderFactorPopup();
+}
+
+function factorPopupNext() {
+  const countries = factorPopupCountries();
+  if (!countries.length) return;
+  FACTOR_POPUP_INDEX = (FACTOR_POPUP_INDEX + 1) % countries.length;
+  renderFactorPopup();
+}
+
+// Same table shape as country.html's own read-only scorecard matrix (AUM,
+// each of the 12 dimensions, Scored, Overall) -- segments as columns, one
+// country per screen. Deliberately read-only here (no <select> edit
+// controls): editing a score belongs on that country's own page, not this
+// cross-country comparison popup.
+function renderFactorPopup() {
+  const countries = factorPopupCountries();
+  if (!countries.length) { closeFactorPopup(); return; }
+  if (FACTOR_POPUP_INDEX >= countries.length) FACTOR_POPUP_INDEX = countries.length - 1;
+  const c = countries[FACTOR_POPUP_INDEX];
+  const segs = (c.data.segments || []).slice().sort((a, b) => segmentSortIndex(a.segment) - segmentSortIndex(b.segment));
+
+  document.getElementById('factor-popup-country-name').textContent = c.meta.name;
+  document.getElementById('factor-popup-position').textContent = `Country ${FACTOR_POPUP_INDEX + 1} of ${countries.length}`;
+  document.getElementById('factor-popup-open-link').href = c.meta.href || `country.html?c=${c.slug}`;
+
+  const table = document.getElementById('factor-popup-table');
+  const hint = document.getElementById('factor-popup-hint');
+  if (!segs.length) {
+    table.innerHTML = '';
+    hint.textContent = 'No segments to show for this country.';
+    return;
+  }
+
+  const headerCells = segs.map(s => `<th>${s.segment}</th>`).join('');
+  const numberCell = (value, decimals) => `<td class="numeric">${typeof value === 'number' ? value.toLocaleString(undefined, { maximumFractionDigits: decimals }) : '—'}</td>`;
+  const aumRow = `<tr><td class="matrix-rowlabel">AUM ($bn)</td>${segs.map(s => numberCell(s.aum_bn, 2)).join('')}</tr>`;
+
+  const scoreCellClass = (value, missing) => missing ? 'cell-missing' : `score-${value}`;
+  const dimensionRows = SCORECARD_DIMENSIONS.map(dim => {
+    const cells = segs.map(s => {
+      const sc = s.scorecard || {};
+      const value = sc[dim.key];
+      const missing = typeof value !== 'number';
+      return `<td class="${scoreCellClass(value, missing)}">${missing ? '0' : value}</td>`;
+    }).join('');
+    const offFlag = isDimensionEnabled(dim.key, ENABLED_DIMENSIONS)
+      ? ''
+      : ` <span class="auto-flag" title="Excluded from every segment's Overall score and the Scored count.">Off</span>`;
+    return `<tr title="${dim.question}"><td class="matrix-rowlabel" title="${dim.question}">${dimensionIconSvg(dim.key)}<span>${dim.label}${dim.weight > 1 ? ` (×${dim.weight})` : ''}</span>${offFlag}</td>${cells}</tr>`;
+  }).join('');
+
+  const enabledCount = enabledDimensionCount(ENABLED_DIMENSIONS);
+  const scoredRow = `<tr class="scored-row"><td class="matrix-rowlabel">Scored</td>${
+    segs.map(s => {
+      const count = scoredDimensionCount(s.scorecard, ENABLED_DIMENSIONS);
+      const cls = count === enabledCount ? 'complete' : 'incomplete';
+      return `<td><span class="scored-badge ${cls}">${count}/${enabledCount}</span></td>`;
+    }).join('')
+  }</tr>`;
+
+  // Same computeOverallScore()/overallScoreClass() call shape (no weight
+  // overrides, no rescaled range) as the bottom-line table above, so the two
+  // views always agree on each segment's Overall figure and colour.
+  const overallRow = `<tr class="overall-row"><td class="matrix-rowlabel">Overall</td>${
+    segs.map(s => {
+      const overall = computeOverallScore(s.scorecard, GLOBAL_DATA && GLOBAL_DATA.enabled_dimensions);
+      return `<td class="${overallScoreClass(overall)}"><strong>${overall}</strong></td>`;
+    }).join('')
+  }</tr>`;
+
+  table.innerHTML = `
+    <thead><tr><th class="matrix-rowlabel">Segment</th>${headerCells}</tr></thead>
+    <tbody>${aumRow}${dimensionRows}${scoredRow}${overallRow}</tbody>
+  `;
+  hint.textContent = '';
+}
 
 // ---- Lazy-loading the cross-country scorecard data (2026-07-30) ----
 // Peter's request: rather than every visit to the Project builder page
@@ -2937,7 +3079,15 @@ function showScorecard() {
   const isHidden = !section.style.display || section.style.display === 'none';
   section.style.display = isHidden ? 'block' : 'none';
   btn.textContent = isHidden ? 'Hide scorecard' : 'Show scorecard';
-  if (isHidden) ensureScorecardDataLoaded();
+  if (isHidden) {
+    // Opens the full-factor popup at the first selected country as soon as
+    // the (possibly already-cached) data is ready -- if this is the first
+    // click, ensureScorecardDataLoaded()'s promise resolves once the
+    // background fetch finishes; on later clicks it's already resolved, so
+    // this fires straight away. openFactorPopup() itself no-ops quietly if
+    // nothing's selected yet.
+    ensureScorecardDataLoaded().then(() => openFactorPopup(0));
+  }
 }
 
 
