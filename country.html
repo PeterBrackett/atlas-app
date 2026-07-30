@@ -37,6 +37,7 @@
     <a href="sources.html">Sources &amp; methodology</a> for the general approach; each section below lists its own sources.
   </p>
   <div id="commentary-sections"></div>
+  <div id="news-check-wrap"></div>
 
   <h2 style="margin-top:32px;">Opportunity scorecard</h2>
   <p class="note" style="margin-top:-8px; margin-bottom:16px; border-top:none; padding-top:0;" id="scorecard-hint"></p>
@@ -418,6 +419,140 @@ async function deleteDevelopment(key, id, headline) {
   } catch (e) {
     alert('Could not reach the server to delete this development.');
   }
+}
+
+// ---- News check (2026-07-30) ----
+// "Press a button, review a newsfeed mapped to country and segment, approve
+// or decline" -- Peter's request. Deliberately on-demand only (no scheduled
+// polling) and review-before-publish (nothing reaches
+// {code}_developments.json until a candidate is explicitly Approved): the
+// server (checkNews.js) searches Google News and asks Claude to judge
+// relevance/assign a section/draft a summary, and returns candidates only --
+// this page owns turning an Approved candidate into an actual saved
+// development via the same /api/developments/set endpoint the manual
+// add/edit form uses.
+let NEWS_CANDIDATES = [];
+
+function renderNewsCheckPanel() {
+  const wrap = document.getElementById('news-check-wrap');
+  if (!wrap) return;
+  // Same signed-in-editor gate as every other write-adjacent tool on this
+  // page (Edit/Delete on developments, the scorecard's edit selects) --
+  // checkNews.js also enforces this server-side, but there's no point
+  // showing the button at all to a visitor who can't use it.
+  if (!CURRENT_USER) {
+    wrap.innerHTML = '';
+    return;
+  }
+  wrap.innerHTML = `
+    <div id="news-check-section" style="margin-bottom:16px;">
+      <button type="button" class="btn-toggle" style="cursor:pointer;" onclick="checkForNews()">Check for news</button>
+      <span class="note" id="news-check-hint" style="border-top:none; padding:0 0 0 10px; font-size:0.8rem; display:inline;"></span>
+      <div id="news-check-results" style="margin-top:10px;"></div>
+    </div>`;
+}
+
+async function checkForNews() {
+  const hint = document.getElementById('news-check-hint');
+  const results = document.getElementById('news-check-results');
+  const btn = document.querySelector('#news-check-section .btn-toggle');
+  if (btn) btn.disabled = true;
+  hint.textContent = 'Searching for recent news… this can take up to 30 seconds.';
+  results.innerHTML = '';
+  NEWS_CANDIDATES = [];
+
+  try {
+    const res = await fetch('/api/news/check', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ country_name: CURRENT_COUNTRY_NAME })
+    });
+    const result = await res.json();
+    if (!res.ok || !result.success) {
+      hint.textContent = `Couldn't check for news: ${result.error || 'unknown error'}`;
+      return;
+    }
+    NEWS_CANDIDATES = result.candidates || [];
+    if (!NEWS_CANDIDATES.length) {
+      hint.textContent = 'No relevant recent news found for this country right now.';
+      return;
+    }
+    hint.textContent = `${NEWS_CANDIDATES.length} candidate item${NEWS_CANDIDATES.length === 1 ? '' : 's'} found — review below before anything is saved.`;
+    renderNewsCandidates();
+  } catch (e) {
+    hint.textContent = 'Could not reach the server to check for news.';
+  } finally {
+    if (btn) btn.disabled = false;
+  }
+}
+
+// Renders each still-pending candidate as its own card, with a section
+// dropdown (pre-filled from Claude's suggestion, but editable in case it
+// picked the wrong one) and Approve/Decline. Indexed into NEWS_CANDIDATES by
+// array position -- a candidate is set to null (rather than spliced out) the
+// moment it's actioned, so the remaining cards' indices never shift under
+// a still-open dropdown or in-flight Approve click.
+function renderNewsCandidates() {
+  const results = document.getElementById('news-check-results');
+  results.innerHTML = NEWS_CANDIDATES.map((c, i) => {
+    if (!c) return '';
+    const sectionOptions = COMMENTARY_SECTIONS.map(s =>
+      `<option value="${s.key}" ${s.key === c.section ? 'selected' : ''}>${s.label}</option>`
+    ).join('');
+    const linkHtml = c.url ? ` — <a href="${escapeAttr(c.url)}" target="_blank" rel="noopener">Link</a>` : '';
+    return `
+      <div id="news-candidate-${i}" style="padding:10px 12px; border:1px solid var(--border); border-radius:6px; margin-bottom:8px; font-size:0.84rem;">
+        <div><strong>${escapeAttr(c.headline)}</strong></div>
+        <div style="color:var(--muted); font-size:0.76rem; margin:2px 0;">${escapeAttr(c.date)}${c.source ? ' — ' + escapeAttr(c.source) : ''}${linkHtml}</div>
+        <div style="margin:4px 0;">${escapeAttr(c.summary)}</div>
+        <label style="font-size:0.76rem;">Section:
+          <select id="news-candidate-section-${i}">${sectionOptions}</select>
+        </label>
+        <div style="margin-top:6px;">
+          <button type="button" class="btn-primary" style="font-size:0.78rem; padding:3px 10px; cursor:pointer;" onclick="approveNewsCandidate(${i})">Approve</button>
+          <button type="button" class="btn-toggle" style="font-size:0.78rem; padding:3px 10px; cursor:pointer;" onclick="declineNewsCandidate(${i})">Decline</button>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+async function approveNewsCandidate(i) {
+  const c = NEWS_CANDIDATES[i];
+  if (!c) return;
+  const sectionSelect = document.getElementById(`news-candidate-section-${i}`);
+  const section = sectionSelect ? sectionSelect.value : c.section;
+  const cardEl = document.getElementById(`news-candidate-${i}`);
+  if (cardEl) cardEl.style.opacity = '0.5';
+
+  try {
+    // Same endpoint the manual "+ Add development" form uses (no `id` ->
+    // creates a new entry) -- a news-check approval is otherwise identical
+    // to a hand-typed development, just pre-filled from the candidate.
+    const res = await fetch('/api/developments/set', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ country: COUNTRY_CODE, section, date: c.date, headline: c.headline, summary: c.summary, source: c.source, url: c.url })
+    });
+    const result = await res.json();
+    if (!res.ok) {
+      alert(`Couldn't save this development: ${result.error || 'unknown error'}`);
+      if (cardEl) cardEl.style.opacity = '1';
+      return;
+    }
+    CURRENT_DEVELOPMENTS = result.developments || CURRENT_DEVELOPMENTS;
+    renderCommentarySection(COMMENTARY_SECTIONS.find(s => s.key === section));
+    NEWS_CANDIDATES[i] = null;
+    if (cardEl) cardEl.remove();
+  } catch (e) {
+    alert('Could not reach the server to save this development.');
+    if (cardEl) cardEl.style.opacity = '1';
+  }
+}
+
+function declineNewsCandidate(i) {
+  NEWS_CANDIDATES[i] = null;
+  const cardEl = document.getElementById(`news-candidate-${i}`);
+  if (cardEl) cardEl.remove();
 }
 
 function renderCommentarySection(section) {
@@ -1296,6 +1431,7 @@ async function load() {
   CURRENT_COMMENTARY = data.commentary || {};
   CURRENT_DEVELOPMENTS = await loadDevelopments(code);
   renderCommentary();
+  renderNewsCheckPanel();
 
   document.getElementById('export-wrap').innerHTML = `
     <button type="button" id="export-btn-docx" class="btn-primary" onclick="downloadExport('docx')" style="cursor:pointer;">Download as Word</button>
