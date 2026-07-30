@@ -31,13 +31,13 @@
 <nav class="breadcrumb"><a href="index.html">&larr; Atlas home</a> &nbsp;|&nbsp; <a href="overview.html">Global overview</a> &nbsp;|&nbsp; <a href="map.html">World map</a> &nbsp;|&nbsp; <a href="sources.html">Sources &amp; methodology</a> &nbsp;|&nbsp; <a href="evidence.html">Supporting evidence</a></nav>
 
 <main>
-  <h2>Opportunity scorecard</h2>
+  <h1 class="country-name-heading">Project builder</h1>
   <p class="note" style="border-top:none; padding-top:0;">
-    Every built country's segments, side by side, with the tools to adjust which dimensions count and bulk-score them. "Show scorecard" loads every built country's data in the background rather than up front, so opening this page never waits on it.
+    Set the factors that drive the Overall opportunity score, pick the countries in scope, then build a combined view across just those -- on screen, or as a single downloadable Word/PowerPoint file.
   </p>
 
   <div id="enabled-dims-section" style="display:none; margin-bottom:16px;">
-    <button type="button" class="btn-toggle" onclick="toggleOverviewTool('enabled-dims-body')">Dimensions</button>
+    <button type="button" class="btn-toggle" onclick="toggleOverviewTool('enabled-dims-body')">Factor selector</button>
     <div id="enabled-dims-body" style="display:none; margin-top:10px;">
       <div id="enabled-dims-controls" class="tool-panel">
         <div class="tool-panel-inner">
@@ -55,8 +55,21 @@
     </div>
   </div>
 
+  <div id="factor-weighting-section" style="margin-bottom:16px;">
+    <button type="button" class="btn-toggle" onclick="toggleOverviewTool('factor-weighting-body')">Factor Weighting</button>
+    <div id="factor-weighting-body" style="display:none; margin-top:10px;">
+      <p class="note" style="border-top:none; padding-top:0; margin:0 0 10px; font-size:0.82rem;">
+        Overall is normally (3 &times; Market opportunity) + the sum of the other 11 factors, each weighted &times;1 -- matching FINAL_Country_Matrix.xlsx. A client may want a different emphasis (e.g. weighting Regulatory complexity more heavily) -- drag a slider to see this project's Overall column and colour banding re-rank live. On its own this is just a session-local view: it doesn't write anything back to the underlying scorecard data, and every other page in Atlas keeps using the standard weighting unless you use the button below to push it.
+      </p>
+      <div id="project-weighting-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(240px, 1fr)); gap:10px 16px; margin-bottom:10px;"></div>
+      <button type="button" class="btn-primary" style="cursor:pointer;" onclick="resetProjectWeights()">Reset to default weighting</button>
+      <button type="button" id="push-weights-btn" class="btn-primary" style="cursor:pointer; display:none; margin-left:8px;" onclick="pushWeightsToScorecard()">Push this weighting to the scorecard, site-wide</button>
+      <span class="note" id="project-weighting-hint" style="border-top:none; padding-top:0; margin:6px 0 0; font-size:0.78rem; display:block;"></span>
+    </div>
+  </div>
+
   <div id="bulk-tools-section" style="display:none; margin-bottom:16px;">
-    <button type="button" class="btn-toggle" onclick="onAutoscoreToggle()">Autoscore</button>
+    <button type="button" class="btn-toggle" onclick="onAutoscoreToggle()">Factor autoscore</button>
     <div id="bulk-tools-body" style="display:none; margin-top:10px;">
       <div id="overview-threshold-controls" class="tool-panel" style="display:none;">
         <div class="tool-panel-inner">
@@ -270,33 +283,6 @@
     </div>
   </div>
 
-  <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px;">
-    <button type="button" id="show-scorecard-btn" class="btn-primary" style="cursor:pointer;" onclick="showScorecard()">Show scorecard</button>
-    <span class="note" id="scorecard-loading-note" style="border:none; padding:0; margin:0; font-style:italic;"></span>
-  </div>
-  <div id="scorecard-matrix-section" style="display:none;">
-    <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:12px; font-size:0.85rem;">
-      <label for="overview-view-select"><strong>Show:</strong></label>
-      <select id="overview-view-select" onchange="onOverviewViewChange()">
-        <option value="overall">Opportunity score (Overall)</option>
-        <option value="allocation">Asset allocation ($bn)</option>
-      </select>
-      <span id="overview-alloc-controls" style="display:none; gap:10px; align-items:center;">
-        <select id="overview-alloc-type-select" onchange="onOverviewAllocSelectorChange()"></select>
-        <select id="overview-alloc-style-select" onchange="onOverviewAllocSelectorChange()"></select>
-      </span>
-    </div>
-    <p class="note" style="margin-top:-4px; margin-bottom:16px; border-top:none; padding-top:0;" id="overview-hint"></p>
-    <div class="matrix-wrap">
-      <table class="matrix-table" id="overview-matrix"></table>
-    </div>
-  </div>
-
-  <h1 class="country-name-heading">Project builder</h1>
-  <p class="note" style="border-top:none; padding-top:0;">
-    Most projects don't need all 34 countries. Pick the ones that are actually in scope, then build a combined AUM-by-segment and opportunity-scorecard view across just those — on screen, or as a single downloadable Word/PowerPoint file.
-  </p>
-
   <div class="summary-bar" id="picker-summary-bar"></div>
 
   <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:12px;">
@@ -308,8 +294,9 @@
 
   <div id="country-checklist" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:4px 16px; margin-bottom:20px;"></div>
 
-  <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:24px;">
-    <button type="button" id="build-btn" class="btn-primary" style="cursor:pointer;" onclick="buildProjectView()">Build table</button>
+  <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:8px;">
+    <button type="button" id="show-scorecard-btn" class="btn-primary" style="cursor:pointer;" onclick="showScorecard()">Show scorecard</button>
+    <button type="button" id="build-btn" class="btn-primary" style="cursor:pointer;" onclick="buildProjectView()">Build Output</button>
     <label style="font-size:0.85rem;">Show:
       <select id="project-view-select" onchange="onProjectViewChange()">
         <option value="overall">Opportunity score (Overall)</option>
@@ -331,8 +318,27 @@
     <button type="button" id="export-docx-btn" class="btn-primary" style="cursor:pointer; display:none;" onclick="downloadProjectExport('docx')">Download as Word</button>
     <button type="button" id="export-pptx-btn" class="btn-primary" style="cursor:pointer; display:none;" onclick="downloadProjectExport('pptx')">Download as PowerPoint</button>
   </div>
+  <span class="note" id="scorecard-loading-note" style="border:none; padding:0; margin:0 0 12px; font-style:italic; display:block;"></span>
 
-  <p class="note" id="project-hint" style="margin-top:-12px;"></p>
+  <div id="scorecard-matrix-section" style="display:none; margin-bottom:20px;">
+    <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:12px; font-size:0.85rem;">
+      <label for="overview-view-select"><strong>Show:</strong></label>
+      <select id="overview-view-select" onchange="onOverviewViewChange()">
+        <option value="overall">Opportunity score (Overall)</option>
+        <option value="allocation">Asset allocation ($bn)</option>
+      </select>
+      <span id="overview-alloc-controls" style="display:none; gap:10px; align-items:center;">
+        <select id="overview-alloc-type-select" onchange="onOverviewAllocSelectorChange()"></select>
+        <select id="overview-alloc-style-select" onchange="onOverviewAllocSelectorChange()"></select>
+      </span>
+    </div>
+    <p class="note" style="margin-top:-4px; margin-bottom:16px; border-top:none; padding-top:0;" id="overview-hint"></p>
+    <div class="matrix-wrap">
+      <table class="matrix-table" id="overview-matrix"></table>
+    </div>
+  </div>
+
+  <p class="note" id="project-hint" style="margin-top:-4px;"></p>
 
   <details id="project-mo-details" style="margin-bottom:16px; display:none;">
     <summary style="cursor:pointer; font-size:0.85rem; color:var(--muted); padding:4px 0; font-weight:600;">Bulk auto-score "Market opportunity" for this project</summary>
@@ -353,17 +359,6 @@
       <p class="note" id="project-mo-signin-hint" style="border-top:none; padding-top:0; margin:0; font-size:0.82rem;"></p>
     </div>
   </details>
-
-  <div style="margin-bottom:16px;">
-    <strong style="font-size:0.85rem; color:var(--muted);">Dimension weighting for this project's Overall score</strong>
-    <p class="note" style="border-top:none; padding-top:0; margin:4px 0 10px; font-size:0.82rem;">
-      Overall is normally (3 &times; Market opportunity) + the sum of the other 11 dimensions, each weighted &times;1 -- matching FINAL_Country_Matrix.xlsx. A client may want a different emphasis (e.g. weighting Regulatory complexity more heavily) -- drag a slider to see this project's Overall column and colour banding re-rank live. On its own this is just a session-local view: it doesn't write anything back to the underlying scorecard data, and every other page in Atlas keeps using the standard weighting unless you use the button below to push it.
-    </p>
-    <div id="project-weighting-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(240px, 1fr)); gap:10px 16px; margin-bottom:10px;"></div>
-    <button type="button" class="btn-primary" style="cursor:pointer;" onclick="resetProjectWeights()">Reset to default weighting</button>
-    <button type="button" id="push-weights-btn" class="btn-primary" style="cursor:pointer; display:none; margin-left:8px;" onclick="pushWeightsToScorecard()">Push this weighting to the scorecard, site-wide</button>
-    <span class="note" id="project-weighting-hint" style="border-top:none; padding-top:0; margin:6px 0 0; font-size:0.78rem; display:block;"></span>
-  </div>
 
   <details id="project-evidence-details" style="margin-bottom:16px;">
     <summary style="cursor:pointer; font-size:0.85rem; color:var(--muted); padding:4px 0; font-weight:600;">Attach supporting evidence to this export</summary>
