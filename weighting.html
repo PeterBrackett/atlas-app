@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas — Weighting</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script src="scorecard-dimensions.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <img src="logo.png" alt="Atlas logo" class="brand-logo">
+    <div>
+      <h1>Atlas</h1>
+      <div class="tagline">Weighting</div>
+    </div>
+  </div>
+  <div id="auth-status" style="font-size:0.82rem; color:#b9c6d3;"></div>
+</header>
+<nav class="breadcrumb"><a href="index.html">&larr; Atlas home</a> &nbsp;|&nbsp; <a href="overview.html">Global overview</a> &nbsp;|&nbsp; <a href="map.html">World map</a> &nbsp;|&nbsp; <a href="scorecard.html">Opportunity scorecard</a> &nbsp;|&nbsp; <a href="picker.html">Project builder</a> &nbsp;|&nbsp; <a href="sources.html">Sources &amp; methodology</a> &nbsp;|&nbsp; <a href="evidence.html">Supporting evidence</a></nav>
+
+<main>
+  <p class="note" style="border-top:none; padding-top:0;">
+    Drag a slider to re-weight how much each dimension counts toward Overall, live, across every built country's segments -- built for talking through a client's own priorities in the room, not for editing the underlying scorecard data. Nothing here is saved; refreshing resets to the standard weighting. For building and exporting a specific client's project, use the <a href="picker.html">Project builder</a> instead.
+  </p>
+
+  <div id="weighting-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:10px 20px; margin:20px 0;"></div>
+  <button type="button" class="btn-primary" style="cursor:pointer;" onclick="resetWeights()">Reset to default weighting</button>
+  <span class="note" id="weighting-hint" style="border-top:none; padding-top:0; margin:0 0 0 10px; font-size:0.8rem; display:inline-block;"></span>
+
+  <div style="display:flex; align-items:center; flex-wrap:wrap; gap:10px; margin:28px 0 10px;">
+    <label for="filter-input"><strong>Filter:</strong></label>
+    <input type="text" id="filter-input" placeholder="Country or segment name…" oninput="renderBars()" style="padding:5px 8px; border:1px solid var(--border); border-radius:5px; font-size:0.88rem; min-width:220px;">
+    <label for="topn-select"><strong>Show:</strong></label>
+    <select id="topn-select" onchange="renderBars()">
+      <option value="25">Top 25</option>
+      <option value="50">Top 50</option>
+      <option value="all">All</option>
+    </select>
+    <span class="note" id="loading-note" style="border:none; padding:0; margin:0; font-style:italic;"></span>
+  </div>
+
+  <div id="bar-chart" style="display:flex; flex-direction:column; gap:5px;"></div>
+  <p class="note" id="bar-chart-hint"></p>
+</main>
+
+<script>
+let CURRENT_USER = null;
+
+async function checkAuth() {
+  try {
+    const res = await fetch('/.auth/me');
+    const payload = await res.json();
+    const principal = payload && payload.clientPrincipal;
+    CURRENT_USER = principal ? (principal.userDetails || 'signed in') : null;
+  } catch (e) {
+    CURRENT_USER = null;
+  }
+  const el = document.getElementById('auth-status');
+  if (CURRENT_USER) {
+    el.innerHTML = `Signed in as ${CURRENT_USER} &nbsp;|&nbsp; <a href="/.auth/logout?post_logout_redirect_uri=${encodeURIComponent(window.location.href)}" style="color:#b9c6d3;">Log out</a>`;
+  } else {
+    el.innerHTML = `<a href="/.auth/login/aad?post_login_redirect_uri=${encodeURIComponent(window.location.href)}" style="color:#b9c6d3;">Log in</a>`;
+  }
+}
+
+// Same try-API-then-static-file fallback shape used throughout the site
+// (see e.g. map.html's fetchCountryDataWithFallback()).
+async function fetchCountryDataWithFallback(slug) {
+  try {
+    const res = await fetchWithTimeout(`/api/data/${slug}`, undefined, 15000);
+    if (!res.ok) throw new Error('API not ready');
+    return await res.json();
+  } catch (e) {
+    try {
+      const res = await fetchWithTimeout(`data/${slug}.json`, undefined, 15000);
+      if (!res.ok) return null;
+      return await res.json();
+    } catch (e2) {
+      return null;
+    }
+  }
+}
+
+async function fetchCountryScoresWithFallback(slug) {
+  try {
+    const res = await fetchWithTimeout(`/api/scores/${slug}`, undefined, 15000);
+    if (!res.ok) throw new Error('API not ready');
+    const data = await res.json();
+    return data.scores || {};
+  } catch (e) {
+    try {
+      const res = await fetchWithTimeout(`data/${slug}_scores.json`, undefined, 15000);
+      if (!res.ok) return {};
+      const data = await res.json();
+      return data.scores || {};
+    } catch (e2) {
+      return {};
+    }
+  }
+}
+
+function slugFromHref(href) {
+  const match = /[?&]c=([^&]+)/.exec(href || '');
+  return match ? match[1] : null;
+}
+
+// Per-dimension weight overrides, same shape and same "start from the
+// standard weights, only override what's actually moved" approach as
+// picker.html's PROJECT_WEIGHTS -- kept as its own independent copy here
+// rather than shared state, since this page is a standalone "talk through
+// weighting live" tool, not part of a project export.
+let WEIGHTS = null;
+
+function currentWeights() {
+  if (!WEIGHTS) {
+    WEIGHTS = {};
+    SCORECARD_DIMENSIONS.forEach(d => { WEIGHTS[d.key] = d.weight; });
+  }
+  return WEIGHTS;
+}
+
+function renderWeightingGrid() {
+  const grid = document.getElementById('weighting-grid');
+  const w = currentWeights();
+  grid.innerHTML = SCORECARD_DIMENSIONS.map(dim => {
+    const value = w[dim.key];
+    const isCustom = value !== dim.weight;
+    return `
+      <div>
+        <div style="display:flex; justify-content:space-between; font-size:0.84rem; margin-bottom:2px;">
+          <span>${dim.label}${isCustom ? ' <span class="badge" style="background:var(--navy); color:#fff; font-size:0.68rem;">custom</span>' : ''}</span>
+          <strong id="weight-value-${dim.key}">${value}</strong>
+        </div>
+        <input type="range" min="0" max="5" step="1" value="${value}" style="width:100%;"
+          oninput="onWeightInput('${dim.key}', this.value)" title="Default: ${dim.weight}">
+      </div>`;
+  }).join('');
+  updateWeightingHint();
+}
+
+function updateWeightingHint() {
+  const hint = document.getElementById('weighting-hint');
+  const w = currentWeights();
+  const changed = SCORECARD_DIMENSIONS.filter(d => w[d.key] !== d.weight);
+  hint.textContent = changed.length
+    ? `Custom weighting in effect for: ${changed.map(d => d.label).join(', ')}.`
+    : 'Using the default weighting (Market opportunity ×3, everything else ×1).';
+}
+
+function onWeightInput(key, rawValue) {
+  const w = currentWeights();
+  const value = Number(rawValue);
+  w[key] = Number.isFinite(value) ? value : SCORECARD_DIMENSIONS.find(d => d.key === key).weight;
+  document.getElementById(`weight-value-${key}`).textContent = w[key];
+  updateWeightingHint();
+  renderBars();
+}
+
+function resetWeights() {
+  WEIGHTS = null;
+  renderWeightingGrid();
+  renderBars();
+}
+
+// One row per (country, segment) pair, across every built country -- built
+// once on load and re-ranked/re-coloured on every slider move, rather than
+// re-fetched. computeOverallScore()/computeOverallRange() are pure
+// functions of `scorecard` + the current weights, so re-ranking on a slider
+// drag is cheap even across several hundred segments.
+let ALL_ROWS = [];
+
+async function loadAllRows() {
+  const noteEl = document.getElementById('loading-note');
+  noteEl.textContent = 'Loading every built country’s scorecard data…';
+
+  let countries = [];
+  try {
+    const res = await fetchWithTimeout('/api/data/global', undefined, 15000);
+    if (!res.ok) throw new Error('API not ready');
+    countries = (await res.json()).countries || [];
+  } catch (e) {
+    const res = await fetch('data/global.json');
+    countries = (await res.json()).countries || [];
+  }
+
+  const built = countries.filter(c => c.status === 'built' && c.href);
+  const rows = [];
+
+  await mapWithConcurrency(built, 6, async c => {
+    const slug = slugFromHref(c.href) || c.code.toLowerCase();
+    try {
+      const data = await fetchCountryDataWithFallback(slug);
+      if (!data || !data.segments) return;
+      const scoresByName = await fetchCountryScoresWithFallback(slug);
+      data.segments.forEach(seg => {
+        const scorecard = scoresByName[seg.segment] || {};
+        if (scoredDimensionCount(scorecard, null) === 0) return; // nothing scored yet -- leave it out rather than showing a false zero
+        rows.push({
+          countryName: data.country_name || c.name,
+          href: c.href,
+          segmentName: seg.segment,
+          scorecard
+        });
+      });
+    } catch (e) {
+      // Skip this country rather than failing the whole page -- same
+      // "best effort across a large fan-out" approach as scorecard.html's
+      // loadOverviewData().
+    }
+  });
+
+  noteEl.textContent = '';
+  return rows;
+}
+
+function overallBarColor(cls) {
+  if (cls === 'overall-red') return '#a3291f';
+  if (cls === 'overall-amber') return '#9a5a1a';
+  if (cls === 'overall-green') return '#1f7a34';
+  return '#9aa5ad';
+}
+
+function renderBars() {
+  const w = currentWeights();
+  const range = computeOverallRange(null, w);
+  const filterText = document.getElementById('filter-input').value.trim().toLowerCase();
+  const topnRaw = document.getElementById('topn-select').value;
+
+  let scored = ALL_ROWS
+    .filter(r => !filterText || r.countryName.toLowerCase().includes(filterText) || r.segmentName.toLowerCase().includes(filterText))
+    .map(r => ({ ...r, overall: computeOverallScore(r.scorecard, null, w) }))
+    .sort((a, b) => b.overall - a.overall);
+
+  const totalMatching = scored.length;
+  if (topnRaw !== 'all') scored = scored.slice(0, Number(topnRaw));
+
+  const maxOverall = range.max || 1;
+  const chart = document.getElementById('bar-chart');
+  if (!scored.length) {
+    chart.innerHTML = `<p class="note" style="border-top:none; padding-top:0;">No scored segments match this filter.</p>`;
+  } else {
+    chart.innerHTML = scored.map(r => {
+      const pct = Math.max(2, Math.min(100, (r.overall / maxOverall) * 100));
+      const cls = overallScoreClass(r.overall, range);
+      const color = overallBarColor(cls);
+      return `
+        <a href="${r.href}" style="display:flex; align-items:center; gap:10px; text-decoration:none; color:inherit;" title="Open ${r.countryName}">
+          <div style="width:230px; flex-shrink:0; font-size:0.8rem; text-align:right; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${r.countryName} — ${r.segmentName}</div>
+          <div style="flex:1; background:var(--bg); border-radius:4px; overflow:hidden; height:18px;">
+            <div style="width:${pct}%; height:100%; background:${color};"></div>
+          </div>
+          <div style="width:40px; flex-shrink:0; font-size:0.8rem; font-weight:600; color:${color};">${r.overall}</div>
+        </a>`;
+    }).join('');
+  }
+
+  document.getElementById('bar-chart-hint').textContent =
+    `Showing ${scored.length} of ${totalMatching} matching segment${totalMatching === 1 ? '' : 's'} across ${new Set(ALL_ROWS.map(r => r.countryName)).size} built countries. Click a bar to open that country's page.`;
+}
+
+async function load() {
+  await checkAuth();
+  renderWeightingGrid();
+  ALL_ROWS = await loadAllRows();
+  renderBars();
+}
+load();
+</script>
+</body>
+</html>
