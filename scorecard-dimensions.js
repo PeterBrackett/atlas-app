@@ -131,6 +131,81 @@ function applyGlobalDimensionWeights(dimensionWeights) {
   });
 }
 
+// Turns a client's typed label into a `custom_` prefixed key matching the
+// CUSTOM_DIMENSION_KEY_RE pattern each write endpoint validates against
+// (setScorecard.js and friends) -- lowercased, non-alphanumerics collapsed to
+// underscores, trimmed, capped at 30 characters, with a short random suffix
+// so two custom factors with the same label (e.g. two different clients both
+// typing "ESG alignment" before either has saved) never collide. Called once
+// when a custom factor is first added; the key itself never changes again
+// even if the label is edited afterwards -- so any second edit needs to
+// remove and re-add.
+function slugifyDimensionKey(label) {
+  const slug = (label || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '_')
+    .replace(/^_+|_+$/g, '')
+    .slice(0, 30) || 'factor';
+  const suffix = Math.random().toString(36).slice(2, 6);
+  return `custom_${slug}_${suffix}`;
+}
+
+// Set of custom dimension keys injected onto SCORECARD_DIMENSIONS so far in
+// this page's lifetime -- lets applyCustomDimensions() be called repeatedly
+// (e.g. every time global.json is re-fetched) without appending duplicate
+// entries, the same idempotency concern applyGlobalDimensionWeights() avoids
+// simply by mutating existing entries in place rather than pushing new ones.
+const CUSTOM_DIMENSION_KEYS = new Set();
+
+// Mirrors applyGlobalDimensionWeights()'s "mutate the one shared array"
+// pattern (see that function's comment) but for whole new dimensions rather
+// than just a weight -- pushes each client-defined custom factor from
+// global.json's custom_dimensions field onto SCORECARD_DIMENSIONS itself, so
+// every existing call site (computeOverallScore(), computeOverallRange(),
+// scoredDimensionCount(), enabledDimensionCount(), the Factor selector/
+// Factor Weighting panels, country.html's scorecard table, the cross-country
+// matrix, the full-factor popup) picks the new factor up automatically with
+// no changes needed there. Safe to call from every page that loads
+// global.json (country.html/picker.html/map.html) since it's purely
+// additive and idempotent (re-applying the same custom_dimensions list is a
+// no-op the second time, and an already-added key's label/weight are kept in
+// sync with whatever was last saved). Only ever mutates the browser's own
+// single-tab copy of SCORECARD_DIMENSIONS -- unlike the server-side
+// equivalent in exportHelpers.js, there's no cross-request concurrency
+// concern here, since each browser tab has its own JS heap.
+function applyCustomDimensions(customDimensions) {
+  if (!Array.isArray(customDimensions)) return;
+  customDimensions.forEach(cd => {
+    if (!cd || typeof cd.key !== 'string') return;
+    const existing = SCORECARD_DIMENSIONS.find(d => d.key === cd.key);
+    if (existing) {
+      existing.label = cd.label;
+      if (typeof cd.weight === 'number') existing.weight = cd.weight;
+      return;
+    }
+    SCORECARD_DIMENSIONS.push({
+      key: cd.key,
+      label: cd.label,
+      weight: typeof cd.weight === 'number' ? cd.weight : 1,
+      question: 'Custom factor added for this project.',
+      custom: true
+    });
+    CUSTOM_DIMENSION_KEYS.add(cd.key);
+  });
+}
+
+// Removes a client-defined custom factor from the live SCORECARD_DIMENSIONS
+// array (Factor selector's per-row "Remove" button, custom factors only --
+// the fixed 12 can never be removed, only disabled via enabled_dimensions).
+// Purely a local/in-memory removal; the caller is responsible for then
+// saving the updated custom_dimensions list back via setCustomDimensions.js
+// so the removal persists and every other client picks it up too.
+function removeCustomDimension(key) {
+  const idx = SCORECARD_DIMENSIONS.findIndex(d => d.key === key);
+  if (idx !== -1) SCORECARD_DIMENSIONS.splice(idx, 1);
+  CUSTOM_DIMENSION_KEYS.delete(key);
+}
+
 // A full 12-key {dimensionKey: weight} snapshot of SCORECARD_DIMENSIONS'
 // current weights (i.e. the pushed global weighting, if any, already applied
 // via applyGlobalDimensionWeights() above), optionally overlaid with a
@@ -275,12 +350,19 @@ const DIMENSION_ICONS = {
   consultant_reliant: '<rect x="3" y="8" width="18" height="12" rx="2"/><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="3" y1="14" x2="21" y2="14"/>'
 };
 
+// Generic "custom factor" glyph (a plain asterisk/star), shown next to any
+// client-added custom dimension row since it has no bespoke icon of its own
+// -- distinguishes it from the fixed 12's dedicated icons at a glance rather
+// than showing nothing.
+const CUSTOM_DIMENSION_ICON = '<path d="M12 4v16M5 8l14 8M19 8 5 16"/>';
+
 // Wraps a dimension's icon markup in a sized <svg>, ready to drop straight
-// into a row label. Falls back to an empty string for an unknown key rather
-// than throwing, so a future dimension added without an icon degrades to
-// "no icon" instead of a broken page.
+// into a row label. Falls back to the generic custom-factor glyph for any
+// `custom_`-prefixed key, or an empty string for any other unknown key
+// (rather than throwing), so a future dimension added without an icon
+// degrades to "no icon" instead of a broken page.
 function dimensionIconSvg(dimKey) {
-  const inner = DIMENSION_ICONS[dimKey];
+  const inner = DIMENSION_ICONS[dimKey] || (dimKey && dimKey.indexOf('custom_') === 0 ? CUSTOM_DIMENSION_ICON : null);
   if (!inner) return '';
   return `<svg class="dim-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${inner}</svg>`;
 }

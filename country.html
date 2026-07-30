@@ -839,6 +839,11 @@ async function loadEnabledDimensions() {
     const res = await fetch('/api/data/global');
     if (!res.ok) throw new Error('API not ready');
     const data = await res.json();
+    // Client-defined custom factors (see picker.html's Factor selector) --
+    // applied before applyGlobalDimensionWeights() so a pushed weighting for
+    // a custom key correctly overrides its creation-time weight, not the
+    // other way round (see picker.html load()'s identical comment).
+    applyCustomDimensions(data.custom_dimensions);
     applyGlobalDimensionWeights(data.dimension_weights);
     return data.enabled_dimensions || null;
   } catch (e) {
@@ -846,6 +851,7 @@ async function loadEnabledDimensions() {
       const res = await fetch('data/global.json');
       if (!res.ok) return null;
       const data = await res.json();
+      applyCustomDimensions(data.custom_dimensions);
       applyGlobalDimensionWeights(data.dimension_weights);
       return data.enabled_dimensions || null;
     } catch (e2) {
@@ -889,7 +895,12 @@ async function downloadExport(format) {
         // Matches whatever the "Allocation row shows" dropdown is currently
         // set to, so the exported scorecard's allocation row (added
         // 2026-07-23) shows the same thing that's on screen right now.
-        alloc_type: CURRENT_ALLOC_TYPE, alloc_style: CURRENT_ALLOC_STYLE
+        alloc_type: CURRENT_ALLOC_TYPE, alloc_style: CURRENT_ALLOC_STYLE,
+        // custom_dimensions -- client-defined additional scorecard factors
+        // (see picker.html's Factor selector / exportHelpers.js's
+        // resolveDimensions() comment). country.html has no add/remove UI of
+        // its own for these, just whatever's already been added elsewhere.
+        custom_dimensions: SCORECARD_DIMENSIONS.filter(d => d.custom).map(d => ({ key: d.key, label: d.label, weight: d.weight }))
       })
     });
 
@@ -1103,11 +1114,17 @@ function renderScorecardMatrix() {
     }).join('') +
     `</tr>`;
 
+  // Rescale the red/amber/green cutoffs whenever a custom factor exists --
+  // see picker.html's identical overallRangeForCells comment for why the
+  // fixed 22/30 cutoffs (calibrated only for the original 12 dimensions)
+  // would otherwise miscolor every Overall cell once a custom factor exists.
+  const overallRangeForCells = SCORECARD_DIMENSIONS.some(d => d.custom) ? computeOverallRange(ENABLED_DIMENSIONS) : null;
+
   const overallRow = `<tr class="overall-row">` +
     `<td class="matrix-rowlabel">Overall</td>` +
     segs.map((s, segIndex) => {
       const overall = computeOverallScore(s.scorecard, ENABLED_DIMENSIONS);
-      return `<td id="sc-overall-${segIndex}" class="${overallScoreClass(overall)}"><strong>${overall}</strong></td>`;
+      return `<td id="sc-overall-${segIndex}" class="${overallScoreClass(overall, overallRangeForCells)}"><strong>${overall}</strong></td>`;
     }).join('') +
     `</tr>`;
 
@@ -1173,7 +1190,8 @@ async function saveScorecardValue(selectEl) {
     const overallCellEl = document.getElementById(`sc-overall-${segIndex}`);
     if (overallCellEl) {
       const overall = computeOverallScore(segment.scorecard, ENABLED_DIMENSIONS);
-      overallCellEl.className = overallScoreClass(overall);
+      const overallRangeForCells = SCORECARD_DIMENSIONS.some(d => d.custom) ? computeOverallRange(ENABLED_DIMENSIONS) : null;
+      overallCellEl.className = overallScoreClass(overall, overallRangeForCells);
       overallCellEl.innerHTML = `<strong>${overall}</strong>`;
     }
 

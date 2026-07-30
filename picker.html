@@ -44,6 +44,24 @@
           <div class="tool-panel-controls" style="flex-basis:100%; max-width:none;">
             <div class="tool-panel-inputs" id="enabled-dims-checkboxes" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); gap:6px; width:100%;"></div>
             <button type="button" id="enabled-dims-save-btn" class="btn-primary" onclick="saveEnabledDimensions()" style="cursor:pointer;">Save</button>
+
+            <div style="flex-basis:100%; margin-top:14px; padding-top:12px; border-top:1px solid var(--border, #ddd);">
+              <strong style="font-size:0.86rem;">Custom factors</strong>
+              <p class="note" style="border-top:none; padding-top:2px; margin:2px 0 8px; font-size:0.8rem;">
+                Add a factor of your own alongside the fixed 12 (e.g. "ESG alignment"). It gets its own checkbox above, its own slider in Factor Weighting, and is scored per segment on each country page exactly like the built-in factors -- and is included in Word/PowerPoint exports. Up to 8 custom factors.
+              </p>
+              <div id="custom-dims-list" style="display:flex; flex-direction:column; gap:6px; margin-bottom:10px;"></div>
+              <div style="display:flex; gap:10px; align-items:flex-end; flex-wrap:wrap;">
+                <label style="font-weight:400;">Factor name<br>
+                  <input type="text" id="custom-dim-label-input" class="tool-input" placeholder="e.g. ESG alignment" style="width:220px;" maxlength="80">
+                </label>
+                <label style="font-weight:400;">Starting weight<br>
+                  <input type="number" id="custom-dim-weight-input" class="tool-input" min="0" max="5" step="1" value="1" style="width:80px;">
+                </label>
+                <button type="button" class="btn-primary" onclick="addCustomDimension()" style="cursor:pointer;">Add custom factor</button>
+              </div>
+              <span class="note" id="custom-dims-hint" style="border-top:none; padding-top:0; margin:6px 0 0; font-size:0.78rem; display:block;"></span>
+            </div>
             <details class="tool-explain">
               <summary>How this works</summary>
               <span class="note">Unchecking a dimension excludes it from every segment's Overall score calculation (and from the "Scored X/N" count) everywhere — the overview matrix, every country page, the project builder, and Word/PowerPoint exports. Its column/row stays visible, just doesn't count toward Overall or gate it. This is global and persisted, not a personal filter: everyone who loads Atlas sees the same enabled/disabled set until it's changed again here. Turning a dimension back on may make some segments' Overall go blank again if that dimension isn't actually scored for them.</span>
@@ -1081,11 +1099,13 @@ function renderProjectMatrix(failed) {
   const regionNames = Object.keys(grouped).sort((a, b) => regionSortIndex(a) - regionSortIndex(b));
 
   // Only meaningful for the 'overall' view, and only actually rescales the
-  // red/amber/green cutoffs when a custom weighting is in effect --
-  // computeOverallRange()/overallScoreClass() both fall back to the
-  // standard behaviour when PROJECT_WEIGHTS is null. Computed once here
+  // red/amber/green cutoffs when a custom weighting is in effect, or when a
+  // custom factor exists (which shifts the achievable range even at its
+  // default weight -- see renderOverviewMatrixBody()'s identical
+  // overallRangeForCells comment). computeOverallRange()/overallScoreClass()
+  // both fall back to the standard behaviour otherwise. Computed once here
   // rather than per cell since it doesn't depend on the segment.
-  const overallRange = PROJECT_WEIGHTS ? computeOverallRange(ENABLED_DIMENSIONS, PROJECT_WEIGHTS) : null;
+  const overallRange = (PROJECT_WEIGHTS || SCORECARD_DIMENSIONS.some(d => d.custom)) ? computeOverallRange(ENABLED_DIMENSIONS, PROJECT_WEIGHTS) : null;
 
   const rows = regionNames.map(region => {
     const regionHeader = `<tr class="region-header"><td colspan="${columns.length + 1}">${region}</td></tr>`;
@@ -1180,7 +1200,15 @@ async function downloadProjectExport(format) {
       // alloc_type/alloc_style -- 2026-07-23, matches whatever the "Show:
       // Asset allocation" dropdowns are currently set to, so the exported
       // scorecard's allocation row shows the same thing that's on screen.
-      body: JSON.stringify({ countries, enabled_dimensions: ENABLED_DIMENSIONS, include, weight_overrides: currentEffectiveWeights(PROJECT_WEIGHTS), alloc_type: PROJECT_ALLOC_TYPE, alloc_style: PROJECT_ALLOC_STYLE, evidence })
+      // custom_dimensions -- client-defined additional scorecard factors
+      // (Factor selector's "Add custom factor"). exportHelpers.js's own
+      // SCORECARD_DIMENSIONS copy has no way to know these exist on its own
+      // (same reason weight_overrides is always sent in full above), so the
+      // full {key, label, weight} definitions are sent every time rather
+      // than just the keys -- weight_overrides above already carries each
+      // custom factor's current (possibly session-overridden) weight, via
+      // currentEffectiveWeights() iterating the live SCORECARD_DIMENSIONS.
+      body: JSON.stringify({ countries, enabled_dimensions: ENABLED_DIMENSIONS, include, weight_overrides: currentEffectiveWeights(PROJECT_WEIGHTS), alloc_type: PROJECT_ALLOC_TYPE, alloc_style: PROJECT_ALLOC_STYLE, evidence, custom_dimensions: SCORECARD_DIMENSIONS.filter(d => d.custom).map(d => ({ key: d.key, label: d.label, weight: d.weight })) })
     });
 
     if (!res.ok) {
@@ -2749,6 +2777,126 @@ function renderEnabledDimensionsBasis(data) {
   `;
 }
 
+// Renders the "Custom factors" management list inside the Factor selector
+// panel -- one row per client-added custom dimension (label, default weight,
+// Remove button). The fixed 12 never appear here since they can't be
+// removed, only toggled via the checkboxes above.
+function renderCustomDimensionsPanel() {
+  const list = document.getElementById('custom-dims-list');
+  if (!list) return;
+  const customDims = SCORECARD_DIMENSIONS.filter(d => d.custom);
+  list.innerHTML = customDims.length
+    ? customDims.map(d => `
+      <div style="display:flex; align-items:center; gap:8px; font-size:0.86rem;">
+        <span style="flex:1;">${d.label} <span style="color:#8a97a3; font-size:0.78rem;">(default weight ${d.weight})</span></span>
+        <button type="button" class="btn-toggle" style="font-size:0.78rem; padding:2px 10px; cursor:pointer;" onclick="removeCustomDimensionAndSave('${d.key}', ${JSON.stringify(d.label)})">Remove</button>
+      </div>`).join('')
+    : '<span class="note" style="border-top:none; padding:0; font-size:0.8rem;">No custom factors added yet.</span>';
+}
+
+// Posts the full current custom-dimension list (derived from whatever's
+// live on SCORECARD_DIMENSIONS, i.e. after an add or remove) to
+// setCustomDimensions.js, then re-renders everything that depends on the
+// dimension set -- same "global and persisted" model as
+// saveEnabledDimensions()/pushWeightsToScorecard() above.
+async function saveCustomDimensionsList(hintEl) {
+  const custom_dimensions = SCORECARD_DIMENSIONS.filter(d => d.custom).map(d => ({ key: d.key, label: d.label, weight: d.weight }));
+  try {
+    const res = await fetch('/api/global/set-custom-dimensions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ custom_dimensions })
+    });
+    const result = await res.json();
+    if (!res.ok || !result.success) {
+      if (hintEl) hintEl.textContent = `Couldn't save: ${result.error || 'unknown error'}`;
+      return false;
+    }
+    if (GLOBAL_DATA) {
+      GLOBAL_DATA.custom_dimensions = result.custom_dimensions;
+      GLOBAL_DATA.custom_dimensions_updated_date = result.updated_date;
+      GLOBAL_DATA.custom_dimensions_updated_by = result.updated_by;
+    }
+    if (hintEl) hintEl.textContent = '';
+    return true;
+  } catch (e) {
+    if (hintEl) hintEl.textContent = 'Could not reach the server to save this change.';
+    return false;
+  }
+}
+
+// "+ Add custom factor" -- validates the typed label/weight, generates a key
+// client-side (slugifyDimensionKey(), see scorecard-dimensions.js), adds it
+// to the live SCORECARD_DIMENSIONS via applyCustomDimensions() so every
+// other panel on this page (checkboxes, Factor Weighting sliders, the
+// Overall calculation) picks it up immediately, then persists the change.
+async function addCustomDimension() {
+  const hintEl = document.getElementById('custom-dims-hint');
+  const labelInput = document.getElementById('custom-dim-label-input');
+  const weightInput = document.getElementById('custom-dim-weight-input');
+  const label = (labelInput.value || '').trim();
+  const weight = parseFloat(weightInput.value);
+
+  if (!label) {
+    hintEl.textContent = 'Enter a name for the new factor first.';
+    return;
+  }
+  if (SCORECARD_DIMENSIONS.filter(d => d.custom).length >= 8) {
+    hintEl.textContent = 'Up to 8 custom factors are supported -- remove one before adding another.';
+    return;
+  }
+  if (!Number.isFinite(weight) || weight < 0 || weight > 5) {
+    hintEl.textContent = 'Starting weight must be a number between 0 and 5.';
+    return;
+  }
+
+  const key = slugifyDimensionKey(label);
+  applyCustomDimensions([{ key, label, weight }]);
+
+  hintEl.textContent = 'Saving…';
+  const ok = await saveCustomDimensionsList(hintEl);
+  if (!ok) {
+    // Roll back the local addition so the panel doesn't show a factor that
+    // never actually got persisted.
+    removeCustomDimension(key);
+    renderCustomDimensionsPanel();
+    renderEnabledDimensionsCheckboxes(GLOBAL_DATA && GLOBAL_DATA.enabled_dimensions);
+    renderWeightingPanel();
+    return;
+  }
+
+  labelInput.value = '';
+  weightInput.value = '1';
+  renderCustomDimensionsPanel();
+  renderEnabledDimensionsCheckboxes(GLOBAL_DATA && GLOBAL_DATA.enabled_dimensions);
+  renderWeightingPanel();
+  renderProjectMatrix();
+  refreshScorecardDisplayIfVisible();
+  hintEl.textContent = `"${label}" added.`;
+}
+
+// Factor selector's per-row "Remove" button on a custom factor. Confirms
+// first since this also drops any scores already entered against it on
+// every country page (the scores themselves stay in each country's
+// {code}_scores.json, just orphaned -- unrelated to Overall once the
+// dimension itself no longer exists here).
+async function removeCustomDimensionAndSave(key, label) {
+  const ok = confirm(`Remove the custom factor "${label}"? It will disappear from the Factor selector, Factor Weighting, every country's scorecard table, and exports -- for everyone, not just this session.`);
+  if (!ok) return;
+
+  const hintEl = document.getElementById('custom-dims-hint');
+  removeCustomDimension(key);
+  hintEl.textContent = 'Saving…';
+  await saveCustomDimensionsList(hintEl);
+
+  renderCustomDimensionsPanel();
+  renderEnabledDimensionsCheckboxes(GLOBAL_DATA && GLOBAL_DATA.enabled_dimensions);
+  renderWeightingPanel();
+  renderProjectMatrix();
+  refreshScorecardDisplayIfVisible();
+  hintEl.textContent = `"${label}" removed.`;
+}
+
 async function saveEnabledDimensions() {
   const enabled_dimensions = {};
   SCORECARD_DIMENSIONS.forEach(dim => {
@@ -2891,6 +3039,14 @@ function renderOverviewMatrixBody(failed) {
 
   const headerCells = columns.map(seg => `<th>${seg}</th>`).join('');
 
+  // Rescale the red/amber/green cutoffs whenever a custom factor exists --
+  // even at its default weight, a custom factor shifts the achievable
+  // Overall range beyond what the fixed 22/30 cutoffs (calibrated only for
+  // the original 12 dimensions) assume. No rescaling needed otherwise, same
+  // byte-for-byte behaviour as before this feature existed.
+  const hasCustomDims = SCORECARD_DIMENSIONS.some(d => d.custom);
+  const overallRangeForCells = hasCustomDims ? computeOverallRange(GLOBAL_DATA && GLOBAL_DATA.enabled_dimensions) : null;
+
   const rows = usable.map((c, idx) => {
     const href = c.meta.href || `country.html?c=${c.meta.code.toLowerCase()}`;
     const cells = columns.map(segName => {
@@ -2904,7 +3060,7 @@ function renderOverviewMatrixBody(failed) {
         return `<td>${result ? result.value_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '—'}</td>`;
       }
       const overall = computeOverallScore(seg.scorecard, GLOBAL_DATA && GLOBAL_DATA.enabled_dimensions);
-      return `<td class="${overallScoreClass(overall)}">${overall}</td>`;
+      return `<td class="${overallScoreClass(overall, overallRangeForCells)}">${overall}</td>`;
     }).join('');
     // "Factors" link opens the full 12-factor popup at this row's country --
     // idx matches factorPopupCountries()'s own filter/order exactly, since
@@ -3029,12 +3185,16 @@ function renderFactorPopup() {
   }</tr>`;
 
   // Same computeOverallScore()/overallScoreClass() call shape (no weight
-  // overrides, no rescaled range) as the bottom-line table above, so the two
-  // views always agree on each segment's Overall figure and colour.
+  // overrides) as the bottom-line table above, so the two views always agree
+  // on each segment's Overall figure and colour -- including the same
+  // custom-dimension range rescaling (see that table's overallRangeForCells
+  // comment).
+  const popupHasCustomDims = SCORECARD_DIMENSIONS.some(d => d.custom);
+  const popupOverallRange = popupHasCustomDims ? computeOverallRange(GLOBAL_DATA && GLOBAL_DATA.enabled_dimensions) : null;
   const overallRow = `<tr class="overall-row"><td class="matrix-rowlabel">Overall</td>${
     segs.map(s => {
       const overall = computeOverallScore(s.scorecard, GLOBAL_DATA && GLOBAL_DATA.enabled_dimensions);
-      return `<td class="${overallScoreClass(overall)}"><strong>${overall}</strong></td>`;
+      return `<td class="${overallScoreClass(overall, popupOverallRange)}"><strong>${overall}</strong></td>`;
     }).join('')
   }</tr>`;
 
@@ -3115,6 +3275,14 @@ async function load() {
   GLOBAL_DATA = data;
   ALL_COUNTRIES = (data.countries || []).filter(c => c.status === 'built');
   ENABLED_DIMENSIONS = data.enabled_dimensions || null;
+  // Pushes any client-defined custom factors (Factor selector's "Add custom
+  // factor") onto the live SCORECARD_DIMENSIONS array -- deliberately done
+  // BEFORE applyGlobalDimensionWeights() just below, so if a custom factor's
+  // weight has itself been pushed site-wide (dimension_weights can carry a
+  // custom_ key same as any of the fixed 12, see setDimensionWeights.js), that
+  // pushed value correctly overrides the custom factor's own creation-time
+  // weight, rather than the other way round.
+  applyCustomDimensions(data.custom_dimensions);
   // Applies any weighting already pushed via the "Push this weighting to the
   // scorecard" button below (see applyGlobalDimensionWeights()'s comment in
   // scorecard-dimensions.js) -- mutates SCORECARD_DIMENSIONS' own .weight
@@ -3159,6 +3327,7 @@ async function load() {
   renderSegmentTypeBasis('align', data.alignment_of_investment_thinking_basis, 'Alignment of investment thinking');
   renderEnabledDimensionsCheckboxes(data.enabled_dimensions);
   renderEnabledDimensionsBasis(data);
+  renderCustomDimensionsPanel();
   updateAllToolLiveStatuses(data);
   document.getElementById('tmf-gbci-year').textContent = TMF_GBCI_YEAR;
   document.getElementById('ef-epi-year').textContent = EF_EPI_YEAR;

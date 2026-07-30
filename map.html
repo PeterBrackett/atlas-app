@@ -221,6 +221,12 @@ async function ensureScoreCache() {
     if (res.ok) {
       const globalData = await res.json();
       enabledDimensions = globalData.enabled_dimensions || null;
+      // Client-defined custom factors (see picker.html's Factor selector) --
+      // applied before applyGlobalDimensionWeights() for the same ordering
+      // reason as country.html/picker.html's identical comment, and before
+      // this page's own weightedOverallForCountry() computes anything, so
+      // the map's Overall coloring includes any custom factor's contribution.
+      applyCustomDimensions(globalData.custom_dimensions);
       // Applies any weighting pushed from Project builder's "Push this
       // weighting to the scorecard" button (see that function's comment in
       // scorecard-dimensions.js) before this page's own weightedOverallForCountry()
