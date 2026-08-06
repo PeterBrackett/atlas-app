@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas — Global Manager Landscape</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .filter-bar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 16px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .filter-bar input[type="search"] {
+    flex: 1 1 220px;
+    padding: 7px 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.9rem;
+  }
+  .filter-bar select {
+    padding: 7px 8px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    background: #fff;
+  }
+  .filter-bar .count-note { font-size: 0.8rem; color: var(--muted); margin-left: auto; }
+  th.sortable { cursor: pointer; user-select: none; }
+  th.sortable:hover { background: var(--navy); }
+  th.sortable .arrow { opacity: 0.6; font-size: 0.7em; margin-left: 3px; }
+  tr.mgr-row { cursor: pointer; }
+  tr.mgr-row:hover { background: #f0f3f6; }
+  tr.detail-row td { background: #fbfcfd; }
+  .detail-wrap { padding: 10px 20px 16px; font-size: 0.85rem; color: var(--muted); }
+  .detail-wrap b { color: var(--text); }
+  .src-pill {
+    font-size: 0.7rem;
+    padding: 2px 7px;
+    border-radius: 10px;
+    background: #e4f0ee;
+    color: var(--accent);
+    margin-left: 6px;
+    white-space: nowrap;
+  }
+  .no-match { color: var(--muted); font-style: italic; font-size: 0.85rem; }
+  h2.section-head {
+    margin: 40px 0 6px;
+    font-size: 1.25rem;
+    color: var(--navy);
+  }
+  .section-intro { color: var(--muted); font-size: 0.88rem; margin: 0 0 16px; max-width: 900px; }
+  table.crosscheck th, table.crosscheck td { font-size: 0.85rem; }
+  .pager { display: flex; align-items: center; gap: 10px; margin-top: 14px; font-size: 0.85rem; }
+  .pager button {
+    padding: 5px 12px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+  }
+  .pager button:disabled { opacity: 0.4; cursor: default; }
+</style>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <img src="logo.png" alt="Atlas logo" class="brand-logo">
+    <div>
+      <h1>Atlas</h1>
+      <div class="tagline">Global manager landscape</div>
+    </div>
+  </div>
+</header>
+<nav class="breadcrumb"><a href="index.html">&larr; Atlas home</a> &nbsp;|&nbsp; <a href="overview.html">Global overview</a> &nbsp;|&nbsp; <a href="map.html">World map</a> &nbsp;|&nbsp; <a href="picker.html">Project builder</a> &nbsp;|&nbsp; <a href="sources.html">Sources &amp; methodology</a> &nbsp;|&nbsp; <a href="evidence.html">Supporting evidence</a></nav>
+
+<main>
+  <p class="section-intro">
+    Atlas is built asset-owner first — country, segment, institution. This page turns the same underlying
+    data around to answer a different question: <b>which managers actually run the money</b>, across every
+    segment and country Atlas tracks, and how does that compare to each manager's own total global book?
+    It also cross-checks Atlas's European segment totals against an independent, externally-reported source.
+  </p>
+
+  <div class="summary-bar" id="summary-bar"></div>
+
+  <h2 class="section-head">Top managers by Atlas-identified AUM</h2>
+  <p class="section-intro" id="landscape-note">Loading…</p>
+
+  <div class="filter-bar">
+    <input type="search" id="search-box" placeholder="Search manager name…">
+    <select id="match-filter">
+      <option value="">All managers</option>
+      <option value="matched">Matched to IPE/P&amp;I global AUM</option>
+      <option value="unmatched">No external benchmark match</option>
+    </select>
+    <span class="count-note" id="count-note"></span>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th class="sortable" data-sort="manager">Manager <span class="arrow"></span></th>
+        <th class="sortable numeric" data-sort="atlas_identified_usd_bn">Atlas-identified AUM <span class="arrow"></span></th>
+        <th class="sortable numeric" data-sort="countries_count">Countries <span class="arrow"></span></th>
+        <th class="sortable numeric" data-sort="global_aum_usd_bn">Manager's global AUM <span class="arrow"></span></th>
+        <th class="sortable numeric" data-sort="pct_of_global_book_identified">% of global book identified <span class="arrow"></span></th>
+      </tr>
+    </thead>
+    <tbody id="mgr-rows"></tbody>
+  </table>
+  <div class="pager" id="pager"></div>
+
+  <h2 class="section-head">Europe segment AUM: Atlas vs. IPE Top 500</h2>
+  <p class="section-intro" id="crosscheck-intro">Loading…</p>
+  <table class="crosscheck">
+    <thead>
+      <tr>
+        <th>Client type</th>
+        <th class="numeric">Atlas Europe total</th>
+        <th class="numeric">IPE externally-managed</th>
+        <th class="numeric">IPE coverage of Atlas</th>
+        <th class="numeric"># IPE firms reporting</th>
+      </tr>
+    </thead>
+    <tbody id="crosscheck-rows"></tbody>
+  </table>
+  <p class="note" id="crosscheck-note"></p>
+
+  <p class="note" id="landscape-methodology"></p>
+</main>
+
+<script>
+let ALL_MANAGERS = [];
+let SORT_KEY = 'atlas_identified_usd_bn';
+let SORT_DIR = -1;
+let PAGE = 0;
+const PAGE_SIZE = 40;
+let OPEN_NAME = null;
+let CURRENT_PAGE_ITEMS = [];
+
+function fmtBn(n) {
+  if (typeof n !== 'number') return '—';
+  if (n >= 1000) return '$' + (n / 1000).toLocaleString(undefined, { maximumFractionDigits: 1 }) + 'tn';
+  return '$' + n.toLocaleString(undefined, { maximumFractionDigits: 1 }) + 'bn';
+}
+
+function currentFilters() {
+  return {
+    search: document.getElementById('search-box').value.trim().toLowerCase(),
+    match: document.getElementById('match-filter').value
+  };
+}
+
+function computePage() {
+  const f = currentFilters();
+  let filtered = ALL_MANAGERS.filter(m => {
+    if (f.search && !m.manager.toLowerCase().includes(f.search)) return false;
+    if (f.match === 'matched' && !m.global_aum_source) return false;
+    if (f.match === 'unmatched' && m.global_aum_source) return false;
+    return true;
+  });
+  filtered.sort((a, b) => {
+    let av = a[SORT_KEY], bv = b[SORT_KEY];
+    if (typeof av === 'string') av = av.toLowerCase();
+    if (typeof bv === 'string') bv = bv.toLowerCase();
+    if (av === null || av === undefined) av = SORT_DIR === 1 ? Infinity : -Infinity;
+    if (bv === null || bv === undefined) bv = SORT_DIR === 1 ? Infinity : -Infinity;
+    if (av < bv) return -1 * SORT_DIR;
+    if (av > bv) return 1 * SORT_DIR;
+    return 0;
+  });
+  const total = filtered.length;
+  const start = PAGE * PAGE_SIZE;
+  return { items: filtered.slice(start, start + PAGE_SIZE), total };
+}
+
+function updateSortArrows() {
+  document.querySelectorAll('th.sortable').forEach(th => {
+    const arrow = th.querySelector('.arrow');
+    arrow.textContent = th.dataset.sort === SORT_KEY ? (SORT_DIR === 1 ? '▲' : '▼') : '';
+  });
+}
+
+function toggleRow(name) {
+  OPEN_NAME = OPEN_NAME === name ? null : name;
+  renderRows();
+}
+
+function renderRows() {
+  document.getElementById('mgr-rows').innerHTML = CURRENT_PAGE_ITEMS.map(m => {
+    const srcPill = m.global_aum_source ? `<span class="src-pill">${m.global_aum_source} #${m.global_aum_rank}</span>` : '';
+    const pct = typeof m.pct_of_global_book_identified === 'number' ? m.pct_of_global_book_identified.toLocaleString(undefined, {maximumFractionDigits:1}) + '%' : '<span class="no-match">no benchmark match</span>';
+    const detail = OPEN_NAME === m.manager ? `
+      <tr class="detail-row"><td colspan="5"><div class="detail-wrap">
+        <b>Tracked in ${m.countries_count} Atlas countries:</b> ${(m.countries || []).join(', ') || '—'}<br>
+        <b>Name variants merged:</b> ${(m.raw_name_variants || []).join(' · ') || '—'}
+      </div></td></tr>` : '';
+    return `
+      <tr class="mgr-row" onclick="toggleRow('${m.manager.replace(/'/g,"\\'")}')">
+        <td>${m.manager}</td>
+        <td class="numeric">${fmtBn(m.atlas_identified_usd_bn)}</td>
+        <td class="numeric">${m.countries_count}</td>
+        <td class="numeric">${fmtBn(m.global_aum_usd_bn)}${srcPill}</td>
+        <td class="numeric">${pct}</td>
+      </tr>${detail}`;
+  }).join('');
+}
+
+function renderPager(total) {
+  const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+  const start = total ? PAGE * PAGE_SIZE + 1 : 0;
+  const end = Math.min(total, (PAGE + 1) * PAGE_SIZE);
+  document.getElementById('pager').innerHTML = `
+    <button id="prev-btn" ${PAGE === 0 ? 'disabled' : ''}>&larr; Prev</button>
+    <span>Showing ${start}–${end} of ${total}</span>
+    <button id="next-btn" ${PAGE >= totalPages - 1 ? 'disabled' : ''}>Next &rarr;</button>
+  `;
+  document.getElementById('prev-btn').onclick = () => { PAGE = Math.max(0, PAGE - 1); refresh(); };
+  document.getElementById('next-btn').onclick = () => { PAGE = Math.min(totalPages - 1, PAGE + 1); refresh(); };
+}
+
+function refresh() {
+  OPEN_NAME = null;
+  const { items, total } = computePage();
+  CURRENT_PAGE_ITEMS = items;
+  updateSortArrows();
+  renderRows();
+  renderPager(total);
+  document.getElementById('count-note').textContent = `${total.toLocaleString()} of ${ALL_MANAGERS.length.toLocaleString()} managers shown`;
+}
+
+function onFiltersChanged() { PAGE = 0; refresh(); }
+
+function wireControls() {
+  let t;
+  document.getElementById('search-box').addEventListener('input', () => {
+    clearTimeout(t);
+    t = setTimeout(onFiltersChanged, 200);
+  });
+  document.getElementById('match-filter').addEventListener('change', onFiltersChanged);
+  document.querySelectorAll('th.sortable').forEach(th => {
+    th.addEventListener('click', () => {
+      const key = th.dataset.sort;
+      if (SORT_KEY === key) { SORT_DIR *= -1; } else { SORT_KEY = key; SORT_DIR = key === 'manager' ? 1 : -1; }
+      onFiltersChanged();
+    });
+  });
+}
+
+async function loadLandscape() {
+  try {
+    const res = await fetch('data/manager_landscape.json');
+    if (!res.ok) throw new Error('not found');
+    const data = await res.json();
+    ALL_MANAGERS = data.managers || [];
+
+    const totalAtlasAum = ALL_MANAGERS.reduce((s, m) => s + (m.atlas_identified_usd_bn || 0), 0);
+    document.getElementById('summary-bar').innerHTML = `
+      <div class="stat-card"><div class="value">${ALL_MANAGERS.length.toLocaleString()}</div><div class="label">Managers ranked (top identified AUM)</div></div>
+      <div class="stat-card"><div class="value">${fmtBn(totalAtlasAum)}</div><div class="label">Combined Atlas-identified AUM, this list</div></div>
+      <div class="stat-card"><div class="value">${data.matched_to_benchmark.toLocaleString()}</div><div class="label">Matched to IPE Top 500 or P&amp;I (of ${data.total_buckets.toLocaleString()} named managers found)</div></div>
+      <div class="stat-card"><div class="value">${data.eur_usd_rate_used}</div><div class="label">EUR/USD rate used for IPE figures</div></div>
+    `;
+    document.getElementById('landscape-note').textContent =
+      `Every named external manager appearing across all 34 Atlas country manager files, ranked by total identified AUM. ` +
+      `"Manager's global AUM" is that firm's own total worldwide book as self-reported to IPE Top 500 or P&I (2026) — not specific to institutional or European business — so "% of global book identified" is expected to be small: Atlas only sees named mandates within our own tracked countries and institutions, not a manager's full client roster. Click a row for the underlying country/name detail.`;
+    document.getElementById('landscape-methodology').textContent = data.generated_note + ` As of: ${data.as_of}.`;
+
+    wireControls();
+    refresh();
+  } catch (e) {
+    document.getElementById('landscape-note').textContent = 'Could not load the manager landscape dataset right now.';
+  }
+}
+
+async function loadCrosscheck() {
+  try {
+    const res = await fetch('data/europe_manager_crosscheck.json');
+    if (!res.ok) throw new Error('not found');
+    const data = await res.json();
+    document.getElementById('crosscheck-intro').textContent =
+      `Atlas's own segment totals for Europe (${data.atlas_scope}), compared against the sum of "AUM for European institutional clients" that IPE Top 500 (2026) respondent managers self-report for each client type. This is an independent corroboration check, not a reconciliation — see note below for why the two numbers are expected to differ.`;
+    document.getElementById('crosscheck-rows').innerHTML = data.rows.map(r => `
+      <tr>
+        <td>${r.category}</td>
+        <td class="numeric">${fmtBn(r.atlas_europe_total_usd_bn)}</td>
+        <td class="numeric">${fmtBn(r.ipe_externally_managed_usd_bn)}</td>
+        <td class="numeric">${r.ipe_coverage_of_atlas_pct}%</td>
+        <td class="numeric">${r.ipe_reporting_firms}</td>
+      </tr>`).join('');
+    document.getElementById('crosscheck-note').textContent = data.generated_note;
+  } catch (e) {
+    document.getElementById('crosscheck-intro').textContent = 'Could not load the Europe cross-check dataset right now.';
+  }
+}
+
+loadLandscape();
+loadCrosscheck();
+</script>
+</body>
+</html>
