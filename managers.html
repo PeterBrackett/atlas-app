@@ -87,15 +87,17 @@
 
 <main>
   <p class="section-intro">
-    Atlas is built asset-owner first — country, segment, institution. This page turns the same underlying
-    data around to answer a different question: <b>which managers actually run the money</b>, across every
-    segment and country Atlas tracks, and how does that compare to each manager's own total global book?
-    It also cross-checks Atlas's European segment totals against an independent, externally-reported source.
+    Atlas is built asset-owner first — country, segment, institution. This page looks at the same landscape
+    from the manager side instead, using two genuinely separate sources so neither one is mistaken for the
+    other: <b>S&amp;P owner/manager data</b> (asset owners' own filings naming which manager runs their money,
+    rolled up across every Atlas country) below, and <b>managers' own self-reported client-type breakdown</b>
+    (IPE Top 500) further down — plus a cross-check of Atlas's European segment totals against that same
+    externally-reported source.
   </p>
 
   <div class="summary-bar" id="summary-bar"></div>
 
-  <h2 class="section-head">Top managers by Atlas-identified AUM</h2>
+  <h2 class="section-head">Top managers by AUM — S&amp;P owner/manager data</h2>
   <p class="section-intro" id="landscape-note">Loading…</p>
 
   <div class="filter-bar">
@@ -112,15 +114,26 @@
     <thead>
       <tr>
         <th class="sortable" data-sort="manager">Manager <span class="arrow"></span></th>
-        <th class="sortable numeric" data-sort="atlas_identified_usd_bn">Atlas-identified AUM <span class="arrow"></span></th>
+        <th class="sortable numeric" data-sort="atlas_identified_usd_bn">AUM — S&amp;P owner/manager data <span class="arrow"></span></th>
         <th class="sortable numeric" data-sort="countries_count">Countries <span class="arrow"></span></th>
-        <th class="sortable numeric" data-sort="global_aum_usd_bn">Manager's global AUM <span class="arrow"></span></th>
+        <th class="sortable numeric" data-sort="global_aum_usd_bn">Manager's global AUM (IPE/P&amp;I) <span class="arrow"></span></th>
         <th class="sortable numeric" data-sort="pct_of_global_book_identified">% of global book identified <span class="arrow"></span></th>
       </tr>
     </thead>
     <tbody id="mgr-rows"></tbody>
   </table>
   <div class="pager" id="pager"></div>
+
+  <h2 class="section-head">Manager &times; client-type AUM matrix — IPE Top 500, self-reported</h2>
+  <p class="section-intro" id="matrix-intro">Loading…</p>
+  <div class="filter-bar">
+    <input type="search" id="matrix-search" placeholder="Search manager name…">
+    <span class="count-note" id="matrix-count-note"></span>
+  </div>
+  <div class="matrix-wrap">
+    <table class="matrix-table" id="clienttype-matrix"></table>
+  </div>
+  <p class="note" id="matrix-methodology"></p>
 
   <h2 class="section-head">Europe segment AUM: Atlas vs. IPE Top 500</h2>
   <p class="section-intro" id="crosscheck-intro">Loading…</p>
@@ -202,10 +215,13 @@ function renderRows() {
   document.getElementById('mgr-rows').innerHTML = CURRENT_PAGE_ITEMS.map(m => {
     const srcPill = m.global_aum_source ? `<span class="src-pill">${m.global_aum_source} #${m.global_aum_rank}</span>` : '';
     const pct = typeof m.pct_of_global_book_identified === 'number' ? m.pct_of_global_book_identified.toLocaleString(undefined, {maximumFractionDigits:1}) + '%' : '<span class="no-match">no benchmark match</span>';
+    const altLine = m.global_aum_alt
+      ? `<br><b>Alternate global AUM figure:</b> ${fmtBn(m.global_aum_alt.aum_usd_bn)} per ${m.global_aum_alt.source} — shown when it disagrees with the figure used above; treat both as approximate, not a reconciled number.`
+      : '';
     const detail = OPEN_NAME === m.manager ? `
       <tr class="detail-row"><td colspan="5"><div class="detail-wrap">
         <b>Tracked in ${m.countries_count} Atlas countries:</b> ${(m.countries || []).join(', ') || '—'}<br>
-        <b>Name variants merged:</b> ${(m.raw_name_variants || []).join(' · ') || '—'}
+        <b>Name variants merged:</b> ${(m.raw_name_variants || []).join(' · ') || '—'}${altLine}
       </div></td></tr>` : '';
     return `
       <tr class="mgr-row" onclick="toggleRow('${m.manager.replace(/'/g,"\\'")}')">
@@ -268,14 +284,14 @@ async function loadLandscape() {
 
     const totalAtlasAum = ALL_MANAGERS.reduce((s, m) => s + (m.atlas_identified_usd_bn || 0), 0);
     document.getElementById('summary-bar').innerHTML = `
-      <div class="stat-card"><div class="value">${ALL_MANAGERS.length.toLocaleString()}</div><div class="label">Managers ranked (top identified AUM)</div></div>
-      <div class="stat-card"><div class="value">${fmtBn(totalAtlasAum)}</div><div class="label">Combined Atlas-identified AUM, this list</div></div>
+      <div class="stat-card"><div class="value">${ALL_MANAGERS.length.toLocaleString()}</div><div class="label">Managers ranked — S&amp;P owner/manager data</div></div>
+      <div class="stat-card"><div class="value">${fmtBn(totalAtlasAum)}</div><div class="label">Combined AUM, S&amp;P owner/manager data (this list)</div></div>
       <div class="stat-card"><div class="value">${data.matched_to_benchmark.toLocaleString()}</div><div class="label">Matched to IPE Top 500 or P&amp;I (of ${data.total_buckets.toLocaleString()} named managers found)</div></div>
       <div class="stat-card"><div class="value">${data.eur_usd_rate_used}</div><div class="label">EUR/USD rate used for IPE figures</div></div>
     `;
     document.getElementById('landscape-note').textContent =
-      `Every named external manager appearing across all 34 Atlas country manager files, ranked by total identified AUM. ` +
-      `"Manager's global AUM" is that firm's own total worldwide book as self-reported to IPE Top 500 or P&I (2026) — not specific to institutional or European business — so "% of global book identified" is expected to be small: Atlas only sees named mandates within our own tracked countries and institutions, not a manager's full client roster. Click a row for the underlying country/name detail.`;
+      `"AUM — S&P owner/manager data" is drawn from S&P's Money Manager Database, which records — per plan — which external manager the plan's own filings/disclosures name as running how much of its assets. It is asset-owner-disclosed data compiled by S&P, not something managers self-report, and it only reflects named mandates within the 34 countries and institutions Atlas tracks — not a manager's full client roster anywhere in the world. ` +
+      `"Manager's global AUM (IPE/P&I)" is a separate, independent figure: that firm's own total worldwide book as self-reported to IPE Top 500 or P&I (2026) — not specific to institutional or European business. The two columns come from unrelated sources and are not expected to reconcile; "% of global book identified" is expected to be small for most managers. Click a row for the underlying country/name detail.`;
     document.getElementById('landscape-methodology').textContent = data.generated_note + ` As of: ${data.as_of}.`;
 
     wireControls();
@@ -306,8 +322,80 @@ async function loadCrosscheck() {
   }
 }
 
+const CAT_LABELS = {
+  'Pension funds': 'Pension funds',
+  'Insurance companies': 'Insurance',
+  'Corporate and other institutional clients': 'Corporate/other',
+  'Multi manager/funds of funds': 'Multi-manager',
+  'Sovereign entities': 'Sovereign',
+  'Charities, foundations and non-profits': 'Charities/F&F',
+  'Banks': 'Banks',
+  'Family offices and trusts': 'Family offices',
+  'Central banks': 'Central banks',
+};
+
+let MATRIX_MANAGERS = [];
+let MATRIX_CATS = [];
+let MATRIX_SORT_KEY = 'total_usd_bn';
+let MATRIX_SORT_DIR = -1;
+
+function renderMatrix() {
+  const q = document.getElementById('matrix-search').value.trim().toLowerCase();
+  let rows = MATRIX_MANAGERS.filter(m => !q || m.manager.toLowerCase().includes(q));
+  rows.sort((a, b) => {
+    let av = a[MATRIX_SORT_KEY], bv = b[MATRIX_SORT_KEY];
+    if (typeof av === 'string') av = av.toLowerCase();
+    if (typeof bv === 'string') bv = bv.toLowerCase();
+    if (av === null || av === undefined) av = MATRIX_SORT_DIR === 1 ? Infinity : -Infinity;
+    if (bv === null || bv === undefined) bv = MATRIX_SORT_DIR === 1 ? Infinity : -Infinity;
+    if (av < bv) return -1 * MATRIX_SORT_DIR;
+    if (av > bv) return 1 * MATRIX_SORT_DIR;
+    return 0;
+  });
+
+  const arrow = key => key === MATRIX_SORT_KEY ? (MATRIX_SORT_DIR === 1 ? ' ▲' : ' ▼') : '';
+  const headerCells = ['total_usd_bn', ...MATRIX_CATS].map(key => {
+    const label = key === 'total_usd_bn' ? 'Total (disclosed)' : CAT_LABELS[key] || key;
+    return `<th class="sortable" title="${key === 'total_usd_bn' ? 'Sum of disclosed categories only' : key}" onclick="setMatrixSort('${key}')">${label}${arrow(key)}</th>`;
+  }).join('');
+
+  const bodyRows = rows.map(m => {
+    const cells = [m.total_usd_bn, ...MATRIX_CATS.map(c => m[c])].map(v =>
+      `<td class="numeric">${typeof v === 'number' ? fmtBn(v) : '<span class="no-match">—</span>'}</td>`
+    ).join('');
+    return `<tr><td class="matrix-rowlabel">${m.manager}</td>${cells}</tr>`;
+  }).join('');
+
+  document.getElementById('clienttype-matrix').innerHTML =
+    `<thead><tr><th class="matrix-rowlabel">Manager</th>${headerCells}</tr></thead><tbody>${bodyRows}</tbody>`;
+  document.getElementById('matrix-count-note').textContent = `${rows.length.toLocaleString()} of ${MATRIX_MANAGERS.length.toLocaleString()} managers shown`;
+}
+
+function setMatrixSort(key) {
+  if (MATRIX_SORT_KEY === key) { MATRIX_SORT_DIR *= -1; } else { MATRIX_SORT_KEY = key; MATRIX_SORT_DIR = -1; }
+  renderMatrix();
+}
+
+async function loadMatrix() {
+  try {
+    const res = await fetch('data/manager_clienttype_matrix.json');
+    if (!res.ok) throw new Error('not found');
+    const data = await res.json();
+    MATRIX_MANAGERS = data.managers || [];
+    MATRIX_CATS = data.categories || [];
+    document.getElementById('matrix-intro').textContent =
+      `Each manager's own self-reported split of externally-managed institutional AUM by client type, worldwide — sourced entirely from IPE Top 500 (2026) disclosures, independent of Atlas's S&P owner/manager data above. Blank cells mean the manager didn't disclose that category, not that it's zero — "Total" only sums what was disclosed, so it understates the true total wherever a category is missing. Click a column to sort.`;
+    document.getElementById('matrix-methodology').textContent = data.generated_note;
+    document.getElementById('matrix-search').addEventListener('input', renderMatrix);
+    renderMatrix();
+  } catch (e) {
+    document.getElementById('matrix-intro').textContent = 'Could not load the manager x client-type matrix right now.';
+  }
+}
+
 loadLandscape();
 loadCrosscheck();
+loadMatrix();
 </script>
 </body>
 </html>
