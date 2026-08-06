@@ -1,0 +1,49 @@
+{
+  "title": "Europe segment AUM: Atlas vs. IPE Top 500 externally-managed client-type data",
+  "generated_note": "Independent cross-check, not a reconciliation. Atlas figures are each segment's total tracked AUM (top-down + bottom-up) across the 15 Atlas-built European countries (GB, DE, NL, NO, CH, DK, SE, IE, FI, IS, FR, IT, ES, AT, BE), including assets managed in-house. IPE figures are the sum of \"AUM for European institutional clients\" self-reported by IPE Top 500 (2026) respondent managers for that client type -- i.e. only the portion of European institutional assets those managers run externally, and only for the subset of the 500 who disclosed a client-type breakdown (as few as 61 and as many as 132 firms per category, out of 629 in the directory). \"IPE coverage of Atlas\" is therefore expected to be well under 100% for every category -- it is not a gap or an error, it reflects (a) in-house/internally-managed assets that never appear in a manager survey, (b) managers outside the top 500, and (c) survey non-response. A higher ratio is still a useful floor: it means at least that fraction of Atlas's estimate is independently corroborated by named, externally-reported mandates. Sovereign entities are lightly represented in Europe within Atlas's own taxonomy (mainly Norway's SWF) and IPE's \"sovereign entities\" client-type category is global-institutional-manager-reported, not Europe-specific in origin, so that row should be read with extra caution.",
+  "eur_usd_rate_used": 1.15,
+  "atlas_scope": "GB, DE, NL, NO, CH, DK, SE, IE, FI, IS, FR, IT, ES, AT, BE (15 Atlas-built European countries)",
+  "ipe_source": "IPE Top 500 Asset Managers 2026, \"Directory of Asset Managers\" tab, European Institutional Clients columns",
+  "rows": [
+    {
+      "category": "Pension funds",
+      "atlas_europe_total_usd_bn": 9054.8,
+      "ipe_externally_managed_usd_bn": 5254.2,
+      "ipe_externally_managed_eur_m": 4568901.0,
+      "ipe_reporting_firms": 132,
+      "ipe_coverage_of_atlas_pct": 58.0
+    },
+    {
+      "category": "Insurance companies",
+      "atlas_europe_total_usd_bn": 7704.3,
+      "ipe_externally_managed_usd_bn": 2221.3,
+      "ipe_externally_managed_eur_m": 1931527.0,
+      "ipe_reporting_firms": 112,
+      "ipe_coverage_of_atlas_pct": 28.8
+    },
+    {
+      "category": "Charities, foundations and non-profits",
+      "atlas_europe_total_usd_bn": 362.9,
+      "ipe_externally_managed_usd_bn": 215.3,
+      "ipe_externally_managed_eur_m": 187238.0,
+      "ipe_reporting_firms": 108,
+      "ipe_coverage_of_atlas_pct": 59.3
+    },
+    {
+      "category": "Family offices and trusts",
+      "atlas_europe_total_usd_bn": 399.3,
+      "ipe_externally_managed_usd_bn": 75.5,
+      "ipe_externally_managed_eur_m": 65670.0,
+      "ipe_reporting_firms": 88,
+      "ipe_coverage_of_atlas_pct": 18.9
+    },
+    {
+      "category": "Sovereign entities",
+      "atlas_europe_total_usd_bn": 2403.3,
+      "ipe_externally_managed_usd_bn": 243.3,
+      "ipe_externally_managed_eur_m": 211598.0,
+      "ipe_reporting_firms": 80,
+      "ipe_coverage_of_atlas_pct": 10.1
+    }
+  ]
+}
