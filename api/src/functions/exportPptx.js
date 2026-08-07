@@ -371,7 +371,7 @@ function buildScorecardTableRows(matrix) {
 }
 
 const SCORE_LEGEND = [
-  { label: '1 — needs attention', color: { bg: 'FBE1E1', fg: 'A3291F' } },
+  { label: '1 — unfavourable', color: { bg: 'FBE1E1', fg: 'A3291F' } },
   { label: '2 — moderate', color: { bg: 'FDEEE0', fg: '9A5A1A' } },
   { label: '3 — favourable', color: { bg: 'E3F2E3', fg: '1F7A34' } },
   { label: 'not yet scored', color: { bg: 'FFF3B0', fg: '7A5C00' } }

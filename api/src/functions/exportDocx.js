@@ -347,7 +347,7 @@ function buildScorecardTable(matrix) {
 // addScoreLegend() in exportPptx.js), so the red/amber/green/yellow
 // colour-coding is explained on the page rather than left implicit.
 const SCORE_LEGEND = [
-  { label: '1 — needs attention', color: { bg: 'FBE1E1', fg: 'A3291F' } },
+  { label: '1 — unfavourable', color: { bg: 'FBE1E1', fg: 'A3291F' } },
   { label: '2 — moderate', color: { bg: 'FDEEE0', fg: '9A5A1A' } },
   { label: '3 — favourable', color: { bg: 'E3F2E3', fg: '1F7A34' } },
   { label: 'not yet scored', color: { bg: 'FFF3B0', fg: '7A5C00' } }
@@ -763,8 +763,23 @@ app.http('exportDocx', {
         // that as a manual step.
         features: { updateFields: true },
         sections: [{
-          ...(logoHeader ? { headers: { default: logoHeader } } : {}),
-          footers: { default: buildFooter() },
+          // properties.titlePage + headers.first -- 2026-08-07, Peter: the
+          // small running-header logo badge (top-left of every page, via
+          // logoHeader below) shouldn't also appear on the cover page,
+          // which already carries the large lockup image lower down (see
+          // buildCoverPage()). Word's "different first page" mechanism is
+          // the standard way to do this: titlePage:true splits page 1's
+          // header/footer out from the rest of the document, and giving it
+          // an empty Header means page 1 gets none at all rather than
+          // falling back to `default`.
+          properties: { titlePage: true },
+          ...(logoHeader ? { headers: { default: logoHeader, first: new Header({ children: [] }) } } : {}),
+          // footers.first repeats the same footer on page 1 -- titlePage
+          // splits header AND footer references together, and without an
+          // explicit `first` footer here page 1 would silently lose its
+          // footer (page number/confidentiality line) as a side effect of
+          // suppressing just the header logo above, which isn't the intent.
+          footers: { default: buildFooter(), first: buildFooter() },
           children
         }]
       });
