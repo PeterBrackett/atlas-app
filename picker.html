@@ -333,6 +333,15 @@
       <label style="font-weight:400;"><input type="checkbox" id="export-include-scorecard" checked> Scorecard</label>
       <label style="font-weight:400;"><input type="checkbox" id="export-include-top10" checked> Top 10s</label>
     </span>
+    <!-- 2026-08-07, Peter: the export no longer defaults to an Equities
+         allocation row -- by default it shows AUM only. This button is the
+         opt-in path to add one: it only appears once "Build Output" has
+         loaded the selected countries, and clicking it switches the "Show:"
+         viewer to Asset allocation and focuses the class picker, so choosing
+         a class here does double duty -- it's both what you see on screen
+         and what lands in the export (see downloadProjectExport()). -->
+    <button type="button" id="choose-alloc-btn" class="btn-toggle" style="cursor:pointer; display:none;" onclick="openAllocChoice()">+ Add asset allocation to export</button>
+    <span id="alloc-choice-status" class="note" style="border-top:none; padding-top:0; margin:0; font-size:0.8rem; display:none;"></span>
     <button type="button" id="export-docx-btn" class="btn-primary" style="cursor:pointer; display:none;" onclick="downloadProjectExport('docx')">Download as Word</button>
     <button type="button" id="export-pptx-btn" class="btn-primary" style="cursor:pointer; display:none;" onclick="downloadProjectExport('pptx')">Download as PowerPoint</button>
   </div>
@@ -434,8 +443,12 @@ let PROJECT_DATA = [];       // [{ meta, slug, data }] for the last "Build table
 // Asset class/style for the "Asset allocation" view -- same idea as
 // overview.html's overview-alloc-type-select/overview-alloc-style-select,
 // scoped to whatever's actually present across PROJECT_DATA's segments
-// rather than every built country in Atlas.
-let PROJECT_ALLOC_TYPE = 'Equities';
+// rather than every built country in Atlas. '' means "no asset class" --
+// as of 2026-08-07 this is the default (was 'Equities'), per Peter: an
+// export shouldn't silently include an Equities row nobody asked for, it
+// should show AUM only unless the "+ Add asset allocation to export" button
+// is used to opt into one (see openAllocChoice() and downloadProjectExport()).
+let PROJECT_ALLOC_TYPE = '';
 let PROJECT_ALLOC_STYLE = '';
 
 // Separate asset-class selection for the "Market opportunity" bulk auto-scorer
@@ -737,6 +750,8 @@ async function buildProjectView() {
       document.getElementById('export-docx-btn').style.display = 'none';
       document.getElementById('export-pptx-btn').style.display = 'none';
       document.getElementById('export-include-controls').style.display = 'none';
+      document.getElementById('choose-alloc-btn').style.display = 'none';
+      document.getElementById('alloc-choice-status').style.display = 'none';
       document.getElementById('project-mo-details').style.display = 'none';
       return;
     }
@@ -744,6 +759,7 @@ async function buildProjectView() {
     document.getElementById('export-docx-btn').style.display = '';
     document.getElementById('export-pptx-btn').style.display = '';
     document.getElementById('export-include-controls').style.display = 'inline-flex';
+    document.getElementById('choose-alloc-btn').style.display = '';
     populateProjectAllocSelectors();
     populateProjectMoAssetSelectors();
     updateProjectMoVisibility();
@@ -755,18 +771,28 @@ async function buildProjectView() {
 }
 
 // Same idea as overview.html's populateOverviewAllocSelectors/
-// populateOverviewStyleSelector, scoped to PROJECT_DATA's segments.
+// populateOverviewStyleSelector, scoped to PROJECT_DATA's segments. Leads
+// with an explicit "No asset class" option (value ""), selected by default
+// since PROJECT_ALLOC_TYPE now starts empty -- see that variable's comment.
 function populateProjectAllocSelectors() {
   const allSegs = PROJECT_DATA.flatMap(c => c.data.segments || []);
   const typeSelect = document.getElementById('project-alloc-type-select');
   const types = assetTypesPresent(allSegs);
-  typeSelect.innerHTML = types.map(t => `<option value="${t}" ${t === PROJECT_ALLOC_TYPE ? 'selected' : ''}>${t}</option>`).join('');
+  typeSelect.innerHTML = `<option value="" ${PROJECT_ALLOC_TYPE ? '' : 'selected'}>No asset class (AUM only)</option>` +
+    types.map(t => `<option value="${t}" ${t === PROJECT_ALLOC_TYPE ? 'selected' : ''}>${t}</option>`).join('');
   populateProjectStyleSelector();
+  updateAllocChoiceStatus();
 }
 
 function populateProjectStyleSelector() {
   const allSegs = PROJECT_DATA.flatMap(c => c.data.segments || []);
   const styleSelect = document.getElementById('project-alloc-style-select');
+  if (!PROJECT_ALLOC_TYPE) {
+    styleSelect.innerHTML = '';
+    styleSelect.style.display = 'none';
+    return;
+  }
+  styleSelect.style.display = '';
   const styles = assetStylesPresent(allSegs, PROJECT_ALLOC_TYPE);
   styleSelect.innerHTML = `<option value="">All styles (${PROJECT_ALLOC_TYPE} total)</option>` +
     styles.map(s => `<option value="${s}" ${s === PROJECT_ALLOC_STYLE ? 'selected' : ''}>${s}</option>`).join('');
@@ -784,7 +810,36 @@ function onProjectAllocSelectorChange() {
   } else {
     PROJECT_ALLOC_STYLE = styleSelect.value;
   }
+  updateAllocChoiceStatus();
   renderProjectMatrix();
+}
+
+// Small status line next to the "+ Add asset allocation to export" button
+// so it's obvious at a glance what (if anything) will land in the export --
+// "AUM only" is the silent default, so this is the one place that surfaces
+// it without making the user open the "Show:" dropdown to check.
+function updateAllocChoiceStatus() {
+  const el = document.getElementById('alloc-choice-status');
+  if (!el) return;
+  el.style.display = '';
+  el.textContent = PROJECT_ALLOC_TYPE
+    ? `Export includes: ${PROJECT_ALLOC_STYLE ? `${PROJECT_ALLOC_TYPE} — ${PROJECT_ALLOC_STYLE}` : PROJECT_ALLOC_TYPE}`
+    : 'Export shows AUM only (no asset class chosen)';
+}
+
+// The "+ Add asset allocation to export" button's handler -- Peter's "a
+// button appears to take me to an asset allocation choice" request
+// (2026-08-07). Reuses the existing "Show: Asset allocation" viewer rather
+// than a separate picker, since choosing a class to look at on screen and
+// choosing one for the export are the same decision here (see
+// downloadProjectExport()) -- just switches to that view and puts focus on
+// the class dropdown so there's no hunting for it.
+function openAllocChoice() {
+  const viewSelect = document.getElementById('project-view-select');
+  viewSelect.value = 'allocation';
+  onProjectViewChange();
+  const typeSelect = document.getElementById('project-alloc-type-select');
+  if (typeSelect) typeSelect.focus();
 }
 
 // Same idea as overview.html's populateMoAssetSelectors/populateMoStyleSelector,
@@ -1118,6 +1173,7 @@ function renderProjectMatrix(failed) {
           return `<td>${typeof seg.aum_bn === 'number' ? seg.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '—'}</td>`;
         }
         if (view === 'allocation') {
+          if (!PROJECT_ALLOC_TYPE) return `<td>—</td>`;
           const result = getAllocationValue(seg, PROJECT_ALLOC_TYPE, PROJECT_ALLOC_STYLE);
           return `<td>${result ? result.value_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '—'}</td>`;
         }
@@ -1137,7 +1193,9 @@ function renderProjectMatrix(failed) {
   const viewNote = view === 'aum'
     ? 'Showing AUM ($bn) per segment.'
     : view === 'allocation'
-      ? `Showing ${PROJECT_ALLOC_STYLE ? `${PROJECT_ALLOC_TYPE} — ${PROJECT_ALLOC_STYLE}` : PROJECT_ALLOC_TYPE} allocation ($bn) per segment. Blank cells mean that segment has no allocation data for this selection.`
+      ? (PROJECT_ALLOC_TYPE
+        ? `Showing ${PROJECT_ALLOC_STYLE ? `${PROJECT_ALLOC_TYPE} — ${PROJECT_ALLOC_STYLE}` : PROJECT_ALLOC_TYPE} allocation ($bn) per segment. Blank cells mean that segment has no allocation data for this selection.`
+        : 'Choose an asset class above to see an allocation breakdown per segment.')
       : 'Showing the Overall opportunity score (blank = not fully scored yet).';
   document.getElementById('project-hint').textContent =
     `${PROJECT_DATA.length} of ${SELECTED_CODES.size} selected countries loaded. ${viewNote}${failedNote}`;
@@ -1200,6 +1258,12 @@ async function downloadProjectExport(format) {
       // alloc_type/alloc_style -- 2026-07-23, matches whatever the "Show:
       // Asset allocation" dropdowns are currently set to, so the exported
       // scorecard's allocation row shows the same thing that's on screen.
+      // Revised 2026-08-07: PROJECT_ALLOC_TYPE now defaults to '' (no asset
+      // class chosen -- see that variable's comment and the "+ Add asset
+      // allocation to export" button), so these are only sent at all once
+      // truthy; exportHelpers.js's buildScorecardMatrix() treats their
+      // absence as "AUM only, no allocation row" rather than defaulting to
+      // Equities.
       // custom_dimensions -- client-defined additional scorecard factors
       // (Factor selector's "Add custom factor"). exportHelpers.js's own
       // SCORECARD_DIMENSIONS copy has no way to know these exist on its own
@@ -1208,7 +1272,13 @@ async function downloadProjectExport(format) {
       // than just the keys -- weight_overrides above already carries each
       // custom factor's current (possibly session-overridden) weight, via
       // currentEffectiveWeights() iterating the live SCORECARD_DIMENSIONS.
-      body: JSON.stringify({ countries, enabled_dimensions: ENABLED_DIMENSIONS, include, weight_overrides: currentEffectiveWeights(PROJECT_WEIGHTS), alloc_type: PROJECT_ALLOC_TYPE, alloc_style: PROJECT_ALLOC_STYLE, evidence, custom_dimensions: SCORECARD_DIMENSIONS.filter(d => d.custom).map(d => ({ key: d.key, label: d.label, weight: d.weight })) })
+      body: JSON.stringify({
+        countries, enabled_dimensions: ENABLED_DIMENSIONS, include,
+        weight_overrides: currentEffectiveWeights(PROJECT_WEIGHTS),
+        ...(PROJECT_ALLOC_TYPE ? { alloc_type: PROJECT_ALLOC_TYPE, alloc_style: PROJECT_ALLOC_STYLE } : {}),
+        evidence,
+        custom_dimensions: SCORECARD_DIMENSIONS.filter(d => d.custom).map(d => ({ key: d.key, label: d.label, weight: d.weight }))
+      })
     });
 
     if (!res.ok) {
