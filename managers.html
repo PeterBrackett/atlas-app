@@ -32,6 +32,13 @@
     background: #fff;
   }
   .filter-bar .count-note { font-size: 0.8rem; color: var(--muted); margin-left: auto; }
+  .region-toggle { display: inline-flex; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+  .region-toggle .toggle-btn {
+    border: none; background: #fff; color: var(--text, #222); font-size: 0.82rem;
+    padding: 7px 12px; cursor: pointer; font-family: inherit;
+  }
+  .region-toggle .toggle-btn + .toggle-btn { border-left: 1px solid var(--border); }
+  .region-toggle .toggle-btn.active { background: var(--navy); color: #fff; }
   th.sortable { cursor: pointer; user-select: none; }
   th.sortable:hover { background: var(--navy); }
   th.sortable .arrow { opacity: 0.6; font-size: 0.7em; margin-left: 3px; }
@@ -128,12 +135,17 @@
   <p class="section-intro" id="matrix-intro">Loading…</p>
   <div class="filter-bar">
     <input type="search" id="matrix-search" placeholder="Search manager name…">
+    <span class="region-toggle" id="matrix-region-toggle" role="group" aria-label="Region">
+      <button type="button" class="toggle-btn active" data-region="global" onclick="setMatrixRegion('global')">Global</button>
+      <button type="button" class="toggle-btn" data-region="europe" onclick="setMatrixRegion('europe')">Europe only</button>
+    </span>
     <span class="count-note" id="matrix-count-note"></span>
   </div>
   <div class="matrix-wrap">
     <table class="matrix-table" id="clienttype-matrix"></table>
   </div>
   <p class="note" id="matrix-methodology"></p>
+  <p class="note">IPE's client-type disclosures only support these two regional cuts — worldwide and Europe-domiciled clients. It does not break client type down by any finer region (Americas, APAC, etc.) or by country, so a country-level version of this matrix isn't possible from this source.</p>
 
   <h2 class="section-head">Europe segment AUM: Atlas vs. IPE Top 500</h2>
   <p class="section-intro" id="crosscheck-intro">Loading…</p>
@@ -336,14 +348,34 @@ const CAT_LABELS = {
 
 let MATRIX_MANAGERS = [];
 let MATRIX_CATS = [];
-let MATRIX_SORT_KEY = 'total_usd_bn';
+let MATRIX_SORT_KEY = 'total';
 let MATRIX_SORT_DIR = -1;
+let MATRIX_REGION = 'global'; // 'global' | 'europe'
+
+const MATRIX_INTROS = {
+  global: `Each manager's own self-reported split of externally-managed institutional AUM by client type, worldwide — sourced entirely from IPE Top 500 (2026) disclosures, independent of Atlas's S&P owner/manager data above. Blank cells mean the manager didn't disclose that category, not that it's zero — "Total" only sums what was disclosed, so it understates the true total wherever a category is missing. Click a column to sort.`,
+  europe: `Same source and same managers, but filtered to IPE's separate "European Institutional Clients" figures — assets managed for institutional clients domiciled in Europe only, not investment geography. These are independently disclosed numbers, not a calculated share of the Global column, so a manager can show a Global figure with no Europe figure (or vice versa) if they only disclosed one. Click a column to sort.`,
+};
+
+function setMatrixRegion(region) {
+  if (MATRIX_REGION === region) return;
+  MATRIX_REGION = region;
+  document.querySelectorAll('#matrix-region-toggle .toggle-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.region === region));
+  document.getElementById('matrix-intro').textContent = MATRIX_INTROS[region];
+  if (MATRIX_SORT_KEY !== 'manager') MATRIX_SORT_KEY = 'total';
+  renderMatrix();
+}
 
 function renderMatrix() {
   const q = document.getElementById('matrix-search').value.trim().toLowerCase();
+  const suffix = MATRIX_REGION === 'europe' ? '__europe' : '__global';
+  const totalField = MATRIX_REGION === 'europe' ? 'total_europe_usd_bn' : 'total_global_usd_bn';
+
   let rows = MATRIX_MANAGERS.filter(m => !q || m.manager.toLowerCase().includes(q));
   rows.sort((a, b) => {
-    let av = a[MATRIX_SORT_KEY], bv = b[MATRIX_SORT_KEY];
+    const key = MATRIX_SORT_KEY === 'total' ? totalField : (MATRIX_SORT_KEY === 'manager' ? 'manager' : MATRIX_SORT_KEY + suffix);
+    let av = a[key], bv = b[key];
     if (typeof av === 'string') av = av.toLowerCase();
     if (typeof bv === 'string') bv = bv.toLowerCase();
     if (av === null || av === undefined) av = MATRIX_SORT_DIR === 1 ? Infinity : -Infinity;
@@ -354,13 +386,14 @@ function renderMatrix() {
   });
 
   const arrow = key => key === MATRIX_SORT_KEY ? (MATRIX_SORT_DIR === 1 ? ' ▲' : ' ▼') : '';
-  const headerCells = ['total_usd_bn', ...MATRIX_CATS].map(key => {
-    const label = key === 'total_usd_bn' ? 'Total (disclosed)' : CAT_LABELS[key] || key;
-    return `<th class="sortable" title="${key === 'total_usd_bn' ? 'Sum of disclosed categories only' : key}" onclick="setMatrixSort('${key}')">${label}${arrow(key)}</th>`;
+  const headerCells = ['total', ...MATRIX_CATS].map(key => {
+    const label = key === 'total' ? 'Total (disclosed)' : CAT_LABELS[key] || key;
+    return `<th class="sortable" title="${key === 'total' ? 'Sum of disclosed categories only' : key}" onclick="setMatrixSort('${key}')">${label}${arrow(key)}</th>`;
   }).join('');
 
   const bodyRows = rows.map(m => {
-    const cells = [m.total_usd_bn, ...MATRIX_CATS.map(c => m[c])].map(v =>
+    const vals = [m[totalField], ...MATRIX_CATS.map(c => m[c + suffix])];
+    const cells = vals.map(v =>
       `<td class="numeric">${typeof v === 'number' ? fmtBn(v) : '<span class="no-match">—</span>'}</td>`
     ).join('');
     return `<tr><td class="matrix-rowlabel">${m.manager}</td>${cells}</tr>`;
@@ -378,13 +411,12 @@ function setMatrixSort(key) {
 
 async function loadMatrix() {
   try {
-    const res = await fetch('data/manager_clienttype_matrix.json');
+    const res = await fetch('data/manager_clienttype_region_matrix.json');
     if (!res.ok) throw new Error('not found');
     const data = await res.json();
     MATRIX_MANAGERS = data.managers || [];
     MATRIX_CATS = data.categories || [];
-    document.getElementById('matrix-intro').textContent =
-      `Each manager's own self-reported split of externally-managed institutional AUM by client type, worldwide — sourced entirely from IPE Top 500 (2026) disclosures, independent of Atlas's S&P owner/manager data above. Blank cells mean the manager didn't disclose that category, not that it's zero — "Total" only sums what was disclosed, so it understates the true total wherever a category is missing. Click a column to sort.`;
+    document.getElementById('matrix-intro').textContent = MATRIX_INTROS[MATRIX_REGION];
     document.getElementById('matrix-methodology').textContent = data.generated_note;
     document.getElementById('matrix-search').addEventListener('input', renderMatrix);
     renderMatrix();
