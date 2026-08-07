@@ -602,6 +602,103 @@ function buildTopInstitutionsSections(segments) {
     }));
 }
 
+// Shared brand palette for the Word/PowerPoint exports, added 2026-08-07
+// alongside the cover page/TOC/methodology redesign -- pulled straight from
+// atlas-site/style.css's :root custom properties (--navy/--navy-light/
+// --accent) so the exported files read as the same visual identity as the
+// site, not a separate improvised palette. Hex values without a leading '#'
+// throughout (both docx's ShadingType.CLEAR fill and pptxgenjs's color
+// options take bare hex), matching the convention scoreColor()/overallColor()
+// already use above.
+const BRAND = {
+  navy: '0F2540',
+  navyLight: '16344F',
+  teal: '2F6F6F',
+  tealTint: 'E4F0EE',   // matches style.css's .badge.bottom-up background
+  navyTint: 'E8ECF2',   // a light navy tint for header rows/panels, replacing the old generic D9E2F3 blue
+  ink: '222222',
+  body: '333333',
+  muted: '5B6B7A',
+  hairline: 'D9DEE3',
+  panelBg: 'F5F7F9',
+  rowStripe: 'F7F9FA'
+};
+
+// One shared source of truth for the "Data structure & methodology" page/
+// slide that now appears once, standardly, in every export -- condensed from
+// atlas-site/data/sources.md and collateral/Atlas_Methodology_Reference.docx
+// rather than written fresh, so this matches the fuller in-app/reference
+// explanation instead of drifting from it. Kept as plain {heading, body}
+// pairs (not docx Paragraphs or pptxgenjs text runs) so both exports can
+// render it in their own native way from the same words -- added 2026-08-07
+// per Peter's "a standard page that summarises the structure of the data and
+// the key data sources and methodology" request.
+const METHODOLOGY_CONTENT = {
+  intro: 'Atlas tracks the institutional asset-owner landscape across every country covered, broken into 19 standard segments and scored on a consistent 12-factor opportunity scorecard, so figures and scores compare cleanly market to market.',
+  sections: [
+    {
+      heading: 'Segment taxonomy',
+      body: 'Every country uses the same 19 segments: DB and DC pensions (corporate, government, union, healthcare non-profit, endowment and tax-exempt sponsors), Endowments E&F, Tax exempt E&F, Foundations E&F, Healthcare non-profit E&F, Life insurance, Non-life insurance, and SWF.'
+    },
+    {
+      heading: 'How an AUM figure is sourced',
+      body: 'Each segment’s headline AUM is drawn from whichever of three routes is judged most reliable for that specific segment, not necessarily the largest: bottom-up (a mechanical sum of named institution records, primarily S&P’s Money Manager Database), top-down override (a published, authoritative figure substituted in where it is judged more reliable than the bottom-up sum — e.g. UK DB Pension (Govt), aligned to official LGPS statistics), or industry aggregate (a sector-wide published figure, used where individual institution records are not practical to collect — currently insurance). Every segment carries its full set of candidate figures, each with its own as-of date, not just the one shown.'
+    },
+    {
+      heading: 'The opportunity scorecard',
+      body: 'Every segment, in every country, is scored 1–3 against 12 standard factors — market opportunity, outsourced management, pricing impact, alignment of investment thinking, distribution resources required, regulatory complexity, client servicing, local presence required, languages required, investor decision-making, comingled vehicles, and consultant reliance. Scores combine into one weighted Overall figure (market opportunity counts 3x by default; every other factor 1x) and are colour-banded red / amber / green. Weights can be changed per project, and up to 8 custom factors added alongside the standard 12.'
+    },
+    {
+      heading: 'Coverage & confidence',
+      body: 'Figures are tracked totals within Atlas’s own data, not definitive market totals, unless a segment is specifically reconciled to an official top-down source. Non-equity allocation figures are estimated from S&P’s allocation export, scaled to each segment’s already-validated AUM — read relative proportions as more reliable than any single figure to two decimal places. Every commentary claim and every segment figure carries a traceable source.'
+    }
+  ],
+  footer: 'Full methodology and every underlying source: Atlas — Sources & Methodology (atlas.institutionaladviser.co.uk).'
+};
+
+// Structural preview of one country's export content -- used only to build
+// the table of contents (see addTocSlides() in exportPptx.js / the native TOC
+// field in exportDocx.js) and, for PowerPoint, to work out how many slides
+// each block will actually consume before any slide is drawn, since
+// pptxgenjs has no auto-pagination and TOC entries need a real slide number
+// to jump to. Every count here mirrors the real slide-building logic exactly
+// (buildCommentarySectionsFull() for commentary, buildTopInstitutionsSections()
+// chunked by topInstCols, buildCountrySourcesData()'s line count chunked by
+// sourcesLinesPerSlide) rather than re-deriving it a different way, so the
+// plan can never drift out of sync with what actually gets built. Returns []
+// blocks the caller doesn't ask for via `include`, same convention as
+// buildCountrySection()/addCountrySlides().
+function planCountryOutline(countryName, segments, commentary, developments, includeSet, opts = {}) {
+  const topInstCols = opts.topInstCols || 3;
+  const sourcesLinesPerSlide = opts.sourcesLinesPerSlide || 26;
+  const scorecardColsPerSlide = opts.scorecardColsPerSlide || 9;
+
+  const commentarySections = includeSet.has('commentary') ? buildCommentarySectionsFull(commentary, segments, developments) : [];
+  const blocks = [];
+
+  if (includeSet.has('commentary') && commentarySections.length) {
+    blocks.push({ type: 'commentary', label: 'Country commentary', slideCount: commentarySections.length });
+  }
+  if (includeSet.has('aum') && (segments || []).length) {
+    blocks.push({ type: 'aum', label: 'AUM by segment', slideCount: 1 });
+  }
+  if (includeSet.has('scorecard') && (segments || []).length) {
+    blocks.push({ type: 'scorecard', label: 'Opportunity scorecard', slideCount: Math.max(1, Math.ceil(segments.length / scorecardColsPerSlide)) });
+  }
+  if (includeSet.has('top_institutions')) {
+    const topSections = buildTopInstitutionsSections(segments);
+    if (topSections.length) blocks.push({ type: 'top_institutions', label: 'Top institutions by AUM', slideCount: Math.max(1, Math.ceil(topSections.length / topInstCols)) });
+  }
+  if (includeSet.has('commentary') || includeSet.has('aum')) {
+    const sourcesData = buildCountrySourcesData(commentarySections, segments);
+    const lineCount = sourcesData.commentaryGroups.reduce((n, g) => n + 1 + g.sources.length, 0)
+      + (sourcesData.segmentSources.length ? 1 + sourcesData.segmentSources.length : 0);
+    if (lineCount) blocks.push({ type: 'sources', label: 'Sources', slideCount: Math.max(1, Math.ceil(lineCount / sourcesLinesPerSlide)) });
+  }
+
+  return { countryName, blocks, commentarySections };
+}
+
 module.exports = {
   SCORECARD_DIMENSIONS,
   CANONICAL_SEGMENT_ORDER,
@@ -622,5 +719,8 @@ module.exports = {
   buildSegmentAllocationChart,
   segmentSourceCitation,
   buildCountrySourcesData,
-  buildTopInstitutionsSections
+  buildTopInstitutionsSections,
+  BRAND,
+  METHODOLOGY_CONTENT,
+  planCountryOutline
 };
