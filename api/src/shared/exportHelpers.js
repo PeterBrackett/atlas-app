@@ -256,13 +256,14 @@ function overallColor(value, range) {
 // via computeOverallRange().
 // `allocType`/`allocStyle` -- added 2026-07-23 after Peter noticed the
 // exported scorecard table never had an allocation row at all, unlike the
-// on-screen matrix (country.html/picker.html/overview.html), which always
-// shows AUM directly followed by an Allocation row driven by the "Allocation
-// row shows" dropdown (CURRENT_ALLOC_TYPE/CURRENT_ALLOC_STYLE on-screen).
-// Default to Equities/no-style when the caller doesn't send a selection
-// (e.g. an older cached client, or a direct API call), so this never
-// regresses to "no row" again -- it now always shows something, just not
-// necessarily whatever was on screen when the export button was clicked.
+// on-screen matrix (country.html/picker.html/overview.html), which shows AUM
+// directly followed by an Allocation row driven by the "Allocation row
+// shows" dropdown (CURRENT_ALLOC_TYPE/CURRENT_ALLOC_STYLE on-screen). Revised
+// 2026-08-07 per Peter: no asset class is a real, and now the default,
+// selection -- the caller not sending one (an older cached client, a direct
+// API call, or simply never having opted into an asset-class breakdown for
+// this export) means the output shows AUM only, with no allocation row at
+// all, rather than silently defaulting to Equities.
 function buildScorecardMatrix(segments, enabledDimensions, weightOverrides, allocType, allocStyle, customDimensions) {
   const cols = (segments || []).slice().sort((a, b) => segmentSortIndex(a.segment) - segmentSortIndex(b.segment));
   const enabledCount = enabledDimensionCount(enabledDimensions, customDimensions);
@@ -276,7 +277,7 @@ function buildScorecardMatrix(segments, enabledDimensions, weightOverrides, allo
   const overallRange = (weightOverrides || (customDimensions && customDimensions.length))
     ? computeOverallRange(enabledDimensions, weightOverrides, customDimensions)
     : null;
-  const resolvedAllocType = allocType || 'Equities';
+  const resolvedAllocType = allocType || '';
   const resolvedAllocStyle = allocStyle || '';
 
   const dimensionRows = resolveDimensions(customDimensions)
@@ -330,20 +331,23 @@ function buildScorecardMatrix(segments, enabledDimensions, weightOverrides, allo
   // SCORECARD_ROW_H's comment in exportPptx.js). The fuller range/coverage
   // detail is still available in the separate "AUM by segment" table's
   // Equities range column; this row is just the reported figure at a glance.
-  const allocLabel = resolvedAllocStyle ? `${resolvedAllocType} — ${resolvedAllocStyle} ($bn)` : `${resolvedAllocType} ($bn)`;
-  const allocRow = {
+  // No row at all when resolvedAllocType is empty (the default, and now
+  // also what a user gets from the picker.html builder unless they've
+  // explicitly opted into an asset class for this export) -- see this
+  // function's header comment.
+  const allocRow = resolvedAllocType ? {
     type: 'allocation',
-    label: allocLabel,
+    label: resolvedAllocStyle ? `${resolvedAllocType} — ${resolvedAllocStyle} ($bn)` : `${resolvedAllocType} ($bn)`,
     values: cols.map((s) => {
       const range = getAllocationRange(s, resolvedAllocType, resolvedAllocStyle);
       return range ? range.value_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-';
     }),
     colors: cols.map(() => null)
-  };
+  } : null;
 
   return {
     columnLabels: cols.map((s) => s.segment),
-    rows: [aumRow, allocRow, ...dimensionRows, scoredRow, overallRow]
+    rows: [aumRow, ...(allocRow ? [allocRow] : []), ...dimensionRows, scoredRow, overallRow]
   };
 }
 
