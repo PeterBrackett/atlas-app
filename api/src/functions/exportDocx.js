@@ -228,22 +228,32 @@ function buildMethodologyPage() {
   ];
 }
 
-// "Equities range (min-max)" reflects that not every institution counted in
-// a segment's AUM also filed an asset-class breakdown -- min is the
-// reported Equities figure as-is, max is that figure scaled up to the
-// segment's full AUM. See getAllocationRange() in exportHelpers.js.
-function buildAumTable(rows) {
-  const headerLabels = ['Segment', 'AUM ($bn)', 'Equities ($bn)', 'Basis', 'Equities range (min-max)'];
-  const bodyText = rows.map((r) => [
+// "{Type} range (min-max)" reflects that not every institution counted in a
+// segment's AUM also filed an asset-class breakdown -- min is the reported
+// figure as-is, max is that figure scaled up to the segment's full AUM. See
+// getAllocationRange() in exportHelpers.js. allocType -- 2026-08-07: the
+// asset-class columns only appear at all when the caller has actually
+// chosen one (see buildAumRows()'s comment); with no allocType this is a
+// plain three-column Segment/AUM/Basis table, matching "AUM only" everywhere
+// else in the export.
+function buildAumTable(rows, allocType) {
+  const headerLabels = allocType
+    ? ['Segment', 'AUM ($bn)', `${allocType} ($bn)`, 'Basis', `${allocType} range (min-max)`]
+    : ['Segment', 'AUM ($bn)', 'Basis'];
+  const bodyText = rows.map((r) => allocType ? [
     r.segment,
     typeof r.aum_bn === 'number' ? r.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-',
-    typeof r.equity_bn === 'number' ? r.equity_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-',
+    typeof r.alloc_bn === 'number' ? r.alloc_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-',
     r.basis || '',
-    r.equity_range || '-'
+    r.alloc_range || '-'
+  ] : [
+    r.segment,
+    typeof r.aum_bn === 'number' ? r.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-',
+    r.basis || ''
   ]);
   const widths = estimateColumnCharWidths(headerLabels, bodyText, {
     minChars: 4,
-    maxCharsPerCol: [26, 10, 10, 22, 30]
+    maxCharsPerCol: allocType ? [26, 10, 10, 22, 30] : [30, 10, 26]
   }).map(charsToDxa);
 
   const headerRow = new TableRow({
@@ -579,12 +589,12 @@ function buildCountrySection(countryName, segments, { headingLevel = HeadingLeve
     body.push(...buildCommentaryBlock(commentarySections));
   }
   if (includeSet.has('aum')) {
-    const aumRows = buildAumRows(segments);
+    const aumRows = buildAumRows(segments, allocType, allocStyle);
     body.push(
       new Paragraph({ text: 'AUM by segment', heading: HeadingLevel.HEADING_2, spacing: { before: 150, after: 60 } }),
       buildAumStatCards(computeAumStats(aumRows)),
       new Paragraph({ text: '', spacing: { after: 120 } }),
-      buildAumTable(aumRows)
+      buildAumTable(aumRows, allocType)
     );
   }
   if (includeSet.has('scorecard')) {

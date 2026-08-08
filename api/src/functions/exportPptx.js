@@ -6,6 +6,7 @@ const {
   BRAND, METHODOLOGY_CONTENT, planCountryOutline
 } = require('../shared/exportHelpers');
 const { getAtlasLogoDataUri, getAtlasLockupWhiteDataUri } = require('../shared/atlasLogo');
+const { getDimensionIconDataUri } = require('../shared/dimensionIcons');
 
 // ---------------------------------------------------------------------------
 // Brand system -- 2026-08-07 rebuild. Peter's feedback was three things at
@@ -268,18 +269,28 @@ function addStatCards(slide, cards, y, h) {
   });
 }
 
-function buildAumTableRows(rows) {
-  const headerLabels = ['Segment', 'AUM ($bn)', 'Equities ($bn)', 'Basis', 'Equities range (min-max)'];
-  const bodyText = rows.map((r) => [
+// allocType -- 2026-08-07: the asset-class columns only appear when the
+// caller has actually chosen a type (see buildAumRows()'s comment in
+// exportHelpers.js); with no allocType this is a plain three-column
+// Segment/AUM/Basis table.
+function buildAumTableRows(rows, allocType) {
+  const headerLabels = allocType
+    ? ['Segment', 'AUM ($bn)', `${allocType} ($bn)`, 'Basis', `${allocType} range (min-max)`]
+    : ['Segment', 'AUM ($bn)', 'Basis'];
+  const bodyText = rows.map((r) => allocType ? [
     r.segment,
     typeof r.aum_bn === 'number' ? r.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-',
-    typeof r.equity_bn === 'number' ? r.equity_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-',
+    typeof r.alloc_bn === 'number' ? r.alloc_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-',
     r.basis || '',
-    r.equity_range || '-'
+    r.alloc_range || '-'
+  ] : [
+    r.segment,
+    typeof r.aum_bn === 'number' ? r.aum_bn.toLocaleString(undefined, { maximumFractionDigits: 2 }) : '-',
+    r.basis || ''
   ]);
   const colW = estimateColumnCharWidths(headerLabels, bodyText, {
     minChars: 4,
-    maxCharsPerCol: [26, 10, 10, 24, 30]
+    maxCharsPerCol: allocType ? [26, 10, 10, 24, 30] : [30, 10, 26]
   }).map(charsToInches);
 
   const header = headerLabels.map((t) => ({ text: t, options: headerCellOpts() }));
@@ -294,8 +305,8 @@ const AUM_STAT_Y = 1.15;
 const AUM_STAT_H = 0.85;
 const AUM_TABLE_Y = AUM_STAT_Y + AUM_STAT_H + 0.25;
 
-function addAumSlide(pptx, countryName, segments, generatedDate) {
-  const rows = buildAumRows(segments);
+function addAumSlide(pptx, countryName, segments, generatedDate, allocType, allocStyle) {
+  const rows = buildAumRows(segments, allocType, allocStyle);
   const stats = computeAumStats(rows);
   const slide = addAtlasSlide(pptx);
   addSlideHeader(slide, `Atlas — ${countryName}`, `AUM by segment — generated ${generatedDate}`);
@@ -307,7 +318,7 @@ function addAumSlide(pptx, countryName, segments, generatedDate) {
     { label: 'SOURCE MIX', value: stats.mixText || '—', small: true }
   ], AUM_STAT_Y, AUM_STAT_H);
 
-  const aumTable = buildAumTableRows(rows);
+  const aumTable = buildAumTableRows(rows, allocType);
   slide.addTable(aumTable.rows, {
     x: CONTENT_X, y: AUM_TABLE_Y,
     colW: aumTable.colW,
@@ -317,25 +328,35 @@ function addAumSlide(pptx, countryName, segments, generatedDate) {
 }
 
 // ---------------------------------------------------------------------------
-// Opportunity scorecard -- rebuilt 2026-08-07. Two real fixes, not just
-// styling: (1) a country with many segment columns (UK has 18) used to run
-// the table straight off the right edge of the slide with no warning --
-// real columns were simply invisible in the exported file. The table now
-// chunks across multiple slides at SCORECARD_COLS_PER_SLIDE columns each
-// ("segments 1-12 of 18" style subtitle), so nothing is ever silently cut
-// off. (2) the per-dimension icon column (small images floating in the
-// slide margin next to each row) is dropped -- pptxgenjs tables can't embed
-// an icon inline with a cell's text the way the Word export can (see
-// dimensionHeaderCell() in exportDocx.js), so this file used a separate
-// addImage() per row positioned to line up with the table's fixed row
-// height. It technically worked, but a floating-icon-in-the-margin approach
-// reads as a UI element, not a "final deck" convention -- replaced with a
-// plain text label plus a proper colour-key legend under the table, which
-// is both clearer at deck-viewing distance and removes a layout that broke
-// silently if the label column ever wrapped to two lines.
+// Opportunity scorecard -- rebuilt 2026-08-07, revised same day. The
+// original rebuild fixed a real bug: a country with many segment columns
+// (UK has 18) used to run the table straight off the right edge of the
+// slide with no warning -- real columns were simply invisible in the
+// exported file. The table now chunks across multiple slides at
+// SCORECARD_COLS_PER_SLIDE columns each ("segments 1-12 of 18" style
+// subtitle), so nothing is ever silently cut off. That same pass also
+// dropped the per-dimension icon next to each row label -- pptxgenjs tables
+// can't embed an icon inline with a cell's text the way the Word export can
+// (see dimensionHeaderCell() in exportDocx.js), and the old approach (a
+// separate addImage() per row, positioned to line up with the table's row
+// height) was flagged as fragile at the time. Peter asked for the icons
+// back, so they're restored here via the same floating-image approach, made
+// reliable by two things that weren't true of the old version: (1) the
+// table now always uses a genuinely fixed rowH (SCORECARD_ROW_H, passed to
+// addTable below) rather than an auto-sized one, so every row's y-position
+// is a known constant rather than a guess, and (2) it's been verified by
+// actually rendering the output (see addScorecardDimensionIcons() below),
+// not just written and assumed correct.
 const SCORECARD_COLS_PER_SLIDE = 12;
 const SCORECARD_ROW_H = 0.27;
 const SCORECARD_TABLE_X = CONTENT_X;
+// Reserve room in the Dimension column's left margin for the icon on rows
+// that have one (see buildScorecardTableRows()'s dimLabelOpts), so the
+// overlaid image (added after the table via addScorecardDimensionIcons())
+// has space to sit in without covering the label text.
+const SCORECARD_ICON_SIZE = 0.14;
+const SCORECARD_ICON_LEFT = 0.06;
+const SCORECARD_DIM_LABEL_MARGIN = [0.03, 0.05, 0.03, SCORECARD_ICON_LEFT + SCORECARD_ICON_SIZE + 0.06];
 
 function sliceScorecardMatrix(matrix, start, end) {
   return {
@@ -346,6 +367,36 @@ function sliceScorecardMatrix(matrix, start, end) {
       colors: row.colors ? row.colors.slice(start, end) : undefined
     }))
   };
+}
+
+// The scorecard table's header row wraps long column labels (country
+// segment names like "DB Pension (Healthcare non-profit)") across several
+// lines, so it's taller than SCORECARD_ROW_H -- unlike every body row below
+// it, which is one line and does respect that fixed height. addTable()'s
+// rowH is only a minimum, not a cap, so if this file assumed every row
+// (including the header) was exactly SCORECARD_ROW_H tall, the icon overlay
+// added after the table would be positioned against the wrong (too-early)
+// y for every single row -- exactly the "desyncs" this file's icons used to
+// have before being removed and then re-added 2026-08-07 (see
+// SCORECARD_COLS_PER_SLIDE's comment). Estimated the same way commentary
+// font-sizing estimates paragraph height (CHAR_WIDTH_EM_FACTOR/
+// LINE_HEIGHT_EM_FACTOR, defined further down this file but available here
+// since both are only ever called at request time, well after the whole
+// module has loaded), so it scales with however many columns are actually
+// on this slide and however long their labels are, rather than a guessed
+// constant.
+const SCORECARD_HEADER_FONT_PT = 8;
+const SCORECARD_HEADER_V_PADDING_IN = 0.1; // top+bottom cell margin, roughly
+
+function estimateScorecardHeaderRowH(headerLabels, colW) {
+  let maxLines = 1;
+  headerLabels.forEach((label, i) => {
+    const widthPt = (colW[i] || 1) * 72;
+    const charsPerLine = Math.max(1, Math.floor(widthPt / (SCORECARD_HEADER_FONT_PT * CHAR_WIDTH_EM_FACTOR)));
+    maxLines = Math.max(maxLines, Math.ceil(String(label).length / charsPerLine));
+  });
+  const lineHeightIn = (SCORECARD_HEADER_FONT_PT * LINE_HEIGHT_EM_FACTOR) / 72;
+  return Math.max(SCORECARD_ROW_H, maxLines * lineHeightIn + SCORECARD_HEADER_V_PADDING_IN);
 }
 
 function buildScorecardTableRows(matrix) {
@@ -359,7 +410,17 @@ function buildScorecardTableRows(matrix) {
     options: headerCellOpts({ fontSize: 8 })
   }));
   const body = matrix.rows.map((row) => ([
-    { text: row.label, options: headerCellOpts({ fontSize: 8 }) },
+    {
+      text: row.label,
+      options: headerCellOpts({
+        fontSize: 8,
+        // Extra left margin only on rows that actually get an icon overlay
+        // (dimension rows with a recognised key) -- see
+        // addScorecardDimensionIcons(). Other rows (AUM, allocation, Scored,
+        // Overall) keep the normal margin.
+        margin: (row.type === 'dimension' && row.key && getDimensionIconDataUri(row.key)) ? SCORECARD_DIM_LABEL_MARGIN : CELL_MARGIN
+      })
+    },
     ...row.values.map((v, i) => {
       const color = row.colors ? row.colors[i] : null;
       const base = { fontSize: 8, align: 'center', margin: CELL_MARGIN };
@@ -368,6 +429,28 @@ function buildScorecardTableRows(matrix) {
     })
   ]));
   return { rows: [header, ...body], colW };
+}
+
+// Floating icon overlay for the scorecard table's dimension rows -- see the
+// header comment above SCORECARD_COLS_PER_SLIDE for why this is safe now
+// (fixed rowH means every row's y is a known constant, not a guess). rows is
+// chunk.rows (the matrix rows for this slide, i.e. everything below the
+// header row) -- table row index for rows[i] is i+1 since the header
+// occupies row 0.
+// firstRowY is the header row's own height (see estimateScorecardHeaderRowH),
+// not SCORECARD_ROW_H -- every row after the header is a fixed
+// SCORECARD_ROW_H (single-line labels, never wrap), but the header itself
+// almost always wraps and is taller, so it can't be treated as "just
+// another row" here.
+function addScorecardDimensionIcons(slide, rows, tableX, tableY, headerRowH) {
+  const yOffset = (SCORECARD_ROW_H - SCORECARD_ICON_SIZE) / 2;
+  rows.forEach((row, i) => {
+    if (row.type !== 'dimension' || !row.key) return;
+    const dataUri = getDimensionIconDataUri(row.key);
+    if (!dataUri) return;
+    const y = tableY + headerRowH + i * SCORECARD_ROW_H + yOffset;
+    slide.addImage({ data: dataUri, x: tableX + SCORECARD_ICON_LEFT, y, w: SCORECARD_ICON_SIZE, h: SCORECARD_ICON_SIZE });
+  });
 }
 
 const SCORE_LEGEND = [
@@ -401,14 +484,16 @@ function addScorecardSlide(pptx, countryName, segments, enabledDimensions, weigh
     addSlideHeader(slide, `Atlas — ${countryName}`, subtitle);
     const tableY = 1.3;
     const table = buildScorecardTableRows(chunk);
+    const headerRowH = estimateScorecardHeaderRowH(['Dimension', ...chunk.columnLabels], table.colW);
     slide.addTable(table.rows, {
       x: SCORECARD_TABLE_X, y: tableY,
       colW: table.colW,
-      rowH: SCORECARD_ROW_H,
+      rowH: [headerRowH, ...chunk.rows.map(() => SCORECARD_ROW_H)],
       border: BORDER,
       autoPage: false
     });
-    const legendY = tableY + (chunk.rows.length + 1) * SCORECARD_ROW_H + 0.25;
+    addScorecardDimensionIcons(slide, chunk.rows, SCORECARD_TABLE_X, tableY, headerRowH);
+    const legendY = tableY + headerRowH + chunk.rows.length * SCORECARD_ROW_H + 0.25;
     addScoreLegend(slide, legendY);
   }
 }
@@ -708,7 +793,7 @@ function resolveInclude(rawInclude) {
 
 function addCountrySlides(pptx, countryName, segments, generatedDate, enabledDimensions, includeSet, weightOverrides, commentarySections, allocType, allocStyle, customDimensions) {
   if (includeSet.has('commentary') && commentarySections.length) addCommentarySlides(pptx, countryName, commentarySections);
-  if (includeSet.has('aum') && (segments || []).length) addAumSlide(pptx, countryName, segments, generatedDate);
+  if (includeSet.has('aum') && (segments || []).length) addAumSlide(pptx, countryName, segments, generatedDate, allocType, allocStyle);
   if (includeSet.has('scorecard') && (segments || []).length) addScorecardSlide(pptx, countryName, segments, enabledDimensions, weightOverrides, allocType, allocStyle, customDimensions);
   if (includeSet.has('top_institutions')) addTopInstitutionsSlides(pptx, countryName, segments);
   if (includeSet.has('commentary') || includeSet.has('aum')) {
